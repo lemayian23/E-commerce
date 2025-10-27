@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.l10n_account_edi_ubl_cii_tests.tests.common import TestUBLCommon
-from odoo.tests import tagged
-from odoo import Command
+from ecommerce.addons.l10n_account_edi_ubl_cii_tests.tests.common import TestUBLCommon
+from ecommerce.tests import tagged
+from ecommerce import Command
 
 from lxml import etree
 
@@ -148,7 +148,7 @@ class TestUBLNL(TestUBLCommon):
                     <PaymentID>___ignore___</PaymentID>
                 </xpath>
             ''',
-            expected_file='from_odoo/nlcius_out_invoice.xml',
+            expected_file='from_ecommerce/nlcius_out_invoice.xml',
         )
         self.assertEqual(attachment.name[-10:], "nlcius.xml")
         self._assert_imported_invoice_from_etree(invoice, attachment)
@@ -202,7 +202,7 @@ class TestUBLNL(TestUBLCommon):
                     <PaymentID>___ignore___</PaymentID>
                 </xpath>
             ''',
-            expected_file='from_odoo/nlcius_out_refund.xml',
+            expected_file='from_ecommerce/nlcius_out_refund.xml',
         )
         self.assertEqual(attachment.name[-10:], "nlcius.xml")
         self._assert_imported_invoice_from_etree(refund, attachment)
@@ -244,6 +244,6 @@ class TestUBLNL(TestUBLCommon):
 
     def test_import_invoice_xml(self):
         # test files https://github.com/peppolautoriteit-nl/validation ?
-        self._assert_imported_invoice_from_file(subfolder='tests/test_files/from_odoo',
+        self._assert_imported_invoice_from_file(subfolder='tests/test_files/from_ecommerce',
             filename='nlcius_out_invoice.xml', amount_total=3083.58, amount_tax=401.58,
             list_line_subtotals=[1782, 1000, -100], currency_id=self.currency_data['currency'].id)

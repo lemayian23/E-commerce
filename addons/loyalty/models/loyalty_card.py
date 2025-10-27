@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from uuid import uuid4
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
-from odoo.tools import format_amount
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import format_amount
 
 
 class LoyaltyCard(models.Model):

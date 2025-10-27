@@ -1,5 +1,5 @@
 /* global ace */
-odoo.define('website.test.html_editor', function (require) {
+ecommerce.define('website.test.html_editor', function (require) {
 'use strict';
 
 const wTourUtils = require('website.tour_utils');

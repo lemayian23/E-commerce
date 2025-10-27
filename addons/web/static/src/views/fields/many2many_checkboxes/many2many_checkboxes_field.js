@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { CheckBox } from "@web/core/checkbox/checkbox";
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class Many2ManyCheckboxesField extends Component {
     get items() {

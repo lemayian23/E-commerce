@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, many } from '@mail/model/model_field';
@@ -11,7 +11,7 @@ registerModel({
         async loadEmojiData() {
             this.update({ isLoading: true });
             await getBundle('mail.assets_model_data').then(loadBundle);
-            const { emojiCategoriesData, emojisData } = await odoo.runtimeImport("@mail/models_data/emoji_data");
+            const { emojiCategoriesData, emojisData } = await ecommerce.runtimeImport("@mail/models_data/emoji_data");
             if (!this.exists()) {
                 return;
             }

@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.exceptions import NotFound
 
-from odoo import http, tools, _
-from odoo.http import request
-from odoo.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce import http, tools, _
+from ecommerce.http import request
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
 
 
 class LivechatController(http.Controller):

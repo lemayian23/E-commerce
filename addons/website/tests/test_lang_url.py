@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import lxml.html
 from urllib.parse import urlparse
 
-from odoo.addons.http_routing.models.ir_http import url_lang
-from odoo.addons.website.tools import MockRequest
-from odoo.tests import HttpCase, tagged
+from ecommerce.addons.http_routing.models.ir_http import url_lang
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.tests import HttpCase, tagged
 
 
 @tagged('-at_install', 'post_install')
@@ -59,7 +59,7 @@ class TestLangUrl(HttpCase):
         self.assertEqual(r.status_code, 200)
 
         for line in r.text.splitlines():
-            _, match, session_info_str = line.partition('odoo.__session_info__ = ')
+            _, match, session_info_str = line.partition('ecommerce.__session_info__ = ')
             if match:
                 session_info = json.loads(session_info_str[:-1])
                 self.assertEqual(session_info['user_context']['lang'], 'en_US', "ensure english was loaded")

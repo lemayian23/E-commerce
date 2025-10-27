@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import Command
-from odoo.tests import tagged
-from odoo.tools import float_round, float_compare
+from ecommerce import Command
+from ecommerce.tests import tagged
+from ecommerce.tools import float_round, float_compare
 
-from odoo.addons.project.tests.test_project_profitability import TestProjectProfitabilityCommon
-from odoo.addons.purchase.tests.test_purchase_invoice import TestPurchaseToInvoiceCommon
+from ecommerce.addons.project.tests.test_project_profitability import TestProjectProfitabilityCommon
+from ecommerce.addons.purchase.tests.test_purchase_invoice import TestPurchaseToInvoiceCommon
 
 
 @tagged('-at_install', 'post_install')

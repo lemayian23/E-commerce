@@ -1,8 +1,8 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { _t } from "@web/core/l10n/translation";
-import { OdooChart } from "./odoo_chart";
+import { ecommerceChart } from "./ecommerce_chart";
 import { LINE_FILL_TRANSPARENCY } from "@web/views/graph/graph_renderer";
 
 const { chartRegistry } = spreadsheet.registries;
@@ -16,7 +16,7 @@ const {
     rgbaToHex,
 } = spreadsheet.helpers;
 
-export class OdooLineChart extends OdooChart {
+export class ecommerceLineChart extends ecommerceChart {
     constructor(definition, sheetId, getters) {
         super(definition, sheetId, getters);
         this.verticalAxisPosition = definition.verticalAxisPosition;
@@ -34,18 +34,18 @@ export class OdooLineChart extends OdooChart {
     }
 }
 
-chartRegistry.add("odoo_line", {
-    match: (type) => type === "odoo_line",
-    createChart: (definition, sheetId, getters) => new OdooLineChart(definition, sheetId, getters),
-    getChartRuntime: createOdooChartRuntime,
+chartRegistry.add("ecommerce_line", {
+    match: (type) => type === "ecommerce_line",
+    createChart: (definition, sheetId, getters) => new ecommerceLineChart(definition, sheetId, getters),
+    getChartRuntime: createecommerceChartRuntime,
     validateChartDefinition: (validator, definition) =>
-        OdooLineChart.validateChartDefinition(validator, definition),
-    transformDefinition: (definition) => OdooLineChart.transformDefinition(definition),
-    getChartDefinitionFromContextCreation: () => OdooLineChart.getDefinitionFromContextCreation(),
+        ecommerceLineChart.validateChartDefinition(validator, definition),
+    transformDefinition: (definition) => ecommerceLineChart.transformDefinition(definition),
+    getChartDefinitionFromContextCreation: () => ecommerceLineChart.getDefinitionFromContextCreation(),
     name: _t("Line"),
 });
 
-function createOdooChartRuntime(chart, getters) {
+function createecommerceChartRuntime(chart, getters) {
     const background = chart.background || "#FFFFFF";
     const { datasets, labels } = chart.dataSource.getData();
     const chartJsConfig = getLineConfiguration(chart, labels);
@@ -54,7 +54,7 @@ function createOdooChartRuntime(chart, getters) {
         const color = colors.next();
         const backgroundRGBA = colorToRGBA(color);
         if (chart.stacked) {
-            // use the transparency of Odoo to keep consistency
+            // use the transparency of ecommerce to keep consistency
             backgroundRGBA.a = LINE_FILL_TRANSPARENCY;
         }
         if (chart.cumulative) {
@@ -83,7 +83,7 @@ function createOdooChartRuntime(chart, getters) {
 function getLineConfiguration(chart, labels) {
     const fontColor = chartFontColor(chart.background);
     const config = getDefaultChartJsRuntime(chart, labels, fontColor);
-    config.type = chart.type.replace("odoo_", "");
+    config.type = chart.type.replace("ecommerce_", "");
     const legend = {
         ...config.options.legend,
         display: chart.legendPosition !== "none",

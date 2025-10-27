@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.ListModel **/
+/** @ecommerce-module alias=web.ListModel **/
 
     import BasicModel from 'web.BasicModel';
 

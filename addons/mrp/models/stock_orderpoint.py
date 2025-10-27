@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models
-from odoo.tools.float_utils import float_is_zero
-from odoo.osv.expression import AND
+from ecommerce import _, api, fields, models
+from ecommerce.tools.float_utils import float_is_zero
+from ecommerce.osv.expression import AND
 from dateutil.relativedelta import relativedelta
 
 

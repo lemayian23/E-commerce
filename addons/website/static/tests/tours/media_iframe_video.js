@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import wTourUtils from "website.tour_utils";
 
 wTourUtils.registerWebsitePreviewTour(
@@ -24,7 +24,7 @@ wTourUtils.registerWebsitePreviewTour(
         {
             content: "Enter the url",
             trigger: "input[placeholder='www.example.com']",
-            run: "text odoo.com",
+            run: "text ecommerce.com",
         },
         {
             content: "Click on replace media",

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { IS_RECORD, patchesAppliedPromise, registry } from '@mail/model/model_core';
 import { ModelField } from '@mail/model/model_field';

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+import ecommerce.tests
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@ecommerce.tests.tagged('-at_install', 'post_install')
 class TestUi(HttpCaseWithUserDemo):
     def setUp(self):
         super().setUp()

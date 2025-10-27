@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import random
 import threading
@@ -8,12 +8,12 @@ from functools import partial
 
 from psycopg2 import IntegrityError, OperationalError, errorcodes
 
-import odoo
-from odoo.exceptions import UserError, ValidationError, AccessError
-from odoo.models import BaseModel
-from odoo.http import request
-from odoo.tools import DotDict
-from odoo.tools.translate import _, translate_sql_constraint
+import ecommerce
+from ecommerce.exceptions import UserError, ValidationError, AccessError
+from ecommerce.models import BaseModel
+from ecommerce.http import request
+from ecommerce.tools import DotDict
+from ecommerce.tools.translate import _, translate_sql_constraint
 from . import security
 from ..tools import lazy
 
@@ -48,7 +48,7 @@ def dispatch(method, params):
 
     threading.current_thread().dbname = db
     threading.current_thread().uid = uid
-    registry = odoo.registry(db).check_signaling()
+    registry = ecommerce.registry(db).check_signaling()
     with registry.manage_changes():
         if method == 'execute':
             res = execute(db, uid, *params[3:])
@@ -62,12 +62,12 @@ def dispatch(method, params):
 def execute_cr(cr, uid, obj, method, *args, **kw):
     # clean cache etc if we retry the same transaction
     cr.reset()
-    env = odoo.api.Environment(cr, uid, {})
+    env = ecommerce.api.Environment(cr, uid, {})
     recs = env.get(obj)
     if recs is None:
         raise UserError(_("Object %s doesn't exist", obj))
     get_public_method(recs, method)  # Don't use the result, call_kw will redo the getattr
-    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)
+    result = retrying(partial(ecommerce.api.call_kw, recs, method, args, kw), env)
     # force evaluation of lazy values before the cursor is closed, as it would
     # error afterwards if the lazy isn't already evaluated (and cached)
     for l in _traverse_containers(result, lazy):
@@ -80,7 +80,7 @@ def execute_kw(db, uid, obj, method, args, kw=None):
 
 
 def execute(db, uid, obj, method, *args, **kw):
-    with odoo.registry(db).cursor() as cr:
+    with ecommerce.registry(db).cursor() as cr:
         res = execute_cr(cr, uid, obj, method, *args, **kw)
         if res is None:
             _logger.info('The method %s of the object %s can not return `None` !', method, obj)
@@ -142,7 +142,7 @@ def retrying(func, env):
 
     :param callable func: The function to call, you can pass arguments
         using :func:`functools.partial`:.
-    :param odoo.api.Environment env: The environment where the registry
+    :param ecommerce.api.Environment env: The environment where the registry
         and the cursor are taken.
     """
     try:
@@ -198,7 +198,7 @@ def _traverse_containers(val, type_):
     through standard containers (non-string mappings or sequences) *unless*
     they're selected by the type filter
     """
-    from odoo.models import BaseModel
+    from ecommerce.models import BaseModel
     if isinstance(val, type_):
         yield val
     elif isinstance(val, (str, bytes, BaseModel)):

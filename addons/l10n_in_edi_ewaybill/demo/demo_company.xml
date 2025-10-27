@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="partner_demo_company_in_ewaybill" model="res.partner">
         <field name="name">E-Waybill Company</field>
         <field name="vat">05AAACH6188F1ZM</field>
@@ -31,4 +31,4 @@
         <value eval="[ref('l10n_in.indian_chart_template_standard')]"/>
         <value model="res.company" eval="obj().env.ref('l10n_in_edi_ewaybill.demo_company_in_ewaybill')"/>
     </function>
-</odoo>
+</ecommerce>

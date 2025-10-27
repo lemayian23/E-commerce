@@ -1,5 +1,5 @@
 /* global Sha1 */
-odoo.define('pos_hr.SelectCashierMixin', function (require) {
+ecommerce.define('pos_hr.SelectCashierMixin', function (require) {
     'use strict';
 
     const SelectCashierMixin = (PosComponent) => class ComponentWithSelectCashierMixin extends PosComponent {

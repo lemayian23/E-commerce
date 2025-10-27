@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from base64 import b64decode
 import json
@@ -8,12 +8,12 @@ import os
 import subprocess
 import time
 
-from odoo import http, tools
-from odoo.modules.module import get_resource_path
+from ecommerce import http, tools
+from ecommerce.modules.module import get_resource_path
 
-from odoo.addons.hw_drivers.event_manager import event_manager
-from odoo.addons.hw_drivers.main import iot_devices, manager
-from odoo.addons.hw_drivers.tools import helpers
+from ecommerce.addons.hw_drivers.event_manager import event_manager
+from ecommerce.addons.hw_drivers.main import iot_devices, manager
+from ecommerce.addons.hw_drivers.tools import helpers
 
 _logger = logging.getLogger(__name__)
 

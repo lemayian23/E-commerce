@@ -1,4 +1,4 @@
-odoo.define('web_editor.utils', function (require) {
+ecommerce.define('web_editor.utils', function (require) {
 'use strict';
 
 const {ColorpickerWidget} = require('web.Colorpicker');
@@ -390,7 +390,7 @@ function _backgroundImagePartsToCss(parts) {
  * @returns {boolean}
  */
 function _isColorGradient(value) {
-    // FIXME duplicated in odoo-editor/utils.js
+    // FIXME duplicated in ecommerce-editor/utils.js
     return value && value.includes('-gradient(');
 }
 /**

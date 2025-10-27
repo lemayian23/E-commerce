@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from contextlib import contextmanager
 
-from odoo import api, fields, models, _, Command
-from odoo.exceptions import UserError
-from odoo.tools.misc import formatLang
+from ecommerce import api, fields, models, _, Command
+from ecommerce.exceptions import UserError
+from ecommerce.tools.misc import formatLang
 
 class AccountBankStatement(models.Model):
     _name = "account.bank.statement"

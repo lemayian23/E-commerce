@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.account_payment.tests.common import AccountPaymentCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.account_payment.tests.common import AccountPaymentCommon
 
 
 @tagged('post_install', '-at_install')
@@ -37,7 +37,7 @@ class TestFlows(AccountPaymentCommon, PaymentHttpCommon):
             'payment_option_id': self.provider.id,
             'tokenization_requested': False,
         })
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = self._get_processing_values(**route_values)
         tx_sudo = self._get_tx(processing_values['reference'])
         # Note: strangely, the check

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { getFixture, patchWithCleanup, triggerEvent } from "@web/../tests/helpers/utils";
 import { browser } from "@web/core/browser/browser";
@@ -19,7 +19,7 @@ import {
     validateSearch,
 } from "./helpers";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const serviceRegistry = registry.category("services");
 
 /**

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from . import models
 from . import wizards
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 
 def _l10n_es_edi_post_init(cr, registry):

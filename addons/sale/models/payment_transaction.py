@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 
 from datetime import datetime
 from dateutil import relativedelta
 
-from odoo import _, api, Command, fields, models, SUPERUSER_ID
-from odoo.tools import format_amount, str2bool
+from ecommerce import _, api, Command, fields, models, SUPERUSER_ID
+from ecommerce.tools import format_amount, str2bool
 
 _logger = logging.getLogger(__name__)
 
@@ -113,7 +113,7 @@ class PaymentTransaction(models.Model):
         :return: None
         """
         super()._log_message_on_linked_documents(message)
-        self = self.with_user(SUPERUSER_ID)  # Log messages as 'OdooBot'
+        self = self.with_user(SUPERUSER_ID)  # Log messages as 'ecommerceBot'
         for order in self.sale_order_ids:
             order.message_post(body=message)
 

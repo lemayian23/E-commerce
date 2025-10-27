@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
     <!-- Setup Chart of Accounts Template -->
     <record id="chart_template_latvia" model="account.chart.template">
         <field name="property_account_receivable_id" ref="a2310"/>
@@ -18,4 +18,4 @@
         <field name="account_journal_payment_debit_account_id" ref="a26292"/>
         <field name="account_journal_suspense_account_id" ref="a26291"/>
     </record>
-</odoo>
+</ecommerce>

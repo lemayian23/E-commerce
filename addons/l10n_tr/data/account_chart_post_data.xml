@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Chart template -->
     <record id="chart_template_common" model="account.chart.template">
         <field name="property_account_receivable_id" ref="tr120"/>
@@ -13,4 +13,4 @@
         <field name="account_journal_payment_debit_account_id" ref="tr102997" />
         <field name="account_journal_payment_credit_account_id" ref="tr102998" />
     </record>
-</odoo>
+</ecommerce>

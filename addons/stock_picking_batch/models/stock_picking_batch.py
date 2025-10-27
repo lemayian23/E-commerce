@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv.expression import AND
-from odoo.tools.float_utils import float_is_zero
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import AND
+from ecommerce.tools.float_utils import float_is_zero
 
 class StockPickingBatch(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']

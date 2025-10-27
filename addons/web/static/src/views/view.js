@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { evaluateExpr } from "@web/core/py_js/py";
 import { registry } from "@web/core/registry";
@@ -20,7 +20,7 @@ import {
     toRaw,
     useSubEnv,
     reactive,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 const viewRegistry = registry.category("views");
 
 /** @typedef {Object} Config

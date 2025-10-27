@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Web Editor',
     'category': 'Hidden',
     'description': """
-Odoo Web Editor widget.
+ecommerce Web Editor widget.
 ==========================
 
 """,
@@ -32,35 +32,35 @@ Odoo Web Editor widget.
             'web_editor/static/lib/webgl-image-filter/webgl-image-filter.js',
             'web_editor/static/lib/DOMPurify.js',
 
-            # odoo-editor
-            'web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/constants.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/sanitize.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/serialize.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/tablepicker/TablePicker.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/powerbox/patienceDiff.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/powerbox/Powerbox.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/align.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/commands.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteBackward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteForward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/enter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftEnter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftTab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/tab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/toggleList.js',
+            # ecommerce-editor
+            'web_editor/static/src/js/editor/ecommerce-editor/src/ecommerceEditor.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/utils/constants.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/utils/sanitize.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/utils/serialize.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/tablepicker/TablePicker.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/powerbox/patienceDiff.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/powerbox/Powerbox.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/align.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/commands.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/deleteBackward.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/deleteForward.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/enter.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/shiftEnter.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/shiftTab.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/tab.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/commands/toggleList.js',
 
             # utils
             'web_editor/static/src/js/wysiwyg/linkDialogCommand.js',
             'web_editor/static/src/js/wysiwyg/PeerToPeer.js',
 
-            # odoo utils
+            # ecommerce utils
             ('include', 'web._assets_helpers'),
 
             'web_editor/static/src/scss/bootstrap_overridden.scss',
             'web/static/src/scss/pre_variables.scss',
             'web/static/lib/bootstrap/scss/_variables.scss',
-            'web_editor/static/src/js/editor/odoo-editor/src/style.scss',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/style.scss',
 
             # integration
             'web_editor/static/src/scss/wysiwyg.scss',
@@ -92,14 +92,14 @@ Odoo Web Editor widget.
         ],
         'web_editor.assets_tests_styles': [
             ('include', 'web._assets_helpers'),
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
-            'web_editor/static/src/js/editor/odoo-editor/src/checklist.scss',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/checklist.scss',
         ],
         'web.assets_common': [
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/base_style.scss',
             'web_editor/static/lib/vkbeautify/**/*',
             'web_editor/static/src/js/common/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/utils.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/utils/utils.js',
             'web_editor/static/src/js/wysiwyg/fonts.js',
             'web_editor/static/src/xml/ace.xml',
         ],
@@ -115,9 +115,9 @@ Odoo Web Editor widget.
             'web_editor/static/src/xml/backend.xml',
         ],
         "web.dark_mode_assets_backend": [
-            'web_editor/static/src/scss/odoo-editor/powerbox.dark.scss',
-            'web_editor/static/src/scss/odoo-editor/tablepicker.dark.scss',
-            'web_editor/static/src/scss/odoo-editor/tableui.dark.scss',
+            'web_editor/static/src/scss/ecommerce-editor/powerbox.dark.scss',
+            'web_editor/static/src/scss/ecommerce-editor/tablepicker.dark.scss',
+            'web_editor/static/src/scss/ecommerce-editor/tableui.dark.scss',
             'web_editor/static/src/scss/wysiwyg.dark.scss',
             'web_editor/static/src/scss/web_editor.common.dark.scss',
         ],
@@ -127,10 +127,10 @@ Odoo Web Editor widget.
         'web.assets_frontend': [
             ('include', 'web_editor.assets_media_dialog'),
 
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/base_style.scss',
             'web_editor/static/lib/vkbeautify/**/*',
             'web_editor/static/src/js/common/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/utils.js',
+            'web_editor/static/src/js/editor/ecommerce-editor/src/utils/utils.js',
             'web_editor/static/src/js/wysiwyg/fonts.js',
             'web_editor/static/src/xml/ace.xml',
 
@@ -172,7 +172,7 @@ Odoo Web Editor widget.
             ('include', 'web_editor.assets_wysiwyg'),
 
             'web_editor/static/tests/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/test/utils.js'
+            'web_editor/static/src/js/editor/ecommerce-editor/test/utils.js'
         ],
     },
     'auto_install': True,

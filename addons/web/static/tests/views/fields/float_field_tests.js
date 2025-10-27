@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
 import { click, clickSave, editInput, getFixture, triggerEvent } from "@web/../tests/helpers/utils";

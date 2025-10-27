@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
@@ -7,11 +7,11 @@ import itertools
 
 import random
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.fields import Command
-from odoo.tools.float_utils import float_is_zero, float_round
-from odoo.osv import expression
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.fields import Command
+from ecommerce.tools.float_utils import float_is_zero, float_round
+from ecommerce.osv import expression
 
 def _generate_random_reward_code():
     return str(random.getrandbits(32))

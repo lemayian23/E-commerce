@@ -1,4 +1,4 @@
-odoo.define('l10n_eg_edi_eta.action_post_sign_invoice', function (require) {
+ecommerce.define('l10n_eg_edi_eta.action_post_sign_invoice', function (require) {
     const core = require('web.core');
     const ajax = require('web.ajax');
     const Dialog = require('web.Dialog');
@@ -38,7 +38,7 @@ odoo.define('l10n_eg_edi_eta.action_post_sign_invoice', function (require) {
                         'tag': 'reload',
                     });
                 }, function () {
-                    Dialog.alert(this, _t("Error trying to connect to Odoo. Check your internet connection"));
+                    Dialog.alert(this, _t("Error trying to connect to ecommerce. Check your internet connection"));
                 })
 
             } else {
@@ -69,7 +69,7 @@ odoo.define('l10n_eg_edi_eta.action_post_sign_invoice', function (require) {
                         'tag': 'reload',
                     });
                 }, function () {
-                    Dialog.alert(this, _t("Error trying to connect to Odoo. Check your internet connection"));
+                    Dialog.alert(this, _t("Error trying to connect to ecommerce. Check your internet connection"));
                 })
 
             } else {

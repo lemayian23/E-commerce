@@ -1,4 +1,4 @@
-odoo.define('website.tour.focus_blur_snippets', function (require) {
+ecommerce.define('website.tour.focus_blur_snippets', function (require) {
 'use strict';
 
 const { loadJS } = require('@web/core/assets');

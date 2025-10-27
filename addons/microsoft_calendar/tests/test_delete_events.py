@@ -2,13 +2,13 @@
 from unittest.mock import patch, ANY, call
 from datetime import timedelta
 
-from odoo import fields
+from ecommerce import fields
 
-from odoo.exceptions import UserError
-from odoo.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
-from odoo.addons.microsoft_calendar.utils.microsoft_event import MicrosoftEvent
-from odoo.addons.microsoft_calendar.models.res_users import User
-from odoo.addons.microsoft_calendar.tests.common import (
+from ecommerce.exceptions import UserError
+from ecommerce.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
+from ecommerce.addons.microsoft_calendar.utils.microsoft_event import MicrosoftEvent
+from ecommerce.addons.microsoft_calendar.models.res_users import User
+from ecommerce.addons.microsoft_calendar.tests.common import (
     TestCommon,
     mock_get_token,
     _modified_date_in_the_future,
@@ -24,7 +24,7 @@ class TestDeleteEvents(TestCommon):
         self.create_events_for_tests()
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_delete_simple_event_from_odoo_organizer_calendar(self, mock_delete):
+    def test_delete_simple_event_from_ecommerce_organizer_calendar(self, mock_delete):
         event_id = self.simple_event.ms_organizer_event_id
 
         self.simple_event.with_user(self.organizer_user).unlink()
@@ -39,7 +39,7 @@ class TestDeleteEvents(TestCommon):
         )
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_delete_simple_event_from_odoo_attendee_calendar(self, mock_delete):
+    def test_delete_simple_event_from_ecommerce_attendee_calendar(self, mock_delete):
         event_id = self.simple_event.ms_organizer_event_id
 
         self.simple_event.with_user(self.attendee_user).unlink()
@@ -54,7 +54,7 @@ class TestDeleteEvents(TestCommon):
         )
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_archive_simple_event_from_odoo_organizer_calendar(self, mock_delete):
+    def test_archive_simple_event_from_ecommerce_organizer_calendar(self, mock_delete):
         event_id = self.simple_event.ms_organizer_event_id
 
         self.simple_event.with_user(self.organizer_user).write({'active': False})
@@ -70,7 +70,7 @@ class TestDeleteEvents(TestCommon):
         )
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_archive_simple_event_from_odoo_attendee_calendar(self, mock_delete):
+    def test_archive_simple_event_from_ecommerce_attendee_calendar(self, mock_delete):
         event_id = self.simple_event.ms_organizer_event_id
 
         self.simple_event.with_user(self.attendee_user).write({'active': False})
@@ -123,22 +123,22 @@ class TestDeleteEvents(TestCommon):
 
     def test_delete_simple_event_from_outlook_attendee_calendar(self):
         """
-        If an attendee deletes an event from its Outlook calendar, during the sync, Odoo will be notified that
+        If an attendee deletes an event from its Outlook calendar, during the sync, ecommerce will be notified that
         this event has been deleted BUT only with the attendees's calendar event id and not with the global one
-        (called iCalUId). That means, it's not possible to match this deleted event with an Odoo event.
+        (called iCalUId). That means, it's not possible to match this deleted event with an ecommerce event.
 
         LIMITATION:
 
         Unfortunately, there is no magic solution:
-            1) keep the list of calendar events ids linked to a unique iCalUId but all Odoo users may not have synced
-            their Odoo calendar, leading to missing ids in the list => bad solution.
+            1) keep the list of calendar events ids linked to a unique iCalUId but all ecommerce users may not have synced
+            their ecommerce calendar, leading to missing ids in the list => bad solution.
             2) call the microsoft API to get the iCalUId matching the received event id => as the event has already
             been deleted, this call may return an error.
         """
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_delete_one_event_from_recurrence_from_odoo_calendar(self, mock_delete):
-        if not self.sync_odoo_recurrences_with_outlook_feature():
+    def test_delete_one_event_from_recurrence_from_ecommerce_calendar(self, mock_delete):
+        if not self.sync_ecommerce_recurrences_with_outlook_feature():
             return
         # arrange
         idx = 2
@@ -158,8 +158,8 @@ class TestDeleteEvents(TestCommon):
         )
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_delete_first_event_from_recurrence_from_odoo_calendar(self, mock_delete):
-        if not self.sync_odoo_recurrences_with_outlook_feature():
+    def test_delete_first_event_from_recurrence_from_ecommerce_calendar(self, mock_delete):
+        if not self.sync_ecommerce_recurrences_with_outlook_feature():
             return
         # arrange
         idx = 0
@@ -230,7 +230,7 @@ class TestDeleteEvents(TestCommon):
 
     @patch.object(MicrosoftCalendarService, 'get_events')
     def test_delete_one_event_and_future_from_recurrence_from_outlook_calendar(self, mock_get_events):
-        if not self.sync_odoo_recurrences_with_outlook_feature():
+        if not self.sync_ecommerce_recurrences_with_outlook_feature():
             return
         # arrange
         idx = range(4, self.recurrent_events_count)
@@ -281,11 +281,11 @@ class TestDeleteEvents(TestCommon):
         """
 
     @patch.object(MicrosoftCalendarService, 'delete')
-    def test_delete_single_event_from_recurrence_from_odoo_calendar(self, mock_delete):
+    def test_delete_single_event_from_recurrence_from_ecommerce_calendar(self, mock_delete):
         """
         Deletes the base_event of a recurrence and checks if the event was archived and the recurrence was updated.
         """
-        if not self.sync_odoo_recurrences_with_outlook_feature():
+        if not self.sync_ecommerce_recurrences_with_outlook_feature():
             return
         # arrange
         idx = 0

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import email
@@ -13,15 +13,15 @@ from functools import partial
 from lxml import html
 from unittest.mock import patch
 
-from odoo.addons.base.models.ir_mail_server import IrMailServer
-from odoo.addons.base.tests.common import MockSmtplibCase
-from odoo.addons.bus.models.bus import ImBus, json_dump
-from odoo.addons.mail.models.mail_mail import MailMail
-from odoo.addons.mail.models.mail_message import Message
-from odoo.addons.mail.models.mail_notification import MailNotification
-from odoo.tests import common, RecordCapturer, new_test_user
-from odoo.tools import email_normalize, formataddr, mute_logger, pycompat
-from odoo.tools.translate import code_translations
+from ecommerce.addons.base.models.ir_mail_server import IrMailServer
+from ecommerce.addons.base.tests.common import MockSmtplibCase
+from ecommerce.addons.bus.models.bus import ImBus, json_dump
+from ecommerce.addons.mail.models.mail_mail import MailMail
+from ecommerce.addons.mail.models.mail_message import Message
+from ecommerce.addons.mail.models.mail_notification import MailNotification
+from ecommerce.tests import common, RecordCapturer, new_test_user
+from ecommerce.tools import email_normalize, formataddr, mute_logger, pycompat
+from ecommerce.tools.translate import code_translations
 
 _logger = logging.getLogger(__name__)
 
@@ -1354,7 +1354,7 @@ class MailCommon(common.TransactionCase, MailCase):
         """
         # activate translations
         cls.env['res.lang']._activate_lang(lang_code)
-        with mute_logger("odoo.addons.base.models.ir_module", "odoo.tools.translate"):
+        with mute_logger("ecommerce.addons.base.models.ir_module", "ecommerce.tools.translate"):
             cls.env.ref('base.module_base')._update_translations([lang_code])
             cls.env.ref('base.module_mail')._update_translations([lang_code])
             cls.env.ref('base.module_test_mail')._update_translations([lang_code])

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="hr_employee_skill_log_view_graph_employee" model="ir.ui.view">
           <field name="name">hr.employee.skill.log.view.graph</field>
           <field name="model">hr.employee.skill.log</field>
@@ -78,4 +78,4 @@
         <field name="context">{'fill_temporal': 0, 'search_default_group_by_skill_type_id': 1, 'search_default_group_by_skill_id': 2}</field>
         <field name="target">current</field>
     </record>
-</odoo>
+</ecommerce>

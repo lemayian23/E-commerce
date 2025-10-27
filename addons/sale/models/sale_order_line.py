@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import timedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.fields import Command
-from odoo.osv import expression
-from odoo.tools import float_is_zero, float_compare, float_round
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.fields import Command
+from ecommerce.osv import expression
+from ecommerce.tools import float_is_zero, float_compare, float_round
 
 
 class SaleOrderLine(models.Model):

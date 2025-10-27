@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import models, fields, api, _
-from odoo.tools.float_utils import float_compare
-from odoo.exceptions import UserError, ValidationError, RedirectWarning
-from odoo.addons.rating.models.rating_data import OPERATOR_MAPPING
+from ecommerce import models, fields, api, _
+from ecommerce.tools.float_utils import float_compare
+from ecommerce.exceptions import UserError, ValidationError, RedirectWarning
+from ecommerce.addons.rating.models.rating_data import OPERATOR_MAPPING
 
 PROJECT_TASK_READABLE_FIELDS = {
     'allow_subtasks',

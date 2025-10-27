@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import testUtils from 'web.test_utils';
 import { registry } from "@web/core/registry";

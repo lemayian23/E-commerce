@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "../core/browser/browser";
 import AbstractStorageService from "web.AbstractStorageService";
@@ -11,7 +11,7 @@ import {
 import { ErrorDialog } from "../core/errors/error_dialogs";
 import { useService } from "@web/core/utils/hooks";
 
-import { useComponent } from "@odoo/owl";
+import { useComponent } from "@ecommerce/owl";
 
 export const wowlServicesSymbol = Symbol("wowlServices");
 

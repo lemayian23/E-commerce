@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo.addons.stock.tests.common import TestStockCommon
-from odoo.exceptions import UserError
+from ecommerce.addons.stock.tests.common import TestStockCommon
+from ecommerce.exceptions import UserError
 
-from odoo.tests import Form
-from odoo.tools import float_is_zero, float_compare
+from ecommerce.tests import Form
+from ecommerce.tools import float_is_zero, float_compare
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta

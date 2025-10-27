@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { sprintf } from "../utils/strings";
 import { FileUploadProgressBar } from "./file_upload_progress_bar";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class FileUploadProgressRecord extends Component {
     getProgressTexts() {

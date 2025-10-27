@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import OrderSummary from 'point_of_sale.OrderSummary';
 import Registries from 'point_of_sale.Registries';

@@ -1,5 +1,5 @@
 /* global html2canvas */
-odoo.define('point_of_sale.Printer', function (require) {
+ecommerce.define('point_of_sale.Printer', function (require) {
 "use strict";
 
 var Session = require('web.Session');
@@ -32,7 +32,7 @@ class PrintResultGenerator {
                 title: _t('Connection to the printer failed'),
                 body: _t('Please check if the printer is still connected. \n' +
                     'Some browsers don\'t allow HTTP calls from websites to devices in the network (for security reasons). ' +
-                    'If it is the case, you will need to follow Odoo\'s documentation for ' +
+                    'If it is the case, you will need to follow ecommerce\'s documentation for ' +
                     '\'Self-signed certificate for ePOS printers\' and \'Secure connection (HTTPS)\' to solve the issue'
                 ),
             },
@@ -101,7 +101,7 @@ var PrinterMixin = {
         if (this.isEmail) {
             $('.pos-receipt-print .pos-receipt').css({ 'padding': '15px', 'padding-bottom': '30px'})
         }
-        // Odoo RTL support automatically flip left into right but html2canvas
+        // ecommerce RTL support automatically flip left into right but html2canvas
         // won't work as expected if the receipt is aligned to the right of the
         // screen so we need to flip it back.
         this.receipt.parent().css({ left: 0, right: 'auto' });

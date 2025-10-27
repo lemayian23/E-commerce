@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 from collections import OrderedDict
 from datetime import datetime
 
-from odoo import http
-from odoo.exceptions import AccessError, MissingError
-from odoo.http import request, Response
-from odoo.tools import image_process
-from odoo.tools.translate import _
-from odoo.addons.portal.controllers import portal
-from odoo.addons.portal.controllers.portal import pager as portal_pager
+from ecommerce import http
+from ecommerce.exceptions import AccessError, MissingError
+from ecommerce.http import request, Response
+from ecommerce.tools import image_process
+from ecommerce.tools.translate import _
+from ecommerce.addons.portal.controllers import portal
+from ecommerce.addons.portal.controllers.portal import pager as portal_pager
 
 
 class CustomerPortal(portal.CustomerPortal):

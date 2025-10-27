@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from markupsafe import Markup
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, SUPERUSER_ID, _
-from odoo.tools.float_utils import float_compare, float_is_zero, float_round
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, SUPERUSER_ID, _
+from ecommerce.tools.float_utils import float_compare, float_is_zero, float_round
+from ecommerce.exceptions import UserError
 
-from odoo.addons.purchase.models.purchase import PurchaseOrder as Purchase
-from odoo.tools.misc import OrderedSet
+from ecommerce.addons.purchase.models.purchase import PurchaseOrder as Purchase
+from ecommerce.tools.misc import OrderedSet
 
 
 class PurchaseOrder(models.Model):

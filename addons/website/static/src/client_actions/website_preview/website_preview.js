@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from '@web/core/registry';
 import { useService, useBus } from '@web/core/utils/hooks';
@@ -58,7 +58,7 @@ export class WebsitePreview extends Component {
             this.backendWebsiteId = unslugHtmlDataObject(backendWebsiteRepr).id;
 
             const encodedPath = encodeURIComponent(this.path);
-            if (!session.website_bypass_domain_redirect // Used by the Odoo support (bugs to be expected)
+            if (!session.website_bypass_domain_redirect // Used by the ecommerce support (bugs to be expected)
                     && this.websiteDomain
                     && !wUtils.isHTTPSorNakedDomainRedirection(this.websiteDomain, window.location.origin)) {
                 // The website domain might be the naked one while the naked one
@@ -118,9 +118,9 @@ export class WebsitePreview extends Component {
             this.websiteService.blockPreview(true, 'load-iframe');
             this.iframe.el.addEventListener('load', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
             // For a frontend page, it is better to use the
-            // OdooFrameContentLoaded event to unblock the iframe, as it is
+            // ecommerceFrameContentLoaded event to unblock the iframe, as it is
             // triggered faster than the load event.
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
+            this.iframe.el.addEventListener('ecommerceFrameContentLoaded', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
             this.env.services.messaging.modelManager.messagingCreatedPromise.then(() => {
                 this.env.services.messaging.modelManager.messaging.update({ isWebsitePreviewOpen: true });
             });
@@ -139,7 +139,7 @@ export class WebsitePreview extends Component {
         });
 
         /**
-         * This removes the 'Odoo' prefix of the title service to display
+         * This removes the 'ecommerce' prefix of the title service to display
          * cleanly the frontend's document title (see _replaceBrowserUrl), and
          * replaces the backend favicon with the frontend's one.
          * These changes are reverted when the component is unmounted.
@@ -203,8 +203,8 @@ export class WebsitePreview extends Component {
         // Toggle the 'o_is_mobile' class on the wrapwrap according to
         // 'isMobile' on iframe load.
         useEffect(() => {
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', toggleIsMobile);
-            return () => this.iframe.el.removeEventListener('OdooFrameContentLoaded', toggleIsMobile);
+            this.iframe.el.addEventListener('ecommerceFrameContentLoaded', toggleIsMobile);
+            return () => this.iframe.el.removeEventListener('ecommerceFrameContentLoaded', toggleIsMobile);
         }, () => []);
     }
 
@@ -259,7 +259,7 @@ export class WebsitePreview extends Component {
     reloadIframe(url) {
         return new Promise((resolve, reject) => {
             this.websiteService.websiteRootInstance = undefined;
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', resolve, { once: true });
+            this.iframe.el.addEventListener('ecommerceFrameContentLoaded', resolve, { once: true });
             if (url) {
                 this.iframe.el.contentWindow.location = url;
             } else {
@@ -540,7 +540,7 @@ export class WebsitePreview extends Component {
         }
         ev.preventDefault();
         const path = this.websiteService.contentWindow.location;
-        const debugMode = this.env.debug ? `?debug=${odoo.debug}` : "";
+        const debugMode = this.env.debug ? `?debug=${ecommerce.debug}` : "";
         this.router.redirect(
             `/web${debugMode}#action=website.website_preview&path=${encodeURIComponent(path)}`
         );

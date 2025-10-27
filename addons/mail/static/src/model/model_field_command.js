@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * Allows field update to detect if the value it received is a command to

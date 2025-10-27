@@ -1,4 +1,4 @@
-odoo.define('website_blog.s_blog_posts_frontend', function (require) {
+ecommerce.define('website_blog.s_blog_posts_frontend', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

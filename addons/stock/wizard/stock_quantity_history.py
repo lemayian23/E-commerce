@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, fields, models
-from odoo.osv import expression
-from odoo.tools.misc import format_datetime
+from ecommerce import _, fields, models
+from ecommerce.osv import expression
+from ecommerce.tools.misc import format_datetime
 
 
 class StockQuantityHistory(models.TransientModel):

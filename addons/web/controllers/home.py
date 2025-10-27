@@ -1,18 +1,18 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import logging
 import psycopg2
 
 
-import odoo
-import odoo.modules.registry
-from odoo import http
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.service import security
-from odoo.tools import ustr
-from odoo.tools.translate import _
+import ecommerce
+import ecommerce.modules.registry
+from ecommerce import http
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request
+from ecommerce.service import security
+from ecommerce.tools import ustr
+from ecommerce.tools.translate import _
 from .utils import ensure_db, _get_login_redirect_url, is_user_internal
 
 
@@ -102,7 +102,7 @@ class Home(http.Controller):
         values = {k: v for k, v in request.params.items() if k in SIGN_UP_REQUEST_PARAMS}
         try:
             values['databases'] = http.db_list()
-        except odoo.exceptions.AccessDenied:
+        except ecommerce.exceptions.AccessDenied:
             values['databases'] = None
 
         if request.httprequest.method == 'POST':
@@ -110,8 +110,8 @@ class Home(http.Controller):
                 uid = request.session.authenticate(request.db, request.params['login'], request.params['password'])
                 request.params['login_success'] = True
                 return request.redirect(self._login_redirect(uid, redirect=redirect))
-            except odoo.exceptions.AccessDenied as e:
-                if e.args == odoo.exceptions.AccessDenied().args:
+            except ecommerce.exceptions.AccessDenied as e:
+                if e.args == ecommerce.exceptions.AccessDenied().args:
                     values['error'] = _("Wrong login/password")
                 else:
                     values['error'] = e.args[0]
@@ -122,7 +122,7 @@ class Home(http.Controller):
         if 'login' not in values and request.session.get('auth_login'):
             values['login'] = request.session.get('auth_login')
 
-        if not odoo.tools.config['list_db']:
+        if not ecommerce.tools.config['list_db']:
             values['disable_database_manager'] = True
 
         response = request.render('web.login', values)
@@ -141,7 +141,7 @@ class Home(http.Controller):
     def switch_to_admin(self):
         uid = request.env.user.id
         if request.env.user._is_system():
-            uid = request.session.uid = odoo.SUPERUSER_ID
+            uid = request.session.uid = ecommerce.SUPERUSER_ID
             # invalidate session token cache as we've changed the uid
             request.env['res.users'].clear_caches()
             request.session.session_token = security.compute_session_token(request.session, request.env)
@@ -154,7 +154,7 @@ class Home(http.Controller):
         status = 200
         if db_server_status:
             try:
-                odoo.sql_db.db_connect('postgres').cursor().close()
+                ecommerce.sql_db.db_connect('postgres').cursor().close()
                 health_info['db_server_status'] = True
             except psycopg2.Error:
                 health_info['db_server_status'] = False

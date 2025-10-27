@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import re
 import logging
 
 from collections import OrderedDict
 
-from odoo import models
-from odoo.http import request
-from odoo.tools import lazy
-from odoo.addons.base.models.assetsbundle import AssetsBundle
-from odoo.addons.http_routing.models.ir_http import url_for
-from odoo.osv import expression
-from odoo.addons.website.models import ir_http
+from ecommerce import models
+from ecommerce.http import request
+from ecommerce.tools import lazy
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce.addons.http_routing.models.ir_http import url_for
+from ecommerce.osv import expression
+from ecommerce.addons.website.models import ir_http
 
 
 _logger = logging.getLogger(__name__)

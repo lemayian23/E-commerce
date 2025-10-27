@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import AbstractField from 'web.AbstractField';
 import config from 'web.config';

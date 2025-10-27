@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 
-from odoo.tools import TEXT_URL_REGEX, create_link, html_escape
+from ecommerce.tools import TEXT_URL_REGEX, create_link, html_escape
 
 
 def sms_content_to_rendered_html(text):

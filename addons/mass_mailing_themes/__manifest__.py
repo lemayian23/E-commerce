@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Mass Mailing Themes',
@@ -9,7 +9,7 @@ Design gorgeous mails
     """,
     'version': '1.1',
     'sequence': 110,
-    'website': 'https://www.odoo.com/app/mailing',
+    'website': 'https://www.ecommerce.com/app/mailing',
     'category': 'Marketing/Email Marketing',
     'depends': [
         'mass_mailing',

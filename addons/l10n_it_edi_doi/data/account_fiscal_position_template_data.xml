@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record id="declaration_of_intent_fiscal_position" model="account.fiscal.position.template">
             <field name="sequence">10</field>
             <field name="name">Declaration of Intent</field>
@@ -32,4 +32,4 @@
             <field name="tax_src_id"  ref="l10n_it.4v"/>
             <field name="tax_dest_id" ref="00di"/>
         </record>
-</odoo>
+</ecommerce>

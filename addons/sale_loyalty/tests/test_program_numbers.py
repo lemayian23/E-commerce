@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.sale_loyalty.tests.common import TestSaleCouponNumbersCommon
-from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.tests import tagged
-from odoo.tools.float_utils import float_compare
+from ecommerce.addons.sale_loyalty.tests.common import TestSaleCouponNumbersCommon
+from ecommerce.exceptions import ValidationError
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
+from ecommerce.tools.float_utils import float_compare
 
 
 @tagged('post_install', '-at_install')

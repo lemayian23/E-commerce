@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
+from ecommerce.osv import expression
 
 class LoyaltyRule(models.Model):
     _name = 'loyalty.rule'

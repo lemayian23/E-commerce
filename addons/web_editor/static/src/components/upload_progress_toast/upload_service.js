@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from '@web/core/registry';
 import { UploadProgressToast } from './upload_progress_toast';
@@ -8,7 +8,7 @@ import { checkFileSize } from "@web/core/utils/files";
 import { humanNumber } from "@web/core/utils/numbers";
 import { sprintf } from "@web/core/utils/strings";
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@ecommerce/owl";
 
 export const AUTOCLOSE_DELAY = 3000;
 

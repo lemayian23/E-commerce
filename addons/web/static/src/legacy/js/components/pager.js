@@ -1,4 +1,4 @@
-odoo.define('web.Pager', function (require) {
+ecommerce.define('web.Pager', function (require) {
     "use strict";
 
     const { useAutofocus } = require("@web/core/utils/hooks");

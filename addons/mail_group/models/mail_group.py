@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import logging
@@ -10,11 +10,11 @@ from datetime import datetime
 from dateutil import relativedelta
 from werkzeug import urls
 
-from odoo import _, api, fields, models, tools
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import ValidationError, UserError
-from odoo.osv import expression
-from odoo.tools import email_normalize, hmac, generate_tracking_message_id
+from ecommerce import _, api, fields, models, tools
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.osv import expression
+from ecommerce.tools import email_normalize, hmac, generate_tracking_message_id
 
 _logger = logging.getLogger(__name__)
 

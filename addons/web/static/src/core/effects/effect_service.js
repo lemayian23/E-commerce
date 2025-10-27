@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "../registry";
 import { EffectContainer } from "./effect_container";
 import { RainbowMan } from "./rainbow_man";
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@ecommerce/owl";
 
 const effectRegistry = registry.category("effects");
 

@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import re
@@ -9,8 +9,8 @@ from markupsafe import Markup
 from urllib.parse import parse_qs
 from werkzeug.urls import url_encode
 
-from odoo import _
-from odoo.tools import image_process
+from ecommerce import _
+from ecommerce.tools import image_process
 
 # To detect if we have a valid URL or not
 valid_url_regex = r'^(http://|https://|//)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(/.*)?$'

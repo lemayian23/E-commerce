@@ -1,5 +1,5 @@
-from odoo.tests import tagged
-from odoo.addons.website.tests.test_configurator import TestConfiguratorCommon
+from ecommerce.tests import tagged
+from ecommerce.addons.website.tests.test_configurator import TestConfiguratorCommon
 
 
 @tagged('post_install', '-at_install', '-standard', 'breaking_16', 'random')

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { setupViewRegistries } from "@web/../tests/views/helpers";
 import { patchWithCleanup } from "@web/../tests/helpers/utils";

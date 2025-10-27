@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from werkzeug.exceptions import Forbidden, NotFound
 
-from odoo import exceptions, http
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website_event.controllers.community import EventCommunityController
-from odoo.osv import expression
+from ecommerce import exceptions, http
+from ecommerce.http import request
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.website_event.controllers.community import EventCommunityController
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 

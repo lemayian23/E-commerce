@@ -1,4 +1,4 @@
-odoo.define('web.relational_fields', function (require) {
+ecommerce.define('web.relational_fields', function (require) {
 "use strict";
 
 /**
@@ -507,7 +507,7 @@ var FieldMany2One = AbstractField.extend({
      * has been trigerred. This allows to detect that all changes have been
      * acknowledged by the environment.
      *
-     * @param {OdooEvent} event 'field_changed' event
+     * @param {ecommerceEvent} event 'field_changed' event
      */
     _onFieldChanged: function (event) {
         this.lastChangeEvent = event;
@@ -855,7 +855,7 @@ var FieldMany2One = AbstractField.extend({
     /**
      * @private
      *
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onInputKeyup: function (ev) {
         const $autocomplete = this.$input.autocomplete("widget");
@@ -886,7 +886,7 @@ var FieldMany2One = AbstractField.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onQuickCreate: function (event) {
         this._quickCreate(event.data.value);
@@ -1251,7 +1251,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
     /**
      * @override
      * @param {Object} record
-     * @param {OdooEvent} [ev] an event that triggered the reset action
+     * @param {ecommerceEvent} [ev] an event that triggered the reset action
      * @param {Boolean} [fieldChanged] if true, the widget field has changed
      * @returns {Promise}
      */
@@ -1689,7 +1689,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * by the parent controller.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onRemoveRecord: function (ev) {
         ev.stopPropagation();
@@ -1713,7 +1713,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * know which field needs to be handled.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onDiscardChanges: function (ev) {
         if (ev.target !== this) {
@@ -1726,7 +1726,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * him back to toggle the mode of this row.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onEditLine: function (ev) {
         ev.stopPropagation();
@@ -1738,7 +1738,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * Updates the given record with the changes.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onFieldChanged: function (ev) {
         if (ev.target === this) {
@@ -1810,7 +1810,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * @see field_manager_mixin for concurrency handling.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onPagerChanged: function ({ currentMinimum, limit }) {
         this._updateControlPanel({ currentMinimum, limit });
@@ -1841,7 +1841,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * executed in the mutex.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {string} ev.recordID
      * @param {function} ev.onSuccess success callback (see '_saveLine')
      * @param {function} ev.onFailure fail callback (see '_saveLine')
@@ -1863,7 +1863,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * Add necessary key parts for the basic controller to compute the local
      * storage key. The event will be properly handled by the basic controller.
      *
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @private
      */
     _onSaveOrLoadOptionalFields: function (ev) {
@@ -1875,7 +1875,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * Forces a resequencing of the records.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {string[]} ev.data.recordIds
      * @param {integer} ev.data.offset
      * @param {string} ev.data.handleField
@@ -1929,7 +1929,7 @@ var FieldX2Many = AbstractField.extend(WidgetAdapterMixin, {
      * aware of which widgets it has to redraw.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onToggleColumnOrder: function (ev) {
         ev.data.field = this.name;
@@ -2023,7 +2023,7 @@ var FieldOne2Many = FieldX2Many.extend({
     /**
      * @override
      * @param {Object} record
-     * @param {OdooEvent} [ev] an event that triggered the reset action
+     * @param {ecommerceEvent} [ev] an event that triggered the reset action
      * @returns {Promise}
      */
     reset: function (record, ev) {
@@ -2172,7 +2172,7 @@ var FieldOne2Many = FieldX2Many.extend({
      *
      * @override
      * @private
-     * @param {OdooEvent|MouseEvent} ev this event comes either from the 'Add
+     * @param {ecommerceEvent|MouseEvent} ev this event comes either from the 'Add
      *   record' link in the list editable renderer, or from the 'Create' button
      *   in the kanban view
      * @param {Array} ev.data.context additional context for the added records,
@@ -2209,7 +2209,7 @@ var FieldOne2Many = FieldX2Many.extend({
      * form view.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onOpenRecord: function (ev) {
         // we don't want interference with the components upstream.
@@ -2320,7 +2320,7 @@ var FieldMany2Many = FieldX2Many.extend({
      *
      * @override
      * @private
-     * @param {OdooEvent|MouseEvent} ev this event comes either from the 'Add
+     * @param {ecommerceEvent|MouseEvent} ev this event comes either from the 'Add
      *   record' link in the list editable renderer, or from the 'Create' button
      *   in the kanban view
      */
@@ -2343,7 +2343,7 @@ var FieldMany2Many = FieldX2Many.extend({
      * to the form view.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onOpenRecord: function (ev) {
         var self = this;
@@ -2776,7 +2776,7 @@ var FieldMany2ManyTags = AbstractField.extend({
      * Controls the changes made in the internal m2o field.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onFieldChanged: function (ev) {
         if (ev.target !== this.many2one) {
@@ -2807,7 +2807,7 @@ var FieldMany2ManyTags = AbstractField.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onQuickCreate: function (event) {
         this._quickCreate(event.data.value);

@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo import Command
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce import Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
-@odoo.tests.tagged('post_install_l10n', 'post_install', '-at_install')
-class TestUi(AccountTestInvoicingCommon, odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install_l10n', 'post_install', '-at_install')
+class TestUi(AccountTestInvoicingCommon, ecommerce.tests.HttpCase):
 
     @classmethod
     def setUpClass(cls):

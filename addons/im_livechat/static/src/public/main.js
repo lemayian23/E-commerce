@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { publicLivechatService } from '@im_livechat/services/public_livechat_service';
 import { isAvailable, options, serverUrl } from 'im_livechat.loaderData';

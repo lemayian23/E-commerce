@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
-from odoo import fields
-from odoo.addons.sms.tests.common import SMSCase
-from odoo.tests.common import TransactionCase
+from ecommerce import fields
+from ecommerce.addons.sms.tests.common import SMSCase
+from ecommerce.tests.common import TransactionCase
 
 
 class TestCalendarSms(TransactionCase, SMSCase):

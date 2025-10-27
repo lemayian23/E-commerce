@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useService } from '@web/core/utils/hooks';
 import { TextField } from '@web/views/fields/text/text_field';

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 from dateutil.relativedelta import relativedelta
 import os.path
 import pytz
 
-from odoo.tools import (
+from ecommerce.tools import (
     config,
     date_utils,
     file_open,
@@ -16,7 +16,7 @@ from odoo.tools import (
     remove_accents,
     validate_url,
 )
-from odoo.tests.common import TransactionCase, BaseCase
+from ecommerce.tests.common import TransactionCase, BaseCase
 
 
 class TestCountingStream(BaseCase):

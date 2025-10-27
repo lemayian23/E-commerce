@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.tests import tagged, new_test_user
-from odoo.tools.float_utils import float_compare
+from ecommerce import Command
+from ecommerce.tests import tagged, new_test_user
+from ecommerce.tools.float_utils import float_compare
 
-from odoo.addons.sale_loyalty.tests.common import TestSaleCouponCommon
+from ecommerce.addons.sale_loyalty.tests.common import TestSaleCouponCommon
 
 @tagged('post_install', '-at_install')
 class TestLoyalty(TestSaleCouponCommon):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.tests import common, Form
+from ecommerce.exceptions import ValidationError
+from ecommerce.fields import Command
+from ecommerce.tests import common, Form
 
 @common.tagged('post_install', '-at_install')
 class TestLoyaltyDeliveryCost(common.TransactionCase):

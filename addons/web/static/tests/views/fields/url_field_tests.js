@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { click, editInput, getFixture } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
@@ -323,7 +323,7 @@ QUnit.module("Fields", (hooks) => {
     });
 
     QUnit.test("url field with non falsy, but non url value", async function (assert) {
-        serverData.models.partner.fields.foo.default = "odoo://hello";
+        serverData.models.partner.fields.foo.default = "ecommerce://hello";
 
         await makeView({
             type: "form",
@@ -334,7 +334,7 @@ QUnit.module("Fields", (hooks) => {
 
         assert.strictEqual(
             target.querySelector(".o_field_widget[name='foo'] a").getAttribute("href"),
-            "http://odoo://hello"
+            "http://ecommerce://hello"
         );
     });
 });

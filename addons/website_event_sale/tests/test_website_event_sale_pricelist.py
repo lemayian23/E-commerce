@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_sale.controllers.main import WebsiteSale
-from odoo.addons.website.tools import MockRequest
-from odoo.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
-from odoo.tests import tagged
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
+from ecommerce.tests import tagged
 
 
 @tagged('post_install', '-at_install')

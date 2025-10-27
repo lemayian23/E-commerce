@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Command
-from odoo.tests import Form, tagged, users
+from ecommerce.fields import Command
+from ecommerce.tests import Form, tagged, users
 
 from .common import TestSaleCommon
 

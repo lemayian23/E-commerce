@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
-from odoo.addons.payment_stripe import const
+from ecommerce.addons.payment_stripe import const
 
 
 class ResCountry(models.Model):

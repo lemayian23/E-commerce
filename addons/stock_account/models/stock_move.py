@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import float_compare, float_is_zero, OrderedSet
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import float_compare, float_is_zero, OrderedSet
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -601,7 +601,7 @@ class StockMove(models.Model):
                 am_vals.append(self.with_company(company_from)._prepare_account_move_vals(acc_valuation, acc_dest, journal_id, qty, description, svl_id, cost))
 
         if self.company_id.anglo_saxon_accounting:
-            # Creates an account entry from stock_input to stock_output on a dropship move. https://github.com/odoo/odoo/issues/12687
+            # Creates an account entry from stock_input to stock_output on a dropship move. https://github.com/ecommerce/ecommerce/issues/12687
             anglosaxon_am_vals = self._prepare_anglosaxon_account_move_vals(acc_src, acc_dest, acc_valuation, journal_id, qty, description, svl_id, cost)
             if anglosaxon_am_vals:
                 am_vals.append(anglosaxon_am_vals)

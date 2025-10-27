@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """
 Some functions related to the os and os.path module
@@ -96,7 +96,7 @@ else:
     import win32serviceutil as wsu
 
     from contextlib import contextmanager
-    from odoo.release import nt_service_name
+    from ecommerce.release import nt_service_name
 
     def is_running_as_nt_service():
         @contextmanager

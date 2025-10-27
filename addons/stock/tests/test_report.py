@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, datetime, timedelta
 
-from odoo.tests.common import Form, TransactionCase
-from odoo import Command
+from ecommerce.tests.common import Form, TransactionCase
+from ecommerce import Command
 
 
 class TestReportsCommon(TransactionCase):

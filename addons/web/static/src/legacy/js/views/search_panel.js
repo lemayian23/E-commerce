@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.searchPanel **/
+/** @ecommerce-module alias=web.searchPanel **/
 
     import { Model, useModel } from "web.Model";
     import { LegacyComponent } from "@web/legacy/legacy_component";

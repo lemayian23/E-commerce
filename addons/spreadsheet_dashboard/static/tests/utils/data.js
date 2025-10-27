@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 export function getDashboardServerData() {
     return {

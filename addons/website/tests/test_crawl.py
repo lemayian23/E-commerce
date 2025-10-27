@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import re
@@ -8,16 +8,16 @@ import time
 import lxml.html
 from werkzeug import urls
 
-import odoo
+import ecommerce
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.common.tagged('post_install', '-at_install', 'crawl')
+@ecommerce.tests.common.tagged('post_install', '-at_install', 'crawl')
 class Crawler(HttpCaseWithUserDemo):
-    """ Test suite crawling an Odoo CMS instance and checking that all
+    """ Test suite crawling an ecommerce CMS instance and checking that all
     internal links lead to a 200 response.
 
     If a username and a password are provided, authenticates the user before
@@ -27,12 +27,12 @@ class Crawler(HttpCaseWithUserDemo):
     def setUp(self):
         super(Crawler, self).setUp()
         self.env.ref('website.default_website').write({
-            'social_facebook': "https://www.facebook.com/Odoo",
-            'social_twitter': 'https://twitter.com/Odoo',
-            'social_linkedin': 'https://www.linkedin.com/company/odoo',
+            'social_facebook': "https://www.facebook.com/ecommerce",
+            'social_twitter': 'https://twitter.com/ecommerce',
+            'social_linkedin': 'https://www.linkedin.com/company/ecommerce',
             'social_youtube': 'https://www.youtube.com/user/OpenERPonline',
-            'social_github': 'https://github.com/odoo',
-            'social_instagram': 'https://www.instagram.com/explore/tags/odoo/',
+            'social_github': 'https://github.com/ecommerce',
+            'social_instagram': 'https://www.instagram.com/explore/tags/ecommerce/',
         })
 
         if hasattr(self.env['res.partner'], 'grade_id'):

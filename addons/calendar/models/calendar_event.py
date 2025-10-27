@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import math
@@ -11,11 +11,11 @@ from werkzeug.urls import url_parse
 import pytz
 import uuid
 
-from odoo import api, fields, models, Command
-from odoo.osv.expression import AND
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.addons.calendar.models.calendar_attendee import Attendee
-from odoo.addons.calendar.models.calendar_recurrence import (
+from ecommerce import api, fields, models, Command
+from ecommerce.osv.expression import AND
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.addons.calendar.models.calendar_attendee import Attendee
+from ecommerce.addons.calendar.models.calendar_recurrence import (
     weekday_to_field,
     RRULE_TYPE_SELECTION,
     END_TYPE_SELECTION,
@@ -23,10 +23,10 @@ from odoo.addons.calendar.models.calendar_recurrence import (
     WEEKDAY_SELECTION,
     BYDAY_SELECTION
 )
-from odoo.tools.translate import _
-from odoo.tools.misc import get_lang
-from odoo.tools import pycompat, html2plaintext, is_html_empty, single_email_re
-from odoo.exceptions import UserError, ValidationError
+from ecommerce.tools.translate import _
+from ecommerce.tools.misc import get_lang
+from ecommerce.tools import pycompat, html2plaintext, is_html_empty, single_email_re
+from ecommerce.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -1332,7 +1332,7 @@ class Meeting(models.Model):
                     elif interval == 'minutes':
                         delta = timedelta(minutes=duration)
                     trigger.value = delta
-                    valarm.add('DESCRIPTION').value = alarm.name or u'Odoo'
+                    valarm.add('DESCRIPTION').value = alarm.name or u'ecommerce'
             for attendee in meeting.attendee_ids:
                 attendee_add = event.add('attendee')
                 attendee_add.value = u'MAILTO:' + (attendee.email or u'')

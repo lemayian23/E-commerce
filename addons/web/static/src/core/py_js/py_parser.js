@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { binaryOperators, comparators } from "./py_tokenizer";
 

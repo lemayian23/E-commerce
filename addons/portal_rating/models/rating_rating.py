@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, exceptions, _
+from ecommerce import fields, models, exceptions, _
 
 
 class Rating(models.Model):

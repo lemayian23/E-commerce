@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.tools.safe_eval import safe_eval
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import models, fields, api, _
+from ecommerce.tools.safe_eval import safe_eval
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class PriceRule(models.Model):

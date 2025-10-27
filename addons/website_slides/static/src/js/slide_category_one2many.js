@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Context from 'web.Context';
 import { FieldOne2Many } from 'web.relational_fields';

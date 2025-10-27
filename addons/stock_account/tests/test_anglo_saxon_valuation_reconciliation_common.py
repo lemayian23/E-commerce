@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo import fields
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce import fields
 
 
 class ValuationReconciliationTestCommon(AccountTestInvoicingCommon):

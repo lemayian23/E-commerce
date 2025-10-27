@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 
-from odoo import Command, tools
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce import Command, tools
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 @tagged('post_install', '-at_install', 'post_install_l10n')
 class TestEfakturCoretax(AccountTestInvoicingCommon):

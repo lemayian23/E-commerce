@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError
-from odoo.tests import common, Form
-from odoo.tools.float_utils import float_round, float_compare
+from ecommerce.exceptions import UserError
+from ecommerce.tests import common, Form
+from ecommerce.tools.float_utils import float_round, float_compare
 
 
 class TestBomPriceCommon(common.TransactionCase):

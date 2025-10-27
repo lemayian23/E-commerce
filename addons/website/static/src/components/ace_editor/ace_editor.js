@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import {ComponentAdapter} from 'web.OwlCompatibility';
 import {useService} from '@web/core/utils/hooks';

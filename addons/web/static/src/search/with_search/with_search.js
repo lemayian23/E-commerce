@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useBus, useService } from "@web/core/utils/hooks";
 import { SearchModel } from "@web/search/search_model";
 import { CallbackRecorder, useSetupAction } from "@web/webclient/actions/action_hook";
 
-import { Component, onWillStart, onWillUpdateProps, toRaw, useSubEnv } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, toRaw, useSubEnv } from "@ecommerce/owl";
 
 export const SEARCH_KEYS = ["comparison", "context", "domain", "groupBy", "orderBy"];
 
@@ -69,7 +69,7 @@ WithSearch.props = {
 
     // search query elements
     comparison: { validate: () => true, optional: true }, // fix problem with validation with type: [Object, null]
-    // Issue OWL: https://github.com/odoo/owl/issues/910
+    // Issue OWL: https://github.com/ecommerce/owl/issues/910
     context: { type: Object, optional: true },
     domain: { type: Array, element: [String, Array], optional: true },
     groupBy: { type: Array, element: String, optional: true },

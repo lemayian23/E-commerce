@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ActionModel from "@web/legacy/js/views/action_model";
 import { makeContext } from "@web/core/context";

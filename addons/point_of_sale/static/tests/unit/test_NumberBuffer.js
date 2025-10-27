@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tests.NumberBuffer', function(require) {
+ecommerce.define('point_of_sale.tests.NumberBuffer', function(require) {
     'use strict';
 
     const NumberBuffer = require('point_of_sale.NumberBuffer');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <!-- Checkout form -->
     <template id="checkout" name="Payment Checkout">
@@ -457,4 +457,4 @@
         </div>
     </template>
 
-</odoo>
+</ecommerce>

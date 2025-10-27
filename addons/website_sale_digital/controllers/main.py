@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import io
 import os
 import mimetypes
 
-from odoo import http
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.addons.sale.controllers.portal import CustomerPortal
+from ecommerce import http
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request
+from ecommerce.addons.sale.controllers.portal import CustomerPortal
 
 
 class WebsiteSaleDigital(CustomerPortal):

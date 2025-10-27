@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Command
-from odoo.tests import tagged
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.sale_loyalty.tests.common import TestSaleCouponCommon
+from ecommerce.addons.sale_loyalty.tests.common import TestSaleCouponCommon
 
 
 @tagged('-at_install', 'post_install')

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.crm.tests import common as crm_common
-from odoo.exceptions import AccessError
-from odoo.tests.common import tagged, users
-from odoo.tools import mute_logger
+from ecommerce.addons.crm.tests import common as crm_common
+from ecommerce.exceptions import AccessError
+from ecommerce.tests.common import tagged, users
+from ecommerce.tools import mute_logger
 
 
 @tagged('lead_manage', 'lead_lost')
@@ -105,7 +105,7 @@ class TestLeadConvert(crm_common.TestCrmCommon):
                           'Feedback should be included directly within tracking message')
 
     @users('user_sales_salesman')
-    @mute_logger('odoo.addons.base.models')
+    @mute_logger('ecommerce.addons.base.models')
     def test_lead_lost_crm_rights(self):
         """ Test ACLs of lost reasons management and usage """
         lead = self.lead_1.with_user(self.env.user)

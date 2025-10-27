@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="website.s_dynamic_snippet_template">
         <!-- TODO In master, replace `d-none` by `o_dynamic_empty` -->
         <section t-attf-class="#{snippet_name} #{snippet_classes} s_dynamic d-none pt32 pb32" t-att-data-snippet="snippet_name">
@@ -57,4 +57,4 @@
     <field name="path">website/static/src/snippets/s_dynamic_snippet/000.xml</field>
 </record>
 
-</odoo>
+</ecommerce>

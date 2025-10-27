@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command, api, models, fields, _, _lt
-from odoo.exceptions import UserError
-from odoo.addons.account_edi_proxy_client.models.account_edi_proxy_user import AccountEdiProxyError
-from odoo.addons.l10n_it_edi.tools.remove_signature import remove_signature
-from odoo.osv.expression import OR, AND
+from ecommerce import Command, api, models, fields, _, _lt
+from ecommerce.exceptions import UserError
+from ecommerce.addons.account_edi_proxy_client.models.account_edi_proxy_user import AccountEdiProxyError
+from ecommerce.addons.l10n_it_edi.tools.remove_signature import remove_signature
+from ecommerce.osv.expression import OR, AND
 
 from lxml import etree
 from datetime import datetime
@@ -948,7 +948,7 @@ class AccountEdiFormat(models.Model):
             return super()._prepare_invoice_report(pdf_writer, edi_document)
         attachment = edi_document.sudo().attachment_id
         if attachment:
-            pdf_writer.embed_odoo_attachment(attachment)
+            pdf_writer.embed_ecommerce_attachment(attachment)
 
     def _is_compatible_with_journal(self, journal):
         # OVERRIDE
@@ -1024,7 +1024,7 @@ class AccountEdiFormat(models.Model):
 
             if invoice._is_commercial_partner_pa():
                 invoice.message_post(
-                    body=(_("Invoices for PA are not managed by Odoo, you can download the document and send it on your own."))
+                    body=(_("Invoices for PA are not managed by ecommerce, you can download the document and send it on your own."))
                 )
                 to_return[invoice] = {'attachment': attachment, 'success': True}
             else:
@@ -1114,7 +1114,7 @@ class AccountEdiFormat(models.Model):
                         ' and request that they provide a solution.'
                         ' During the following 10 days, the Exchange System will try to forward the'
                         ' FatturaPA file to the Public Administration in question again.'
-                        ' Should this also fail, the System will notify Odoo of the failed delivery,'
+                        ' Should this also fail, the System will notify ecommerce of the failed delivery,'
                         ' and you will be required to send the invoice to the Administration'
                         ' through another channel, outside of the Exchange System.')}
                 else:

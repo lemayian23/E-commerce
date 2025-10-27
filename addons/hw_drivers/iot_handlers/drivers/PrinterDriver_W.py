@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from PIL import Image, ImageOps
 import logging
@@ -8,12 +8,12 @@ import io
 import win32print
 import ghostscript
 
-from odoo.addons.hw_drivers.controllers.proxy import proxy_drivers
-from odoo.addons.hw_drivers.driver import Driver
-from odoo.addons.hw_drivers.event_manager import event_manager
-from odoo.addons.hw_drivers.main import iot_devices
-from odoo.addons.hw_drivers.tools import helpers
-from odoo.tools.mimetypes import guess_mimetype
+from ecommerce.addons.hw_drivers.controllers.proxy import proxy_drivers
+from ecommerce.addons.hw_drivers.driver import Driver
+from ecommerce.addons.hw_drivers.event_manager import event_manager
+from ecommerce.addons.hw_drivers.main import iot_devices
+from ecommerce.addons.hw_drivers.tools import helpers
+from ecommerce.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 
@@ -86,7 +86,7 @@ class PrinterDriver(Driver):
             self.send_status()
 
     def send_status(self):
-        """ Sends the current status of the printer to the connected Odoo instance.
+        """ Sends the current status of the printer to the connected ecommerce instance.
         """
         self.data = {
             'value': '',

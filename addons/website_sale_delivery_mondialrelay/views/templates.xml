@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <data>
         <template id="website_sale_delivery_mondialrelay_address_on_payment" inherit_id="website_sale.address_on_payment">
             <xpath expr="//span[@t-esc='order.partner_shipping_id']" position="before">
@@ -22,4 +22,4 @@
             </xpath>
         </template>
     </data>
-</odoo>
+</ecommerce>

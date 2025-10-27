@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import copy
 import hashlib
@@ -16,10 +16,10 @@ import werkzeug.wsgi
 from lxml import etree
 from werkzeug.urls import iri_to_uri
 
-from odoo.tools.translate import JAVASCRIPT_TRANSLATION_COMMENT, WEB_TRANSLATION_COMMENT
-from odoo.tools.misc import file_open
-from odoo import http
-from odoo.http import request
+from ecommerce.tools.translate import JAVASCRIPT_TRANSLATION_COMMENT, WEB_TRANSLATION_COMMENT
+from ecommerce.tools.misc import file_open
+from ecommerce import http
+from ecommerce.http import request
 
 
 _logger = logging.getLogger(__name__)
@@ -107,7 +107,7 @@ def ensure_db(redirect='/web/database/selector', db=None):
 
 
 def fix_view_modes(action):
-    """ For historical reasons, Odoo has weird dealings in relation to
+    """ For historical reasons, ecommerce has weird dealings in relation to
     view_mode and the view_type attribute (on window actions):
 
     * one of the view modes is ``tree``, which stands for both list views

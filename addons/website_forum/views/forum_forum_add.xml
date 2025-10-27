@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <record id="forum_forum_view_form_add" model="ir.ui.view">
     <field name="name">forum.forum.view.form.add</field>
@@ -24,4 +24,4 @@
     <field name="view_id" ref="forum_forum_view_form_add"/>
 </record>
 
-</odoo>
+</ecommerce>

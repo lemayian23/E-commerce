@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 
-from odoo.tools import email_normalize, ReadonlyDict
+from ecommerce.tools import email_normalize, ReadonlyDict
 import logging
 from typing import Iterator, Mapping
 from collections import abc
@@ -13,7 +13,7 @@ _logger = logging.getLogger(__name__)
 
 class GoogleEvent(abc.Set):
     """This helper class holds the values of a Google event.
-    Inspired by Odoo recordset, one instance can be a single Google event or a
+    Inspired by ecommerce recordset, one instance can be a single Google event or a
     (immutable) set of Google events.
     All usual set operations are supported (union, intersection, etc).
 
@@ -70,63 +70,63 @@ class GoogleEvent(abc.Set):
         if self.recurrence and any('RRULE' in item for item in self.recurrence):
             return next(item for item in self.recurrence if 'RRULE' in item)
 
-    def odoo_id(self, env):
-        self.odoo_ids(env)  # load ids
-        return self._odoo_id
+    def ecommerce_id(self, env):
+        self.ecommerce_ids(env)  # load ids
+        return self._ecommerce_id
 
-    def _meta_odoo_id(self, dbname):
-        """Returns the Odoo id stored in the Google Event metadata.
+    def _meta_ecommerce_id(self, dbname):
+        """Returns the ecommerce id stored in the Google Event metadata.
         This id might not actually exists in the database.
         """
         properties = self.extendedProperties and (self.extendedProperties.get('shared', {}) or self.extendedProperties.get('private', {})) or {}
-        o_id = properties.get('%s_odoo_id' % dbname)
+        o_id = properties.get('%s_ecommerce_id' % dbname)
         if o_id:
             return int(o_id)
 
-    def odoo_ids(self, env):
-        ids = tuple(e._odoo_id for e in self if e._odoo_id)
+    def ecommerce_ids(self, env):
+        ids = tuple(e._ecommerce_id for e in self if e._ecommerce_id)
         if len(ids) == len(self):
             return ids
         model = self._get_model(env)
-        found = self._load_odoo_ids_from_db(env, model)
+        found = self._load_ecommerce_ids_from_db(env, model)
         unsure = self - found
         if unsure:
-            unsure._load_odoo_ids_from_metadata(env, model)
+            unsure._load_ecommerce_ids_from_metadata(env, model)
 
-        return tuple(e._odoo_id for e in self)
+        return tuple(e._ecommerce_id for e in self)
 
-    def _load_odoo_ids_from_metadata(self, env, model):
-        unsure_odoo_ids = tuple(e._meta_odoo_id(env.cr.dbname) for e in self)
-        odoo_events = model.browse(_id for _id in unsure_odoo_ids if _id)
+    def _load_ecommerce_ids_from_metadata(self, env, model):
+        unsure_ecommerce_ids = tuple(e._meta_ecommerce_id(env.cr.dbname) for e in self)
+        ecommerce_events = model.browse(_id for _id in unsure_ecommerce_ids if _id)
 
         # Extended properties are copied when splitting a recurrence Google side.
-        # Hence, we may have two Google recurrences linked to the same Odoo id.
-        # Therefore, we only consider Odoo records without google id when trying
+        # Hence, we may have two Google recurrences linked to the same ecommerce id.
+        # Therefore, we only consider ecommerce records without google id when trying
         # to match events.
-        o_ids = odoo_events.exists().filtered(lambda e: not e.google_id).ids
+        o_ids = ecommerce_events.exists().filtered(lambda e: not e.google_id).ids
         for e in self:
-            odoo_id = e._meta_odoo_id(env.cr.dbname)
-            if odoo_id in o_ids:
-                e._events[e.id]['_odoo_id'] = odoo_id
+            ecommerce_id = e._meta_ecommerce_id(env.cr.dbname)
+            if ecommerce_id in o_ids:
+                e._events[e.id]['_ecommerce_id'] = ecommerce_id
 
-    def _load_odoo_ids_from_db(self, env, model):
-        odoo_events = model.with_context(active_test=False)._from_google_ids(self.ids)
-        mapping = {e.google_id: e.id for e in odoo_events}  # {google_id: odoo_id}
-        existing_google_ids = odoo_events.mapped('google_id')
+    def _load_ecommerce_ids_from_db(self, env, model):
+        ecommerce_events = model.with_context(active_test=False)._from_google_ids(self.ids)
+        mapping = {e.google_id: e.id for e in ecommerce_events}  # {google_id: ecommerce_id}
+        existing_google_ids = ecommerce_events.mapped('google_id')
         for e in self:
-            odoo_id = mapping.get(e.id)
-            if odoo_id:
-                e._events[e.id]['_odoo_id'] = odoo_id
+            ecommerce_id = mapping.get(e.id)
+            if ecommerce_id:
+                e._events[e.id]['_ecommerce_id'] = ecommerce_id
         return self.filter(lambda e: e.id in existing_google_ids)
 
 
     def owner(self, env):
-        # Owner/organizer could be desynchronised between Google and Odoo.
+        # Owner/organizer could be desynchronised between Google and ecommerce.
         # Let userA, userB be two new users (never synced to Google before).
-        # UserA creates an event in Odoo (they are the owner) but userB syncs first.
+        # UserA creates an event in ecommerce (they are the owner) but userB syncs first.
         # There is no way to insert the event into userA's calendar since we don't have
         # any authentication access. The event is therefore inserted into userB's calendar
-        # (they are the organizer in Google). The "real" owner (in Odoo) is stored as an
+        # (they are the organizer in Google). The "real" owner (in ecommerce) is stored as an
         # extended property. There is currently no support to "transfert" ownership when
         # userA syncs their calendar the first time.
         real_owner_id = self.extendedProperties and self.extendedProperties.get('shared', {}).get('%s_owner_id' % env.cr.dbname)
@@ -142,7 +142,7 @@ class GoogleEvent(abc.Set):
         elif self.organizer and self.organizer.get('self'):
             return env.user
         elif self.organizer and self.organizer.get('email'):
-            # In Google: 1 email = 1 user; but in Odoo several users might have the same email :/
+            # In Google: 1 email = 1 user; but in ecommerce several users might have the same email :/
             org_email = email_normalize(self.organizer.get('email'))
             return env['res.users'].search([('email_normalized', '=', org_email)], limit=1)
         else:
@@ -153,7 +153,7 @@ class GoogleEvent(abc.Set):
 
     def clear_type_ambiguity(self, env):
         ambiguous_events = self.filter(GoogleEvent._is_type_ambiguous)
-        recurrences = ambiguous_events._load_odoo_ids_from_db(env, env['calendar.recurrence'])
+        recurrences = ambiguous_events._load_ecommerce_ids_from_db(env, env['calendar.recurrence'])
         for recurrence in recurrences:
             self._events[recurrence.id]['recurrence'] = True
         for event in ambiguous_events - recurrences:
@@ -206,10 +206,10 @@ class GoogleEvent(abc.Set):
     def exists(self, env) -> 'GoogleEvent':
         recurrences = self.filter(GoogleEvent.is_recurrence)
         events = self - recurrences
-        recurrences.odoo_ids(env)
-        events.odoo_ids(env)
+        recurrences.ecommerce_ids(env)
+        events.ecommerce_ids(env)
 
-        return self.filter(lambda e: e._odoo_id)
+        return self.filter(lambda e: e._ecommerce_id)
 
     def _is_type_ambiguous(self):
         """For cancelled events/recurrences, Google only send the id and
@@ -233,8 +233,8 @@ class GoogleEvent(abc.Set):
     def is_available(self):
         return self.transparency == 'transparent'
 
-    def get_odoo_event(self, env):
+    def get_ecommerce_event(self, env):
         if self._get_model(env)._name == 'calendar.event':
-            return env['calendar.event'].browse(self.odoo_id(self.env))
+            return env['calendar.event'].browse(self.ecommerce_id(self.env))
         else:
-            return env['calendar.recurrence'].browse(self.odoo_id(self.env)).base_event_id
+            return env['calendar.recurrence'].browse(self.ecommerce_id(self.env)).base_event_id

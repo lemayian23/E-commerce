@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 
-from odoo import fields
-from odoo.tests import Form
-from odoo.addons.mrp.tests.common import TestMrpCommon
-from odoo.exceptions import UserError
+from ecommerce import fields
+from ecommerce.tests import Form
+from ecommerce.addons.mrp.tests.common import TestMrpCommon
+from ecommerce.exceptions import UserError
 
 
 class TestProcurement(TestMrpCommon):

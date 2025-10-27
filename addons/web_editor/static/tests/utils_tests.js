@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import weUtils from 'web_editor.utils';
 
 QUnit.module('web_editor', {}, function () {

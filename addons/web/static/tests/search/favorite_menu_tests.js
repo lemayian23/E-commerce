@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { click, getFixture, patchDate } from "@web/../tests/helpers/utils";
 import { createWebClient, doAction } from "@web/../tests/webclient/helpers";
@@ -18,7 +18,7 @@ import {
     toggleMenuItem,
 } from "@web/../tests/search/helpers";
 
-import { Component, onWillUpdateProps, xml } from "@odoo/owl";
+import { Component, onWillUpdateProps, xml } from "@ecommerce/owl";
 const viewRegistry = registry.category("views");
 const favoriteMenuRegistry = registry.category("favoriteMenu");
 

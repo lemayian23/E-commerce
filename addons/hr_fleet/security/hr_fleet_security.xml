@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="hr_fleet_rule_vehicle_visibility_hr_officier" model="ir.rule">
             <field name="name">Hr Officer read rights on vehicle with employees assigned</field>
@@ -29,4 +29,4 @@
                 ('driver_employee_id.user_id','=',user.id)]</field>
         </record>
     </data>
-</odoo>
+</ecommerce>

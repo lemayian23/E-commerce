@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { isMacOS } from "@web/core/browser/feature_detection";
@@ -9,7 +9,7 @@ import { isVisible } from "@web/core/utils/ui";
 import { registerCleanup } from "./cleanup";
 import { templates } from "@web/core/assets";
 
-import { App, onMounted, onPatched, useComponent } from "@odoo/owl";
+import { App, onMounted, onPatched, useComponent } from "@ecommerce/owl";
 
 /**
  * Patch the native Date object

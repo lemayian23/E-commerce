@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.exceptions import AccessDenied
-from odoo.tools import convert
+from ecommerce import models
+from ecommerce.exceptions import AccessDenied
+from ecommerce.tools import convert
 
 
 class PosSessionCheckProductWizard(models.TransientModel):

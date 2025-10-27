@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 from collections import defaultdict
@@ -9,11 +9,11 @@ import werkzeug.urls
 
 from pytz import utc, timezone
 
-from odoo import api, fields, models, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import ValidationError
-from odoo.osv import expression
-from odoo.tools.misc import get_lang, format_date
+from ecommerce import api, fields, models, _
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.exceptions import ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools.misc import get_lang, format_date
 
 GOOGLE_CALENDAR_URL = 'https://www.google.com/calendar/render?'
 

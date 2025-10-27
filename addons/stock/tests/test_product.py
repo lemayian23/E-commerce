@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Author: Leonardo Pistone
 # Copyright 2015 Camptocamp SA
 
-from odoo.addons.stock.tests.common2 import TestStockCommon
-from odoo.exceptions import UserError
-from odoo.tests.common import Form
+from ecommerce.addons.stock.tests.common2 import TestStockCommon
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import Form
 
 
 class TestVirtualAvailable(TestStockCommon):

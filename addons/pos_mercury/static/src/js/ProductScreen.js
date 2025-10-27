@@ -1,4 +1,4 @@
-odoo.define('pos_mercury.ProductScreen', function (require) {
+ecommerce.define('pos_mercury.ProductScreen', function (require) {
     'use strict';
 
     const ProductScreen = require('point_of_sale.ProductScreen');

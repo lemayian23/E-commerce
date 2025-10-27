@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /* global YT, Vimeo */
 
@@ -599,7 +599,7 @@
                 slideData.hasNext = index < slidesDataList.length-1;
                 // compute embed url
                 if (slideData.category === 'video' && slideData.videoSourceType !== 'vimeo') {
-                    slideData.embedCode = $(slideData.embedCode).attr('src') || ""; // embedCode contains an iframe tag, where src attribute is the url (youtube or embed document from odoo)
+                    slideData.embedCode = $(slideData.embedCode).attr('src') || ""; // embedCode contains an iframe tag, where src attribute is the url (youtube or embed document from ecommerce)
                     var separator = slideData.embedCode.indexOf("?") !== -1 ? "&" : "?";
                     var scheme = slideData.embedCode.indexOf('//') === 0 ? 'https:' : '';
                     var params = { rel: 0, enablejsapi: 1, origin: window.location.origin };

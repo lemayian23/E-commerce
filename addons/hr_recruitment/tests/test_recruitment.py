@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged, TransactionCase
+from ecommerce.tests import tagged, TransactionCase
 
 @tagged('recruitment')
 class TestRecruitment(TransactionCase):
@@ -34,7 +34,7 @@ class TestRecruitment(TransactionCase):
         A, B, C, D, E, F = self.env['hr.applicant'].create([
             {
                 'name': 'Application A',
-                'email_from': 'abc@odoo.com',
+                'email_from': 'abc@ecommerce.com',
                 'partner_phone': '123',
                 'partner_mobile': '14-15-16',
             },
@@ -45,13 +45,13 @@ class TestRecruitment(TransactionCase):
             },
             {
                 'name': 'Application C',
-                'email_from': 'def@odoo.com',
+                'email_from': 'def@ecommerce.com',
                 'partner_phone': '123',
                 'partner_mobile': '14-15-16',
             },
             {
                 'name': 'Application D',
-                'email_from': 'def@odoo.com',
+                'email_from': 'def@ecommerce.com',
                 'partner_phone': '456',
                 'partner_mobile': '14-15-16',
             },

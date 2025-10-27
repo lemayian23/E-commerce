@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo.tools import config
+from ecommerce.tools import config
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteAssets(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteAssets(ecommerce.tests.HttpCase):
 
     def test_01_multi_domain_assets_generation(self):
         Website = self.env['website']

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@ecommerce/owl";
 
 export class DomainSelectorFieldInputWithTags extends Component {
     setup() {

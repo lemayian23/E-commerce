@@ -1,14 +1,14 @@
-odoo.define('wysiwyg.widgets.Link', function (require) {
+ecommerce.define('wysiwyg.widgets.Link', function (require) {
 'use strict';
 
 const core = require('web.core');
-const OdooEditorLib = require('@web_editor/js/editor/odoo-editor/src/OdooEditor');
+const ecommerceEditorLib = require('@web_editor/js/editor/ecommerce-editor/src/ecommerceEditor');
 const Widget = require('web.Widget');
 const {isColorGradient} = require('web_editor.utils');
 
-const getDeepRange = OdooEditorLib.getDeepRange;
-const getInSelection = OdooEditorLib.getInSelection;
-const EMAIL_REGEX = OdooEditorLib.EMAIL_REGEX;
+const getDeepRange = ecommerceEditorLib.getDeepRange;
+const getInSelection = ecommerceEditorLib.getInSelection;
+const EMAIL_REGEX = ecommerceEditorLib.EMAIL_REGEX;
 const _t = core._t;
 
 /**
@@ -72,7 +72,7 @@ const Link = Widget.extend({
         }
 
         if (this.data.range) {
-            this.$link = this.$link || $(OdooEditorLib.getInSelection(this.editable.ownerDocument, 'a'));
+            this.$link = this.$link || $(ecommerceEditorLib.getInSelection(this.editable.ownerDocument, 'a'));
             this.linkEl = this.$link[0];
             this.data.iniClassName = this.$link.attr('class') || '';
             this.colorCombinationClass = false;
@@ -106,7 +106,7 @@ const Link = Widget.extend({
         }
 
         if (!this.data.url) {
-            const urls = this.data.content.match(OdooEditorLib.URL_REGEX_WITH_INFOS);
+            const urls = this.data.content.match(ecommerceEditorLib.URL_REGEX_WITH_INFOS);
             if (urls) {
                 this.data.url = urls[0];
             }

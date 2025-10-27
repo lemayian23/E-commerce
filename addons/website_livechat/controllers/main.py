@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.http import request
-from odoo.addons.im_livechat.controllers.main import LivechatController
+from ecommerce import http, _
+from ecommerce.http import request
+from ecommerce.addons.im_livechat.controllers.main import LivechatController
 
 
 class WebsiteLivechat(LivechatController):

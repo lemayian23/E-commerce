@@ -5,7 +5,7 @@
     'sequence': 210,
     'summary': 'Chat with your website visitors',
     'category': 'Website/Live Chat',
-    'website': 'https://www.odoo.com/app/live-chat',
+    'website': 'https://www.ecommerce.com/app/live-chat',
     'description':
         """
 Live Chat Support
@@ -89,12 +89,12 @@ Help your customers with this chat, and analyse their feedback.
             'im_livechat/static/src/legacy/widgets/*/*',
             'im_livechat/static/src/public_models/*.js',
         ],
-        # Bundle of External Librairies of the Livechat (Odoo + required modules)
+        # Bundle of External Librairies of the Livechat (ecommerce + required modules)
         'im_livechat.external_lib': [
             # Momentjs
             'web/static/lib/moment/moment.js',
             'web/static/lib/luxon/luxon.js',
-            # Odoo minimal lib
+            # ecommerce minimal lib
             'web/static/lib/underscore/underscore.js',
             'web/static/lib/underscore.string/lib/underscore.string.js',
             # jQuery
@@ -104,11 +104,11 @@ Help your customers with this chat, and analyse their feedback.
             'web/static/lib/jquery.ba-bbq/jquery.ba-bbq.js',
             # Qweb2 lib
             'web/static/lib/qweb/qweb2.js',
-            # Odoo JS Framework
+            # ecommerce JS Framework
             'web/static/src/legacy/js/promise_extension.js',
             'web/static/src/boot.js',
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/ecommerce_module.js',
             'web/static/src/owl2_compatibility/*.js',
             'web/static/src/legacy/legacy_component.js',
             'web/static/src/core/browser/browser.js',

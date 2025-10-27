@@ -1,4 +1,4 @@
-from odoo import models, fields, api, _
+from ecommerce import models, fields, api, _
 
 
 class ResConfigSettings(models.TransientModel):

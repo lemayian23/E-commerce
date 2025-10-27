@@ -1,9 +1,9 @@
 """
-This code is what let us use ES6-style modules in odoo.
-Classic Odoo modules are composed of a top-level :samp:`odoo.define({name},{body_function})` call.
-This processor will take files starting with an `@odoo-module` annotation (in a comment) and convert them to classic modules.
-If any file has the ``/** odoo-module */`` on top of it, it will get processed by this class.
-It performs several operations to get from ES6 syntax to the usual odoo one with minimal changes.
+This code is what let us use ES6-style modules in ecommerce.
+Classic ecommerce modules are composed of a top-level :samp:`ecommerce.define({name},{body_function})` call.
+This processor will take files starting with an `@ecommerce-module` annotation (in a comment) and convert them to classic modules.
+If any file has the ``/** ecommerce-module */`` on top of it, it will get processed by this class.
+It performs several operations to get from ES6 syntax to the usual ecommerce one with minimal changes.
 This is done on the fly, this not a pre-processing tool.
 
 Caveat: This is done without a full parser, only using regex. One can only expect to cover as much edge cases
@@ -19,14 +19,14 @@ _logger = logging.getLogger(__name__)
 
 def transpile_javascript(url, content):
     """
-    Transpile the code from native JS modules to custom odoo modules.
+    Transpile the code from native JS modules to custom ecommerce modules.
 
     :param content: The original source code
     :param url: The url of the file in the project
     :return: The transpiled source code
     """
     module_path = url_to_module_path(url)
-    legacy_odoo_define = get_aliased_odoo_define_content(module_path, content)
+    legacy_ecommerce_define = get_aliased_ecommerce_define_content(module_path, content)
 
     # The order of the operations does sometimes matter.
     steps = [
@@ -46,12 +46,12 @@ def transpile_javascript(url, content):
         convert_variable_export,
         convert_object_export,
         convert_default_export,
-        partial(wrap_with_odoo_define, module_path),
+        partial(wrap_with_ecommerce_define, module_path),
     ]
     for s in steps:
         content = s(content)
-    if legacy_odoo_define:
-        content += legacy_odoo_define
+    if legacy_ecommerce_define:
+        content += legacy_ecommerce_define
     return content
 
 
@@ -65,7 +65,7 @@ URL_RE = re.compile(r"""
 
 def url_to_module_path(url):
     """
-    Odoo modules each have a name. (odoo.define("<the name>", async function (require) {...});
+    ecommerce modules each have a name. (ecommerce.define("<the name>", async function (require) {...});
     It is used in to be required later. (const { something } = require("<the name>").
     The transpiler transforms the url of the file in the project to this name.
     It takes the module name and add a @ on the start of it, and map it to be the source of the static/src (or
@@ -95,12 +95,12 @@ def url_to_module_path(url):
         raise ValueError("The js file %r must be in the folder '/static/src' or '/static/lib' or '/static/test'" % url)
 
 
-def wrap_with_odoo_define(module_path, content):
+def wrap_with_ecommerce_define(module_path, content):
     """
-    Wraps the current content (source code) with the odoo.define call.
+    Wraps the current content (source code) with the ecommerce.define call.
     Should logically be called once all other operations have been performed.
     """
-    return f"""odoo.define({module_path!r}, async function (require) {{
+    return f"""ecommerce.define({module_path!r}, async function (require) {{
 'use strict';
 let __exports = {{}};
 {content}
@@ -644,40 +644,40 @@ def relative_path_to_module_path(url, path_rel):
     return url_to_module_path(result)
 
 
-ODOO_MODULE_RE = re.compile(r"""
+ecommerce_MODULE_RE = re.compile(r"""
     \s*                                       # some starting space
     \/(\*|\/).*\s*                            # // or /*
-    @odoo-module                              # @odoo-module
+    @ecommerce-module                              # @ecommerce-module
     (\s+alias=(?P<alias>[\w.]+))?             # alias=web.AbstractAction (optional)
     (\s+default=(?P<default>False|false|0))?  # default=False or false or 0 (optional)
 """, re.VERBOSE)
 
 
-def is_odoo_module(content):
+def is_ecommerce_module(content):
     """
-    Detect if the file is a native odoo module.
-    We look for a comment containing @odoo-module.
+    Detect if the file is a native ecommerce module.
+    We look for a comment containing @ecommerce-module.
 
     :param content: source code
-    :return: is this a odoo module that need transpilation ?
+    :return: is this a ecommerce module that need transpilation ?
     """
-    result = ODOO_MODULE_RE.match(content)
+    result = ecommerce_MODULE_RE.match(content)
     return bool(result)
 
 
-def get_aliased_odoo_define_content(module_path, content):
+def get_aliased_ecommerce_define_content(module_path, content):
     """
     To allow smooth transition between the new system and the legacy one, we have the possibility to
     defined an alternative module name (an alias) that will act as proxy between legacy require calls and
     new modules.
 
     Example:
-    If we have a require call somewhere in the odoo source base being:
+    If we have a require call somewhere in the ecommerce source base being:
     > vat AbstractAction require("web.AbstractAction")
     we have a problem when we will have converted to module to ES6: its new name will be more like
     "web/chrome/abstract_action". So the require would fail !
     So we add a second small modules, an alias, as such:
-    > odoo.define("web/chrome/abstract_action", async function(require) {
+    > ecommerce.define("web/chrome/abstract_action", async function(require) {
     >  return require('web.AbstractAction')[Symbol.for("default")];
     > });
 
@@ -686,9 +686,9 @@ def get_aliased_odoo_define_content(module_path, content):
     .. code-block:: javascript
 
         // before
-        /** @odoo-module */
+        /** @ecommerce-module */
         // after
-        /** @odoo-module alias=web.AbstractAction */
+        /** @ecommerce-module alias=web.AbstractAction */
 
     Notice that often, the legacy system acted like they it did defaukt imports. That's why we have the
     "[Symbol.for("default")];" bit. If your use case does not need this default import, just do:
@@ -696,22 +696,22 @@ def get_aliased_odoo_define_content(module_path, content):
     .. code-block:: javascript
 
         // before
-        /** @odoo-module */
+        /** @ecommerce-module */
         // after
-        /** @odoo-module alias=web.AbstractAction default=false */
+        /** @ecommerce-module alias=web.AbstractAction default=false */
 
     :return: the alias content to append to the source code.
     """
-    matchobj = ODOO_MODULE_RE.match(content)
+    matchobj = ecommerce_MODULE_RE.match(content)
     if matchobj:
         alias = matchobj['alias']
         if alias:
             if matchobj['default']:
-                return """\nodoo.define(`%s`, async function(require) {
+                return """\necommerce.define(`%s`, async function(require) {
                         return require('%s');
                         });\n""" % (alias, module_path)
             else:
-                return """\nodoo.define(`%s`, async function(require) {
+                return """\necommerce.define(`%s`, async function(require) {
                         return require('%s')[Symbol.for("default")];
                         });\n""" % (alias, module_path)
 

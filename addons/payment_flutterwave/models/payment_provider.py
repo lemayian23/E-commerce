@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
@@ -6,10 +6,10 @@ import pprint
 import requests
 from werkzeug.urls import url_join
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment_flutterwave.const import SUPPORTED_CURRENCIES
+from ecommerce.addons.payment_flutterwave.const import SUPPORTED_CURRENCIES
 
 
 _logger = logging.getLogger(__name__)

@@ -1,4 +1,4 @@
-odoo.define('website_forum.tour_forum_question', function (require) {
+ecommerce.define('website_forum.tour_forum_question', function (require) {
     'use strict';
 
     var tour = require("web_tour.tour");
@@ -46,7 +46,7 @@ odoo.define('website_forum.tour_forum_question', function (require) {
         trigger: 'form button:contains("Edit")',
     }, {
         content: "Check that the content is the same",
-        trigger: 'div.odoo-editor-editable p:contains("First Question <p>code here</p>")',
+        trigger: 'div.ecommerce-editor-editable p:contains("First Question <p>code here</p>")',
         run: function () {}, //it's a check
     }, {
         content: "Save changes",

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { createWebClient, doAction } from "@web/../tests/webclient/helpers";
 import { getDashboardServerData } from "./data";

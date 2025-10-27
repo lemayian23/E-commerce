@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { ConnectionLostError, RPCError } from "../core/network/rpc_service";
@@ -7,7 +7,7 @@ import { lostConnectionHandler, rpcErrorHandler } from "@web/core/errors/error_h
 const errorHandlerRegistry = registry.category("error_handlers");
 
 /**
- * @typedef {import("../env").OdooEnv} OdooEnv
+ * @typedef {import("../env").ecommerceEnv} ecommerceEnv
  * @typedef {import("../core/errors/error_service").UncaughtError} UncaughError
  */
 
@@ -16,7 +16,7 @@ const errorHandlerRegistry = registry.category("error_handlers");
 // -----------------------------------------------------------------------------
 
 /**
- * @param {OdooEnv} env
+ * @param {ecommerceEnv} env
  * @param {UncaughError} error
  * @param {Error} originalError
  * @returns {boolean}

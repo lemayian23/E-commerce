@@ -1,4 +1,4 @@
-odoo.define('payment_flutterwave.payment_form', require => {
+ecommerce.define('payment_flutterwave.payment_form', require => {
     'use strict';
 
     const checkoutForm = require('payment.checkout_form');

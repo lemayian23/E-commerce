@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.Gui', function (require) {
+ecommerce.define('point_of_sale.Gui', function (require) {
     'use strict';
 
     const { status } = owl;

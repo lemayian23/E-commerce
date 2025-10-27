@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.web_editor.tools import get_video_embed_code, get_video_thumbnail
+from ecommerce.addons.web_editor.tools import get_video_embed_code, get_video_thumbnail
 
 
 class ProductImage(models.Model):

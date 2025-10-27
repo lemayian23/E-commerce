@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import pycompat
 
 
 class PrivacyLookupWizard(models.TransientModel):

@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.PosContext', function (require) {
+ecommerce.define('point_of_sale.PosContext', function (require) {
     'use strict';
     const { reactive } = owl;
 

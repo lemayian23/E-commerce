@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
 
 from werkzeug.exceptions import Forbidden
 
-from odoo import http
-from odoo.exceptions import ValidationError
-from odoo.http import request
-from odoo.tools import consteq
+from ecommerce import http
+from ecommerce.exceptions import ValidationError
+from ecommerce.http import request
+from ecommerce.tools import consteq
 
 _logger = logging.getLogger(__name__)
 

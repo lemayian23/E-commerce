@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { registry } from "@web/core/registry";
 import { clearRegistryWithCleanup, makeTestEnv } from "../helpers/mock_env";
 import { patch, unpatch } from "@web/core/utils/patch";
 import { getFixture, mount, nextTick } from "../helpers/utils";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@ecommerce/owl";
 const mainComponentsRegistry = registry.category("main_components");
 
 let target;
@@ -71,7 +71,7 @@ QUnit.module("Components", (hooks) => {
             ev.preventDefault();
         };
         window.addEventListener("unhandledrejection", handler);
-        // fake error service so that the odoo qunit handlers don't think that they need to handle the error
+        // fake error service so that the ecommerce qunit handlers don't think that they need to handle the error
         registry.category("services").add("error", { start: () => {} });
         patch(QUnit, "MainComponentsContainer QUnit patch", {
             onUnhandledRejection: () => {},
@@ -126,7 +126,7 @@ QUnit.module("Components", (hooks) => {
             ev.preventDefault();
         };
         window.addEventListener("unhandledrejection", handler);
-        // fake error service so that the odoo qunit handlers don't think that they need to handle the error
+        // fake error service so that the ecommerce qunit handlers don't think that they need to handle the error
         registry.category("services").add("error", { start: () => {} });
         patch(QUnit, "MainComponentsContainer QUnit patch", {
             onUnhandledRejection: () => {},

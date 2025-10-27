@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import * as utils from '@mail/js/utils';
 import { start, startServer } from "@mail/../tests/helpers/test_utils";
@@ -18,8 +18,8 @@ QUnit.test('add_link utility function', function (assert) {
         'www.127.0.0.5': false,
         'should.notmatch': false,
         'fhttps://test.example.com/test': false,
-        "https://www.transifex.com/odoo/odoo-11/translate/#fr/lunch?q=text%3A'La+Tartiflette'": true,
-        'https://www.transifex.com/odoo/odoo-11/translate/#fr/$/119303430?q=text%3ATartiflette': true,
+        "https://www.transifex.com/ecommerce/ecommerce-11/translate/#fr/lunch?q=text%3A'La+Tartiflette'": true,
+        'https://www.transifex.com/ecommerce/ecommerce-11/translate/#fr/$/119303430?q=text%3ATartiflette': true,
         'https://tenor.com/view/chỗgiặt-dog-smile-gif-13860250': true,
         'http://www.boîtenoire.be': true,
         // Subdomain different than `www` with long domain name
@@ -29,7 +29,7 @@ QUnit.test('add_link utility function', function (assert) {
         // Long domain name with www
         'https://www.veryveryveryveryverylongdomainname.com/example': true,
         // Subdomain with numbers
-        'https://www.45017478-master-all.runbot134.odoo.com/web': true,
+        'https://www.45017478-master-all.runbot134.ecommerce.com/web': true,
         "https://x.com": true,
     };
 
@@ -157,7 +157,7 @@ QUnit.test("url", async (assert) => {
     });
     await openDiscuss();
     // see: https://www.ietf.org/rfc/rfc1738.txt
-    const messageBody = "https://odoo.com?test=~^|`{}[]#";
+    const messageBody = "https://ecommerce.com?test=~^|`{}[]#";
     await insertText(".o_ComposerTextInput_textarea", messageBody);
     await click("button:contains(Send)");
     assert.containsOnce($, `.o_Message a:contains(${messageBody})`);
@@ -172,10 +172,10 @@ QUnit.test("url with comma at the end", async (assert) => {
         },
     });
     await openDiscuss();
-    const messageBody = "Go to https://odoo.com, it's great!";
+    const messageBody = "Go to https://ecommerce.com, it's great!";
     await insertText(".o_ComposerTextInput_textarea", messageBody);
     await click("button:contains(Send)");
-    assert.containsOnce($, `.o_Message a:contains(https://odoo.com)`);
+    assert.containsOnce($, `.o_Message a:contains(https://ecommerce.com)`);
     assert.containsOnce($, `.o_Message:contains(${messageBody})`);
 });
 
@@ -188,10 +188,10 @@ QUnit.test("url with dot at the end", async (assert) => {
         },
     });
     await openDiscuss();
-    const messageBody = "Go to https://odoo.com. It's great!";
+    const messageBody = "Go to https://ecommerce.com. It's great!";
     await insertText(".o_ComposerTextInput_textarea", messageBody);
     await click("button:contains(Send)");
-    assert.containsOnce($, `.o_Message a:contains(https://odoo.com)`);
+    assert.containsOnce($, `.o_Message a:contains(https://ecommerce.com)`);
     assert.containsOnce($, `.o_Message:contains(${messageBody})`);
 });
 
@@ -204,10 +204,10 @@ QUnit.test("url with semicolon at the end", async (assert) => {
         },
     });
     await openDiscuss();
-    const messageBody = "Go to https://odoo.com; it's great!";
+    const messageBody = "Go to https://ecommerce.com; it's great!";
     await insertText(".o_ComposerTextInput_textarea", messageBody);
     await click("button:contains(Send)");
-    assert.containsOnce($, `.o_Message a:contains(https://odoo.com)`);
+    assert.containsOnce($, `.o_Message a:contains(https://ecommerce.com)`);
     assert.containsOnce($, `.o_Message:contains(${messageBody})`);
 });
 
@@ -220,10 +220,10 @@ QUnit.test("url with ellipsis at the end", async (assert) => {
         },
     });
     await openDiscuss();
-    const messageBody = "Go to https://odoo.com... it's great!";
+    const messageBody = "Go to https://ecommerce.com... it's great!";
     await insertText(".o_ComposerTextInput_textarea", messageBody);
     await click("button:contains(Send)");
-    assert.containsOnce($, `.o_Message a:contains(https://odoo.com)`);
+    assert.containsOnce($, `.o_Message a:contains(https://ecommerce.com)`);
     assert.containsOnce($, `.o_Message:contains(${messageBody})`);
 });
 

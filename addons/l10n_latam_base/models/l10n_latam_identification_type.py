@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api
-from odoo.osv import expression
+from ecommerce import models, fields, api
+from ecommerce.osv import expression
 
 
 class L10nLatamIdentificationType(models.Model):

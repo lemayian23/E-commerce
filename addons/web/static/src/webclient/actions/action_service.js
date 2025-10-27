@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { makeContext } from "@web/core/context";
@@ -24,7 +24,7 @@ import {
     useChildSubEnv,
     xml,
     reactive,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 const actionHandlersRegistry = registry.category("action_handlers");
 const actionRegistry = registry.category("actions");
@@ -1029,7 +1029,7 @@ function makeActionManager(env) {
                     "table-breaking between pages."
             ) + link,
         workers: env._t(
-            "You need to start Odoo with at least two workers to print a pdf version of " +
+            "You need to start ecommerce with at least two workers to print a pdf version of " +
                 "the reports."
         ),
     };

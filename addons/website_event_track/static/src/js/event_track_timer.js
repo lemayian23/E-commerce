@@ -1,4 +1,4 @@
-odoo.define('website_event_track.website_event_track_timer', function (require) {
+ecommerce.define('website_event_track.website_event_track_timer', function (require) {
 
 'use strict';
 

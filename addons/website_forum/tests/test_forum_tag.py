@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_forum.tests.common import TestForumCommon
+from ecommerce.addons.website_forum.tests.common import TestForumCommon
 
 
 class TestForumTag(TestForumCommon):

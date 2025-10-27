@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import MagicMock, patch
 
-from odoo.addons.google_calendar.utils.google_calendar import GoogleCalendarService
-from odoo.addons.google_account.models.google_service import GoogleService
-from odoo.addons.google_calendar.models.res_users import User
-from odoo.addons.google_calendar.models.google_sync import GoogleSync
-from odoo.tests.common import HttpCase, new_test_user
+from ecommerce.addons.google_calendar.utils.google_calendar import GoogleCalendarService
+from ecommerce.addons.google_account.models.google_service import GoogleService
+from ecommerce.addons.google_calendar.models.res_users import User
+from ecommerce.addons.google_calendar.models.google_sync import GoogleSync
+from ecommerce.tests.common import HttpCase, new_test_user
 from freezegun import freeze_time
 from contextlib import contextmanager
 

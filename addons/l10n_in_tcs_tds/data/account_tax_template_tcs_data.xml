@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="tcs_1_us_206c_1_alfhc" model="account.tax.template">
         <field name="name">TCS @1% u/s 206C(1): Alcoholic Liquor for human consumption
     </field>
@@ -929,4 +929,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

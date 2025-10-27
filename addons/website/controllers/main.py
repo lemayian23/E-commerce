@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import datetime
 import json
@@ -17,18 +17,18 @@ from textwrap import shorten
 from werkzeug.exceptions import NotFound
 from xml.etree import ElementTree as ET
 
-import odoo
+import ecommerce
 
-from odoo import http, models, fields, _
-from odoo.exceptions import AccessError
-from odoo.http import request, SessionExpiredException
-from odoo.osv import expression
-from odoo.tools import OrderedSet, escape_psql, html_escape as escape
-from odoo.addons.http_routing.models.ir_http import slug, slugify, _guess_mimetype
-from odoo.addons.portal.controllers.portal import pager as portal_pager
-from odoo.addons.portal.controllers.web import Home
-from odoo.addons.web.controllers.binary import Binary
-from odoo.addons.website.tools import get_base_domain
+from ecommerce import http, models, fields, _
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request, SessionExpiredException
+from ecommerce.osv import expression
+from ecommerce.tools import OrderedSet, escape_psql, html_escape as escape
+from ecommerce.addons.http_routing.models.ir_http import slug, slugify, _guess_mimetype
+from ecommerce.addons.portal.controllers.portal import pager as portal_pager
+from ecommerce.addons.portal.controllers.web import Home
+from ecommerce.addons.web.controllers.binary import Binary
+from ecommerce.addons.website.tools import get_base_domain
 
 logger = logging.getLogger(__name__)
 
@@ -315,7 +315,7 @@ class Website(Home):
         values = {
             'apps': apps,
             'l10n': l10n,
-            'version': odoo.service.common.exp_version()
+            'version': ecommerce.service.common.exp_version()
         }
         return request.render('website.website_info', values)
 

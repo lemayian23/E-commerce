@@ -1,14 +1,14 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 const { DateTime } = luxon;
 
 /**
  * Widget in the settings that handles a part of the "About" section.
- * Contains info about the odoo version, database expiration date and copyrights.
+ * Contains info about the ecommerce version, database expiration date and copyrights.
  */
 class ResConfigEdition extends Component {
     setup() {

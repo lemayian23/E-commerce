@@ -1,9 +1,9 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { useService } from "@web/core/utils/hooks";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
 import { FormRenderer } from "@web/views/form/form_renderer";
 
-import { Component, onMounted, useExternalListener, useState, useRef } from "@odoo/owl";
+import { Component, onMounted, useExternalListener, useState, useRef } from "@ecommerce/owl";
 
 const ACTION_SELECTORS = [
     ".o_kanban_quick_add",

@@ -1,4 +1,4 @@
-odoo.define('web.favorite_menu_tests', function (require) {
+ecommerce.define('web.favorite_menu_tests', function (require) {
     "use strict";
 
     const { browser } = require('@web/core/browser/browser');

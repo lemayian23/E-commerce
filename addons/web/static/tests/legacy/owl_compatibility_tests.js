@@ -1,4 +1,4 @@
-odoo.define('web.OwlCompatibilityTests', function (require) {
+ecommerce.define('web.OwlCompatibilityTests', function (require) {
     "use strict";
 
     const fieldRegistry = require('web.field_registry');

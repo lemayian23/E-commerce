@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { FloatField } from "@web/views/fields/float/float_field";
 import { registry } from "@web/core/registry";

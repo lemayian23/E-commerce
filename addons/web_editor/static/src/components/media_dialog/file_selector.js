@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useService } from '@web/core/utils/hooks';
 import { ConfirmationDialog } from '@web/core/confirmation_dialog/confirmation_dialog';
@@ -7,7 +7,7 @@ import { KeepLast } from "@web/core/utils/concurrency";
 import { useDebounced } from "@web/core/utils/timing";
 import { SearchMedia } from './search_media';
 
-import { Component, xml, useState, useRef, onWillStart } from "@odoo/owl";
+import { Component, xml, useState, useRef, onWillStart } from "@ecommerce/owl";
 
 export const IMAGE_MIMETYPES = ['image/jpg', 'image/jpeg', 'image/jpe', 'image/png', 'image/svg+xml', 'image/gif'];
 export const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.jpe', '.png', '.svg', '.gif'];
@@ -217,7 +217,7 @@ export class FileSelector extends Component {
             // Reading attachments as a portal user is not permitted and will raise
             // an access error so we catch the error silently and don't return any
             // attachment so he can still use the wizard and upload an attachment
-            if (e.exceptionName !== 'odoo.exceptions.AccessError') {
+            if (e.exceptionName !== 'ecommerce.exceptions.AccessError') {
                 throw e;
             }
         }

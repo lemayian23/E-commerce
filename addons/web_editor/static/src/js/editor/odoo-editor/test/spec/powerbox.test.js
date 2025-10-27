@@ -1,4 +1,4 @@
-import { setSelection } from '../../src/OdooEditor.js';
+import { setSelection } from '../../src/ecommerceEditor.js';
 import { Powerbox } from '../../src/powerbox/Powerbox.js';
 import { BasicEditor, _isMobile, insertText, nextTick, testEditor, triggerEvent } from '../utils.js';
 
@@ -168,7 +168,7 @@ describe('Powerbox', () => {
         });
         it('should execute command on press Enter', async () => {
             const editable = document.createElement('div');
-            editable.classList.add('odoo-editor-editable');
+            editable.classList.add('ecommerce-editor-editable');
             document.body.append(editable);
             const powerbox = new Powerbox({
                 categories: [],
@@ -247,7 +247,7 @@ describe('Powerbox', () => {
         });
         it('should filter commands with filter text', async () => {
             const editable = document.createElement('div');
-            editable.classList.add('odoo-editor-editable');
+            editable.classList.add('ecommerce-editor-editable');
             document.body.append(editable);
             editable.append(document.createTextNode('original text'));
             setSelection(editable.firstChild, 13);
@@ -286,7 +286,7 @@ describe('Powerbox', () => {
         });
         it('should close the Powerbox on remove last filter text with Backspace', async () => {
             const editable = document.createElement('div');
-            editable.classList.add('odoo-editor-editable');
+            editable.classList.add('ecommerce-editor-editable');
             document.body.append(editable);
             editable.append(document.createTextNode('1'));
             setSelection(editable.firstChild, 13);

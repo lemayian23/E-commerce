@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import api, SUPERUSER_ID
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import api, SUPERUSER_ID
 from . import models
 from . import wizard
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-from odoo.tests.common import TransactionCase, Form
-from odoo.exceptions import ValidationError
-from odoo import fields
+from ecommerce.tests.common import TransactionCase, Form
+from ecommerce.exceptions import ValidationError
+from ecommerce import fields
 
 from datetime import date, datetime
 from dateutil.rrule import MO, TU, WE, TH, FR, SA, SU

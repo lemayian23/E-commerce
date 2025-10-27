@@ -1,4 +1,4 @@
-odoo.define('website_sale_delivery.checkout', function (require) {
+ecommerce.define('website_sale_delivery.checkout', function (require) {
 'use strict';
 
 var core = require('web.core');

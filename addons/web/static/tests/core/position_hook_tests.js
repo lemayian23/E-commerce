@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { browser } from "@web/core/browser/browser";
 import { usePosition } from "@web/core/position_hook";
@@ -14,7 +14,7 @@ import {
 } from "../helpers/utils";
 import { localization } from "@web/core/l10n/localization";
 
-import { Component, useRef, xml } from "@odoo/owl";
+import { Component, useRef, xml } from "@ecommerce/owl";
 let container;
 
 /**

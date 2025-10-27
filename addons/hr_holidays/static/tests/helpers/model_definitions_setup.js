@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { insertModelFields } from '@bus/../tests/helpers/model_definitions_helpers';
 

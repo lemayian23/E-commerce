@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import time
 from datetime import datetime
@@ -7,16 +7,16 @@ from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
-from odoo import fields
-from odoo.exceptions import AccessError, ValidationError, UserError
-from odoo.tools import mute_logger, test_reports
+from ecommerce import fields
+from ecommerce.exceptions import AccessError, ValidationError, UserError
+from ecommerce.tools import mute_logger, test_reports
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
 
 class TestHolidaysFlow(TestHrHolidaysCommon):
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_00_leave_request_flow_unlimited(self):
         """ Testing leave request flow: unlimited type of leave request """
         Requests = self.env['hr.leave']
@@ -76,7 +76,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
         self.assertEqual(hol1_user_group.state, 'validate', 'hr_holidays: validates leave request should be in validate state')
 
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_01_leave_request_flow_limited(self):
         """ Testing leave request flow: limited type of leave request """
         with freeze_time('2022-01-15'):
@@ -265,7 +265,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             'employee_id': self.ref('hr.employee_admin'),
             'number_of_days': 1,
         }
-        with mute_logger('odoo.sql_db'):
+        with mute_logger('ecommerce.sql_db'):
             with self.assertRaises(IntegrityError):
                 with self.cr.savepoint():
                     self.env['hr.leave'].create(leave_vals)
@@ -279,7 +279,7 @@ class TestHolidaysFlow(TestHrHolidaysCommon):
             'number_of_days': 1,
         }
         leave = self.env['hr.leave'].create(leave_vals)
-        with mute_logger('odoo.sql_db'):
+        with mute_logger('ecommerce.sql_db'):
             with self.assertRaises(IntegrityError):  # No ValidationError
                 with self.cr.savepoint():
                     leave.write({

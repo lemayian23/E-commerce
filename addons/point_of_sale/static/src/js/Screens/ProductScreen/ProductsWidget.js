@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.ProductsWidget', function(require) {
+ecommerce.define('point_of_sale.ProductsWidget', function(require) {
     'use strict';
 
     const { identifyError } = require('point_of_sale.utils');

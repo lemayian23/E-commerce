@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <template id="portal_my_invoices_payment" name="Payment on My Invoices" inherit_id="account.portal_my_invoices">
         <xpath expr="//t[@t-call='portal.portal_table']/thead/tr/th[last()]" position="before">
             <th></th>
@@ -136,4 +136,4 @@
             </t>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

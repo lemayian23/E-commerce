@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsitePageManager(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsitePageManager(ecommerce.tests.HttpCase):
     def test_page_manager_test_model(self):
         if self.env['website'].search_count([]) == 1:
             website2 = self.env['website'].create({

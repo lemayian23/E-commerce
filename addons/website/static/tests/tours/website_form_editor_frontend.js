@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import tour from 'web_tour.tour';
 import rpc from 'web.rpc';
 
@@ -130,14 +130,14 @@ tour.register("website_form_editor_tour_submit", {
         run: function () {
             const style = window.getComputedStyle(this.$anchor[0].getElementsByClassName('s_website_form_field_hidden_if')[0]);
             if (style.display !== 'none') {
-                console.error('error This field should be invisible when the name is not odoo');
+                console.error('error This field should be invisible when the name is not ecommerce');
             }
         }
     },
     {
         content: "Change name input",
         trigger: "input[name='name']",
-        run: "text odoo",
+        run: "text ecommerce",
     },
     {
         content: "Check if conditional field is visible, it should.",

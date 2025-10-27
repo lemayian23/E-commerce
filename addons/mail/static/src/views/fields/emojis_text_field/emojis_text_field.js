@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { TextField } from "@web/views/fields/text/text_field";
 import { patch } from "@web/core/utils/patch";

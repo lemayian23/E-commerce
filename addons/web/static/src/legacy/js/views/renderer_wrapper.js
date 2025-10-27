@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.RendererWrapper **/
+/** @ecommerce-module alias=web.RendererWrapper **/
 
 
     import { ComponentWrapper } from 'web.OwlCompatibility';

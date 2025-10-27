@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 
-from odoo.api import model
+from ecommerce.api import model
 from typing import Iterator, Mapping
 from collections import abc
-from odoo.tools import ReadonlyDict, email_normalize
-from odoo.addons.microsoft_calendar.utils.event_id_storage import combine_ids
+from ecommerce.tools import ReadonlyDict, email_normalize
+from ecommerce.addons.microsoft_calendar.utils.event_id_storage import combine_ids
 
 
 class MicrosoftEvent(abc.Set):
     """
     This helper class holds the values of a Microsoft event.
-    Inspired by Odoo recordset, one instance can be a single Microsoft event or a
+    Inspired by ecommerce recordset, one instance can be a single Microsoft event or a
     (immutable) set of Microsoft events.
     All usual set operations are supported (union, intersection, etc).
 
@@ -73,31 +73,31 @@ class MicrosoftEvent(abc.Set):
         """
         return tuple(e.iCalUId for e in self)
 
-    def odoo_id(self, env):
-        return self._odoo_id
+    def ecommerce_id(self, env):
+        return self._ecommerce_id
 
-    def _meta_odoo_id(self, microsoft_guid):
-        """Returns the Odoo id stored in the Microsoft Event metadata.
+    def _meta_ecommerce_id(self, microsoft_guid):
+        """Returns the ecommerce id stored in the Microsoft Event metadata.
         This id might not actually exists in the database.
         """
         return None
 
     @property
-    def odoo_ids(self):
+    def ecommerce_ids(self):
         """
-        Get the list of Odoo event ids already mapped with Outlook events (self)
+        Get the list of ecommerce event ids already mapped with Outlook events (self)
         """
-        return tuple(e._odoo_id for e in self if e._odoo_id)
+        return tuple(e._ecommerce_id for e in self if e._ecommerce_id)
 
-    def _load_odoo_ids_from_db(self, env, force_model=None):
+    def _load_ecommerce_ids_from_db(self, env, force_model=None):
         """
-        Map Microsoft events to existing Odoo events:
+        Map Microsoft events to existing ecommerce events:
         1) extract unmapped events only,
-        2) match Odoo events and Outlook events which have both a ICalUId set,
+        2) match ecommerce events and Outlook events which have both a ICalUId set,
         3) match remaining events,
         Returns the list of mapped events
         """
-        mapped_events = [e.id for e in self if e._odoo_id]
+        mapped_events = [e.id for e in self if e._ecommerce_id]
 
         # avoid mapping events if they are already all mapped
         if len(self) == len(mapped_events):
@@ -124,33 +124,33 @@ class MicrosoftEvent(abc.Set):
             """ % model_env._table, (organiser_ids, universal_ids))
 
         res = env.cr.fetchall()
-        odoo_events_ids = [val[0] for val in res]
-        odoo_events = model_env.browse(odoo_events_ids)
+        ecommerce_events_ids = [val[0] for val in res]
+        ecommerce_events = model_env.browse(ecommerce_events_ids)
 
-        # 1. try to match unmapped events with Odoo events using their iCalUId
+        # 1. try to match unmapped events with ecommerce events using their iCalUId
         unmapped_events_with_uids = unmapped_events.filter(lambda e: e.iCalUId)
-        odoo_events_with_uids = odoo_events.filtered(lambda e: e.ms_universal_event_id)
-        mapping = {e.ms_universal_event_id: e.id for e in odoo_events_with_uids}
+        ecommerce_events_with_uids = ecommerce_events.filtered(lambda e: e.ms_universal_event_id)
+        mapping = {e.ms_universal_event_id: e.id for e in ecommerce_events_with_uids}
 
         for ms_event in unmapped_events_with_uids:
-            odoo_id = mapping.get(ms_event.iCalUId)
-            if odoo_id:
-                ms_event._events[ms_event.id]['_odoo_id'] = odoo_id
+            ecommerce_id = mapping.get(ms_event.iCalUId)
+            if ecommerce_id:
+                ms_event._events[ms_event.id]['_ecommerce_id'] = ecommerce_id
                 mapped_events.append(ms_event.id)
 
-        # 2. try to match unmapped events with Odoo events using their id
+        # 2. try to match unmapped events with ecommerce events using their id
         unmapped_events = self.filter(lambda e: e.id not in mapped_events)
-        mapping = {e.ms_organizer_event_id: e for e in odoo_events}
+        mapping = {e.ms_organizer_event_id: e for e in ecommerce_events}
 
         for ms_event in unmapped_events:
-            odoo_event = mapping.get(ms_event.id)
-            if odoo_event:
-                ms_event._events[ms_event.id]['_odoo_id'] = odoo_event.id
+            ecommerce_event = mapping.get(ms_event.id)
+            if ecommerce_event:
+                ms_event._events[ms_event.id]['_ecommerce_id'] = ecommerce_event.id
                 mapped_events.append(ms_event.id)
 
-                # don't forget to also set the global event ID on the Odoo event to ease
+                # don't forget to also set the global event ID on the ecommerce event to ease
                 # and improve reliability of future mappings
-                odoo_event.write({
+                ecommerce_event.write({
                     'microsoft_id': combine_ids(ms_event.id, ms_event.iCalUId),
                     'need_sync_m': False,
                 })
@@ -162,11 +162,11 @@ class MicrosoftEvent(abc.Set):
         Indicates who is the owner of an event (i.e the organizer of the event).
 
         There are several possible cases:
-        1) the current Odoo user is the organizer of the event according to Outlook event, so return his id.
-        2) the current Odoo user is NOT the organizer and:
-           2.1) we are able to find a Odoo user using the Outlook event organizer email address and we use his id,
-           2.2) we are NOT able to find a Odoo user matching the organizer email address and we return False, meaning
-                that no Odoo user will be able to modify this event. All modifications will be done from Outlook.
+        1) the current ecommerce user is the organizer of the event according to Outlook event, so return his id.
+        2) the current ecommerce user is NOT the organizer and:
+           2.1) we are able to find a ecommerce user using the Outlook event organizer email address and we use his id,
+           2.2) we are NOT able to find a ecommerce user matching the organizer email address and we return False, meaning
+                that no ecommerce user will be able to modify this event. All modifications will be done from Outlook.
         """
         if self.isOrganizer:
             return env.user.id
@@ -176,7 +176,7 @@ class MicrosoftEvent(abc.Set):
 
         organizer_email = self.organizer.get('emailAddress') and email_normalize(self.organizer.get('emailAddress').get('address'))
         if organizer_email:
-            # Warning: In Microsoft: 1 email = 1 user; but in Odoo several users might have the same email
+            # Warning: In Microsoft: 1 email = 1 user; but in ecommerce several users might have the same email
             user = env['res.users'].search([('email', '=', organizer_email)], limit=1)
             return user.id if user else False
         return False
@@ -260,19 +260,19 @@ class MicrosoftEvent(abc.Set):
     def cancelled(self):
         return self.filter(lambda e: e.is_cancelled())
 
-    def match_with_odoo_events(self, env) -> 'MicrosoftEvent':
+    def match_with_ecommerce_events(self, env) -> 'MicrosoftEvent':
         """
-        Match Outlook events (self) with existing Odoo events, and return the list of matched events
+        Match Outlook events (self) with existing ecommerce events, and return the list of matched events
         """
         # first, try to match recurrences
         # Note that when a recurrence is removed, there is no field in Outlook data to identify
         # the item as a recurrence, so select all deleted items by default.
         recurrence_candidates = self.filter(lambda x: x.is_recurrence() or x.is_removed())
-        mapped_recurrences = recurrence_candidates._load_odoo_ids_from_db(env, force_model=env["calendar.recurrence"])
+        mapped_recurrences = recurrence_candidates._load_ecommerce_ids_from_db(env, force_model=env["calendar.recurrence"])
 
         # then, try to match events
         events_candidates = (self - mapped_recurrences).filter(lambda x: not x.is_recurrence())
-        mapped_events = events_candidates._load_odoo_ids_from_db(env)
+        mapped_events = events_candidates._load_ecommerce_ids_from_db(env)
 
         return mapped_recurrences | mapped_events
 

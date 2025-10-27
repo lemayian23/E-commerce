@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from freezegun import freeze_time
 
-from odoo import Command, fields
-from odoo.exceptions import UserError
-from odoo.tests import Form
-from odoo.tools.misc import format_date
+from ecommerce import Command, fields
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
+from ecommerce.tools.misc import format_date
 
-from odoo.addons.mrp.tests.common import TestMrpCommon
+from ecommerce.addons.mrp.tests.common import TestMrpCommon
 
 
 class TestMrpOrder(TestMrpCommon):

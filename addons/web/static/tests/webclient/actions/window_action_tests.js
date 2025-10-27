@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -29,7 +29,7 @@ import { WarningDialog } from "@web/core/errors/error_dialogs";
 import { makeFakeUserService, fakeCookieService } from "@web/../tests/helpers/mock_services";
 import * as cpHelpers from "@web/../tests/search/helpers";
 
-import { onMounted } from "@odoo/owl";
+import { onMounted } from "@ecommerce/owl";
 let serverData;
 let target;
 const serviceRegistry = registry.category("services");
@@ -1568,7 +1568,7 @@ QUnit.module("ActionManager", (hooks) => {
     });
 
     QUnit.test("flags field of ir.actions.act_window is used", async function (assert) {
-        // more info about flags field : https://github.com/odoo/odoo/commit/c9b133813b250e89f1f61816b0eabfb9bee2009d
+        // more info about flags field : https://github.com/ecommerce/ecommerce/commit/c9b133813b250e89f1f61816b0eabfb9bee2009d
         assert.expect(6);
         serverData.actions[44] = {
             id: 33,
@@ -2277,7 +2277,7 @@ QUnit.module("ActionManager", (hooks) => {
         assert.expect(2);
 
         registry.category("debug").category("view").add("editView", editView);
-        patchWithCleanup(odoo, { debug: "1" });
+        patchWithCleanup(ecommerce, { debug: "1" });
         const mockRPC = async (route) => {
             if (route.includes("check_access_rights")) {
                 return true;
@@ -2392,12 +2392,12 @@ QUnit.module("ActionManager", (hooks) => {
         serviceRegistry.add("error", errorService);
         registry
             .category("error_dialogs")
-            .add("odoo.exceptions.ValidationError", WarningDialogWait);
+            .add("ecommerce.exceptions.ValidationError", WarningDialogWait);
 
         const mockRPC = (route, args) => {
             if (args.method === "onchange" && args.model === "partner") {
                 const error = new RPCError();
-                error.exceptionName = "odoo.exceptions.ValidationError";
+                error.exceptionName = "ecommerce.exceptions.ValidationError";
                 error.code = 200;
                 return Promise.reject(error);
             }
@@ -2445,11 +2445,11 @@ QUnit.module("ActionManager", (hooks) => {
         const webClient = await createWebClient({ serverData });
         await doAction(webClient, 3); // list view
         const titleService = webClient.env.services.title;
-        assert.strictEqual(titleService.current, '{"zopenerp":"Odoo","action":"Partners"}');
+        assert.strictEqual(titleService.current, '{"zopenerp":"ecommerce","action":"Partners"}');
         await click(target.querySelector(".o_data_row .o_data_cell"));
-        assert.strictEqual(titleService.current, '{"zopenerp":"Odoo","action":"First record"}');
+        assert.strictEqual(titleService.current, '{"zopenerp":"ecommerce","action":"First record"}');
         await click(target.querySelector(".o_pager_next"));
-        assert.strictEqual(titleService.current, '{"zopenerp":"Odoo","action":"Second record"}');
+        assert.strictEqual(titleService.current, '{"zopenerp":"ecommerce","action":"Second record"}');
     });
 
     QUnit.test("action part of title is updated when an action is mounted", async (assert) => {
@@ -2462,7 +2462,7 @@ QUnit.module("ActionManager", (hooks) => {
         const webClient = await createWebClient({ serverData });
         await doAction(webClient, 3);
         const titleService = webClient.env.services.title;
-        assert.strictEqual(titleService.current, '{"zopenerp":"Odoo","action":"Partners"}');
+        assert.strictEqual(titleService.current, '{"zopenerp":"ecommerce","action":"Partners"}');
     });
 
     QUnit.test("action group_by of type string", async function (assert) {

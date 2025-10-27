@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
 
-@tagged("odoobot")
-class TestOdoobot(TestMailCommon, TestRecipients):
+@tagged("ecommercebot")
+class Testecommercebot(TestMailCommon, TestRecipients):
 
     @classmethod
     def setUpClass(cls):
-        super(TestOdoobot, cls).setUpClass()
+        super(Testecommercebot, cls).setUpClass()
         cls.test_record = cls.env['mail.test.simple'].with_context(cls._test_context).create({'name': 'Test', 'email_from': 'ignasse@example.com'})
 
-        cls.odoobot = cls.env.ref("base.partner_root")
+        cls.ecommercebot = cls.env.ref("base.partner_root")
         cls.message_post_default_kwargs = {
             'body': '',
             'attachment_ids': [],
@@ -24,55 +24,55 @@ class TestOdoobot(TestMailCommon, TestRecipients):
             'partner_ids': [],
             'subtype_xmlid': 'mail.mt_comment'
         }
-        cls.odoobot_ping_body = '<a href="http://odoo.com/web#model=res.partner&amp;id=%s" class="o_mail_redirect" data-oe-id="%s" data-oe-model="res.partner" target="_blank">@OdooBot</a>' % (cls.odoobot.id, cls.odoobot.id)
+        cls.ecommercebot_ping_body = '<a href="http://ecommerce.com/web#model=res.partner&amp;id=%s" class="o_mail_redirect" data-oe-id="%s" data-oe-model="res.partner" target="_blank">@ecommerceBot</a>' % (cls.ecommercebot.id, cls.ecommercebot.id)
         cls.test_record_employe = cls.test_record.with_user(cls.user_employee)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_fetch_listener(self):
-        channel = self.user_employee.with_user(self.user_employee)._init_odoobot()
-        odoobot = self.env.ref("base.partner_root")
-        odoobot_in_fetch_listeners = self.env['mail.channel.member'].search([('channel_id', '=', channel.id), ('partner_id', '=', odoobot.id)])
-        self.assertEqual(len(odoobot_in_fetch_listeners), 1, 'odoobot should appear only once in channel_fetch_listeners')
+        channel = self.user_employee.with_user(self.user_employee)._init_ecommercebot()
+        ecommercebot = self.env.ref("base.partner_root")
+        ecommercebot_in_fetch_listeners = self.env['mail.channel.member'].search([('channel_id', '=', channel.id), ('partner_id', '=', ecommercebot.id)])
+        self.assertEqual(len(ecommercebot_in_fetch_listeners), 1, 'ecommercebot should appear only once in channel_fetch_listeners')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
-    def test_odoobot_ping(self):
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
+    def test_ecommercebot_ping(self):
         kwargs = self.message_post_default_kwargs.copy()
-        kwargs.update({'body': self.odoobot_ping_body, 'partner_ids': [self.odoobot.id, self.user_admin.partner_id.id]})
+        kwargs.update({'body': self.ecommercebot_ping_body, 'partner_ids': [self.ecommercebot.id, self.user_admin.partner_id.id]})
 
         with patch('random.choice', lambda x: x[0]):
             self.assertNextMessage(
                 self.test_record_employe.with_context({'mail_post_autofollow': True}).message_post(**kwargs),
-                sender=self.odoobot,
+                sender=self.ecommercebot,
                 answer=False
             )
-        # Odoobot should not be a follower but user_employee and user_admin should
+        # ecommercebot should not be a follower but user_employee and user_admin should
         follower = self.test_record.message_follower_ids.mapped('partner_id')
-        self.assertNotIn(self.odoobot, follower)
+        self.assertNotIn(self.ecommercebot, follower)
         self.assertIn(self.user_employee.partner_id, follower)
         self.assertIn(self.user_admin.partner_id, follower)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_onboarding_flow(self):
         kwargs = self.message_post_default_kwargs.copy()
-        channel = self.user_employee.with_user(self.user_employee)._init_odoobot()
+        channel = self.user_employee.with_user(self.user_employee)._init_ecommercebot()
 
         kwargs['body'] = 'tagada 😊'
         last_message = self.assertNextMessage(
             channel.message_post(**kwargs),
-            sender=self.odoobot,
+            sender=self.ecommercebot,
             answer=("help",)
         )
         channel.execute_command_help()
         self.assertNextMessage(
-            last_message,  # no message will be post with command help, use last odoobot message instead
-            sender=self.odoobot,
-            answer=("@OdooBot",)
+            last_message,  # no message will be post with command help, use last ecommercebot message instead
+            sender=self.ecommercebot,
+            answer=("@ecommerceBot",)
         )
         kwargs['body'] = ''
         kwargs['partner_ids'] = [self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")]
         self.assertNextMessage(
             channel.message_post(**kwargs),
-            sender=self.odoobot,
+            sender=self.ecommercebot,
             answer=("attachment",)
         )
         kwargs['body'] = ''
@@ -85,34 +85,34 @@ class TestOdoobot(TestMailCommon, TestRecipients):
         # For the end of the flow, we only test that the state changed, but not to which
         # one since it depends on the intalled apps, which can add more steps (like livechat)
         channel.message_post(**kwargs)
-        self.assertNotEqual(self.user_employee.odoobot_state, 'onboarding_attachement')
+        self.assertNotEqual(self.user_employee.ecommercebot_state, 'onboarding_attachement')
 
         # Test miscellaneous messages
-        self.user_employee.odoobot_state = "idle"
+        self.user_employee.ecommercebot_state = "idle"
         kwargs['partner_ids'] = []
         kwargs['body'] = "I love you"
         self.assertNextMessage(
             channel.message_post(**kwargs),
-            sender=self.odoobot,
+            sender=self.ecommercebot,
             answer=("too human for me",)
         )
         kwargs['body'] = "Go fuck yourself"
         self.assertNextMessage(
             channel.message_post(**kwargs),
-            sender=self.odoobot,
+            sender=self.ecommercebot,
             answer=("I have feelings",)
         )
         kwargs['body'] = "help me"
         self.assertNextMessage(
             channel.message_post(**kwargs),
-            sender=self.odoobot,
+            sender=self.ecommercebot,
             answer=("If you need help",)
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
-    def test_odoobot_no_default_answer(self):
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
+    def test_ecommercebot_no_default_answer(self):
         kwargs = self.message_post_default_kwargs.copy()
-        kwargs.update({'body': "I'm not talking to @odoobot right now", 'partner_ids': []})
+        kwargs.update({'body': "I'm not talking to @ecommercebot right now", 'partner_ids': []})
         self.assertNextMessage(
             self.test_record_employe.message_post(**kwargs),
             answer=False

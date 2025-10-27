@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from markupsafe import Markup
 
-from odoo.tests.common import TransactionCase, users
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.exceptions import AccessError
-from odoo.tests import tagged
-from odoo.tools import mute_logger, convert_file
-from odoo.modules.module import get_module_resource
+from ecommerce.tests.common import TransactionCase, users
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger, convert_file
+from ecommerce.modules.module import get_module_resource
 
 
 @tagged('post_install', '-at_install')
@@ -36,7 +36,7 @@ class TestSmsTemplateAccessRights(TransactionCase):
         cls.partner = cls.env['res.partner'].create({'name': 'Test Partner'})
 
     @users('user_employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_access_rights_user(self):
         # Check if a member of group_user can only read on sms.template
         for sms_template in self.env['sms.template'].browse(self.sms_templates.ids):
@@ -53,7 +53,7 @@ class TestSmsTemplateAccessRights(TransactionCase):
                 sms_template.unlink()
 
     @users('user_system')
-    @mute_logger('odoo.models.unlink', 'odoo.addons.base.models.ir_model')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.base.models.ir_model')
     def test_access_rights_system(self):
         admin = self.env.ref('base.user_admin')
         for sms_template in self.env['sms.template'].browse(self.sms_templates.ids):
@@ -133,6 +133,6 @@ class TestSMSTemplateReset(TransactionCase):
         reset_action = sms_template_reset.reset_template()
         self.assertTrue(reset_action)
 
-        self.assertEqual(sms_template.body.strip(), Markup('<div>Hello Odoo</div>'))
+        self.assertEqual(sms_template.body.strip(), Markup('<div>Hello ecommerce</div>'))
         # Name is not there in the data file template, so it should be set to False
         self.assertFalse(sms_template.name, "Name should be set to False")

@@ -1,4 +1,4 @@
-odoo.define('web.session', function (require) {
+ecommerce.define('web.session', function (require) {
 "use strict";
 
 var Session = require('web.Session');

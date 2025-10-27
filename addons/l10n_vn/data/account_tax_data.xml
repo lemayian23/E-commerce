@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<?xml version="1.0" encoding="utf-8"?>
+<ecommerce>
     <!-- Tax Definitions -->
     <!-- for purchase -->
     <record id="tax_purchase_vat10" model="account.tax.template">
@@ -173,4 +173,4 @@
                 (0,0, {'repartition_type': 'tax'}),
             ]"/>
     </record>
-</odoo>
+</ecommerce>

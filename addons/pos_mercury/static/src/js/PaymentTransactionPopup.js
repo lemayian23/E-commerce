@@ -1,4 +1,4 @@
-odoo.define('pos_mercury.PaymentTransactionPopup', function(require) {
+ecommerce.define('pos_mercury.PaymentTransactionPopup', function(require) {
     'use strict';
 
     const AbstractAwaitablePopup = require('point_of_sale.AbstractAwaitablePopup');

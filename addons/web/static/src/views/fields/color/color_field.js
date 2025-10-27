@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, useState, onWillUpdateProps } from "@odoo/owl";
+import { Component, useState, onWillUpdateProps } from "@ecommerce/owl";
 
 export class ColorField extends Component {
     setup() {

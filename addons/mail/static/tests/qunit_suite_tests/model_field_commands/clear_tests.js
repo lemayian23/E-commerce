@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { clear } from '@mail/model/model_field_command';
 import { start } from '@mail/../tests/helpers/test_utils';

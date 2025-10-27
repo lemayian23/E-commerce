@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.base.tests.test_ir_actions import TestServerActionsBase
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.base.tests.test_ir_actions import TestServerActionsBase
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('ir_actions')
@@ -19,7 +19,7 @@ class TestServerActionsEmail(TestMailCommon, TestServerActionsBase):
             }
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     def test_action_email(self):
         # initial state
         self.assertEqual(len(self.test_partner.message_ids), 1,

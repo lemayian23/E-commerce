@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import Command
-from odoo.addons.stock.tests.common2 import TestStockCommon
-from odoo.tests import Form
-from odoo.exceptions import UserError
-from odoo.tools import mute_logger
+from ecommerce import Command
+from ecommerce.addons.stock.tests.common2 import TestStockCommon
+from ecommerce.tests import Form
+from ecommerce.exceptions import UserError
+from ecommerce.tools import mute_logger
 
 
 class TestWarehouse(TestStockCommon):

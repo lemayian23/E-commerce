@@ -2,10 +2,10 @@
 
 from reportlab.graphics.barcode import createBarcodeDrawing
 
-from odoo import Command
-from odoo.tests import tagged
-from odoo.exceptions import UserError
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce import Command
+from ecommerce.tests import tagged
+from ecommerce.exceptions import UserError
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')

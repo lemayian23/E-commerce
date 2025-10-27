@@ -1,6 +1,6 @@
-from odoo import fields, Command
-from odoo.exceptions import AccessError
-from odoo.tests.common import TransactionCase
+from ecommerce import fields, Command
+from ecommerce.exceptions import AccessError
+from ecommerce.tests.common import TransactionCase
 
 class TestTokenAccess(TransactionCase):
 
@@ -19,7 +19,7 @@ class TestTokenAccess(TransactionCase):
             user = cls.env['res.users'].create({
                 'name': f'{u}',
                 'login': f'{u}',
-                'email': f'{u}@odoo.com',
+                'email': f'{u}@ecommerce.com',
                 'google_calendar_account_id': credentials.id,
             })
             cls.users += [user]
@@ -27,7 +27,7 @@ class TestTokenAccess(TransactionCase):
         cls.system_user = cls.env['res.users'].create({
             'name': 'system_user',
             'login': 'system_user',
-            'email': 'system_user@odoo.com',
+            'email': 'system_user@ecommerce.com',
             'groups_id': [Command.link(cls.env.ref('base.group_system').id)],
         })
 

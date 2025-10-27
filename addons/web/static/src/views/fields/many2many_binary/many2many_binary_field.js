@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -6,7 +6,7 @@ import { standardFieldProps } from "../standard_field_props";
 import { FileInput } from "@web/core/file_input/file_input";
 import { useX2ManyCrud } from "@web/views/fields/relational_utils";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class Many2ManyBinaryField extends Component {
     setup() {

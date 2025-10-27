@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useCommand } from "@web/core/commands/command_hook";
 import { registry } from "@web/core/registry";
 import { _lt } from "@web/core/l10n/translation";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 export class PriorityField extends Component {
     setup() {

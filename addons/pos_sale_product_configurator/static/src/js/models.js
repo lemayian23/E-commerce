@@ -1,4 +1,4 @@
-odoo.define('pos_sale_product_configurator.models', function (require) {
+ecommerce.define('pos_sale_product_configurator.models', function (require) {
     "use strict";
 
     const { Gui } = require('point_of_sale.Gui');

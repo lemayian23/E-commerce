@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { Many2OneField } from "../many2one/many2one_field";
 
-import { Component, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, onWillUpdateProps, useState } from "@ecommerce/owl";
 
 function valuesEqual(a, b) {
     return a.resId === b.resId && a.resModel === b.resModel;

@@ -1,4 +1,4 @@
-odoo.define('website_sale.recently_viewed', function (require) {
+ecommerce.define('website_sale.recently_viewed', function (require) {
 
 var publicWidget = require('web.public.widget');
 const {getCookie, setCookie} = require('web.utils.cookies');

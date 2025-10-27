@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Chart Template for Defaults -->
     <record id="do_chart_template" model="account.chart.template">
         <field eval="True" name="use_anglo_saxon"/>
@@ -16,4 +16,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="do_niif_99900003"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="do_niif_99900004"/>
     </record>
-</odoo>
+</ecommerce>

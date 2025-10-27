@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * This module exports the list of all available emojis on the client side.

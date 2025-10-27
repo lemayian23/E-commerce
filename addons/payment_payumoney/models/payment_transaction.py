@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_payumoney.controllers.main import PayUMoneyController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_payumoney.controllers.main import PayUMoneyController
 
 
 class PaymentTransaction(models.Model):

@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.models', function (require) {
+ecommerce.define('pos_restaurant.models', function (require) {
 "use strict";
 
 const { PosGlobalState, Order, Orderline, Payment } = require('point_of_sale.models');

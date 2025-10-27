@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { WebsiteTranslator } from '@website/components/translator/translator';
 import { patch } from 'web.utils';

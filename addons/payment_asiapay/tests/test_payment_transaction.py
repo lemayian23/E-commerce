@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
 from freezegun import freeze_time
 
-from odoo.fields import Command
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.payment_asiapay import const
-from odoo.addons.payment_asiapay.tests.common import AsiaPayCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment_asiapay import const
+from ecommerce.addons.payment_asiapay.tests.common import AsiaPayCommon
 
 
 @tagged('post_install', '-at_install')
@@ -46,7 +46,7 @@ class TestPaymentTransaction(AsiaPayCommon, PaymentHttpCommon):
         """ Test that the rendered values are conform to the transaction fields. """
         tx = self._create_transaction(flow='redirect')
         with patch(
-            'odoo.addons.payment_asiapay.models.payment_provider.PaymentProvider'
+            'ecommerce.addons.payment_asiapay.models.payment_provider.PaymentProvider'
             '._asiapay_calculate_signature', return_value='dummy_signature'
         ):
             rendering_values = tx._get_specific_rendering_values(None)
@@ -67,7 +67,7 @@ class TestPaymentTransaction(AsiaPayCommon, PaymentHttpCommon):
                 }
             )
 
-    @mute_logger('odoo.addons.payment.models.payment_transaction')
+    @mute_logger('ecommerce.addons.payment.models.payment_transaction')
     def test_no_input_missing_from_redirect_form(self):
         """ Test that no key is omitted from the rendering values. """
         tx = self._create_transaction(flow='redirect')

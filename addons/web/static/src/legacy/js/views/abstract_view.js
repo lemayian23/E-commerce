@@ -1,14 +1,14 @@
-/** @odoo-module alias=web.AbstractView **/
+/** @ecommerce-module alias=web.AbstractView **/
 
 /**
- * This is the base class inherited by all (JS) views. Odoo JS views are the
+ * This is the base class inherited by all (JS) views. ecommerce JS views are the
  * widgets used to display information in the main area of the web client
  * (note: the search view is not a "JS view" in that sense).
  *
  * The abstract view role is to take a set of fields, an arch (the xml
  * describing the view in db), and some params, and then, to create a
  * controller, a renderer and a model.  This is the classical MVC pattern, but
- * the word 'view' has historical significance in Odoo code, so we replaced the
+ * the word 'view' has historical significance in ecommerce code, so we replaced the
  * V in MVC by the 'renderer' word.
  *
  * JS views are supposed to be used like this:
@@ -31,7 +31,7 @@ import SearchPanel from "web.searchPanel";
 import mvc from 'web.mvc';
 import viewUtils from 'web.viewUtils';
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 var Factory = mvc.Factory;
 

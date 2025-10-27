@@ -1,4 +1,4 @@
-odoo.define('pos_mercury.OrderReceipt', function(require) {
+ecommerce.define('pos_mercury.OrderReceipt', function(require) {
     'use strict';
 
     const OrderReceipt = require('point_of_sale.OrderReceipt');

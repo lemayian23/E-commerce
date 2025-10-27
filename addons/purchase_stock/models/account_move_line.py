@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
-from odoo.tools.float_utils import float_compare, float_is_zero
+from ecommerce import fields, models
+from ecommerce.tools.float_utils import float_compare, float_is_zero
 
 from collections import defaultdict
 

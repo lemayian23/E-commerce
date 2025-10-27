@@ -1,4 +1,4 @@
-from odoo import models, Command, api, _
+from ecommerce import models, Command, api, _
 
 
 class AccountChartTemplate(models.Model):

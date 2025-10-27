@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import logging
@@ -9,25 +9,25 @@ from psycopg2 import DatabaseError
 from werkzeug.exceptions import Forbidden, NotFound
 from werkzeug.urls import url_decode, url_encode, url_parse
 
-from odoo import fields, http, SUPERUSER_ID, tools, _
-from odoo.exceptions import AccessError, MissingError, UserError, ValidationError
-from odoo.fields import Command
-from odoo.http import request
+from ecommerce import fields, http, SUPERUSER_ID, tools, _
+from ecommerce.exceptions import AccessError, MissingError, UserError, ValidationError
+from ecommerce.fields import Command
+from ecommerce.http import request
 
-from odoo.addons.base.models.ir_qweb_fields import nl2br
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment.controllers import portal as payment_portal
-from odoo.addons.payment.controllers.post_processing import PaymentPostProcessing
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.portal.controllers.portal import _build_url_w_params
-from odoo.addons.website.controllers import main
-from odoo.addons.website.controllers.form import WebsiteForm
-from odoo.addons.sale.controllers import portal
-from odoo.osv import expression
-from odoo.tools import lazy
-from odoo.tools.json import scriptsafe as json_scriptsafe
+from ecommerce.addons.base.models.ir_qweb_fields import nl2br
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment.controllers import portal as payment_portal
+from ecommerce.addons.payment.controllers.post_processing import PaymentPostProcessing
+from ecommerce.addons.website.controllers.main import QueryURL
+from ecommerce.addons.website.models.ir_http import sitemap_qs2dom
+from ecommerce.addons.portal.controllers.portal import _build_url_w_params
+from ecommerce.addons.website.controllers import main
+from ecommerce.addons.website.controllers.form import WebsiteForm
+from ecommerce.addons.sale.controllers import portal
+from ecommerce.osv import expression
+from ecommerce.tools import lazy
+from ecommerce.tools.json import scriptsafe as json_scriptsafe
 
 _logger = logging.getLogger(__name__)
 psycopg2_errors_LockNotAvailable = '55P03'

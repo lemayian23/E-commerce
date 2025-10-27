@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 /**
  *
@@ -57,7 +57,7 @@ export default class PivotCorePlugin extends CorePlugin {
 
     allowDispatch(cmd) {
         switch (cmd.type) {
-            case "RENAME_ODOO_PIVOT":
+            case "RENAME_ecommerce_PIVOT":
                 if (!(cmd.pivotId in this.pivots)) {
                     return CommandResult.PivotIdNotFound;
                 }
@@ -106,7 +106,7 @@ export default class PivotCorePlugin extends CorePlugin {
                 this._insertPivot(sheetId, anchor, id, table);
                 break;
             }
-            case "RENAME_ODOO_PIVOT": {
+            case "RENAME_ecommerce_PIVOT": {
                 this.history.update("pivots", cmd.pivotId, "definition", "name", cmd.name);
                 break;
             }
@@ -116,7 +116,7 @@ export default class PivotCorePlugin extends CorePlugin {
                 this.history.update("pivots", pivots);
                 break;
             }
-            case "UPDATE_ODOO_PIVOT_DOMAIN": {
+            case "UPDATE_ecommerce_PIVOT_DOMAIN": {
                 this.history.update(
                     "pivots",
                     cmd.pivotId,
@@ -132,7 +132,7 @@ export default class PivotCorePlugin extends CorePlugin {
             case "UNDO":
             case "REDO": {
                 const domainEditionCommands = cmd.commands.filter(
-                    (cmd) => cmd.type === "UPDATE_ODOO_PIVOT_DOMAIN"
+                    (cmd) => cmd.type === "UPDATE_ecommerce_PIVOT_DOMAIN"
                 );
                 for (const cmd of domainEditionCommands) {
                     const pivot = this.pivots[cmd.pivotId];
@@ -349,7 +349,7 @@ export default class PivotCorePlugin extends CorePlugin {
                         right: anchorLeft + cell.width - 1,
                     });
                 }
-                this._addPivotFormula(sheetId, anchorLeft, anchorTop, "ODOO.PIVOT.HEADER", args);
+                this._addPivotFormula(sheetId, anchorLeft, anchorTop, "ecommerce.PIVOT.HEADER", args);
                 anchorLeft += cell.width;
             }
             anchorTop++;
@@ -437,7 +437,7 @@ export default class PivotCorePlugin extends CorePlugin {
                 args.push(row.fields[i]);
                 args.push(row.values[i]);
             }
-            this._addPivotFormula(sheetId, x, y, "ODOO.PIVOT.HEADER", args);
+            this._addPivotFormula(sheetId, x, y, "ecommerce.PIVOT.HEADER", args);
             if (row.indent <= 2) {
                 const target = [{ top: y, bottom: y, left: x, right: x }];
                 const style = row.indent === 2 ? HEADER_STYLE : TOP_LEVEL_STYLE;
@@ -468,7 +468,7 @@ export default class PivotCorePlugin extends CorePlugin {
                     args.push(col.fields[i]);
                     args.push(col.values[i]);
                 }
-                this._addPivotFormula(sheetId, x, y, "ODOO.PIVOT", args);
+                this._addPivotFormula(sheetId, x, y, "ecommerce.PIVOT", args);
                 y++;
             }
             x++;

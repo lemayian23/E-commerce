@@ -42,20 +42,20 @@ implement tokenization and handle 3DS redirects.
 ## Module history
 
 - `16.0`
-  - Archiving a token no longer deactivates the related payment method on Adyen. odoo/odoo#93774
+  - Archiving a token no longer deactivates the related payment method on Adyen. ecommerce/ecommerce#93774
 - `15.3`
-  - The support for manual capture is added. odoo/odoo#70591
+  - The support for manual capture is added. ecommerce/ecommerce#70591
 - `15.2`
   - An HTTP 404 "Forbidden" error is raised instead of a Validation error when the authenticity of
-    the webhook notification cannot be verified. odoo/odoo#81607
+    the webhook notification cannot be verified. ecommerce/ecommerce#81607
 - `15.0`
-  - The support for both full and partial refunds is added. odoo/odoo#70881
+  - The support for both full and partial refunds is added. ecommerce/ecommerce#70881
   - The Web Drop-in SDK is migrated to version 4.7.3 and the Checkout API to version 67 to switch
-    from relying on origin keys and use client keys instead. odoo/odoo#74827
+    from relying on origin keys and use client keys instead. ecommerce/ecommerce#74827
 - `14.3`
   - The previous Hosted Payment Pages API that allowed for redirect payments is replaced by a
     combination of the Web Drop-in SDK (version 3.9.4) and the Checkout (version 53) and Recurring
-    (version 49) APIs. odoo/odoo#141661
+    (version 49) APIs. ecommerce/ecommerce#141661
 
 ## Testing instructions
 

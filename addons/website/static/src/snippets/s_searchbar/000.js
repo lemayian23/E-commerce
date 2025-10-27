@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import concurrency from 'web.concurrency';
 import publicWidget from 'web.public.widget';

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";

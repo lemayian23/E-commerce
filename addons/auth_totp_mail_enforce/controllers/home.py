@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import logging
-import odoo.addons.auth_totp.controllers.home
+import ecommerce.addons.auth_totp.controllers.home
 
-from odoo import http
-from odoo.exceptions import AccessDenied, UserError
-from odoo.http import request
+from ecommerce import http
+from ecommerce.exceptions import AccessDenied, UserError
+from ecommerce.http import request
 
 _logger = logging.getLogger(__name__)
 
 
-class Home(odoo.addons.auth_totp.controllers.home.Home):
+class Home(ecommerce.addons.auth_totp.controllers.home.Home):
     @http.route()
     def web_totp(self, redirect=None, **kwargs):
         response = super().web_totp(redirect=redirect, **kwargs)

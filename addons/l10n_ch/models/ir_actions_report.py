@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import io
-from odoo import api, models
-from odoo.tools.pdf import OdooPdfFileReader, OdooPdfFileWriter
+from ecommerce import api, models
+from ecommerce.tools.pdf import ecommercePdfFileReader, ecommercePdfFileWriter
 from pathlib import Path
 from reportlab.graphics.shapes import Drawing as ReportLabDrawing, Image as ReportLabImage
 from reportlab.lib.units import mm
@@ -74,13 +74,13 @@ class IrActionsReport(models.Model):
                     )
 
                     for invoice_id, stream in qr_res.items():
-                        qr_pdf = OdooPdfFileReader(stream['stream'], strict=False)
-                        header_pdf = OdooPdfFileReader(header_res[invoice_id]['stream'], strict=False)
+                        qr_pdf = ecommercePdfFileReader(stream['stream'], strict=False)
+                        header_pdf = ecommercePdfFileReader(header_res[invoice_id]['stream'], strict=False)
 
                         page = header_pdf.getPage(0)
                         page.mergePage(qr_pdf.getPage(0))
 
-                        output_pdf = OdooPdfFileWriter()
+                        output_pdf = ecommercePdfFileWriter()
                         output_pdf.addPage(page)
                         new_pdf_stream = io.BytesIO()
                         output_pdf.write(new_pdf_stream)
@@ -97,9 +97,9 @@ class IrActionsReport(models.Model):
             # Add to results
             for invoice_id, additional_stream in streams_to_append.items():
                 invoice_stream = res[invoice_id]['stream']
-                writer = OdooPdfFileWriter()
-                writer.appendPagesFromReader(OdooPdfFileReader(invoice_stream, strict=False))
-                writer.appendPagesFromReader(OdooPdfFileReader(additional_stream['stream'], strict=False))
+                writer = ecommercePdfFileWriter()
+                writer.appendPagesFromReader(ecommercePdfFileReader(invoice_stream, strict=False))
+                writer.appendPagesFromReader(ecommercePdfFileReader(additional_stream['stream'], strict=False))
                 new_pdf_stream = io.BytesIO()
                 writer.write(new_pdf_stream)
                 res[invoice_id]['stream'] = new_pdf_stream

@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { evaluateExpr } from "@web/core/py_js/py";
 import { registry } from "@web/core/registry";
 import { decodeObjectForTemplate } from "@web/views/view_compiler";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const viewWidgetRegistry = registry.category("view_widgets");
 
 function findWidgetComponent(name) {

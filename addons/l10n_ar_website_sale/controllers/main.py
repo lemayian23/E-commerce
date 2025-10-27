@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import _
-from odoo.addons.website_sale.controllers.main import WebsiteSale
-from odoo.http import request
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import _
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce.http import request
 
 
 class L10nARWebsiteSale(WebsiteSale):

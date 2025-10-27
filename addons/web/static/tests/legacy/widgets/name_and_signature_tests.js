@@ -1,4 +1,4 @@
-odoo.define('web.name_and_signature_tests', function (require) {
+ecommerce.define('web.name_and_signature_tests', function (require) {
     "use strict";
 
     const { NameAndSignature } = require("web.name_and_signature");

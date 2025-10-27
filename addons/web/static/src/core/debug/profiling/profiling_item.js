@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { useBus, useService } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class ProfilingItem extends Component {
     setup() {

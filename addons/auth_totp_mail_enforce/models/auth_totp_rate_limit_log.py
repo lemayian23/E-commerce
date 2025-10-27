@@ -1,4 +1,4 @@
-from odoo import fields, models
+from ecommerce import fields, models
 
 
 class AuthTotpRateLimitLog(models.TransientModel):

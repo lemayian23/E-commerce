@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ActivityRecord from '@mail/js/views/activity/activity_record';
 
@@ -16,7 +16,7 @@ const _t = core._t;
 const KanbanActivity = field_registry.get('kanban_activity');
 
 /**
- * Owl Component Adapter for ActivityRecord which is KanbanRecord (Odoo Widget)
+ * Owl Component Adapter for ActivityRecord which is KanbanRecord (ecommerce Widget)
  * TODO: Remove this adapter when ActivityRecord is a Component
  */
 class ActivityRecordAdapter extends ComponentAdapter {
@@ -47,7 +47,7 @@ class ActivityCellAdapter extends ComponentAdapter {
 }
 
 /**
- * Owl Component Adapter for KanbanColumnProgressBar (Odoo Widget)
+ * Owl Component Adapter for KanbanColumnProgressBar (ecommerce Widget)
  * TODO: Remove this adapter when KanbanColumnProgressBar is a Component
  */
 class KanbanColumnProgressBarAdapter extends ComponentAdapter {

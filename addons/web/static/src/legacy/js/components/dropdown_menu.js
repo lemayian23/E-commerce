@@ -1,4 +1,4 @@
-odoo.define('web.DropdownMenu', function (require) {
+ecommerce.define('web.DropdownMenu', function (require) {
     "use strict";
 
     const { _t } = require('web.core');

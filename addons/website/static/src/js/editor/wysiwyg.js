@@ -1,4 +1,4 @@
-odoo.define('website.wysiwyg', function (require) {
+ecommerce.define('website.wysiwyg', function (require) {
 'use strict';
 
 var Wysiwyg = require('web_editor.wysiwyg');
@@ -59,7 +59,7 @@ function checkForExcludedClasses(record, excludedClasses) {
 /**
  * HtmlEditor
  * Intended to edit HTML content. This widget uses the Wysiwyg editor
- * improved by odoo.
+ * improved by ecommerce.
  *
  * class editable: o_editable
  * class non editable: o_not_editable
@@ -115,8 +115,8 @@ const WebsiteWysiwyg = Wysiwyg.extend({
 
         // Overriding the `filterMutationRecords` function so it can be used to
         // filter website-specific mutations.
-        const webEditorFilterMutationRecords = this.odooEditor.options.filterMutationRecords;
-        Object.assign(this.odooEditor.options, {
+        const webEditorFilterMutationRecords = this.ecommerceEditor.options.filterMutationRecords;
+        Object.assign(this.ecommerceEditor.options, {
             /**
              * @override
              */
@@ -414,9 +414,9 @@ const WebsiteWysiwyg = Wysiwyg.extend({
         if (!megaMenuEl || !megaMenuEl.classList.contains('show')) {
             return this.snippetsMenu.activateSnippet(false);
         }
-        this.odooEditor.observerUnactive("toggleMegaMenu");
+        this.ecommerceEditor.observerUnactive("toggleMegaMenu");
         megaMenuEl.classList.add('o_no_parent_editor');
-        this.odooEditor.observerActive("toggleMegaMenu");
+        this.ecommerceEditor.observerActive("toggleMegaMenu");
         return this.snippetsMenu.activateSnippet($(megaMenuEl));
     },
     /**

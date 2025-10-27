@@ -1,5 +1,5 @@
 
-odoo.define('web_editor.custom_colors', function (require) {
+ecommerce.define('web_editor.custom_colors', function (require) {
 'use strict';
 
 // These colors are already normalized as per normalizeCSSColor in web.Colorpicker

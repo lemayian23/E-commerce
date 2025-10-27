@@ -1,4 +1,4 @@
-odoo.define('website_event_booth_sale.tour.WebsiteEventBoothSaleTourMethods', function (require) {
+ecommerce.define('website_event_booth_sale.tour.WebsiteEventBoothSaleTourMethods', function (require) {
     'use strict';
 
     const { changePricelist, checkPriceCart } = require('website_event_sale.tour.WebsiteEventSaleTourMethods');

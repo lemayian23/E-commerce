@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _
-from odoo import osv
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce import osv
+from ecommerce.exceptions import UserError
 
 
 class AccountAccountTag(models.Model):

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { Attachment, FileSelector, IMAGE_MIMETYPES } from './file_selector';
 
@@ -10,7 +10,7 @@ export class DocumentSelector extends FileSelector {
         super.setup();
 
         this.uploadText = this.env._t("Upload a document");
-        this.urlPlaceholder = "https://www.odoo.com/mydocument";
+        this.urlPlaceholder = "https://www.ecommerce.com/mydocument";
         this.addText = this.env._t("Add URL");
         this.searchPlaceholder = this.env._t("Search a document");
         this.allLoadedText = this.env._t("All documents have been loaded");

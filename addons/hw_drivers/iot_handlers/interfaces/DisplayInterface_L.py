@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from re import sub, finditer
 import subprocess
 import RPi.GPIO as GPIO
 import logging
 
-from odoo.addons.hw_drivers.interface import Interface
+from ecommerce.addons.hw_drivers.interface import Interface
 
 
 _logger = logging.getLogger(__name__)

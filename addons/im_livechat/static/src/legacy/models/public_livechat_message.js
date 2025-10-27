@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import * as mailUtils from '@mail/js/utils';
 

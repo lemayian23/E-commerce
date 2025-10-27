@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <!-- Event Categories -->
         <record id="event_type_data_ticket" model="event.type">
@@ -42,4 +42,4 @@
             <field name="fold" eval="True"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

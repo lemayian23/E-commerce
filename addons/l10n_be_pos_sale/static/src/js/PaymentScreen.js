@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import PaymentScreen from 'point_of_sale.PaymentScreen';
 import Registries from 'point_of_sale.Registries';

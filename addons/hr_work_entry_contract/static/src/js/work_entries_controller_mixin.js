@@ -1,4 +1,4 @@
-odoo.define('hr_work_entry_contract.WorkEntryControllerMixin', function(require) {
+ecommerce.define('hr_work_entry_contract.WorkEntryControllerMixin', function(require) {
     'use strict';
 
     var core = require('web.core');

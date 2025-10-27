@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 from markupsafe import Markup
-from odoo import api, fields, Command, models, _
-from odoo.tools import float_round
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import email_split, float_is_zero, float_repr, float_compare, is_html_empty
-from odoo.tools.misc import clean_context, format_date
+from ecommerce import api, fields, Command, models, _
+from ecommerce.tools import float_round
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import email_split, float_is_zero, float_repr, float_compare, is_html_empty
+from ecommerce.tools.misc import clean_context, format_date
 
 
 class HrExpense(models.Model):

@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestUi(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestUi(ecommerce.tests.HttpCase):
 
     @classmethod
     def setUpClass(cls):

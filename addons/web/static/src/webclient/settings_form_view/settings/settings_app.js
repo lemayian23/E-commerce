@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, useState, useEffect, useRef } from "@odoo/owl";
+import { Component, useState, useEffect, useRef } from "@ecommerce/owl";
 
 export class SettingsApp extends Component {
     setup() {

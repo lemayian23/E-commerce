@@ -1,5 +1,5 @@
-from odoo import api, fields, models
-from odoo.http import request
+from ecommerce import api, fields, models
+from ecommerce.http import request
 
 
 class ResUsers(models.Model):

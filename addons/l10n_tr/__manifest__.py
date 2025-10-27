@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Türkiye - Accounting',
     'version': '1.1',
     'category': 'Accounting/Localizations/Account Charts',
     'description': """
-This is the base module to manage the accounting chart for Türkiye in Odoo
+This is the base module to manage the accounting chart for Türkiye in ecommerce
 ==========================================================================
 Türkiye accounting basic charts and localization.
 -------------------------------------------------

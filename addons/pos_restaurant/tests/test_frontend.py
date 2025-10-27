@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+import ecommerce.tests
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestFrontend(AccountTestInvoicingCommon, odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestFrontend(AccountTestInvoicingCommon, ecommerce.tests.HttpCase):
 
     @classmethod
     def setUpClass(cls, chart_template_ref=None):

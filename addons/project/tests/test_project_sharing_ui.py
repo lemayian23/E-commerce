@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import Command
-from odoo.tests import HttpCase, tagged
+from ecommerce import Command
+from ecommerce.tests import HttpCase, tagged
 
 
 @tagged('post_install', '-at_install')

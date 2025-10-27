@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestUiCertification(HttpCaseWithUserDemo):
 
     def setUp(self):

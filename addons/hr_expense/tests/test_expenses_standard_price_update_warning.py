@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.hr_expense.tests.common import TestExpenseCommon
-from odoo.tests import tagged, Form
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.hr_expense.tests.common import TestExpenseCommon
+from ecommerce.tests import tagged, Form
 
 
 @tagged('post_install', '-at_install')

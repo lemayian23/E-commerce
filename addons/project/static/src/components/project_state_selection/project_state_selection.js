@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from '@web/core/registry';
 import { StateSelectionField } from '@web/views/fields/state_selection/state_selection_field';

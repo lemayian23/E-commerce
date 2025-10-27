@@ -4,10 +4,10 @@ import base64
 from freezegun import freeze_time
 from collections import Counter
 
-from odoo.addons.account_edi.tests.common import AccountEdiTestCommon
-from odoo import fields
-from odoo.modules.module import get_resource_path
-from odoo.tests import tagged
+from ecommerce.addons.account_edi.tests.common import AccountEdiTestCommon
+from ecommerce import fields
+from ecommerce.modules.module import get_resource_path
+from ecommerce.tests import tagged
 from lxml import etree
 
 

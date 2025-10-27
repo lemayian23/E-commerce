@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError, ValidationError, RedirectWarning
-from odoo.tools.misc import formatLang, format_date
-from odoo.tools.sql import column_exists, create_column
+from ecommerce import models, fields, api, _
+from ecommerce.exceptions import UserError, ValidationError, RedirectWarning
+from ecommerce.tools.misc import formatLang, format_date
+from ecommerce.tools.sql import column_exists, create_column
 
 INV_LINES_PER_STUB = 9
 

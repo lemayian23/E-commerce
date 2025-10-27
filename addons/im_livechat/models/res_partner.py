@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models, fields
+from ecommerce import api, models, fields
 
 
 class Partners(models.Model):

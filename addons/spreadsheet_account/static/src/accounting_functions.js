@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { sprintf } from "@web/core/utils/strings";
@@ -128,7 +128,7 @@ export function parseAccountingDate(dateRange) {
     }
 }
 
-const ODOO_FIN_ARGS = `
+const ecommerce_FIN_ARGS = `
     account_codes (string) ${_t("The prefix of the accounts.")}
     date_range (string, date) ${_t(
         `The date range. Supported formats are "21/12/2022", "Q1/2022", "12/2022", and "2022".`
@@ -138,9 +138,9 @@ const ODOO_FIN_ARGS = `
     include_unposted (boolean, default=FALSE) ${_t("Set to TRUE to include unposted entries.")}
 `;
 
-functionRegistry.add("ODOO.CREDIT", {
+functionRegistry.add("ecommerce.CREDIT", {
     description: _t("Get the total credit for the specified account(s) and period."),
-    args: args(ODOO_FIN_ARGS),
+    args: args(ecommerce_FIN_ARGS),
     returns: ["NUMBER"],
     compute: function (
         accountCodes,
@@ -175,9 +175,9 @@ functionRegistry.add("ODOO.CREDIT", {
     },
 });
 
-functionRegistry.add("ODOO.DEBIT", {
+functionRegistry.add("ecommerce.DEBIT", {
     description: _t("Get the total debit for the specified account(s) and period."),
-    args: args(ODOO_FIN_ARGS),
+    args: args(ecommerce_FIN_ARGS),
     returns: ["NUMBER"],
     compute: function (
         accountCodes,
@@ -212,9 +212,9 @@ functionRegistry.add("ODOO.DEBIT", {
     },
 });
 
-functionRegistry.add("ODOO.BALANCE", {
+functionRegistry.add("ecommerce.BALANCE", {
     description: _t("Get the total balance for the specified account(s) and period."),
-    args: args(ODOO_FIN_ARGS),
+    args: args(ecommerce_FIN_ARGS),
     returns: ["NUMBER"],
     compute: function (
         accountCodes,
@@ -258,7 +258,7 @@ functionRegistry.add("ODOO.BALANCE", {
     },
 });
 
-functionRegistry.add("ODOO.FISCALYEAR.START", {
+functionRegistry.add("ecommerce.FISCALYEAR.START", {
     description: _t("Returns the starting date of the fiscal year encompassing the provided date."),
     args: args(`
         day (date) ${_t("The day from which to extract the fiscal year start.")}
@@ -275,7 +275,7 @@ functionRegistry.add("ODOO.FISCALYEAR.START", {
     },
 });
 
-functionRegistry.add("ODOO.FISCALYEAR.END", {
+functionRegistry.add("ecommerce.FISCALYEAR.END", {
     description: _t("Returns the ending date of the fiscal year encompassing the provided date."),
     args: args(`
         day (date) ${_t("The day from which to extract the fiscal year end.")}
@@ -292,7 +292,7 @@ functionRegistry.add("ODOO.FISCALYEAR.END", {
     },
 });
 
-functionRegistry.add("ODOO.ACCOUNT.GROUP", {
+functionRegistry.add("ecommerce.ACCOUNT.GROUP", {
     description: _t("Returns the account ids of a given group."),
     args: args(`
         type (string) ${_t("The account type (income, expense, asset_current,...).")}

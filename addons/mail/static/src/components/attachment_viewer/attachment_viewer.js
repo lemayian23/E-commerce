@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useComponentToModel } from '@mail/component_hooks/use_component_to_model';
 import { useRefs } from '@mail/component_hooks/use_refs';

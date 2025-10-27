@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.exceptions import ValidationError
-from odoo import models, fields, api, _
-from odoo.tools.misc import formatLang
-from odoo.tools.float_utils import float_repr, float_round
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.exceptions import ValidationError
+from ecommerce import models, fields, api, _
+from ecommerce.tools.misc import formatLang
+from ecommerce.tools.float_utils import float_repr, float_round
 
 SII_VAT = '60805000-0'
 

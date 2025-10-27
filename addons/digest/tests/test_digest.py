@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import itertools
 import random
@@ -13,12 +13,12 @@ from lxml import html
 from unittest.mock import patch
 from werkzeug.urls import url_encode, url_join
 
-from odoo import fields, SUPERUSER_ID
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.mail.tests import common as mail_test
-from odoo.tests import tagged
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce import fields, SUPERUSER_ID
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.mail.tests import common as mail_test
+from ecommerce.tests import tagged
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 class TestDigest(mail_test.MailCommon):
@@ -383,7 +383,7 @@ class TestUnsubscribe(mail_test.MailCommon, HttpCaseWithUserDemo):
         self.assertIn(self.user_demo, self.test_digest.user_ids)
         self.authenticate(None, None)
 
-        with mute_logger('odoo.addons.http_routing.models.ir_http'):
+        with mute_logger('ecommerce.addons.http_routing.models.ir_http'):
             # Ensure we cannot unregister using GET method (method not allowed)
             response = self._url_unsubscribe(token=self.user_demo_unsubscribe_token, user_id=self.user_demo.id,
                                              one_click='1', method='GET')

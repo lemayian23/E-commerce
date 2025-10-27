@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_followers')
 class TestInvite(TestMailCommon):
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_invite_email(self):
         test_record = self.env['mail.test.simple'].with_context(self._test_context).create({'name': 'Test', 'email_from': 'ignasse@example.com'})
         test_partner = self.env['res.partner'].with_context(self._test_context).create({

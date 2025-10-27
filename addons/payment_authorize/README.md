@@ -30,14 +30,14 @@ passed to the Accept.js SDK, the solution qualifies for SAQ A-EP.
 ## Module history
 
 - `16.0`
-  - Archiving a token no longer deactivates the related payment method on Authorize. odoo/odoo#93774
+  - Archiving a token no longer deactivates the related payment method on Authorize. ecommerce/ecommerce#93774
 - `15.4`
-  - The support for full refunds is added. odoo/odoo#92279
+  - The support for full refunds is added. ecommerce/ecommerce#92279
 - `15.0`
-  - Support for ACH payments is added. odoo/odoo#75289
+  - Support for ACH payments is added. ecommerce/ecommerce#75289
 - `14.3`
   - The payment with redirection flow that existed alongside the direct payment flow is dropped.
-    odoo/odoo#141661
+    ecommerce/ecommerce#141661
 
 ## Testing instructions
 

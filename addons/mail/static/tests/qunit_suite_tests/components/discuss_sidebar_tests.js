@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeDeferred } from '@mail/utils/deferred';
 import {

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "../../o_spreadsheet/o_spreadsheet_extended";
 import { CurrencyDataSource } from "../currency_data_source";
@@ -86,4 +86,4 @@ class CurrencyPlugin extends spreadsheet.UIPlugin {
 CurrencyPlugin.modes = ["normal", "headless"];
 CurrencyPlugin.getters = ["getCurrencyRate", "getCurrencyFormat", "getCompanyCurrencyFormat"];
 
-uiPluginRegistry.add("odooCurrency", CurrencyPlugin);
+uiPluginRegistry.add("ecommerceCurrency", CurrencyPlugin);

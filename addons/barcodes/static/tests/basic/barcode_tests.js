@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { barcodeGenericHandlers } from "@barcodes/barcode_handlers";
 import { barcodeService } from "@barcodes/barcode_service";

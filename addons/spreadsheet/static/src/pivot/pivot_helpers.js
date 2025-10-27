@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "web.core";
 import { FORMATS } from "../helpers/constants";
-import { getOdooFunctions } from "../helpers/odoo_functions_helpers";
+import { getecommerceFunctions } from "../helpers/ecommerce_functions_helpers";
 
 export const pivotFormulaRegex = /^=.*PIVOT/;
 
@@ -36,10 +36,10 @@ export function formatDate(interval, value) {
  * @returns {number}
  */
 export function getNumberOfPivotFormulas(formula) {
-    return getOdooFunctions(formula, [
-        "ODOO.PIVOT",
-        "ODOO.PIVOT.HEADER",
-        "ODOO.PIVOT.POSITION",
+    return getecommerceFunctions(formula, [
+        "ecommerce.PIVOT",
+        "ecommerce.PIVOT.HEADER",
+        "ecommerce.PIVOT.POSITION",
     ]).filter((fn) => fn.isMatched).length;
 }
 
@@ -48,13 +48,13 @@ export function getNumberOfPivotFormulas(formula) {
  *
  * @param {string} formula
  *
- * @returns {import("../helpers/odoo_functions_helpers").OdooFunctionDescription|undefined}
+ * @returns {import("../helpers/ecommerce_functions_helpers").ecommerceFunctionDescription|undefined}
  */
 export function getFirstPivotFunction(formula) {
-    return getOdooFunctions(formula, [
-        "ODOO.PIVOT",
-        "ODOO.PIVOT.HEADER",
-        "ODOO.PIVOT.POSITION",
+    return getecommerceFunctions(formula, [
+        "ecommerce.PIVOT",
+        "ecommerce.PIVOT.HEADER",
+        "ecommerce.PIVOT.POSITION",
     ]).find((fn) => fn.isMatched);
 }
 

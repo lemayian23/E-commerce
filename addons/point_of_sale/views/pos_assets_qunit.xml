@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <template id="point_of_sale.qunit_suite_assets">
     <t t-if="request.httprequest.cookies.get('color_scheme') == 'dark'">
@@ -35,7 +35,7 @@
         <t t-set="head">
             <!-- we need session_info in order to properly instantiate PosGlobalState -->
             <script type="text/javascript">
-                var odoo = <t t-out="json.dumps({
+                var ecommerce = <t t-out="json.dumps({
                     'csrf_token': request.csrf_token(None),
                     '__session_info__': session_info,
                     'debug': debug,
@@ -53,4 +53,4 @@
     </t>
 </template>
 
-</odoo>
+</ecommerce>

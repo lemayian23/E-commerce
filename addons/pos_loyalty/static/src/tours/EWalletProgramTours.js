@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ErrorPopup } from 'point_of_sale.tour.ErrorPopupTourMethods';
 import { PosLoyalty } from 'pos_loyalty.tour.PosCouponTourMethods';

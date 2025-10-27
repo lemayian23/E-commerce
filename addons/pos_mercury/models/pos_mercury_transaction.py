@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, timedelta
 
@@ -8,10 +8,10 @@ import requests
 from html import unescape
 from markupsafe import Markup
 
-from odoo import models, api, service
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, misc
+from ecommerce import models, api, service
+from ecommerce.tools.translate import _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import DEFAULT_SERVER_DATETIME_FORMAT, misc
 
 
 class MercuryTransaction(models.Model):
@@ -45,7 +45,7 @@ class MercuryTransaction(models.Model):
         data['operator_id'] = pos_session.user_id.login
         data['merchant_id'] = pos_mercury_config.sudo().merchant_id
         data['merchant_pwd'] = pos_mercury_config.sudo().merchant_pwd
-        data['memo'] = "Odoo " + service.common.exp_version()['server_version']
+        data['memo'] = "ecommerce " + service.common.exp_version()['server_version']
 
     def _do_request(self, template, data):
         if not data['merchant_id'] or not data['merchant_pwd']:

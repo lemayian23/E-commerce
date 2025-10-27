@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import psycopg2
 import re
 
-from odoo import api, fields, models, registry, SUPERUSER_ID, _
-from odoo.tools.float_utils import float_round
-from odoo.tools.misc import groupby
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, registry, SUPERUSER_ID, _
+from ecommerce.tools.float_utils import float_round
+from ecommerce.tools.misc import groupby
+from ecommerce.exceptions import UserError
 
 from .delivery_request_objects import DeliveryCommodity, DeliveryPackage
 
@@ -111,7 +111,7 @@ class DeliveryCarrier(models.Model):
             'domain': [['name', '=like', 'delivery_%'], ['name', 'not in', exclude_apps]],
             'type': 'ir.actions.act_window',
             'help': _('''<p class="o_view_nocontent">
-                    Buy Odoo Enterprise now to get more providers.
+                    Buy ecommerce Enterprise now to get more providers.
                 </p>'''),
         }
 

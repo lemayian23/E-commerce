@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 /* global Stripe */
 
 import checkoutForm from 'payment.checkout_form';

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
@@ -14,9 +14,9 @@ import pytz
 from collections import defaultdict
 from dateutil.parser import parse
 
-from odoo import _, api, fields, models
-from odoo import tools
-from odoo.addons.base.models.ir_mail_server import MailDeliveryException
+from ecommerce import _, api, fields, models
+from ecommerce import tools
+from ecommerce.addons.base.models.ir_mail_server import MailDeliveryException
 
 _logger = logging.getLogger(__name__)
 
@@ -84,7 +84,7 @@ class MailMail(models.Model):
         help="Failure reason. This is usually the exception thrown by the email server, stored to ease the debugging of mailing issues.")
     auto_delete = fields.Boolean(
         'Auto Delete',
-        help="This option permanently removes any track of email after it's been sent, including from the Technical menu in the Settings, in order to preserve storage space of your Odoo database.")
+        help="This option permanently removes any track of email after it's been sent, including from the Technical menu in the Settings, in order to preserve storage space of your ecommerce database.")
     # Unused since v16, to remove in master.
     to_delete = fields.Boolean('To Delete', help='If set, the mail will be deleted during the next Email Queue CRON run.')
     scheduled_date = fields.Datetime('Scheduled Send Date',
@@ -434,7 +434,7 @@ class MailMail(models.Model):
             except Exception as exc:
                 if raise_exception:
                     # To be consistent and backward compatible with mail_mail.send() raised
-                    # exceptions, it is encapsulated into an Odoo MailDeliveryException
+                    # exceptions, it is encapsulated into an ecommerce MailDeliveryException
                     raise MailDeliveryException(_('Unable to connect to SMTP Server'), exc)
                 else:
                     batch = self.browse(batch_ids)

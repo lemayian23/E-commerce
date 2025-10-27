@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
 
         <record id="view_tax_tree" model="ir.ui.view">
@@ -292,4 +292,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

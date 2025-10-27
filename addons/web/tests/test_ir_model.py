@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests.common import TransactionCase
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests.common import TransactionCase
 
-from odoo.tests import tagged
-from odoo.tests.common import new_test_user
+from ecommerce.tests import tagged
+from ecommerce.tests.common import new_test_user
 
 
 @tagged("post_install", "-at_install")

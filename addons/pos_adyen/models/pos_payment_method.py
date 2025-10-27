@@ -1,5 +1,5 @@
 # coding: utf-8
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 import logging
 import pprint
@@ -9,9 +9,9 @@ import string
 from urllib.parse import parse_qs
 from werkzeug.exceptions import Forbidden
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError, UserError, AccessDenied
-from odoo.tools import hmac
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import ValidationError, UserError, AccessDenied
+from ecommerce.tools import hmac
 
 _logger = logging.getLogger(__name__)
 

@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from re import search
 
-from odoo import Command
-from odoo.tests import HttpCase
+from ecommerce import Command
+from ecommerce.tests import HttpCase
 
-from odoo.addons.portal.controllers.mail import PortalChatter
-from odoo.addons.project.tests.test_project_sharing import TestProjectSharingCommon
-from odoo.addons.website.tools import MockRequest
+from ecommerce.addons.portal.controllers.mail import PortalChatter
+from ecommerce.addons.project.tests.test_project_sharing import TestProjectSharingCommon
+from ecommerce.addons.website.tools import MockRequest
 
 
 class TestProjectPortalAccess(TestProjectSharingCommon, HttpCase):

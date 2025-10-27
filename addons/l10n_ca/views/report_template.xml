@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="l10n_ca_external_layout_standard" inherit_id="web.external_layout_standard">
         <xpath expr="//div[hasclass('row')][last()]" position="after">
             <t t-if="company.account_fiscal_country_id.code == 'CA' and company.l10n_ca_pst" class="mt16">
@@ -31,4 +31,4 @@
             </t>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

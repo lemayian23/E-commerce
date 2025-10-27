@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { formatX2many } from "../formatters";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class ListX2ManyField extends Component {
     get formattedValue() {

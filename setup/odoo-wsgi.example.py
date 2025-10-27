@@ -10,22 +10,22 @@
 #
 # For gunicorn additional globals need to be defined in the Gunicorn section.
 # Then the following command should run:
-#   $ gunicorn odoo:service.wsgi_server.application -c openerp-wsgi.py
+#   $ gunicorn ecommerce:service.wsgi_server.application -c openerp-wsgi.py
 
-import odoo
+import ecommerce
 
 #----------------------------------------------------------
 # Common
 #----------------------------------------------------------
-odoo.multi_process = True # Nah!
+ecommerce.multi_process = True # Nah!
 
 # Equivalent of --load command-line option
-odoo.conf.server_wide_modules = ['base', 'web']
-conf = odoo.tools.config
+ecommerce.conf.server_wide_modules = ['base', 'web']
+conf = ecommerce.tools.config
 
 # Path to the OpenERP Addons repository (comma-separated for
 # multiple locations)
-#conf['addons_path'] = './odoo/addons,./addons'
+#conf['addons_path'] = './ecommerce/addons,./addons'
 
 # Optional database config if not using local socket
 #conf['db_name'] = 'mycompany'
@@ -37,9 +37,9 @@ conf = odoo.tools.config
 #----------------------------------------------------------
 # Generic WSGI handlers application
 #----------------------------------------------------------
-application = odoo.http.root
+application = ecommerce.http.root
 
-odoo.service.server.load_server_wide_modules()
+ecommerce.service.server.load_server_wide_modules()
 
 #----------------------------------------------------------
 # Gunicorn

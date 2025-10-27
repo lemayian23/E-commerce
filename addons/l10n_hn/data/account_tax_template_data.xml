@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <!-- Compras e ISV por Cobrar -->
         <record id="impuestos_plantilla_isv_por_cobrar" model="account.tax.template">
@@ -56,4 +56,4 @@
             ]"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

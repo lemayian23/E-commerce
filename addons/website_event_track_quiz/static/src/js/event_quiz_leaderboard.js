@@ -1,4 +1,4 @@
-odoo.define('website_event_track_quiz.event_leaderboard', function (require) {
+ecommerce.define('website_event_track_quiz.event_leaderboard', function (require) {
 
 'use strict';
 

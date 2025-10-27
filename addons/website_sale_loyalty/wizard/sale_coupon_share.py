@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.urls import url_encode
 
-from odoo import fields, models, api, _
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class SaleCouponShare(models.TransientModel):

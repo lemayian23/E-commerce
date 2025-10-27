@@ -1,4 +1,4 @@
-odoo.define('web.field_registry_owl', function (require) {
+ecommerce.define('web.field_registry_owl', function (require) {
     "use strict";
 
     const Registry = require('web.Registry');
@@ -11,7 +11,7 @@ odoo.define('web.field_registry_owl', function (require) {
     );
 });
 
-odoo.define('web._field_registry_owl', function (require) {
+ecommerce.define('web._field_registry_owl', function (require) {
     "use strict";
 
     /**

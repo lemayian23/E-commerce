@@ -1,4 +1,4 @@
-odoo.define('website_sale.validate', function (require) {
+ecommerce.define('website_sale.validate', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

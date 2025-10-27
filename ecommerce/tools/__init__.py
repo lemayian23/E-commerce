@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 SUPPORTED_DEBUGGER = {'pdb', 'ipdb', 'wdb', 'pudb'}
 from . import _monkeypatches
 from . import _monkeypatches_pytz
@@ -30,5 +30,5 @@ from .translate import *
 from .xml_utils import *
 from .convert import *
 from . import osutil
-from .js_transpiler import transpile_javascript, is_odoo_module, URL_RE, ODOO_MODULE_RE
+from .js_transpiler import transpile_javascript, is_ecommerce_module, URL_RE, ecommerce_MODULE_RE
 from .sourcemap_generator import SourceMapGenerator

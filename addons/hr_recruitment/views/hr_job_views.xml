@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
 
     <record model="ir.actions.act_window" id="action_hr_job_new_application">
         <field name="name">New Application</field>
@@ -198,4 +198,4 @@
     <menuitem name="By Job Positions" parent="menu_crm_case_categ0_act_job"
         id="menu_hr_job_position_interviewer" action="action_hr_job_interviewer"
         sequence="1" groups="hr_recruitment.group_hr_recruitment_interviewer" />
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Markup } from 'web.utils';
 import { registry } from "@web/core/registry";

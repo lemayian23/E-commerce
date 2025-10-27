@@ -1,9 +1,9 @@
-from odoo import api, Command, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import html2plaintext
-from odoo.tools.misc import str2bool
+from ecommerce import api, Command, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import html2plaintext
+from ecommerce.tools.misc import str2bool
 
-from odoo.addons.base.models.res_bank import sanitize_account_number
+from ecommerce.addons.base.models.res_bank import sanitize_account_number
 
 from xmlrpc.client import MAXINT
 from itertools import product

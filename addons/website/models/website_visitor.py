@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from psycopg2 import sql
@@ -8,13 +8,13 @@ import hashlib
 import pytz
 import threading
 
-from odoo import fields, models, api, _
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError
-from odoo.tools import split_every
-from odoo.tools.misc import _format_time_ago
-from odoo.http import request
-from odoo.osv import expression
+from ecommerce import fields, models, api, _
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.exceptions import UserError
+from ecommerce.tools import split_every
+from ecommerce.tools.misc import _format_time_ago
+from ecommerce.http import request
+from ecommerce.osv import expression
 
 
 class WebsiteTrack(models.Model):
@@ -213,7 +213,7 @@ class WebsiteVisitor(models.Model):
             'access_token': access_token,
             'lang_id': request.lang.id,
             # Note that it's possible for the GEOIP database to return a country
-            # code which is unknown in Odoo
+            # code which is unknown in ecommerce
             'country_code': request.geoip.get('country_code'),
             'website_id': request.website.id,
             'timezone': self._get_visitor_timezone() or None,

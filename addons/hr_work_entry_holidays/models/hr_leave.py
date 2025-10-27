@@ -1,13 +1,13 @@
 # -*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import datetime, date
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.osv.expression import AND
-from odoo.tools import format_date
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.osv.expression import AND
+from ecommerce.tools import format_date
 
 
 class HrLeaveType(models.Model):

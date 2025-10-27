@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "../registry";
 import { memoize } from "../utils/functions";
 
-import { useEffect, useEnv, useSubEnv } from "@odoo/owl";
+import { useEffect, useEnv, useSubEnv } from "@ecommerce/owl";
 const debugRegistry = registry.category("debug");
 
 const getAccessRights = memoize(async function getAccessRights(orm) {

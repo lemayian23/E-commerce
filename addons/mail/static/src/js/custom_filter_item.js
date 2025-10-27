@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import CustomFilterItem from 'web.CustomFilterItem';
 import { patch } from 'web.utils';

@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, _
-from odoo.exceptions import UserError
+from ecommerce import models, _
+from ecommerce.exceptions import UserError
 
 class AccountPayment(models.Model):
     _inherit = "account.payment"

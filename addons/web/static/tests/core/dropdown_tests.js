@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { DateTimePicker } from "@web/core/datepicker/datepicker";
@@ -25,7 +25,7 @@ import {
 import { makeParent } from "./tooltip/tooltip_service_tests";
 import { templates } from "@web/core/assets";
 
-import { App, Component, onMounted, onPatched, useRef, useState, xml } from "@odoo/owl";
+import { App, Component, onMounted, onPatched, useRef, useState, xml } from "@ecommerce/owl";
 const serviceRegistry = registry.category("services");
 
 let env;

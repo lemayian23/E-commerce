@@ -1,4 +1,4 @@
-odoo.define('pos_adyen.models', function (require) {
+ecommerce.define('pos_adyen.models', function (require) {
 const { register_payment_method, Payment } = require('point_of_sale.models');
 const PaymentAdyen = require('pos_adyen.payment');
 const Registries = require('point_of_sale.Registries');

@@ -1,7 +1,7 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { useService } from '@web/core/utils/hooks';
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 export class ProgressBar extends Component {
     get progress() {

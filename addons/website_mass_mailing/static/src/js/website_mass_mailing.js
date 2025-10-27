@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.website_integration', function (require) {
+ecommerce.define('mass_mailing.website_integration', function (require) {
 "use strict";
 
 var core = require('web.core');

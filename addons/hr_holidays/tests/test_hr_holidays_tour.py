@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import HttpCase
-from odoo.tests.common import tagged
+from ecommerce.tests import HttpCase
+from ecommerce.tests.common import tagged
 
 from datetime import date
 

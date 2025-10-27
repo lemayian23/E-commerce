@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Employees',
@@ -7,7 +7,7 @@
     'category': 'Human Resources/Employees',
     'sequence': 95,
     'summary': 'Centralize employee information',
-    'website': 'https://www.odoo.com/app/employees',
+    'website': 'https://www.ecommerce.com/app/employees',
     'images': [
         'images/hr_department.jpeg',
         'images/hr_employee.jpeg',

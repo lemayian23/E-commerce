@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import base64
-from odoo.tests import common, tagged
+from ecommerce.tests import common, tagged
 
 
 @tagged("post_install", "-at_install", "-standard", "nightly_export")

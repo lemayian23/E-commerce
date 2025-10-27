@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
+<ecommerce>
     <record id="l10n_tw_chart_template" model="account.chart.template">
         <field name="name">Taiwan Tax and Account Chart Template</field>
         <field name="code_digits">6</field>
@@ -10,4 +10,4 @@
         <field name="spoken_languages" eval="'zh_TW'"/>
         <field name="country_id" ref="base.tw" />
     </record>
-</odoo>
+</ecommerce>

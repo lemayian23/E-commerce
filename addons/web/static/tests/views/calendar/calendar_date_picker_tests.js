@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { CalendarDatePicker } from "@web/views/calendar/date_picker/calendar_date_picker";
 import { click, getFixture, patchDate } from "../../helpers/utils";

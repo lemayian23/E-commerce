@@ -11,9 +11,9 @@ try:
 except ImportError:
     DependencyError = NotImplementedError
 
-from odoo import api, models, _
-from odoo.exceptions import UserError
-from odoo.tools import pdf
+from ecommerce import api, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import pdf
 
 
 class IrActionsReport(models.Model):

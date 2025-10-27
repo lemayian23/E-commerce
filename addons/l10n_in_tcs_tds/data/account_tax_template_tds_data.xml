@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="tds_10_us_192a" model="account.tax.template">
         <field name="name">TDS @10% u/s 192A</field>
         <field name="description">TDS @10% u/s 192A</field>
@@ -2331,4 +2331,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

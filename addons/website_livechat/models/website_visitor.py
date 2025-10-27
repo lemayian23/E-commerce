@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from urllib.parse import unquote
 import json
 
-from odoo import api, Command, fields, models, _
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools.sql import column_exists, create_column
+from ecommerce import api, Command, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
+from ecommerce.tools.sql import column_exists, create_column
 
 
 class WebsiteVisitor(models.Model):

@@ -1,4 +1,4 @@
-odoo.define('website.tour_reset_password', function (require) {
+ecommerce.define('website.tour_reset_password', function (require) {
 'use strict';
 
 var tour = require('web_tour.tour');

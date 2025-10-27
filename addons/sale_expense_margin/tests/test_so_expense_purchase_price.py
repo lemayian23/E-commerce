@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.hr_expense.tests.common import TestExpenseCommon
-from odoo.tests import tagged
+from ecommerce.addons.hr_expense.tests.common import TestExpenseCommon
+from ecommerce.tests import tagged
 
 @tagged('-at_install', 'post_install')
 class TestExpenseMargin(TestExpenseCommon):

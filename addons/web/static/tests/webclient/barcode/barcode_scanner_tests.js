@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 /* global ZXing */
 
 import { browser } from "@web/core/browser/browser";
@@ -14,7 +14,7 @@ import { scanBarcode, BarcodeDialog } from "@web/webclient/barcode/barcode_scann
 QUnit.module("Barcode scanner", {});
 
 QUnit.test("Barcode scanner crop overlay", async (assert) => {
-    const firstBarcodeValue = "Odoo";
+    const firstBarcodeValue = "ecommerce";
     const secondBarcodeValue = "O-CMD-TEST";
 
     let barcodeToGenerate = firstBarcodeValue;

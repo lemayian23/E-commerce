@@ -1,4 +1,4 @@
-odoo.define('web_tour.Tip', function (require) {
+ecommerce.define('web_tour.Tip', function (require) {
 "use strict";
 
 var config = require('web.config');

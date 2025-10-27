@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
+import ecommerce
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -17,9 +17,9 @@ def get_installed_modules(cursor):
 def get_neutralization_queries(modules):
     # neutralization for each module
     for module in modules:
-        filename = odoo.modules.get_module_resource(module, 'data/neutralize.sql')
+        filename = ecommerce.modules.get_module_resource(module, 'data/neutralize.sql')
         if filename:
-            with odoo.tools.misc.file_open(filename) as file:
+            with ecommerce.tools.misc.file_open(filename) as file:
                 yield file.read().strip()
 
 def neutralize_database(cursor):

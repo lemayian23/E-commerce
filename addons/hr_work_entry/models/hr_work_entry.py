@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import itertools
 from collections import defaultdict
@@ -7,8 +7,8 @@ from contextlib import contextmanager
 from dateutil.relativedelta import relativedelta
 from psycopg2 import OperationalError
 
-from odoo import _, api, fields, models, tools
-from odoo.osv import expression
+from ecommerce import _, api, fields, models, tools
+from ecommerce.osv import expression
 
 
 class HrWorkEntry(models.Model):

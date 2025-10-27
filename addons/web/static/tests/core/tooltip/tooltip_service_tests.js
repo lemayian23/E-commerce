@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { PopoverContainer } from "@web/core/popover/popover_container";
@@ -11,7 +11,7 @@ import { registerCleanup } from "../../helpers/cleanup";
 import { makeFakeLocalizationService } from "../../helpers/mock_services";
 import { templates } from "@web/core/assets";
 
-import { App, Component, useState, xml } from "@odoo/owl";
+import { App, Component, useState, xml } from "@ecommerce/owl";
 
 const mainComponents = registry.category("main_components");
 

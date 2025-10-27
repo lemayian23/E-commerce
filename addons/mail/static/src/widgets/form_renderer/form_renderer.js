@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ChatterContainer } from '@mail/components/chatter_container/chatter_container';
 import { WebClientViewAttachmentViewContainer } from '@mail/components/web_client_view_attachment_view_container/web_client_view_attachment_view_container';

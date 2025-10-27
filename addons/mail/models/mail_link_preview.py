@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 from datetime import datetime
@@ -7,7 +7,7 @@ from lxml import html, etree
 from urllib.parse import urlparse
 import requests
 
-from odoo import api, models, fields
+from ecommerce import api, models, fields
 
 
 class LinkPreview(models.Model):

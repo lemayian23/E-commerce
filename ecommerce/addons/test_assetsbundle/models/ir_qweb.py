@@ -1,5 +1,5 @@
-from odoo import models
-from odoo.tools import config
+from ecommerce import models
+from ecommerce.tools import config
 init = config['init']
 
 

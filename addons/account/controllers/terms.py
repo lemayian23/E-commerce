@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.http import request
+from ecommerce import http, _
+from ecommerce.http import request
 
 
 def sitemap_terms(env, rule, qs):

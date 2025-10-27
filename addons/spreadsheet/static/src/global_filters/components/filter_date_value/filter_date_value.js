@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { YearPicker } from "../year_picker";
 import { dateOptions } from "@spreadsheet/global_filters/helpers";

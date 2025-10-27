@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Saudi Arabia - Accounting',
     'version': '2.0',
-    'author': 'Odoo S.A., DVIT.ME',
+    'author': 'ecommerce S.A., DVIT.ME',
     'category': 'Accounting/Localizations/Account Charts',
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations/saudi_arabia.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations/saudi_arabia.html',
     'description': """
 Saudi Arabia Accounting Module
 ===========================================================

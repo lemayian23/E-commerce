@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { delay } from 'web.concurrency';
 import { unaccent } from 'web.utils';

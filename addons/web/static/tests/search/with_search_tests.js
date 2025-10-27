@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { getFixture, nextTick } from "@web/../tests/helpers/utils";
@@ -15,7 +15,7 @@ import {
     toggleMenuItem,
 } from "./helpers";
 
-import { Component, onWillUpdateProps, onWillStart, useState, xml } from "@odoo/owl";
+import { Component, onWillUpdateProps, onWillStart, useState, xml } from "@ecommerce/owl";
 
 let target;
 let serverData;

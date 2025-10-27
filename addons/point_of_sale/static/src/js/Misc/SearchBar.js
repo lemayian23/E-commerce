@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.SearchBar', function (require) {
+ecommerce.define('point_of_sale.SearchBar', function (require) {
     'use strict';
 
     const { useAutofocus, useListener } = require("@web/core/utils/hooks");

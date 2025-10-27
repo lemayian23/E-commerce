@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from math import log10
 
-from odoo.tests.common import TransactionCase
-from odoo.tools import float_compare, float_is_zero, float_repr, float_round, float_split, float_split_str
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools import float_compare, float_is_zero, float_repr, float_round, float_split, float_split_str
 
 
 class TestFloatPrecision(TransactionCase):

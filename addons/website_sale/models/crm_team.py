@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields,api, models, _
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import fields,api, models, _
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class CrmTeam(models.Model):

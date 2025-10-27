@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 import re
@@ -8,7 +8,7 @@ from base64 import b64encode, encodebytes
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 from lxml import etree
-from odoo.tools.xml_utils import cleanup_xml_node
+from ecommerce.tools.xml_utils import cleanup_xml_node
 
 
 # Utility Methods for Basque Country's TicketBAI XML-related stuff.

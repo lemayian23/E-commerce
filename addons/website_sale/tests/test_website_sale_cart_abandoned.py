@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from unittest.mock import patch
-from odoo.tests import tagged
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.mail.models.mail_template import MailTemplate
+from ecommerce.tests import tagged
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce.addons.mail.models.mail_template import MailTemplate
 
 
 class TestWebsiteSaleCartAbandonedCommon(HttpCaseWithUserPortal):

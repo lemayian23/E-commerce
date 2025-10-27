@@ -1,4 +1,4 @@
-odoo.define('web.KanbanController', function (require) {
+ecommerce.define('web.KanbanController', function (require) {
 "use strict";
 
 /**
@@ -260,7 +260,7 @@ var KanbanController = BasicController.extend({
      * a group and to update the renderer
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onAddColumn: function (ev) {
         var self = this;
@@ -282,7 +282,7 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onAddRecordToColumn: function (ev) {
         var self = this;
@@ -301,7 +301,7 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @returns {string} ev.data.groupId
      */
     _onAddQuickCreate(ev) {
@@ -310,7 +310,7 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onButtonClicked: function (ev) {
         var self = this;
@@ -386,14 +386,14 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onColumnResequence: function (ev) {
         this._resequenceRecords(ev.target.db_id, ev.data.ids);
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onDeleteColumn: function (ev) {
         var column = ev.target;
@@ -405,7 +405,7 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {Object} ev.data see model.reload options
      */
     async _onLoadColumnRecords(ev) {
@@ -418,7 +418,7 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {KanbanColumn} ev.target the column in which the record should
      *   be added
      * @param {Object} ev.data.values the field values of the record to
@@ -471,21 +471,21 @@ var KanbanController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onRecordDelete: function (ev) {
         this._deleteRecords([ev.data.id]);
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onResequenceColumn: function (ev) {
         this._resequenceColumns(ev.data.ids);
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {boolean} [ev.data.openQuickCreate=false] if true, opens the
      *   QuickCreate in the toggled column (it assumes that we are opening it)
      */
@@ -510,7 +510,7 @@ var KanbanController = BasicController.extend({
      * @todo should simply use field_changed event...
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {function} [ev.data.onSuccess] callback to execute after applying
      *   changes
      */
@@ -525,7 +525,7 @@ var KanbanController = BasicController.extend({
      * Allow the user to archive/restore all the records of a column.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onToggleActiveRecords: function (ev) {
         var self = this;

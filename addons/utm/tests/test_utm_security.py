@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.utm.tests.common import TestUTMCommon
-from odoo.exceptions import AccessError
-from odoo.tests.common import tagged, users
+from ecommerce.addons.utm.tests.common import TestUTMCommon
+from ecommerce.exceptions import AccessError
+from ecommerce.tests.common import tagged, users
 
 
 @tagged('post_install', '-at_install', 'security', 'utm')

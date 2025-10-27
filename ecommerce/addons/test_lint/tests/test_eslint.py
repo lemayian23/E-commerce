@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import re
 import subprocess
 from unittest import skipIf
-from odoo import tools
-from odoo.modules.module import get_resource_path
-from odoo.tests import tagged
+from ecommerce import tools
+from ecommerce.modules.module import get_resource_path
+from ecommerce.tests import tagged
 
 from . import lint_case
 

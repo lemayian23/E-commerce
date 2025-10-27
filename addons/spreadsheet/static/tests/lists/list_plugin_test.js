@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { session } from "@web/session";
 import { nextTick, patchWithCleanup } from "@web/../tests/helpers/utils";
@@ -17,16 +17,16 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         const { model } = await createSpreadsheetWithList();
         const total = 4 + 10 * 4; // 4 Headers + 10 lines
         assert.strictEqual(Object.values(getCells(model)).length, total);
-        assert.strictEqual(getCellFormula(model, "A1"), `=ODOO.LIST.HEADER(1,"foo")`);
-        assert.strictEqual(getCellFormula(model, "B1"), `=ODOO.LIST.HEADER(1,"bar")`);
-        assert.strictEqual(getCellFormula(model, "C1"), `=ODOO.LIST.HEADER(1,"date")`);
-        assert.strictEqual(getCellFormula(model, "D1"), `=ODOO.LIST.HEADER(1,"product_id")`);
-        assert.strictEqual(getCellFormula(model, "A2"), `=ODOO.LIST(1,1,"foo")`);
-        assert.strictEqual(getCellFormula(model, "B2"), `=ODOO.LIST(1,1,"bar")`);
-        assert.strictEqual(getCellFormula(model, "C2"), `=ODOO.LIST(1,1,"date")`);
-        assert.strictEqual(getCellFormula(model, "D2"), `=ODOO.LIST(1,1,"product_id")`);
-        assert.strictEqual(getCellFormula(model, "A3"), `=ODOO.LIST(1,2,"foo")`);
-        assert.strictEqual(getCellFormula(model, "A11"), `=ODOO.LIST(1,10,"foo")`);
+        assert.strictEqual(getCellFormula(model, "A1"), `=ecommerce.LIST.HEADER(1,"foo")`);
+        assert.strictEqual(getCellFormula(model, "B1"), `=ecommerce.LIST.HEADER(1,"bar")`);
+        assert.strictEqual(getCellFormula(model, "C1"), `=ecommerce.LIST.HEADER(1,"date")`);
+        assert.strictEqual(getCellFormula(model, "D1"), `=ecommerce.LIST.HEADER(1,"product_id")`);
+        assert.strictEqual(getCellFormula(model, "A2"), `=ecommerce.LIST(1,1,"foo")`);
+        assert.strictEqual(getCellFormula(model, "B2"), `=ecommerce.LIST(1,1,"bar")`);
+        assert.strictEqual(getCellFormula(model, "C2"), `=ecommerce.LIST(1,1,"date")`);
+        assert.strictEqual(getCellFormula(model, "D2"), `=ecommerce.LIST(1,1,"product_id")`);
+        assert.strictEqual(getCellFormula(model, "A3"), `=ecommerce.LIST(1,2,"foo")`);
+        assert.strictEqual(getCellFormula(model, "A11"), `=ecommerce.LIST(1,10,"foo")`);
         assert.strictEqual(getCellFormula(model, "A12"), "");
     });
 
@@ -69,7 +69,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("Can display a field which is not in the columns", async function (assert) {
         const { model } = await createSpreadsheetWithList();
-        setCellContent(model, "A1", `=ODOO.LIST(1,1,"active")`);
+        setCellContent(model, "A1", `=ecommerce.LIST(1,1,"active")`);
         assert.strictEqual(getCellValue(model, "A1"), "Loading...");
         await waitForDataSourcesLoaded(model); // Await for batching collection of missing fields
         assert.strictEqual(getCellValue(model, "A1"), true);
@@ -77,7 +77,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("Can remove a list with undo after editing a cell", async function (assert) {
         const { model } = await createSpreadsheetWithList();
-        assert.ok(getCellContent(model, "B1").startsWith("=ODOO.LIST.HEADER"));
+        assert.ok(getCellContent(model, "B1").startsWith("=ecommerce.LIST.HEADER"));
         setCellContent(model, "G10", "should be undoable");
         model.dispatch("REQUEST_UNDO");
         assert.equal(getCellContent(model, "G10"), "");
@@ -116,8 +116,8 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
             columns: ["foo", "jsonField"],
             linesNumber: 2,
         });
-        setCellContent(model, "A1", `=ODOO.LIST(1,1,"foo")`);
-        setCellContent(model, "A2", `=ODOO.LIST(1,1,"jsonField")`);
+        setCellContent(model, "A1", `=ecommerce.LIST(1,1,"foo")`);
+        setCellContent(model, "A2", `=ecommerce.LIST(1,1,"jsonField")`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCell(model, "A1").evaluated.value, 12);
         assert.strictEqual(getCell(model, "A2").evaluated.value, "#ERROR");
@@ -131,7 +131,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         const { model } = await createSpreadsheetWithList();
         const sheetId = model.getters.getActiveSheetId();
         const listId = model.getters.getListIdFromPosition(sheetId, 0, 0);
-        model.dispatch("SELECT_ODOO_LIST", { listId });
+        model.dispatch("SELECT_ecommerce_LIST", { listId });
         const selectedListId = model.getters.getSelectedListId();
         assert.strictEqual(selectedListId, "1");
     });
@@ -140,10 +140,10 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         "can select a List from cell formula with '-' before the formula",
         async function (assert) {
             const { model } = await createSpreadsheetWithList();
-            setCellContent(model, "A1", `=-ODOO.LIST("1","1","foo")`);
+            setCellContent(model, "A1", `=-ecommerce.LIST("1","1","foo")`);
             const sheetId = model.getters.getActiveSheetId();
             const listId = model.getters.getListIdFromPosition(sheetId, 0, 0);
-            model.dispatch("SELECT_ODOO_LIST", { listId });
+            model.dispatch("SELECT_ecommerce_LIST", { listId });
             const selectedListId = model.getters.getSelectedListId();
             assert.strictEqual(selectedListId, "1");
         }
@@ -152,10 +152,10 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         "can select a List from cell formula with other numerical values",
         async function (assert) {
             const { model } = await createSpreadsheetWithList();
-            setCellContent(model, "A1", `=3*ODOO.LIST("1","1","foo")`);
+            setCellContent(model, "A1", `=3*ecommerce.LIST("1","1","foo")`);
             const sheetId = model.getters.getActiveSheetId();
             const listId = model.getters.getListIdFromPosition(sheetId, 0, 0);
-            model.dispatch("SELECT_ODOO_LIST", { listId });
+            model.dispatch("SELECT_ecommerce_LIST", { listId });
             const selectedListId = model.getters.getSelectedListId();
             assert.strictEqual(selectedListId, "1");
         }
@@ -170,10 +170,10 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("can select a List from cell formula within a formula", async function (assert) {
         const { model } = await createSpreadsheetWithList();
-        setCellContent(model, "A1", `=SUM(ODOO.LIST("1","1","foo"),1)`);
+        setCellContent(model, "A1", `=SUM(ecommerce.LIST("1","1","foo"),1)`);
         const sheetId = model.getters.getActiveSheetId();
         const listId = model.getters.getListIdFromPosition(sheetId, 0, 0);
-        model.dispatch("SELECT_ODOO_LIST", { listId });
+        model.dispatch("SELECT_ecommerce_LIST", { listId });
         const selectedListId = model.getters.getSelectedListId();
         assert.strictEqual(selectedListId, "1");
     });
@@ -182,11 +182,11 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         "can select a List from cell formula where the id is a reference",
         async function (assert) {
             const { model } = await createSpreadsheetWithList();
-            setCellContent(model, "A1", `=ODOO.LIST(G10,"1","foo")`);
+            setCellContent(model, "A1", `=ecommerce.LIST(G10,"1","foo")`);
             setCellContent(model, "G10", "1");
             const sheetId = model.getters.getActiveSheetId();
             const listId = model.getters.getListIdFromPosition(sheetId, 0, 0);
-            model.dispatch("SELECT_ODOO_LIST", { listId });
+            model.dispatch("SELECT_ecommerce_LIST", { listId });
             const selectedListId = model.getters.getSelectedListId();
             assert.strictEqual(selectedListId, "1");
         }
@@ -221,8 +221,8 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         spreadsheetLoaded = true;
         model.dispatch("REFRESH_ALL_DATA_SOURCES");
         await nextTick();
-        setCellContent(model, "A1", `=ODOO.LIST.HEADER("1", "${forbiddenFieldName}")`);
-        setCellContent(model, "A2", `=ODOO.LIST("1","1","${forbiddenFieldName}")`);
+        setCellContent(model, "A1", `=ecommerce.LIST.HEADER("1", "${forbiddenFieldName}")`);
+        setCellContent(model, "A2", `=ecommerce.LIST("1","1","${forbiddenFieldName}")`);
 
         assert.equal(
             model.getters.getListDataSource(listId).getFields()[forbiddenFieldName],
@@ -246,7 +246,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
                 {
                     id: "sheet2",
                     cells: {
-                        A1: { content: `=ODOO.LIST("1", "1", "foo")` },
+                        A1: { content: `=ecommerce.LIST("1", "1", "foo")` },
                     },
                 },
             ],
@@ -304,7 +304,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
                 {
                     id: "sheet1",
                     cells: {
-                        A1: { content: `=ODOO.LIST("1", "1", "name")` },
+                        A1: { content: `=ecommerce.LIST("1", "1", "name")` },
                     },
                 },
             ],
@@ -359,7 +359,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("rename list with empty name is refused", async (assert) => {
         const { model } = await createSpreadsheetWithList();
-        const result = model.dispatch("RENAME_ODOO_LIST", {
+        const result = model.dispatch("RENAME_ecommerce_LIST", {
             listId: "1",
             name: "",
         });
@@ -368,18 +368,18 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("rename list with incorrect id is refused", async (assert) => {
         const { model } = await createSpreadsheetWithList();
-        const result = model.dispatch("RENAME_ODOO_LIST", {
+        const result = model.dispatch("RENAME_ecommerce_LIST", {
             listId: "invalid",
             name: "name",
         });
         assert.deepEqual(result.reasons, [CommandResult.ListIdNotFound]);
     });
 
-    QUnit.test("Undo/Redo for RENAME_ODOO_LIST", async function (assert) {
+    QUnit.test("Undo/Redo for RENAME_ecommerce_LIST", async function (assert) {
         assert.expect(4);
         const { model } = await createSpreadsheetWithList();
         assert.equal(model.getters.getListName("1"), "List");
-        model.dispatch("RENAME_ODOO_LIST", { listId: "1", name: "test" });
+        model.dispatch("RENAME_ecommerce_LIST", { listId: "1", name: "test" });
         assert.equal(model.getters.getListName("1"), "test");
         model.dispatch("REQUEST_UNDO");
         assert.equal(model.getters.getListName("1"), "List");
@@ -389,7 +389,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
 
     QUnit.test("Can delete list", async function (assert) {
         const { model } = await createSpreadsheetWithList();
-        model.dispatch("REMOVE_ODOO_LIST", { listId: "1" });
+        model.dispatch("REMOVE_ecommerce_LIST", { listId: "1" });
         assert.strictEqual(model.getters.getListIds().length, 0);
         const B4 = getCell(model, "B4");
         assert.equal(B4.evaluated.error.message, `There is no list with id "1"`);
@@ -399,7 +399,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
     QUnit.test("Can undo/redo a delete list", async function (assert) {
         const { model } = await createSpreadsheetWithList();
         const value = getCell(model, "B4").evaluated.value;
-        model.dispatch("REMOVE_ODOO_LIST", { listId: "1" });
+        model.dispatch("REMOVE_ecommerce_LIST", { listId: "1" });
         model.dispatch("REQUEST_UNDO");
         assert.strictEqual(model.getters.getListIds().length, 1);
         let B4 = getCell(model, "B4");
@@ -417,7 +417,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         const [listId] = model.getters.getListIds();
         assert.deepEqual(model.getters.getListDefinition(listId).domain, []);
         assert.strictEqual(getCellValue(model, "B2"), "TRUE");
-        model.dispatch("UPDATE_ODOO_LIST_DOMAIN", {
+        model.dispatch("UPDATE_ecommerce_LIST_DOMAIN", {
             listId,
             domain: [["foo", "in", [55]]],
         });
@@ -433,7 +433,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
         assert.deepEqual(model.getters.getListDefinition(listId).domain, [["foo", "in", [55]]]);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "B2"), "");
-        const result = model.dispatch("UPDATE_ODOO_LIST_DOMAIN", {
+        const result = model.dispatch("UPDATE_ecommerce_LIST_DOMAIN", {
             listId: "invalid",
             domain: [],
         });
@@ -443,7 +443,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
     QUnit.test("edited domain is exported", async (assert) => {
         const { model } = await createSpreadsheetWithList();
         const [listId] = model.getters.getListIds();
-        model.dispatch("UPDATE_ODOO_LIST_DOMAIN", {
+        model.dispatch("UPDATE_ecommerce_LIST_DOMAIN", {
             listId,
             domain: [["foo", "in", [55]]],
         });
@@ -469,7 +469,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
                 col: 0,
                 row: 1,
                 sheetId,
-                content: "=ODOO.LIST()",
+                content: "=ecommerce.LIST()",
             });
             model.updateMode("dashboard");
             selectCell(model, "A2");
@@ -545,7 +545,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
                     {
                         id: "sheet1",
                         cells: {
-                            A1: { content: `=ODOO.LIST("1", "1", "foo")` },
+                            A1: { content: `=ecommerce.LIST("1", "1", "foo")` },
                         },
                     },
                 ],
@@ -564,7 +564,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
             const ds = model.getters.getListDataSource("1");
             assert.strictEqual(ds.maxPosition, 1);
             assert.strictEqual(ds.maxPositionFetched, 0);
-            setCellContent(model, "A1", `=ODOO.LIST("1", "42", "foo", 2)`);
+            setCellContent(model, "A1", `=ecommerce.LIST("1", "42", "foo", 2)`);
             assert.strictEqual(ds.maxPosition, 42);
             assert.strictEqual(ds.maxPositionFetched, 0);
             await waitForDataSourcesLoaded(model);
@@ -598,7 +598,7 @@ QUnit.module("spreadsheet > list plugin", {}, () => {
             assert.equal(cell.evaluated.value, 42669);
 
             hasAccessRights = false;
-            model.dispatch("REFRESH_ODOO_LIST", { listId: "1" });
+            model.dispatch("REFRESH_ecommerce_LIST", { listId: "1" });
             await waitForDataSourcesLoaded(model);
             assert.equal(headerCell.evaluated.value, "#ERROR");
             assert.equal(headerCell.evaluated.error.message, "ya done!");

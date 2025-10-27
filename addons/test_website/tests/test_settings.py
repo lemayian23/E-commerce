@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
-import odoo.tests
+import ecommerce
+import ecommerce.tests
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestWebsiteSettings(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class TestWebsiteSettings(ecommerce.tests.HttpCase):
     def test_01_multi_website_settings(self):
         # If not enabled (like in demo data), landing on res.config will try
         # to disable module_sale_quotation_builder and raise an issue

@@ -1,4 +1,4 @@
-odoo.define('web.FavoriteMenu', function (require) {
+ecommerce.define('web.FavoriteMenu', function (require) {
     "use strict";
 
     const { Dropdown } = require("@web/core/dropdown/dropdown");

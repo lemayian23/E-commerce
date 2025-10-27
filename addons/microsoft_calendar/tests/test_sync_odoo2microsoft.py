@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from unittest.mock import MagicMock, patch
 
-from odoo.tests.common import TransactionCase
-from odoo.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
-from odoo.addons.microsoft_calendar.models.res_users import User
-from odoo.addons.microsoft_calendar.models.microsoft_sync import MicrosoftSync
-from odoo.modules.registry import Registry
-from odoo.addons.microsoft_account.models.microsoft_service import TIMEOUT
+from ecommerce.tests.common import TransactionCase
+from ecommerce.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
+from ecommerce.addons.microsoft_calendar.models.res_users import User
+from ecommerce.addons.microsoft_calendar.models.microsoft_sync import MicrosoftSync
+from ecommerce.modules.registry import Registry
+from ecommerce.addons.microsoft_account.models.microsoft_service import TIMEOUT
 
 
 def patch_api(func):
@@ -22,7 +22,7 @@ def patch_api(func):
     return patched
 
 @patch.object(User, '_get_microsoft_calendar_token', lambda user: 'dummy-token')
-class TestSyncOdoo2Microsoft(TransactionCase):
+class TestSyncecommerce2Microsoft(TransactionCase):
 
     def setUp(self):
         super().setUp()
@@ -81,7 +81,7 @@ class TestSyncOdoo2Microsoft(TransactionCase):
         })
 
         user.with_user(user).restart_microsoft_synchronization()
-        event.with_user(user)._sync_odoo2microsoft(self.microsoft_service)
+        event.with_user(user)._sync_ecommerce2microsoft(self.microsoft_service)
         microsoft_guid = self.env['ir.config_parameter'].sudo().get_param('microsoft_calendar.microsoft_guid', False)
         self.assertMicrosoftEventPatched(event.microsoft_id, {
             'id': event.microsoft_id,
@@ -99,10 +99,10 @@ class TestSyncOdoo2Microsoft(TransactionCase):
             'organizer': {'emailAddress': {'address': 'jean-luc@opoo.com', 'name': 'Test user Calendar'}},
             'reminderMinutesBeforeStart': 0,
             'singleValueExtendedProperties': [{
-                    'id': 'String {%s} Name odoo_id' % microsoft_guid,
+                    'id': 'String {%s} Name ecommerce_id' % microsoft_guid,
                     'value': str(event.id),
                 }, {
-                    'id': 'String {%s} Name owner_odoo_id' % microsoft_guid,
+                    'id': 'String {%s} Name owner_ecommerce_id' % microsoft_guid,
                     'value': str(user.id),
                 }
             ]

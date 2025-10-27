@@ -1,4 +1,4 @@
-from odoo import _, api, SUPERUSER_ID
+from ecommerce import _, api, SUPERUSER_ID
 
 
 def migrate(cr, version):

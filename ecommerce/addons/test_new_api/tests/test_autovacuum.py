@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class TestAutovacuum(common.TransactionCase):

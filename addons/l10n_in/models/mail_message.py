@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 
-from odoo import fields, api, models, _
-from odoo.exceptions import UserError
+from ecommerce import fields, api, models, _
+from ecommerce.exceptions import UserError
 
 
 class Message(models.Model):

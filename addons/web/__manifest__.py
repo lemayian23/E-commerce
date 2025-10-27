@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Web',
     'category': 'Hidden',
     'version': '1.0',
     'description': """
-Odoo Web core module.
+ecommerce Web core module.
 ========================
 
-This module provides the core of the Odoo Web Client.
+This module provides the core of the ecommerce Web Client.
 """,
     'depends': ['base'],
     'auto_install': True,
@@ -57,7 +57,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/lib/tempusdominus/tempusdominus.scss',
             'web/static/lib/jquery.ui/jquery-ui.css',
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/ecommerce_ui_icons/*',
             'web/static/lib/select2/select2.css',
             'web/static/lib/select2-bootstrap-css/select2-bootstrap.css',
             'web/static/lib/daterangepicker/daterangepicker.css',
@@ -74,7 +74,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/src/legacy/scss/translation_dialog.scss',
             'web/static/src/legacy/scss/keyboard.scss',
             'web/static/src/legacy/scss/name_and_signature.scss',
-            'web/static/src/legacy/scss/web.zoomodoo.scss',
+            'web/static/src/legacy/scss/web.zoomecommerce.scss',
             'web/static/src/legacy/scss/fontawesome_overridden.scss',
 
             'web/static/src/legacy/js/promise_extension.js',
@@ -87,7 +87,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/lib/moment/moment.js',
             'web/static/lib/luxon/luxon.js',
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/ecommerce_module.js',
             'web/static/src/owl2_compatibility/*.js',
             'web/static/src/legacy/js/component_extension.js',
             'web/static/src/legacy/legacy_component.js',
@@ -132,7 +132,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/src/legacy/js/libs/moment.js',
             'web/static/src/legacy/js/libs/underscore.js',
             'web/static/src/legacy/js/libs/pdfjs.js',
-            'web/static/src/legacy/js/libs/zoomodoo.js',
+            'web/static/src/legacy/js/libs/zoomecommerce.js',
             'web/static/src/legacy/js/libs/jSignatureCustom.js',
             'web/static/src/legacy/js/core/abstract_service.js',
             'web/static/src/legacy/js/core/abstract_storage_service.js',
@@ -326,7 +326,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/lib/tempusdominus/tempusdominus.scss',
             'web/static/lib/jquery.ui/jquery-ui.css',
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/ecommerce_ui_icons/*',
             'web/static/lib/select2/select2.css',
             'web/static/lib/select2-bootstrap-css/select2-bootstrap.css',
             'web/static/lib/daterangepicker/daterangepicker.css',
@@ -343,7 +343,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/src/legacy/scss/translation_dialog.scss',
             'web/static/src/legacy/scss/keyboard.scss',
             'web/static/src/legacy/scss/name_and_signature.scss',
-            'web/static/src/legacy/scss/web.zoomodoo.scss',
+            'web/static/src/legacy/scss/web.zoomecommerce.scss',
             'web/static/src/legacy/scss/fontawesome_overridden.scss',
 
             'web/static/src/legacy/scss/base_frontend.scss',
@@ -355,7 +355,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/lib/underscore.string/lib/underscore.string.js',
             'web/static/lib/moment/moment.js',
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/ecommerce_module.js',
             'web/static/src/owl2_compatibility/*.js',
             'web/static/src/legacy/js/component_extension.js',
             'web/static/src/legacy/legacy_component.js',
@@ -400,7 +400,7 @@ This module provides the core of the Odoo Web Client.
             'web/static/src/legacy/js/libs/moment.js',
             'web/static/src/legacy/js/libs/underscore.js',
             'web/static/src/legacy/js/libs/pdfjs.js',
-            'web/static/src/legacy/js/libs/zoomodoo.js',
+            'web/static/src/legacy/js/libs/zoomecommerce.js',
             'web/static/src/legacy/js/libs/jSignatureCustom.js',
             'web/static/src/legacy/js/core/abstract_service.js',
             'web/static/src/legacy/js/core/abstract_storage_service.js',
@@ -499,7 +499,7 @@ This module provides the core of the Odoo Web Client.
 
             'base/static/src/css/description.css',
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/ecommerce_ui_icons/*',
             'web/static/fonts/fonts.scss',
 
             'web/static/src/webclient/actions/reports/report.scss',

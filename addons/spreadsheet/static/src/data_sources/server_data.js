@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { LoadingDataError } from "../o_spreadsheet/errors";
 
 /**

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields
-from odoo.tools.translate import _
+from ecommerce import models, fields
+from ecommerce.tools.translate import _
 
 
 class BarcodeRule(models.Model):

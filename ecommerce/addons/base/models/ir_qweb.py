@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 """
 ================
 IrQWeb / ir.qweb
@@ -12,7 +12,7 @@ Technical documentation of the python operation of the rendering QWeb engine.
 Templating
 ==========
 
-QWeb is the primary templating engine used by Odoo. It is an XML templating
+QWeb is the primary templating engine used by ecommerce. It is an XML templating
 engine and used mostly to generate XML, HTML fragments and pages.
 
 Template directives are specified as XML attributes prefixed with ``t-``,
@@ -24,7 +24,7 @@ which executes its directive but doesn't generate any output in and of
 itself.
 
 To create new XML template, please see :doc:`QWeb Templates documentation
-<https://www.odoo.com/documentation/16.0/developer/reference/frontend/qweb.html>`
+<https://www.ecommerce.com/documentation/16.0/developer/reference/frontend/qweb.html>`
 
 Rendering process
 =================
@@ -65,7 +65,7 @@ in the IrQweb class.
 
 .. code-block:: rst
 
-    Odoo
+    ecommerce
      ┗━► _render (returns MarkupSafe)
         ┗━► _compile (returns function)                                        ◄━━━━━━━━━━┓
            ┗━► _compile_node (returns code string array)                       ◄━━━━━━━━┓ ┃
@@ -181,10 +181,10 @@ Only validate the **input**, the compilation if inside the ``t-if`` directive.
 
 ``t-groups`` (``groups`` is an alias)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-**Values**: name of the allowed odoo user group, or preceded by ``!`` for
+**Values**: name of the allowed ecommerce user group, or preceded by ``!`` for
 prohibited groups
 
-The generated code uses ``user_has_groups`` Odoo method.
+The generated code uses ``user_has_groups`` ecommerce method.
 
 ``t-foreach``
 ~~~~~~~~~~~~~
@@ -379,19 +379,19 @@ from lxml import etree
 from dateutil.relativedelta import relativedelta
 from psycopg2.extensions import TransactionRollbackError
 
-from odoo import api, models, tools
-from odoo.tools import config, safe_eval, pycompat, SUPPORTED_DEBUGGER
-from odoo.tools.safe_eval import assert_valid_codeobj, _BUILTINS, to_opcodes, _EXPR_OPCODES, _BLACKLIST
-from odoo.tools.json import scriptsafe
-from odoo.tools.misc import str2bool
-from odoo.tools.image import image_data_uri
-from odoo.http import request
-from odoo.modules.module import get_resource_path, get_module_path
-from odoo.tools.profiler import QwebTracker
-from odoo.exceptions import UserError, AccessDenied, AccessError, MissingError, ValidationError
+from ecommerce import api, models, tools
+from ecommerce.tools import config, safe_eval, pycompat, SUPPORTED_DEBUGGER
+from ecommerce.tools.safe_eval import assert_valid_codeobj, _BUILTINS, to_opcodes, _EXPR_OPCODES, _BLACKLIST
+from ecommerce.tools.json import scriptsafe
+from ecommerce.tools.misc import str2bool
+from ecommerce.tools.image import image_data_uri
+from ecommerce.http import request
+from ecommerce.modules.module import get_resource_path, get_module_path
+from ecommerce.tools.profiler import QwebTracker
+from ecommerce.exceptions import UserError, AccessDenied, AccessError, MissingError, ValidationError
 
-from odoo.addons.base.models.assetsbundle import AssetsBundle
-from odoo.addons.base.models.ir_asset import can_aggregate, STYLE_EXTENSIONS, SCRIPT_EXTENSIONS, TEMPLATE_EXTENSIONS
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce.addons.base.models.ir_asset import can_aggregate, STYLE_EXTENSIONS, SCRIPT_EXTENSIONS, TEMPLATE_EXTENSIONS
 
 _logger = logging.getLogger(__name__)
 

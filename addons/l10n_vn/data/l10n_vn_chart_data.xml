@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<?xml version="1.0" encoding="utf-8"?>
+<ecommerce>
 <data>
     <!-- Account Chart Templates -->
     <record id="vn_template" model="account.chart.template">
@@ -13,4 +13,4 @@
         <field name="country_id" ref="base.vn"/>
     </record>
 </data>
-</odoo>
+</ecommerce>

@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "../../o_spreadsheet/o_spreadsheet_extended";
 import { Domain } from "@web/core/domain";
 
 const { UIPlugin } = spreadsheet;
 
-export default class OdooChartUIPlugin extends UIPlugin {
+export default class ecommerceChartUIPlugin extends UIPlugin {
     beforeHandle(cmd) {
         switch (cmd.type) {
             case "START":
@@ -76,10 +76,10 @@ export default class OdooChartUIPlugin extends UIPlugin {
      *
      */
     _addDomains() {
-        for (const chartId of this.getters.getOdooChartIds()) {
+        for (const chartId of this.getters.getecommerceChartIds()) {
             this._addDomain(chartId);
         }
     }
 }
 
-OdooChartUIPlugin.getters = [];
+ecommerceChartUIPlugin.getters = [];

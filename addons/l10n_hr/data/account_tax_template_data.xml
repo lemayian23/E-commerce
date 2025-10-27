@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="rrif_pdv_25" model="account.tax.template">
         <field name="description">PDV 25%</field>
         <field name="chart_template_id" ref="l10n_hr_chart_template_rrif"/>
@@ -1006,4 +1006,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

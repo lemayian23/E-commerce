@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from hashlib import sha1
 
 from werkzeug import urls
 
-from odoo import fields, models
+from ecommerce import fields, models
 
 
 class PaymentProvider(models.Model):
@@ -37,7 +37,7 @@ class PaymentProvider(models.Model):
 
         :param dict values: The values used to generate the signature
         :param bool incoming: Whether the signature must be generated for an incoming (Buckaroo to
-                              Odoo) or outgoing (Odoo to Buckaroo) communication.
+                              ecommerce) or outgoing (ecommerce to Buckaroo) communication.
         :return: The shasign
         :rtype: str
         """

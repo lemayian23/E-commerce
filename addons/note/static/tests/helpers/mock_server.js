@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // ensure mail override is applied first.
 import '@mail/../tests/helpers/mock_server';

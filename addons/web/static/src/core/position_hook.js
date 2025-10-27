@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { throttleForAnimation } from "./utils/timing";
 
@@ -11,7 +11,7 @@ import {
     useEffect,
     useExternalListener,
     useRef,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 import { localization } from "@web/core/l10n/localization";
 
 /**

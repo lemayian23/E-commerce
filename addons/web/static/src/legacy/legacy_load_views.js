@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 const xmlSerializer = new XMLSerializer();
 const domParser = new DOMParser();

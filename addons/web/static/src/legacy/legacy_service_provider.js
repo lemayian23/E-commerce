@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { bus } from "web.core";
 import Context from "web.Context";

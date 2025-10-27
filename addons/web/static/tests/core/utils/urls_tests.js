@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { browser } from "@web/core/browser/browser";
 import { getDataURLFromFile, getOrigin, url } from "@web/core/utils/urls";

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 from unittest.mock import DEFAULT
 
-from odoo import exceptions
-from odoo.addons.link_tracker.tests.common import MockLinkTracker
-from odoo.addons.sms.models.sms_sms import SmsSms as SmsModel
-from odoo.addons.test_mail_sms.tests.common import TestSMSCommon
-from odoo.tests import tagged
+from ecommerce import exceptions
+from ecommerce.addons.link_tracker.tests.common import MockLinkTracker
+from ecommerce.addons.sms.models.sms_sms import SmsSms as SmsModel
+from ecommerce.addons.test_mail_sms.tests.common import TestSMSCommon
+from ecommerce.tests import tagged
 
 
 @tagged('link_tracker')

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="mailing_list_data" model="mailing.list">
             <field name="name">Newsletter</field>
@@ -10,4 +10,4 @@
             <field name="list_ids" eval="[(6,0,[ref('mass_mailing.mailing_list_data')])]"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

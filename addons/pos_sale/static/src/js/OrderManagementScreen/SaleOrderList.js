@@ -1,4 +1,4 @@
-odoo.define('pos_sale.SaleOrderList', function (require) {
+ecommerce.define('pos_sale.SaleOrderList', function (require) {
     'use strict';
 
     const { useListener } = require("@web/core/utils/hooks");

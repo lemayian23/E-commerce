@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
-from odoo import fields, models
+from ecommerce import fields, models
 
 #in this file, we mostly add the tag translate=True on existing fields that we now want to be translated
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeFakeUserService } from "@web/../tests/helpers/mock_services";
 import {
@@ -21,7 +21,7 @@ import { FilterMenu } from "@web/search/filter_menu/filter_menu";
 import { GroupByMenu } from "@web/search/group_by_menu/group_by_menu";
 import { SearchPanel } from "@web/search/search_panel/search_panel";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 const serviceRegistry = registry.category("services");
 

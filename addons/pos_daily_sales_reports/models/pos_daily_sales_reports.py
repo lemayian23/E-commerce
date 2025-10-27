@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
-from odoo.osv.expression import AND
+from ecommerce import models, fields, api, _
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import AND
 from datetime import timedelta
 
 import pytz

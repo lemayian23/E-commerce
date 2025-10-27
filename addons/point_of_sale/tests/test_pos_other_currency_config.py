@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
+import ecommerce
 
-from odoo import tools
-from odoo.tests.common import Form
-from odoo.addons.point_of_sale.tests.common import TestPoSCommon
+from ecommerce import tools
+from ecommerce.tests.common import Form
+from ecommerce.addons.point_of_sale.tests.common import TestPoSCommon
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPoSOtherCurrencyConfig(TestPoSCommon):
     """ Test PoS with basic configuration
     """

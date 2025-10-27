@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { qweb as QWeb, _t } from 'web.core';
 import Dialog from 'web.Dialog';

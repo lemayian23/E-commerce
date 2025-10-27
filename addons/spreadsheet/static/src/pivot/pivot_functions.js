@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { sprintf } from "@web/core/utils/strings";
@@ -38,7 +38,7 @@ function assertDomainLength(domain) {
 }
 
 functionRegistry
-    .add("ODOO.FILTER.VALUE", {
+    .add("ecommerce.FILTER.VALUE", {
         description: _t("Return the current value of a spreadsheet filter."),
         args: args(`
             filter_name (string) ${_t("The label of the filter whose value to return.")}
@@ -49,7 +49,7 @@ functionRegistry
         },
         returns: ["STRING"],
     })
-    .add("ODOO.PIVOT", {
+    .add("ecommerce.PIVOT", {
         description: _t("Get the value from a pivot."),
         args: args(`
             pivot_id (string) ${_t("ID of the pivot.")}
@@ -86,7 +86,7 @@ functionRegistry
         },
         returns: ["NUMBER", "STRING"],
     })
-    .add("ODOO.PIVOT.HEADER", {
+    .add("ecommerce.PIVOT.HEADER", {
         description: _t("Get the header of a pivot."),
         args: args(`
             pivot_id (string) ${_t("ID of the pivot.")}
@@ -131,7 +131,7 @@ functionRegistry
         },
         returns: ["NUMBER", "STRING"],
     })
-    .add("ODOO.PIVOT.POSITION", {
+    .add("ecommerce.PIVOT.POSITION", {
         description: _t("Get the absolute ID of an element in the pivot"),
         args: args(`
             pivot_id (string) ${_t("ID of the pivot.")}

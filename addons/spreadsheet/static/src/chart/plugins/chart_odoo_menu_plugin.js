@@ -1,15 +1,15 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { omit } from "@web/core/utils/objects";
 
 const { coreTypes, helpers } = spreadsheet;
 const { deepEquals } = helpers;
 
-/** Plugin that link charts with Odoo menus. It can contain either the Id of the odoo menu, or its xml id. */
-export default class ChartOdooMenuPlugin extends spreadsheet.CorePlugin {
+/** Plugin that link charts with ecommerce menus. It can contain either the Id of the ecommerce menu, or its xml id. */
+export default class ChartecommerceMenuPlugin extends spreadsheet.CorePlugin {
     constructor() {
         super(...arguments);
-        this.odooMenuReference = {};
+        this.ecommerceMenuReference = {};
     }
 
     /**
@@ -18,11 +18,11 @@ export default class ChartOdooMenuPlugin extends spreadsheet.CorePlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "LINK_ODOO_MENU_TO_CHART":
-                this.history.update("odooMenuReference", cmd.chartId, cmd.odooMenuId);
+            case "LINK_ecommerce_MENU_TO_CHART":
+                this.history.update("ecommerceMenuReference", cmd.chartId, cmd.ecommerceMenuId);
                 break;
             case "DELETE_FIGURE":
-                this.history.update("odooMenuReference", cmd.id, undefined);
+                this.history.update("ecommerceMenuReference", cmd.id, undefined);
                 break;
             case "DUPLICATE_SHEET":
                 this.updateOnDuplicateSheet(cmd.sheetId, cmd.sheetIdTo);
@@ -32,7 +32,7 @@ export default class ChartOdooMenuPlugin extends spreadsheet.CorePlugin {
 
     updateOnDuplicateSheet(sheetIdFrom, sheetIdTo) {
         for (const oldChartId of this.getters.getChartIds(sheetIdFrom)) {
-            if (!this.odooMenuReference[oldChartId]) {
+            if (!this.ecommerceMenuReference[oldChartId]) {
                 continue;
             }
             const oldChartDefinition = this.getters.getChartDefinition(oldChartId);
@@ -48,36 +48,36 @@ export default class ChartOdooMenuPlugin extends spreadsheet.CorePlugin {
 
             if (newChartId) {
                 this.history.update(
-                    "odooMenuReference",
+                    "ecommerceMenuReference",
                     newChartId,
-                    this.odooMenuReference[oldChartId]
+                    this.ecommerceMenuReference[oldChartId]
                 );
             }
         }
     }
 
     /**
-     * Get odoo menu linked to the chart
+     * Get ecommerce menu linked to the chart
      *
      * @param {string} chartId
      * @returns {object | undefined}
      */
-    getChartOdooMenu(chartId) {
-        const menuId = this.odooMenuReference[chartId];
+    getChartecommerceMenu(chartId) {
+        const menuId = this.ecommerceMenuReference[chartId];
         return menuId ? this.getters.getIrMenu(menuId) : undefined;
     }
 
     import(data) {
-        if (data.chartOdooMenusReferences) {
-            this.odooMenuReference = data.chartOdooMenusReferences;
+        if (data.chartecommerceMenusReferences) {
+            this.ecommerceMenuReference = data.chartecommerceMenusReferences;
         }
     }
 
     export(data) {
-        data.chartOdooMenusReferences = this.odooMenuReference;
+        data.chartecommerceMenusReferences = this.ecommerceMenuReference;
     }
 }
-ChartOdooMenuPlugin.modes = ["normal", "headless"];
-ChartOdooMenuPlugin.getters = ["getChartOdooMenu"];
+ChartecommerceMenuPlugin.modes = ["normal", "headless"];
+ChartecommerceMenuPlugin.getters = ["getChartecommerceMenu"];
 
-coreTypes.add("LINK_ODOO_MENU_TO_CHART");
+coreTypes.add("LINK_ecommerce_MENU_TO_CHART");

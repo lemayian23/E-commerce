@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.test_mail.tests.test_performance import BaseMailPerformance
-from odoo.tests.common import users, warmup
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.test_mail.tests.test_performance import BaseMailPerformance
+from ecommerce.tests.common import users, warmup
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_performance', 'post_install', '-at_install')
@@ -73,7 +73,7 @@ class TestMailPerformance(BaseMailPerformance):
                          self.user_emp_email.partner_id + self.user_admin.partner_id + self.customers + self.user_portal.partner_id)
         self.assertEqual(len(record_ticket.message_ids), 1)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('employee')
     @warmup
     def test_message_post_w_followers(self):

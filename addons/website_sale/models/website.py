@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
+from ecommerce import api, fields, models, tools, SUPERUSER_ID, _
 
-from odoo.http import request
-from odoo.osv import expression
-from odoo.addons.http_routing.models.ir_http import url_for
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.addons.http_routing.models.ir_http import url_for
 
 _logger = logging.getLogger(__name__)
 

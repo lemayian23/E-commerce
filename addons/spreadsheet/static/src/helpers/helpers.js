@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { loadJS } from "@web/core/assets";
 
@@ -40,7 +40,7 @@ export function orderByToString(orderBy) {
 }
 
 /**
- * Convert a spreadsheet date representation to an odoo
+ * Convert a spreadsheet date representation to an ecommerce
  * server formatted date
  *
  * @param {Date} value

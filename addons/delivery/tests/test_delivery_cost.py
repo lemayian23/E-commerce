@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from freezegun import freeze_time
-from odoo.tests import common, Form
-from odoo.tools import float_compare
+from ecommerce.tests import common, Form
+from ecommerce.tools import float_compare
 
 
 @common.tagged('post_install', '-at_install')

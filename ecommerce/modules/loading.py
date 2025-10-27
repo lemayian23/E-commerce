@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ Modules (also called addons) management.
 
@@ -13,16 +13,16 @@ import threading
 import time
 import traceback
 
-import odoo
-import odoo.modules.db
-import odoo.modules.graph
-import odoo.modules.migration
-import odoo.modules.registry
+import ecommerce
+import ecommerce.modules.db
+import ecommerce.modules.graph
+import ecommerce.modules.migration
+import ecommerce.modules.registry
 from .. import SUPERUSER_ID, api, tools
 from .module import adapt_version, initialize_sys_path, load_openerp_module
 
 _logger = logging.getLogger(__name__)
-_test_logger = logging.getLogger('odoo.tests')
+_test_logger = logging.getLogger('ecommerce.tests')
 
 
 def load_data(cr, idref, mode, kind, package):
@@ -109,7 +109,7 @@ def force_demo(cr):
     """
     Forces the `demo` flag on all modules, and installs demo data for all installed modules.
     """
-    graph = odoo.modules.graph.Graph()
+    graph = ecommerce.modules.graph.Graph()
     cr.execute('UPDATE ir_module_module SET demo=True')
     cr.execute(
         "SELECT name FROM ir_module_module WHERE state IN ('installed', 'to upgrade', 'to remove')"
@@ -144,14 +144,14 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
 
     processed_modules = []
     loaded_modules = []
-    registry = odoo.registry(cr.dbname)
-    migrations = odoo.modules.migration.MigrationManager(cr, graph)
+    registry = ecommerce.registry(cr.dbname)
+    migrations = ecommerce.modules.migration.MigrationManager(cr, graph)
     module_count = len(graph)
     _logger.info('loading %d modules...', module_count)
 
     # register, instantiate and initialize models for each modules
     t0 = time.time()
-    loading_extra_query_count = odoo.sql_db.sql_counter
+    loading_extra_query_count = ecommerce.sql_db.sql_counter
     loading_cursor_query_count = cr.sql_log_count
 
     models_updated = set()
@@ -165,7 +165,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
 
         module_t0 = time.time()
         module_cursor_query_count = cr.sql_log_count
-        module_extra_query_count = odoo.sql_db.sql_counter
+        module_extra_query_count = ecommerce.sql_db.sql_counter
 
         needs_update = (
             hasattr(package, "init")
@@ -190,7 +190,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
         load_openerp_module(package.name)
 
         if new_install:
-            py_module = sys.modules['odoo.addons.%s' % (module_name,)]
+            py_module = sys.modules['ecommerce.addons.%s' % (module_name,)]
             pre_init = package.info.get('pre_init_hook')
             if pre_init:
                 registry.setup_models(cr)
@@ -238,7 +238,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
             migrations.migrate_module(package, 'post')
 
             # Update translations for all installed languages
-            overwrite = odoo.tools.config["overwrite_existing_translations"]
+            overwrite = ecommerce.tools.config["overwrite_existing_translations"]
             module._update_translations(overwrite=overwrite)
 
         if package.name is not None:
@@ -280,7 +280,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
         test_results = None
         if tools.config.options['test_enable'] and (needs_update or not updating):
             env = api.Environment(cr, SUPERUSER_ID, {})
-            loader = odoo.tests.loader
+            loader = ecommerce.tests.loader
             suite = loader.make_suite([module_name], 'at_install')
             if suite.countTestCases():
                 if not needs_update:
@@ -288,11 +288,11 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
                 # Python tests
                 env['ir.http']._clear_routing_map()     # force routing map to be rebuilt
 
-                tests_t0, tests_q0 = time.time(), odoo.sql_db.sql_counter
+                tests_t0, tests_q0 = time.time(), ecommerce.sql_db.sql_counter
                 test_results = loader.run_suite(suite, module_name, global_report=report)
                 report.update(test_results)
                 test_time = time.time() - tests_t0
-                test_queries = odoo.sql_db.sql_counter - tests_q0
+                test_queries = ecommerce.sql_db.sql_counter - tests_q0
 
                 # tests may have reset the environment
                 env = api.Environment(cr, SUPERUSER_ID, {})
@@ -313,7 +313,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
                     delattr(package, kind)
             module.env.flush_all()
 
-        extra_queries = odoo.sql_db.sql_counter - module_extra_query_count - test_queries
+        extra_queries = ecommerce.sql_db.sql_counter - module_extra_query_count - test_queries
         extras = []
         if test_queries:
             extras.append(f'+{test_queries} test')
@@ -337,7 +337,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True,
                    len(graph),
                    time.time() - t0,
                    cr.sql_log_count - loading_cursor_query_count,
-                   odoo.sql_db.sql_counter - loading_extra_query_count)  # extra queries: testes, notify, any other closed cursor
+                   ecommerce.sql_db.sql_counter - loading_extra_query_count)  # extra queries: testes, notify, any other closed cursor
 
     return loaded_modules, processed_modules
 
@@ -399,12 +399,12 @@ def load_modules(registry, force_demo=False, status=None, update_module=False):
         # connection settings are automatically reset when the connection is
         # borrowed from the pool
         cr.execute("SET SESSION lock_timeout = '15s'")
-        if not odoo.modules.db.is_initialized(cr):
+        if not ecommerce.modules.db.is_initialized(cr):
             if not update_module:
                 _logger.error("Database %s not initialized, you can force it with `-i base`", cr.dbname)
                 return
             _logger.info("init db")
-            odoo.modules.db.initialize(cr)
+            ecommerce.modules.db.initialize(cr)
             update_module = True # process auto-installed modules
             tools.config["init"]["all"] = 1
             if not tools.config['without_demo']:
@@ -414,16 +414,16 @@ def load_modules(registry, force_demo=False, status=None, update_module=False):
             cr.execute("update ir_module_module set state=%s where name=%s and state=%s", ('to upgrade', 'base', 'installed'))
 
         # STEP 1: LOAD BASE (must be done before module dependencies can be computed for later steps)
-        graph = odoo.modules.graph.Graph()
+        graph = ecommerce.modules.graph.Graph()
         graph.add_module(cr, 'base', force)
         if not graph:
             _logger.critical('module base cannot be loaded! (hint: verify addons-path)')
             raise ImportError('Module `base` cannot be loaded! (hint: verify addons-path)')
         if update_module and tools.config['update']:
             for pyfile in tools.config['pre_upgrade_scripts'].split(','):
-                odoo.modules.migration.exec_script(cr, graph['base'].installed_version, pyfile, 'base', 'pre')
+                ecommerce.modules.migration.exec_script(cr, graph['base'].installed_version, pyfile, 'base', 'pre')
 
-        if update_module and odoo.tools.table_exists(cr, 'ir_model_fields'):
+        if update_module and ecommerce.tools.table_exists(cr, 'ir_model_fields'):
             # determine the fields which are currently translated in the database
             cr.execute("SELECT model || '.' || name FROM ir_model_fields WHERE translate IS TRUE")
             registry._database_translated_fields = {row[0] for row in cr.fetchall()}
@@ -523,7 +523,7 @@ def load_modules(registry, force_demo=False, status=None, update_module=False):
             _logger.error("Some modules are not loaded, some dependencies or manifest may be missing: %s", missing)
 
         # STEP 3.5: execute migration end-scripts
-        migrations = odoo.modules.migration.MigrationManager(cr, graph)
+        migrations = ecommerce.modules.migration.MigrationManager(cr, graph)
         for package in graph:
             migrations.migrate_module(package, 'end')
 
@@ -572,7 +572,7 @@ def load_modules(registry, force_demo=False, status=None, update_module=False):
                 for pkg in pkgs:
                     uninstall_hook = pkg.info.get('uninstall_hook')
                     if uninstall_hook:
-                        py_module = sys.modules['odoo.addons.%s' % (pkg.name,)]
+                        py_module = sys.modules['ecommerce.addons.%s' % (pkg.name,)]
                         getattr(py_module, uninstall_hook)(cr, registry)
                         env.flush_all()
 
@@ -582,7 +582,7 @@ def load_modules(registry, force_demo=False, status=None, update_module=False):
                 # modules to remove next time
                 cr.commit()
                 _logger.info('Reloading registry once more after uninstalling modules')
-                registry = odoo.modules.registry.Registry.new(
+                registry = ecommerce.modules.registry.Registry.new(
                     cr.dbname, force_demo, status, update_module
                 )
                 cr.reset()
@@ -641,7 +641,7 @@ def reset_modules_state(db_name):
     # installation/upgrade/uninstallation fails, which is the only known case
     # for which modules can stay marked as 'to %' for an indefinite amount
     # of time
-    db = odoo.sql_db.db_connect(db_name)
+    db = ecommerce.sql_db.db_connect(db_name)
     with db.cursor() as cr:
         cr.execute(
             "UPDATE ir_module_module SET state='installed' WHERE state IN ('to remove', 'to upgrade')"

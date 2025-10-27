@@ -1,4 +1,4 @@
-odoo.define('website.s_dynamic_snippet', function (require) {
+ecommerce.define('website.s_dynamic_snippet', function (require) {
 'use strict';
 
 const core = require('web.core');
@@ -53,9 +53,9 @@ const DynamicSnippet = publicWidget.Widget.extend({
         return this._super.apply(this, arguments)
             .then(() => {
                 this._setupSizeChangedManagement(true);
-                this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+                this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
                 this._render();
-                this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+                this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
             });
     },
     /**
@@ -63,11 +63,11 @@ const DynamicSnippet = publicWidget.Widget.extend({
      * @override
      */
     destroy: function () {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
         this._toggleVisibility(false);
         this._setupSizeChangedManagement(false);
         this._clearContent();
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
         this._super.apply(this, arguments);
     },
 

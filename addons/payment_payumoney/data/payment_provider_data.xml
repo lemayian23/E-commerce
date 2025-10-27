@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<ecommerce noupdate="1">
 
     <record id="payment_provider_payumoney" model="payment.provider">
         <field name="name">PayUmoney</field>
@@ -21,4 +21,4 @@
         <field name="redirect_form_view_id" ref="redirect_form"/>
     </record>
 
-</odoo>
+</ecommerce>

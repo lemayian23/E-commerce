@@ -1,4 +1,4 @@
-odoo.define('web_tour.tour_manager_tests', async function (require) {
+ecommerce.define('web_tour.tour_manager_tests', async function (require) {
     "use strict";
 
     const core = require("web.core");

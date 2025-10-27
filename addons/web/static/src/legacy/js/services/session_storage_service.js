@@ -1,4 +1,4 @@
-odoo.define('web.SessionStorageService', function (require) {
+ecommerce.define('web.SessionStorageService', function (require) {
 'use strict';
 
 /**

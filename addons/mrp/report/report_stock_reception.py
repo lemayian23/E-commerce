@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.tools import format_date
+from ecommerce import models
+from ecommerce.tools import format_date
 
 
 class ReceptionReport(models.AbstractModel):

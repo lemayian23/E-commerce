@@ -1,9 +1,9 @@
 from freezegun import freeze_time
 
-from odoo import Command
-from odoo.exceptions import UserError
-from odoo.tests import tagged
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce import Command
+from ecommerce.exceptions import UserError
+from ecommerce.tests import tagged
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 @freeze_time('2023-12-31')

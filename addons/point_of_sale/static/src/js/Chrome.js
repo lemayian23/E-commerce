@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.Chrome', function(require) {
+ecommerce.define('point_of_sale.Chrome', function(require) {
     'use strict';
 
     const { loadCSS } = require('@web/core/assets');
@@ -9,7 +9,7 @@ odoo.define('point_of_sale.Chrome', function(require) {
     const Registries = require('point_of_sale.Registries');
     const IndependentToOrderScreen = require('point_of_sale.IndependentToOrderScreen');
     const { identifyError, batched } = require('point_of_sale.utils');
-    const { odooExceptionTitleMap } = require("@web/core/errors/error_dialogs");
+    const { ecommerceExceptionTitleMap } = require("@web/core/errors/error_dialogs");
     const { ConnectionLostError, ConnectionAbortedError, RPCError } = require('@web/core/network/rpc_service');
     const { useBus } = require("@web/core/utils/hooks");
     const { debounce } = require("@web/core/utils/timing");
@@ -464,8 +464,8 @@ odoo.define('point_of_sale.Chrome', function(require) {
         _errorHandler(error, errorToHandle) {
             if (errorToHandle instanceof RPCError) {
                 const { message, data } = errorToHandle;
-                if (odooExceptionTitleMap.has(errorToHandle.exceptionName)) {
-                    const title = odooExceptionTitleMap.get(errorToHandle.exceptionName).toString();
+                if (ecommerceExceptionTitleMap.has(errorToHandle.exceptionName)) {
+                    const title = ecommerceExceptionTitleMap.get(errorToHandle.exceptionName).toString();
                     this.showPopup('ErrorPopup', { title, body: data.message });
                 } else {
                     this.showPopup('ErrorTracebackPopup', {

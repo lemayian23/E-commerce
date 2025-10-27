@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import controllers
 from . import models
 
-from odoo.exceptions import UserError
-from odoo.tools import config
+from ecommerce.exceptions import UserError
+from ecommerce.tools import config
 
-from odoo.addons.payment import setup_provider, reset_payment_provider
+from ecommerce.addons.payment import setup_provider, reset_payment_provider
 
 
 def pre_init_hook(cr):

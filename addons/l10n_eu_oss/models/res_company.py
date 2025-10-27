@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command, api, models
+from ecommerce import Command, api, models
 from .eu_tag_map import EU_TAG_MAP
 from .eu_tax_map import EU_TAX_MAP
 

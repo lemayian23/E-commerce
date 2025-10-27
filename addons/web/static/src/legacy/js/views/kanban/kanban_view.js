@@ -1,4 +1,4 @@
-odoo.define('web.KanbanView', function (require) {
+ecommerce.define('web.KanbanView', function (require) {
 "use strict";
 
 var BasicView = require('web.BasicView');

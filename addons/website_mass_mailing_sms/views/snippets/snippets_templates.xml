@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <template id="s_newsletter_block_sms_template" groups="base.group_user">
     <div class="row">
@@ -26,4 +26,4 @@
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

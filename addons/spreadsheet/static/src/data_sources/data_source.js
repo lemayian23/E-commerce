@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { LoadingDataError } from "@spreadsheet/o_spreadsheet/errors";
 import { RPCError } from "@web/core/network/rpc_service";

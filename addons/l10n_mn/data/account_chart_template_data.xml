@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="mn_chart_1" model="account.chart.template">
         <field name="name">Mongolia</field>
@@ -12,4 +12,4 @@
         <field name="country_id" ref="base.mn"/>
     </record>
 
-</odoo>
+</ecommerce>

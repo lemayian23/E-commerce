@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import pytz
 
-from odoo import Command
-from odoo.tests.common import tagged
-from odoo.fields import Date, Datetime
-from odoo.addons.hr_work_entry_holidays.tests.common import TestWorkEntryHolidaysBase
+from ecommerce import Command
+from ecommerce.tests.common import tagged
+from ecommerce.fields import Date, Datetime
+from ecommerce.addons.hr_work_entry_holidays.tests.common import TestWorkEntryHolidaysBase
 
 
 @tagged('work_entry')

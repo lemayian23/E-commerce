@@ -1,10 +1,10 @@
 {
     "name": "Malaysia - Accounting",
-    "author": "Odoo PS",
+    "author": "ecommerce PS",
     "version": "1.0",
     "category": "Accounting/Localizations/Account Charts",
     "description": """
-This is the base module to manage the accounting chart for Malaysia in Odoo.
+This is the base module to manage the accounting chart for Malaysia in ecommerce.
 ==============================================================================
     """,
     "depends": [

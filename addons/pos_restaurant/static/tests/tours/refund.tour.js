@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.tour.Refund', function (require) {
+ecommerce.define('pos_restaurant.tour.Refund', function (require) {
     'use strict';
 
     const { PaymentScreen } = require('point_of_sale.tour.PaymentScreenTourMethods');

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details
-from odoo import api, SUPERUSER_ID, Command
-from odoo.addons.account.models.chart_template import update_taxes_from_templates
+# Part of ecommerce. See LICENSE file for full copyright and licensing details
+from ecommerce import api, SUPERUSER_ID, Command
+from ecommerce.addons.account.models.chart_template import update_taxes_from_templates
 
 
 def migrate(cr, version):

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import fonts from 'wysiwyg.fonts';
 import {generateHTMLId} from 'web_editor.utils';
 import options from 'web_editor.snippets.options';
 import {_t} from 'web.core';
-import {ICON_SELECTOR} from "@web_editor/js/editor/odoo-editor/src/utils/utils";
+import {ICON_SELECTOR} from "@web_editor/js/editor/ecommerce-editor/src/utils/utils";
 
 let dbSocialValues;
 let dbSocialValuesProm;

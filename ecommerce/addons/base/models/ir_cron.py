@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import threading
 import time
@@ -8,19 +8,19 @@ import pytz
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
-import odoo
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+import ecommerce
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
 
 from psycopg2 import sql
 
 _logger = logging.getLogger(__name__)
 
-BASE_VERSION = odoo.modules.get_manifest('base')['version']
+BASE_VERSION = ecommerce.modules.get_manifest('base')['version']
 MAX_FAIL_TIME = timedelta(hours=5)  # chosen with a fair roll of the dice
 
 # custom function to call instead of NOTIFY postgresql command (opt-in)
-ODOO_NOTIFY_FUNCTION = os.environ.get('ODOO_NOTIFY_FUNCTION')
+ecommerce_NOTIFY_FUNCTION = os.environ.get('ecommerce_NOTIFY_FUNCTION')
 
 
 class BadVersion(Exception):
@@ -46,7 +46,7 @@ class ir_cron(models.Model):
     # TODO: perhaps in the future we could consider a flag on ir.cron jobs
     # that would cause database wake-up even if the database has not been
     # loaded yet or was already unloaded (e.g. 'force_db_wakeup' or something)
-    # See also odoo.cron
+    # See also ecommerce.cron
 
     _name = "ir.cron"
     _order = 'cron_name'
@@ -75,7 +75,7 @@ class ir_cron(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             vals['usage'] = 'ir_cron'
-        if os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if os.getenv('ecommerce_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
         return super().create(vals_list)
 
@@ -110,7 +110,7 @@ class ir_cron(models.Model):
     def _process_jobs(cls, db_name):
         """ Execute every job ready to be run on this database. """
         try:
-            db = odoo.sql_db.db_connect(db_name)
+            db = ecommerce.sql_db.db_connect(db_name)
             threading.current_thread().dbname = db_name
             with db.cursor() as cron_cr:
                 cls._check_version(cron_cr)
@@ -131,7 +131,7 @@ class ir_cron(models.Model):
                         continue
                     _logger.debug("job %s acquired", job_id)
                     # take into account overridings of _process_job() on that database
-                    registry = odoo.registry(db_name)
+                    registry = ecommerce.registry(db_name)
                     registry[cls._name]._process_job(db, cron_cr, job)
                     cron_cr.commit()
                     _logger.debug("job %s updated and released", job_id)
@@ -193,7 +193,7 @@ class ir_cron(models.Model):
         # per minute for 5h) in which case we assume that the crons are stuck
         # because the db has zombie states and we force a call to
         # reset_module_states.
-        odoo.modules.reset_modules_state(cr.dbname)
+        ecommerce.modules.reset_modules_state(cr.dbname)
 
     @classmethod
     def _get_all_ready_jobs(cls, cr):
@@ -383,7 +383,7 @@ class ir_cron(models.Model):
                 self = self.env()[self._name]
 
             log_depth = (None if _logger.isEnabledFor(logging.DEBUG) else 1)
-            odoo.netsvc.log(_logger, logging.DEBUG, 'cron.object.execute', (self._cr.dbname, self._uid, '*', cron_name, server_action_id), depth=log_depth)
+            ecommerce.netsvc.log(_logger, logging.DEBUG, 'cron.object.execute', (self._cr.dbname, self._uid, '*', cron_name, server_action_id), depth=log_depth)
             start_time = False
             _logger.info('Starting job `%s`.', cron_name)
             if _logger.isEnabledFor(logging.DEBUG):
@@ -433,7 +433,7 @@ class ir_cron(models.Model):
 
     def write(self, vals):
         self._try_lock()
-        if ('nextcall' in vals or vals.get('active')) and os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if ('nextcall' in vals or vals.get('active')) and os.getenv('ecommerce_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
         return super(ir_cron, self).write(vals)
 
@@ -518,17 +518,17 @@ class ir_cron(models.Model):
             ats = ', '.join(map(str, at_list))
             _logger.debug("will execute '%s' at %s", self.sudo().name, ats)
 
-        if min(at_list) <= now or os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if min(at_list) <= now or os.getenv('ecommerce_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
 
     def _notifydb(self):
         """ Wake up the cron workers
-        The ODOO_NOTIFY_CRON_CHANGES environment variable allows to force the notifydb on both
+        The ecommerce_NOTIFY_CRON_CHANGES environment variable allows to force the notifydb on both
         ir_cron modification and on trigger creation (regardless of call_at)
         """
-        with odoo.sql_db.db_connect('postgres').cursor() as cr:
-            if ODOO_NOTIFY_FUNCTION:
-                query = sql.SQL("SELECT {}('cron_trigger', %s)").format(sql.Identifier(ODOO_NOTIFY_FUNCTION))
+        with ecommerce.sql_db.db_connect('postgres').cursor() as cr:
+            if ecommerce_NOTIFY_FUNCTION:
+                query = sql.SQL("SELECT {}('cron_trigger', %s)").format(sql.Identifier(ecommerce_NOTIFY_FUNCTION))
             else:
                 query = "NOTIFY cron_trigger, %s"
             cr.execute(query, [self.env.cr.dbname])

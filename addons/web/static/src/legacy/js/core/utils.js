@@ -1,4 +1,4 @@
-odoo.define('web.utils', function (require) {
+ecommerce.define('web.utils', function (require) {
 "use strict";
 
 /**
@@ -9,7 +9,7 @@ odoo.define('web.utils', function (require) {
 
 var translation = require('web.translation');
 
-const { Component } = require("@odoo/owl");
+const { Component } = require("@ecommerce/owl");
 
 var _t = translation._t;
 var id = -1;

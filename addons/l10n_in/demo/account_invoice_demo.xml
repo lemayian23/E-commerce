@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<ecommerce noupdate="1">
 
     <record id="demo_invoice_b2b_intra_state" model="account.move">
         <field name="move_type">out_invoice</field>
@@ -53,4 +53,4 @@
         ]"/>
     </record>
 
-</odoo>
+</ecommerce>

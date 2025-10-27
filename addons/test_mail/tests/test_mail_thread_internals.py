@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 from unittest.mock import DEFAULT
 
-from odoo import exceptions
-from odoo.addons.test_mail.models.test_mail_models import MailTestSimple
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
-from odoo.tests.common import tagged, users
-from odoo.tools import mute_logger
+from ecommerce import exceptions
+from ecommerce.addons.test_mail.models.test_mail_models import MailTestSimple
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.tests.common import tagged, users
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_thread')
@@ -112,21 +112,21 @@ class TestChatterTweaks(TestMailCommon, TestRecipients):
             body='Test Body', message_type='comment', subtype_xmlid='mail.mt_comment')
         self.assertEqual(self.test_record.message_follower_ids.mapped('partner_id'), original.mapped('partner_id'))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_post_no_subscribe_recipients(self):
         original = self.test_record.message_follower_ids
         self.test_record.with_user(self.user_employee).with_context({'mail_create_nosubscribe': True}).message_post(
             body='Test Body', message_type='comment', subtype_xmlid='mail.mt_comment', partner_ids=[self.partner_1.id, self.partner_2.id])
         self.assertEqual(self.test_record.message_follower_ids.mapped('partner_id'), original.mapped('partner_id'))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_post_subscribe_recipients(self):
         original = self.test_record.message_follower_ids
         self.test_record.with_user(self.user_employee).with_context({'mail_create_nosubscribe': True, 'mail_post_autofollow': True}).message_post(
             body='Test Body', message_type='comment', subtype_xmlid='mail.mt_comment', partner_ids=[self.partner_1.id, self.partner_2.id])
         self.assertEqual(self.test_record.message_follower_ids.mapped('partner_id'), original.mapped('partner_id') | self.partner_1 | self.partner_2)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_chatter_context_cleaning(self):
         """ Test default keys are not propagated to message creation as it may
         induce wrong values for some fields, like parent_id. """
@@ -295,7 +295,7 @@ class TestDiscuss(TestMailCommon, TestRecipients):
         self.assertFalse(msg.starred)
         self.assertTrue(msg_emp.starred)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_cc_recipient_suggestion(self):
         record = self.env['mail.test.cc'].create({'email_cc': 'cc1@example.com, cc2@example.com, cc3 <cc3@example.com>'})
         suggestions = record._message_get_suggested_recipients()[record.id]

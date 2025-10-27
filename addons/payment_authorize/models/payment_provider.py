@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
 
-from odoo import _, api, fields, models
-from odoo.fields import Command
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.fields import Command
+from ecommerce.exceptions import UserError, ValidationError
 
 from .authorize_request import AuthorizeAPI
 
@@ -26,7 +26,7 @@ class PaymentProvider(models.Model):
         string="API Signature Key", required_if_provider='authorize', groups='base.group_system')
     authorize_client_key = fields.Char(
         string="API Client Key",
-        help="The public client key. To generate directly from Odoo or from Authorize.Net backend.")
+        help="The public client key. To generate directly from ecommerce or from Authorize.Net backend.")
     # Authorize.Net supports only one currency: "One gateway account is required for each currency"
     # See https://community.developer.authorize.net/t5/The-Authorize-Net-Developer-Blog/Authorize-Net-UK-Europe-Update/ba-p/35957
     authorize_currency_id = fields.Many2one(

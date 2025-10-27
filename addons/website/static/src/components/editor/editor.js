@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 // Legacy services
 import legacyEnv from 'web.commonEnv';
 import { useService } from '@web/core/utils/hooks';

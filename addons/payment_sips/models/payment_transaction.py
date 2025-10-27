@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-# Original Copyright 2015 Eezee-It, modified and maintained by Odoo.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+# Original Copyright 2015 Eezee-It, modified and maintained by ecommerce.
 
 import json
 import logging
 
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_sips.controllers.main import SipsController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_sips.controllers.main import SipsController
 from .const import RESPONSE_CODES_MAPPING, SUPPORTED_CURRENCIES
 
 _logger = logging.getLogger(__name__)

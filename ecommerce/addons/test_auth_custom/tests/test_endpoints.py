@@ -1,17 +1,17 @@
 from http import HTTPStatus
 
-import odoo.tools
-from odoo.tests import HttpCase, HOST
+import ecommerce.tools
+from ecommerce.tests import HttpCase, HOST
 
 
 class TestCustomAuth(HttpCase):
     # suppress "WARNING: Access Error" when auth fails on json endpoints
-    @odoo.tools.mute_logger('odoo.http')
+    @ecommerce.tools.mute_logger('ecommerce.http')
     def test_json(self):
         # straight request should fail
         r = self.url_open('/test_auth_custom/json', headers={'Content-Type': 'application/json'}, data="{}")
         e = r.json()['error']
-        self.assertEqual(e['data']['name'], 'odoo.exceptions.AccessDenied')
+        self.assertEqual(e['data']['name'], 'ecommerce.exceptions.AccessDenied')
 
         # but preflight should work
         self.env.flush_all()
@@ -26,7 +26,7 @@ class TestCustomAuth(HttpCase):
         self.assertEqual(r.headers['Access-Control-Allow-Methods'], 'POST', "json is always POST")
         self.assertNotIn('XYZ', r.headers['Access-Control-Allow-Headers'], "headers are ignored")
 
-    @odoo.tools.mute_logger('odoo.http')
+    @ecommerce.tools.mute_logger('ecommerce.http')
     def test_http(self):
         # straight request should fail
         r = self.url_open('/test_auth_custom/http')

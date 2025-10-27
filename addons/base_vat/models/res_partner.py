@@ -9,9 +9,9 @@ from stdnum import luhn
 
 import logging
 
-from odoo import api, models, fields, tools, _
-from odoo.tools.misc import ustr
-from odoo.exceptions import ValidationError
+from ecommerce import api, models, fields, tools, _
+from ecommerce.tools.misc import ustr
+from ecommerce.exceptions import ValidationError
 
 
 _logger = logging.getLogger(__name__)

@@ -1,4 +1,4 @@
-odoo.define('web.signature_widget', function (require) {
+ecommerce.define('web.signature_widget', function (require) {
 "use strict";
 
 const framework = require('web.framework');

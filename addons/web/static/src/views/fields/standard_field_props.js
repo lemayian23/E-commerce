@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export const standardFieldProps = {
     id: { type: String, optional: true },

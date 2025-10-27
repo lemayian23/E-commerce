@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.CashOpeningPopup', function(require) {
+ecommerce.define('point_of_sale.CashOpeningPopup', function(require) {
     'use strict';
 
     const { useValidateCashInput } = require('point_of_sale.custom_hooks');

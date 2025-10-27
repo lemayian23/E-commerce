@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 
-from odoo import Command
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.sale.tests.common import TestSaleCommon
-from odoo.addons.project.tests.test_project_profitability import TestProjectProfitabilityCommon as Common
+from ecommerce.addons.sale.tests.common import TestSaleCommon
+from ecommerce.addons.project.tests.test_project_profitability import TestProjectProfitabilityCommon as Common
 
 
 class TestProjectProfitabilityCommon(Common):

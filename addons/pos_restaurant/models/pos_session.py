@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
+from ecommerce import models
 from itertools import groupby
-from odoo.osv.expression import AND
+from ecommerce.osv.expression import AND
 
 class PosSession(models.Model):
     _inherit = 'pos.session'

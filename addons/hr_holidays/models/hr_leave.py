@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Copyright (c) 2005-2006 Axelor SARL. (http://www.axelor.com)
 
@@ -10,17 +10,17 @@ from collections import namedtuple, defaultdict
 
 from datetime import datetime, timedelta, time
 from pytz import timezone, UTC
-from odoo.tools import date_utils
+from ecommerce.tools import date_utils
 
-from odoo import api, Command, fields, models, tools
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.addons.resource.models.resource import float_to_time, HOURS_PER_DAY
-from odoo.exceptions import AccessError, UserError, ValidationError
-from odoo.tools import float_compare, format_date
-from odoo.tools.float_utils import float_round
-from odoo.tools.misc import clean_context
-from odoo.tools.translate import _
-from odoo.osv import expression
+from ecommerce import api, Command, fields, models, tools
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.addons.resource.models.resource import float_to_time, HOURS_PER_DAY
+from ecommerce.exceptions import AccessError, UserError, ValidationError
+from ecommerce.tools import float_compare, format_date
+from ecommerce.tools.float_utils import float_round
+from ecommerce.tools.misc import clean_context
+from ecommerce.tools.translate import _
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -324,7 +324,7 @@ class HolidaysRequest(models.Model):
 
     @api.constrains('holiday_status_id', 'number_of_days')
     def _check_allocation_duration(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         return
 
@@ -365,7 +365,7 @@ class HolidaysRequest(models.Model):
 
     @api.depends('holiday_status_id.requires_allocation', 'validation_type', 'employee_id', 'date_from', 'date_to')
     def _compute_from_holiday_status_id(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         self.holiday_allocation_id = False
 
@@ -878,13 +878,13 @@ class HolidaysRequest(models.Model):
 
     @api.constrains('holiday_allocation_id')
     def _check_allocation_id(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         return
 
     @api.constrains('holiday_allocation_id', 'date_to', 'date_from')
     def _check_leave_type_validity(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         return
 
@@ -980,7 +980,7 @@ class HolidaysRequest(models.Model):
                     # Automatic validation should be done in sudo, because user might not have the rights to do it by himself
                     holiday_sudo.action_validate()
                     holiday_sudo.message_subscribe(partner_ids=[holiday._get_responsible_for_approval().partner_id.id])
-                    holiday_sudo.message_post(body=_("The time off has been automatically approved"), subtype_xmlid="mail.mt_comment") # Message from OdooBot (sudo)
+                    holiday_sudo.message_post(body=_("The time off has been automatically approved"), subtype_xmlid="mail.mt_comment") # Message from ecommerceBot (sudo)
                 elif not self._context.get('import_file'):
                     holiday_sudo.activity_update()
         return holidays

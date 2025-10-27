@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="bo_chart_template" model="account.chart.template">
         <field name="name">Bolivia - Chart of Accounts</field>
         <field name="spoken_languages" eval="'es_BO'"/>
@@ -11,4 +11,4 @@
         <field name="bank_account_code_prefix">11130</field>
         <field name="transfer_account_code_prefix">11110</field>
     </record>
-</odoo>
+</ecommerce>

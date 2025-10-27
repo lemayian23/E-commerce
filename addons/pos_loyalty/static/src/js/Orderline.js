@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Orderline from 'point_of_sale.Orderline';
 import Registries from 'point_of_sale.Registries';

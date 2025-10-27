@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from functools import lru_cache
 
-from odoo import api, fields, models, _
-from odoo.tools import float_compare, float_is_zero
+from ecommerce import api, fields, models, _
+from ecommerce.tools import float_compare, float_is_zero
 
 
 class PosOrder(models.Model):

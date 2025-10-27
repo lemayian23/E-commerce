@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import common
-from odoo.addons.hr.tests.common import TestHrCommon
-from odoo.modules.module import get_module_resource
+from ecommerce.tests import common
+from ecommerce.addons.hr.tests.common import TestHrCommon
+from ecommerce.modules.module import get_module_resource
 
 
 class TestRecruitmentProcess(TestHrCommon):

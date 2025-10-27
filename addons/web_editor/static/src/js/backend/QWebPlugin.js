@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ancestors } from '@web_editor/js/common/wysiwyg_utils';
 

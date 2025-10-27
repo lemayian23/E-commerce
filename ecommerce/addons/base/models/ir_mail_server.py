@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from email.message import EmailMessage
 from email.utils import make_msgid
@@ -21,13 +21,13 @@ from OpenSSL.crypto import Error as SSLCryptoError, FILETYPE_PEM
 from OpenSSL.SSL import Error as SSLError
 from urllib3.contrib.pyopenssl import PyOpenSSLContext
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.tools import ustr, pycompat, formataddr, email_normalize, encapsulate_email, email_domain_extract, email_domain_normalize
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import ustr, pycompat, formataddr, email_normalize, encapsulate_email, email_domain_extract, email_domain_normalize
 
 
 _logger = logging.getLogger(__name__)
-_test_logger = logging.getLogger('odoo.tests')
+_test_logger = logging.getLogger('ecommerce.tests')
 
 SMTP_TIMEOUT = 60
 
@@ -123,7 +123,7 @@ class IrMailServer(models.Model):
     from_filter = fields.Char(
         "FROM Filtering",
         help='Define for which email address or domain this server can be used.\n'
-             'e.g.: "notification@odoo.com" or "odoo.com"')
+             'e.g.: "notification@ecommerce.com" or "ecommerce.com"')
     smtp_host = fields.Char(string='SMTP Server', required=True, help="Hostname or IP of SMTP server")
     smtp_port = fields.Integer(string='SMTP Port', required=True, default=25, help="SMTP Port. Usually 465 for SSL, and 25 or 587 for other cases.")
     smtp_authentication = fields.Selection([('login', 'Username'), ('certificate', 'SSL Certificate')], string='Authenticate with', required=True, default='login')
@@ -221,13 +221,13 @@ class IrMailServer(models.Model):
 
     def _get_test_email_addresses(self):
         self.ensure_one()
-        email_to = "noreply@odoo.com"
+        email_to = "noreply@ecommerce.com"
         if self.from_filter:
             if "@" in self.from_filter:
                 # All emails will be sent from the same address
                 return self.from_filter, email_to
             # All emails will be sent from any address in the same domain
-            default_from = self.env["ir.config_parameter"].sudo().get_param("mail.default.from", "odoo")
+            default_from = self.env["ir.config_parameter"].sudo().get_param("mail.default.from", "ecommerce")
             if "@" not in default_from:
                 return f"{default_from}@{self.from_filter}", email_to
             elif self._match_from_filter(default_from, self.from_filter):
@@ -319,9 +319,9 @@ class IrMailServer(models.Model):
            :param string encryption: optional, ``'ssl'`` | ``'starttls'``
            :param smtp_from: FROM SMTP envelop, used to find the best mail server
            :param ssl_certificate: filename of the SSL certificate used for authentication
-               Used when no mail server is given and overwrite  the odoo-bin argument "smtp_ssl_certificate"
+               Used when no mail server is given and overwrite  the ecommerce-bin argument "smtp_ssl_certificate"
            :param ssl_private_key: filename of the SSL private key used for authentication
-               Used when no mail server is given and overwrite  the odoo-bin argument "smtp_ssl_private_key"
+               Used when no mail server is given and overwrite  the ecommerce-bin argument "smtp_ssl_private_key"
            :param bool smtp_debug: toggle debugging of SMTP sessions (all i/o
                               will be output in logs)
            :param mail_server_id: ID of specific mail server to use (overrides other parameters)
@@ -407,7 +407,7 @@ class IrMailServer(models.Model):
         if smtp_encryption == 'ssl':
             if 'SMTP_SSL' not in smtplib.__all__:
                 raise UserError(
-                    _("Your Odoo Server does not support SMTP-over-SSL. "
+                    _("Your ecommerce Server does not support SMTP-over-SSL. "
                       "You could use STARTTLS instead. "
                        "If SSL is needed, an upgrade to Python 2.6 on the server-side "
                        "should do the trick."))
@@ -433,7 +433,7 @@ class IrMailServer(models.Model):
         # Anyway, as it may have been sent by login(), all subsequent usages should consider this command as sent.
         connection.ehlo_or_helo_if_needed()
 
-        # Store the "from_filter" of the mail server / odoo-bin argument to  know if we
+        # Store the "from_filter" of the mail server / ecommerce-bin argument to  know if we
         # need to change the FROM headers or not when we will prepare the mail message
         connection.from_filter = from_filter
         connection.smtp_from = smtp_from
@@ -549,7 +549,7 @@ class IrMailServer(models.Model):
         joining the parameters "mail.bounce.alias" and
         "mail.catchall.domain".
 
-        If "mail.bounce.alias" is not set it defaults to "postmaster-odoo".
+        If "mail.bounce.alias" is not set it defaults to "postmaster-ecommerce".
 
         If "mail.catchall.domain" is not set, return None.
 
@@ -742,7 +742,7 @@ class IrMailServer(models.Model):
         """Find the appropriate mail server for the given email address.
 
         Returns: Record<ir.mail_server>, email_from
-        - Mail server to use to send the email (None if we use the odoo-bin arguments)
+        - Mail server to use to send the email (None if we use the ecommerce-bin arguments)
         - Email FROM to use to send the email (in some case, it might be impossible
           to use the given email address directly if no mail server is configured for)
         """
@@ -757,7 +757,7 @@ class IrMailServer(models.Model):
         mail_servers = mail_servers.filtered('active')
 
         # 1. Try to find a mail server for the right mail from
-        # Skip if passed email_from is False (example Odoobot has no email address)
+        # Skip if passed email_from is False (example ecommercebot has no email address)
         if email_from_normalized:
             mail_server = mail_servers.filtered(lambda m: email_normalize(m.from_filter) == email_from_normalized)
             if mail_server:
@@ -792,7 +792,7 @@ class IrMailServer(models.Model):
                 notifications_email or email_from)
             return mail_servers[0], notifications_email or email_from
 
-        # 5: SMTP config in odoo-bin arguments
+        # 5: SMTP config in ecommerce-bin arguments
         from_filter = self.env['ir.config_parameter'].sudo().get_param(
             'mail.default.from_filter', tools.config.get('from_filter'))
 

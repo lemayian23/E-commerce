@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
-@odoo.tests.tagged("post_install", "-at_install")
-class TestOdooEditor(odoo.tests.HttpCase):
+@ecommerce.tests.tagged("post_install", "-at_install")
+class TestecommerceEditor(ecommerce.tests.HttpCase):
 
-    def test_odoo_editor_suite(self):
+    def test_ecommerce_editor_suite(self):
         self.browser_js('/web_editor/tests', "", "", login='admin', timeout=1800)

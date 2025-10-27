@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from unittest.mock import patch
 import logging
 import time
@@ -8,12 +8,12 @@ from psycopg2 import IntegrityError
 from psycopg2.extras import Json
 import io
 
-from odoo.exceptions import UserError
-from odoo.tools import sql
-from odoo.tools.translate import quote, unquote, xml_translate, html_translate, TranslationImporter
-from odoo.tests.common import TransactionCase, BaseCase, new_test_user, tagged
+from ecommerce.exceptions import UserError
+from ecommerce.tools import sql
+from ecommerce.tools.translate import quote, unquote, xml_translate, html_translate, TranslationImporter
+from ecommerce.tests.common import TransactionCase, BaseCase, new_test_user, tagged
 
-_stats_logger = logging.getLogger('odoo.tests.stats')
+_stats_logger = logging.getLogger('ecommerce.tests.stats')
 
 # a string with various unicode characters
 SPECIAL_CHARACTERS = " ¥®°²Æçéðπ⁉€∇⓵▲☑♂♥✓➔『にㄅ㊀中한︸🌈🌍👌😀"
@@ -342,7 +342,7 @@ class TestLanguageInstall(TransactionCase):
         def _load_module_terms(self, modules, langs, overwrite=False):
             loaded.append((modules, langs, overwrite))
 
-        with patch('odoo.addons.base.models.ir_module.Module._load_module_terms', _load_module_terms):
+        with patch('ecommerce.addons.base.models.ir_module.Module._load_module_terms', _load_module_terms):
             wizard.lang_install()
 
         # _load_module_terms is called once with lang='fr_FR' and overwrite=True
@@ -491,17 +491,17 @@ class TestTranslation(TransactionCase):
     # TODO Currently, the unique constraint doesn't work for translatable field
     # def test_111_unique_en(self):
     #     Country = self.env['res.country']
-    #     country_1 = Country.create({'name': 'Odoo'})
-    #     country_1.with_context(lang='fr_FR').name = 'Odoo_Fr'
+    #     country_1 = Country.create({'name': 'ecommerce'})
+    #     country_1.with_context(lang='fr_FR').name = 'ecommerce_Fr'
     #     country_1.flush_recordset()
     #
-    #     country_2 = Country.create({'name': 'Odoo2'})
-    #     with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
-    #         country_2.name = 'Odoo'
+    #     country_2 = Country.create({'name': 'ecommerce2'})
+    #     with self.assertRaises(IntegrityError), mute_logger('ecommerce.sql_db'):
+    #         country_2.name = 'ecommerce'
     #         country_2.flush_recordset()
     #
-    #     with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
-    #         country_3 = Country.create({'name': 'Odoo'})
+    #     with self.assertRaises(IntegrityError), mute_logger('ecommerce.sql_db'):
+    #         country_3 = Country.create({'name': 'ecommerce'})
 
 class TestTranslationWrite(TransactionCase):
     @classmethod

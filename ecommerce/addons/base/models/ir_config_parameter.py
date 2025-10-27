@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 """
 Store database-specific configuration parameters
 """
@@ -7,9 +7,9 @@ Store database-specific configuration parameters
 import uuid
 import logging
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.tools import config, ormcache, mute_logger
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import config, ormcache, mute_logger
 
 _logger = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ class IrConfigParameter(models.Model):
         ('key_uniq', 'unique (key)', 'Key must be unique.')
     ]
 
-    @mute_logger('odoo.addons.base.models.ir_config_parameter')
+    @mute_logger('ecommerce.addons.base.models.ir_config_parameter')
     def init(self, force=False):
         """
         Initializes the parameters listed in _default_parameters.

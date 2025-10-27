@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Marketing / Mailing -->
     <menuitem name="Email Marketing"
               id="mass_mailing_menu_root"
@@ -100,4 +100,4 @@
               action="mailing_trace_action"/>
 
         
-</odoo>
+</ecommerce>

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import warnings
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.exceptions import AccessError, ValidationError
-from odoo.osv import expression
-from odoo.tools import config
-from odoo.tools.safe_eval import safe_eval, time
+from ecommerce import api, fields, models, tools, SUPERUSER_ID, _
+from ecommerce.exceptions import AccessError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools import config
+from ecommerce.tools.safe_eval import safe_eval, time
 
 _logger = logging.getLogger(__name__)
 class IrRule(models.Model):
@@ -193,9 +193,9 @@ class IrRule(models.Model):
     def write(self, vals):
         res = super(IrRule, self).write(vals)
         # DLE P33: tests
-        # - odoo/addons/test_access_rights/tests/test_feedback.py
-        # - odoo/addons/test_access_rights/tests/test_ir_rules.py
-        # - odoo/addons/base/tests/test_orm.py (/home/dle/src/odoo/master-nochange-fp/odoo/addons/base/tests/test_orm.py)
+        # - ecommerce/addons/test_access_rights/tests/test_feedback.py
+        # - ecommerce/addons/test_access_rights/tests/test_ir_rules.py
+        # - ecommerce/addons/base/tests/test_orm.py (/home/dle/src/ecommerce/master-nochange-fp/ecommerce/addons/base/tests/test_orm.py)
         self.env.flush_all()
         self.clear_caches()
         return res

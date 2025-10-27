@@ -1,6 +1,6 @@
 Italy, 01/02/2024
 
-innoviú Srl agrees to the terms of the Odoo Corporate Contributor License
+innoviú Srl agrees to the terms of the ecommerce Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this

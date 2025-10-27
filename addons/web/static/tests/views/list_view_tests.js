@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { Domain } from "@web/core/domain";
@@ -65,7 +65,7 @@ import {
 import { createWebClient, doAction, loadState } from "../webclient/helpers";
 import { makeView, setupViewRegistries } from "./helpers";
 
-import { Component, onWillStart, xml, markup } from "@odoo/owl";
+import { Component, onWillStart, xml, markup } from "@ecommerce/owl";
 
 const fieldRegistry = registry.category("fields");
 const serviceRegistry = registry.category("services");
@@ -5218,7 +5218,7 @@ QUnit.module("Views", (hooks) => {
                 arch: '<tree><field name="foo"/></tree>',
                 mockRPC(route, args) {
                     if (args.method === "unlink") {
-                        return Promise.reject({ message: "Odoo Server Error" });
+                        return Promise.reject({ message: "ecommerce Server Error" });
                     }
                 },
             });
@@ -6544,7 +6544,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("display a tooltip on a field", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(ecommerce, {
             debug: false,
         });
 
@@ -6564,7 +6564,7 @@ QUnit.module("Views", (hooks) => {
         assert.strictEqual(target.querySelectorAll(".o-tooltip").length, 1);
         assert.strictEqual(target.querySelector(".o-tooltip").innerText, "Foo");
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(ecommerce, {
             debug: true,
         });
 
@@ -6595,7 +6595,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("field (with help) tooltip in non debug mode", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(ecommerce, {
             debug: false,
         });
 
@@ -11613,13 +11613,13 @@ QUnit.module("Views", (hooks) => {
             arch: '<tree multi_edit="1"><field name="foo" required="1"/></tree>',
             mockRPC(route, args) {
                 if (args.method === "write") {
-                    return Promise.reject({ message: "Odoo Server Error" });
+                    return Promise.reject({ message: "ecommerce Server Error" });
                 }
             },
         });
         patchWithCleanup(list.env.services.notification, {
             add: (message) => {
-                assert.equal(message, "Odoo Server Error");
+                assert.equal(message, "ecommerce Server Error");
                 assert.step("Error");
             },
         });

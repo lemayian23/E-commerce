@@ -1,4 +1,4 @@
-odoo.define('sale.payment_form', require => {
+ecommerce.define('sale.payment_form', require => {
     'use strict';
 
     const checkoutForm = require('payment.checkout_form');

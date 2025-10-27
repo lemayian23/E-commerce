@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import TransactionCase, tagged, Form
+from ecommerce.tests import TransactionCase, tagged, Form
 
 
 @tagged('-at_install', 'post_install')
 class TestFormCreate(TransactionCase):
     """
-    Test that the basic Odoo models records can be created on
+    Test that the basic ecommerce models records can be created on
     the interface.
     """
 
@@ -17,7 +17,7 @@ class TestFormCreate(TransactionCase):
             # Required for `property_account_payable_id`, `property_account_receivable_id` to be visible in the view
             # By default, it's the `group` `group_account_readonly` which is required to see it, in the `account` module
             # But once `account_accountant` gets installed, it becomes `account.group_account_manager`
-            # https://github.com/odoo/enterprise/blob/bfa643278028da0bfabded2f87ccb7e323d697c1/account_accountant/views/product_views.xml#L9
+            # https://github.com/ecommerce/enterprise/blob/bfa643278028da0bfabded2f87ccb7e323d697c1/account_accountant/views/product_views.xml#L9
             self.env.user.groups_id += self.env.ref('account.group_account_readonly')
             self.env.user.groups_id += self.env.ref('account.group_account_manager')
         partner_form = Form(self.env['res.partner'])

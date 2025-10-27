@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 def update_withhold_type(env):
     # reclassifies withhold taxes into independent tax groups for sales and purchases

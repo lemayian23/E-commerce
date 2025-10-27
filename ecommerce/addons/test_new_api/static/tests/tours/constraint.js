@@ -1,4 +1,4 @@
-odoo.define('web.test.constraint', function (require) {
+ecommerce.define('web.test.constraint', function (require) {
     'use strict';
 
     var tour = require("web_tour.tour");

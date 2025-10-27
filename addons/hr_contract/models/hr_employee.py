@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, datetime, time
 from pytz import timezone
 
-from odoo import _, api, fields, models
-from odoo.osv import expression
-from odoo.addons.resource.models.resource import Intervals
-from odoo.exceptions import UserError
+from ecommerce import _, api, fields, models
+from ecommerce.osv import expression
+from ecommerce.addons.resource.models.resource import Intervals
+from ecommerce.exceptions import UserError
 
 
 class Employee(models.Model):

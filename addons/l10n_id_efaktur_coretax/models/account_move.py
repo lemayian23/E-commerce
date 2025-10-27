@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError, RedirectWarning
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError, RedirectWarning
 
 COUNTRY_CODE_MAP = {
     "BD": "BGD", "BE": "BEL", "BF": "BFA", "BG": "BGR", "BA": "BIH", "BB": "BRB", "WF": "WLF", "BL": "BLM", "BM": "BMU",

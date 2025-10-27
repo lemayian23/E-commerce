@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import tagged
-from odoo.tests.common import Form, TransactionCase
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form, TransactionCase
 
 
 CH_ISR_ISSUER = '01-162-8'

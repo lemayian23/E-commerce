@@ -1,4 +1,4 @@
-odoo.define('website_event.event_steps', function (require) {
+ecommerce.define('website_event.event_steps', function (require) {
 "use strict";
 
 const {_t} = require('web.core');

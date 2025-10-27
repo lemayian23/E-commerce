@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { useModel } from "@web/views/model";
 import { RelationalModel } from "@web/views/relational_model";
-import { Component, xml, onWillStart, onWillUpdateProps } from "@odoo/owl";
+import { Component, xml, onWillStart, onWillUpdateProps } from "@ecommerce/owl";
 
 class _Record extends Component {
     setup() {

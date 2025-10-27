@@ -1,6 +1,6 @@
 Lithuania, 2016-02-17
 
-Versada agrees to the terms of the Odoo Corporate Contributor License Agreement v1.0.
+Versada agrees to the terms of the ecommerce Corporate Contributor License Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this declaration.
 
@@ -18,4 +18,4 @@ Naglis Jonaitis naglis@versada.eu https://github.com/naglis
 Paulius Sladkevičius paulius@versada.eu https://github.com/paulius-sladkevicius
 Tomas Račys tomas@versada.eu https://github.com/taezaz
 Andrius Preimantas andrius@versada.eu https://github.com/andrius-preimantas
-Andrius Laukavičius andrius.laukavicius@versada.eu https://github.com/oerp-odoo
+Andrius Laukavičius andrius.laukavicius@versada.eu https://github.com/oerp-ecommerce

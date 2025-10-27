@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 import logging
@@ -8,13 +8,13 @@ import requests
 import uuid
 from unittest.mock import patch
 
-from odoo import exceptions, _
-from odoo.tests.common import BaseCase
-from odoo.tools import email_normalize, exception_to_unicode, pycompat
+from ecommerce import exceptions, _
+from ecommerce.tests.common import BaseCase
+from ecommerce.tools import email_normalize, exception_to_unicode, pycompat
 
 _logger = logging.getLogger(__name__)
 
-DEFAULT_ENDPOINT = 'https://iap.odoo.com'
+DEFAULT_ENDPOINT = 'https://iap.ecommerce.com'
 
 
 # We need to mock iap_jsonrpc during tests as we don't want to perform real calls to RPC endpoints
@@ -22,7 +22,7 @@ def iap_jsonrpc_mocked(*args, **kwargs):
     raise exceptions.AccessError("Unavailable during tests.")
 
 
-iap_patch = patch('odoo.addons.iap.tools.iap_tools.iap_jsonrpc', iap_jsonrpc_mocked)
+iap_patch = patch('ecommerce.addons.iap.tools.iap_tools.iap_jsonrpc', iap_jsonrpc_mocked)
 
 
 def setUp(self):
@@ -51,7 +51,7 @@ _MAIL_PROVIDERS = {
     'o2.pl', 'live.cn', 'gmial.com', 'seznam.cz', 'live.be', 'videotron.ca', 'gmil.com', 'live.ca', 'hotmail.de', 'sbcglobal.net', 'connect.hku.hk',
     'yahoo.com.au', 'att.net', 'live.in', 'btinternet.com', 'gmx.fr', 'voila.fr', 'shaw.ca', 'prodigy.net.mx', 'vip.qq.com', 'yahoo.com.ph',
     'bigpond.com', '7thcomputing.com', 'freenet.de', 'alice.it', 'esi.dz',
-    'bk.ru', 'mail.odoo.com', 'gmail.con', 'fiu.edu', 'gmal.com', 'useemlikefun.com', 'google.com', 'trbvn.com', 'yopmail.com', 'ya.ru',
+    'bk.ru', 'mail.ecommerce.com', 'gmail.con', 'fiu.edu', 'gmal.com', 'useemlikefun.com', 'google.com', 'trbvn.com', 'yopmail.com', 'ya.ru',
     'hotmail.co.th', 'arcor.de', 'hotmail.ca', '21cn.com', 'live.de', 'outlook.de', 'gmailcom', 'unal.edu.co', 'tom.com', 'yahoo.gr',
     'gmx.at', 'inbox.lv', 'ziggo.nl', 'xs4all.nl', 'sapo.pt', 'live.com.au', 'nate.com', 'online.de', 'sina.cn', 'gmail.co', 'rogers.com',
     'mailinator.com', 'cox.net', 'hotmail.be', 'verizon.net', 'yahoo.co.jp', 'usa.com', 'consultant.com', 'hotmai.com', '189.cn',
@@ -66,7 +66,7 @@ _MAIL_PROVIDERS = {
     # Dummy entries
     'example.com',
 }
-_MAIL_DOMAIN_BLACKLIST = _MAIL_PROVIDERS | {'odoo.com'}
+_MAIL_DOMAIN_BLACKLIST = _MAIL_PROVIDERS | {'ecommerce.com'}
 
 # List of country codes for which we should offer state filtering when mining new leads.
 # See crm.iap.lead.mining.request#_compute_available_state_ids() or task-2471703 for more details.

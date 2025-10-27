@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 from werkzeug import urls
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_paypal.const import PAYMENT_STATUS_MAPPING
-from odoo.addons.payment_paypal.controllers.main import PaypalController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_paypal.const import PAYMENT_STATUS_MAPPING
+from ecommerce.addons.payment_paypal.controllers.main import PaypalController
 
 _logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class PaymentTransaction(models.Model):
     _inherit = 'payment.transaction'
 
     # See https://developer.paypal.com/docs/api-basics/notifications/ipn/IPNandPDTVariables/
-    # this field has no use in Odoo except for debugging
+    # this field has no use in ecommerce except for debugging
     paypal_type = fields.Char(string="PayPal Transaction Type")
 
     def _get_specific_rendering_values(self, processing_values):

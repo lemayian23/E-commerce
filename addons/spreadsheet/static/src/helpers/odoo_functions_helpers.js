@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import spreadsheet from "../o_spreadsheet/o_spreadsheet_extended";
 
 const { parse } = spreadsheet;
 
 /**
- * @typedef {Object} OdooFunctionDescription
+ * @typedef {Object} ecommerceFunctionDescription
  * @property {string} functionName Name of the function
  * @property {Array<string>} args Arguments of the function
  * @property {boolean} isMatched True if the function is matched by the matcher function
@@ -16,11 +16,11 @@ const { parse } = spreadsheet;
  * from the given formula
  *
  * @param {string} formula
- * @param {string[]} functionNames e.g. ["ODOO.LIST", "ODOO.LIST.HEADER"]
+ * @param {string[]} functionNames e.g. ["ecommerce.LIST", "ecommerce.LIST.HEADER"]
  * @private
- * @returns {Array<OdooFunctionDescription>}
+ * @returns {Array<ecommerceFunctionDescription>}
  */
-export function getOdooFunctions(formula, functionNames) {
+export function getecommerceFunctions(formula, functionNames) {
     const formulaUpperCased = formula.toUpperCase();
     // Parsing is an expensive operation, so we first check if the
     // formula contains one of the function names
@@ -33,7 +33,7 @@ export function getOdooFunctions(formula, functionNames) {
     } catch (_) {
         return [];
     }
-    return _getOdooFunctionsFromAST(ast, functionNames);
+    return _getecommerceFunctionsFromAST(ast, functionNames);
 }
 
 /**
@@ -41,18 +41,18 @@ export function getOdooFunctions(formula, functionNames) {
  * from the given AST
  *
  * @param {Object} ast (see o-spreadsheet)
- * @param {string[]} functionNames e.g. ["ODOO.LIST", "ODOO.LIST.HEADER"]
+ * @param {string[]} functionNames e.g. ["ecommerce.LIST", "ecommerce.LIST.HEADER"]
  *
  * @private
- * @returns {Array<OdooFunctionDescription>}
+ * @returns {Array<ecommerceFunctionDescription>}
  */
-function _getOdooFunctionsFromAST(ast, functionNames) {
+function _getecommerceFunctionsFromAST(ast, functionNames) {
     switch (ast.type) {
         case "UNARY_OPERATION":
-            return _getOdooFunctionsFromAST(ast.operand, functionNames);
+            return _getecommerceFunctionsFromAST(ast.operand, functionNames);
         case "BIN_OPERATION": {
-            return _getOdooFunctionsFromAST(ast.left, functionNames).concat(
-                _getOdooFunctionsFromAST(ast.right, functionNames)
+            return _getecommerceFunctionsFromAST(ast.left, functionNames).concat(
+                _getecommerceFunctionsFromAST(ast.right, functionNames)
             );
         }
         case "FUNCALL": {
@@ -61,7 +61,7 @@ function _getOdooFunctionsFromAST(ast, functionNames) {
             if (functionNames.includes(functionName)) {
                 return [{ functionName, args: ast.args, isMatched: true }];
             } else {
-                return ast.args.map((arg) => _getOdooFunctionsFromAST(arg, functionNames)).flat();
+                return ast.args.map((arg) => _getecommerceFunctionsFromAST(arg, functionNames)).flat();
             }
         }
         default:

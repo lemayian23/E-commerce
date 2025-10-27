@@ -5,12 +5,12 @@ from datetime import datetime, timedelta
 import json
 import random
 
-from odoo import models, api, _, fields
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.release import version
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
-from odoo.tools.misc import formatLang, format_date as odoo_format_date, get_lang
+from ecommerce import models, api, _, fields
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
+from ecommerce.release import version
+from ecommerce.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from ecommerce.tools.misc import formatLang, format_date as ecommerce_format_date, get_lang
 
 
 def group_by_journal(vals_list):
@@ -88,7 +88,7 @@ class account_journal(models.Model):
                 'status': activity['status'],
                 'name': activity['summary'] or activity['act_type_name'],
                 'activity_category': activity['activity_category'],
-                'date': odoo_format_date(self.env, activity['date_deadline'])
+                'date': ecommerce_format_date(self.env, activity['date_deadline'])
             }
             if activity['activity_category'] == 'tax_report' and activity['res_model'] == 'account.move':
                 act['name'] = activity['ref']

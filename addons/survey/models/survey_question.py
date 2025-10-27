@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import collections
 import contextlib
@@ -7,8 +7,8 @@ import json
 import itertools
 import operator
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class SurveyQuestion(models.Model):

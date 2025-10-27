@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patch, unpatch } from "@web/core/utils/patch";
 import legacyUtils from "web.utils";

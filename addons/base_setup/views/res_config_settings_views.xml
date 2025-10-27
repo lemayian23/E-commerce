@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record id="res_config_settings_view_form" model="ir.ui.view">
             <field name="name">res.config.settings.view.form.inherit.base.setup</field>
             <field name="model">res.config.settings</field>
@@ -27,7 +27,7 @@
                                         <span class='o_form_label' attrs="{'invisible':[('active_user_count', '&lt;=', '1')]}">
                                             Active Users
                                         </span>
-                                        <a href="https://www.odoo.com/documentation/16.0/applications/general/users.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                        <a href="https://www.ecommerce.com/documentation/16.0/applications/general/users.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                         <br/>
                                         <button name="%(base.action_res_users)d" icon="fa-arrow-right" type="action" string="Manage Users" class="btn-link o_web_settings_access_rights"/>
                                     </div>
@@ -136,14 +136,14 @@
                                         <div class="o_setting_right_pane" id="sms_settings">
                                             <div class="o_form_label">
                                             Send SMS
-                                            <a href="https://www.odoo.com/documentation/16.0/applications/marketing/sms_marketing/pricing/pricing_and_faq.html" title="Documentation" class="ms-1 o_doc_link" target="_blank"></a>
+                                            <a href="https://www.ecommerce.com/documentation/16.0/applications/marketing/sms_marketing/pricing/pricing_and_faq.html" title="Documentation" class="ms-1 o_doc_link" target="_blank"></a>
                                             </div>
                                             <div class="text-muted">
                                                 Send texts to your contacts
                                             </div>
                                         </div>
                                 </div>
-                                <div class="col-xs-12 col-md-6 o_setting_box" title="When populating your address book, Odoo provides a list of matching companies. When selecting one item, the company data and logo are auto-filled." id="partner_autocomplete">
+                                <div class="col-xs-12 col-md-6 o_setting_box" title="When populating your address book, ecommerce provides a list of matching companies. When selecting one item, the company data and logo are auto-filled." id="partner_autocomplete">
                                     <div class="o_setting_left_pane">
                                         <field name="module_partner_autocomplete"/>
                                     </div>
@@ -188,7 +188,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label string="Import &amp; Export" for="module_base_import"/>
-                                <a href="https://www.odoo.com/documentation/16.0/applications/general/export_import_data.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                <a href="https://www.ecommerce.com/documentation/16.0/applications/general/export_import_data.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                 <div class="text-muted">
                                     Allow users to import data from CSV/XLS/XLSX/ODS files
                                 </div>
@@ -215,7 +215,7 @@
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label string="Mail Plugin" for="module_mail_plugin"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/productivity/mail_plugins.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/productivity/mail_plugins.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Integrate with mail client plugins
                                     </div>
@@ -227,7 +227,7 @@
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label string="Outlook Calendar" for="module_microsoft_calendar"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/productivity/calendar/outlook.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/productivity/calendar/outlook.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Synchronize your calendar with Outlook
                                     </div>
@@ -242,7 +242,7 @@
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label string="Google Calendar" for="module_google_calendar"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/productivity/calendar/google.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/productivity/calendar/google.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Synchronize your calendar with Google Calendar
                                     </div>
@@ -272,7 +272,7 @@
                                 </div>
                                 <div class="o_setting_right_pane" name="auth_ldap_right_pane">
                                     <label string="LDAP Authentication" for="module_auth_ldap"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/general/auth/ldap.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/general/auth/ldap.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                        Use LDAP credentials to log in
                                     </div>
@@ -287,7 +287,7 @@
                                 </div>
                                 <div class="o_setting_right_pane" id="web_unsplash_settings">
                                     <label for="module_web_unsplash"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/websites/website/optimize/unsplash.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/websites/website/optimize/unsplash.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Find free high-resolution images from Unsplash
                                     </div>
@@ -346,12 +346,12 @@
                                         <div class="o_setting_right_pane">
                                             <!-- FIXME Those links are defined directly in the template which means that we will have to
                                             update the template code is the link ever changes -->
-                                            <a class="d-block mx-auto" href="https://play.google.com/store/apps/details?id=com.odoo.mobile" target="blank">
+                                            <a class="d-block mx-auto" href="https://play.google.com/store/apps/details?id=com.ecommerce.mobile" target="blank">
                                                 <img alt="On Google Play" class="d-block mx-auto img img-fluid" src="/base_setup/static/src/img/google_play.png"/>
                                             </a>
                                         </div>
                                         <div>
-                                            <a class='d-block mx-auto' href="https://itunes.apple.com/us/app/odoo/id1272543640" target="blank">
+                                            <a class='d-block mx-auto' href="https://itunes.apple.com/us/app/ecommerce/id1272543640" target="blank">
                                                 <img alt="On Apple Store" class="d-block mx-auto img img-fluid" src="/base_setup/static/src/img/app_store.png"/>
                                             </a>
                                         </div>
@@ -382,4 +382,4 @@
             action="action_general_configuration"
             groups="base.group_system"/>
 
-</odoo>
+</ecommerce>

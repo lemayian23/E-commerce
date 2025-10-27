@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { Domain } from "@web/core/domain";
 import { _t } from "@web/core/l10n/translation";

@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <data>
         <record id="category_0" model="test_new_api.category">
             <field name="name">Chat</field>
@@ -51,4 +51,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

@@ -2,7 +2,7 @@
 
 from collections import OrderedDict
 
-from odoo import fields, models
+from ecommerce import fields, models
 
 
 class ProductAttributeCategory(models.Model):

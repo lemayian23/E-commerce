@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { loadJS } from "@web/core/assets";
 import { registry } from "@web/core/registry";
@@ -6,7 +6,7 @@ import { getColor, hexToRGBA } from "@web/views/graph/colors";
 import { standardFieldProps } from "../standard_field_props";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, onWillStart, useEffect, useRef } from "@odoo/owl";
+import { Component, onWillStart, useEffect, useRef } from "@ecommerce/owl";
 
 export class JournalDashboardGraphField extends Component {
     setup() {

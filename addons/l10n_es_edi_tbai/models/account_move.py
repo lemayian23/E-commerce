@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from base64 import b64decode, b64encode
 from datetime import datetime
@@ -7,9 +7,9 @@ from re import sub as regex_sub
 from collections import defaultdict
 
 from lxml import etree
-from odoo import _, api, fields, models
-from odoo.addons.l10n_es_edi_tbai.models.l10n_es_edi_tbai_agencies import get_key
-from odoo.exceptions import UserError
+from ecommerce import _, api, fields, models
+from ecommerce.addons.l10n_es_edi_tbai.models.l10n_es_edi_tbai_agencies import get_key
+from ecommerce.exceptions import UserError
 
 L10N_ES_TBAI_CRC8_TABLE = [
     0x00, 0x07, 0x0E, 0x09, 0x1C, 0x1B, 0x12, 0x15, 0x38, 0x3F, 0x36, 0x31, 0x24, 0x23, 0x2A, 0x2D,

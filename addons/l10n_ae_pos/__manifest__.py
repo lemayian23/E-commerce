@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': 'United Arab Emirates - Point of Sale',
-    'author': 'Odoo S.A.',
+    'author': 'ecommerce S.A.',
     'category': 'Accounting/Localizations/Point of Sale',
     'icon': '/l10n_ae/static/description/icon.png',
     'description': """

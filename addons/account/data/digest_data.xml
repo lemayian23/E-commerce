@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="digest.digest_digest_default" model="digest.digest">
             <field name="kpi_account_total_revenue">True</field>
@@ -15,9 +15,9 @@
 <div>
     <p class="tip_title">Tip: No need to print, put in an envelop and post your invoices</p>
     <p class="tip_content">Use the “<i>Send by Post</i>” option to post invoices automatically. For the cost of a local stamp, we do all the manual work: your invoice will be printed in the right country, put in an envelop and sent by snail mail. Use this feature from the list view to post hundreds of invoices in bulk.</p>
-    <img src="https://download.odoocdn.com/digests/account/static/src/img/invoice-stamps.png" class="illustration_border" />
+    <img src="https://download.ecommercecdn.com/digests/account/static/src/img/invoice-stamps.png" class="illustration_border" />
 </div>
             </field>
         </record>
     </data>
-</odoo>
+</ecommerce>

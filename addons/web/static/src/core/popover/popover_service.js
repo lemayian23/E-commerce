@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "../registry";
 import { PopoverContainer } from "./popover_container";
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@ecommerce/owl";
 
 export const popoverService = {
     start() {

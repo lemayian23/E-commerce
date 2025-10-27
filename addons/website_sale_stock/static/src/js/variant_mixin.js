@@ -1,4 +1,4 @@
-odoo.define('website_sale_stock.VariantMixin', function (require) {
+ecommerce.define('website_sale_stock.VariantMixin', function (require) {
 'use strict';
 
 const {Markup} = require('web.utils');

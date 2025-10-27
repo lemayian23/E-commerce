@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
-from odoo.fields import Datetime
-from odoo import tests
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.website_slides.tests.test_ui_wslides import TestUICommon
+from ecommerce.fields import Datetime
+from ecommerce import tests
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.website_slides.tests.test_ui_wslides import TestUICommon
 
 
 @tests.common.tagged('post_install', '-at_install')
@@ -170,6 +170,6 @@ class TestUi(AccountTestInvoicingCommon, TestUICommon):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("certification_member")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.certification_member.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("certification_member")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.certification_member.ready',
             login=user_demo.login)

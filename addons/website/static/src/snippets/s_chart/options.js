@@ -1,4 +1,4 @@
-odoo.define('website.s_chart_options', function (require) {
+ecommerce.define('website.s_chart_options', function (require) {
 'use strict';
 
 var core = require('web.core');

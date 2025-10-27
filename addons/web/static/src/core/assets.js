@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { memoize } from "./utils/functions";
 import { browser } from "./browser/browser";
@@ -86,7 +86,7 @@ export const _loadCSS = (assets.loadCSS = memoize(function loadCSS(url, retryCou
  * This can be imported by the modules in order to use it when loading the
  * application and the components.
  */
-export const templates = new DOMParser().parseFromString("<odoo/>", "text/xml");
+export const templates = new DOMParser().parseFromString("<ecommerce/>", "text/xml");
 
 let defaultApp;
 /**
@@ -213,7 +213,7 @@ export const _loadBundle = (assets.loadBundle = async function loadBundle(desc) 
             // Wait template if the JavaScript come from bundle.
             const bundle = urlData.match(/\/web\/assets\/.*\/([^/]+?)(\.min)?\.js/);
             if (bundle) {
-                await odoo.ready(bundle[1] + ".bundle.xml");
+                await ecommerce.ready(bundle[1] + ".bundle.xml");
             }
         } else {
             // parallel loading
@@ -263,7 +263,7 @@ export const loadBundle = function (desc) {
     return assets.loadBundle(desc);
 };
 
-import { Component, xml, onWillStart } from "@odoo/owl";
+import { Component, xml, onWillStart } from "@ecommerce/owl";
 /**
  * Utility component that loads an asset bundle before instanciating a component
  */

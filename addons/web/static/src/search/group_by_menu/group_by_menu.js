@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { SearchDropdownItem } from "@web/search/search_dropdown_item/search_dropdown_item";
@@ -7,7 +7,7 @@ import { FACET_ICONS, GROUPABLE_TYPES } from "../utils/misc";
 import { sortBy } from "@web/core/utils/arrays";
 import { useBus } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class GroupByMenu extends Component {
     setup() {

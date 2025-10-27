@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from "@web/core/l10n/translation";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -82,7 +82,7 @@ export default class PivotUIPlugin extends spreadsheet.UIPlugin {
                 const sheetId = this.getters.getActiveSheetId();
                 const { col, row } = event.anchor.cell;
                 const cell = this.getters.getCell(sheetId, col, row);
-                if (cell !== undefined && cell.content.startsWith("=ODOO.PIVOT.HEADER(")) {
+                if (cell !== undefined && cell.content.startsWith("=ecommerce.PIVOT.HEADER(")) {
                     const filters = this.getFiltersMatchingPivot(cell.content);
                     this.dispatch("SET_MANY_GLOBAL_FILTER_VALUE", { filters });
                 }
@@ -116,12 +116,12 @@ export default class PivotUIPlugin extends spreadsheet.UIPlugin {
                 }
                 break;
             case "REFRESH_PIVOT":
-                this._refreshOdooPivot(cmd.id);
+                this._refreshecommercePivot(cmd.id);
                 break;
             case "REFRESH_ALL_DATA_SOURCES":
-                this._refreshOdooPivots();
+                this._refreshecommercePivots();
                 break;
-            case "UPDATE_ODOO_PIVOT_DOMAIN":
+            case "UPDATE_ecommerce_PIVOT_DOMAIN":
                 this._addDomain(cmd.pivotId);
                 break;
             case "ADD_GLOBAL_FILTER":
@@ -139,7 +139,7 @@ export default class PivotUIPlugin extends spreadsheet.UIPlugin {
                             "ADD_GLOBAL_FILTER",
                             "EDIT_GLOBAL_FILTER",
                             "REMOVE_GLOBAL_FILTER",
-                            "UPDATE_ODOO_PIVOT_DOMAIN",
+                            "UPDATE_ecommerce_PIVOT_DOMAIN",
                         ].includes(command.type)
                     )
                 ) {
@@ -323,7 +323,7 @@ export default class PivotUIPlugin extends spreadsheet.UIPlugin {
      *
      * @param {string} pivotId Id of the pivot
      */
-    _refreshOdooPivot(pivotId) {
+    _refreshecommercePivot(pivotId) {
         const dataSource = this.getters.getPivotDataSource(pivotId);
         dataSource.clearUsedValues();
         dataSource.load({ reload: true });
@@ -332,9 +332,9 @@ export default class PivotUIPlugin extends spreadsheet.UIPlugin {
     /**
      * Refresh the cache of all the pivots
      */
-    _refreshOdooPivots() {
+    _refreshecommercePivots() {
         for (const pivotId of this.getters.getPivotIds()) {
-            this._refreshOdooPivot(pivotId, false);
+            this._refreshecommercePivot(pivotId, false);
         }
     }
 

@@ -1,4 +1,4 @@
-odoo.define('website_sale.cart', function (require) {
+ecommerce.define('website_sale.cart', function (require) {
 'use strict';
 
 const { browser } = require("@web/core/browser/browser");
@@ -160,7 +160,7 @@ publicWidget.registry.websiteSaleCartLink = publicWidget.Widget.extend({
 });
 });
 
-odoo.define('website_sale.website_sale_offcanvas', function (require) {
+ecommerce.define('website_sale.website_sale_offcanvas', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');
@@ -192,7 +192,7 @@ publicWidget.registry.websiteSaleOffcanvas = publicWidget.Widget.extend({
 });
 });
 
-odoo.define('website_sale.website_sale', function (require) {
+ecommerce.define('website_sale.website_sale', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -201,7 +201,7 @@ var publicWidget = require('web.public.widget');
 var VariantMixin = require('website_sale.VariantMixin');
 var wSaleUtils = require('website_sale.utils');
 const cartHandlerMixin = wSaleUtils.cartHandlerMixin;
-require("web.zoomodoo");
+require("web.zoomecommerce");
 const {extraMenuUpdateCallbacks} = require('website.content.menu');
 const dom = require('web.dom');
 const { ComponentWrapper } = require('web.OwlCompatibility');
@@ -545,7 +545,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, car
             for (const image of images) {
                 const $image = $(image);
                 const callback = () => {
-                    $image.zoomOdoo({
+                    $image.zoomecommerce({
                         event: "mouseenter",
                         attach: this._getProductImageContainerSelector(),
                         preventClicks: salePage.dataset.ecomZoomClick,
@@ -556,9 +556,9 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, car
                 image.addEventListener('load', callback);
                 this.zoomCleanup.push(() => {
                     image.removeEventListener('load', callback);
-                    const zoomOdoo = $image.data("zoomOdoo");
-                    if (zoomOdoo) {
-                        zoomOdoo.hide();
+                    const zoomecommerce = $image.data("zoomecommerce");
+                    if (zoomecommerce) {
+                        zoomecommerce.hide();
                         $image.unbind();
                     }
                 });
@@ -575,7 +575,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, car
                 const handler = () => {
                     if (salePage.dataset.ecomZoomAuto) {
                         // Remove any flyout
-                        const flyouts = document.querySelectorAll(".zoomodoo-flyout");
+                        const flyouts = document.querySelectorAll(".zoomecommerce-flyout");
                         for (const flyout of flyouts) {
                             flyout.remove();
                         }
@@ -966,7 +966,7 @@ publicWidget.registry.WebsiteSaleLayout = publicWidget.Widget.extend({
     _onApplyShopLayoutChange: function (ev) {
         const wysiwyg = this.options.wysiwyg;
         if (wysiwyg) {
-            wysiwyg.odooEditor.observerUnactive('_onApplyShopLayoutChange');
+            wysiwyg.ecommerceEditor.observerUnactive('_onApplyShopLayoutChange');
         }
         var clickedValue = $(ev.target).val();
         var isList = clickedValue === 'list';
@@ -994,7 +994,7 @@ publicWidget.registry.WebsiteSaleLayout = publicWidget.Widget.extend({
         void $grid[0].offsetWidth;
         $grid.find('*').css('transition', '');
         if (wysiwyg) {
-            wysiwyg.odooEditor.observerActive('_onApplyShopLayoutChange');
+            wysiwyg.ecommerceEditor.observerActive('_onApplyShopLayoutChange');
         }
     },
 });
@@ -1185,7 +1185,7 @@ return {
 
 });
 
-odoo.define('website_sale.price_range_option', function (require) {
+ecommerce.define('website_sale.price_range_option', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

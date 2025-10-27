@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import tour from 'web_tour.tour';
 
@@ -15,8 +15,8 @@ tour.register('mail/static/tests/tours/discuss_public_tour.js', {
             console.error('Did not automatically redirect to channel page');
         }
         // Wait for modules to be loaded or failed for the next step
-        odoo.__DEBUG__.didLogInfo.then(() => {
-            const { missing, failed, unloaded } = odoo.__DEBUG__.jsModules;
+        ecommerce.__DEBUG__.didLogInfo.then(() => {
+            const { missing, failed, unloaded } = ecommerce.__DEBUG__.jsModules;
             if ([missing, failed, unloaded].some(arr => arr.length)) {
                 console.error("Couldn't load all JS modules.", JSON.stringify({ missing, failed, unloaded }));
             }

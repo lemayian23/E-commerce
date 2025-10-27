@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import json
@@ -9,12 +9,12 @@ from markupsafe import escape
 from psycopg2 import IntegrityError
 from werkzeug.exceptions import BadRequest
 
-from odoo import http, SUPERUSER_ID, _, _lt
-from odoo.http import request
-from odoo.tools import plaintext2html
-from odoo.addons.base.models.ir_qweb_fields import nl2br
-from odoo.exceptions import AccessDenied, ValidationError, UserError
-from odoo.tools.misc import hmac, consteq
+from ecommerce import http, SUPERUSER_ID, _, _lt
+from ecommerce.http import request
+from ecommerce.tools import plaintext2html
+from ecommerce.addons.base.models.ir_qweb_fields import nl2br
+from ecommerce.exceptions import AccessDenied, ValidationError, UserError
+from ecommerce.tools.misc import hmac, consteq
 
 
 class WebsiteForm(http.Controller):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeDraggableHook } from "@web/core/utils/draggable_hook_builder";
 

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
-from odoo.http import request
-from odoo.osv import expression
+from ecommerce.http import request
+from ecommerce.osv import expression
 
-from odoo.addons.project.controllers.portal import CustomerPortal
+from ecommerce.addons.project.controllers.portal import CustomerPortal
 
 
 class ProjectCustomerPortal(CustomerPortal):

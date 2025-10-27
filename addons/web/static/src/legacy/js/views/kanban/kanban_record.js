@@ -1,4 +1,4 @@
-odoo.define('web.KanbanRecord', function (require) {
+ecommerce.define('web.KanbanRecord', function (require) {
 "use strict";
 
 /**
@@ -24,7 +24,7 @@ var QWeb = core.qweb;
 var KANBAN_RECORD_COLORS = require('web.basic_fields').FieldColorPicker.prototype.RECORD_COLORS;
 var NB_KANBAN_RECORD_COLORS = KANBAN_RECORD_COLORS.length;
 
-const { Component } = require("@odoo/owl");
+const { Component } = require("@ecommerce/owl");
 
 const { DateTime } = luxon;
 // As the name suggests, this is a hack that allows archs that work in the new

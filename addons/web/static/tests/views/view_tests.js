@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import {
@@ -15,7 +15,7 @@ import { OnboardingBanner } from "@web/views/onboarding_banner";
 import { View } from "@web/views/view";
 import { actionService } from "@web/webclient/actions/action_service";
 
-import { Component, onWillStart, onWillUpdateProps, useState, xml } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, useState, xml } from "@ecommerce/owl";
 
 const serviceRegistry = registry.category("services");
 const viewRegistry = registry.category("views");

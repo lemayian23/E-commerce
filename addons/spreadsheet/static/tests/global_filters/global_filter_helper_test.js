@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { getRelativeDateDomain } from "@spreadsheet/global_filters/helpers";
 import {
     getDateDomainDurationInDays,

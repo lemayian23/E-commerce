@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="fiscal_position_hr_exempt" model="account.fiscal.position.template">
             <field name="name">Exempt taxpayer</field>
@@ -36,4 +36,4 @@
             <field name="auto_apply" eval="True"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

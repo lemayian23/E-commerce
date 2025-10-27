@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { addFieldDependencies, archParseBoolean, getActiveActions } from "@web/views/utils";
 import { Field } from "@web/views/fields/field";

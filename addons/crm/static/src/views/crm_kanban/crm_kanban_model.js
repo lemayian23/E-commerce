@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { KanbanModel } from "@web/views/kanban/kanban_model";
 import { checkRainbowmanMessage } from "@crm/views/check_rainbowman_message";

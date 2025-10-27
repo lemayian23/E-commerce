@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { setCellContent } from "@spreadsheet/../tests/utils/commands";
 import { getCell, getCellValue } from "@spreadsheet/../tests/utils/getters";
@@ -13,11 +13,11 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
         const { model } = await createSpreadsheetWithPivot();
 
         // Columns
-        setCellContent(model, "H1", `=ODOO.PIVOT(1,"probability","#foo", 1)`);
-        setCellContent(model, "H2", `=ODOO.PIVOT(1,"probability","#foo", 2)`);
-        setCellContent(model, "H3", `=ODOO.PIVOT(1,"probability","#foo", 3)`);
-        setCellContent(model, "H4", `=ODOO.PIVOT(1,"probability","#foo", 4)`);
-        setCellContent(model, "H5", `=ODOO.PIVOT(1,"probability","#foo", 5)`);
+        setCellContent(model, "H1", `=ecommerce.PIVOT(1,"probability","#foo", 1)`);
+        setCellContent(model, "H2", `=ecommerce.PIVOT(1,"probability","#foo", 2)`);
+        setCellContent(model, "H3", `=ecommerce.PIVOT(1,"probability","#foo", 3)`);
+        setCellContent(model, "H4", `=ecommerce.PIVOT(1,"probability","#foo", 4)`);
+        setCellContent(model, "H5", `=ecommerce.PIVOT(1,"probability","#foo", 5)`);
         assert.strictEqual(getCellValue(model, "H1"), 11);
         assert.strictEqual(getCellValue(model, "H2"), 15);
         assert.strictEqual(getCellValue(model, "H3"), 10);
@@ -25,9 +25,9 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
         assert.strictEqual(getCellValue(model, "H5"), "");
 
         // Rows
-        setCellContent(model, "I1", `=ODOO.PIVOT(1,"probability","#bar", 1)`);
-        setCellContent(model, "I2", `=ODOO.PIVOT(1,"probability","#bar", 2)`);
-        setCellContent(model, "I3", `=ODOO.PIVOT(1,"probability","#bar", 3)`);
+        setCellContent(model, "I1", `=ecommerce.PIVOT(1,"probability","#bar", 1)`);
+        setCellContent(model, "I2", `=ecommerce.PIVOT(1,"probability","#bar", 2)`);
+        setCellContent(model, "I3", `=ecommerce.PIVOT(1,"probability","#bar", 3)`);
         assert.strictEqual(getCellValue(model, "I1"), 15);
         assert.strictEqual(getCellValue(model, "I2"), 116);
         assert.strictEqual(getCellValue(model, "I3"), "");
@@ -36,12 +36,12 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
     QUnit.test("Can have positional args in pivot headers formula", async function (assert) {
         const { model } = await createSpreadsheetWithPivot();
         // Columns
-        setCellContent(model, "H1", `=ODOO.PIVOT.HEADER(1,"#foo",1)`);
-        setCellContent(model, "H2", `=ODOO.PIVOT.HEADER(1,"#foo",2)`);
-        setCellContent(model, "H3", `=ODOO.PIVOT.HEADER(1,"#foo",3)`);
-        setCellContent(model, "H4", `=ODOO.PIVOT.HEADER(1,"#foo",4)`);
-        setCellContent(model, "H5", `=ODOO.PIVOT.HEADER(1,"#foo",5)`);
-        setCellContent(model, "H6", `=ODOO.PIVOT.HEADER(1,"#foo",5, "measure", "probability")`);
+        setCellContent(model, "H1", `=ecommerce.PIVOT.HEADER(1,"#foo",1)`);
+        setCellContent(model, "H2", `=ecommerce.PIVOT.HEADER(1,"#foo",2)`);
+        setCellContent(model, "H3", `=ecommerce.PIVOT.HEADER(1,"#foo",3)`);
+        setCellContent(model, "H4", `=ecommerce.PIVOT.HEADER(1,"#foo",4)`);
+        setCellContent(model, "H5", `=ecommerce.PIVOT.HEADER(1,"#foo",5)`);
+        setCellContent(model, "H6", `=ecommerce.PIVOT.HEADER(1,"#foo",5, "measure", "probability")`);
         assert.strictEqual(getCellValue(model, "H1"), 1);
         assert.strictEqual(getCellValue(model, "H2"), 2);
         assert.strictEqual(getCellValue(model, "H3"), 12);
@@ -50,10 +50,10 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
         assert.strictEqual(getCellValue(model, "H6"), "Probability");
 
         // Rows
-        setCellContent(model, "I1", `=ODOO.PIVOT.HEADER(1,"#bar",1)`);
-        setCellContent(model, "I2", `=ODOO.PIVOT.HEADER(1,"#bar",2)`);
-        setCellContent(model, "I3", `=ODOO.PIVOT.HEADER(1,"#bar",3)`);
-        setCellContent(model, "I4", `=ODOO.PIVOT.HEADER(1,"#bar",3, "measure", "probability")`);
+        setCellContent(model, "I1", `=ecommerce.PIVOT.HEADER(1,"#bar",1)`);
+        setCellContent(model, "I2", `=ecommerce.PIVOT.HEADER(1,"#bar",2)`);
+        setCellContent(model, "I3", `=ecommerce.PIVOT.HEADER(1,"#bar",3)`);
+        setCellContent(model, "I4", `=ecommerce.PIVOT.HEADER(1,"#bar",3, "measure", "probability")`);
         assert.strictEqual(getCellValue(model, "I1"), "No");
         assert.strictEqual(getCellValue(model, "I2"), "Yes");
         assert.strictEqual(getCellValue(model, "I3"), "");
@@ -71,11 +71,11 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
                 </pivot>`,
         });
         // Rows Headers
-        setCellContent(model, "H1", `=ODOO.PIVOT.HEADER(1,"bar","false","#product_id",1)`);
-        setCellContent(model, "H2", `=ODOO.PIVOT.HEADER(1,"bar","true","#product_id",1)`);
-        setCellContent(model, "H3", `=ODOO.PIVOT.HEADER(1,"#bar",1,"#product_id",1)`);
-        setCellContent(model, "H4", `=ODOO.PIVOT.HEADER(1,"#bar",2,"#product_id",1)`);
-        setCellContent(model, "H5", `=ODOO.PIVOT.HEADER(1,"#bar",3,"#product_id",1)`);
+        setCellContent(model, "H1", `=ecommerce.PIVOT.HEADER(1,"bar","false","#product_id",1)`);
+        setCellContent(model, "H2", `=ecommerce.PIVOT.HEADER(1,"bar","true","#product_id",1)`);
+        setCellContent(model, "H3", `=ecommerce.PIVOT.HEADER(1,"#bar",1,"#product_id",1)`);
+        setCellContent(model, "H4", `=ecommerce.PIVOT.HEADER(1,"#bar",2,"#product_id",1)`);
+        setCellContent(model, "H5", `=ecommerce.PIVOT.HEADER(1,"#bar",3,"#product_id",1)`);
         assert.strictEqual(getCellValue(model, "H1"), "xpad");
         assert.strictEqual(getCellValue(model, "H2"), "xphone");
         assert.strictEqual(getCellValue(model, "H3"), "xpad");
@@ -86,12 +86,12 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
         setCellContent(
             model,
             "H1",
-            `=ODOO.PIVOT(1,"probability","#bar",1,"#product_id",1,"#foo",2)`
+            `=ecommerce.PIVOT(1,"probability","#bar",1,"#product_id",1,"#foo",2)`
         );
         setCellContent(
             model,
             "H2",
-            `=ODOO.PIVOT(1,"probability","#bar",1,"#product_id",2,"#foo",2)`
+            `=ecommerce.PIVOT(1,"probability","#bar",1,"#product_id",2,"#foo",2)`
         );
         assert.strictEqual(getCellValue(model, "H1"), 15);
         assert.strictEqual(getCellValue(model, "H2"), "");
@@ -99,11 +99,11 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
 
     QUnit.test("Positional argument without a number should crash", async (assert) => {
         const { model } = await createSpreadsheetWithPivot();
-        setCellContent(model, "A10", `=ODOO.PIVOT.HEADER(1,"#bar","this is not a number")`);
+        setCellContent(model, "A10", `=ecommerce.PIVOT.HEADER(1,"#bar","this is not a number")`);
         assert.strictEqual(getCellValue(model, "A10"), "#ERROR");
         assert.strictEqual(
             getCell(model, "A10").evaluated.error.message,
-            "The function ODOO.PIVOT.HEADER expects a number value, but 'this is not a number' is a string, and cannot be coerced to a number."
+            "The function ecommerce.PIVOT.HEADER expects a number value, but 'this is not a number' is a string, and cannot be coerced to a number."
         );
     });
 
@@ -126,14 +126,14 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A1", `=ODOO.PIVOT.HEADER(1,"#bar",1)`);
-        setCellContent(model, "A2", `=ODOO.PIVOT.HEADER(1,"#bar",2)`);
-        setCellContent(model, "B1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",1)`);
-        setCellContent(model, "B2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",1)`);
-        setCellContent(model, "C1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",2)`);
-        setCellContent(model, "C2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",2)`);
-        setCellContent(model, "D1", `=ODOO.PIVOT(1,"probability","#bar",1)`);
-        setCellContent(model, "D2", `=ODOO.PIVOT(1,"probability","#bar",2)`);
+        setCellContent(model, "A1", `=ecommerce.PIVOT.HEADER(1,"#bar",1)`);
+        setCellContent(model, "A2", `=ecommerce.PIVOT.HEADER(1,"#bar",2)`);
+        setCellContent(model, "B1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",1)`);
+        setCellContent(model, "B2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",1)`);
+        setCellContent(model, "C1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",2)`);
+        setCellContent(model, "C2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",2)`);
+        setCellContent(model, "D1", `=ecommerce.PIVOT(1,"probability","#bar",1)`);
+        setCellContent(model, "D2", `=ecommerce.PIVOT(1,"probability","#bar",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A1"), "No");
         assert.strictEqual(getCellValue(model, "A2"), "Yes");
@@ -164,14 +164,14 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A1", `=ODOO.PIVOT.HEADER(1,"#bar",1)`);
-        setCellContent(model, "A2", `=ODOO.PIVOT.HEADER(1,"#bar",2)`);
-        setCellContent(model, "B1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",1)`);
-        setCellContent(model, "B2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",1)`);
-        setCellContent(model, "C1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",2)`);
-        setCellContent(model, "C2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",2)`);
-        setCellContent(model, "D1", `=ODOO.PIVOT(1,"probability","#bar",1)`);
-        setCellContent(model, "D2", `=ODOO.PIVOT(1,"probability","#bar",2)`);
+        setCellContent(model, "A1", `=ecommerce.PIVOT.HEADER(1,"#bar",1)`);
+        setCellContent(model, "A2", `=ecommerce.PIVOT.HEADER(1,"#bar",2)`);
+        setCellContent(model, "B1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",1)`);
+        setCellContent(model, "B2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",1)`);
+        setCellContent(model, "C1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",2)`);
+        setCellContent(model, "C2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",2)`);
+        setCellContent(model, "D1", `=ecommerce.PIVOT(1,"probability","#bar",1)`);
+        setCellContent(model, "D2", `=ecommerce.PIVOT(1,"probability","#bar",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A1"), "Yes");
         assert.strictEqual(getCellValue(model, "A2"), "No");
@@ -203,14 +203,14 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A1", `=ODOO.PIVOT.HEADER(1,"#bar",1)`);
-        setCellContent(model, "A2", `=ODOO.PIVOT.HEADER(1,"#bar",2)`);
-        setCellContent(model, "B1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",1)`);
-        setCellContent(model, "B2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",1)`);
-        setCellContent(model, "C1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",2)`);
-        setCellContent(model, "C2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",2)`);
-        setCellContent(model, "D1", `=ODOO.PIVOT(1,"probability","#bar",1)`);
-        setCellContent(model, "D2", `=ODOO.PIVOT(1,"probability","#bar",2)`);
+        setCellContent(model, "A1", `=ecommerce.PIVOT.HEADER(1,"#bar",1)`);
+        setCellContent(model, "A2", `=ecommerce.PIVOT.HEADER(1,"#bar",2)`);
+        setCellContent(model, "B1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",1)`);
+        setCellContent(model, "B2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",1)`);
+        setCellContent(model, "C1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",2)`);
+        setCellContent(model, "C2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",2)`);
+        setCellContent(model, "D1", `=ecommerce.PIVOT(1,"probability","#bar",1)`);
+        setCellContent(model, "D2", `=ecommerce.PIVOT(1,"probability","#bar",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A1"), "Yes");
         assert.strictEqual(getCellValue(model, "A2"), "No");
@@ -242,14 +242,14 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A1", `=ODOO.PIVOT.HEADER(1,"#bar",1)`);
-        setCellContent(model, "A2", `=ODOO.PIVOT.HEADER(1,"#bar",2)`);
-        setCellContent(model, "B1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",1)`);
-        setCellContent(model, "B2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",1)`);
-        setCellContent(model, "C1", `=ODOO.PIVOT(1,"probability","#bar",1,"#foo",2)`);
-        setCellContent(model, "C2", `=ODOO.PIVOT(1,"probability","#bar",2,"#foo",2)`);
-        setCellContent(model, "D1", `=ODOO.PIVOT(1,"probability","#bar",1)`);
-        setCellContent(model, "D2", `=ODOO.PIVOT(1,"probability","#bar",2)`);
+        setCellContent(model, "A1", `=ecommerce.PIVOT.HEADER(1,"#bar",1)`);
+        setCellContent(model, "A2", `=ecommerce.PIVOT.HEADER(1,"#bar",2)`);
+        setCellContent(model, "B1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",1)`);
+        setCellContent(model, "B2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",1)`);
+        setCellContent(model, "C1", `=ecommerce.PIVOT(1,"probability","#bar",1,"#foo",2)`);
+        setCellContent(model, "C2", `=ecommerce.PIVOT(1,"probability","#bar",2,"#foo",2)`);
+        setCellContent(model, "D1", `=ecommerce.PIVOT(1,"probability","#bar",1)`);
+        setCellContent(model, "D2", `=ecommerce.PIVOT(1,"probability","#bar",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A1"), "No");
         assert.strictEqual(getCellValue(model, "A2"), "Yes");
@@ -280,12 +280,12 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A10", `=ODOO.PIVOT.HEADER(1,"#product_id",1)`);
-        setCellContent(model, "A11", `=ODOO.PIVOT.HEADER(1,"#product_id",2)`);
-        setCellContent(model, "B10", `=ODOO.PIVOT(1,"probability","#product_id",1)`);
-        setCellContent(model, "B11", `=ODOO.PIVOT(1,"probability","#product_id",2)`);
-        setCellContent(model, "C10", `=ODOO.PIVOT(1,"foo","#product_id",1)`);
-        setCellContent(model, "C11", `=ODOO.PIVOT(1,"foo","#product_id",2)`);
+        setCellContent(model, "A10", `=ecommerce.PIVOT.HEADER(1,"#product_id",1)`);
+        setCellContent(model, "A11", `=ecommerce.PIVOT.HEADER(1,"#product_id",2)`);
+        setCellContent(model, "B10", `=ecommerce.PIVOT(1,"probability","#product_id",1)`);
+        setCellContent(model, "B11", `=ecommerce.PIVOT(1,"probability","#product_id",2)`);
+        setCellContent(model, "C10", `=ecommerce.PIVOT(1,"foo","#product_id",1)`);
+        setCellContent(model, "C11", `=ecommerce.PIVOT(1,"foo","#product_id",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A10"), "xphone");
         assert.strictEqual(getCellValue(model, "A11"), "xpad");
@@ -314,12 +314,12 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
             },
         };
         const model = await createModelWithDataSource({ spreadsheetData });
-        setCellContent(model, "A10", `=ODOO.PIVOT.HEADER(1,"#product_id",1)`);
-        setCellContent(model, "A11", `=ODOO.PIVOT.HEADER(1,"#product_id",2)`);
-        setCellContent(model, "B10", `=ODOO.PIVOT(1,"probability","#product_id",1)`);
-        setCellContent(model, "B11", `=ODOO.PIVOT(1,"probability","#product_id",2)`);
-        setCellContent(model, "C10", `=ODOO.PIVOT(1,"foo","#product_id",1)`);
-        setCellContent(model, "C11", `=ODOO.PIVOT(1,"foo","#product_id",2)`);
+        setCellContent(model, "A10", `=ecommerce.PIVOT.HEADER(1,"#product_id",1)`);
+        setCellContent(model, "A11", `=ecommerce.PIVOT.HEADER(1,"#product_id",2)`);
+        setCellContent(model, "B10", `=ecommerce.PIVOT(1,"probability","#product_id",1)`);
+        setCellContent(model, "B11", `=ecommerce.PIVOT(1,"probability","#product_id",2)`);
+        setCellContent(model, "C10", `=ecommerce.PIVOT(1,"foo","#product_id",1)`);
+        setCellContent(model, "C11", `=ecommerce.PIVOT(1,"foo","#product_id",2)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCellValue(model, "A10"), "xpad");
         assert.strictEqual(getCellValue(model, "A11"), "xphone");
@@ -337,7 +337,7 @@ QUnit.module("spreadsheet > positional pivot formula", {}, () => {
                     <field name="probability" type="measure"/>
                 </pivot>`,
         });
-        setCellContent(model, "A1", `=ODOO.PIVOT.HEADER(1,"#date:day",1)`);
+        setCellContent(model, "A1", `=ecommerce.PIVOT.HEADER(1,"#date:day",1)`);
         assert.strictEqual(getCell(model, "A1").formattedValue, "04/14/2016");
     });
 });

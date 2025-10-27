@@ -1,4 +1,4 @@
-odoo.define('web.FormRenderer', function (require) {
+ecommerce.define('web.FormRenderer', function (require) {
 "use strict";
 
 var BasicRenderer = require('web.BasicRenderer');
@@ -623,7 +623,7 @@ var FormRenderer = BasicRenderer.extend({
     _renderHeaderButton: function (node) {
         var $button = viewUtils.renderButtonFromNode(node);
 
-        // Current API of odoo for rendering buttons is "if classes are given
+        // Current API of ecommerce for rendering buttons is "if classes are given
         // use those on top of the 'btn' and 'btn-{size}' classes, otherwise act
         // as if 'btn-secondary' class was given". The problem is that, for
         // header buttons only, we allowed users to only indicate their custom
@@ -1232,7 +1232,7 @@ var FormRenderer = BasicRenderer.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onActivateNextWidget: function (ev) {
         ev.stopPropagation();
@@ -1299,7 +1299,7 @@ var FormRenderer = BasicRenderer.extend({
     /**
      * @override
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onNavigationMove: function (ev) {
         ev.stopPropagation();
@@ -1342,7 +1342,7 @@ var FormRenderer = BasicRenderer.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onQuickEdit: function (ev) {
         if (this.mode !== 'readonly' ||

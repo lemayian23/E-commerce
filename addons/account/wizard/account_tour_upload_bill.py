@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, _, Command, tools
+from ecommerce import fields, models, _, Command, tools
 import base64
 from datetime import timedelta
 

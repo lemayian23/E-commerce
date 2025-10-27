@@ -1,4 +1,4 @@
-odoo.define('web.test_env', async function (require) {
+ecommerce.define('web.test_env', async function (require) {
     "use strict";
 
     const Bus = require('web.Bus');
@@ -80,7 +80,7 @@ odoo.define('web.test_env', async function (require) {
     /**
      * Before each test, we want Component.env to be a fresh test environment.
      */
-    QUnit.on('OdooBeforeTestHook', function () {
+    QUnit.on('ecommerceBeforeTestHook', function () {
         Component.env = makeTestEnvironment();
     });
 

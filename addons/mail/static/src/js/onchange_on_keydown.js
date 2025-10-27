@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { useDebounced } from "@web/core/utils/timing";

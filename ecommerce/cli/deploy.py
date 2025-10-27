@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import argparse
 import os
 import requests
@@ -10,7 +10,7 @@ from pathlib import Path
 from . import Command
 
 class Deploy(Command):
-    """Deploy a module on an Odoo instance"""
+    """Deploy a module on an ecommerce instance"""
     def __init__(self):
         super(Deploy, self).__init__()
         self.session = requests.session()

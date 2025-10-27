@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import OrderedDict
 from operator import itemgetter
 from markupsafe import Markup
 
-from odoo import conf, http, _
-from odoo.exceptions import AccessError, MissingError
-from odoo.http import request
-from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
-from odoo.tools import groupby as groupbyelem
+from ecommerce import conf, http, _
+from ecommerce.exceptions import AccessError, MissingError
+from ecommerce.http import request
+from ecommerce.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
+from ecommerce.tools import groupby as groupbyelem
 
-from odoo.osv.expression import OR, AND
+from ecommerce.osv.expression import OR, AND
 
 
 class ProjectCustomerPortal(CustomerPortal):

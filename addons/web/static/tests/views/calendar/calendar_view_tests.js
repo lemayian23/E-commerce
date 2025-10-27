@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerCleanup } from "../../helpers/cleanup";
 import { defaultLocalization } from "../../helpers/mock_services";
@@ -1055,7 +1055,7 @@ QUnit.module("Views", ({ beforeEach }) => {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ecommerce server error",
                         },
                         event: new Event("server_error"),
                     });

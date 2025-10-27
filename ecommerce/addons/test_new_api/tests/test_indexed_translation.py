@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import odoo.tests
-from odoo.addons.base.tests.test_translate import SPECIAL_CHARACTERS
+import ecommerce.tests
+from ecommerce.addons.base.tests.test_translate import SPECIAL_CHARACTERS
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestIndexedTranslation(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestIndexedTranslation(ecommerce.tests.TransactionCase):
 
     @classmethod
     def setUpClass(cls):

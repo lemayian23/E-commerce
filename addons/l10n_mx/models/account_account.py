@@ -1,4 +1,4 @@
-from odoo import api, Command, models
+from ecommerce import api, Command, models
 
 
 class AccountAccount(models.Model):

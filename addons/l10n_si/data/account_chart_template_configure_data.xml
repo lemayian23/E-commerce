@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="gd_chart" model="account.chart.template">
         <field name="property_account_receivable_id" ref="gd_acc_120000"/>
         <field name="property_account_payable_id" ref="gd_acc_220000"/>
@@ -11,4 +11,4 @@
         <field name="property_tax_payable_account_id" ref="gd_acc_260800"/>
         <field name="property_tax_receivable_account_id" ref="gd_acc_160800"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml import html
 
-from odoo.addons.website.tools import MockRequest
-from odoo.tests import tagged, HttpCase
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.tests import tagged, HttpCase
 
 
 @tagged('post_install', '-at_install')

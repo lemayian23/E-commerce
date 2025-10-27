@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="dashboard_invoicing" model="spreadsheet.dashboard">
         <field name="name">Invoicing</field>
@@ -9,4 +9,4 @@
         <field name="sequence">20</field>
     </record>
 
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
@@ -10,12 +10,12 @@ from unittest.mock import DEFAULT
 
 import pytz
 
-from odoo import fields, exceptions, tests
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.addons.test_mail.models.test_mail_models import MailTestActivity
-from odoo.tools import mute_logger
-from odoo.tests.common import Form, users
+from ecommerce import fields, exceptions, tests
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.addons.test_mail.models.test_mail_models import MailTestActivity
+from ecommerce.tools import mute_logger
+from ecommerce.tests.common import Form, users
 
 
 class TestActivityCommon(TestMailCommon):
@@ -31,7 +31,7 @@ class TestActivityCommon(TestMailCommon):
 @tests.tagged('mail_activity')
 class TestActivityRights(TestActivityCommon):
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_security_user_access_other(self):
         activity = self.test_record.with_user(self.user_employee).activity_schedule(
             'test_mail.mail_act_test_todo',
@@ -39,14 +39,14 @@ class TestActivityRights(TestActivityCommon):
         self.assertTrue(activity.can_write)
         activity.write({'user_id': self.user_employee.id})
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_security_user_access_own(self):
         activity = self.test_record.with_user(self.user_employee).activity_schedule(
             'test_mail.mail_act_test_todo')
         self.assertTrue(activity.can_write)
         activity.write({'user_id': self.user_admin.id})
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_security_user_noaccess_automated(self):
         def _employee_crash(*args, **kwargs):
             """ If employee is test employee, consider they have no access on document """
@@ -170,7 +170,7 @@ class TestActivityFlow(TestActivityCommon):
             self.assertEqual(test_record.activity_ids, self.env['mail.activity'])
             self.assertEqual(test_record.message_ids[0].subtype_id, self.env.ref('mail.mt_activities'))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_notify_other_user(self):
         self.user_admin.notification_type = 'email'
         rec = self.test_record.with_user(self.user_employee)
@@ -193,7 +193,7 @@ class TestActivityFlow(TestActivityCommon):
         self.assertEqual(activity.create_uid, self.user_employee)
         self.assertEqual(activity.user_id, self.user_employee)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_dont_notify_no_user_change(self):
         self.user_employee.notification_type = 'email'
         activity = self.test_record.activity_schedule('test_mail.mail_act_test_todo', user_id=self.user_employee.id)
@@ -224,7 +224,7 @@ class TestActivityFlow(TestActivityCommon):
             # activity summary remains unchanged from change of activity type as call activity doesn't have default summary
             self.assertEqual(ActivityForm.summary, email_activity_type.summary)
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_activity_values(self):
         """ Test activities are created with right model / res_id values linking
         to records without void values. 0 as res_id especially is not wanted. """
@@ -286,7 +286,7 @@ class TestActivityMixin(TestActivityCommon):
         )
         cls.user_australia.tz = 'Australia/Sydney'
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_mixin(self):
         self.user_employee.tz = self.user_admin.tz
         with self.with_user('employee'):
@@ -367,7 +367,7 @@ class TestActivityMixin(TestActivityCommon):
             self.assertEqual(self.test_record.activity_ids, self.env['mail.activity'])
             self.assertEqual(len(self.test_record.message_ids), 2)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_mixin_archive(self):
         rec = self.test_record.with_user(self.user_employee)
         new_act = rec.activity_schedule(
@@ -381,7 +381,7 @@ class TestActivityMixin(TestActivityCommon):
         self.assertEqual(rec.active, True)
         self.assertEqual(rec.activity_ids, self.env['mail.activity'])
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_activity_mixin_reschedule_user(self):
         rec = self.test_record.with_user(self.user_employee)
         rec.activity_schedule(
@@ -511,7 +511,7 @@ class TestActivityMixin(TestActivityCommon):
 
         record = self.env['mail.test.activity'].create({'name': 'Record'})
 
-        with patch('odoo.addons.mail.models.mail_activity.datetime', MockedDatetime):
+        with patch('ecommerce.addons.mail.models.mail_activity.datetime', MockedDatetime):
             activity_1 = self.env['mail.activity'].create({
                 'summary': 'Test',
                 'activity_type_id': 1,
@@ -530,7 +530,7 @@ class TestActivityMixin(TestActivityCommon):
             self.assertEqual(activity_2.state, 'overdue')
             self.assertEqual(activity_3.state, 'today')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.tests')
     def test_mail_activity_mixin_search_state_basic(self):
         """Test the search method on the "activity_state".
 
@@ -553,8 +553,8 @@ class TestActivityMixin(TestActivityCommon):
 
         origin_1, origin_2 = self.env['mail.test.activity'].search([], limit=2)
 
-        with patch('odoo.addons.mail.models.mail_activity.datetime', MockedDatetime), \
-            patch('odoo.addons.mail.models.mail_activity_mixin.datetime', MockedDatetime):
+        with patch('ecommerce.addons.mail.models.mail_activity.datetime', MockedDatetime), \
+            patch('ecommerce.addons.mail.models.mail_activity_mixin.datetime', MockedDatetime):
             origin_1_activity_1 = self.env['mail.activity'].create({
                 'summary': 'Test',
                 'activity_type_id': 1,
@@ -626,7 +626,7 @@ class TestActivityMixin(TestActivityCommon):
             self.assertTrue(len(result) > 0)
             self.assertEqual(result, all_activity_mixin_record.filtered(lambda p: p.activity_state in ('today', False)))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.tests')
     def test_mail_activity_mixin_search_state_different_day_but_close_time(self):
         """Test the case where there's less than 24 hours between the deadline and now_tz,
         but one day of difference (e.g. 23h 01/01/2020 & 1h 02/02/2020). So the state
@@ -648,7 +648,7 @@ class TestActivityMixin(TestActivityCommon):
 
         origin_1 = self.env['mail.test.activity'].search([], limit=1)
 
-        with patch('odoo.addons.mail.models.mail_activity.datetime', MockedDatetime):
+        with patch('ecommerce.addons.mail.models.mail_activity.datetime', MockedDatetime):
             origin_1_activity_1 = self.env['mail.activity'].create({
                 'summary': 'Test',
                 'activity_type_id': 1,
@@ -662,7 +662,7 @@ class TestActivityMixin(TestActivityCommon):
             result = self.env['mail.test.activity'].search([('activity_state', '=', 'today')])
             self.assertNotIn(origin_1, result, 'The activity state miss calculated during the search')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_my_activity_flow_employee(self):
         Activity = self.env['mail.activity']
         date_today = date.today()

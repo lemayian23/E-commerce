@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import options from 'web_editor.snippets.options';
 import weUtils from 'web_editor.utils';

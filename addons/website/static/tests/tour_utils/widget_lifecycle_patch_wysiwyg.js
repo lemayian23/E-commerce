@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Wysiwyg from "web_editor.wysiwyg";
 import { patch } from "@web/core/utils/patch";

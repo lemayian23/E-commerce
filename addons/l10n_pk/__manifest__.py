@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Pakistan - Accounting',
     'version': '1.0',
     'category': 'Accounting/Localizations/Account Charts',
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations.html',
     'description': """
 Pakistan Accounting Module
 =======================================================

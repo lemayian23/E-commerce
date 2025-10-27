@@ -1,4 +1,4 @@
-odoo.define('web.list_tests', function (require) {
+ecommerce.define('web.list_tests', function (require) {
 "use strict";
 
 const AbstractFieldOwl = require('web.AbstractFieldOwl');
@@ -35,7 +35,7 @@ const { getFixture, click, legacyExtraNextTick } = require("@web/../tests/helper
 const { createWebClient, doAction, loadState } = require('@web/../tests/webclient/helpers');
 
 const { _t } = core;
-const { markup, onMounted, onWillUnmount, xml } = require("@odoo/owl");
+const { markup, onMounted, onWillUnmount, xml } = require("@ecommerce/owl");
 
 let serverData;
 let target;
@@ -2448,7 +2448,7 @@ QUnit.module('LegacyViews', {
                 return this._super.apply(this, arguments).then(result => {
                     // On PY-side, a read_group won't provide any aggregate value
                     // if the field does not have a `group_operator` attribute.
-                    // (see 5691b126f06/odoo/models.py#L2521-L2528)
+                    // (see 5691b126f06/ecommerce/models.py#L2521-L2528)
                     // Here, since `qux` does not have such an attribute, we
                     // remove the value provided by `_mockReadGroup`
                     _.each(result.groups, function(group) {
@@ -3694,7 +3694,7 @@ QUnit.module('LegacyViews', {
             arch: '<tree><field name="foo"/></tree>',
             mockRPC: function (route, args) {
                 if (args.method === 'unlink') {
-                    return Promise.reject({ message: "Odoo Server Error" });
+                    return Promise.reject({ message: "ecommerce Server Error" });
                 }
                 return this._super(...arguments);
             },
@@ -4398,8 +4398,8 @@ QUnit.module('LegacyViews', {
         fieldRegistry.add("toggle_button", basicFields.FieldToggleBoolean);
         registerCleanup(() => delete fieldRegistry.map.toggle_button);
 
-        var initialDebugMode = odoo.debug;
-        odoo.debug = false;
+        var initialDebugMode = ecommerce.debug;
+        ecommerce.debug = false;
 
         var list = await createView({
             View: ListView,
@@ -4418,7 +4418,7 @@ QUnit.module('LegacyViews', {
         list.$('th[data-name=foo]')[0].dispatchEvent(new Event('mouseover'));
         assert.strictEqual($('.tooltip .oe_tooltip_string').length, 0, "should not have rendered a tooltip");
 
-        odoo.debug = true;
+        ecommerce.debug = true;
         // it is necessary to rerender the list so tooltips can be properly created
         await list.reload();
         list.$('th[data-name=foo]').tooltip('show', false);
@@ -4434,7 +4434,7 @@ QUnit.module('LegacyViews', {
             'Button (toggle_button)', "widget description should be correct");
 
         list.$('th[data-name=bar]')[0].dispatchEvent(new Event('mouseout'));
-        odoo.debug = initialDebugMode;
+        ecommerce.debug = initialDebugMode;
         list.destroy();
     });
 

@@ -1,4 +1,4 @@
-odoo.define('website_mail_group.s_group_options', function (require) {
+ecommerce.define('website_mail_group.s_group_options', function (require) {
 'use strict';
 
 const core = require('web.core');

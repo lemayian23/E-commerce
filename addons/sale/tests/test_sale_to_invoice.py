@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields
-from odoo.fields import Command
-from odoo.tests import Form, tagged
-from odoo.tools import float_is_zero
+from ecommerce import fields
+from ecommerce.fields import Command
+from ecommerce.tests import Form, tagged
+from ecommerce.tools import float_is_zero
 
-from odoo.addons.sale.tests.common import TestSaleCommon
+from ecommerce.addons.sale.tests.common import TestSaleCommon
 
 
 @tagged('-at_install', 'post_install')

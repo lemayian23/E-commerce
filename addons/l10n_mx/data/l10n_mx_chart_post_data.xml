@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!--
         CoA setting accounts
     -->
@@ -18,4 +18,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="cuenta9993"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="cuenta9994"/>
     </record>
-</odoo>
+</ecommerce>

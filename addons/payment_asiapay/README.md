@@ -25,7 +25,7 @@ The entire API reference and the integration guide can be found on the
 ## Module history
 
 - `16.0`
-  - The first version of the module is merged. odoo/odoo#98441
+  - The first version of the module is merged. ecommerce/ecommerce#98441
 
 ## Testing instructions
 

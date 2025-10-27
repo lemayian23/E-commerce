@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=bad-whitespace
 from freezegun import freeze_time
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests.common import Form
-from odoo.tests import tagged
-from odoo import fields, Command
-from odoo.osv import expression
-from odoo.exceptions import ValidationError
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests.common import Form
+from ecommerce.tests import tagged
+from ecommerce import fields, Command
+from ecommerce.osv import expression
+from ecommerce.exceptions import ValidationError
 from datetime import date
 
 from collections import defaultdict
@@ -1125,7 +1125,7 @@ class TestAccountMoveInInvoiceOnchanges(AccountTestInvoicingCommon):
         if self.env.ref('purchase.group_purchase_manager', raise_if_not_found=False):
             # `purchase` adds a view which makes `invoice_vendor_bill_id` invisible
             # for purchase users
-            # https://github.com/odoo/odoo/blob/385884afd31f25d61e99d139ecd4c574d99a1863/addons/purchase/views/account_move_views.xml#L26
+            # https://github.com/ecommerce/ecommerce/blob/385884afd31f25d61e99d139ecd4c574d99a1863/addons/purchase/views/account_move_views.xml#L26
             self.env.user.groups_id -= self.env.ref('purchase.group_purchase_manager')
             self.env.user.groups_id -= self.env.ref('purchase.group_purchase_user')
         copy_invoice = self.invoice.copy()

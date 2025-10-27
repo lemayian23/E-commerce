@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * Converts a locale from Python to JavaScript format.

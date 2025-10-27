@@ -1,6 +1,6 @@
 
 
-from odoo.tests.common import TransactionCase
+from ecommerce.tests.common import TransactionCase
 
 class TestMailMailStableSelection(TransactionCase):
     """Only relevant in stable as a hotfix. May be removed in master."""

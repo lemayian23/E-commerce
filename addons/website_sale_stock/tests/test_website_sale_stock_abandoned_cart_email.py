@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from odoo.addons.website_sale.tests.test_website_sale_cart_abandoned import TestWebsiteSaleCartAbandonedCommon
-from odoo.tests.common import tagged
+from ecommerce.addons.website_sale.tests.test_website_sale_cart_abandoned import TestWebsiteSaleCartAbandonedCommon
+from ecommerce.tests.common import tagged
 
 
 @tagged('post_install', '-at_install')

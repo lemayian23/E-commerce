@@ -1,4 +1,4 @@
-odoo.define('website_sale.editor', function (require) {
+ecommerce.define('website_sale.editor', function (require) {
 'use strict';
 
 var options = require('web_editor.snippets.options');

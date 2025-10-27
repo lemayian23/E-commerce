@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 from unittest.mock import patch, MagicMock
 
-from odoo import tools
-from odoo.tests import tagged
-from odoo.addons.account_edi.tests.common import AccountEdiTestCommon
-from odoo.addons.account_edi_proxy_client.models.account_edi_proxy_user import AccountEdiProxyClientUser
+from ecommerce import tools
+from ecommerce.tests import tagged
+from ecommerce.addons.account_edi.tests.common import AccountEdiTestCommon
+from ecommerce.addons.account_edi_proxy_client.models.account_edi_proxy_user import AccountEdiProxyClientUser
 
 @tagged('post_install_l10n', 'post_install', '-at_install')
 class TestItEdi(AccountEdiTestCommon):

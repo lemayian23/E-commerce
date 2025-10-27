@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -8,9 +8,9 @@ from collections import defaultdict
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, api, exceptions, fields, models
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.tools import safe_eval
+from ecommerce import _, api, exceptions, fields, models
+from ecommerce.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce.tools import safe_eval
 
 _logger = logging.getLogger(__name__)
 

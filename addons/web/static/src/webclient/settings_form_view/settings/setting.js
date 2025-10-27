@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { escapeRegExp } from "@web/core/utils/strings";
 
-import { Component, useState, useChildSubEnv } from "@odoo/owl";
+import { Component, useState, useChildSubEnv } from "@ecommerce/owl";
 
 export class Setting extends Component {
     setup() {

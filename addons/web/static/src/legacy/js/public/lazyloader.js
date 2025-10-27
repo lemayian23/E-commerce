@@ -1,4 +1,4 @@
-odoo.define('web.public.lazyloader', function (require) {
+ecommerce.define('web.public.lazyloader', function (require) {
 'use strict';
 
 const {

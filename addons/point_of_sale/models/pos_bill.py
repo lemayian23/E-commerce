@@ -1,5 +1,5 @@
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
 
 
 class Bill(models.Model):

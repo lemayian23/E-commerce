@@ -1,10 +1,10 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
 import { useAutofocus, useService } from "@web/core/utils/hooks";
 import { KanbanColumnExamplesDialog } from "./kanban_column_examples_dialog";
 
-import { Component, useExternalListener, useState, useRef } from "@odoo/owl";
+import { Component, useExternalListener, useState, useRef } from "@ecommerce/owl";
 
 export class KanbanColumnQuickCreate extends Component {
     setup() {

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import {
@@ -54,7 +54,7 @@ QUnit.test("ErrorDialog with traceback", async (assert) => {
         },
     });
     assert.containsOnce(target, ".o_dialog");
-    assert.strictEqual(target.querySelector("header .modal-title").textContent, "Odoo Error");
+    assert.strictEqual(target.querySelector("header .modal-title").textContent, "ecommerce Error");
     const mainButtons = target.querySelectorAll("main button");
     assert.deepEqual(
         [...mainButtons].map((el) => el.textContent),
@@ -107,7 +107,7 @@ QUnit.test("Client ErrorDialog with traceback", async (assert) => {
     assert.containsOnce(target, ".o_dialog");
     assert.strictEqual(
         target.querySelector("header .modal-title").textContent,
-        "Odoo Client Error"
+        "ecommerce Client Error"
     );
     const mainButtons = target.querySelectorAll("main button");
     assert.deepEqual(
@@ -184,7 +184,7 @@ QUnit.test("WarningDialog", async (assert) => {
     await mount(WarningDialog, target, {
         env,
         props: {
-            exceptionName: "odoo.exceptions.UserError",
+            exceptionName: "ecommerce.exceptions.UserError",
             message: "...",
             data: { arguments: ["Some strange unreadable message"] },
             close() {},
@@ -228,7 +228,7 @@ QUnit.test("RedirectWarningDialog", async (assert) => {
         },
     });
     assert.containsOnce(target, ".o_dialog");
-    assert.strictEqual(target.querySelector("header .modal-title").textContent, "Odoo Warning");
+    assert.strictEqual(target.querySelector("header .modal-title").textContent, "ecommerce Warning");
     assert.strictEqual(target.querySelector("main").textContent, "Some strange unreadable message");
     const footerButtons = target.querySelectorAll("footer button");
     assert.deepEqual(
@@ -271,11 +271,11 @@ QUnit.test("SessionExpiredDialog", async (assert) => {
     assert.containsOnce(target, ".o_dialog");
     assert.strictEqual(
         target.querySelector("header .modal-title").textContent,
-        "Odoo Session Expired"
+        "ecommerce Session Expired"
     );
     assert.strictEqual(
         target.querySelector("main p").textContent,
-        " Your Odoo session expired. The current page is about to be refreshed. "
+        " Your ecommerce session expired. The current page is about to be refreshed. "
     );
     const footerButton = target.querySelector(".o_dialog footer button");
     assert.strictEqual(footerButton.textContent, "Ok");

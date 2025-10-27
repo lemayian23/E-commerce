@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import tour from 'web_tour.tour';
 import { getPriceListChecksSteps } from 'website_event_booth_sale.tour.WebsiteEventBoothSaleTourMethods';

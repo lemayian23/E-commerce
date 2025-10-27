@@ -1,4 +1,4 @@
-odoo.define('test_event_full.tour.performance', function (require) {
+ecommerce.define('test_event_full.tour.performance', function (require) {
 "use strict";
 
 var tour = require('web_tour.tour');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";
@@ -7,7 +7,7 @@ import { escape } from "@web/core/utils/strings";
 
 import { FormViewDialog } from "./form_view_dialog";
 
-import { Component, markup, useState } from "@odoo/owl";
+import { Component, markup, useState } from "@ecommerce/owl";
 
 export class SelectCreateDialog extends Component {
     setup() {

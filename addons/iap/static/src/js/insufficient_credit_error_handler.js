@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { Dialog } from "@web/core/dialog/dialog";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -21,9 +21,9 @@ class InsufficientCreditDialog extends Component {
         });
         this.style = errorData.body ? "padding:0;" : "";
         const { _t } = this.env;
-        const { isEnterprise } = odoo.info;
+        const { isEnterprise } = ecommerce.info;
         if (errorData.trial && isEnterprise) {
-            this.buttonMessage = _t("Start a Trial at Odoo");
+            this.buttonMessage = _t("Start a Trial at ecommerce");
         } else {
             this.buttonMessage = _t("Buy credits");
         }
@@ -42,7 +42,7 @@ function insufficientCreditHandler(env, error, originalError) {
         return false;
     }
     const { data } = originalError;
-    if (data && data.name === "odoo.addons.iap.tools.iap_tools.InsufficientCreditError") {
+    if (data && data.name === "ecommerce.addons.iap.tools.iap_tools.InsufficientCreditError") {
         env.services.dialog.add(InsufficientCreditDialog, {
             errorData: JSON.parse(data.message),
         });

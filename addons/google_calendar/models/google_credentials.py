@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import requests
 from datetime import timedelta
 
-from odoo import fields, models, _
-from odoo.exceptions import UserError
-from odoo.addons.google_account.models.google_service import GOOGLE_TOKEN_ENDPOINT
+from ecommerce import fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.addons.google_account.models.google_service import GOOGLE_TOKEN_ENDPOINT
 
 _logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ class GoogleCredentials(models.Model):
     calendar_token_validity = fields.Datetime('Token Validity', copy=False)
     calendar_sync_token = fields.Char('Next Sync Token', copy=False)
 
-    calendar_cal_id = fields.Char('Calendar ID', copy=False, help='Last Calendar ID who has been synchronized. If it is changed, we remove all links between GoogleID and Odoo Google Internal ID')
+    calendar_cal_id = fields.Char('Calendar ID', copy=False, help='Last Calendar ID who has been synchronized. If it is changed, we remove all links between GoogleID and ecommerce Google Internal ID')
     synchronization_stopped = fields.Boolean('Google Synchronization stopped', copy=False)
 
     def _set_auth_tokens(self, access_token, refresh_token, ttl):

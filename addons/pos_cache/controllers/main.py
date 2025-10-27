@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.point_of_sale.controllers.main import PosController
-from odoo import http
-from odoo.http import request
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.point_of_sale.controllers.main import PosController
+from ecommerce import http
+from ecommerce.http import request
 
 
 class PosCache(PosController):

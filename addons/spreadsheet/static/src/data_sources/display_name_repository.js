@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { Deferred } from "@web/core/utils/concurrency";
 import { LoadingDataError } from "../o_spreadsheet/errors";

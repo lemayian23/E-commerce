@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <!-- 
         VAT taxes *impuesto al valor agregado
@@ -2530,4 +2530,4 @@
                 })]"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

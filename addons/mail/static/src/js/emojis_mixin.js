@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { escape } from '@web/core/utils/strings';
 import emojis from '@mail/js/emojis';

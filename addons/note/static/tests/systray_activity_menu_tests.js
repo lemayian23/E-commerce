@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { start } from '@mail/../tests/helpers/test_utils';
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import {
     closestBlock,
     closestElement,
@@ -322,7 +322,7 @@ class Sanitize {
                 if (isEditorTab(tabPreviousSibling)) {
                     node.style.width = '40px';
                 } else {
-                    const editable = closestElement(node, '.odoo-editor-editable');
+                    const editable = closestElement(node, '.ecommerce-editor-editable');
                     if (editable && editable.firstElementChild) {
                         const nodeRect = node.getBoundingClientRect();
                         const referenceRect = editable.firstElementChild.getBoundingClientRect();

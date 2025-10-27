@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 
-import odoo
-import odoo.tests
+import ecommerce
+import ecommerce.tests
 
 
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.tagged('post_install', '-at_install', 'post_install_l10n')
-class TestReports(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('post_install', '-at_install', 'post_install_l10n')
+class TestReports(ecommerce.tests.TransactionCase):
     def test_reports(self):
         invoice_domain = [('move_type', 'in', ('out_invoice', 'out_refund', 'out_receipt', 'in_invoice', 'in_refund', 'in_receipt'))]
         specific_model_domains = {
@@ -42,8 +42,8 @@ class TestReports(odoo.tests.TransactionCase):
                 continue
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestAggregatePdfReports(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestAggregatePdfReports(ecommerce.tests.HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

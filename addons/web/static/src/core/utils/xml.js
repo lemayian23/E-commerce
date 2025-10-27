@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { nbsp } from "@web/core/utils/strings";
 

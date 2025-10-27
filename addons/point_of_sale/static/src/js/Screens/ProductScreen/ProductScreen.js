@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.ProductScreen', function(require) {
+ecommerce.define('point_of_sale.ProductScreen', function(require) {
     'use strict';
 
     const PosComponent = require('point_of_sale.PosComponent');
@@ -282,7 +282,7 @@ odoo.define('point_of_sale.ProductScreen', function(require) {
                     const { product_id = [], packaging = [] } = await this.rpc({
                         model: 'pos.session',
                         method: 'find_product_by_barcode',
-                        args: [odoo.pos_session_id, code.base_code],
+                        args: [ecommerce.pos_session_id, code.base_code],
                         context: this.env.session.user_context,
                     });
                     foundProductIds.push(...product_id);

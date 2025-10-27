@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { localization } from "@web/core/l10n/localization";
 import { useOwnedDialogs, useService } from "@web/core/utils/hooks";
 import { TranslationDialog } from "./translation_dialog";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
-import { Component, useEnv } from "@odoo/owl";
+import { Component, useEnv } from "@ecommerce/owl";
 
 /**
  * Prepares a function that will open the dialog that allows to edit translation

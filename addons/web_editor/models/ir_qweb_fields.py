@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """
 Web_editor-context rendering needs to add some metadata to rendered and allow to edit fields,
 as well as render a few fields differently.
 
-Also, adds methods to convert values back to Odoo models.
+Also, adds methods to convert values back to ecommerce models.
 """
 
 import babel
@@ -23,13 +23,13 @@ from lxml import etree, html
 from PIL import Image as I
 from werkzeug import urls
 
-import odoo.modules
+import ecommerce.modules
 
-from odoo import _, api, models, fields
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import ustr, posix_to_ldml, pycompat
-from odoo.tools import html_escape as escape
-from odoo.tools.misc import get_lang, babel_locale_parse
+from ecommerce import _, api, models, fields
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import ustr, posix_to_ldml, pycompat
+from ecommerce.tools import html_escape as escape
+from ecommerce.tools.misc import get_lang, babel_locale_parse
 
 REMOTE_CONNECTION_TIMEOUT = 2.5
 
@@ -470,7 +470,7 @@ class Image(models.AbstractModel):
             if sep and sep != '/':
                 rest.replace(sep, '/')
 
-        path = odoo.modules.get_module_resource(
+        path = ecommerce.modules.get_module_resource(
             match.group('module'), 'static', *(rest.split('/')))
 
         if not path:

@@ -1,4 +1,4 @@
-/** @odoo-module alias=mass_mailing.field_html_tests **/
+/** @ecommerce-module alias=mass_mailing.field_html_tests **/
 
 import * as ajax from "web.ajax";
 import weTestUtils from "web_editor.test_utils";
@@ -53,7 +53,7 @@ QUnit.module('field html', (hooks) => {
                     return Promise.resolve({
                         cssLibs: [],
                         cssContents: ['.field_body {background-color: red;}'],
-                        jsContents: ['window.odoo = {define: function(){}}; // inline asset'],
+                        jsContents: ['window.ecommerce = {define: function(){}}; // inline asset'],
                     });
                 }
                 if (xmlId === 'template.assets_all_style') {

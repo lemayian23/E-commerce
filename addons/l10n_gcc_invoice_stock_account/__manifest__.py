@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': "Gulf Cooperation Council WMS Accounting",
     'version': '1.0',
     'description': """
         Arabic/English for GCC + lot/SN numbers
     """,
-    'author': "Odoo S.A.",
-    'website': "https://www.odoo.com",
+    'author': "ecommerce S.A.",
+    'website': "https://www.ecommerce.com",
     'category': 'Accounting/Localizations',
 
     'depends': ['l10n_gcc_invoice', 'stock_account'],

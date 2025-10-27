@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { nextTick } from "@web/../tests/helpers/utils";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -11,7 +11,7 @@ const uuidGenerator = new spreadsheet.helpers.UuidGenerator();
  *
  * @param {Model} model
  */
-export function insertChartInSpreadsheet(model, type = "odoo_bar") {
+export function insertChartInSpreadsheet(model, type = "ecommerce_bar") {
     const definition = getChartDefinition(type);
     model.dispatch("CREATE_CHART", {
         sheetId: model.getters.getActiveSheetId(),

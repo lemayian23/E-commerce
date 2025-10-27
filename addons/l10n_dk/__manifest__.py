@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Denmark - Accounting',
     'version': '1.1',
-    'author': 'Odoo House ApS, VK DATA ApS',
-    'website': 'http://odoodanmark.dk',
+    'author': 'ecommerce House ApS, VK DATA ApS',
+    'website': 'http://ecommercedanmark.dk',
     'category': 'Accounting/Localizations/Account Charts',
     'description': """
 

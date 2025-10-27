@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import functools
@@ -21,18 +21,18 @@ from werkzeug.datastructures import OrderedMultiDict
 from werkzeug.exceptions import NotFound
 from markupsafe import Markup
 
-from odoo import api, fields, models, tools, http, release, registry
-from odoo.addons.http_routing.models.ir_http import RequestUID, slugify, url_for
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.website.tools import similarity_score, text_from_html, get_base_domain
-from odoo.addons.portal.controllers.portal import pager
-from odoo.addons.iap.tools import iap_tools
-from odoo.exceptions import AccessError, MissingError, UserError, ValidationError
-from odoo.http import request
-from odoo.modules.module import get_resource_path, get_manifest
-from odoo.osv.expression import AND, OR, FALSE_DOMAIN, get_unaccent_wrapper
-from odoo.tools.translate import _
-from odoo.tools import escape_psql, OrderedSet, pycompat
+from ecommerce import api, fields, models, tools, http, release, registry
+from ecommerce.addons.http_routing.models.ir_http import RequestUID, slugify, url_for
+from ecommerce.addons.website.models.ir_http import sitemap_qs2dom
+from ecommerce.addons.website.tools import similarity_score, text_from_html, get_base_domain
+from ecommerce.addons.portal.controllers.portal import pager
+from ecommerce.addons.iap.tools import iap_tools
+from ecommerce.exceptions import AccessError, MissingError, UserError, ValidationError
+from ecommerce.http import request
+from ecommerce.modules.module import get_resource_path, get_manifest
+from ecommerce.osv.expression import AND, OR, FALSE_DOMAIN, get_unaccent_wrapper
+from ecommerce.tools.translate import _
+from ecommerce.tools import escape_psql, OrderedSet, pycompat
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ DEFAULT_CDN_FILTERS = [
     "^/website/image/",
 ]
 
-DEFAULT_ENDPOINT = 'https://website.api.odoo.com'
+DEFAULT_ENDPOINT = 'https://website.api.ecommerce.com'
 
 # TODO: Remove in master.
 SEARCH_TYPE_MODELS = defaultdict(OrderedSet)
@@ -1267,7 +1267,7 @@ class Website(models.Model):
             # everyone except for the website designer which receive `1,0,0,0`.
             # So the "Website/Site/Content/Pages" menu to reach the page manager
             # is not shown to the restricted users, as the action linked model
-            # (website.page) can't be access. It's how the Odoo framework works.
+            # (website.page) can't be access. It's how the ecommerce framework works.
             # Still, we let the restricted editor access this resource for
             # custos granting them read and/or write access on page.
             raise AccessError(_("Access Denied"))

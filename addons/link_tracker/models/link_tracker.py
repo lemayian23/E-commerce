@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 import string
@@ -8,9 +8,9 @@ import requests
 from lxml import html
 from werkzeug import urls
 
-from odoo import _, api, fields, models, tools
-from odoo.exceptions import UserError
-from odoo.osv import expression
+from ecommerce import _, api, fields, models, tools
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
 
 LINK_TRACKER_MIN_CODE_LENGTH = 3
 URL_MAX_SIZE = 10 * 1024 * 1024
@@ -18,7 +18,7 @@ URL_MAX_SIZE = 10 * 1024 * 1024
 
 class LinkTracker(models.Model):
     """ Link trackers allow users to wrap any URL into a short URL that can be
-    tracked by Odoo. Clicks are counter on each link. A tracker is linked to
+    tracked by ecommerce. Clicks are counter on each link. A tracker is linked to
     UTMs allowing to analyze marketing actions.
 
     This model is also used in mass_mailing where each link in html body is

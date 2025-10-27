@@ -1,5 +1,5 @@
-from odoo import fields, models, _, api
-from odoo.exceptions import UserError
+from ecommerce import fields, models, _, api
+from ecommerce.exceptions import UserError
 
 
 class RequestZATCAOtp(models.TransientModel):

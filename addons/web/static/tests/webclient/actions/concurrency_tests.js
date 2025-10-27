@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     click,
@@ -23,7 +23,7 @@ import {
     loadState,
 } from "@web/../tests/webclient/helpers";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const actionRegistry = registry.category("actions");
 
 let serverData;

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import math
 
-from odoo import http
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website_event.controllers.community import EventCommunityController
-from odoo.http import request
+from ecommerce import http
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.website_event.controllers.community import EventCommunityController
+from ecommerce.http import request
 
 
 class WebsiteEventTrackQuizCommunityController(EventCommunityController):

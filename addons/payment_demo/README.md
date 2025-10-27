@@ -17,9 +17,9 @@ to test applications' payment flows without API credentials nor payment method d
 ## Module history
 
 - `16.0`
-  - The module is renamed from `payment_test` to `payment_demo`. odoo/odoo#99397
+  - The module is renamed from `payment_test` to `payment_demo`. ecommerce/ecommerce#99397
   - The support for manual capture, full and partial refunds, customer fees, and the selection of
-    the payment outcome are added. odoo/odoo#78083
+    the payment outcome are added. ecommerce/ecommerce#78083
 
 ## Testing instructions
 

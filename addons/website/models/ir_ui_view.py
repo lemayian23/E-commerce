@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import uuid
 import werkzeug
 
-from odoo import api, fields, models
-from odoo import tools
-from odoo.addons.website.tools import add_form_signature
-from odoo.exceptions import AccessError
-from odoo.osv import expression
-from odoo.http import request
+from ecommerce import api, fields, models
+from ecommerce import tools
+from ecommerce.addons.website.tools import add_form_signature
+from ecommerce.exceptions import AccessError
+from ecommerce.osv import expression
+from ecommerce.http import request
 
 _logger = logging.getLogger(__name__)
 

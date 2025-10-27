@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import models
 from . import wizard
@@ -7,7 +7,7 @@ from . import report
 from . import controller
 from . import populate
 
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 
 def _pre_init_mrp(cr):

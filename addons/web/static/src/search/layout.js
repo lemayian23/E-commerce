@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { pick } from "@web/core/utils/objects";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@ecommerce/owl";
 
 /**
  * @param {Object} params

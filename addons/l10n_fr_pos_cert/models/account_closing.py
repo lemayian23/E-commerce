@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import datetime, timedelta
 
-from odoo import models, api, fields
-from odoo.fields import Datetime as FieldDateTime
+from ecommerce import models, api, fields
+from ecommerce.fields import Datetime as FieldDateTime
 from dateutil.relativedelta import relativedelta
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
-from odoo.osv.expression import AND
+from ecommerce.tools.translate import _
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import AND
 
 
 class AccountClosing(models.Model):
@@ -120,7 +120,7 @@ class AccountClosing(models.Model):
         @param {recordset} company: the company for which the closing is done
         @return {dict} the theoretical date from which account move lines are fetched.
             date_stop date to which the move lines are fetched, always now()
-            the dates are in their Odoo Database string representation
+            the dates are in their ecommerce Database string representation
         """
         date_stop = datetime.utcnow()
         interval_from = None

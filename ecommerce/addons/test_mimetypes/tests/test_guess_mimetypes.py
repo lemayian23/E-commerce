@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import os.path
 
-from odoo.tests.common import BaseCase
-from odoo.tools.mimetypes import guess_mimetype, magic
+from ecommerce.tests.common import BaseCase
+from ecommerce.tools.mimetypes import guess_mimetype, magic
 
 def contents(extension):
     with open(os.path.join(

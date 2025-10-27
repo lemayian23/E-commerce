@@ -1,4 +1,4 @@
-odoo.define('project.tour', function(require) {
+ecommerce.define('project.tour', function(require) {
 "use strict";
 
 const {_t} = require('web.core');
@@ -127,7 +127,7 @@ tour.register('project_tour', {
 }, {
     trigger: ".o_form_button_save",
     extra_trigger: '.o_form_project_tasks.o_form_dirty',
-    content: Markup(_t("You have unsaved changes - no worries! Odoo will automatically save it as you navigate.<br/> You can discard these changes from here or manually save your task.<br/>Let's save it manually.")),
+    content: Markup(_t("You have unsaved changes - no worries! ecommerce will automatically save it as you navigate.<br/> You can discard these changes from here or manually save your task.<br/>Let's save it manually.")),
     position: "bottom",
 }, {
     trigger: ".breadcrumb .o_back_button",

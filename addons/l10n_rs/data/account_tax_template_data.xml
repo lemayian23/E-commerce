@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="rs_sale_vat_20" model="account.tax.template">
         <field name="sequence">10</field>
         <field name="description">VAT 20%</field>
@@ -483,4 +483,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

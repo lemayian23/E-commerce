@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 
 /**
- * @typedef {import("../env").OdooEnv} OdooEnv
+ * @typedef {import("../env").ecommerceEnv} ecommerceEnv
  * @typedef {import("../core/errors/error_service").UncaughtPromiseError} UncaughtPromiseError
  */
 
@@ -12,7 +12,7 @@ import { registry } from "@web/core/registry";
 // -----------------------------------------------------------------------------
 
 /**
- * @param {OdooEnv} env
+ * @param {ecommerceEnv} env
  * @param {Error} error
  * @param {Error} originalError
  * @returns {boolean}

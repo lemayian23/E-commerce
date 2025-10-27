@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import FavoriteMenuLegacy from 'web.FavoriteMenu';
 import CustomFavoriteItemLegacy from 'web.CustomFavoriteItem';

@@ -1,4 +1,4 @@
-/** @odoo-module **/;
+/** @ecommerce-module **/;
 
 import ActivityController from '@mail/js/views/activity/activity_controller';
 import ActivityModel from '@mail/js/views/activity/activity_model';

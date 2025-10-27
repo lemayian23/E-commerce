@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import Command, fields
-from odoo.addons.event_booth_sale.tests.common import TestEventBoothSaleCommon
-from odoo.addons.sales_team.tests.common import TestSalesCommon
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests.common import tagged, users
-from odoo.tools import float_compare
+from ecommerce import Command, fields
+from ecommerce.addons.event_booth_sale.tests.common import TestEventBoothSaleCommon
+from ecommerce.addons.sales_team.tests.common import TestSalesCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests.common import tagged, users
+from ecommerce.tools import float_compare
 
 
 class TestEventBoothSaleWData(TestEventBoothSaleCommon, TestSalesCommon):

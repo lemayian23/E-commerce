@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import contextlib
@@ -14,11 +14,11 @@ import uuid
 from collections import defaultdict
 from PIL import Image
 
-from odoo import api, fields, models, SUPERUSER_ID, tools, _
-from odoo.exceptions import AccessError, ValidationError, UserError
-from odoo.tools import config, human_size, ImageProcess, str2bool, consteq
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.osv import expression
+from ecommerce import api, fields, models, SUPERUSER_ID, tools, _
+from ecommerce.exceptions import AccessError, ValidationError, UserError
+from ecommerce.tools import config, human_size, ImageProcess, str2bool, consteq
+from ecommerce.tools.mimetypes import guess_mimetype
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 

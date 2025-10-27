@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import functools
@@ -11,26 +11,26 @@ import unicodedata
 try:
     from werkzeug.utils import send_file
 except ImportError:
-    from odoo.tools._vendor.send_file import send_file
+    from ecommerce.tools._vendor.send_file import send_file
 
-import odoo
-import odoo.modules.registry
-from odoo import http, _
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request, Response
-from odoo.modules import get_resource_path
-from odoo.tools import file_open, file_path, replace_exceptions, str2bool
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.tools.image import image_guess_size_from_field_name
+import ecommerce
+import ecommerce.modules.registry
+from ecommerce import http, _
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.http import request, Response
+from ecommerce.modules import get_resource_path
+from ecommerce.tools import file_open, file_path, replace_exceptions, str2bool
+from ecommerce.tools.mimetypes import guess_mimetype
+from ecommerce.tools.image import image_guess_size_from_field_name
 
 
 _logger = logging.getLogger(__name__)
 
 BAD_X_SENDFILE_ERROR = """\
-Odoo is running with --x-sendfile but is receiving /web/filestore requests.
+ecommerce is running with --x-sendfile but is receiving /web/filestore requests.
 
 With --x-sendfile enabled, NGINX should be serving the
-/web/filestore route, however Odoo is receiving the
+/web/filestore route, however ecommerce is receiving the
 request.
 
 This usually indicates that NGINX is badly configured,
@@ -52,10 +52,10 @@ class Binary(http.Controller):
 
     @http.route('/web/filestore/<path:_path>', type='http', auth='none')
     def content_filestore(self, _path):
-        if odoo.tools.config['x_sendfile']:
+        if ecommerce.tools.config['x_sendfile']:
             # pylint: disable=logging-format-interpolation
             _logger.error(BAD_X_SENDFILE_ERROR.format(
-                data_dir=odoo.tools.config['data_dir']
+                data_dir=ecommerce.tools.config['data_dir']
             ))
         raise http.request.not_found()
 
@@ -94,7 +94,7 @@ class Binary(http.Controller):
     def content_assets(self, id=None, filename=None, unique=False, extra=None, nocache=False):
         if not id:
             domain = [('url', '!=', False), ('res_model', '=', 'ir.ui.view'),
-                      ('res_id', '=', 0), ('create_uid', '=', odoo.SUPERUSER_ID)]
+                      ('res_id', '=', 0), ('create_uid', '=', ecommerce.SUPERUSER_ID)]
             if extra:
                 domain += [('url', '=like', f'/web/assets/%/{extra}/{filename}')]
             else:
@@ -219,14 +219,14 @@ class Binary(http.Controller):
         imgext = '.png'
         placeholder = functools.partial(get_resource_path, 'web', 'static', 'img')
         dbname = request.db
-        uid = (request.session.uid if dbname else None) or odoo.SUPERUSER_ID
+        uid = (request.session.uid if dbname else None) or ecommerce.SUPERUSER_ID
 
         if not dbname:
             response = http.Stream.from_path(placeholder(imgname + imgext)).get_response()
         else:
             try:
                 # create an empty registry
-                registry = odoo.modules.registry.Registry(dbname)
+                registry = ecommerce.modules.registry.Registry(dbname)
                 with registry.cursor() as cr:
                     company = int(kw['company']) if kw and kw.get('company') else False
                     if company:

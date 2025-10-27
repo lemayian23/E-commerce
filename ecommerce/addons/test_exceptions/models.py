@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.exceptions
-from odoo import models, api
-from odoo.tools.safe_eval import safe_eval
+import ecommerce.exceptions
+from ecommerce import models, api
+from ecommerce.tools.safe_eval import safe_eval
 
 class m(models.Model):
     """ This model exposes a few methods that will raise the different
@@ -15,13 +15,13 @@ class m(models.Model):
 
     def generate_redirect_warning(self):
         action = self.env.ref('test_exceptions.action_test_exceptions')
-        raise odoo.exceptions.RedirectWarning('description', action.id, 'Go to the redirection')
+        raise ecommerce.exceptions.RedirectWarning('description', action.id, 'Go to the redirection')
 
     def generate_access_denied(self):
-        raise odoo.exceptions.AccessDenied()
+        raise ecommerce.exceptions.AccessDenied()
 
     def generate_access_error(self):
-        raise odoo.exceptions.AccessError('description')
+        raise ecommerce.exceptions.AccessError('description')
 
     def generate_exc_access_denied(self):
         raise Exception('AccessDenied')
@@ -30,13 +30,13 @@ class m(models.Model):
         self.surely_undefined_symbol
 
     def generate_user_error(self):
-        raise odoo.exceptions.UserError('description')
+        raise ecommerce.exceptions.UserError('description')
 
     def generate_missing_error(self):
-        raise odoo.exceptions.MissingError('description')
+        raise ecommerce.exceptions.MissingError('description')
 
     def generate_validation_error(self):
-        raise odoo.exceptions.ValidationError('description')
+        raise ecommerce.exceptions.ValidationError('description')
 
     def generate_redirect_warning_safe_eval(self):
         self.generate_safe_eval(self.generate_redirect_warning)

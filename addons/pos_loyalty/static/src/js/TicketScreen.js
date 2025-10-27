@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import TicketScreen from 'point_of_sale.TicketScreen';
 import Registries from 'point_of_sale.Registries';

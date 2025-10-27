@@ -1,9 +1,9 @@
 import logging
 import json
 
-from odoo import api
-from odoo.tests import tagged, get_db_name
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce import api
+from ecommerce.tests import tagged, get_db_name
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 _logger = logging.getLogger(__name__)
 

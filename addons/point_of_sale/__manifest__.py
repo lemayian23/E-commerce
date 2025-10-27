@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Point of Sale',
@@ -50,7 +50,7 @@
     ],
     'installable': True,
     'application': True,
-    'website': 'https://www.odoo.com/app/point-of-sale-shop',
+    'website': 'https://www.ecommerce.com/app/point-of-sale-shop',
     'assets': {
 
         ## In general, you DON'T NEED to declare new assets here, just put the files in the proper directory.

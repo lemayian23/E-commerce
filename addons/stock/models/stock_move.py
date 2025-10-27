@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 from collections import defaultdict
 from datetime import timedelta
 from operator import itemgetter
 
-from odoo import _, api, Command, fields, models
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.osv.expression import OR
-from odoo.tools.float_utils import float_compare, float_is_zero, float_round
-from odoo.tools.misc import clean_context, OrderedSet, groupby
+from ecommerce import _, api, Command, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
+from ecommerce.osv.expression import OR
+from ecommerce.tools.float_utils import float_compare, float_is_zero, float_round
+from ecommerce.tools.misc import clean_context, OrderedSet, groupby
 
 PROCUREMENT_PRIORITIES = [('0', 'Normal'), ('1', 'Urgent')]
 
@@ -762,8 +762,8 @@ Please change the quantity done or the rounding precision of your unit of measur
             # Avoids to write the exact same message multiple times.
             if last_message and last_message.subject == msg_subject:
                 continue
-            odoobot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
-            doc.message_post(body=msg, author_id=odoobot_id, subject=msg_subject)
+            ecommercebot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
+            doc.message_post(body=msg, author_id=ecommercebot_id, subject=msg_subject)
 
     def action_show_details(self):
         """ Returns an action that will open a form view (in a popup) allowing to work on all the

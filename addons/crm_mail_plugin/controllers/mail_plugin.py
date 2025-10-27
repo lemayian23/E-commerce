@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.http import request
-from odoo.tools.misc import formatLang
+from ecommerce.http import request
+from ecommerce.tools.misc import formatLang
 
-from odoo.addons.mail_plugin.controllers import mail_plugin
+from ecommerce.addons.mail_plugin.controllers import mail_plugin
 
 _logger = logging.getLogger(__name__)
 

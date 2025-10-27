@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.PartnerListScreen', function(require) {
+ecommerce.define('point_of_sale.PartnerListScreen', function(require) {
     'use strict';
 
     const PosComponent = require('point_of_sale.PosComponent');
@@ -219,7 +219,7 @@ odoo.define('point_of_sale.PartnerListScreen', function(require) {
                     model: 'pos.session',
                     method: 'get_pos_ui_res_partner_by_params',
                     args: [
-                        [odoo.pos_session_id],
+                        [ecommerce.pos_session_id],
                         {
                             domain,
                             limit: limit,

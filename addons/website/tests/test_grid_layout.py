@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 
-import odoo.tests
-from odoo.tests.common import HOST
-from odoo.tools import config
+import ecommerce.tests
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteGridLayout(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteGridLayout(ecommerce.tests.HttpCase):
 
     def test_01_replace_grid_image(self):
         IrAttachment = self.env['ir.attachment']

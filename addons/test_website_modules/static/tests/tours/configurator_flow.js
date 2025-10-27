@@ -1,4 +1,4 @@
-odoo.define('test_website_modules.tour.configurator_flow', function (require) {
+ecommerce.define('test_website_modules.tour.configurator_flow', function (require) {
 'use strict';
 
 const tour = require('web_tour.tour');

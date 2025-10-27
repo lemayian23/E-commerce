@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 from contextlib import contextmanager
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.payment.tests.common import PaymentCommon
 
 
 class AccountPaymentCommon(PaymentCommon, AccountTestInvoicingCommon):

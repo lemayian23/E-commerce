@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import  _, api, fields, models
-from odoo.exceptions import UserError
+from ecommerce import  _, api, fields, models
+from ecommerce.exceptions import UserError
 from lxml import etree
-from odoo.tools import cleanup_xml_node
+from ecommerce.tools import cleanup_xml_node
 
 
 class EfakturDocument(models.Model):

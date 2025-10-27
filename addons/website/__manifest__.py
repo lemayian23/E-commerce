@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Website',
     'category': 'Website/Website',
     'sequence': 20,
     'summary': 'Enterprise website builder',
-    'website': 'https://www.odoo.com/app/website',
+    'website': 'https://www.ecommerce.com/app/website',
     'version': '1.0',
     'depends': [
         'digest',
@@ -84,7 +84,7 @@
         'views/snippets/s_mega_menu_little_icons.xml',
         'views/snippets/s_mega_menu_images_subtitles.xml',
         'views/snippets/s_mega_menu_menus_logos.xml',
-        'views/snippets/s_mega_menu_odoo_menu.xml',
+        'views/snippets/s_mega_menu_ecommerce_menu.xml',
         'views/snippets/s_mega_menu_big_icons_subtitles.xml',
         'views/snippets/s_mega_menu_cards.xml',
         'views/snippets/s_google_map.xml',

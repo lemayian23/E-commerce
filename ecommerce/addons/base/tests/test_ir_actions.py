@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date
 from psycopg2 import IntegrityError, ProgrammingError
 
-import odoo
-from odoo.exceptions import UserError, ValidationError, AccessError
-from odoo.tools import mute_logger
-from odoo.tests import common
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo import Command
+import ecommerce
+from ecommerce.exceptions import UserError, ValidationError, AccessError
+from ecommerce.tools import mute_logger
+from ecommerce.tests import common
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce import Command
 
 
 class TestServerActionsBase(TransactionCaseWithUserDemo):
@@ -192,7 +192,7 @@ class TestServerActions(TestServerActionsBase):
         self.assertEqual(partners[0].city, str(partners[0].id))
         self.assertEqual(partners[1].city, str(partners[1].id))
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_40_multi(self):
         # Data: 2 server actions that will be nested
         action1 = self.action.create({
@@ -330,7 +330,7 @@ class TestServerActions(TestServerActionsBase):
         with self.assertRaises(AccessError):
             self.test_partner.with_user(user_demo.id).check_access_rule("write")
         # nor execute a server action on it
-        with self.assertRaises(AccessError), mute_logger('odoo.addons.base.models.ir_actions'):
+        with self.assertRaises(AccessError), mute_logger('ecommerce.addons.base.models.ir_actions'):
             self_demo.with_context(self.context).run()
 
     def test_90_convert_to_float(self):
@@ -405,14 +405,14 @@ class TestCustomFields(common.TransactionCase):
     def test_create_unique(self):
         """ one cannot create two fields with the same name on a given model """
         self.create_field('x_foo')
-        with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
+        with self.assertRaises(IntegrityError), mute_logger('ecommerce.sql_db'):
             self.create_field('x_foo')
 
     def test_rename_unique(self):
         """ one cannot create two fields with the same name on a given model """
         field1 = self.create_field('x_foo')
         field2 = self.create_field('x_bar')
-        with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
+        with self.assertRaises(IntegrityError), mute_logger('ecommerce.sql_db'):
             field2.name = field1.name
 
     def test_remove_without_view(self):
@@ -425,7 +425,7 @@ class TestCustomFields(common.TransactionCase):
         field = self.create_field('x_foo')
         field.name = 'x_bar'
 
-    @mute_logger('odoo.addons.base.models.ir_ui_view')
+    @mute_logger('ecommerce.addons.base.models.ir_ui_view')
     def test_remove_with_view(self):
         """ try removing a custom field that occurs in a view """
         field = self.create_field('x_foo')
@@ -436,7 +436,7 @@ class TestCustomFields(common.TransactionCase):
             field.unlink()
         self.assertIn('x_foo', self.env[self.MODEL]._fields)
 
-    @mute_logger('odoo.addons.base.models.ir_ui_view')
+    @mute_logger('ecommerce.addons.base.models.ir_ui_view')
     def test_rename_with_view(self):
         """ try renaming a custom field that occurs in a view """
         field = self.create_field('x_foo')

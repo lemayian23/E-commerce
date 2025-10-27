@@ -262,7 +262,7 @@
 			childLevels = this._getChildLevels(this.helper);
 			newList = document.createElement(o.listType);
 
-			// Odoo begin patch
+			// ecommerce begin patch
 			// At this stage, the registered positions of the following tree
 			// elements are not up to date with the fact that the placeholder
 			// has replaced the element that is being dragged, and may have
@@ -272,7 +272,7 @@
 			// than the dragged item. By refreshing the positions here, that
 			// problem is avoided.
 			self.refreshPositions();
-			// Odoo end patch
+			// ecommerce end patch
 
 			//Rearrange
 			for (i = this.items.length - 1; i >= 0; i--) {
@@ -359,7 +359,7 @@
 
 					// mjs - rearrange the elements and reset timeouts and hovering state
 					if ((this.options.tolerance === "pointer" || this._intersectsWithSides(item)) &&
-						// Odoo begin patch
+						// ecommerce begin patch
 						// Only allow to rearrange if itemElement was
 						// intersected while going up or if the placeholder is
 						// placed before itemElement in the dom, to avoid
@@ -367,7 +367,7 @@
 						// the mouse is going DOWN, which will cause flickering
 						// if the placeholder has to change parent (depth)
 						(intersection === 1 || (itemElement.compareDocumentPosition(this.placeholder[0]) & Node.DOCUMENT_POSITION_PRECEDING))
-						// Odoo end patch
+						// ecommerce end patch
 					) {
 						$(itemElement).mouseleave();
 						this.mouseentered = false;

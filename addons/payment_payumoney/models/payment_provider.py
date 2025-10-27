@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
 
 class PaymentProvider(models.Model):
@@ -32,7 +32,7 @@ class PaymentProvider(models.Model):
 
         :param dict values: The values used to generate the signature
         :param bool incoming: Whether the signature must be generated for an incoming (PayUmoney to
-                              Odoo) or outgoing (Odoo to PayUMoney) communication.
+                              ecommerce) or outgoing (ecommerce to PayUMoney) communication.
         :return: The shasign
         :rtype: str
         """

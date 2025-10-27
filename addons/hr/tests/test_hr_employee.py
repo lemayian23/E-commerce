@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import Form
-from odoo.addons.hr.tests.common import TestHrCommon
+from ecommerce.tests import Form
+from ecommerce.addons.hr.tests.common import TestHrCommon
 
 
 class TestHrEmployee(TestHrCommon):
@@ -146,18 +146,18 @@ class TestHrEmployee(TestHrCommon):
             {
                 'name': 'Test User',
                 'login': 'test_user',
-                'email': 'test_user@odoo.com',
+                'email': 'test_user@ecommerce.com',
             },
             {
                 'name': 'Test User 2',
                 'login': 'test_user_2',
-                'email': 'test_user_2@odoo.com',
+                'email': 'test_user_2@ecommerce.com',
                 'create_employee': True,
             },
             {
                 'name': 'Test User 3',
                 'login': 'test_user_3',
-                'email': 'test_user_3@odoo.com',
+                'email': 'test_user_3@ecommerce.com',
                 'create_employee_id': employee.id,
             },
         ])
@@ -176,7 +176,7 @@ class TestHrEmployee(TestHrCommon):
         self.env['res.users'].signup({
             'name': 'Test User',
             'login': 'test_user',
-            'email': 'test_user@odoo.com',
+            'email': 'test_user@ecommerce.com',
             'password': 'test_user_password',
             'partner_id': partner.id,
         })

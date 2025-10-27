@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import werkzeug
 
-from odoo import http
-from odoo.http import request
-from odoo.tools.translate import _
-from odoo.tools.misc import get_lang
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.tools.translate import _
+from ecommerce.tools.misc import get_lang
 
 _logger = logging.getLogger(__name__)
 

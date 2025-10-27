@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
@@ -8,7 +8,7 @@ import { usePopover } from "@web/core/popover/popover_hook";
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
 import { sprintf } from "@web/core/utils/strings";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 class PropertyTagsColorListPopover extends Component {}
 PropertyTagsColorListPopover.template = "web.PropertyTagsColorListPopover";

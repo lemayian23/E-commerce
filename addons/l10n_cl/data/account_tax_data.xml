@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Account Tags -->
     <record id="ITAX_19" model="account.tax.template">
         <field name="chart_template_id" ref="cl_chart_template"/>
@@ -849,4 +849,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

@@ -4,8 +4,8 @@ from collections import defaultdict, OrderedDict
 from datetime import date, timedelta
 import json
 
-from odoo import api, fields, models, _
-from odoo.tools import float_compare, float_round, format_date, float_is_zero
+from ecommerce import api, fields, models, _
+from ecommerce.tools import float_compare, float_round, format_date, float_is_zero
 
 class ReportBomStructure(models.AbstractModel):
     _name = 'report.mrp.report_bom_structure'

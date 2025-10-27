@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 
-from odoo.addons.crm.tests.test_crm_lead_assignment import TestLeadAssignCommon
-from odoo.tests.common import tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.crm.tests.test_crm_lead_assignment import TestLeadAssignCommon
+from ecommerce.tests.common import tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('lead_assign', 'crm_performance', 'post_install', '-at_install')
@@ -21,7 +21,7 @@ class TestLeadAssignPerf(TestLeadAssignCommon):
     of random in tests.
     """
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.crm.models.crm_team', 'odoo.addons.crm.models.crm_team_member')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.crm.models.crm_team', 'ecommerce.addons.crm.models.crm_team_member')
     def test_assign_perf_duplicates(self):
         """ Test assign process with duplicates on partner. Allow to ensure notably
         that de duplication is effectively performed. """
@@ -69,7 +69,7 @@ class TestLeadAssignPerf(TestLeadAssignCommon):
         self.assertMemberAssign(self.sales_team_convert_m1, 8)  # 30 max on 15 (2) + compensation (5.6)
         self.assertMemberAssign(self.sales_team_convert_m2, 15)  # 60 max on 15 (4) + compsantion (11.2)
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.crm.models.crm_team', 'odoo.addons.crm.models.crm_team_member')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.crm.models.crm_team', 'ecommerce.addons.crm.models.crm_team_member')
     def test_assign_perf_no_duplicates(self):
         # fix the seed and avoid randomness
         random.seed(1945)
@@ -112,7 +112,7 @@ class TestLeadAssignPerf(TestLeadAssignCommon):
         self.assertMemberAssign(self.sales_team_convert_m1, 8)  # 30 max on 15 (2) + compensation (5.6)
         self.assertMemberAssign(self.sales_team_convert_m2, 15)  # 60 max on 15 (4) + compensation (11.2)
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.crm.models.crm_team', 'odoo.addons.crm.models.crm_team_member')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.crm.models.crm_team', 'ecommerce.addons.crm.models.crm_team_member')
     def test_assign_perf_populated(self):
         """ Test assignment on a more high volume oriented test set in order to
         have more insights on query counts. """

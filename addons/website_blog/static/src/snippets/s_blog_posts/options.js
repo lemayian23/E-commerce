@@ -1,4 +1,4 @@
-odoo.define('website_blog.s_blog_posts_options', function (require) {
+ecommerce.define('website_blog.s_blog_posts_options', function (require) {
 'use strict';
 
 const options = require('web_editor.snippets.options');

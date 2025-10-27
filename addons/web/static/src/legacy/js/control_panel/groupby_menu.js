@@ -1,4 +1,4 @@
-odoo.define('web.GroupByMenu', function (require) {
+ecommerce.define('web.GroupByMenu', function (require) {
     "use strict";
 
     const { Dropdown } = require("@web/core/dropdown/dropdown");
@@ -36,8 +36,8 @@ odoo.define('web.GroupByMenu', function (require) {
         //---------------------------------------------------------------------
 
         /**
-         * @see {@link odoo/fields.py} Field._description_sortable
-         * @see {@link odoo/fields.py} Many2Many.groupable
+         * @see {@link ecommerce/fields.py} Field._description_sortable
+         * @see {@link ecommerce/fields.py} Many2Many.groupable
          * @private
          * @param {Object} field
          * @returns {boolean}

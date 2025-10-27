@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Account Chart Template -->
     <record id="l10n_rs_chart_template" model="account.chart.template">
         <field name="name">Serbia - Chart of Accounts</field>
@@ -15,4 +15,4 @@
         <field name="default_cash_difference_income_account_id" ref="rs_6791" />
     </record>
 
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="configure_optional_products_website" inherit_id="sale_product_configurator.configure_optional_products">
         <xpath expr="//th[hasclass('td-qty')]/span[hasclass('label')]" position="attributes">
             <attribute name='t-if'>not request.is_frontend or (request.is_frontend and is_view_active('website_sale.product_quantity'))</attribute>
@@ -56,4 +56,4 @@
             <attribute name="t-if">not combination_info.get('compare_list_price')</attribute>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

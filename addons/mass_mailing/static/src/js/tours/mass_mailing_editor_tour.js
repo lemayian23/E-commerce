@@ -1,8 +1,8 @@
-odoo.define('mass_mailing.mass_mailing_editor_tour', function (require) {
+ecommerce.define('mass_mailing.mass_mailing_editor_tour', function (require) {
     "use strict";
 
     var tour = require('web_tour.tour');
-    const { boundariesIn, setSelection } = require('@web_editor/js/editor/odoo-editor/src/utils/utils');
+    const { boundariesIn, setSelection } = require('@web_editor/js/editor/ecommerce-editor/src/utils/utils');
 
     tour.register('mass_mailing_editor_tour', {
         url: '/web',

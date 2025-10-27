@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.Resizeable', function(require) {
+ecommerce.define('pos_restaurant.Resizeable', function(require) {
     'use strict';
 
     const { useListener } = require("@web/core/utils/hooks");

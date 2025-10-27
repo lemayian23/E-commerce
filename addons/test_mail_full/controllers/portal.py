@@ -1,5 +1,5 @@
-from odoo import http
-from odoo.http import request
+from ecommerce import http
+from ecommerce.http import request
 
 
 class PortalTest(http.Controller):

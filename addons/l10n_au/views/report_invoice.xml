@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="report_invoice" inherit_id="account.report_invoice">
         <xpath expr='//t[@t-call="account.report_invoice_document"]' position="after">
             <t t-if="o._get_name_invoice_report() == 'l10n_au.report_invoice_document'"
@@ -27,4 +27,4 @@
             </h2>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

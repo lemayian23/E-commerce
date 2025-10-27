@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.ReprintReceiptButton', function (require) {
+ecommerce.define('point_of_sale.ReprintReceiptButton', function (require) {
     'use strict';
 
     const { useListener } = require("@web/core/utils/hooks");

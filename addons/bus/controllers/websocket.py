@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-from odoo.http import Controller, request, route, SessionExpiredException
-from odoo.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce.http import Controller, request, route, SessionExpiredException
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
 from ..models.bus import channel_with_db
 from ..websocket import WebsocketConnectionHandler
 

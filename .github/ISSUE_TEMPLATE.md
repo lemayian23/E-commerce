@@ -8,4 +8,4 @@ Expected behavior:
 
 Video/Screenshot link (optional):
 
-Support ticket number submitted via odoo.com/help (optional):
+Support ticket number submitted via ecommerce.com/help (optional):

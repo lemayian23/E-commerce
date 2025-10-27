@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests.common import tagged, HttpCase
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests.common import tagged, HttpCase
 
 
 @tagged('post_install', '-at_install', '-standard', 'breaking_16', 'random')

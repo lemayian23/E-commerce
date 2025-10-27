@@ -1,4 +1,4 @@
-odoo.define('website_event_exhibitor.event_sponsor_search', function (require) {
+ecommerce.define('website_event_exhibitor.event_sponsor_search', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

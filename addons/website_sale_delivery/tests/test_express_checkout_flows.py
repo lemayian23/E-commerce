@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 from uuid import uuid4
 from unittest.mock import Mock, patch
 from werkzeug import urls
 
-from odoo import Command
-from odoo.http import root
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.http import root
+from ecommerce.tests import tagged
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery as WebsiteSaleDeliveryController
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery as WebsiteSaleDeliveryController
 
 
 @tagged('post_install', '-at_install')
@@ -163,7 +163,7 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             self._make_json_rpc_request(
@@ -190,7 +190,7 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             self._make_json_rpc_request(
@@ -223,7 +223,7 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             self._make_json_rpc_request(
@@ -245,7 +245,7 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             self._make_json_rpc_request(
@@ -274,7 +274,7 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             self._make_json_rpc_request(
@@ -318,14 +318,14 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
     def test_express_checkout_registered_user_with_shipping_option(self):
         """ Test that when you use the express checkout as a registered user and the shipping
             address sent by the express checkout form exactly matches to one of the addresses linked
-            to this user in odoo, we do not create a new partner and reuse the existing one.
+            to this user in ecommerce, we do not create a new partner and reuse the existing one.
         """
         self.sale_order.partner_id = self.user_demo.partner_id.id
         session = self.authenticate(self.user_demo.login, self.user_demo.login)
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             shipping_options = self._make_json_rpc_request(
@@ -346,14 +346,14 @@ class TestWebsiteSaleDeliveryExpressCheckoutFlows(HttpCaseWithUserDemo):
 
     def test_express_checkout_registered_user_with_shipping_option_new_address(self):
         """ Test that when you use the express checkout as a registered user and the shipping
-            address sent by the express checkout form doesn't exist in odoo, we create a new partner.
+            address sent by the express checkout form doesn't exist in ecommerce, we create a new partner.
         """
         self.sale_order.partner_id = self.user_demo.partner_id.id
         session = self.authenticate(self.user_demo.login, self.user_demo.login)
         session['sale_order_id'] = self.sale_order.id
         root.session_store.save(session)
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.rate_shipment',
             return_value=self.rate_shipment_result
         ):
             # Won't create a new partner because the partial information are the same the an

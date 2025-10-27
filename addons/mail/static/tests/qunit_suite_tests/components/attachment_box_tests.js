@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { nextAnimationFrame, start, startServer } from '@mail/../tests/helpers/test_utils';
 import { patchUiSize, SIZES } from '@mail/../tests/helpers/patch_ui_size';

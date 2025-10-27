@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { evaluateExpr } from "@web/core/py_js/py";
 import { registry } from "@web/core/registry";
@@ -10,7 +10,7 @@ import {
 } from "@web/views/utils";
 import { getTooltipInfo } from "./field_tooltip";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 const viewRegistry = registry.category("views");
 const fieldRegistry = registry.category("fields");
@@ -191,7 +191,7 @@ export class Field extends Component {
                 field: this.props.record.fields[this.props.name],
                 fieldInfo: this.props.fieldInfo,
             });
-            if (Boolean(odoo.debug) || (tooltip && JSON.parse(tooltip).field.help)) {
+            if (Boolean(ecommerce.debug) || (tooltip && JSON.parse(tooltip).field.help)) {
                 return tooltip;
             }
         }

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 from freezegun import freeze_time
 
-from odoo.addons.test_event_full.tests.common import TestEventFullCommon
-from odoo.addons.website.tests.test_performance import UtilPerf
-from odoo.tests.common import users, warmup, Form
-from odoo.tests import tagged
+from ecommerce.addons.test_event_full.tests.common import TestEventFullCommon
+from ecommerce.addons.website.tests.test_performance import UtilPerf
+from ecommerce.tests.common import users, warmup, Form
+from ecommerce.tests import tagged
 
 
 @tagged('event_performance', 'post_install', '-at_install', '-standard')
@@ -472,8 +472,8 @@ class TestOnlineEventPerformance(EventPerformanceCase, UtilPerf):
     #         with self.assertQueryCount(default=99999):  # tef only: 1110
     #             self.browser_js(
     #                 '/event/%i/register' % self.test_event.id,
-    #                 'odoo.__DEBUG__.services["web_tour.tour"].run("wevent_performance_register")',
-    #                 'odoo.__DEBUG__.services["web_tour.tour"].tours.wevent_performance_register.ready',
+    #                 'ecommerce.__DEBUG__.services["web_tour.tour"].run("wevent_performance_register")',
+    #                 'ecommerce.__DEBUG__.services["web_tour.tour"].tours.wevent_performance_register.ready',
     #                 login=None,
     #                 timeout=200,
     #             )

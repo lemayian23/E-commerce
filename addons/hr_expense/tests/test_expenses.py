@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 
 from freezegun import freeze_time
 
-from odoo.addons.hr_expense.tests.common import TestExpenseCommon
-from odoo.tests import tagged, Form
-from odoo.tools.misc import formatLang, format_date
-from odoo import fields, Command
-from odoo.exceptions import UserError, ValidationError
+from ecommerce.addons.hr_expense.tests.common import TestExpenseCommon
+from ecommerce.tests import tagged, Form
+from ecommerce.tools.misc import formatLang, format_date
+from ecommerce import fields, Command
+from ecommerce.exceptions import UserError, ValidationError
 
 
 @tagged('-at_install', 'post_install')

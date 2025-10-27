@@ -1,4 +1,4 @@
-odoo.define('base_import.ImportMenu', function (require) {
+ecommerce.define('base_import.ImportMenu', function (require) {
     "use strict";
 
     const { DropdownItem } = require('@web/core/dropdown/dropdown_item');

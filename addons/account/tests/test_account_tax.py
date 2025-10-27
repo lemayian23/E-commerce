@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo.exceptions import UserError
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce.exceptions import UserError
 
 
 @tagged('post_install', '-at_install')

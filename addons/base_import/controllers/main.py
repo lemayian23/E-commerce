@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import misc
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.tools import misc
 
 
 class ImportController(http.Controller):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Gui } from 'point_of_sale.Gui';
 import PosComponent from 'point_of_sale.PosComponent';

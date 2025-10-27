@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tests.PosPopupController', function(require) {
+ecommerce.define('point_of_sale.tests.PosPopupController', function(require) {
     'use strict';
 
     const PosPopupController = require('point_of_sale.PosPopupController');

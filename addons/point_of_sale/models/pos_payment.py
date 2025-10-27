@@ -1,6 +1,6 @@
-from odoo import api, fields, models, _
-from odoo.tools import formatLang, float_is_zero
-from odoo.exceptions import ValidationError
+from ecommerce import api, fields, models, _
+from ecommerce.tools import formatLang, float_is_zero
+from ecommerce.exceptions import ValidationError
 
 
 class PosPayment(models.Model):

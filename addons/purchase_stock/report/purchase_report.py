@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.osv.expression import expression
+from ecommerce import api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import expression
 
 
 class PurchaseReport(models.Model):

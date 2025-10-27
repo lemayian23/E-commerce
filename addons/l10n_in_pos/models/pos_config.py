@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models
-from odoo.exceptions import RedirectWarning
-from odoo.tools.translate import _
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models
+from ecommerce.exceptions import RedirectWarning
+from ecommerce.tools.translate import _
 
 
 class PosConfig(models.Model):

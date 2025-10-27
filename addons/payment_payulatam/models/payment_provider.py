@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from hashlib import md5
 
-from odoo import api, fields, models
-from odoo.tools.float_utils import float_split, float_repr
+from ecommerce import api, fields, models
+from ecommerce.tools.float_utils import float_split, float_repr
 
 SUPPORTED_CURRENCIES = ('ARS', 'BRL', 'CLP', 'COP', 'MXN', 'PEN', 'USD')
 
@@ -41,7 +41,7 @@ class PaymentProvider(models.Model):
 
         :param dict values: The values used to generate the signature
         :param bool incoming: Whether the signature must be generated for an incoming (PayU Latam to
-                              Odoo) or outgoing (Odoo to PayU Latam) communication.
+                              ecommerce) or outgoing (ecommerce to PayU Latam) communication.
         :return: The signature
         :rtype: str
         """

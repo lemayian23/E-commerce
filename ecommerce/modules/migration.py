@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ Modules migration handling. """
 
@@ -10,10 +10,10 @@ import logging
 import os
 from os.path import join as opj
 
-from odoo.modules.module import get_resource_path
-import odoo.release as release
-import odoo.upgrade
-from odoo.tools.parse_version import parse_version
+from ecommerce.modules.module import get_resource_path
+import ecommerce.release as release
+import ecommerce.upgrade
+from ecommerce.tools.parse_version import parse_version
 
 _logger = logging.getLogger(__name__)
 
@@ -66,7 +66,7 @@ class MigrationManager(object):
 
     def _get_files(self):
         def _get_upgrade_path(pkg):
-            for path in odoo.upgrade.__path__:
+            for path in ecommerce.upgrade.__path__:
                 upgrade_path = opj(path, pkg)
                 if os.path.exists(upgrade_path):
                     yield upgrade_path
@@ -156,7 +156,7 @@ class MigrationManager(object):
             majorless_version = (version != full_version)
 
             if majorless_version:
-                # We should not re-execute major-less scripts when upgrading to new Odoo version
+                # We should not re-execute major-less scripts when upgrading to new ecommerce version
                 # a module in `9.0.2.0` should not re-execute a `2.0` script when upgrading to `10.0.2.0`.
                 # In which case we must compare just the module version
                 return parsed_installed_version[2:] < parse_version(full_version)[2:] <= current_version[2:]

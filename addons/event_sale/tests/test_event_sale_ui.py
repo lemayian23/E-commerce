@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo.fields import Datetime
-from odoo.tests import HttpCase, tagged
+from ecommerce.fields import Datetime
+from ecommerce.tests import HttpCase, tagged
 
 
 @tagged('post_install', '-at_install')

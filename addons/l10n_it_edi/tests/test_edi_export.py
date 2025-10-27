@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 from lxml import etree
 
-from odoo import Command
-from odoo.tests import tagged
-from odoo.addons.l10n_it_edi.tests.common import TestItEdi
-from odoo.exceptions import UserError
+from ecommerce import Command
+from ecommerce.tests import tagged
+from ecommerce.addons.l10n_it_edi.tests.common import TestItEdi
+from ecommerce.exceptions import UserError
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')

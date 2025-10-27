@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 # Copyright (C) 2004-2008 PC Solutions (<http://pcsol.be>). All Rights Reserved
-from odoo import fields, models, api, _
-from odoo.exceptions import UserError
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import UserError
 
 
 class AccountBankStatementLine(models.Model):

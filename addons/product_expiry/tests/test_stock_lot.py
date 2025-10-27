@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.stock.tests.common import TestStockCommon
-from odoo.tests.common import Form
+from ecommerce import fields
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.stock.tests.common import TestStockCommon
+from ecommerce.tests.common import Form
 
 
 class TestStockLot(TestStockCommon):

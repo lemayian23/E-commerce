@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { createWebClient, doAction, getActionManagerServerData } from "./../helpers";
 import { getFixture } from "../../helpers/utils";

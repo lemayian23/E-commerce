@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import werkzeug.urls
@@ -7,14 +7,14 @@ import werkzeug.urls
 from collections import OrderedDict
 from werkzeug.exceptions import NotFound
 
-from odoo import fields
-from odoo import http
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.portal.controllers.portal import CustomerPortal
-from odoo.addons.website_partner.controllers.main import WebsitePartnerPage
+from ecommerce import fields
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce.addons.portal.controllers.portal import CustomerPortal
+from ecommerce.addons.website_partner.controllers.main import WebsitePartnerPage
 
-from odoo.tools.translate import _
+from ecommerce.tools.translate import _
 
 
 class WebsiteAccount(CustomerPortal):

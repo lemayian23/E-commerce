@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models, _
-from odoo.exceptions import ValidationError
+from ecommerce import api, models, _
+from ecommerce.exceptions import ValidationError
 
 
 class AccountFiscalPosition(models.Model):

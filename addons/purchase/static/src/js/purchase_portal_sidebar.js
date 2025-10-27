@@ -1,4 +1,4 @@
-odoo.define('purchase.PurchasePortalSidebar', function (require) {
+ecommerce.define('purchase.PurchasePortalSidebar', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

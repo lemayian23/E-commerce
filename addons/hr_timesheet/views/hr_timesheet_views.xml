@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
 
         <!-- Timesheet root menus -->
@@ -418,4 +418,4 @@
             groups="hr_timesheet.group_hr_timesheet_approver"/>
 
     </data>
-</odoo>
+</ecommerce>

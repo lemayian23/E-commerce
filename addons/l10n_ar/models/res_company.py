@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import ValidationError
 
 class ResCompany(models.Model):
 

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.exceptions import UserError
-from odoo.tests import Form
+from ecommerce import Command
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
 
-from odoo.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
+from ecommerce.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
 
 
 class MrpSubcontractingPurchaseTest(TestMrpSubcontractingCommon):

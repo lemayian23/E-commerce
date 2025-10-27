@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "../registry";
 import { shallowEqual } from "../utils/objects";

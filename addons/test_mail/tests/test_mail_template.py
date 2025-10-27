@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import datetime
@@ -7,9 +7,9 @@ import datetime
 from freezegun import freeze_time
 from unittest.mock import patch
 
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
-from odoo.tests import tagged, users
-from odoo.tools import mute_logger, safe_eval
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.tests import tagged, users
+from ecommerce.tools import mute_logger, safe_eval
 
 
 class TestMailTemplateCommon(TestMailCommon, TestRecipients):
@@ -79,7 +79,7 @@ class TestMailTemplate(TestMailTemplateCommon):
         self.assertEqual(action.name, 'Send Mail (%s)' % self.test_template.name)
         self.assertEqual(action.binding_model_id.model, 'mail.test.lang')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_template_schedule_email(self):
         """ Test scheduling email sending from template. """
@@ -123,7 +123,7 @@ class TestMailTemplate(TestMailTemplateCommon):
 @tagged('mail_template', 'multi_lang')
 class TestMailTemplateLanguages(TestMailTemplateCommon):
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_template_send_email(self):
         mail_id = self.test_template.send_mail(self.test_record.id)
         mail = self.env['mail.mail'].sudo().browse(mail_id)
@@ -132,7 +132,7 @@ class TestMailTemplateLanguages(TestMailTemplateCommon):
         self.assertEqual(mail.recipient_ids, self.partner_2 | self.user_admin.partner_id)
         self.assertEqual(mail.subject, 'EnglishSubject for %s' % self.test_record.name)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_template_translation_lang(self):
         test_record = self.env['mail.test.lang'].browse(self.test_record.ids)
         test_record.write({
@@ -146,7 +146,7 @@ class TestMailTemplateLanguages(TestMailTemplateCommon):
                          '<body><p>SpanishBody for %s</p> Spanish Layout para Spanish Model Description</body>' % self.test_record.name)
         self.assertEqual(mail.subject, 'SpanishSubject for %s' % self.test_record.name)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_template_translation_partner_lang(self):
         test_record = self.env['mail.test.lang'].browse(self.test_record.ids)
         customer = self.env['res.partner'].create({

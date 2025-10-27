@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="mailing_report_deactivated" name="Report Unsubscribed">
         <t t-call="mass_mailing.layout">
             <div class="container mt8">
@@ -44,4 +44,4 @@
     </body>
 </html>
     </template>
-</odoo>
+</ecommerce>

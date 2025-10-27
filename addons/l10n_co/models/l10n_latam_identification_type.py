@@ -1,5 +1,5 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models, fields
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models, fields
 
 
 class L10nCoDocumentType(models.Model):

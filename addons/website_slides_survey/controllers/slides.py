@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import werkzeug
 import werkzeug.utils
 import werkzeug.exceptions
 
-from odoo import _
-from odoo import http
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.osv import expression
+from ecommerce import _
+from ecommerce import http
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request
+from ecommerce.osv import expression
 
-from odoo.addons.website_slides.controllers.main import WebsiteSlides
+from ecommerce.addons.website_slides.controllers.main import WebsiteSlides
 
 
 class WebsiteSlidesSurvey(WebsiteSlides):

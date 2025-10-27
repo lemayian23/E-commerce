@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * KeepLast is a concurrency primitive that manages a list of tasks, and only
@@ -36,7 +36,7 @@ export class KeepLast {
 }
 
 /**
- * A (Odoo) mutex is a primitive for serializing computations.  This is
+ * A (ecommerce) mutex is a primitive for serializing computations.  This is
  * useful to avoid a situation where two computations modify some shared
  * state and cause some corrupted state.
  *

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import itertools
 from unittest import mock, TestCase
 
 import psycopg2
 
-from odoo.exceptions import AccessError
-from odoo.sql_db import BaseCursor
-from odoo.tests import common
-from odoo.tools import mute_logger
+from ecommerce.exceptions import AccessError
+from ecommerce.sql_db import BaseCursor
+from ecommerce.tests import common
+from ecommerce.tools import mute_logger
 
 
 class CustomError(Exception):
@@ -76,7 +76,7 @@ class TestBasic(common.TransactionCase):
         self.env.cr.execute("SHOW test_testing_utilities.a_flag")
         self.assertEqual(self.env.cr.fetchone(), ('',))
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_assertRaises_clear_recovery(self):
         """Checks that the savepoint is correctly rolled back if an error occurs
         during the assertRaises setup

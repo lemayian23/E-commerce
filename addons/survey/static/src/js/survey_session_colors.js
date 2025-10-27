@@ -1,4 +1,4 @@
-odoo.define('survey.session_colors', function (require) {
+ecommerce.define('survey.session_colors', function (require) {
 'use strict';
 
 /**

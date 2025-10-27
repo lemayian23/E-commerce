@@ -1,4 +1,4 @@
-odoo.define('web.KanbanColumn', function (require) {
+ecommerce.define('web.KanbanColumn', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -376,7 +376,7 @@ var KanbanColumn = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onQuickCreateAddRecord: function (event) {
         this.trigger_up('quick_create_record', event.data);
@@ -391,14 +391,14 @@ var KanbanColumn = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onTweakColumn: function (ev) {
         ev.data.callback(this.$el);
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onTweakColumnRecords: function (ev) {
         _.each(this.records, function (record) {

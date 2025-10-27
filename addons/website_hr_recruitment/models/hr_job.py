@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.tools import mute_logger
-from odoo.tools.translate import html_translate
+from ecommerce import fields, models, api, _
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.tools import mute_logger
+from ecommerce.tools.translate import html_translate
 
 
 class Job(models.Model):
     _name = 'hr.job'
     _inherit = ['hr.job', 'website.seo.metadata', 'website.published.multi.mixin']
 
-    @mute_logger('odoo.addons.base.models.ir_qweb')
+    @mute_logger('ecommerce.addons.base.models.ir_qweb')
     def _get_default_website_description(self):
         return self.env['ir.qweb']._render("website_hr_recruitment.default_website_description", raise_if_not_found=False)
 

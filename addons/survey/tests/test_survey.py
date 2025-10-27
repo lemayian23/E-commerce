@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
-from odoo import _, Command, fields
-from odoo.addons.survey.tests import common
-from odoo.tests.common import users
+from ecommerce import _, Command, fields
+from ecommerce.addons.survey.tests import common
+from ecommerce.tests.common import users
 
 
 class TestSurveyInternals(common.TestSurveyCommon):

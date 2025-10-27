@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
@@ -7,10 +7,10 @@ import requests
 from werkzeug import urls
 from werkzeug.exceptions import Forbidden
 
-from odoo import _, http
-from odoo.exceptions import ValidationError
-from odoo.http import request
-from odoo.tools import html_escape
+from ecommerce import _, http
+from ecommerce.exceptions import ValidationError
+from ecommerce.http import request
+from ecommerce.tools import html_escape
 
 
 _logger = logging.getLogger(__name__)
@@ -36,11 +36,11 @@ class PaypalController(http.Controller):
         in on PayPal), whether the customer cancels the payment, whether they click on "Return to
         Merchant" after paying, etc.
 
-        The route is flagged with `save_session=False` to prevent Odoo from assigning a new session
+        The route is flagged with `save_session=False` to prevent ecommerce from assigning a new session
         to the user if they are redirected to this route with a POST request. Indeed, as the session
         cookie is created without a `SameSite` attribute, some browsers that don't implement the
         recommended default `SameSite=Lax` behavior will not include the cookie in the redirection
-        request from the payment provider to Odoo. As the redirection to the '/payment/status' page
+        request from the payment provider to ecommerce. As the redirection to the '/payment/status' page
         will satisfy any specification of the `SameSite` attribute, the session of the user will be
         retrieved and with it the transaction which will be immediately post-processed.
         """

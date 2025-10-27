@@ -1,4 +1,4 @@
-odoo.define('web.field_one_to_many_tests', function (require) {
+ecommerce.define('web.field_one_to_many_tests', function (require) {
 "use strict";
 
 const {delay} = require('web.concurrency');
@@ -23,7 +23,7 @@ const { FieldOne2Many } = relationalFields;
 const AbstractFieldOwl = require('web.AbstractFieldOwl');
 const fieldRegistryOwl = require('web.field_registry_owl');
 
-const { onMounted, onWillUnmount, xml } = require("@odoo/owl");
+const { onMounted, onWillUnmount, xml } = require("@ecommerce/owl");
 
 QUnit.module('Legacy fields', {}, function () {
 
@@ -8236,7 +8236,7 @@ QUnit.module('Legacy fields', {}, function () {
             // on_close handler, executed because the python method does not return
             // any action, or an ir.action.act_window_close) ; this test ensures that
             // it reloads the fields of the opened view (i.e. the form in this case).
-            // See https://github.com/odoo/odoo/issues/24189
+            // See https://github.com/ecommerce/ecommerce/issues/24189
             assert.expect(7);
 
             var data = this.data;

@@ -1,4 +1,4 @@
-odoo.define('web.dom_ready', function (require) {
+ecommerce.define('web.dom_ready', function (require) {
 'use strict';
 
     return new Promise(function (resolve, reject) {
@@ -7,14 +7,14 @@ odoo.define('web.dom_ready', function (require) {
 });
 //==============================================================================
 
-odoo.define('web.dom', function (require) {
+ecommerce.define('web.dom', function (require) {
 "use strict";
 
 /**
  * DOM Utility helpers
  *
  * We collect in this file some helpers to help integrate various DOM
- * functionalities with the odoo framework.  A common theme in these functions
+ * functionalities with the ecommerce framework.  A common theme in these functions
  * is the use of the main core.bus, which helps the framework react when
  * something happens in the DOM.
  */
@@ -296,7 +296,7 @@ const dom = Object.assign({}, minimalDom, {
         }
     },
     /**
-     * Renders a button with standard odoo template. This does not use any xml
+     * Renders a button with standard ecommerce template. This does not use any xml
      * template to avoid forcing the frontend part to lazy load a xml file for
      * each widget which might want to create a simple button.
      *
@@ -356,7 +356,7 @@ const dom = Object.assign({}, minimalDom, {
         return $button;
     },
     /**
-     * Renders a checkbox with standard odoo/BS template. This does not use any
+     * Renders a checkbox with standard ecommerce/BS template. This does not use any
      * xml template to avoid forcing the frontend part to lazy load a xml file
      * for each widget which might want to create a simple checkbox.
      *

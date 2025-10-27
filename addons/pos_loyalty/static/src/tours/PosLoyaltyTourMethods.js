@@ -1,4 +1,4 @@
-odoo.define('pos_loyalty.tour.PosCouponTourMethods', function (require) {
+ecommerce.define('pos_loyalty.tour.PosCouponTourMethods', function (require) {
     'use strict';
 
     const { createTourMethods } = require('point_of_sale.tour.utils');

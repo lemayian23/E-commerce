@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, markup } from "@odoo/owl";
+import { Component, markup } from "@ecommerce/owl";
 import { isMacOS } from "@web/core/browser/feature_detection";
 import { escape } from "@web/core/utils/strings";
 import { session } from "@web/session";
@@ -8,7 +8,7 @@ import { browser } from "../../core/browser/browser";
 import { registry } from "../../core/registry";
 
 function documentationItem(env) {
-    const documentationURL = "https://www.odoo.com/documentation/16.0";
+    const documentationURL = "https://www.ecommerce.com/documentation/16.0";
     return {
         type: "item",
         id: "documentation",
@@ -82,11 +82,11 @@ export function preferencesItem(env) {
     };
 }
 
-function odooAccountItem(env) {
+function ecommerceAccountItem(env) {
     return {
         type: "item",
         id: "account",
-        description: env._t("My Odoo.com account"),
+        description: env._t("My ecommerce.com account"),
         callback: () => {
             env.services
                 .rpc("/web/session/account")
@@ -94,7 +94,7 @@ function odooAccountItem(env) {
                     browser.location.href = url;
                 })
                 .catch(() => {
-                    browser.location.href = "https://accounts.odoo.com/account";
+                    browser.location.href = "https://accounts.ecommerce.com/account";
                 });
         },
         sequence: 60,
@@ -122,5 +122,5 @@ registry
     .add("shortcuts", shortCutsItem)
     .add("separator", separator)
     .add("profile", preferencesItem)
-    .add("odoo_account", odooAccountItem)
+    .add("ecommerce_account", ecommerceAccountItem)
     .add("log_out", logOutItem);

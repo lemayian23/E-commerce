@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.addons.event.tests.common import EventCase
-from odoo.addons.sales_team.tests.common import TestSalesCommon
+from ecommerce import fields
+from ecommerce.addons.event.tests.common import EventCase
+from ecommerce.addons.sales_team.tests.common import TestSalesCommon
 
 
 class TestEventSaleCommon(EventCase, TestSalesCommon):

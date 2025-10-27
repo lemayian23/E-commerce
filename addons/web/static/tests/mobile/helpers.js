@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { findElement, triggerEvent } from "../helpers/utils";
 

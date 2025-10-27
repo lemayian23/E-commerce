@@ -1,4 +1,4 @@
-odoo.define('web.config', function (require) {
+ecommerce.define('web.config', function (require) {
 "use strict";
 
 const Bus = require('web.Bus');
@@ -82,9 +82,9 @@ var config = {
      */
     isDebug: function (debugMode) {
         if (debugMode) {
-            return odoo.debug && odoo.debug.indexOf(debugMode) !== -1;
+            return ecommerce.debug && ecommerce.debug.indexOf(debugMode) !== -1;
         }
-        return odoo.debug;
+        return ecommerce.debug;
     },
 };
 

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import os
 import platform
 import psutil
 import unittest
 
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.exceptions import CacheMiss
-from odoo.tests.common import TransactionCase
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.exceptions import CacheMiss
+from ecommerce.tests.common import TransactionCase
 
 
 class TestRecordCache(TransactionCaseWithUserDemo):

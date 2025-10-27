@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {_lt} from "@web/core/l10n/translation";
 import { useService } from '@web/core/utils/hooks';
@@ -11,7 +11,7 @@ import { DocumentSelector } from './document_selector';
 import { IconSelector } from './icon_selector';
 import { VideoSelector } from './video_selector';
 
-import { Component, useState, onRendered, xml } from "@odoo/owl";
+import { Component, useState, onRendered, xml } from "@ecommerce/owl";
 
 export const TABS = {
     IMAGES: {

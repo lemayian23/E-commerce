@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import random
 
-from odoo import models
-from odoo.tools import populate
+from ecommerce import models
+from ecommerce.tools import populate
 from dateutil.relativedelta import relativedelta
 from itertools import groupby
 

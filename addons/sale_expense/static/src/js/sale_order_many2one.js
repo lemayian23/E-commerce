@@ -1,4 +1,4 @@
-/** @odoo-module alias=sale_expense.sale_order_many2one **/
+/** @ecommerce-module alias=sale_expense.sale_order_many2one **/
 
 import { Many2OneField } from '@web/views/fields/many2one/many2one_field';
 

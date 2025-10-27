@@ -1,4 +1,4 @@
-odoo.define('web.utils.cookies', function (require) {
+ecommerce.define('web.utils.cookies', function (require) {
 "use strict";
 
 const utils = {

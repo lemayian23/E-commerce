@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class TestInheritDepends(common.TransactionCase):

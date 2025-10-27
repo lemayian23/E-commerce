@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import datetime, timedelta
 from hashlib import sha256
 from json import dumps
 
-from odoo import models, api, fields
-from odoo.fields import Datetime
-from odoo.tools.translate import _, _lt
-from odoo.exceptions import UserError
+from ecommerce import models, api, fields
+from ecommerce.fields import Datetime
+from ecommerce.tools.translate import _, _lt
+from ecommerce.exceptions import UserError
 from collections import defaultdict
 
 
@@ -104,7 +104,7 @@ class pos_order(models.Model):
             sorted_relational_ids = {}
             for model_name, ids in relational_ids.items():
                 if ids:
-                    # Use search() to get IDs sorted by _order the same way Odoo ORM does for relational fields
+                    # Use search() to get IDs sorted by _order the same way ecommerce ORM does for relational fields
                     sorted_relational_ids[model_name] = self.env[model_name].search([('id', 'in', list(ids))]).ids
 
             return sorted_relational_ids

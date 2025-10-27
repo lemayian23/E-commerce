@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { BoardAction } from "@board/board_action";
 import { fakeCookieService } from "@web/../tests/helpers/mock_services";

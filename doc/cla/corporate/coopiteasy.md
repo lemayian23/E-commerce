@@ -1,6 +1,6 @@
 Belgium, 2022-10-26
 
-Coop IT Easy SC agrees to the terms of the Odoo Corporate Contributor License
+Coop IT Easy SC agrees to the terms of the ecommerce Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this
@@ -16,7 +16,7 @@ Carmen Bianca Bakker <carmen@coopiteasy.be> https://github.com/carmenbianca
 
 Catherine Lembrée <catherine@coopiteasy.be> https://github.com/cathLemb
 
-Hugues De Keyzer <odoo@hugues.info> https://github.com/huguesdk
+Hugues De Keyzer <ecommerce@hugues.info> https://github.com/huguesdk
 
 Pol Champion <pol@coopiteasy.be> https://github.com/polchampion
 

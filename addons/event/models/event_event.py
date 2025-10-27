@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pytz
 
 from datetime import timedelta
 
-from odoo import _, api, Command, fields, models
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.tools import format_datetime, is_html_empty
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools.misc import formatLang
-from odoo.tools.translate import html_translate
+from ecommerce import _, api, Command, fields, models
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.tools import format_datetime, is_html_empty
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools.misc import formatLang
+from ecommerce.tools.translate import html_translate
 
 _logger = logging.getLogger(__name__)
 

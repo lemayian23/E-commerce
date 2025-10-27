@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError, RedirectWarning
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import ValidationError, RedirectWarning
 
 
 class AccountJournal(models.Model):

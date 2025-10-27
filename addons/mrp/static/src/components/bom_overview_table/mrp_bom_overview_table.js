@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { formatMonetary, formatFloat } from "@web/views/fields/formatters";
 import { useService } from "@web/core/utils/hooks";

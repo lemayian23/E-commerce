@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- The taxes are sorted in the file: Type of tax > Scope of tax > Tax Due
          * PURCHASE
             - Goods (Based on Invoice)
@@ -3050,4 +3050,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

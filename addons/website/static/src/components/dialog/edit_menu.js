@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService, useAutofocus } from '@web/core/utils/hooks';
 import wUtils from 'website.utils';

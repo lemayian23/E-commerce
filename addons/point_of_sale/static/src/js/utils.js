@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.utils', function (require) {
+ecommerce.define('point_of_sale.utils', function (require) {
     'use strict';
 
     const { ConnectionAbortedError, ConnectionLostError } = require('@web/core/network/rpc_service');

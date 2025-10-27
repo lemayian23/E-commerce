@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Event / Jitsi',
@@ -7,7 +7,7 @@
     'sequence': 1002,
     'version': '1.0',
     'summary': 'Event / Jitsi',
-    'website': 'https://www.odoo.com/app/events',
+    'website': 'https://www.ecommerce.com/app/events',
     'depends': [
         'website_event',
         'website_jitsi',

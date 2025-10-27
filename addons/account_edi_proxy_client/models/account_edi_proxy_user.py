@@ -1,6 +1,6 @@
-from odoo import models, fields, _
-from odoo.exceptions import UserError
-from .account_edi_proxy_auth import OdooEdiProxyAuth
+from ecommerce import models, fields, _
+from ecommerce.exceptions import UserError
+from .account_edi_proxy_auth import ecommerceEdiProxyAuth
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
@@ -18,8 +18,8 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-DEFAULT_SERVER_URL = 'https://l10n-it-edi.api.odoo.com'
-DEFAULT_TEST_SERVER_URL = 'https://iap-services-test.odoo.com'
+DEFAULT_SERVER_URL = 'https://l10n-it-edi.api.ecommerce.com'
+DEFAULT_TEST_SERVER_URL = 'https://iap-services-test.ecommerce.com'
 TIMEOUT = 30
 
 
@@ -35,7 +35,7 @@ class AccountEdiProxyClientUser(models.Model):
     """Represents a user of the proxy for an electronic invoicing format.
     An edi_proxy_user has a unique identification on a specific format (for example, the vat for Peppol) which
     allows to identify him when receiving a document addressed to him. It is linked to a specific company on a specific
-    Odoo database.
+    ecommerce database.
     It also owns a key with which each file should be decrypted with (the proxy encrypt all the files with the public key).
     """
     _name = 'account_edi_proxy_client.user'
@@ -88,7 +88,7 @@ class AccountEdiProxyClientUser(models.Model):
                 json=payload,
                 timeout=TIMEOUT,
                 headers={'content-type': 'application/json'},
-                auth=OdooEdiProxyAuth(user=self)).json()
+                auth=ecommerceEdiProxyAuth(user=self)).json()
         except (ValueError, requests.exceptions.ConnectionError, requests.exceptions.MissingSchema, requests.exceptions.Timeout, requests.exceptions.HTTPError):
             raise AccountEdiProxyError('connection_error',
                 _('The url that this service requested returned an error. The url it tried to contact was %s', url))

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { _lt } from "@web/core/l10n/translation";
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -18,12 +18,12 @@ function identity(cmd) {
 }
 
 coreTypes.add("INSERT_PIVOT");
-coreTypes.add("RENAME_ODOO_PIVOT");
+coreTypes.add("RENAME_ecommerce_PIVOT");
 coreTypes.add("REMOVE_PIVOT");
 coreTypes.add("RE_INSERT_PIVOT");
-coreTypes.add("UPDATE_ODOO_PIVOT_DOMAIN");
+coreTypes.add("UPDATE_ecommerce_PIVOT_DOMAIN");
 
-invalidateEvaluationCommands.add("UPDATE_ODOO_PIVOT_DOMAIN");
+invalidateEvaluationCommands.add("UPDATE_ecommerce_PIVOT_DOMAIN");
 invalidateEvaluationCommands.add("REMOVE_PIVOT");
 invalidateEvaluationCommands.add("INSERT_PIVOT");
 
@@ -42,9 +42,9 @@ cellMenuRegistry.add("pivot_see_records", {
 
 inverseCommandRegistry
     .add("INSERT_PIVOT", identity)
-    .add("RENAME_ODOO_PIVOT", identity)
+    .add("RENAME_ecommerce_PIVOT", identity)
     .add("REMOVE_PIVOT", identity)
-    .add("UPDATE_ODOO_PIVOT_DOMAIN", identity)
+    .add("UPDATE_ecommerce_PIVOT_DOMAIN", identity)
     .add("RE_INSERT_PIVOT", identity);
 
 export { PivotCorePlugin, PivotUIPlugin };

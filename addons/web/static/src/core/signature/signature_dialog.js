@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { NameAndSignature } from "./name_and_signature";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 export class SignatureDialog extends Component {
     setup() {

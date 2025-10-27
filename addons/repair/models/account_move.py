@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from ecommerce import models, fields
 
 
 class AccountMove(models.Model):

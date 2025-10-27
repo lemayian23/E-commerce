@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from ecommerce import models, fields, api
 
 
 class AccountPaymentRegister(models.TransientModel):

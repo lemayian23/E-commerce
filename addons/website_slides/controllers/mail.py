@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import werkzeug
 
 from werkzeug.exceptions import NotFound, Forbidden
-from odoo.exceptions import ValidationError
+from ecommerce.exceptions import ValidationError
 
-from odoo import _, http
-from odoo.http import request
-from odoo.addons.portal.controllers.mail import _check_special_access, PortalChatter
-from odoo.tools import plaintext2html, html2plaintext
+from ecommerce import _, http
+from ecommerce.http import request
+from ecommerce.addons.portal.controllers.mail import _check_special_access, PortalChatter
+from ecommerce.tools import plaintext2html, html2plaintext
 
 
 class SlidesPortalChatter(PortalChatter):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
-from odoo.addons.sale_product_configurator.tests.common import TestProductConfiguratorCommon
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce.tests import tagged
+from ecommerce.addons.sale_product_configurator.tests.common import TestProductConfiguratorCommon
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
 
 @tagged('post_install', '-at_install')
 class TestWebsiteSaleStockProductConfigurator(TestProductConfiguratorCommon, HttpCaseWithUserPortal):

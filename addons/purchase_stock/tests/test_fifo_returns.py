@@ -2,8 +2,8 @@
 
 import time
 
-from odoo.tests import tagged, Form
-from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
+from ecommerce.tests import tagged, Form
+from ecommerce.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
 
 
 @tagged('-at_install', 'post_install')

@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.custom_hooks', function (require) {
+ecommerce.define('point_of_sale.custom_hooks', function (require) {
     'use strict';
 
     const { onMounted, onPatched, onWillUnmount, useComponent, useRef } = owl;

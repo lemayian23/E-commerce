@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.exceptions import UserError
-from odoo.addons.project.tests.test_project_base import TestProjectCommon
+from ecommerce import Command
+from ecommerce.exceptions import UserError
+from ecommerce.addons.project.tests.test_project_base import TestProjectCommon
 
 
 class TestProjectTaskType(TestProjectCommon):

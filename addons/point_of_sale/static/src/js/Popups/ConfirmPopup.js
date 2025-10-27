@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.ConfirmPopup', function(require) {
+ecommerce.define('point_of_sale.ConfirmPopup', function(require) {
     'use strict';
 
     const AbstractAwaitablePopup = require('point_of_sale.AbstractAwaitablePopup');

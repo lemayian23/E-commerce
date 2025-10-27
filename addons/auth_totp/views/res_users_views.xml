@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record model="ir.ui.view" id="res_users_view_search">
         <field name="name">res.users.view.search.inherit.auth.totp</field>
         <field name="model">res.users</field>
@@ -37,7 +37,7 @@
                                 Two-factor Authentication ("2FA") is a system of double authentication.
                                 The first one is done with your password and the second one with a code you get from a dedicated mobile app.
                                 Popular ones include Authy, Google Authenticator or the Microsoft Authenticator.
-                                <a href="https://www.odoo.com/documentation/16.0/applications/general/auth/2fa.html" title="Learn More" target="_blank">
+                                <a href="https://www.ecommerce.com/documentation/16.0/applications/general/auth/2fa.html" title="Learn More" target="_blank">
                                     <i title="Documentation" class="fa fa-fw o_button_icon fa-info-circle"></i>
                                     Learn More
                                 </a>
@@ -82,7 +82,7 @@
                         Two-factor Authentication ("2FA") is a system of double authentication.
                         The first one is done with your password and the second one with a code you get from a dedicated mobile app.
                         Popular ones include Authy, Google Authenticator or the Microsoft Authenticator.
-                        <a href="https://www.odoo.com/documentation/16.0/applications/general/auth/2fa.html" title="Learn More" target="_blank">
+                        <a href="https://www.ecommerce.com/documentation/16.0/applications/general/auth/2fa.html" title="Learn More" target="_blank">
                             <i title="Documentation" class="fa fa-fw o_button_icon fa-info-circle"></i>
                             Learn More
                         </a>
@@ -105,4 +105,4 @@
             </group>
         </field>
     </record>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-odoo.define('barcodes_gs1_nomenclature/static/src/js/tests/barcode_parser_tests.js', function (require) {
+ecommerce.define('barcodes_gs1_nomenclature/static/src/js/tests/barcode_parser_tests.js', function (require) {
 "use strict";
 
 const BarcodeParser = require('barcodes.BarcodeParser');

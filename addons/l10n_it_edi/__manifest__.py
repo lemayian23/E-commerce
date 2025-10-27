@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Italy - E-invoicing',
@@ -13,12 +13,12 @@
         'account_edi_proxy_client',
     ],
     'auto_install': ['l10n_it', 'account_edi'],
-    'author': 'Odoo',
+    'author': 'ecommerce',
     'description': """
 E-invoice implementation
     """,
     'category': 'Accounting/Localizations/EDI',
-    'website': 'http://www.odoo.com/',
+    'website': 'http://www.ecommerce.com/',
     'data': [
         'security/ir.model.access.csv',
         'data/account_edi_data.xml',

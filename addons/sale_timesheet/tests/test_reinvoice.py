@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 
-from odoo.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
+from ecommerce.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
 
-from odoo.fields import Date
-from odoo.tests import Form, tagged
+from ecommerce.fields import Date
+from ecommerce.tests import Form, tagged
 
 
 @tagged('-at_install', 'post_install')

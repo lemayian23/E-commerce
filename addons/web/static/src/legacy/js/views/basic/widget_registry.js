@@ -1,4 +1,4 @@
-odoo.define('web.widget_registry', function (require) {
+ecommerce.define('web.widget_registry', function (require) {
     "use strict";
 
     ////////////////////////////////////////////////////////////////////////////

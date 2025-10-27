@@ -1,4 +1,4 @@
-odoo.define("website.tour.default_shape_gets_palette_colors", function (require) {
+ecommerce.define("website.tour.default_shape_gets_palette_colors", function (require) {
 "use strict";
 
 const wTourUtils = require('website.tour_utils');

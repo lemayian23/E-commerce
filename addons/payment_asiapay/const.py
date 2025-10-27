@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Mapping of currency ISO 4217 codes AsiaPay's currency codes.
 # See https://www.paydollar.com/pdf/op/enpdintguide.pdf for the list of currency codes.

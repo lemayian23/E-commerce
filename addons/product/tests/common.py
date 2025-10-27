@@ -3,10 +3,10 @@
 from contextlib import nullcontext
 from unittest.mock import patch
 
-from odoo.fields import Command
+from ecommerce.fields import Command
 
-from odoo.addons.base.tests.common import BaseCommon
-from odoo.addons.uom.tests.common import UomCommon
+from ecommerce.addons.base.tests.common import BaseCommon
+from ecommerce.addons.uom.tests.common import UomCommon
 
 
 class ProductCommon(
@@ -50,7 +50,7 @@ class ProductCommon(
         """Do not raise if there is no pricelist(s) for a given website"""
         website_sale = cls.env['ir.module.module']._get('website_sale')
         if website_sale.state == 'installed':
-            archive_context = patch('odoo.addons.website_sale.models.product_pricelist.ProductPricelist._check_website_pricelist')
+            archive_context = patch('ecommerce.addons.website_sale.models.product_pricelist.ProductPricelist._check_website_pricelist')
         else:
             archive_context = nullcontext()
 

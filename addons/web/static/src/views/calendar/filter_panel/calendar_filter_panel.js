@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { usePopover } from "@web/core/popover/popover_hook";
 import { _t } from "@web/core/l10n/translation";
@@ -8,7 +8,7 @@ import { useOwnedDialogs, useService } from "@web/core/utils/hooks";
 import { sprintf } from "@web/core/utils/strings";
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
 import { getColor } from "../colors";
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 class CalendarFilterTooltip extends Component {}
 CalendarFilterTooltip.template = "web.CalendarFilterPanel.tooltip";

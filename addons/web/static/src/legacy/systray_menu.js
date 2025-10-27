@@ -1,3 +1,3 @@
-odoo.define("web.SystrayMenu", function () {
+ecommerce.define("web.SystrayMenu", function () {
     return { Items: [] };
 });

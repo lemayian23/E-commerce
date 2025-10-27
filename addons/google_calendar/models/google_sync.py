@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from contextlib import contextmanager
@@ -8,22 +8,22 @@ from requests import HTTPError
 import pytz
 from dateutil.parser import parse
 
-from odoo import api, fields, models, registry, _
-from odoo.tools import ormcache_context, email_normalize
-from odoo.osv import expression
-from odoo.sql_db import BaseCursor
+from ecommerce import api, fields, models, registry, _
+from ecommerce.tools import ormcache_context, email_normalize
+from ecommerce.osv import expression
+from ecommerce.sql_db import BaseCursor
 
-from odoo.addons.google_calendar.utils.google_event import GoogleEvent
-from odoo.addons.google_calendar.utils.google_calendar import GoogleCalendarService
-from odoo.addons.google_account.models.google_service import TIMEOUT
+from ecommerce.addons.google_calendar.utils.google_event import GoogleEvent
+from ecommerce.addons.google_calendar.utils.google_calendar import GoogleCalendarService
+from ecommerce.addons.google_account.models.google_service import TIMEOUT
 
 _logger = logging.getLogger(__name__)
 
 
 # API requests are sent to Google Calendar after the current transaction ends.
-# This ensures changes are sent to Google only if they really happened in the Odoo database.
+# This ensures changes are sent to Google only if they really happened in the ecommerce database.
 # It is particularly important for event creation , otherwise the event might be created
-# twice in Google if the first creation crashed in Odoo.
+# twice in Google if the first creation crashed in ecommerce.
 def after_commit(func):
     @wraps(func)
     def wrapped(self, *args, **kwargs):
@@ -116,7 +116,7 @@ class GoogleSync(models.AbstractModel):
         elif synced:
             # Since we can not delete such an event (see method comment), we archive it.
             # Notice that archiving an event will delete the associated event on Google.
-            # Then, since it has been deleted on Google, the event is also deleted on Odoo DB (_sync_google2odoo).
+            # Then, since it has been deleted on Google, the event is also deleted on ecommerce DB (_sync_google2ecommerce).
             self.action_archive()
             return True
         return super().unlink()
@@ -131,7 +131,7 @@ class GoogleSync(models.AbstractModel):
     def _event_ids_from_google_ids(self, google_ids):
         return self.search([('google_id', 'in', google_ids)]).ids
 
-    def _sync_odoo2google(self, google_service: GoogleCalendarService):
+    def _sync_ecommerce2google(self, google_service: GoogleCalendarService):
         if not self:
             return
         if self._active_name:
@@ -154,27 +154,27 @@ class GoogleSync(models.AbstractModel):
         self.unlink()
 
     @api.model
-    def _sync_google2odoo(self, google_events: GoogleEvent, default_reminders=()):
-        """Synchronize Google recurrences in Odoo. Creates new recurrences, updates
+    def _sync_google2ecommerce(self, google_events: GoogleEvent, default_reminders=()):
+        """Synchronize Google recurrences in ecommerce. Creates new recurrences, updates
         existing ones.
 
-        :param google_recurrences: Google recurrences to synchronize in Odoo
-        :return: synchronized odoo recurrences
+        :param google_recurrences: Google recurrences to synchronize in ecommerce
+        :return: synchronized ecommerce recurrences
         """
         existing = google_events.exists(self.env)
         new = google_events - existing - google_events.cancelled()
         write_dates = self._context.get('write_dates', {})
 
-        odoo_values = [
-            dict(self._odoo_values(e, default_reminders), need_sync=False)
+        ecommerce_values = [
+            dict(self._ecommerce_values(e, default_reminders), need_sync=False)
             for e in new
         ]
-        new_odoo = self.with_context(dont_notify=True)._create_from_google(new, odoo_values)
+        new_ecommerce = self.with_context(dont_notify=True)._create_from_google(new, ecommerce_values)
         cancelled = existing.cancelled()
-        cancelled_odoo = self.browse(cancelled.odoo_ids(self.env)).exists()
+        cancelled_ecommerce = self.browse(cancelled.ecommerce_ids(self.env)).exists()
 
         # Check if it is a recurring event that has been rescheduled.
-        # We have to check if an event already exists in Odoo.
+        # We have to check if an event already exists in ecommerce.
         # Explanation:
         # A recurrent event with `google_id` is equal to ID_RANGE_TIMESTAMP can be rescheduled.
         # The new `google_id` will be equal to ID_TIMESTAMP.
@@ -182,27 +182,27 @@ class GoogleSync(models.AbstractModel):
         rescheduled_events = new.filter(lambda gevent: not gevent.is_recurrence_follower())
         if rescheduled_events:
             google_ids_to_remove = [event.full_recurring_event_id() for event in rescheduled_events]
-            cancelled_odoo += self.env['calendar.event'].search([('google_id', 'in', google_ids_to_remove)])
+            cancelled_ecommerce += self.env['calendar.event'].search([('google_id', 'in', google_ids_to_remove)])
 
-        cancelled_odoo._cancel()
-        synced_records = new_odoo + cancelled_odoo
+        cancelled_ecommerce._cancel()
+        synced_records = new_ecommerce + cancelled_ecommerce
         pending = existing - cancelled
-        pending_odoo = self.browse(pending.odoo_ids(self.env)).exists()
+        pending_ecommerce = self.browse(pending.ecommerce_ids(self.env)).exists()
         for gevent in pending:
-            odoo_record = self.browse(gevent.odoo_id(self.env))
-            if odoo_record not in pending_odoo:
+            ecommerce_record = self.browse(gevent.ecommerce_id(self.env))
+            if ecommerce_record not in pending_ecommerce:
                 # The record must have been deleted in the mean time; nothing left to sync
                 continue
             # Last updated wins.
-            # This could be dangerous if google server time and odoo server time are different
+            # This could be dangerous if google server time and ecommerce server time are different
             updated = parse(gevent.updated)
-            # Use the record's write_date to apply Google updates only if they are newer than Odoo's write_date.
-            odoo_record_write_date = write_dates.get(odoo_record.id, odoo_record.write_date)
+            # Use the record's write_date to apply Google updates only if they are newer than ecommerce's write_date.
+            ecommerce_record_write_date = write_dates.get(ecommerce_record.id, ecommerce_record.write_date)
             # Migration from 13.4 does not fill write_date. Therefore, we force the update from Google.
-            if not odoo_record_write_date or updated >= pytz.utc.localize(odoo_record_write_date):
-                vals = dict(self._odoo_values(gevent, default_reminders), need_sync=False)
-                odoo_record.with_context(dont_notify=True)._write_from_google(gevent, vals)
-                synced_records |= odoo_record
+            if not ecommerce_record_write_date or updated >= pytz.utc.localize(ecommerce_record_write_date):
+                vals = dict(self._ecommerce_values(gevent, default_reminders), need_sync=False)
+                ecommerce_record.with_context(dont_notify=True)._write_from_google(gevent, vals)
+                synced_records |= ecommerce_record
 
         return synced_records
 
@@ -300,7 +300,7 @@ class GoogleSync(models.AbstractModel):
                         self.with_context(dont_notify=True).need_sync = False
 
     def _get_records_to_sync(self, full_sync=False):
-        """Return records that should be synced from Odoo to Google
+        """Return records that should be synced from ecommerce to Google
 
         :param full_sync: If True, all events attended by the user are returned
         :return: events
@@ -342,10 +342,10 @@ class GoogleSync(models.AbstractModel):
         return result
 
     @api.model
-    def _odoo_values(self, google_event: GoogleEvent, default_reminders=()):
-        """Implements this method to return a dict of Odoo values corresponding
+    def _ecommerce_values(self, google_event: GoogleEvent, default_reminders=()):
+        """Implements this method to return a dict of ecommerce values corresponding
         to the Google event given as parameter
-        :return: dict of Odoo formatted values
+        :return: dict of ecommerce formatted values
         """
         raise NotImplementedError()
 

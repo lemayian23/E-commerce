@@ -1,4 +1,4 @@
-odoo.define('survey.tour_test_certification_success', function (require) {
+ecommerce.define('survey.tour_test_certification_success', function (require) {
 'use strict';
 
 var SurveyFormWidget = require('survey.form');

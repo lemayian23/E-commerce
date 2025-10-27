@@ -1,4 +1,4 @@
-/** @odoo-module alias=website_sale_stock.website_sale**/
+/** @ecommerce-module alias=website_sale_stock.website_sale**/
 
 import { WebsiteSale } from 'website_sale.website_sale';
 import { is_email } from 'web.utils';

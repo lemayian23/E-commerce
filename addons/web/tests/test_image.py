@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import io
 import base64
@@ -7,7 +7,7 @@ import base64
 from PIL import Image
 from werkzeug.urls import url_unquote_plus
 
-from odoo.tests.common import HttpCase, tagged
+from ecommerce.tests.common import HttpCase, tagged
 
 
 @tagged('-at_install', 'post_install')

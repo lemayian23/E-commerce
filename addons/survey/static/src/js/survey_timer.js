@@ -1,4 +1,4 @@
-odoo.define('survey.timer', function (require) {
+ecommerce.define('survey.timer', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

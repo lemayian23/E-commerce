@@ -1,4 +1,4 @@
-odoo.define('web.CustomFileInput', function (require) {
+ecommerce.define('web.CustomFileInput', function (require) {
     "use strict";
 
     const { LegacyComponent } = require("@web/legacy/legacy_component");
@@ -35,7 +35,7 @@ odoo.define('web.CustomFileInput', function (require) {
         /**
          * Upload an attachment to the given action with the given parameters:
          * - ufile: list of files contained in the file input
-         * - csrf_token: CSRF token provided by the odoo global object
+         * - csrf_token: CSRF token provided by the ecommerce global object
          * - model: a specific model which will be given when creating the attachment
          * - id: the id of the model target instance
          * @private
@@ -43,7 +43,7 @@ odoo.define('web.CustomFileInput', function (require) {
         async _onFileInputChange() {
             const { action, model, id } = this.props;
             const params = {
-                csrf_token: odoo.csrf_token,
+                csrf_token: ecommerce.csrf_token,
                 ufile: [...this.fileInputRef.el.files],
             };
             if (model) {

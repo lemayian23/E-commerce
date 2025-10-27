@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import werkzeug
 from collections import OrderedDict
 
-from odoo import conf, http, _
-from odoo.http import request
-from odoo.exceptions import AccessError, MissingError
-from odoo.addons.portal.controllers import portal
-from odoo.addons.portal.controllers.portal import pager as portal_pager
+from ecommerce import conf, http, _
+from ecommerce.http import request
+from ecommerce.exceptions import AccessError, MissingError
+from ecommerce.addons.portal.controllers import portal
+from ecommerce.addons.portal.controllers.portal import pager as portal_pager
 
 
 class CustomerPortal(portal.CustomerPortal):

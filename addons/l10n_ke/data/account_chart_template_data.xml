@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Chart template -->
     <record id="l10nke_chart_template" model="account.chart.template">
         <field name="name">Kenyan COA</field>
@@ -10,4 +10,4 @@
         <field name="currency_id" ref="base.KES"/>
         <field name="country_id" ref="base.ke"/>
     </record>
-</odoo>
+</ecommerce>

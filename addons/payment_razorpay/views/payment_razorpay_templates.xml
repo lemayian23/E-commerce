@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="redirect_form">
         <form action="https://api.razorpay.com/v1/checkout/embedded" method="post">
@@ -18,4 +18,4 @@
         </form>
     </template>
 
-</odoo>
+</ecommerce>

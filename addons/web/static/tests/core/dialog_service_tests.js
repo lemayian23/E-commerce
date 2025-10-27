@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { ErrorDialog } from "@web/core/errors/error_dialogs";
@@ -20,7 +20,7 @@ import {
 } from "../helpers/utils";
 import { Dialog } from "../../src/core/dialog/dialog";
 
-import { Component, onMounted, xml } from "@odoo/owl";
+import { Component, onMounted, xml } from "@ecommerce/owl";
 
 let env;
 let target;

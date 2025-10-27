@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { Many2XAutocomplete } from "@web/views/fields/relational_utils";

@@ -1,6 +1,6 @@
 /**
  *------------------------------------------------------------------------------
- * Odoo Web Boostrap Code
+ * ecommerce Web Boostrap Code
  *------------------------------------------------------------------------------
  *
  * Each module can return a promise. In that case, the module is marked as loaded
@@ -37,19 +37,19 @@
 
     var commentRegExp = /(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/gm;
     var cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g;
-    if (!globalThis.odoo) {
-        globalThis.odoo = {};
+    if (!globalThis.ecommerce) {
+        globalThis.ecommerce = {};
     }
-    var odoo = globalThis.odoo;
-    var debug = odoo.debug;
+    var ecommerce = globalThis.ecommerce;
+    var debug = ecommerce.debug;
 
     var didLogInfoResolve;
     var didLogInfoPromise = new Promise(function (resolve) {
         didLogInfoResolve = resolve;
     });
 
-    odoo.remainingJobs = jobs;
-    odoo.__DEBUG__ = {
+    ecommerce.remainingJobs = jobs;
+    ecommerce.__DEBUG__ = {
         didLogInfo: didLogInfoPromise,
         getDependencies: function (name, transitive) {
             var deps = name instanceof Array ? name : [name];
@@ -135,7 +135,7 @@
                             .then(function (data) {
                                 services[job.name] = data;
                                 resolve();
-                                odoo.__DEBUG__.processJobs();
+                                ecommerce.__DEBUG__.processJobs();
                             })
                             .guardedCatch(function (e) {
                                 job.rejected = e || true;
@@ -202,9 +202,9 @@
         factories: factories,
         services: services,
     };
-    odoo.define = function () {
+    ecommerce.define = function () {
         var args = Array.prototype.slice.call(arguments);
-        var name = typeof args[0] === "string" ? args.shift() : "__odoo_job" + jobUID++;
+        var name = typeof args[0] === "string" ? args.shift() : "__ecommerce_job" + jobUID++;
         var factory = args[args.length - 1];
         var deps;
         if (args[0] instanceof Array) {
@@ -251,9 +251,9 @@
             jobDeps.push({ from: dep, to: name });
         });
 
-        odoo.__DEBUG__.processJobs();
+        ecommerce.__DEBUG__.processJobs();
     };
-    odoo.log = function () {
+    ecommerce.log = function () {
         var missing = [];
         var failed = [];
         var cycle = null;
@@ -268,7 +268,7 @@
             for (var k = 0; k < jobs.length; k++) {
                 debugJobs[jobs[k].name] = job = {
                     dependencies: jobs[k].deps,
-                    dependents: odoo.__DEBUG__.getDependents(jobs[k].name),
+                    dependents: ecommerce.__DEBUG__.getDependents(jobs[k].name),
                     name: jobs[k].name,
                 };
                 if (jobs[k].error) {
@@ -278,7 +278,7 @@
                     job.rejected = jobs[k].rejected;
                     rejected.push(job.name);
                 }
-                var deps = odoo.__DEBUG__.getDependencies(job.name);
+                var deps = ecommerce.__DEBUG__.getDependencies(job.name);
                 for (var i = 0; i < deps.length; i++) {
                     if (job.name !== deps[i] && !(deps[i] in services)) {
                         jobdep = debugJobs[deps[i]];
@@ -305,8 +305,8 @@
                     }
                 }
             }
-            missing = odoo.__DEBUG__.getMissingJobs();
-            failed = odoo.__DEBUG__.getFailedJobs();
+            missing = ecommerce.__DEBUG__.getMissingJobs();
+            failed = ecommerce.__DEBUG__.getFailedJobs();
             var unloaded = Object.keys(debugJobs) // Object.values is not supported
                 .map(function (key) {
                     return debugJobs[key];
@@ -357,7 +357,7 @@
                 }
             }
         }
-        odoo.__DEBUG__.jsModules = {
+        ecommerce.__DEBUG__.jsModules = {
             missing: missing,
             failed: failed.map((mod) => mod.name),
             unloaded: unloaded ? unloaded.map((mod) => mod.name) : [],
@@ -374,7 +374,7 @@
      * @returns {Promise<number>} resolved when the services ares
      *      loaded. The value is equal to the number of services found.
      */
-    odoo.ready = async function (serviceName) {
+    ecommerce.ready = async function (serviceName) {
         function match(name) {
             return typeof serviceName === "string" ? name === serviceName : serviceName.test(name);
         }
@@ -382,7 +382,7 @@
         return Object.keys(factories).filter(match).length;
     };
 
-    odoo.runtimeImport = function (moduleName) {
+    ecommerce.runtimeImport = function (moduleName) {
         if (!(moduleName in services)) {
             throw new Error(`Service "${moduleName} is not defined or isn't finished loading."`);
         }
@@ -394,7 +394,7 @@
         const len = jobPromises.length;
         Promise.all(jobPromises).then(function () {
             if (len === jobPromises.length) {
-                odoo.log();
+                ecommerce.log();
             } else {
                 logWhenLoaded();
             }

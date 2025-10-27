@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 
-from odoo import fields
-from odoo.tests import tagged
+from ecommerce import fields
+from ecommerce.tests import tagged
 
 from .common import TestEsEdiTbaiCommon
 

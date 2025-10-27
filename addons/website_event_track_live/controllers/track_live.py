@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
+from ecommerce import http
 
-from odoo.addons.website_event_track.controllers.event_track import EventTrackController
-from odoo.osv import expression
+from ecommerce.addons.website_event_track.controllers.event_track import EventTrackController
+from ecommerce.osv import expression
 
 class EventTrackLiveController(EventTrackController):
 

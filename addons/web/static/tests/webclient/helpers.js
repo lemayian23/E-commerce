@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { notificationService } from "@web/core/notifications/notification_service";
@@ -56,7 +56,7 @@ import { ConnectionAbortedError } from "@web/core/network/rpc_service";
 import { CustomFavoriteItem } from "@web/search/favorite_menu/custom_favorite_item";
 import { standaloneAdapter } from "web.OwlCompatibility";
 
-import { Component, onMounted, xml } from "@odoo/owl";
+import { Component, onMounted, xml } from "@ecommerce/owl";
 
 const actionRegistry = registry.category("actions");
 const serviceRegistry = registry.category("services");

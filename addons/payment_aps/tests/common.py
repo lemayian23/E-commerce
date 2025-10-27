@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
 
 
 class APSCommon(PaymentHttpCommon):

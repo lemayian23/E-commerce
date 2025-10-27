@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.modules import get_modules
-from odoo.modules.module import load_manifest, _DEFAULT_MANIFEST
-from odoo.tests import BaseCase
+from ecommerce.modules import get_modules
+from ecommerce.modules.module import load_manifest, _DEFAULT_MANIFEST
+from ecommerce.tests import BaseCase
 
 
 MANIFEST_KEYS = {

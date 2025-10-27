@@ -1,6 +1,6 @@
-from odoo import models, fields, release, _
+from ecommerce import models, fields, release, _
 from datetime import datetime
-from odoo.exceptions import UserError
+from ecommerce.exceptions import UserError
 
 class ComplianceLetter(models.TransientModel):
     _name = 'compliance.letter.wizard'
@@ -13,7 +13,7 @@ class ComplianceLetter(models.TransientModel):
             raise UserError(_("Compliance letters can only be created for companies registered in Malta. Please ensure the company's country is set to Malta."))
 
         data = {
-            "version": self.get_odoo_version(),
+            "version": self.get_ecommerce_version(),
             "date": self.get_formatted_date(),
             "name": self.company_id.name,
             "vat": self.company_id.vat,
@@ -29,5 +29,5 @@ class ComplianceLetter(models.TransientModel):
         formatted_date = date_obj.strftime(f"%B {day}{day_suffix}, %Y")
         return formatted_date
 
-    def get_odoo_version(self):
+    def get_ecommerce_version(self):
         return release.major_version

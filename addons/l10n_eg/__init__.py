@@ -1,4 +1,4 @@
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 from . import models
 
 

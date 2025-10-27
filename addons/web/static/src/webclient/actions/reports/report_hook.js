@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
-import { useComponent, useEffect } from "@odoo/owl";
+import { useComponent, useEffect } from "@ecommerce/owl";
 
 /**
  * Hook used to enrich html and provide automatic links to action.

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import publicWidget from 'web.public.widget';
 import DynamicSnippet from 'website.s_dynamic_snippet';

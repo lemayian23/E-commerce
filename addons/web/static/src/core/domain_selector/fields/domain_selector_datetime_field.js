@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DatePicker, DateTimePicker } from "@web/core/datepicker/datepicker";
 import {
@@ -9,7 +9,7 @@ import {
 } from "@web/core/l10n/dates";
 import { registry } from "@web/core/registry";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 const dsf = registry.category("domain_selector/fields");
 const dso = registry.category("domain_selector/operator");

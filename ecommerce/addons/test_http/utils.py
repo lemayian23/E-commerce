@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from html.parser import HTMLParser
-from odoo.http import FilesystemSessionStore
-from odoo.tools._vendor.sessions import SessionStore
+from ecommerce.http import FilesystemSessionStore
+from ecommerce.tools._vendor.sessions import SessionStore
 
 
 class MemoryGeoipResolver:

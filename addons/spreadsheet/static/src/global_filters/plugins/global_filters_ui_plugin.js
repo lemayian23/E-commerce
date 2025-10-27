@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 /**
  * @typedef {import("@spreadsheet/data_sources/metadata_repository").Field} Field

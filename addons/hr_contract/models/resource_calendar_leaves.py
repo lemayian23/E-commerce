@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import datetime
 from pytz import timezone, utc
 
-from odoo import models
+from ecommerce import models
 
 
 class ResourceCalendarLeaves(models.Model):

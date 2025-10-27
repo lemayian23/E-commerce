@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.qweb **/
+/** @ecommerce-module alias=web.qweb **/
 
 /**
  * Client-side implementation of a qweb view.

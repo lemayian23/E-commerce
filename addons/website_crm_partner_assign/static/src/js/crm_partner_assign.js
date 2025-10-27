@@ -1,4 +1,4 @@
-odoo.define('crm.partner_assign', function (require) {
+ecommerce.define('crm.partner_assign', function (require) {
 'use strict';
 
 const {_t} = require('web.core');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { getFixture, legacyExtraNextTick, patchWithCleanup } from "@web/../tests/helpers/utils";
 import {
@@ -25,7 +25,7 @@ import legacyViewRegistry from "web.view_registry";
 import { browser } from "@web/core/browser/browser";
 import { LegacyComponent } from "@web/legacy/legacy_component";
 
-import { xml } from "@odoo/owl";
+import { xml } from "@ecommerce/owl";
 const viewRegistry = registry.category("views");
 
 let serverData;

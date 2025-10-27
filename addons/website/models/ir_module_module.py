@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from collections import defaultdict, OrderedDict
 
-from odoo import api, fields, models
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
-from odoo.exceptions import MissingError
-from odoo.http import request
-from odoo.tools import split_every
+from ecommerce import api, fields, models
+from ecommerce.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from ecommerce.exceptions import MissingError
+from ecommerce.http import request
+from ecommerce.tools import split_every
 
 _logger = logging.getLogger(__name__)
 

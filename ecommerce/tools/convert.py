@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 __all__ = [
     'convert_file', 'convert_sql_import',
@@ -25,13 +25,13 @@ try:
 except ImportError:
     jingtrang = None
 
-import odoo
+import ecommerce
 from . import pycompat
 from .config import config
 from .misc import file_open, unquote, ustr, SKIPPED_ELEMENT_TYPES
 from .translate import _
-from odoo import SUPERUSER_ID, api
-from odoo.exceptions import ValidationError
+from ecommerce import SUPERUSER_ID, api
+from ecommerce.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -55,13 +55,13 @@ class RecordDictWrapper(dict):
 
 def _get_idref(self, env, model_str, idref):
     idref2 = dict(idref,
-                  Command=odoo.fields.Command,
+                  Command=ecommerce.fields.Command,
                   time=time,
                   DateTime=datetime,
                   datetime=datetime,
                   timedelta=timedelta,
                   relativedelta=relativedelta,
-                  version=odoo.release.major_version,
+                  version=ecommerce.release.major_version,
                   ref=self.id_get,
                   pytz=pytz)
     if model_str:
@@ -116,7 +116,7 @@ def _eval_xml(self, node, env):
             try:
                 return safe_eval(a_eval, idref2)
             except Exception:
-                logging.getLogger('odoo.tools.convert.init').error(
+                logging.getLogger('ecommerce.tools.convert.init').error(
                     'Could not eval(%s) for %s in %s', a_eval, node.get('name'), env.context)
                 raise
         def _process(s):
@@ -201,7 +201,7 @@ def _eval_xml(self, node, env):
         # merge current context with context in kwargs
         kwargs['context'] = {**env.context, **kwargs.get('context', {})}
         # invoke method
-        return odoo.api.call_kw(model, method_name, args, kwargs)
+        return ecommerce.api.call_kw(model, method_name, args, kwargs)
     elif node.tag == "test":
         return node.text
 
@@ -304,10 +304,10 @@ form: module.record_id""" % (xml_id,)
             for group in g_names:
                 if group.startswith('-'):
                     group_id = self.id_get(group[1:])
-                    groups_value.append(odoo.Command.unlink(group_id))
+                    groups_value.append(ecommerce.Command.unlink(group_id))
                 else:
                     group_id = self.id_get(group)
-                    groups_value.append(odoo.Command.link(group_id))
+                    groups_value.append(ecommerce.Command.link(group_id))
             res['groups_id'] = groups_value
         if rec.get('paperformat'):
             pf_name = rec.get('paperformat')
@@ -408,10 +408,10 @@ form: module.record_id""" % (xml_id,)
             for group in g_names:
                 if group.startswith('-'):
                     group_id = self.id_get(group[1:])
-                    groups_value.append(odoo.Command.unlink(group_id))
+                    groups_value.append(ecommerce.Command.unlink(group_id))
                 else:
                     group_id = self.id_get(group)
-                    groups_value.append(odoo.Command.link(group_id))
+                    groups_value.append(ecommerce.Command.link(group_id))
             res['groups_id'] = groups_value
 
         if rec.get('target'):
@@ -470,10 +470,10 @@ form: module.record_id""" % (xml_id,)
         for group in rec.get('groups', '').split(','):
             if group.startswith('-'):
                 group_id = self.id_get(group[1:])
-                groups.append(odoo.Command.unlink(group_id))
+                groups.append(ecommerce.Command.unlink(group_id))
             elif group:
                 group_id = self.id_get(group)
-                groups.append(odoo.Command.link(group_id))
+                groups.append(ecommerce.Command.link(group_id))
         if groups:
             values['groups_id'] = groups
 
@@ -563,7 +563,7 @@ form: module.record_id""" % (xml_id,)
                 _fields = env[rec_model]._fields
                 # if the current field is many2many
                 if (f_name in _fields) and _fields[f_name].type == 'many2many':
-                    f_val = [odoo.Command.set([x[f_use] for x in s])]
+                    f_val = [ecommerce.Command.set([x[f_use] for x in s])]
                 elif len(s):
                     # otherwise (we are probably in a many2one field),
                     # take the first element of the search
@@ -714,7 +714,7 @@ form: module.record_id""" % (xml_id,)
                     err=err.args[0],
                 )
                 _logger.debug(msg, exc_info=True)
-                raise ParseError(msg) from None  # Restart with "--log-handler odoo.tools.convert:DEBUG" for complete traceback
+                raise ParseError(msg) from None  # Restart with "--log-handler ecommerce.tools.convert:DEBUG" for complete traceback
             except Exception as e:
                 raise ParseError('while parsing %s:%s, somewhere inside\n%s' % (
                     rec.getroottree().docinfo.URL,
@@ -736,7 +736,7 @@ form: module.record_id""" % (xml_id,)
     def __init__(self, cr, module, idref, mode, noupdate=False, xml_filename=None):
         self.mode = mode
         self.module = module
-        self.envs = [odoo.api.Environment(cr, SUPERUSER_ID, {})]
+        self.envs = [ecommerce.api.Environment(cr, SUPERUSER_ID, {})]
         self.idref = {} if idref is None else idref
         self._noupdate = [noupdate]
         self.xml_filename = xml_filename
@@ -753,9 +753,9 @@ form: module.record_id""" % (xml_id,)
         }
 
     def parse(self, de):
-        assert de.tag in self.DATA_ROOTS, "Root xml tag must be <openerp>, <odoo> or <data>."
+        assert de.tag in self.DATA_ROOTS, "Root xml tag must be <openerp>, <ecommerce> or <data>."
         self._tag_root(de)
-    DATA_ROOTS = ['odoo', 'data', 'openerp']
+    DATA_ROOTS = ['ecommerce', 'data', 'openerp']
 
 def convert_file(cr, module, filename, idref, mode='update', noupdate=False, kind=None, pathname=None):
     if pathname is None:
@@ -805,7 +805,7 @@ def convert_csv_import(cr, module, fname, csvcontent, idref=None, mode='init',
         'install_filename': fname,
         'noupdate': noupdate,
     }
-    env = odoo.api.Environment(cr, SUPERUSER_ID, context)
+    env = ecommerce.api.Environment(cr, SUPERUSER_ID, context)
     result = env[model].load(fields, datas)
     if any(msg['type'] == 'error' for msg in result['messages']):
         # Report failed import and abort module install

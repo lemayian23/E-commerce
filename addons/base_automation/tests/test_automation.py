@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.exceptions import UserError
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.exceptions import UserError
 
-import odoo.tests
+import ecommerce.tests
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestAutomation(TransactionCaseWithUserDemo):
 
     def test_01_on_create(self):

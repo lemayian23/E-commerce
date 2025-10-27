@@ -14,14 +14,14 @@
         "event_barcode.menu_event_registration_desk", // there's no way to come back from this menu
         "hr_attendance.menu_hr_attendance_kiosk_no_user_mode", // same here
         "pos_adyen.menu_pos_adyen_account",
-        "payment_odoo.menu_adyen_account",
-        "payment_odoo.root_adyen_menu",
+        "payment_ecommerce.menu_adyen_account",
+        "payment_ecommerce.root_adyen_menu",
     ];
 
-    const { isEnterprise } = odoo.info;
+    const { isEnterprise } = ecommerce.info;
     const { onWillStart } = owl;
     let appsMenusOnly = false;
-    const isStudioInstalled = "@web_studio/studio_service" in odoo.__DEBUG__.services;
+    const isStudioInstalled = "@web_studio/studio_service" in ecommerce.__DEBUG__.services;
     let actionCount = 0;
     let viewUpdateCount = 0;
     let studioCount = 0;
@@ -42,12 +42,12 @@
             return;
         }
         setupDone = true;
-        const env = odoo.__WOWL_DEBUG__.root.env;
+        const env = ecommerce.__WOWL_DEBUG__.root.env;
         env.bus.addEventListener("ACTION_MANAGER:UI-UPDATED", () => {
             actionCount++;
         });
 
-        const AbstractController = odoo.__DEBUG__.services["web.AbstractController"];
+        const AbstractController = ecommerce.__DEBUG__.services["web.AbstractController"];
         AbstractController.include({
             start() {
                 this.$el.attr("data-view-type", this.viewType);
@@ -59,8 +59,8 @@
             },
         });
 
-        const { patch } = odoo.__DEBUG__.services["@web/core/utils/patch"];
-        const { WithSearch } = odoo.__DEBUG__.services["@web/search/with_search/with_search"];
+        const { patch } = ecommerce.__DEBUG__.services["@web/core/utils/patch"];
+        const { WithSearch } = ecommerce.__DEBUG__.services["@web/search/with_search/with_search"];
 
         patch(WithSearch.prototype, "PatchedWithSearch", {
             setup() {
@@ -75,9 +75,9 @@
             },
         });
 
-        // This test file is not respecting Odoo module dependencies.
+        // This test file is not respecting ecommerce module dependencies.
         // The following module might not be loaded (eg. if mail is not installed).
-        const DiscussWidgetModule = odoo.__DEBUG__.services["@mail/widgets/discuss/discuss"];
+        const DiscussWidgetModule = ecommerce.__DEBUG__.services["@mail/widgets/discuss/discuss"];
         const DiscussWidget = DiscussWidgetModule && DiscussWidgetModule[Symbol.for("default")];
         if (DiscussWidget) {
             DiscussWidget.include({
@@ -442,7 +442,7 @@
     async function _clickEverywhere(xmlId) {
         ensureSetup();
         console.log("Starting ClickEverywhere test");
-        console.log(`Odoo flavor: ${isEnterprise ? "Enterprise" : "Community"}`);
+        console.log(`ecommerce flavor: ${isEnterprise ? "Enterprise" : "Community"}`);
         const startTime = performance.now();
         testedApps = [];
         testedMenus = [];

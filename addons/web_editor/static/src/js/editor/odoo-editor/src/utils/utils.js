@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export const DIRECTIONS = {
     LEFT: false,
@@ -306,7 +306,7 @@ export function closestElement(node, selector) {
     if (element && selector) {
         element = element.closest(selector);
     }
-    return element && element.querySelector('.odoo-editor-editable') ? null : element;
+    return element && element.querySelector('.ecommerce-editor-editable') ? null : element;
 }
 
 /**
@@ -481,7 +481,7 @@ export function hasValidSelection(editable) {
  *     positions which are not possible, like the cursor inside an image).
  */
 export function getNormalizedCursorPosition(node, offset, full = true) {
-    const editable = closestElement(node, '.odoo-editor-editable');
+    const editable = closestElement(node, '.ecommerce-editor-editable');
     let closest = closestElement(node);
     while (
         closest &&
@@ -1617,7 +1617,7 @@ export function containsUnbreakable(node) {
     }
     return isUnbreakable(node) || containsUnbreakable(node.firstChild);
 }
-// TODO rename this function in master: it also handles Odoo icons, not only
+// TODO rename this function in master: it also handles ecommerce icons, not only
 // font awesome ones. Also maybe just use the ICON_SELECTOR and `matches`?
 const iconTags = ['I', 'SPAN'];
 const iconClasses = ['fa', 'fab', 'fad', 'far', 'oi'];
@@ -2533,7 +2533,7 @@ export function prepareUpdate(...args) {
         const left = getState(el, offset, DIRECTIONS.LEFT);
         const right = getState(el, offset, DIRECTIONS.RIGHT, left.cType);
         if (options.debug) {
-            const editable = el && closestElement(el, '.odoo-editor-editable');
+            const editable = el && closestElement(el, '.ecommerce-editor-editable');
             const oldEditableHTML = editable && makeZeroWidthCharactersVisible(editable.innerHTML).replaceAll(' ', '_') || '';
             left.oldEditableHTML = oldEditableHTML;
             right.oldEditableHTML = oldEditableHTML;
@@ -2826,7 +2826,7 @@ export function restoreState(prevStateData, debug=false) {
     const ruleHashCode = restoreStateRuleHashCode(direction, cType1, cType2);
     const rule = allRestoreStateRules.get(ruleHashCode);
     if (debug) {
-        const editable = closestElement(node, '.odoo-editor-editable');
+        const editable = closestElement(node, '.ecommerce-editor-editable');
         console.log(
             '%c' + makeZeroWidthCharactersVisible(node.textContent).replaceAll(' ', '_') + '\n' +
             '%c' + (direction === DIRECTIONS.LEFT ? 'left' : 'right') + '\n' +

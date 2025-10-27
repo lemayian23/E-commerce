@@ -1,6 +1,6 @@
-from odoo import models
-from odoo.http import request
-from odoo.addons.bus.websocket import wsrequest
+from ecommerce import models
+from ecommerce.http import request
+from ecommerce.addons.bus.websocket import wsrequest
 
 
 class IrWebsocket(models.AbstractModel):

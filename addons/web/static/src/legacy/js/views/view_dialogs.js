@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.view_dialogs **/
+/** @ecommerce-module alias=web.view_dialogs **/
 
 import config from 'web.config';
 import core from 'web.core';
@@ -9,7 +9,7 @@ import select_create_controllers_registry from 'web.select_create_controllers_re
 
 var _t = core._t;
 
-import { markup } from "@odoo/owl";
+import { markup } from "@ecommerce/owl";
 
 /**
  * Class with everything which is common between FormViewDialog and
@@ -49,7 +49,7 @@ var ViewDialog = Dialog.extend({
      * We stop all push_state events from bubbling up.  It would be weird to
      * change the url because a dialog opened.
      *
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onPushState: function (event) {
         event.stopPropagation();

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Test for the pseudo-form implementation (odoo.tests.common.Form), which should
+Test for the pseudo-form implementation (ecommerce.tests.common.Form), which should
 basically be a server-side implementation of form views (though probably not
 complete) intended for properly validating business "view" flows (onchanges,
 readonly, required, ...) and make it easier to generate sensible & coherent
@@ -9,8 +9,8 @@ business objects.
 from lxml import etree
 from operator import itemgetter
 
-from odoo.tests.common import TransactionCase, Form
-from odoo import Command
+from ecommerce.tests.common import TransactionCase, Form
+from ecommerce import Command
 
 
 class TestBasic(TransactionCase):

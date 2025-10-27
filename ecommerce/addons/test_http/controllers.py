@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 import logging
 
@@ -6,12 +6,12 @@ import werkzeug
 from psycopg2.errorcodes import SERIALIZATION_FAILURE
 from psycopg2 import OperationalError
 
-from odoo import http
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request
-from odoo.tools import replace_exceptions
+from ecommerce import http
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.http import request
+from ecommerce.tools import replace_exceptions
 
-from odoo.addons.web.controllers.utils import ensure_db
+from ecommerce.addons.web.controllers.utils import ensure_db
 
 _logger = logging.getLogger(__name__)
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.tests import HttpCase, tagged
+from ecommerce.tests import HttpCase, tagged
 
 _logger = logging.getLogger(__name__)
 

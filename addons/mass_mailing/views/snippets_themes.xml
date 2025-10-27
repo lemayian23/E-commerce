@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 <!-- Snippets & Themes Menu -->
 <template id="email_designer_snippets" inherit_id="web_editor.snippets" primary="True" groups="base.group_user">
     <xpath expr="//div[hasclass('o_we_website_top_actions')]" position="inside">
@@ -836,4 +836,4 @@ after backport. They will now be removed in master.
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

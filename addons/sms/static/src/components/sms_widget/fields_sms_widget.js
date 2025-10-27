@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import basic_fields from 'web.basic_fields';
 import { patch } from "@web/core/utils/patch";

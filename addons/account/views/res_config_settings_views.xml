@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="open_account_charts_modules" model="ir.actions.act_window">
             <field name="name">Chart Templates</field>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="o_setting_right_pane" name="l10n_eu_oss_right_pane">
                                     <label for="module_l10n_eu_oss"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/finance/accounting/taxation/taxes/eu_distance_selling.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/finance/accounting/taxation/taxes/eu_distance_selling.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Apply VAT of the EU country to which goods and services are delivered.
                                     </div>
@@ -235,7 +235,7 @@
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label for="group_sale_delivery_address"/>
-                                    <a href="https://www.odoo.com/documentation/16.0/applications/sales/sales/send_quotations/different_addresses.html" title="Documentation" class="o_doc_link" target="_blank"></a>
+                                    <a href="https://www.ecommerce.com/documentation/16.0/applications/sales/sales/send_quotations/different_addresses.html" title="Documentation" class="o_doc_link" target="_blank"></a>
                                     <div class="text-muted">
                                         Select specific invoice and delivery addresses
                                     </div>
@@ -713,4 +713,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

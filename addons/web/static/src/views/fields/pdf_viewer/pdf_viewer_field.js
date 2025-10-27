@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -7,7 +7,7 @@ import { url } from "@web/core/utils/urls";
 import { standardFieldProps } from "../standard_field_props";
 import { FileUploader } from "../file_handler";
 
-import { Component, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, onWillUpdateProps, useState } from "@ecommerce/owl";
 
 export class PdfViewerField extends Component {
     setup() {

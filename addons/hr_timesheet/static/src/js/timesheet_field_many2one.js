@@ -1,10 +1,10 @@
-/** @odoo-module alias=hr_timesheet.TimesheetFieldMany2one **/
+/** @ecommerce-module alias=hr_timesheet.TimesheetFieldMany2one **/
 
 import FieldRegistry from 'web.field_registry';
 import { FieldMany2One } from 'web.relational_fields';
 
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 const TimesheetFieldMany2one = FieldMany2One.extend({
     /**

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import random
@@ -9,10 +9,10 @@ from collections import namedtuple
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, tools
-from odoo.tools import exception_to_unicode
-from odoo.tools.translate import _
-from odoo.exceptions import MissingError, ValidationError
+from ecommerce import api, fields, models, tools
+from ecommerce.tools import exception_to_unicode
+from ecommerce.tools.translate import _
+from ecommerce.exceptions import MissingError, ValidationError
 
 
 _logger = logging.getLogger(__name__)
@@ -72,7 +72,7 @@ class EventTypeMail(models.Model):
 
 class EventMailScheduler(models.Model):
     """ Event automated mailing. This model replaces all existing fields and
-    configuration allowing to send emails on events since Odoo 9. A cron exists
+    configuration allowing to send emails on events since ecommerce 9. A cron exists
     that periodically checks for mailing to run. """
     _name = 'event.mail'
     _rec_name = 'event_id'

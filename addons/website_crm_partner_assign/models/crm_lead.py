@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessDenied, AccessError, UserError
-from odoo.tools import html_escape, clean_context
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import AccessDenied, AccessError, UserError
+from ecommerce.tools import html_escape, clean_context
 
 
 

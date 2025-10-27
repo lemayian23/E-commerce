@@ -1,4 +1,4 @@
-odoo.define('web.BasicRenderer', function (require) {
+ecommerce.define('web.BasicRenderer', function (require) {
 "use strict";
 
 /**
@@ -20,12 +20,12 @@ const { WidgetAdapterMixin } = require('web.OwlCompatibility');
 const FieldWrapper = require('web.FieldWrapper');
 const WidgetWrapper = require("web.WidgetWrapper");
 
-const { Component } = require("@odoo/owl");
+const { Component } = require("@ecommerce/owl");
 
 var qweb = core.qweb;
 const _t = core._t;
 
-const { status } = require("@odoo/owl");
+const { status } = require("@ecommerce/owl");
 
 var BasicRenderer = AbstractRenderer.extend(WidgetAdapterMixin, {
     custom_events: {
@@ -167,7 +167,7 @@ var BasicRenderer = AbstractRenderer.extend(WidgetAdapterMixin, {
      * @param {Object} state
      * @param {string} id
      * @param {string[]} fields
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @returns {Promise<AbstractField[]>} resolved with the list of widgets
      *                                      that have been reset
      */
@@ -963,11 +963,11 @@ var BasicRenderer = AbstractRenderer.extend(WidgetAdapterMixin, {
     /**
      * When someone presses the TAB/UP/DOWN/... key in a widget, it is nice to
      * be able to navigate in the view (default browser behaviors are disabled
-     * by Odoo).
+     * by ecommerce).
      *
      * @abstract
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onNavigationMove: function (ev) {},
 });

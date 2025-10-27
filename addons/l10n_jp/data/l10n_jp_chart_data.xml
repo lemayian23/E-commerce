@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="l10n_jp_chart_template" model="account.chart.template">
         <field name="name">Japan - Chart of Accounts</field>
         <field name="cash_account_code_prefix">1201</field>
@@ -10,4 +10,4 @@
         <field name="spoken_languages" eval="'ja_JP'"/>
         <field name="country_id" ref="base.jp"/>
     </record>
-</odoo>
+</ecommerce>

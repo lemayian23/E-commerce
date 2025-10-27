@@ -1,4 +1,4 @@
-odoo.define('web.test_utils_mock', function (require) {
+ecommerce.define('web.test_utils_mock', function (require) {
 "use strict";
 
 /**
@@ -27,7 +27,7 @@ const { browser } = require("@web/core/browser/browser");
 const { assets } = require("@web/core/assets");
 const { processArch } = require("@web/legacy/legacy_load_views");
 
-const { Component } = require("@odoo/owl");
+const { Component } = require("@ecommerce/owl");
 const DebouncedField = basic_fields.DebouncedField;
 
 
@@ -198,7 +198,7 @@ function _mockGlobalObjects(params) {
             Object.assign(config.device, params.config.device);
         }
         if ('debug' in params.config) {
-            odoo.debug = params.config.debug;
+            ecommerce.debug = params.config.debug;
         }
     }
 
@@ -286,7 +286,7 @@ function getView(server, params) {
  * It will not be propagated further, and even the handlers on the target will
  * not fire.
  *
- * @param {Widget} widget the target widget (any Odoo widget)
+ * @param {Widget} widget the target widget (any ecommerce widget)
  * @param {string} eventName description of the event
  * @param {function} fn callback executed when the even is intercepted
  * @param {boolean} [propagate=false]
@@ -449,7 +449,7 @@ async function addMockEnvironmentOwl(Component, params, mockServer) {
         core.bus.trigger('clear_cache');
 
         $('body').off('DOMNodeInserted.removeSRC');
-        $('.blockUI').remove(); // fixme: move to qunit_config in OdooAfterTestHook?
+        $('.blockUI').remove(); // fixme: move to qunit_config in ecommerceAfterTestHook?
 
         restoreMockedGlobalObjects();
 
@@ -480,8 +480,8 @@ async function addMockEnvironmentOwl(Component, params, mockServer) {
  * @param {string} [params.currentDate] a string representation of the current
  *   date. It is given to the mock server.
  * @param {Object} params.data the data given to the created mock server. It is
- *   used to generate mock answers for every kind of routes supported by odoo
- * @param {number} [params.debug] if set to true, logs RPCs and uncaught Odoo
+ *   used to generate mock answers for every kind of routes supported by ecommerce
+ * @param {number} [params.debug] if set to true, logs RPCs and uncaught ecommerce
  *   events.
  * @param {Object} [params.bus] the instance of Bus that will be used (in the env)
  * @param {function} [params.mockFetch] a function that will be used to override
@@ -587,7 +587,7 @@ async function addMockEnvironment(widget, params) {
         ev.data.on_success(filters);
     });
 
-    // make sure all other Odoo events bubbling up are intercepted
+    // make sure all other ecommerce events bubbling up are intercepted
     Object.keys(params.intercepts || {}).forEach(function (name) {
         intercept(widget, name, params.intercepts[name]);
     });

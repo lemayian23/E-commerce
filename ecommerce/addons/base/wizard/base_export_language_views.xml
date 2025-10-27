@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="wizard_lang_export" model="ir.ui.view">
             <field name="name">Export Translations</field>
@@ -27,8 +27,8 @@
                             <li>TGZ format: bundles multiple PO(T) files as a single archive</li>
                             </ul>
                         </p>
-                        <p>For more details about translating Odoo in your language, please refer to the
-                           <a href="https://github.com/odoo/odoo/wiki/Translations" target="_blank">documentation</a>.</p>
+                        <p>For more details about translating ecommerce in your language, please refer to the
+                           <a href="https://github.com/ecommerce/ecommerce/wiki/Translations" target="_blank">documentation</a>.</p>
                     </div>
                     <footer states="choose">
                         <button name="act_getfile" string="Export" type="object" class="btn-primary" data-hotkey="q"/>
@@ -50,4 +50,4 @@
         </record>
         <menuitem action="action_wizard_lang_export" id="menu_wizard_lang_export" parent="menu_translation_export"/>
     </data>
-</odoo>
+</ecommerce>

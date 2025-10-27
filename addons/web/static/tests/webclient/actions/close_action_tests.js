@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import testUtils from "web.test_utils";
 import { registerCleanup } from "../../helpers/cleanup";
@@ -194,7 +194,7 @@ QUnit.module("ActionManager", (hooks) => {
             // need to preventDefault to remove error from console (so python test pass)
             ev.preventDefault();
         };
-        // fake error service so that the odoo qunit handlers don't think that they need to handle the error
+        // fake error service so that the ecommerce qunit handlers don't think that they need to handle the error
         registry.category("services").add("error", { start: () => {} });
         window.addEventListener("unhandledrejection", handler);
         registerCleanup(() => window.removeEventListener("unhandledrejection", handler));

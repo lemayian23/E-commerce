@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 
-from odoo import _, fields, models, api
-from odoo.exceptions import UserError
+from ecommerce import _, fields, models, api
+from ecommerce.exceptions import UserError
 
 
 class IrMailServer(models.Model):

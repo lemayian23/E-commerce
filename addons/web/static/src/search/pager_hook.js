@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { useEnv, useChildSubEnv, useState, onWillRender } from "@odoo/owl";
+import { useEnv, useChildSubEnv, useState, onWillRender } from "@ecommerce/owl";
 
 /**
  * @typedef PagerUpdateParams

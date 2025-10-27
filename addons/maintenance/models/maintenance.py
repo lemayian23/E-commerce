@@ -4,10 +4,10 @@ import ast
 
 from datetime import date, datetime, timedelta
 
-from odoo import api, fields, models, SUPERUSER_ID, _
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce import api, fields, models, SUPERUSER_ID, _
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
+from ecommerce.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class MaintenanceStage(models.Model):

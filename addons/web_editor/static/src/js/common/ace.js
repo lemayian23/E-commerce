@@ -1,4 +1,4 @@
-odoo.define('web_editor.ace', function (require) {
+ecommerce.define('web_editor.ace', function (require) {
 'use strict';
 
 var config = require('web.config');
@@ -985,7 +985,7 @@ var ViewEditor = Widget.extend({
     },
     /**
      * Called when the reset button is clicked -> resets the resources to its
-     * original standard odoo state.
+     * original standard ecommerce state.
      *
      * @private
      */

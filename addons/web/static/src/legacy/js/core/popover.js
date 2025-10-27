@@ -1,4 +1,4 @@
-odoo.define('web.Popover', function (require) {
+ecommerce.define('web.Popover', function (require) {
     'use strict';
 
     const { LegacyComponent } = require("@web/legacy/legacy_component");

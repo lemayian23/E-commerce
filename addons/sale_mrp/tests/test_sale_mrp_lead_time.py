@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo import fields
-from odoo.addons.stock.tests.common2 import TestStockCommon
+from ecommerce import fields
+from ecommerce.addons.stock.tests.common2 import TestStockCommon
 
-from odoo.tests import Form
+from ecommerce.tests import Form
 
 
 class TestSaleMrpLeadTime(TestStockCommon):

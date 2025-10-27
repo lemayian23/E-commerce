@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {_t, qweb} from 'web.core';
 import options from 'web_editor.snippets.options';

@@ -1,4 +1,4 @@
-odoo.define('website_sale.tour_variants_modal_window', function (require) {
+ecommerce.define('website_sale.tour_variants_modal_window', function (require) {
     'use strict';
 
     var tour = require('web_tour.tour');

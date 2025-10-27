@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { decrement, increment } from '@mail/model/model_field_command';
 import { Listener } from '@mail/model/model_listener';

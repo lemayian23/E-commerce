@@ -1,4 +1,4 @@
-odoo.define('website_event.display_timer_widget', function (require) {
+ecommerce.define('website_event.display_timer_widget', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

@@ -1,4 +1,4 @@
-odoo.define('website_event_exhibitor.event_exhibitor_connect', function (require) {
+ecommerce.define('website_event_exhibitor.event_exhibitor_connect', function (require) {
 'use strict';
 
 var Dialog = require('web.Dialog');

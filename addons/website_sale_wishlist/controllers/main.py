@@ -2,8 +2,8 @@
 
 import json
 
-from odoo.http import request, route
-from odoo.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce.http import request, route
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
 
 
 class WebsiteSaleWishlist(WebsiteSale):

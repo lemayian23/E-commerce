@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { patch } from '@web/core/utils/patch';
 import { formatFloatTime, formatFloat } from "@web/views/fields/formatters";

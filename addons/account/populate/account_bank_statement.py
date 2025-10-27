@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Classes defining the populate factory for Bank Statements and related models."""
 
-from odoo import models, Command
-from odoo.tools import populate
+from ecommerce import models, Command
+from ecommerce.tools import populate
 
 from dateutil.relativedelta import relativedelta
 from functools import lru_cache

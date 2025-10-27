@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     createFile,
@@ -40,7 +40,7 @@ tour.register('mail/static/tests/tours/mail_full_composer_test_tour.js', {
             contentType: 'text/plain',
             name: 'text.txt',
         });
-        const messaging = await odoo.__DEBUG__.messaging;
+        const messaging = await ecommerce.__DEBUG__.messaging;
         const uploader = messaging.models['ComposerView'].all()[0].fileUploader;
         inputFiles(
             uploader.fileInput,

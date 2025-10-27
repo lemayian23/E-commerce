@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from dateutil import relativedelta
 from datetime import timedelta, datetime
@@ -7,10 +7,10 @@ from functools import partial
 from pytz import timezone
 from random import randint
 
-from odoo import api, exceptions, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.addons.resource.models.resource import make_aware, Intervals
-from odoo.tools.float_utils import float_compare
+from ecommerce import api, exceptions, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.addons.resource.models.resource import make_aware, Intervals
+from ecommerce.tools.float_utils import float_compare
 
 
 class MrpWorkcenter(models.Model):

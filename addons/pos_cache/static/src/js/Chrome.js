@@ -1,4 +1,4 @@
-odoo.define('pos_cache.chrome', function (require) {
+ecommerce.define('pos_cache.chrome', function (require) {
     'use strict';
 
 const Chrome = require('point_of_sale.Chrome');

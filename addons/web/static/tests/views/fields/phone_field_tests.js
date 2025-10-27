@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { getNextTabableElement } from "@web/core/utils/ui";
 import { click, clickSave, editInput, getFixture } from "@web/../tests/helpers/utils";

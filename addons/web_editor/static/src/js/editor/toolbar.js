@@ -1,4 +1,4 @@
-odoo.define('web_editor.toolbar', function (require) {
+ecommerce.define('web_editor.toolbar', function (require) {
 'use strict';
 
 var Widget = require('web.Widget');

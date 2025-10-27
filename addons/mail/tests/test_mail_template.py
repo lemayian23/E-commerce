@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from markupsafe import Markup
 from unittest.mock import patch
 
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import AccessError, UserError
-from odoo.modules.module import get_module_resource
-from odoo.tests import Form, tagged, users
-from odoo.tools import convert_file
+from ecommerce.addons.mail.tests.common import MailCommon
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.modules.module import get_module_resource
+from ecommerce.tests import Form, tagged, users
+from ecommerce.tools import convert_file
 
 
 @tagged('mail_template')
@@ -178,7 +178,7 @@ class TestMailTemplateReset(MailCommon):
         reset_action = mail_template_reset.reset_template()
         self.assertTrue(reset_action)
 
-        self.assertEqual(mail_template.body_html.strip(), Markup('<div>Hello Odoo</div>'))
+        self.assertEqual(mail_template.body_html.strip(), Markup('<div>Hello ecommerce</div>'))
         self.assertEqual(mail_template.name, 'Mail: Test Mail Template')
         self.assertEqual(
             mail_template.email_from,
@@ -216,18 +216,18 @@ class TestMailTemplateReset(MailCommon):
             """
             if lang == 'fr_FR':  # fr_FR has translations
                 translation_importer.model_translations['mail.template'] = {
-                    'body_html': {'mail.mail_template_test': {'fr_FR': '<div>Hello Odoo FR</div>'}},
+                    'body_html': {'mail.mail_template_test': {'fr_FR': '<div>Hello ecommerce FR</div>'}},
                     'name':  {'mail.mail_template_test': {'fr_FR': "Mail: Test Mail Template FR"}},
                 }
 
-        with patch('odoo.tools.translate.TranslationImporter.load_file', fake_load_file):
+        with patch('ecommerce.tools.translate.TranslationImporter.load_file', fake_load_file):
             mail_template_reset = self.env['mail.template.reset'].with_context(context).create({})
             reset_action = mail_template_reset.reset_template()
         self.assertTrue(reset_action)
 
-        self.assertEqual(mail_template.body_html.strip(), Markup('<div>Hello Odoo</div>'))
-        self.assertEqual(mail_template.with_context(lang='en_UK').body_html.strip(), Markup('<div>Hello Odoo</div>'))
-        self.assertEqual(mail_template.with_context(lang='fr_FR').body_html.strip(), Markup('<div>Hello Odoo FR</div>'))
+        self.assertEqual(mail_template.body_html.strip(), Markup('<div>Hello ecommerce</div>'))
+        self.assertEqual(mail_template.with_context(lang='en_UK').body_html.strip(), Markup('<div>Hello ecommerce</div>'))
+        self.assertEqual(mail_template.with_context(lang='fr_FR').body_html.strip(), Markup('<div>Hello ecommerce FR</div>'))
 
         self.assertEqual(mail_template.name, 'Mail: Test Mail Template')
         self.assertEqual(mail_template.with_context(lang='en_UK').name, 'Mail: Test Mail Template')

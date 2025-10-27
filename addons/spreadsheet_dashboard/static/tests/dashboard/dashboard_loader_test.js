@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { ormService } from "@web/core/orm_service";
 import { registry } from "@web/core/registry";
@@ -200,7 +200,7 @@ QUnit.test("async formulas are correctly evaluated", async (assert) => {
             {
                 id: "sheet1",
                 cells: {
-                    A1: { content: `=ODOO.CURRENCY.RATE("EUR","USD")` }, // an async formula
+                    A1: { content: `=ecommerce.CURRENCY.RATE("EUR","USD")` }, // an async formula
                 },
             },
         ],

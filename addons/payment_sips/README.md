@@ -18,7 +18,7 @@ submission provided by the `payment` module.
 
 - `15.2`
   - An HTTP 404 "Forbidden" error is raised instead of a Validation error when the authenticity of
-    the webhook notification cannot be verified. odoo/odoo#81607
+    the webhook notification cannot be verified. ecommerce/ecommerce#81607
 
 ## Testing instructions
 

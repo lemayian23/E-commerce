@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import json
@@ -6,13 +6,13 @@ import pytz
 from urllib.parse import urlencode
 from unittest.mock import patch
 
-import odoo
-from odoo.tests import get_db_name, tagged
-from odoo.tools import mute_logger
+import ecommerce
+from ecommerce.tests import get_db_name, tagged
+from ecommerce.tools import mute_logger
 from .test_common import TestHttpBase
 
 
-GEOIP_ODOO_FARM_2 = {
+GEOIP_ecommerce_FARM_2 = {
     'city': 'Ramillies',
     'country_code': 'BE',
     'country_name': 'Belgium',
@@ -26,7 +26,7 @@ GEOIP_ODOO_FARM_2 = {
 @tagged('post_install', '-at_install')
 class TestHttpSession(TestHttpBase):
 
-    @mute_logger('odoo.http')  # greeting_none called ignoring args {'debug'}
+    @mute_logger('ecommerce.http')  # greeting_none called ignoring args {'debug'}
     def test_session0_debug_mode(self):
         session = self.authenticate(None, None)
         self.assertEqual(session.debug, '')
@@ -41,7 +41,7 @@ class TestHttpSession(TestHttpBase):
 
     def test_session1_default_session(self):
         # The default session should not be saved on the filestore.
-        with patch.object(odoo.http.root.session_store, 'save') as mock_save:
+        with patch.object(ecommerce.http.root.session_store, 'save') as mock_save:
             res = self.db_url_open('/test_http/greeting')
             res.raise_for_status()
             try:
@@ -51,10 +51,10 @@ class TestHttpSession(TestHttpBase):
                 raise AssertionError(msg) from exc
 
     def test_session2_geoip(self):
-        real_save = odoo.http.root.session_store.save
-        with patch.object(odoo.http.root.geoip_resolver, 'resolve') as mock_resolve,\
-             patch.object(odoo.http.root.session_store, 'save') as mock_save:
-            mock_resolve.return_value = GEOIP_ODOO_FARM_2
+        real_save = ecommerce.http.root.session_store.save
+        with patch.object(ecommerce.http.root.geoip_resolver, 'resolve') as mock_resolve,\
+             patch.object(ecommerce.http.root.session_store, 'save') as mock_save:
+            mock_resolve.return_value = GEOIP_ecommerce_FARM_2
             mock_save.side_effect = real_save
 
             # Geoip is lazy: it should be computed only when necessary.
@@ -67,7 +67,7 @@ class TestHttpSession(TestHttpBase):
             mock_save.reset_mock()
             res = self.nodb_url_open('/test_http/geoip')
             res.raise_for_status()
-            self.assertEqual(res.text, str(GEOIP_ODOO_FARM_2))
+            self.assertEqual(res.text, str(GEOIP_ecommerce_FARM_2))
             mock_save.assert_not_called()
 
             # Geoip is cached on the session: we shouldn't geolocate the
@@ -78,20 +78,20 @@ class TestHttpSession(TestHttpBase):
             self.nodb_url_open('/test_http/geoip').raise_for_status()
             res = self.nodb_url_open('/test_http/geoip')
             res.raise_for_status()
-            self.assertEqual(res.text, str(GEOIP_ODOO_FARM_2))
+            self.assertEqual(res.text, str(GEOIP_ecommerce_FARM_2))
             mock_resolve.assert_called_once()
 
     def test_session3_logout_15_0_geoip(self):
         session = self.authenticate(None, None)
         session['db'] = 'idontexist'
         session['geoip'] = {}  # Until saas-15.2 geoip was directly stored in the session
-        odoo.http.root.session_store.save(session)
+        ecommerce.http.root.session_store.save(session)
 
-        with self.assertLogs('odoo.http', level='WARNING') as (_, warnings):
+        with self.assertLogs('ecommerce.http', level='WARNING') as (_, warnings):
             res = self.multidb_url_open('/test_http/ensure_db', dblist=['db1', 'db2'])
 
         self.assertEqual(warnings, [
-            "WARNING:odoo.http:Logged into database 'idontexist', but dbfilter rejects it; logging session out.",
+            "WARNING:ecommerce.http:Logged into database 'idontexist', but dbfilter rejects it; logging session out.",
         ])
         self.assertFalse(session['db'])
         self.assertEqual(res.status_code, 303)
@@ -155,13 +155,13 @@ class TestHttpSession(TestHttpBase):
 
         with self.subTest(case='fr saved and fr_FR enabled'):
             session.context['lang'] = 'fr_FR'
-            odoo.http.root.session_store.save(session)
+            ecommerce.http.root.session_store.save(session)
             res = self.url_open('/test_http/echo-http-context-lang')
             self.assertEqual(res.text, 'fr_FR')
 
         with self.subTest(case='fr saved but fr_FR disabled'):
             session['lang'] = 'fr_FR'
-            odoo.http.root.session_store.save(session)
+            ecommerce.http.root.session_store.save(session)
             lang_fr.active = False
             res = self.url_open('/test_http/echo-http-context-lang')
             self.assertEqual(res.text, 'en_US')
@@ -197,7 +197,7 @@ class TestHttpSession(TestHttpBase):
             self.assertEqual(session.foo, value)
             session.pop('foo')
 
-        # Values forbidden by odoo, raising a warning
+        # Values forbidden by ecommerce, raising a warning
         for value in [
             str,
             int,
@@ -216,7 +216,7 @@ class TestHttpSession(TestHttpBase):
             with self.assertLogs(level="WARNING"):
                 # testing you cannot set a non-serializable value at the creation of the session
                 # e.g. in the __init__ of the session class
-                self.assertFalse(odoo.http.root.session_store.session_class({'foo': value}, 1234).foo)
+                self.assertFalse(ecommerce.http.root.session_store.session_class({'foo': value}, 1234).foo)
             with self.assertRaises(TypeError):
                 dict.update(session, foo=value)
             self.assertFalse(session.foo)
@@ -234,26 +234,26 @@ class TestHttpSession(TestHttpBase):
             with self.assertRaises(AttributeError):
                 # testing you cannot set a non-serializable value at the creation of the session
                 # e.g. in the __init__ of the session class
-                self.assertFalse(odoo.http.root.session_store.session_class({'foo': value}, 1234).foo)
+                self.assertFalse(ecommerce.http.root.session_store.session_class({'foo': value}, 1234).foo)
             with self.assertRaises(TypeError):
                 dict.update(session, foo=value)
             self.assertFalse(session.foo)
 
     def test_session8_logout(self):
         sid = self.authenticate('admin', 'admin').sid
-        self.assertTrue(odoo.http.root.session_store.get(sid), "session should exist")
+        self.assertTrue(ecommerce.http.root.session_store.get(sid), "session should exist")
         self.url_open('/web/session/logout', allow_redirects=False).raise_for_status()
-        self.assertFalse(odoo.http.root.session_store.get(sid), "session should not exist")
+        self.assertFalse(ecommerce.http.root.session_store.get(sid), "session should not exist")
 
     def test_session9_explicit_session(self):
         forged_sid = 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
         admin_session = self.authenticate('admin', 'admin')
-        with self.assertLogs('odoo.http') as capture:
+        with self.assertLogs('ecommerce.http') as capture:
             qs = urlencode({'debug': 1, 'session_id': forged_sid})
             self.url_open(f'/web/session/logout?{qs}').raise_for_status()
         self.assertEqual(len(capture.output), 1)
         self.assertRegex(capture.output[0],
-            r"^WARNING:odoo.http:<function odoo\.addons\.\w+\.controllers\.\w+\.logout> "
+            r"^WARNING:ecommerce.http:<function ecommerce\.addons\.\w+\.controllers\.\w+\.logout> "
             r"called ignoring args {('session_id', 'debug'|'debug', 'session_id')}$"
         )
         self.assertEqual(admin_session.debug, '1')

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.exceptions import Forbidden
 
-from odoo.http import request, route
+from ecommerce.http import request, route
 
-from odoo.addons.portal.controllers.mail import PortalChatter
+from ecommerce.addons.portal.controllers.mail import PortalChatter
 from .portal import ProjectCustomerPortal
 
 

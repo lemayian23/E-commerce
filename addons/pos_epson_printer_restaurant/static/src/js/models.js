@@ -1,4 +1,4 @@
-odoo.define('pos_epson_printer_restaurant.models', function (require) {
+ecommerce.define('pos_epson_printer_restaurant.models', function (require) {
 "use strict";
 
 var { PosGlobalState } = require('point_of_sale.models');

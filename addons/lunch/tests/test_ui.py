@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import HttpCase, tagged
+from ecommerce.tests import HttpCase, tagged
 from freezegun import freeze_time
 
 @tagged('-at_install', 'post_install')

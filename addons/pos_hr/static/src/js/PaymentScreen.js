@@ -1,4 +1,4 @@
-odoo.define('pos_hr.PaymentScreen', function (require) {
+ecommerce.define('pos_hr.PaymentScreen', function (require) {
     'use strict';
 
     const PaymentScreen = require('point_of_sale.PaymentScreen');

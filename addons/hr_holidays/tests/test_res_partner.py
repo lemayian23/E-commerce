@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
-from odoo import Command
-from odoo.tests.common import tagged, TransactionCase
-from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
+from ecommerce import Command
+from ecommerce.tests.common import tagged, TransactionCase
+from ecommerce.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
 @tagged('post_install', '-at_install')
 class TestPartner(TransactionCase):

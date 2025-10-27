@@ -1,8 +1,8 @@
 import copy
 
-from odoo.exceptions import UserError
-from odoo.tests import common, Form
-from odoo.tools import float_is_zero
+from ecommerce.exceptions import UserError
+from ecommerce.tests import common, Form
+from ecommerce.tools import float_is_zero
 
 class TestConsumeTrackedComponentCommon(common.TransactionCase):
 

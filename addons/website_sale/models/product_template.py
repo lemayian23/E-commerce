@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, _
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.models import ir_http
-from odoo.tools.translate import html_translate
-from odoo.osv import expression
+from ecommerce import api, fields, models, _
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce.addons.website.models import ir_http
+from ecommerce.tools.translate import html_translate
+from ecommerce.osv import expression
 from psycopg2.extras import execute_values
 
 _logger = logging.getLogger(__name__)

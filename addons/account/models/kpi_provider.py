@@ -1,5 +1,5 @@
-from odoo import api, models
-from odoo.osv import expression
+from ecommerce import api, models
+from ecommerce.osv import expression
 
 
 class KpiProvider(models.AbstractModel):

@@ -1,4 +1,4 @@
-ï»¿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <rsm:CrossIndustryInvoice xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:100"
 xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
 xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
@@ -27,19 +27,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <ram:SubjectCode>ABL</ram:SubjectCode>
       </ram:IncludedNote>
       <ram:IncludedNote>
-         <ram:Content>35 ma rue a moi, code postal Ville Pays â€“ contact@masociete.fr - www.masociete.fr  â€“ NÂ° TVA : FR32 123 456 789</ram:Content>
+         <ram:Content>35 ma rue a moi, code postal Ville Pays – contact@masociete.fr - www.masociete.fr  – N° TVA : FR32 123 456 789</ram:Content>
          <ram:SubjectCode>AAI</ram:SubjectCode>
       </ram:IncludedNote>
       <ram:IncludedNote>
-         <ram:Content>Tout retard de paiement engendre une pÃ©nalitÃ© exigible Ã  compter de la date d'Ã©chÃ©ance, calculÃ©e sur la base de trois fois le taux d'intÃ©rÃªt lÃ©gal. </ram:Content>
+         <ram:Content>Tout retard de paiement engendre une pénalité exigible à compter de la date d'échéance, calculée sur la base de trois fois le taux d'intérêt légal. </ram:Content>
          <ram:SubjectCode>PMD</ram:SubjectCode>
       </ram:IncludedNote>
       <ram:IncludedNote>
-         <ram:Content>IndemnitÃ© forfaitaire pour frais de recouvrement en cas de retard de paiement : 40 â‚¬.</ram:Content>
+         <ram:Content>Indemnité forfaitaire pour frais de recouvrement en cas de retard de paiement : 40 €.</ram:Content>
          <ram:SubjectCode>PMT</ram:SubjectCode>
       </ram:IncludedNote>
       <ram:IncludedNote>
-         <ram:Content>Les rÃ©glements reÃ§us avant la date d'Ã©chÃ©ance ne donneront pas lieu Ã  escompte.</ram:Content>
+         <ram:Content>Les réglements reçus avant la date d'échéance ne donneront pas lieu à escompte.</ram:Content>
          <ram:SubjectCode>AAB</ram:SubjectCode>
       </ram:IncludedNote>
    </rsm:ExchangedDocument>

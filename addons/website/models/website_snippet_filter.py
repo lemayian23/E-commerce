@@ -2,9 +2,9 @@
 
 from ast import literal_eval
 from collections import OrderedDict
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, MissingError
-from odoo.osv import expression
+from ecommerce import models, fields, api, _
+from ecommerce.exceptions import ValidationError, MissingError
+from ecommerce.osv import expression
 from lxml import etree, html
 import logging
 from random import randint

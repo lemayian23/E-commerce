@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { shallowEqual } from "@web/core/utils/arrays";
 import { evaluate, formatAST, parseExpr } from "./py_js/py";
@@ -14,7 +14,7 @@ import { toPyValue } from "./py_js/py_utils";
 export class InvalidDomainError extends Error {}
 
 /**
- * Javascript representation of an Odoo domain
+ * Javascript representation of an ecommerce domain
  */
 export class Domain {
     /**

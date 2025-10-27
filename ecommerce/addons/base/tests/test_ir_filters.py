@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import logging
 
-from odoo import exceptions
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tests.common import TransactionCase, ADMIN_USER_ID, tagged
+from ecommerce import exceptions
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.tests.common import TransactionCase, ADMIN_USER_ID, tagged
 
 _logger = logging.getLogger(__name__)
 

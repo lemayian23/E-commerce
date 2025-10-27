@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=C0326
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo.tests.common import Form
-from odoo import fields, Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form
+from ecommerce import fields, Command
 
 
 @tagged('post_install', '-at_install')
@@ -4349,7 +4349,7 @@ class TestAccountMoveReconcile(AccountTestInvoicingCommon):
         self.assertFalse(caba_transfer_amls.move_id)
 
     def test_reconcile_payment_custom_rate(self):
-        """When reconciling a payment we want to take the accounting rate and not the odoo rate.
+        """When reconciling a payment we want to take the accounting rate and not the ecommerce rate.
         Most likely the payment information are derived from information of the bank, therefore have
         the relevant rate.
         """

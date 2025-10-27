@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import models
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
+from ecommerce import models
+from ecommerce.tools.translate import _
+from ecommerce.exceptions import UserError
 
 
 class AccountDebitNote(models.TransientModel):

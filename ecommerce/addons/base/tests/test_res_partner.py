@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.base.models.ir_mail_server import extract_rfc2822_addresses
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged
+from ecommerce.addons.base.models.ir_mail_server import extract_rfc2822_addresses
+from ecommerce.tests import Form
+from ecommerce.tests.common import TransactionCase
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import tagged
 
 
 @tagged('res_partner')

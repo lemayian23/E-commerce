@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { ormService } from "@web/core/orm_service";
@@ -128,7 +128,7 @@ QUnit.test("can be rendered", async (assert) => {
 });
 
 QUnit.test("display the correct name in debug mode", async (assert) => {
-    patchWithCleanup(odoo, { debug: "1" });
+    patchWithCleanup(ecommerce, { debug: "1" });
     env = await makeTestEnv();
     await mount(UserMenu, target, { env });
     assert.containsOnce(target, "img.o_user_avatar");

@@ -1,4 +1,4 @@
-odoo.define('web_tour.tour', function (require) {
+ecommerce.define('web_tour.tour', function (require) {
 "use strict";
 
 var rootWidget = require('root.widget');
@@ -234,7 +234,7 @@ return session.is_bound.then(function () {
             };
         }
         // helper to start a tour manually (or from a python test with its counterpart start_tour function)
-        odoo.startTour = tour_manager.run.bind(tour_manager);
+        ecommerce.startTour = tour_manager.run.bind(tour_manager);
         return tour_manager;
     });
 });

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { escapeRegExp } from "@web/core/utils/strings";
 import { useService, useAutofocus } from '@web/core/utils/hooks';

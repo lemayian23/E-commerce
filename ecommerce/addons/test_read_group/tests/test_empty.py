@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class TestEmptyDate(common.TransactionCase):

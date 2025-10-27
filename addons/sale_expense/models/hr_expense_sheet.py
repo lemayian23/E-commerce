@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from collections import Counter
 
 from psycopg2.extras import execute_values
 
-from odoo import fields, models, _
+from ecommerce import fields, models, _
 
 
 class HrExpenseSheet(models.Model):

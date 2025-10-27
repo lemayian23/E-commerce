@@ -2,11 +2,11 @@ import json
 import requests
 from unittest.mock import patch, call, MagicMock
 
-from odoo import fields
-from odoo.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
-from odoo.addons.microsoft_calendar.utils.microsoft_event import MicrosoftEvent
-from odoo.addons.microsoft_account.models.microsoft_service import MicrosoftService
-from odoo.tests import TransactionCase
+from ecommerce import fields
+from ecommerce.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCalendarService
+from ecommerce.addons.microsoft_calendar.utils.microsoft_event import MicrosoftEvent
+from ecommerce.addons.microsoft_account.models.microsoft_service import MicrosoftService
+from ecommerce.tests import TransactionCase
 
 
 DEFAULT_TIMEOUT = 20

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.hr_expense.tests.common import TestExpenseCommon
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.hr_expense.tests.common import TestExpenseCommon
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import tagged
 
 
 @tagged('-at_install', 'post_install')

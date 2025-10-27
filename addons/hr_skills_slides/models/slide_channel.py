@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, _
-from odoo.tools import html2plaintext
+from ecommerce import fields, models, _
+from ecommerce.tools import html2plaintext
 
 
 class SlideChannelPartner(models.Model):

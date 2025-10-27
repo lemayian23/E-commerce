@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="cuentas_plantilla" model="account.chart.template">
             <field name="name">Plantilla de cuentas de Honduras (sencilla)</field>
@@ -11,4 +11,4 @@
             <field name="country_id" ref="base.hn"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

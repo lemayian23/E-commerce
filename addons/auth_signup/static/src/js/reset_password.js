@@ -1,4 +1,4 @@
-odoo.define("auth_signup.reset_password", function (require) {
+ecommerce.define("auth_signup.reset_password", function (require) {
     "use strict";
 
     var publicWidget = require("web.public.widget");

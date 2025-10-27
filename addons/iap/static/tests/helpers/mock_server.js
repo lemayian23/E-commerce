@@ -1,4 +1,4 @@
-odoo.define('iap/static/tests/helpers/mock_server.js', function (require) {
+ecommerce.define('iap/static/tests/helpers/mock_server.js', function (require) {
 "use strict";
 
 const MockServer = require('web.MockServer');

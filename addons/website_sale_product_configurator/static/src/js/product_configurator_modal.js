@@ -1,4 +1,4 @@
-odoo.define('website_sale_product_configurator.OptionalProductsModal', function (require) {
+ecommerce.define('website_sale_product_configurator.OptionalProductsModal', function (require) {
     "use strict";
 
 const { OptionalProductsModal } = require('@sale_product_configurator/js/product_configurator_modal');

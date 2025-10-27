@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError
+from ecommerce.exceptions import UserError
 import pytz
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 
-from odoo.tests.common import TransactionCase
+from ecommerce.tests.common import TransactionCase
 from freezegun import freeze_time
 
 

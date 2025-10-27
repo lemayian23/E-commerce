@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.sale.tests.common import SaleCommon
+from ecommerce.addons.sale.tests.common import SaleCommon
 
 
 @tagged('post_install', '-at_install')

@@ -1,4 +1,4 @@
-odoo.define('web.autocomplete.extensions', function () {
+ecommerce.define('web.autocomplete.extensions', function () {
 'use strict';
 
 /**

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { nextTick } from "@web/../tests/helpers/utils";
 import { LoadableDataSource } from "@spreadsheet/data_sources/data_source";

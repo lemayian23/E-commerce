@@ -1,4 +1,4 @@
-odoo.define('stock.reports.setup.tour', function (require) {
+ecommerce.define('stock.reports.setup.tour', function (require) {
     "use strict";
 
     const tour = require('web_tour.tour');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 'use strict';
 
 import './commands/deleteBackward.js';
@@ -168,10 +168,10 @@ export const CLIPBOARD_WHITELISTS = {
         'table-bordered',
         /^padding-/,
         /^shadow/,
-        // Odoo colors
+        // ecommerce colors
         /^text-o-/,
         /^bg-o-/,
-        // Odoo lists
+        // ecommerce lists
         'o_checked',
         'o_checklist',
         'oe-nested',
@@ -213,7 +213,7 @@ function getImageUrl (file) {
         };
     });
 }
-export class OdooEditor extends EventTarget {
+export class ecommerceEditor extends EventTarget {
     constructor(editable, options = {}) {
         super();
 
@@ -312,7 +312,7 @@ export class OdooEditor extends EventTarget {
         editable.oid = 'root';
         this._idToNodeMap.set(1, editable);
         this.editable = editable;
-        this.editable.classList.add("odoo-editor-editable");
+        this.editable.classList.add("ecommerce-editor-editable");
         if (this.options.toSanitize) {
             sanitize(editable);
             this.options.onPostSanitize(editable);
@@ -3800,11 +3800,11 @@ export class OdooEditor extends EventTarget {
         }
         const dataHtmlElement = document.createElement('data');
         dataHtmlElement.append(rangeContent);
-        const odooHtml = dataHtmlElement.innerHTML.replace(/\uFEFF/g, "");
-        const odooText = selection.toString().replace(/\uFEFF/g, "");
-        clipboardEvent.clipboardData.setData('text/plain', odooText);
-        clipboardEvent.clipboardData.setData('text/html', odooHtml);
-        clipboardEvent.clipboardData.setData('text/odoo-editor', odooHtml);
+        const ecommerceHtml = dataHtmlElement.innerHTML.replace(/\uFEFF/g, "");
+        const ecommerceText = selection.toString().replace(/\uFEFF/g, "");
+        clipboardEvent.clipboardData.setData('text/plain', ecommerceText);
+        clipboardEvent.clipboardData.setData('text/html', ecommerceHtml);
+        clipboardEvent.clipboardData.setData('text/ecommerce-editor', ecommerceHtml);
     }
     /**
      * @private
@@ -4131,7 +4131,7 @@ export class OdooEditor extends EventTarget {
         let currentNode = closestElement(selection.anchorNode);
         while (
             !currentNode.classList.contains('o_editable') &&
-            !currentNode.classList.contains('odoo-editor-editable') &&
+            !currentNode.classList.contains('ecommerce-editor-editable') &&
             !selectionInBlockRoot
             ) {
             selectionInBlockRoot = isBlock(currentNode);
@@ -4726,7 +4726,7 @@ export class OdooEditor extends EventTarget {
         ev.preventDefault();
         const sel = this.document.getSelection();
         const files = getImageFiles(ev.clipboardData);
-        const odooEditorHtml = ev.clipboardData.getData('text/odoo-editor');
+        const ecommerceEditorHtml = ev.clipboardData.getData('text/ecommerce-editor');
         const clipboardHtml = ev.clipboardData.getData('text/html');
         const targetSupportsHtmlContent = isHtmlContentSupported(sel.anchorNode);
         // Replace entire link if its label is fully selected.
@@ -4739,8 +4739,8 @@ export class OdooEditor extends EventTarget {
         if (!targetSupportsHtmlContent) {
             const text = ev.clipboardData.getData("text/plain");
             this._applyCommand("insert", text);
-        } else if (odooEditorHtml) {
-            const fragment = parseHTML(odooEditorHtml);
+        } else if (ecommerceEditorHtml) {
+            const fragment = parseHTML(ecommerceEditorHtml);
             const selector = this.options.renderingClasses.map(c => `.${c}`).join(',');
             if (selector) {
                 for (const element of fragment.querySelectorAll(selector)) {

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 
-from odoo import fields
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce import fields
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
 
 
 class TestLivechatCommon(TransactionCaseWithUserDemo):

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <!-- User Demo -->
     <record id="base.user_demo" model="res.users">
@@ -3459,4 +3459,4 @@
         <field name="status">off_track</field>
     </record>
 
-</odoo>
+</ecommerce>

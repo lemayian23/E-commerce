@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models
+from ecommerce import models
 
 
 class UoM(models.Model):

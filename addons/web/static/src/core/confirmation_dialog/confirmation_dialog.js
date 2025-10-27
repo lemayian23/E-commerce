@@ -1,10 +1,10 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { Dialog } from "../dialog/dialog";
 import { _lt } from "../l10n/translation";
 import { useChildRef } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class ConfirmationDialog extends Component {
     setup() {

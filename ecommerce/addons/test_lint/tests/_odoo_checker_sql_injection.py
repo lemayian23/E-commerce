@@ -17,12 +17,12 @@ DFTL_CURSOR_EXPR = [
 ]
 
 
-class OdooBaseChecker(checkers.BaseChecker):
+class ecommerceBaseChecker(checkers.BaseChecker):
     with contextlib.suppress(AttributeError):  # TODO, remove once pylint minimal version is 3.0.0
         __implements__ = interfaces.IAstroidChecker
         # see https://github.com/pylint-dev/pylint/commit/358264aaf622505f6d2e8bc699618382981a078c
 
-    name = 'odoo'
+    name = 'ecommerce'
 
     msgs = {
         'E8501': (
@@ -126,7 +126,7 @@ class OdooBaseChecker(checkers.BaseChecker):
         return node
 
     def _check_sql_injection_risky(self, node):
-        # Inspired from OCA/pylint-odoo project
+        # Inspired from OCA/pylint-ecommerce project
         # Thanks @moylop260 (Moisés López) & @nilshamerlinck (Nils Hamerlinck)
         current_file_bname = os.path.basename(self.linter.current_file)
         if not (
@@ -157,4 +157,4 @@ class OdooBaseChecker(checkers.BaseChecker):
 
 
 def register(linter):
-    linter.register_checker(OdooBaseChecker(linter))
+    linter.register_checker(ecommerceBaseChecker(linter))

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { sortBy } from "@web/core/utils/arrays";
 import { KeepLast, Race } from "@web/core/utils/concurrency";
@@ -543,7 +543,7 @@ export class GraphModel extends Model {
             const { fieldName, interval } = gb;
             const { sortable, type, store } = fields[fieldName];
             if (
-                // many2many is groupable precisely when it is stored (cf. groupable in odoo/fields.py)
+                // many2many is groupable precisely when it is stored (cf. groupable in ecommerce/fields.py)
                 (type === "many2many" ? !store : !sortable) ||
                 ["id", "__count"].includes(fieldName) ||
                 !GROUPABLE_TYPES.includes(type)

@@ -1,4 +1,4 @@
-from odoo import _, models
+from ecommerce import _, models
 
 
 class AccountEdiFormat(models.Model):

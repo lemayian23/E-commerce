@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, datetime
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
-from odoo.exceptions import ValidationError
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.exceptions import ValidationError
 from freezegun import freeze_time
 
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 
 @tagged('global_leaves')
 class TestGlobalLeaves(TestHrHolidaysCommon):

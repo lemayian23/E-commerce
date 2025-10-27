@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { companyService } from "@web/webclient/company_service";
 import { getGraphRenderer } from "@web/../tests/views/graph_view_tests";

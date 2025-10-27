@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "./browser";
 
@@ -48,7 +48,7 @@ export function isMobileOS() {
 }
 
 export function isIosApp() {
-    return /OdooMobile \(iOS\)/i.test(browser.navigator.userAgent);
+    return /ecommerceMobile \(iOS\)/i.test(browser.navigator.userAgent);
 }
 
 export function hasTouch() {

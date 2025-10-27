@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { notificationService } from "@web/core/notifications/notification_service";
@@ -21,7 +21,7 @@ import {
     mockTimeout,
 } from "../helpers/utils";
 
-import { Component, xml, onRendered } from "@odoo/owl";
+import { Component, xml, onRendered } from "@ecommerce/owl";
 
 const systrayRegistry = registry.category("systray");
 const serviceRegistry = registry.category("services");

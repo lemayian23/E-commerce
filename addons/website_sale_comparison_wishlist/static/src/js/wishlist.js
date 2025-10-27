@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import publicWidget from 'web.public.widget';
 import 'website_sale_comparison.comparison';

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 import logging
@@ -9,9 +9,9 @@ from threading import Thread
 import time
 import urllib3
 
-from odoo.modules.module import get_resource_path
-from odoo.addons.hw_drivers.main import iot_devices, manager
-from odoo.addons.hw_drivers.tools import helpers
+from ecommerce.modules.module import get_resource_path
+from ecommerce.addons.hw_drivers.main import iot_devices, manager
+from ecommerce.addons.hw_drivers.tools import helpers
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class ConnectionManager(Thread):
         self.pairing_uuid = False
 
     def run(self):
-        if not helpers.get_odoo_server_url() and not helpers.access_point():
+        if not helpers.get_ecommerce_server_url() and not helpers.access_point():
             end_time = datetime.now() + timedelta(minutes=5)
             while (datetime.now() < end_time):
                 self._connect_box()
@@ -42,7 +42,7 @@ class ConnectionManager(Thread):
 
         try:
             urllib3.disable_warnings()
-            req = requests.post('https://iot-proxy.odoo.com/odoo-enterprise/iot/connect-box', json=data, verify=False)
+            req = requests.post('https://iot-proxy.ecommerce.com/ecommerce-enterprise/iot/connect-box', json=data, verify=False)
             result = req.json().get('result', {})
             if all(key in result for key in ['pairing_code', 'pairing_uuid']):
                 self.pairing_code = result['pairing_code']
@@ -50,7 +50,7 @@ class ConnectionManager(Thread):
             elif all(key in result for key in ['url', 'token', 'db_uuid', 'enterprise_code']):
                 self._connect_to_server(result['url'], result['token'], result['db_uuid'], result['enterprise_code'])
         except Exception:
-            _logger.exception('Could not reach iot-proxy.odoo.com')
+            _logger.exception('Could not reach iot-proxy.ecommerce.com')
 
     def _connect_to_server(self, url, token, db_uuid, enterprise_code):
         # Save DB URL and token
@@ -58,7 +58,7 @@ class ConnectionManager(Thread):
         # Notify the DB, so that the kanban view already shows the IoT Box
         manager.send_alldevices()
         # Restart to checkout the git branch, get a certificate, load the IoT handlers...
-        helpers.odoo_restart(2)
+        helpers.ecommerce_restart(2)
 
     def _refresh_displays(self):
         """Refresh all displays to hide the pairing code"""

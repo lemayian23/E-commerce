@@ -1,4 +1,4 @@
-odoo.define("website.tour.snippets_all_drag_and_drop", async function (require) {
+ecommerce.define("website.tour.snippets_all_drag_and_drop", async function (require) {
 "use strict";
 
 const { WysiwygAdapterComponent } = require('@website/components/wysiwyg_adapter/wysiwyg_adapter');

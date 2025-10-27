@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_slides.tests import common
+from ecommerce.addons.website_slides.tests import common
 
 
 class TestAttendee(common.SlidesCase):

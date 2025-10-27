@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import Counter
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_compare
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.tools.float_utils import float_compare
 
 
 class StockAssignSerialNumbers(models.TransientModel):

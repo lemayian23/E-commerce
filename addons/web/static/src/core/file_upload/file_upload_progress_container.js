@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class FileUploadProgressContainer extends Component {}
 FileUploadProgressContainer.template = "web.FileUploadProgressContainer";

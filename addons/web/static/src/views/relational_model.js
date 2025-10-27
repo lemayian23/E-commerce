@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { makeContext } from "@web/core/context";
@@ -25,7 +25,7 @@ import { Model } from "@web/views/model";
 import { archParseBoolean, evalDomain, isNumeric, isRelational, isX2Many } from "@web/views/utils";
 
 const { DateTime } = luxon;
-import { markRaw, markup, toRaw } from "@odoo/owl";
+import { markRaw, markup, toRaw } from "@ecommerce/owl";
 
 const preloadedDataRegistry = registry.category("preloadedData");
 
@@ -557,7 +557,7 @@ export class Record extends DataPoint {
     // -------------------------------------------------------------------------
 
     /**
-     * To be called **only** when Odoo is about to be closed, and we want to
+     * To be called **only** when ecommerce is about to be closed, and we want to
      * save potential changes on a given record.
      *
      * We can't follow the normal flow (onchange(s) + save, mutexified),

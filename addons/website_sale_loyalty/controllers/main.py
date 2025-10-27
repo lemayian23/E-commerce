@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from odoo import http, _
-from odoo.addons.website_sale.controllers import main
-from odoo.exceptions import UserError, ValidationError
-from odoo.http import request
+from ecommerce import http, _
+from ecommerce.addons.website_sale.controllers import main
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.http import request
 
 from werkzeug.urls import url_encode, url_parse
 
@@ -62,7 +62,7 @@ class WebsiteSale(main.WebsiteSale):
     def activate_coupon(self, code, r='/shop', **kw):
         url_parts = url_parse(r)
         url_query = url_parts.decode_query()
-        url_query.pop('coupon_error', False)  # trust only Odoo error message
+        url_query.pop('coupon_error', False)  # trust only ecommerce error message
         url_query.pop('coupon_error_type', False)
         code = code.strip()
 

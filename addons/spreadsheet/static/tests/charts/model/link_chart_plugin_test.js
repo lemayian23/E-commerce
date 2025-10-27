@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { getBasicData } from "@spreadsheet/../tests/utils/data";
@@ -127,58 +127,58 @@ QUnit.module(
                 const env = await makeTestEnv({ serverData: this.serverData });
                 const model = new Model({}, { evalContext: { env } });
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 1,
+                    ecommerceMenuId: 1,
                 });
                 const exportedData = model.exportData();
                 assert.equal(
-                    exportedData.chartOdooMenusReferences[chartId],
+                    exportedData.chartecommerceMenusReferences[chartId],
                     1,
-                    "Link to odoo menu is exported"
+                    "Link to ecommerce menu is exported"
                 );
                 const importedModel = new Model(exportedData, { evalContext: { env } });
-                const chartMenu = importedModel.getters.getChartOdooMenu(chartId);
-                assert.equal(chartMenu.id, 1, "Link to odoo menu is imported");
+                const chartMenu = importedModel.getters.getChartecommerceMenu(chartId);
+                assert.equal(chartMenu.id, 1, "Link to ecommerce menu is imported");
             }
         );
 
-        QUnit.test("Can undo-redo a LINK_ODOO_MENU_TO_CHART", async function (assert) {
+        QUnit.test("Can undo-redo a LINK_ecommerce_MENU_TO_CHART", async function (assert) {
             const env = await makeTestEnv({ serverData: this.serverData });
             const model = new Model({}, { evalContext: { env } });
             createBasicChart(model, chartId);
-            model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+            model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                 chartId,
-                odooMenuId: 1,
+                ecommerceMenuId: 1,
             });
-            assert.equal(model.getters.getChartOdooMenu(chartId).id, 1);
+            assert.equal(model.getters.getChartecommerceMenu(chartId).id, 1);
             model.dispatch("REQUEST_UNDO");
-            assert.equal(model.getters.getChartOdooMenu(chartId), undefined);
+            assert.equal(model.getters.getChartecommerceMenu(chartId), undefined);
             model.dispatch("REQUEST_REDO");
-            assert.equal(model.getters.getChartOdooMenu(chartId).id, 1);
+            assert.equal(model.getters.getChartecommerceMenu(chartId).id, 1);
         });
 
         QUnit.test("link is removed when figure is deleted", async function (assert) {
             const env = await makeTestEnv({ serverData: this.serverData });
             const model = new Model({}, { evalContext: { env } });
             createBasicChart(model, chartId);
-            model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+            model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                 chartId,
-                odooMenuId: 1,
+                ecommerceMenuId: 1,
             });
-            assert.equal(model.getters.getChartOdooMenu(chartId).id, 1);
+            assert.equal(model.getters.getChartecommerceMenu(chartId).id, 1);
             model.dispatch("DELETE_FIGURE", {
                 sheetId: model.getters.getActiveSheetId(),
                 id: chartId,
             });
-            assert.equal(model.getters.getChartOdooMenu(chartId), undefined);
+            assert.equal(model.getters.getChartecommerceMenu(chartId), undefined);
         });
 
         QUnit.test(
-            "Links of Odoo charts are duplicated when duplicating a sheet",
+            "Links of ecommerce charts are duplicated when duplicating a sheet",
             async function (assert) {
                 const { model } = await createSpreadsheetWithChart({
-                    type: "odoo_pie",
+                    type: "ecommerce_pie",
                     serverData: this.serverData,
                 });
                 const sheetId = model.getters.getActiveSheetId();
@@ -187,8 +187,8 @@ QUnit.module(
                 model.dispatch("DUPLICATE_SHEET", { sheetId, sheetIdTo: secondSheetId });
                 const newChartId = model.getters.getChartIds(secondSheetId)[0];
                 assert.deepEqual(
-                    model.getters.getChartOdooMenu(newChartId),
-                    model.getters.getChartOdooMenu(chartId)
+                    model.getters.getChartecommerceMenu(newChartId),
+                    model.getters.getChartecommerceMenu(chartId)
                 );
             }
         );
@@ -201,15 +201,15 @@ QUnit.module(
                 const sheetId = model.getters.getActiveSheetId();
                 const secondSheetId = "mySecondSheetId";
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 1,
+                    ecommerceMenuId: 1,
                 });
                 model.dispatch("DUPLICATE_SHEET", { sheetId, sheetIdTo: secondSheetId });
                 const newChartId = model.getters.getChartIds(secondSheetId)[0];
                 assert.deepEqual(
-                    model.getters.getChartOdooMenu(newChartId),
-                    model.getters.getChartOdooMenu(chartId)
+                    model.getters.getChartecommerceMenu(newChartId),
+                    model.getters.getChartecommerceMenu(chartId)
                 );
             }
         );

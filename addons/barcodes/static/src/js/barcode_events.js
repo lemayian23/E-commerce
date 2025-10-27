@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * BarcodeEvents has been removed and replaced by the barcode service.

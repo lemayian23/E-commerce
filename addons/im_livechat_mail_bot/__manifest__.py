@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'OdooBot for livechat',
+    'name': 'ecommerceBot for livechat',
     'version': '1.0',
     'category': 'Productivity/Discuss',
-    'summary': 'Add livechat support for OdooBot',
-    'website': 'https://www.odoo.com/app/discuss',
+    'summary': 'Add livechat support for ecommerceBot',
+    'website': 'https://www.ecommerce.com/app/discuss',
     'depends': ['mail_bot', 'im_livechat'],
     'installable': True,
     'auto_install': True,

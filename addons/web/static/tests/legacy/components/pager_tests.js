@@ -1,4 +1,4 @@
-odoo.define('web.pager_tests', function (require) {
+ecommerce.define('web.pager_tests', function (require) {
     "use strict";
 
     const Pager = require('web.Pager');

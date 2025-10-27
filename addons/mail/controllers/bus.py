@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import SUPERUSER_ID, tools
-from odoo.http import request, route
-from odoo.addons.bus.controllers.main import BusController
+from ecommerce import SUPERUSER_ID, tools
+from ecommerce.http import request, route
+from ecommerce.addons.bus.controllers.main import BusController
 
 
 class MailChatController(BusController):

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class Tooltip extends Component {}
 Tooltip.template = "web.Tooltip";

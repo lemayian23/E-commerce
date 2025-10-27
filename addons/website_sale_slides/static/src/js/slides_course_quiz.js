@@ -1,4 +1,4 @@
-odoo.define('website_sale_slides.quiz', function (require) {
+ecommerce.define('website_sale_slides.quiz', function (require) {
 "use strict";
 
 const {websiteSlidesQuizNoFullscreen} = require('@website_slides/js/slides_course_quiz');

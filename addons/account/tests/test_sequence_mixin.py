@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo.tests.common import Form, TransactionCase
-from odoo import fields, api, SUPERUSER_ID, Command
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools import mute_logger
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form, TransactionCase
+from ecommerce import fields, api, SUPERUSER_ID, Command
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.tools import mute_logger
 
 from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
@@ -263,7 +263,7 @@ class TestSequenceMixin(TestSequenceMixinCommon):
         copy2.journal_id = new_journal
         self.assertEqual(copy2.name, 'MISC2/2016/01/0001')
         with Form(copy2) as move_form:  # It is editable in the form
-            with mute_logger('odoo.tests.common.onchange'):
+            with mute_logger('ecommerce.tests.common.onchange'):
                 move_form.name = 'MyMISC/2016/0001'
                 self.assertIn(
                     'The sequence will restart at 1 at the start of every year',
@@ -273,7 +273,7 @@ class TestSequenceMixin(TestSequenceMixinCommon):
             self.assertEqual(move_form.name, '/')
             move_form.journal_id = new_journal
             self.assertEqual(move_form.name, 'MISC2/2016/01/0001')
-            with mute_logger('odoo.tests.common.onchange'):
+            with mute_logger('ecommerce.tests.common.onchange'):
                 move_form.name = 'MyMISC/2016/0001'
                 self.assertIn(
                     'The sequence will restart at 1 at the start of every year',
@@ -498,7 +498,7 @@ class TestSequenceMixin(TestSequenceMixinCommon):
         self.assertEqual(copies[5].name, 'XMISC/2019/00004')
 
         # Can't have twice the same name
-        with self.assertRaises(psycopg2.DatabaseError), mute_logger('odoo.sql_db'), self.env.cr.savepoint():
+        with self.assertRaises(psycopg2.DatabaseError), mute_logger('ecommerce.sql_db'), self.env.cr.savepoint():
             copies[0].name = 'XMISC/2019/00001'
 
         # Lets remove the order by date

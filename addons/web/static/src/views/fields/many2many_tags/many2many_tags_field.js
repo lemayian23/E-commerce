@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { CheckBox } from "@web/core/checkbox/checkbox";
@@ -16,7 +16,7 @@ import { TagsList } from "./tags_list";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@ecommerce/owl";
 
 class Many2ManyTagsFieldColorListPopover extends Component {}
 Many2ManyTagsFieldColorListPopover.template = "web.Many2ManyTagsFieldColorListPopover";

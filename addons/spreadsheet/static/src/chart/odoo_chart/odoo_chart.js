@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import ChartDataSource from "../data_source/chart_data_source";
@@ -17,7 +17,7 @@ const { AbstractChart, CommandResult } = spreadsheet;
  * @property {string} resModel
  * @property {boolean} stacked
  *
- * @typedef OdooChartDefinition
+ * @typedef ecommerceChartDefinition
  * @property {string} type
  * @property {MetaData} metaData
  * @property {SearchParams} searchParams
@@ -25,15 +25,15 @@ const { AbstractChart, CommandResult } = spreadsheet;
  * @property {string} background
  * @property {string} legendPosition
  *
- * @typedef OdooChartDefinitionDataSource
+ * @typedef ecommerceChartDefinitionDataSource
  * @property {MetaData} metaData
  * @property {SearchParams} searchParams
  *
  */
 
-export class OdooChart extends AbstractChart {
+export class ecommerceChart extends AbstractChart {
     /**
-     * @param {OdooChartDefinition} definition
+     * @param {ecommerceChartDefinition} definition
      * @param {string} sheetId
      * @param {Object} getters
      */
@@ -56,24 +56,24 @@ export class OdooChart extends AbstractChart {
     }
 
     static getDefinitionFromContextCreation() {
-        throw new Error("It's not possible to convert an Odoo chart to a native chart");
+        throw new Error("It's not possible to convert an ecommerce chart to a native chart");
     }
 
     /**
-     * @returns {OdooChartDefinitionDataSource}
+     * @returns {ecommerceChartDefinitionDataSource}
      */
     getDefinitionForDataSource() {
         return {
             metaData: {
                 ...this.metaData,
-                mode: this.type.replace("odoo_", ""),
+                mode: this.type.replace("ecommerce_", ""),
             },
             searchParams: this.searchParams,
         };
     }
 
     /**
-     * @returns {OdooChartDefinition}
+     * @returns {ecommerceChartDefinition}
      */
     getDefinition() {
         return {
@@ -93,7 +93,7 @@ export class OdooChart extends AbstractChart {
     }
 
     /**
-     * @returns {OdooChart}
+     * @returns {ecommerceChart}
      */
     updateRanges() {
         // No range on this graph
@@ -101,14 +101,14 @@ export class OdooChart extends AbstractChart {
     }
 
     /**
-     * @returns {OdooChart}
+     * @returns {ecommerceChart}
      */
     copyForSheetId() {
         return this;
     }
 
     /**
-     * @returns {OdooChart}
+     * @returns {ecommerceChart}
      */
     copyInSheetId() {
         return this;

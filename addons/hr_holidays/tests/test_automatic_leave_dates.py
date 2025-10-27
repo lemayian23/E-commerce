@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from datetime import date, datetime
 
-from odoo.tests.common import Form
+from ecommerce.tests.common import Form
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
-from odoo.exceptions import ValidationError
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.exceptions import ValidationError
 
 
 class TestAutomaticLeaveDates(TestHrHolidaysCommon):

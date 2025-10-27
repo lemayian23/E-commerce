@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useBus, useService } from "@web/core/utils/hooks";
 import { SEARCH_KEYS } from "@web/search/with_search/with_search";
 import { buildSampleORM } from "@web/views/sample_server";
 import { useSetupView } from "@web/views/view_hook";
 
-import { EventBus, onMounted, onWillStart, onWillUpdateProps, status, useComponent } from "@odoo/owl";
+import { EventBus, onMounted, onWillStart, onWillUpdateProps, status, useComponent } from "@ecommerce/owl";
 
 /**
  * @typedef {import("@web/search/search_model").SearchParams} SearchParams

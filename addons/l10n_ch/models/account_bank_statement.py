@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.addons.l10n_ch.models.res_bank import _is_l10n_ch_postal
-from odoo.tools.misc import str2bool
+from ecommerce import models, fields, api, _
+from ecommerce.addons.l10n_ch.models.res_bank import _is_l10n_ch_postal
+from ecommerce.tools.misc import str2bool
 
 
 class AccountBankStatementLine(models.Model):

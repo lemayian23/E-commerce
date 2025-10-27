@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { getActiveHotkey } from "@web/core/hotkeys/hotkey_service";
@@ -20,7 +20,7 @@ import {
     useRef,
     useEffect,
     useSubEnv,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 const MAPPING = {
     filter: FilterMenu,

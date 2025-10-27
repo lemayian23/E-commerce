@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo.tests
-from odoo.tests import HttpCase
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+import ecommerce.tests
+from ecommerce.tests import HttpCase
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestSitemap(HttpCase):
 
     def setUp(self):

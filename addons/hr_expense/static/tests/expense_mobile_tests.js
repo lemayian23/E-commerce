@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { getFixture, nextTick } from "@web/../tests/helpers/utils";

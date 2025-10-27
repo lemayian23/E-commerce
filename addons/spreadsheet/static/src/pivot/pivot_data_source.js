@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from "@web/core/l10n/translation";
-import { OdooViewsDataSource } from "../data_sources/odoo_views_data_source";
+import { ecommerceViewsDataSource } from "../data_sources/ecommerce_views_data_source";
 import { SpreadsheetPivotModel } from "./pivot_model";
 import { omit } from "@web/core/utils/objects";
 
-export default class PivotDataSource extends OdooViewsDataSource {
+export default class PivotDataSource extends ecommerceViewsDataSource {
     /**
      *
      * @override

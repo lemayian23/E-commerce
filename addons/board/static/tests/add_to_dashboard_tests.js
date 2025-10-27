@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { addToBoardItem } from "@board/add_to_board/add_to_board";
 import {

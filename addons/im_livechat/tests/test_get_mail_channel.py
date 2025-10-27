@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 from freezegun import freeze_time
 
-from odoo import fields
-from odoo.addons.im_livechat.tests.common import TestImLivechatCommon
+from ecommerce import fields
+from ecommerce.addons.im_livechat.tests.common import TestImLivechatCommon
 
 
 class TestGetMailChannel(TestImLivechatCommon):

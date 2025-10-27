@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { makeEnv, startServices } from "@web/env";
@@ -88,14 +88,14 @@ export const utils = {
 };
 
 /**
- * @typedef {import("@web/env").OdooEnv} OdooEnv
+ * @typedef {import("@web/env").ecommerceEnv} ecommerceEnv
  */
 
 /**
  * Create a test environment
  *
  * @param {*} config
- * @returns {Promise<OdooEnv>}
+ * @returns {Promise<ecommerceEnv>}
  */
 export async function makeTestEnv(config = {}) {
     // add all missing dependencies if necessary

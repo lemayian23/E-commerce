@@ -1,4 +1,4 @@
-odoo.define('payment_custom.post_processing', require => {
+ecommerce.define('payment_custom.post_processing', require => {
     'use strict';
 
     const paymentPostProcessing = require('payment.post_processing');

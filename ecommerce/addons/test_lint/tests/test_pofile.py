@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import Counter
 
-from odoo.modules import get_modules, get_resource_path
-from odoo.tests.common import TransactionCase
-from odoo.tools.translate import TranslationFileReader
+from ecommerce.modules import get_modules, get_resource_path
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools.translate import TranslationFileReader
 
 
 class PotLinter(TransactionCase):

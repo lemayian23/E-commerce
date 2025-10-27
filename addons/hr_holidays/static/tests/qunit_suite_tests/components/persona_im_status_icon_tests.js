@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { UPDATE_BUS_PRESENCE_DELAY } from '@bus/im_status_service';
 

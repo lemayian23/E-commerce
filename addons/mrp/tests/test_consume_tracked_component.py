@@ -1,5 +1,5 @@
-from odoo.tests import tagged
-from odoo.addons.mrp.tests.common_consume_tracked_component import TestConsumeTrackedComponentCommon
+from ecommerce.tests import tagged
+from ecommerce.addons.mrp.tests.common_consume_tracked_component import TestConsumeTrackedComponentCommon
 
 @tagged('post_install', '-at_install')
 class TestConsumeTrackedComponent(TestConsumeTrackedComponentCommon):

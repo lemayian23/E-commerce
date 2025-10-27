@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _lt } from "@web/core/l10n/translation";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -11,7 +11,7 @@ const { cellMenuRegistry, uiPluginRegistry } = spreadsheet.registries;
 const { astToFormula } = spreadsheet;
 const { toString, toBoolean } = spreadsheet.helpers;
 
-uiPluginRegistry.add("odooAccountingAggregates", AccountingPlugin);
+uiPluginRegistry.add("ecommerceAccountingAggregates", AccountingPlugin);
 
 cellMenuRegistry.add("move_lines_see_records", {
     name: _lt("See records"),

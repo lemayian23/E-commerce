@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 
 from collections import defaultdict
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv import expression
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
 
 
 class LunchProduct(models.Model):

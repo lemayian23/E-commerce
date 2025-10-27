@@ -1,4 +1,4 @@
-odoo.define('web.DatePickerOwl', function (require) {
+ecommerce.define('web.DatePickerOwl', function (require) {
     "use strict";
 
     const config = require('web.config');

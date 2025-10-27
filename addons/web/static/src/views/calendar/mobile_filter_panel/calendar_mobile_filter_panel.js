@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 import { getColor } from "../colors";
 
 export class CalendarMobileFilterPanel extends Component {

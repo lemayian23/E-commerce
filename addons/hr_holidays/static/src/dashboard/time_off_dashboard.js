@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { TimeOffCard } from './time_off_card';
 import { useBus, useService } from "@web/core/utils/hooks";

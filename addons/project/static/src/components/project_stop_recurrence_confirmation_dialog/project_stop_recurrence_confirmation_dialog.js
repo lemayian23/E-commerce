@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { ConfirmationDialog } from '@web/core/confirmation_dialog/confirmation_dialog';
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
 
 class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'

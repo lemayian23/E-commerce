@@ -1,4 +1,4 @@
-odoo.define('pos_loyalty.PartnerListScreen', function (require) {
+ecommerce.define('pos_loyalty.PartnerListScreen', function (require) {
     'use strict';
 
     const PartnerListScreen = require('point_of_sale.PartnerListScreen');

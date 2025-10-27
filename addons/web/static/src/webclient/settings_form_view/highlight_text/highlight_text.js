@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { escapeRegExp } from "@web/core/utils/strings";
 
-import { Component, useState, onWillRender } from "@odoo/owl";
+import { Component, useState, onWillRender } from "@ecommerce/owl";
 
 export class HighlightText extends Component {
     setup() {

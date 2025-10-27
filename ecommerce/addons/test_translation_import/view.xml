@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
 
         <record id="action_test_translation_import_model1" model="ir.actions.act_window">
@@ -17,4 +17,4 @@
             action="action_test_translation_import_model1"
             parent="menu_test_translation_import"/>
     </data>
-</odoo>
+</ecommerce>

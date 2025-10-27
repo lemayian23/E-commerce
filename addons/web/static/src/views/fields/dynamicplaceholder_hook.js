@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useUniquePopover } from "@web/core/model_field_selector/unique_popover_hook";
 import { useModelField } from "@web/core/model_field_selector/model_field_hook";

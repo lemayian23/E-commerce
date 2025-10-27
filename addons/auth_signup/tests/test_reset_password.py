@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests.common import HttpCase
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests.common import HttpCase
 from werkzeug.urls import url_parse
 
 

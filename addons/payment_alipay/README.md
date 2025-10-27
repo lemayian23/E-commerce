@@ -17,10 +17,10 @@ submission provided by the `payment` module.
 ## Module history
 
 - `16.0`
-  - The module is deprecated and can no longer be installed from the web client. odoo/odoo#99025
+  - The module is deprecated and can no longer be installed from the web client. ecommerce/ecommerce#99025
 - `15.2`
   - Webhook notifications that cannot be processed are discarded to prevent automatic disabling of
-    the webhook. odoo/odoo#81607
+    the webhook. ecommerce/ecommerce#81607
 
 ## Testing instructions
 

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { click, nextTick, patchWithCleanup } from "@web/../tests/helpers/utils";
 import { session } from "@web/session";
@@ -162,7 +162,7 @@ QUnit.module(
 
     () => {
         QUnit.test(
-            "icon external link isn't on the chart when its not linked to an odoo menu",
+            "icon external link isn't on the chart when its not linked to an ecommerce menu",
             async function (assert) {
                 const model = await createModelWithDataSource({
                     serverData: this.serverData,
@@ -170,8 +170,8 @@ QUnit.module(
                 const fixture = await mountSpreadsheet(model);
                 createBasicChart(model, chartId);
                 await nextTick();
-                const odooMenu = model.getters.getChartOdooMenu(chartId);
-                assert.equal(odooMenu, undefined, "No menu linked with the chart");
+                const ecommerceMenu = model.getters.getChartecommerceMenu(chartId);
+                assert.equal(ecommerceMenu, undefined, "No menu linked with the chart");
 
                 const externalRefIcon = fixture.querySelector(".o-chart-external-link");
                 assert.equal(externalRefIcon, null);
@@ -179,19 +179,19 @@ QUnit.module(
         );
 
         QUnit.test(
-            "icon external link is on the chart when its linked to an odoo menu",
+            "icon external link is on the chart when its linked to an ecommerce menu",
             async function (assert) {
                 const model = await createModelWithDataSource({
                     serverData: this.serverData,
                 });
                 const fixture = await mountSpreadsheet(model);
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 1,
+                    ecommerceMenuId: 1,
                 });
-                const chartMenu = model.getters.getChartOdooMenu(chartId);
-                assert.equal(chartMenu.id, 1, "Odoo menu is linked to chart");
+                const chartMenu = model.getters.getChartecommerceMenu(chartId);
+                assert.equal(chartMenu.id, 1, "ecommerce menu is linked to chart");
                 await nextTick();
                 const externalRefIcon = fixture.querySelector(".o-chart-external-link");
                 assert.ok(externalRefIcon);
@@ -199,18 +199,18 @@ QUnit.module(
         );
 
         QUnit.test(
-            "icon external link is not on the chart when its linked to a wrong odoo menu",
+            "icon external link is not on the chart when its linked to a wrong ecommerce menu",
             async function (assert) {
                 const model = await createModelWithDataSource({
                     serverData: this.serverData,
                 });
                 const fixture = await mountSpreadsheet(model);
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: "menu which does not exist",
+                    ecommerceMenuId: "menu which does not exist",
                 });
-                const chartMenu = model.getters.getChartOdooMenu(chartId);
+                const chartMenu = model.getters.getChartecommerceMenu(chartId);
                 assert.equal(chartMenu, undefined, "cannot get a wrong menu");
                 await nextTick();
                 assert.containsNone(fixture, ".o-chart-external-link");
@@ -225,12 +225,12 @@ QUnit.module(
                 });
                 const fixture = await mountSpreadsheet(model);
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 1,
+                    ecommerceMenuId: 1,
                 });
-                const chartMenu = model.getters.getChartOdooMenu(chartId);
-                assert.equal(chartMenu.id, 1, "Odoo menu is linked to chart");
+                const chartMenu = model.getters.getChartecommerceMenu(chartId);
+                assert.equal(chartMenu.id, 1, "ecommerce menu is linked to chart");
                 model.updateMode("dashboard");
                 await nextTick();
                 assert.containsNone(fixture, ".o-chart-external-link", "No link icon in dashboard");
@@ -238,7 +238,7 @@ QUnit.module(
         );
 
         QUnit.test(
-            "click on icon external link on chart redirect to the odoo menu",
+            "click on icon external link on chart redirect to the ecommerce menu",
             async function (assert) {
                 const doActionStep = "doAction";
                 mockActionService(assert, doActionStep);
@@ -249,12 +249,12 @@ QUnit.module(
                 const fixture = await mountSpreadsheet(model);
 
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 2,
+                    ecommerceMenuId: 2,
                 });
-                const chartMenu = model.getters.getChartOdooMenu(chartId);
-                assert.equal(chartMenu.id, 2, "Odoo menu is linked to chart");
+                const chartMenu = model.getters.getChartecommerceMenu(chartId);
+                assert.equal(chartMenu.id, 2, "ecommerce menu is linked to chart");
                 await nextTick();
 
                 await clickChartExternalLink(fixture);
@@ -264,7 +264,7 @@ QUnit.module(
         );
 
         QUnit.test(
-            "Click on chart in dashboard mode redirect to the odoo menu",
+            "Click on chart in dashboard mode redirect to the ecommerce menu",
             async function (assert) {
                 const doActionStep = "doAction";
                 mockActionService(assert, doActionStep);
@@ -274,12 +274,12 @@ QUnit.module(
                 const fixture = await mountSpreadsheet(model);
 
                 createBasicChart(model, chartId);
-                model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+                model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                     chartId,
-                    odooMenuId: 2,
+                    ecommerceMenuId: 2,
                 });
-                const chartMenu = model.getters.getChartOdooMenu(chartId);
-                assert.equal(chartMenu.id, 2, "Odoo menu is linked to chart");
+                const chartMenu = model.getters.getChartecommerceMenu(chartId);
+                assert.equal(chartMenu.id, 2, "ecommerce menu is linked to chart");
                 await nextTick();
 
                 await click(fixture, ".o-chart-container");
@@ -290,7 +290,7 @@ QUnit.module(
                 await click(fixture, ".o-chart-container");
                 assert.verifySteps(
                     [doActionStep],
-                    "Clicking on a chart while on dashboard mode redirect to the odoo menu"
+                    "Clicking on a chart while on dashboard mode redirect to the ecommerce menu"
                 );
             }
         );
@@ -322,9 +322,9 @@ QUnit.module(
             const fixture = await mountSpreadsheet(model);
 
             createBasicChart(model, chartId);
-            model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+            model.dispatch("LINK_ecommerce_MENU_TO_CHART", {
                 chartId,
-                odooMenuId: "documents_spreadsheet.test.menu2",
+                ecommerceMenuId: "documents_spreadsheet.test.menu2",
             });
             await nextTick();
 

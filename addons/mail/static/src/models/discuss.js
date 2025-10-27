@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, one } from '@mail/model/model_field';
@@ -67,7 +67,7 @@ registerModel({
             });
             const escapedValue = escape(req.term);
             // XDU FIXME could use a component but be careful with owl's
-            // renderToString https://github.com/odoo/owl/issues/708
+            // renderToString https://github.com/ecommerce/owl/issues/708
             items.push({
                 create: true,
                 escapedValue,

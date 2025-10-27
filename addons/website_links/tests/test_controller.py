@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import tagged
-from odoo.tests.common import HttpCase
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests import tagged
+from ecommerce.tests.common import HttpCase
 
 
 @tagged('post_install', '-at_install')

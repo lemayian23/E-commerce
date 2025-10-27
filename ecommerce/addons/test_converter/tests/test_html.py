@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import datetime
 import os
 import re
 
-from odoo.tests import common
-from odoo.tools import html_escape as e
+from ecommerce.tests import common
+from ecommerce.tools import html_escape as e
 
 directory = os.path.dirname(__file__)
 

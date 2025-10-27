@@ -1,4 +1,4 @@
-odoo.define('web_kanban_gauge.gauge_tests', function (require) {
+ecommerce.define('web_kanban_gauge.gauge_tests', function (require) {
 "use strict";
 
 var KanbanView = require('web.KanbanView');

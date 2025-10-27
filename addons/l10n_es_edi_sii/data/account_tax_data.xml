@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="l10n_es.account_tax_template_s_iva21b" model="account.tax.template">
         <field name="l10n_es_type">sujeto</field>
         <field name="tax_scope">consu</field>
@@ -443,4 +443,4 @@
     <record id="l10n_es.account_tax_template_p_irpfnrue19p" model="account.tax.template">
         <field name="l10n_es_type">retencion</field>
     </record>
-</odoo>
+</ecommerce>

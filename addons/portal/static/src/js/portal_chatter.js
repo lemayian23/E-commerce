@@ -1,4 +1,4 @@
-odoo.define('portal.chatter', function (require) {
+ecommerce.define('portal.chatter', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -133,7 +133,7 @@ var PortalChatter = publicWidget.Widget.extend({
         const defaultOptions = Object.assign({
             'allow_composer': true,
             'display_composer': false,
-            'csrf_token': odoo.csrf_token,
+            'csrf_token': ecommerce.csrf_token,
             'message_count': 0,
             'pager_step': 10,
             'pager_scope': 5,

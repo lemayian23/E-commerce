@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { makeContext } from "@web/core/context";
@@ -18,7 +18,7 @@ import { useSetupView } from "@web/views/view_hook";
 import { hasTouch } from "@web/core/browser/feature_detection";
 import { FormStatusIndicator } from "./form_status_indicator/form_status_indicator";
 
-import { Component, onWillStart, useEffect, useRef, onRendered, useState } from "@odoo/owl";
+import { Component, onWillStart, useEffect, useRef, onRendered, useState } from "@ecommerce/owl";
 
 const viewRegistry = registry.category("views");
 

@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { _lt } from "@web/core/l10n/translation";
 import { Field } from "@web/views/fields/field";
 import { useAutofocus } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class ListConfirmationDialog extends Component {
     setup() {

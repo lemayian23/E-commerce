@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ Domain expression processing
 
@@ -122,9 +122,9 @@ from datetime import date, datetime, time
 
 from psycopg2.sql import Composable, SQL
 
-import odoo.modules
+import ecommerce.modules
 from ..models import BaseModel
-from odoo.tools import pycompat, Query, _generate_table_alias, sql
+from ecommerce.tools import pycompat, Query, _generate_table_alias, sql
 
 
 # Domain operators.
@@ -417,7 +417,7 @@ def _unaccent_wrapper(x):
     return 'unaccent({})'.format(x)
 
 def get_unaccent_wrapper(cr):
-    if odoo.registry(cr.dbname).has_unaccent:
+    if ecommerce.registry(cr.dbname).has_unaccent:
         return _unaccent_wrapper
     return lambda x: x
 

@@ -2,13 +2,13 @@ import base64
 
 from unittest.mock import patch
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.test_mail.models.mail_test_access import MailTestAccess
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.addons.test_mail.models.test_mail_models import MailTestSimple
-from odoo.exceptions import AccessError
-from odoo.tools import mute_logger
-from odoo.tests import tagged
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.test_mail.models.mail_test_access import MailTestAccess
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.addons.test_mail.models.test_mail_models import MailTestSimple
+from ecommerce.exceptions import AccessError
+from ecommerce.tools import mute_logger
+from ecommerce.tests import tagged
 
 
 class MessageAccessCommon(TestMailCommon):
@@ -67,7 +67,7 @@ class MessageAccessCommon(TestMailCommon):
 @tagged('mail_message', 'security', 'post_install', '-at_install')
 class TestMailMessageAccess(MessageAccessCommon):
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.addons.base.models.ir_rule')
     def test_assert_initial_values(self):
         """ Just ensure tests data """
         for record in (
@@ -138,7 +138,7 @@ class TestMailMessageAccess(MessageAccessCommon):
     #  - notified of parent message
     # ------------------------------------------------------------
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_access_create(self):
         """ Test 'group_user' creation rules """
         # prepare 'notified of parent' condition
@@ -242,7 +242,7 @@ class TestMailMessageAccess(MessageAccessCommon):
                             'body': 'Test',
                         })
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_access_create_portal(self):
         """ Test group_portal creation rules """
         # prepare 'notified of parent' condition
@@ -296,7 +296,7 @@ class TestMailMessageAccess(MessageAccessCommon):
                 'body': 'Test',
             })
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.addons.base.models.ir_rule')
     def test_access_create_public(self):
         """ Public can never create messages """
         for record in [
@@ -313,7 +313,7 @@ class TestMailMessageAccess(MessageAccessCommon):
                         'body': 'Test',
                     })
 
-    @mute_logger('odoo.tests')
+    @mute_logger('ecommerce.tests')
     def test_access_create_wo_parent_access(self):
         """ Purpose is to test posting a message on a record whose first message / parent
         is not accessible by current user. This cause issues notably when computing
@@ -585,7 +585,7 @@ class TestMailMessageAccess(MessageAccessCommon):
                 if msg_vals:
                     msg.write(original_vals)
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_access_write_envelope(self):
         """ Test updating message envelope require some privileges """
         message = self.record_internal.with_user(self.user_employee).message_ids[0]
@@ -602,7 +602,7 @@ class TestMailMessageAccess(MessageAccessCommon):
             (0, 0, {'res_partner_id': self.user_portal_2.partner_id.id})
         ]})
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_access_write_portal_notification(self):
         """ Test updating message notification content as portal user """
         self.record_followers.message_subscribe(self.user_portal.partner_id.ids)
@@ -714,7 +714,7 @@ class TestMessageSubModelAccess(MessageAccessCommon):
         # Test: Employee has access to attachment, ok because they can read message
         attachment.with_user(self.user_employee).read(['name', 'datas'])
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.addons.base.models.ir_rule')
     def test_mail_follower(self):
         """ Read access check on sub entities of mail.message """
         internal_record = self.record_internal.with_user(self.user_employee)
@@ -735,7 +735,7 @@ class TestMessageSubModelAccess(MessageAccessCommon):
             follower.write({'partner_id': self.user_admin.partner_id.id})
         follower.with_user(self.user_admin).write({'partner_id': self.user_admin.partner_id.id})
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_mail_notification(self):
         """ Limit update of notifications for internal users """
         internal_record = self.record_internal.with_user(self.user_admin)

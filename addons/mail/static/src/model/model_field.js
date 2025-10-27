@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { clear, FieldCommand, link, unlink, unlinkAll } from '@mail/model/model_field_command';
 import { IS_RECORD } from '@mail/model/model_core';

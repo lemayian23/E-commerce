@@ -1,8 +1,8 @@
-odoo.define("web.web_client", function () {
+ecommerce.define("web.web_client", function () {
     return {};
 });
 
-odoo.define("web.pseudo_web_client", function (require) {
+ecommerce.define("web.pseudo_web_client", function (require) {
     const FakeWebClient = require("web.web_client");
 
     function makeLegacyWebClientService(legacyEnv) {

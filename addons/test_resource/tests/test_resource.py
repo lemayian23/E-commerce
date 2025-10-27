@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, datetime
 from freezegun import freeze_time
 from pytz import timezone, utc
 
-from odoo import fields
-from odoo.exceptions import ValidationError
-from odoo.addons.resource.models.resource import Intervals, sum_intervals
-from odoo.addons.test_resource.tests.common import TestResourceCommon
-from odoo.tests.common import TransactionCase
+from ecommerce import fields
+from ecommerce.exceptions import ValidationError
+from ecommerce.addons.resource.models.resource import Intervals, sum_intervals
+from ecommerce.addons.test_resource.tests.common import TestResourceCommon
+from ecommerce.tests.common import TransactionCase
 
 
 def datetime_tz(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None):

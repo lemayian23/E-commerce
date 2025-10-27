@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import AccessError, ValidationError
-from odoo.tests.common import TransactionCase
-from odoo.tools import mute_logger
-from odoo import Command
+from ecommerce.exceptions import AccessError, ValidationError
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools import mute_logger
+from ecommerce import Command
 
 
 class TestRules(TransactionCase):
@@ -31,7 +31,7 @@ class TestRules(TransactionCase):
             'domain_force': "[('categ_id', 'in', user.env['test_access_right.obj_categ'].search([]).ids)]"
         })
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_basic_access(self):
         env = self.env(user=self.browse_ref('base.public_user'))
 
@@ -48,7 +48,7 @@ class TestRules(TransactionCase):
         with self.assertRaises(AccessError):
             self.assertEqual(browse2.val, -1)
 
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_group_rule(self):
         env = self.env(user=self.browse_ref('base.public_user'))
 

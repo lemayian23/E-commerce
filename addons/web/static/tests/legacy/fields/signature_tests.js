@@ -1,4 +1,4 @@
-odoo.define('web.signature_field_tests', function (require) {
+ecommerce.define('web.signature_field_tests', function (require) {
 "use strict";
 
 var FormView = require('web.FormView');

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError, ValidationError
-from odoo.tests.common import TransactionCase, Form
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tests.common import TransactionCase, Form
 
 
 class TestMultiCompany(TransactionCase):

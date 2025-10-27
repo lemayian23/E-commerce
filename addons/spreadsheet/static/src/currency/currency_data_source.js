@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from "@web/core/l10n/translation";
 import { ServerData } from "../data_sources/server_data";

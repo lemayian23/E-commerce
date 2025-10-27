@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from random import randint
 
-from odoo import api, fields, models, tools, SUPERUSER_ID
-from odoo.exceptions import AccessError, UserError
-from odoo.tools import Query
-from odoo.tools.translate import _
+from ecommerce import api, fields, models, tools, SUPERUSER_ID
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tools import Query
+from ecommerce.tools.translate import _
 
 from dateutil.relativedelta import relativedelta
 

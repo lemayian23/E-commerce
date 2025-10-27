@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "../../o_spreadsheet/o_spreadsheet_extended";
 import { getFirstListFunction } from "../list_helpers";
@@ -34,21 +34,21 @@ export default class ListUIPlugin extends spreadsheet.UIPlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "SELECT_ODOO_LIST":
+            case "SELECT_ecommerce_LIST":
                 this._selectList(cmd.listId);
                 break;
-            case "REMOVE_ODOO_LIST":
+            case "REMOVE_ecommerce_LIST":
                 if (cmd.listId === this.selectedListId) {
                     this.selectedListId = undefined;
                 }
                 break;
-            case "REFRESH_ODOO_LIST":
-                this._refreshOdooList(cmd.listId);
+            case "REFRESH_ecommerce_LIST":
+                this._refreshecommerceList(cmd.listId);
                 break;
             case "REFRESH_ALL_DATA_SOURCES":
-                this._refreshOdooLists();
+                this._refreshecommerceLists();
                 break;
-            case "UPDATE_ODOO_LIST_DOMAIN":
+            case "UPDATE_ecommerce_LIST_DOMAIN":
                 this._addDomain(cmd.listId);
                 break;
             case "ADD_GLOBAL_FILTER":
@@ -66,7 +66,7 @@ export default class ListUIPlugin extends spreadsheet.UIPlugin {
                             "ADD_GLOBAL_FILTER",
                             "EDIT_GLOBAL_FILTER",
                             "REMOVE_GLOBAL_FILTER",
-                            "UPDATE_ODOO_LIST_DOMAIN",
+                            "UPDATE_ecommerce_LIST_DOMAIN",
                         ].includes(command.type)
                     )
                 ) {
@@ -118,16 +118,16 @@ export default class ListUIPlugin extends spreadsheet.UIPlugin {
      * Refresh the cache of a list
      * @param {string} listId Id of the list
      */
-    _refreshOdooList(listId) {
+    _refreshecommerceList(listId) {
         this.getters.getListDataSource(listId).load({ reload: true });
     }
 
     /**
      * Refresh the cache of all the lists
      */
-    _refreshOdooLists() {
+    _refreshecommerceLists() {
         for (const listId of this.getters.getListIds()) {
-            this._refreshOdooList(listId);
+            this._refreshecommerceList(listId);
         }
     }
 

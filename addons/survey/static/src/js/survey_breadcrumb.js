@@ -1,4 +1,4 @@
-odoo.define('survey.breadcrumb', function (require) {
+ecommerce.define('survey.breadcrumb', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

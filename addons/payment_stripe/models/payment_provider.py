@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import uuid
@@ -6,13 +6,13 @@ import uuid
 import requests
 from werkzeug.urls import url_encode, url_join, url_parse
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
 
-from odoo.addons.payment_stripe import utils as stripe_utils
-from odoo.addons.payment_stripe import const
-from odoo.addons.payment_stripe.controllers.onboarding import OnboardingController
-from odoo.addons.payment_stripe.controllers.main import StripeController
+from ecommerce.addons.payment_stripe import utils as stripe_utils
+from ecommerce.addons.payment_stripe import const
+from ecommerce.addons.payment_stripe.controllers.onboarding import OnboardingController
+from ecommerce.addons.payment_stripe.controllers.main import StripeController
 
 
 _logger = logging.getLogger(__name__)
@@ -31,7 +31,7 @@ class PaymentProvider(models.Model):
     stripe_webhook_secret = fields.Char(
         string="Webhook Signing Secret",
         help="If a webhook is enabled on your Stripe account, this signing secret must be set to "
-             "authenticate the messages sent from Stripe to Odoo.",
+             "authenticate the messages sent from Stripe to ecommerce.",
         groups='base.group_system')
 
     #=== COMPUTE METHODS ===#
@@ -120,7 +120,7 @@ class PaymentProvider(models.Model):
 
         If the provider is already enabled, close the current window. Otherwise, generate a Stripe
         Connect onboarding link and redirect the user to it. If provided, the menu id is included in
-        the URL the user is redirected to when coming back on Odoo after the onboarding. If the link
+        the URL the user is redirected to when coming back on ecommerce after the onboarding. If the link
         generation failed, redirect the user to the provider form.
 
         Note: This method serves as a hook for modules that would fully implement Stripe Connect.

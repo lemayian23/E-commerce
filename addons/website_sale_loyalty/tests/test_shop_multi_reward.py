@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details
+# Part of ecommerce. See LICENSE file for full copyright and licensing details
 
-from odoo.fields import Command
-from odoo.tests import TransactionCase, tagged
+from ecommerce.fields import Command
+from ecommerce.tests import TransactionCase, tagged
 
-from odoo.addons.website.tools import MockRequest
-from odoo.addons.website_sale_loyalty.controllers.main import WebsiteSale
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.addons.website_sale_loyalty.controllers.main import WebsiteSale
 
 
 @tagged('post_install', '-at_install')

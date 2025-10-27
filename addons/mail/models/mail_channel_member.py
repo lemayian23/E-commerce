@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.exceptions import NotFound
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessError
-from odoo.osv import expression
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import AccessError
+from ecommerce.osv import expression
 
 
 class ChannelMember(models.Model):

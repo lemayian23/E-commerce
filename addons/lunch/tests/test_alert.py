@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import datetime, timedelta
-from odoo import fields
-from odoo.tests import common
-from odoo.addons.lunch.tests.common import TestsCommon
+from ecommerce import fields
+from ecommerce.tests import common
+from ecommerce.addons.lunch.tests.common import TestsCommon
 
 
 class TestAlarm(TestsCommon):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { getFixture, mount, nextTick } from "@web/../tests/helpers/utils";
 import { makeWithSearch, setupControlPanelServiceRegistry } from "@web/../tests/search/helpers";
@@ -6,7 +6,7 @@ import { Layout } from "@web/search/layout";
 import { getDefaultConfig } from "@web/views/view";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 
-import { Component, xml, useChildSubEnv } from "@odoo/owl";
+import { Component, xml, useChildSubEnv } from "@ecommerce/owl";
 
 let target;
 let serverData;

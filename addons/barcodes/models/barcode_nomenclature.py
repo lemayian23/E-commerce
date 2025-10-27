@@ -1,7 +1,7 @@
 import re
 
-from odoo import models, fields, api
-from odoo.tools import check_barcode_encoding, get_barcode_check_digit
+from ecommerce import models, fields, api
+from ecommerce.tools import check_barcode_encoding, get_barcode_check_digit
 
 
 UPC_EAN_CONVERSIONS = [

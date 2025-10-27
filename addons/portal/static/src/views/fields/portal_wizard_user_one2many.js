@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { PortalWizardUserListController } from "../list/portal_wizard_user_list_controller";
 import { X2ManyField } from "@web/views/fields/x2many/x2many_field";

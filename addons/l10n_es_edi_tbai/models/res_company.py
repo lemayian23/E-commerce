@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import markupsafe
-from odoo import _, api, fields, models, release
+from ecommerce import _, api, fields, models, release
 
 
 # === TBAI license values ===
@@ -11,14 +11,14 @@ L10N_ES_TBAI_LICENSE_DICT = {
         'license_name': _('Production license'),  # all agencies
         'license_number': 'TBAIGI5A266A7CCDE1EC',
         'license_nif': 'N0251909H',
-        'software_name': 'Odoo SA',
+        'software_name': 'ecommerce SA',
         'software_version': release.version,
     },
     'araba': {
         'license_name': _('Test license (Araba)'),
         'license_number': 'TBAIARbjjMClHKH00849',
         'license_nif': 'N0251909H',
-        'software_name': 'Odoo SA',
+        'software_name': 'ecommerce SA',
         'software_version': release.version,
     },
     'bizkaia': {
@@ -32,7 +32,7 @@ L10N_ES_TBAI_LICENSE_DICT = {
         'license_name': _('Test license (Gipuzkoa)'),
         'license_number': 'TBAIGIPRE00000000965',
         'license_nif': 'N0251909H',
-        'software_name': 'Odoo SA',
+        'software_name': 'ecommerce SA',
         'software_version': release.version,
     },
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="verified_token_checkmark" inherit_id="payment.verified_token_checkmark">
         <xpath expr="//t[@name='payment_demo_hook']" position="replace">
@@ -9,4 +9,4 @@
         </xpath>
     </template>
 
-</odoo>
+</ecommerce>

@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 from collections import OrderedDict
 from lxml import etree
-from odoo import Command
+from ecommerce import Command
 
-import odoo.tests
+import ecommerce.tests
 
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestWebsiteSaleComparison(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class TestWebsiteSaleComparison(ecommerce.tests.TransactionCase):
     def test_01_website_sale_comparison_remove(self):
         """ This tour makes sure the product page still works after the module
         `website_sale_comparison` has been removed.
@@ -64,8 +64,8 @@ class TestWebsiteSaleComparison(odoo.tests.TransactionCase):
         self.assertFalse(Website1.viewref(test_view_key, raise_if_not_found=False))
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestUi(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestUi(ecommerce.tests.HttpCase):
 
     def setUp(self):
         super(TestUi, self).setUp()

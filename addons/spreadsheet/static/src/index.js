@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 /**
  * This file is meant to load the different subparts of the module
@@ -12,7 +12,7 @@
  *                filters
  *                /\    \
  *               /  \    \
- *           pivot  list  Odoo chart
+ *           pivot  list  ecommerce chart
  */
 
 /** TODO: Introduce a position parameter to the plugin registry in order to load them in a specific order */
@@ -23,18 +23,18 @@ import { GlobalFiltersCorePlugin, GlobalFiltersUIPlugin } from "@spreadsheet/glo
 import { PivotCorePlugin, PivotUIPlugin } from "@spreadsheet/pivot/index"; // list depends on filter for its getters
 import { ListCorePlugin, ListUIPlugin } from "@spreadsheet/list/index"; // pivot depends on filter for its getters
 import {
-    ChartOdooMenuPlugin,
-    OdooChartCorePlugin,
-    OdooChartUIPlugin,
-} from "@spreadsheet/chart/index"; // Odoochart depends on filter for its getters
+    ChartecommerceMenuPlugin,
+    ecommerceChartCorePlugin,
+    ecommerceChartUIPlugin,
+} from "@spreadsheet/chart/index"; // ecommercechart depends on filter for its getters
 
-corePluginRegistry.add("OdooGlobalFiltersCorePlugin", GlobalFiltersCorePlugin);
-corePluginRegistry.add("OdooPivotCorePlugin", PivotCorePlugin);
-corePluginRegistry.add("OdooListCorePlugin", ListCorePlugin);
-corePluginRegistry.add("odooChartCorePlugin", OdooChartCorePlugin);
-corePluginRegistry.add("chartOdooMenuPlugin", ChartOdooMenuPlugin);
+corePluginRegistry.add("ecommerceGlobalFiltersCorePlugin", GlobalFiltersCorePlugin);
+corePluginRegistry.add("ecommercePivotCorePlugin", PivotCorePlugin);
+corePluginRegistry.add("ecommerceListCorePlugin", ListCorePlugin);
+corePluginRegistry.add("ecommerceChartCorePlugin", ecommerceChartCorePlugin);
+corePluginRegistry.add("chartecommerceMenuPlugin", ChartecommerceMenuPlugin);
 
-uiPluginRegistry.add("OdooGlobalFiltersUIPlugin", GlobalFiltersUIPlugin);
-uiPluginRegistry.add("OdooPivotUIPlugin", PivotUIPlugin);
-uiPluginRegistry.add("OdooListUIPlugin", ListUIPlugin);
-uiPluginRegistry.add("odooChartUIPlugin", OdooChartUIPlugin);
+uiPluginRegistry.add("ecommerceGlobalFiltersUIPlugin", GlobalFiltersUIPlugin);
+uiPluginRegistry.add("ecommercePivotUIPlugin", PivotUIPlugin);
+uiPluginRegistry.add("ecommerceListUIPlugin", ListUIPlugin);
+uiPluginRegistry.add("ecommerceChartUIPlugin", ecommerceChartUIPlugin);

@@ -1,17 +1,17 @@
-from odoo.addons.link_tracker.tests.common import MockLinkTracker
-from odoo.tests import common, tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.link_tracker.tests.common import MockLinkTracker
+from ecommerce.tests import common, tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('post_install', '-at_install')
 class TestTrackerHttpRequests(MockLinkTracker, common.HttpCase):
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("ecommerce.addons.http_routing.models.ir_http", "ecommerce.http")
     def test_no_preview_tracking(self):
         """Ensure that requests with a user agent matching known preview user agents will not be registered as a click"""
         link_tracker = self.env['link.tracker'].create({
-                'url': 'https://odoo.com',
-                'title': 'Odoo',
+                'url': 'https://ecommerce.com',
+                'title': 'ecommerce',
             })
         self.assertEqual(len(link_tracker.link_click_ids), 0)
         link = '/r/' + link_tracker.code

@@ -1,4 +1,4 @@
-odoo.define('website_event_sale.tour.event_sale_pricelists_different_currencies', function (require) {
+ecommerce.define('website_event_sale.tour.event_sale_pricelists_different_currencies', function (require) {
     'use strict';
 
     const tour = require('web_tour.tour');

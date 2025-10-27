@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import models
 from . import controllers
-from odoo.api import Environment, SUPERUSER_ID
-from odoo.tools import column_exists, create_column
+from ecommerce.api import Environment, SUPERUSER_ID
+from ecommerce.tools import column_exists, create_column
 
 
 def pre_init_hook(cr):

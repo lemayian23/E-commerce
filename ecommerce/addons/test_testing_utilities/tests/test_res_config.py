@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from unittest.mock import patch
-from odoo.tests.common import TransactionCase
+from ecommerce.tests.common import TransactionCase
 
 class TestResConfig(TransactionCase):
 
@@ -12,7 +12,7 @@ class TestResConfig(TransactionCase):
         self.assertEqual(self.env['ir.config_parameter'].sudo().get_param('resConfigTest.parameter1'), str(1000),
             "The parameter is not saved with its default value")
 
-        with patch('odoo.addons.base.models.ir_config_parameter.IrConfigParameter.set_param') as set_param_mock:
+        with patch('ecommerce.addons.base.models.ir_config_parameter.IrConfigParameter.set_param') as set_param_mock:
             self.env['res.config.test'].create({}).execute()
 
         set_param_mock.assert_not_called()

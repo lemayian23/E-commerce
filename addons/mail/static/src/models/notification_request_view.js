@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, one } from '@mail/model/model_field';
@@ -15,8 +15,8 @@ registerModel({
                     return clear();
                 }
                 return sprintf(
-                    this.env._t("%(odoobotName)s has a request"),
-                    { odoobotName: this.messaging.partnerRoot.nameOrDisplayName },
+                    this.env._t("%(ecommercebotName)s has a request"),
+                    { ecommercebotName: this.messaging.partnerRoot.nameOrDisplayName },
                 );
             },
         }),

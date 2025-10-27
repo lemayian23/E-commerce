@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import common
-from odoo.tests.common import tagged
+from ecommerce.tests import common
+from ecommerce.tests.common import tagged
 
 
 class TestUTMCommon(common.TransactionCase):

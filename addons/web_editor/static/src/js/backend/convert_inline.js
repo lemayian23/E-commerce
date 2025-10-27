@@ -1,7 +1,7 @@
-/** @odoo-module alias=web_editor.convertInline */
+/** @ecommerce-module alias=web_editor.convertInline */
 'use strict';
 
-import { getAdjacentPreviousSiblings, isBlock, rgbToHex, commonParentGet } from '../editor/odoo-editor/src/utils/utils';
+import { getAdjacentPreviousSiblings, isBlock, rgbToHex, commonParentGet } from '../editor/ecommerce-editor/src/utils/utils';
 
 //--------------------------------------------------------------------------
 // Constants
@@ -688,7 +688,7 @@ function enforceImagesResponsivity(editable) {
  * @param {JQuery} [$iframe] the iframe containing the editable, if any
  */
 async function toInline($editable, cssRules, $iframe) {
-    $editable.removeClass('odoo-editor-editable');
+    $editable.removeClass('ecommerce-editor-editable');
     const editable = $editable.get(0);
     const iframe = $iframe && $iframe.get(0);
     const wysiwyg = $editable.data('wysiwyg');
@@ -797,7 +797,7 @@ async function toInline($editable, cssRules, $iframe) {
     for (const [node, displayValue] of displaysToRestore) {
         node.style.setProperty('display', displayValue);
     }
-    $editable.addClass('odoo-editor-editable');
+    $editable.addClass('ecommerce-editor-editable');
 }
 /**
  * Take all elements with a `background-image` style and convert them to `vml`
@@ -833,7 +833,7 @@ function flattenBackgroundImages(editable) {
  */
 function fontToImg($editable) {
     const editable = $editable.get(0);
-    const fonts = odoo.__DEBUG__.services["wysiwyg.fonts"];
+    const fonts = ecommerce.__DEBUG__.services["wysiwyg.fonts"];
 
     for (const font of editable.querySelectorAll('.fa')) {
         let icon, content;

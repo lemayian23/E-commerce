@@ -1,4 +1,4 @@
-odoo.define('web.Context', function (require) {
+ecommerce.define('web.Context', function (require) {
 "use strict";
 
 var Class = require('web.Class');

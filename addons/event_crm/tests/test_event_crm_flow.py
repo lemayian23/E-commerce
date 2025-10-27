@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.event_crm.tests.common import TestEventCrmCommon
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.event_crm.tests.common import TestEventCrmCommon
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 class TestEventCrmFlow(TestEventCrmCommon):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patchUiSize } from '@mail/../tests/helpers/patch_ui_size';
 import {

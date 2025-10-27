@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.models import Command
-from odoo.tests.common import tagged
+from ecommerce.models import Command
+from ecommerce.tests.common import tagged
 
-from odoo.addons.payment.tests.common import PaymentCommon
-from odoo.addons.website.tools import MockRequest
+from ecommerce.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.website.tools import MockRequest
 
 
 @tagged('post_install', '-at_install')

@@ -1,25 +1,25 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { _t } from "@web/core/l10n/translation";
-import { OdooChart } from "./odoo_chart";
+import { ecommerceChart } from "./ecommerce_chart";
 
 const { chartRegistry } = spreadsheet.registries;
 
 const { getDefaultChartJsRuntime, chartFontColor, ChartColors } = spreadsheet.helpers;
 
-chartRegistry.add("odoo_pie", {
-    match: (type) => type === "odoo_pie",
-    createChart: (definition, sheetId, getters) => new OdooChart(definition, sheetId, getters),
-    getChartRuntime: createOdooChartRuntime,
+chartRegistry.add("ecommerce_pie", {
+    match: (type) => type === "ecommerce_pie",
+    createChart: (definition, sheetId, getters) => new ecommerceChart(definition, sheetId, getters),
+    getChartRuntime: createecommerceChartRuntime,
     validateChartDefinition: (validator, definition) =>
-        OdooChart.validateChartDefinition(validator, definition),
-    transformDefinition: (definition) => OdooChart.transformDefinition(definition),
-    getChartDefinitionFromContextCreation: () => OdooChart.getDefinitionFromContextCreation(),
+        ecommerceChart.validateChartDefinition(validator, definition),
+    transformDefinition: (definition) => ecommerceChart.transformDefinition(definition),
+    getChartDefinitionFromContextCreation: () => ecommerceChart.getDefinitionFromContextCreation(),
     name: _t("Pie"),
 });
 
-function createOdooChartRuntime(chart, getters) {
+function createecommerceChartRuntime(chart, getters) {
     const background = chart.background || "#FFFFFF";
     const { datasets, labels } = chart.dataSource.getData();
     const chartJsConfig = getPieConfiguration(chart, labels);
@@ -40,7 +40,7 @@ function createOdooChartRuntime(chart, getters) {
 function getPieConfiguration(chart, labels) {
     const fontColor = chartFontColor(chart.background);
     const config = getDefaultChartJsRuntime(chart, labels, fontColor);
-    config.type = chart.type.replace("odoo_", "");
+    config.type = chart.type.replace("ecommerce_", "");
     const legend = {
         ...config.options.legend,
         display: chart.legendPosition !== "none",

@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tour.ProductScreen', function (require) {
+ecommerce.define('point_of_sale.tour.ProductScreen', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');
@@ -153,7 +153,7 @@ odoo.define('point_of_sale.tour.ProductScreen', function (require) {
     Tour.register('FiscalPositionNoTax', { test: true, url: '/pos/ui' }, getSteps());
 });
 
-odoo.define('point_of_sale.tour.FixedPriceNegativeQty', function (require) {
+ecommerce.define('point_of_sale.tour.FixedPriceNegativeQty', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');
@@ -181,7 +181,7 @@ odoo.define('point_of_sale.tour.FixedPriceNegativeQty', function (require) {
     Tour.register('FixedTaxNegativeQty', { test: true, url: '/pos/ui' }, getSteps());
 });
 
-odoo.define('point_of_sale.tour.OpenCloseCashCount', function (require) {
+ecommerce.define('point_of_sale.tour.OpenCloseCashCount', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');
@@ -197,7 +197,7 @@ odoo.define('point_of_sale.tour.OpenCloseCashCount', function (require) {
     Tour.register('CashClosingDetails', { test: true, url: '/pos/ui' }, getSteps());
 });
 
-odoo.define('point_of_sale.tour.RoundGloballyTax', function (require) {
+ecommerce.define('point_of_sale.tour.RoundGloballyTax', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');
@@ -214,7 +214,7 @@ odoo.define('point_of_sale.tour.RoundGloballyTax', function (require) {
     Tour.register('RoundGloballyAmoundTour', { test: true, url: '/pos/ui' }, getSteps());
 });
 
-odoo.define('point_of_sale.tour.ShowTaxExcludedTour', function (require) {
+ecommerce.define('point_of_sale.tour.ShowTaxExcludedTour', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');
@@ -234,7 +234,7 @@ odoo.define('point_of_sale.tour.ShowTaxExcludedTour', function (require) {
     Tour.register('ShowTaxExcludedTour', { test: true, url: '/pos/ui' }, getSteps());
 });
 
-odoo.define('point_of_sale.tour.limitedProductPricelistLoading', function (require) {
+ecommerce.define('point_of_sale.tour.limitedProductPricelistLoading', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');

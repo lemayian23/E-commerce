@@ -1,4 +1,4 @@
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 from .test_common import TestHttpBase
 
 

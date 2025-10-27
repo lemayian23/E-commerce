@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import collections
@@ -18,18 +18,18 @@ from lxml import etree
 from lxml.etree import LxmlError
 from lxml.builder import E
 
-import odoo
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError, AccessError, UserError
-from odoo.http import request
-from odoo.modules.module import get_resource_from_path, get_resource_path
-from odoo.service.model import get_public_method
-from odoo.tools import config, ConstantMapping, get_diff, pycompat, apply_inheritance_specs, locate_node, str2bool
-from odoo.tools.convert import _fix_multiple_roots
-from odoo.tools import safe_eval, lazy, lazy_property, frozendict
-from odoo.tools.view_validation import valid_view, get_variable_names, get_domain_identifiers, get_dict_asts
-from odoo.tools.translate import xml_translate, TRANSLATED_ATTRS
-from odoo.osv.expression import expression
+import ecommerce
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import ValidationError, AccessError, UserError
+from ecommerce.http import request
+from ecommerce.modules.module import get_resource_from_path, get_resource_path
+from ecommerce.service.model import get_public_method
+from ecommerce.tools import config, ConstantMapping, get_diff, pycompat, apply_inheritance_specs, locate_node, str2bool
+from ecommerce.tools.convert import _fix_multiple_roots
+from ecommerce.tools import safe_eval, lazy, lazy_property, frozendict
+from ecommerce.tools.view_validation import valid_view, get_variable_names, get_domain_identifiers, get_dict_asts
+from ecommerce.tools.translate import xml_translate, TRANSLATED_ATTRS
+from ecommerce.osv.expression import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -142,7 +142,7 @@ def transfer_modifiers_to_node(modifiers, node):
 
 @lazy
 def keep_query():
-    mod = odoo.addons.base.models.ir_qweb
+    mod = ecommerce.addons.base.models.ir_qweb
     warnings.warn(f"keep_query has been moved to {mod}", DeprecationWarning)
     return mod.keep_query
 
@@ -2786,7 +2786,7 @@ class Model(models.AbstractModel):
         """
         .. deprecated:: saas-15.4
 
-            Use :meth:`~odoo.models.Model.get_view()` instead.
+            Use :meth:`~ecommerce.models.Model.get_view()` instead.
         """
         warnings.warn(
             'Method `fields_view_get` is deprecated, use `get_view` instead',

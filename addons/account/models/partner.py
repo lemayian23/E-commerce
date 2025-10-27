@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import time
 import logging
 
 from psycopg2 import sql, DatabaseError
 
-from odoo import api, fields, models, _
-from odoo.osv import expression
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, mute_logger
-from odoo.exceptions import ValidationError, UserError
-from odoo.addons.base.models.res_partner import WARNING_MESSAGE, WARNING_HELP
+from ecommerce import api, fields, models, _
+from ecommerce.osv import expression
+from ecommerce.tools import DEFAULT_SERVER_DATETIME_FORMAT, mute_logger
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.addons.base.models.res_partner import WARNING_MESSAGE, WARNING_HELP
 
 _logger = logging.getLogger(__name__)
 
@@ -689,7 +689,7 @@ class ResPartner(models.Model):
     def _increase_rank(self, field, n=1):
         if self.ids and field in ['customer_rank', 'supplier_rank']:
             try:
-                with self.env.cr.savepoint(flush=False), mute_logger('odoo.sql_db'):
+                with self.env.cr.savepoint(flush=False), mute_logger('ecommerce.sql_db'):
                     query = sql.SQL("""
                         SELECT {field} FROM res_partner WHERE ID IN %(partner_ids)s FOR NO KEY UPDATE NOWAIT;
                         UPDATE res_partner SET {field} = {field} + %(n)s

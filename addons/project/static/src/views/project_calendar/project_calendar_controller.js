@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { CalendarController } from "@web/views/calendar/calendar_controller";
 

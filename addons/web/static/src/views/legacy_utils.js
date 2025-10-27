@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import fieldRegistry from "web.field_registry";
 import { parseArch } from "web.viewUtils";
 import { parse } from "web.field_utils";

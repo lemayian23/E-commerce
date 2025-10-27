@@ -1,6 +1,6 @@
 {
     'name': "Egypt - Accounting",
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations/egypt.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations/egypt.html',
     'description': """
 Egypt Accounting Module
 ==============================================================================
@@ -16,7 +16,7 @@ Activates:
 - Other Taxes Report
 - Fiscal Positions
     """,
-    'author': "Odoo S.A.",
+    'author': "ecommerce S.A.",
     'category': 'Accounting/Localizations/Account Charts',
     'version': '1.0',
     'depends': ['account', 'l10n_multilang'],

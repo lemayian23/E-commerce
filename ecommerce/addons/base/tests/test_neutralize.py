@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.modules import neutralize
+from ecommerce.modules import neutralize
 
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase
 
 
 @tagged('post_install', '-at_install', 'neutralize')

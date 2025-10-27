@@ -1,4 +1,4 @@
-odoo.define('web.domain_selector_tests', function (require) {
+ecommerce.define('web.domain_selector_tests', function (require) {
 "use strict";
 
 const FormView = require("web.FormView");

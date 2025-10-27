@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from '@web/core/registry';
 import { Dropdown } from "@web/core/dropdown/dropdown";

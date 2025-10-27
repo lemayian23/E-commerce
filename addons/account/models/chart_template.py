@@ -2,14 +2,14 @@
 
 from collections import defaultdict
 
-from odoo.exceptions import AccessError
-from odoo import api, fields, models, Command, _, osv
-from odoo import SUPERUSER_ID
-from odoo.exceptions import UserError, ValidationError
-from odoo.http import request
-from odoo.addons.account.models.account_tax import TYPE_TAX_USE
-from odoo.addons.account.models.account_account import ACCOUNT_CODE_REGEX
-from odoo.tools import float_compare, html_escape
+from ecommerce.exceptions import AccessError
+from ecommerce import api, fields, models, Command, _, osv
+from ecommerce import SUPERUSER_ID
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.http import request
+from ecommerce.addons.account.models.account_tax import TYPE_TAX_USE
+from ecommerce.addons.account.models.account_account import ACCOUNT_CODE_REGEX
+from ecommerce.tools import float_compare, html_escape
 
 import logging
 import re
@@ -209,7 +209,7 @@ def update_taxes_from_templates(cr, chart_template_xmlid):
     def _notify_accountant_managers(taxes_to_check):
         accountant_manager_group = env.ref("account.group_account_manager")
         partner_managers_ids = accountant_manager_group.users.partner_id.ids
-        odoobot_id = env.ref('base.partner_root').id
+        ecommercebot_id = env.ref('base.partner_root').id
         message_body = _(
             "Please check these taxes. They might be outdated. We did not update them. "
             "Indeed, they do not exactly match the taxes of the original version of the localization module.<br/>"
@@ -220,7 +220,7 @@ def update_taxes_from_templates(cr, chart_template_xmlid):
         message_body += "</ul>"
         env['mail.thread'].message_notify(
             subject=_('Your taxes have been updated !'),
-            author_id=odoobot_id,
+            author_id=ecommercebot_id,
             body=message_body,
             partner_ids=partner_managers_ids,
         )

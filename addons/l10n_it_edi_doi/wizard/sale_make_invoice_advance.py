@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.fields import Command
+from ecommerce import models
+from ecommerce.fields import Command
 
 
 class SaleAdvancePaymentInv(models.TransientModel):

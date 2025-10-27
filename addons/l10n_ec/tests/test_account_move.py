@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields
-from odoo.exceptions import UserError
-from odoo.tests import tagged, Form
+from ecommerce import fields
+from ecommerce.exceptions import UserError
+from ecommerce.tests import tagged, Form
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')

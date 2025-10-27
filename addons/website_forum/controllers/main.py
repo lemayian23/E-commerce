@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 import lxml
 import requests
@@ -10,14 +10,14 @@ import werkzeug.wrappers
 
 from datetime import datetime
 
-from odoo import http, tools, _
-from odoo.exceptions import AccessError
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.website_profile.controllers.main import WebsiteProfile
+from ecommerce import http, tools, _
+from ecommerce.exceptions import AccessError
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.website.models.ir_http import sitemap_qs2dom
+from ecommerce.addons.website_profile.controllers.main import WebsiteProfile
 
-from odoo.exceptions import UserError
-from odoo.http import request
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
 
 
 _logger = logging.getLogger(__name__)

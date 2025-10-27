@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     start,
@@ -21,21 +21,21 @@ const linkPreviewCardPayload = {
     og_description: 'Description',
     og_title: 'Article title',
     og_type: 'article',
-    source_url: 'https://www.odoo.com',
+    source_url: 'https://www.ecommerce.com',
 };
 const linkPreviewCardImagePayload = {
     og_description: 'Description',
     og_image: 'https://c.tenor.com/B_zYdea4l-4AAAAC/yay-minions.gif',
     og_title: 'Article title',
     og_type: 'article',
-    source_url: 'https://www.odoo.com',
+    source_url: 'https://www.ecommerce.com',
 };
 const linkPreviewVideoPayload = {
     og_description: 'Description',
     og_image: 'https://c.tenor.com/B_zYdea4l-4AAAAC/yay-minions.gif',
     og_title: 'video title',
     og_type: 'video.other',
-    source_url: 'https://www.odoo.com',
+    source_url: 'https://www.ecommerce.com',
 };
 const linkPreviewImagePayload = {
     image_mimetype: 'image/jpg',

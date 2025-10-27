@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.addons.stock.tests.test_packing import TestPackingCommon
-from odoo.exceptions import UserError
-from odoo.tests import Form
+from ecommerce import Command
+from ecommerce.addons.stock.tests.test_packing import TestPackingCommon
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
 from unittest.mock import patch
 
 
@@ -139,7 +139,7 @@ class TestPacking(TestPackingCommon):
 
         # Mock carrier shipping method
         with patch(
-            'odoo.addons.delivery.models.delivery_carrier.DeliveryCarrier.fixed_send_shipping',
+            'ecommerce.addons.delivery.models.delivery_carrier.DeliveryCarrier.fixed_send_shipping',
             return_value=[{'exact_price': 0, 'tracking_number': "666"}]
         ):
             picking_ship.send_to_shipper()

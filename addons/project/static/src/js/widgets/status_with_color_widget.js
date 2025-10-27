@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { qweb } from 'web.core';
 import fieldRegistry from 'web.field_registry';

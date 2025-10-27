@@ -1,4 +1,4 @@
-odoo.define('website.s_facebook_page_options', function (require) {
+ecommerce.define('website.s_facebook_page_options', function (require) {
 'use strict';
 
 const core = require('web.core');
@@ -140,7 +140,7 @@ options.registry.facebookPage = options.Class.extend({
      * @private
      */
     _checkURL: function () {
-        const defaultURL = 'https://www.facebook.com/Odoo';
+        const defaultURL = 'https://www.facebook.com/ecommerce';
         // Patterns matched by the regex (all relate to existing pages,
         // in spite of the URLs containing "profile.php" or "people"):
         // - https://www.facebook.com/<pagewithaname>

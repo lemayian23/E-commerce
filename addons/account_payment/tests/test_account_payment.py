@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo import Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.addons.account_payment.tests.common import AccountPaymentCommon
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.addons.account_payment.tests.common import AccountPaymentCommon
+from ecommerce.tests import tagged
 
 
 @tagged('-at_install', 'post_install')
@@ -135,7 +135,7 @@ class TestAccountPayment(AccountPaymentCommon):
         payment_with_token.payment_token_id = payment_token.id
 
         with patch(
-            'odoo.addons.payment.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment.models.payment_transaction.PaymentTransaction'
             '._send_payment_request'
         ) as patched:
             payment_without_token.action_post()

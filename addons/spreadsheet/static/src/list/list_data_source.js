@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
-import { OdooViewsDataSource } from "@spreadsheet/data_sources/odoo_views_data_source";
+import { ecommerceViewsDataSource } from "@spreadsheet/data_sources/ecommerce_views_data_source";
 import { orderByToString } from "@spreadsheet/helpers/helpers";
 import { LoadingDataError } from "@spreadsheet/o_spreadsheet/errors";
 import { _t } from "@web/core/l10n/translation";
@@ -30,7 +30,7 @@ const { toNumber } = spreadsheet.helpers;
  * @property {Object} context
  */
 
-export default class ListDataSource extends OdooViewsDataSource {
+export default class ListDataSource extends ecommerceViewsDataSource {
     /**
      * @override
      * @param {Object} services Services (see DataSource)

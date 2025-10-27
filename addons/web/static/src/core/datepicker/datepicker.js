@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     Component,
@@ -8,7 +8,7 @@ import {
     useExternalListener,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 import { isMobileOS } from "@web/core/browser/feature_detection";
 import {
     formatDate,

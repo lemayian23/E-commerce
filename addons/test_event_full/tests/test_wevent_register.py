@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
-from odoo import tests
-from odoo.addons.test_event_full.tests.common import TestWEventCommon
+from ecommerce import tests
+from ecommerce.addons.test_event_full.tests.common import TestWEventCommon
 
 
 @tests.common.tagged('event_online', 'post_install', '-at_install')
@@ -14,8 +14,8 @@ class TestWEventRegister(TestWEventCommon):
         with freeze_time(self.reference_now, tick=True):
             self.browser_js(
                 '/event',
-                'odoo.__DEBUG__.services["web_tour.tour"].run("wevent_register")',
-                'odoo.__DEBUG__.services["web_tour.tour"].tours.wevent_register.ready',
+                'ecommerce.__DEBUG__.services["web_tour.tour"].run("wevent_register")',
+                'ecommerce.__DEBUG__.services["web_tour.tour"].tours.wevent_register.ready',
                 login=None
             )
         new_registrations = self.event.registration_ids

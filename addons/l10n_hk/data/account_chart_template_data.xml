@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
     <record id="base.CNY" model="res.currency">
         <field name="active" eval="True" />
     </record>
@@ -14,4 +14,4 @@
         <field name="currency_id" ref="base.HKD" />
         <field name="country_id" ref="base.hk"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { nextAnimationFrame, start, startServer } from '@mail/../tests/helpers/test_utils';
 import { ROUTES_TO_IGNORE } from '@mail/../tests/helpers/webclient_setup';

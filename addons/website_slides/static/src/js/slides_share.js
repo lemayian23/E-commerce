@@ -1,4 +1,4 @@
-/** @odoo-module alias=website_slides.slides_share**/
+/** @ecommerce-module alias=website_slides.slides_share**/
 
 import publicWidget from 'web.public.widget';
 import '@website_slides/js/slides';

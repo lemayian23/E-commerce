@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { useSetupAction } from "../webclient/actions/action_hook";
@@ -16,7 +16,7 @@ import { getBundle, loadBundle } from "@web/core/assets";
 import { registry } from "@web/core/registry";
 import { LegacyComponent } from "./legacy_component";
 
-import { xml, onWillStart } from "@odoo/owl";
+import { xml, onWillStart } from "@ecommerce/owl";
 const viewRegistry = registry.category("views");
 
 function getJsClassWidget(fieldsInfo) {
@@ -184,7 +184,7 @@ function registerView(name, LegacyView) {
         Controller,
     };
     viewRegistry.add(name, legacyView);
-    if (odoo.debug) {
+    if (ecommerce.debug) {
         console.log(`Views: using legacy view: ${name}`);
     }
 }

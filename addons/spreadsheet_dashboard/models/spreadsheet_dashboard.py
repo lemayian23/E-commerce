@@ -1,8 +1,8 @@
 import base64
 import json
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
 
 class SpreadsheetDashboard(models.Model):
     _name = 'spreadsheet.dashboard'

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import HttpCase, tagged, Form
-from odoo.addons.sale.tests.common import TestSaleCommon
-from odoo.addons.mail.tests.common import mail_new_test_user
+from ecommerce.tests import HttpCase, tagged, Form
+from ecommerce.addons.sale.tests.common import TestSaleCommon
+from ecommerce.addons.mail.tests.common import mail_new_test_user
 
 
 @tagged('post_install', '-at_install')

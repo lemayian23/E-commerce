@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.http import request
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.website_sale.controllers.main import WebsiteSale, PaymentPortal
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import http, _
+from ecommerce.http import request
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale, PaymentPortal
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class WebsiteSaleDelivery(WebsiteSale):

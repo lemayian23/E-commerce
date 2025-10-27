@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import os
-import odoo
+import ecommerce
 
 from . import lint_case
 
@@ -21,13 +21,13 @@ class TestConflictMarkers(lint_case.LintCase):
             self.assertFalse(any(m in content for m in MARKERS), 'Conflict markers found in %s' % fullpath_name)
 
     def test_conflict_markers(self):
-        """ Test that there are no conflict markers left in Odoo files """
+        """ Test that there are no conflict markers left in ecommerce files """
 
         counter = 0
 
-        odoo_path = os.path.abspath(os.path.dirname(odoo.__file__))
-        paths = odoo.addons.__path__ + [odoo_path]
-        paths.remove(os.path.join(odoo_path, 'addons'))  # avoid checking odoo/addons twice
+        ecommerce_path = os.path.abspath(os.path.dirname(ecommerce.__file__))
+        paths = ecommerce.addons.__path__ + [ecommerce_path]
+        paths.remove(os.path.join(ecommerce_path, 'addons'))  # avoid checking ecommerce/addons twice
 
         for p in paths:
             for dp, _, file_names in os.walk(p):

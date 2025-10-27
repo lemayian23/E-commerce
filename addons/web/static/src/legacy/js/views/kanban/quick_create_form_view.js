@@ -1,4 +1,4 @@
-odoo.define('web.QuickCreateFormView', function (require) {
+ecommerce.define('web.QuickCreateFormView', function (require) {
 "use strict";
 
 /**
@@ -40,7 +40,7 @@ var QuickCreateFormRenderer = FormRenderer.extend({
     /**
      * @override
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onNavigationMove: function (ev) {
         var direction = ev.data.direction;

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo.exceptions import UserError
-from odoo.fields import Datetime
-from odoo.tests.common import Form, TransactionCase
-from odoo import Command
+from ecommerce.exceptions import UserError
+from ecommerce.fields import Datetime
+from ecommerce.tests.common import Form, TransactionCase
+from ecommerce import Command
 
 
 def _create_accounting_data(env):
@@ -4300,7 +4300,7 @@ class TestStockValuation(TransactionCase):
             ('stock_move_id', '=', False),
         ]).account_move_id
 
-        self.assertIn('OdooBot changed stock valuation from  15.0 to 25.0 -', account_move.line_ids[0].name)
+        self.assertIn('ecommerceBot changed stock valuation from  15.0 to 25.0 -', account_move.line_ids[0].name)
 
     def test_diff_uom_quantity_update_after_done(self):
         """Test that when the UoM of the stock.move.line is different from the stock.move,

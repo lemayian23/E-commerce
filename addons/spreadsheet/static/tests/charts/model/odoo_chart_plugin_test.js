@@ -1,8 +1,8 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
-import { OdooBarChart } from "@spreadsheet/chart/odoo_chart/odoo_bar_chart";
-import { OdooChart } from "@spreadsheet/chart/odoo_chart/odoo_chart";
-import { OdooLineChart } from "@spreadsheet/chart/odoo_chart/odoo_line_chart";
+import { ecommerceBarChart } from "@spreadsheet/chart/ecommerce_chart/ecommerce_bar_chart";
+import { ecommerceChart } from "@spreadsheet/chart/ecommerce_chart/ecommerce_chart";
+import { ecommerceLineChart } from "@spreadsheet/chart/ecommerce_chart/ecommerce_line_chart";
 import { nextTick } from "@web/../tests/helpers/utils";
 import { createSpreadsheetWithChart, insertChartInSpreadsheet } from "../../utils/chart";
 import { createModelWithDataSource, waitForDataSourcesLoaded } from "../../utils/model";
@@ -11,36 +11,36 @@ import { RPCError } from "@web/core/network/rpc_service";
 
 const { toZone } = spreadsheet.helpers;
 
-QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
-    QUnit.test("Can add an Odoo Bar chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_bar" });
+QUnit.module("spreadsheet > ecommerce chart plugin", {}, () => {
+    QUnit.test("Can add an ecommerce Bar chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_bar" });
         const sheetId = model.getters.getActiveSheetId();
         assert.strictEqual(model.getters.getChartIds(sheetId).length, 1);
         const chartId = model.getters.getChartIds(sheetId)[0];
         const chart = model.getters.getChart(chartId);
-        assert.ok(chart instanceof OdooBarChart);
+        assert.ok(chart instanceof ecommerceBarChart);
         assert.strictEqual(chart.getDefinitionForExcel(), undefined);
         assert.strictEqual(model.getters.getChartRuntime(chartId).chartJsConfig.type, "bar");
     });
 
-    QUnit.test("Can add an Odoo Line chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_line" });
+    QUnit.test("Can add an ecommerce Line chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_line" });
         const sheetId = model.getters.getActiveSheetId();
         assert.strictEqual(model.getters.getChartIds(sheetId).length, 1);
         const chartId = model.getters.getChartIds(sheetId)[0];
         const chart = model.getters.getChart(chartId);
-        assert.ok(chart instanceof OdooLineChart);
+        assert.ok(chart instanceof ecommerceLineChart);
         assert.strictEqual(chart.getDefinitionForExcel(), undefined);
         assert.strictEqual(model.getters.getChartRuntime(chartId).chartJsConfig.type, "line");
     });
 
-    QUnit.test("Can add an Odoo Pie chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_pie" });
+    QUnit.test("Can add an ecommerce Pie chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_pie" });
         const sheetId = model.getters.getActiveSheetId();
         assert.strictEqual(model.getters.getChartIds(sheetId).length, 1);
         const chartId = model.getters.getChartIds(sheetId)[0];
         const chart = model.getters.getChart(chartId);
-        assert.ok(chart instanceof OdooChart);
+        assert.ok(chart instanceof ecommerceChart);
         assert.strictEqual(chart.getDefinitionForExcel(), undefined);
         assert.strictEqual(model.getters.getChartRuntime(chartId).chartJsConfig.type, "pie");
     });
@@ -52,9 +52,9 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         assert.ok(model.getters.getChartDataSource(chartId));
     });
 
-    QUnit.test("Odoo bar chart runtime loads the data", async (assert) => {
+    QUnit.test("ecommerce bar chart runtime loads the data", async (assert) => {
         const { model } = await createSpreadsheetWithChart({
-            type: "odoo_bar",
+            type: "ecommerce_bar",
             mockRPC: async function (route, args) {
                 if (args.method === "web_read_group") {
                     assert.step("web_read_group");
@@ -83,9 +83,9 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         assert.verifySteps(["web_read_group"], "it should have loaded the data");
     });
 
-    QUnit.test("Odoo pie chart runtime loads the data", async (assert) => {
+    QUnit.test("ecommerce pie chart runtime loads the data", async (assert) => {
         const { model } = await createSpreadsheetWithChart({
-            type: "odoo_pie",
+            type: "ecommerce_pie",
             mockRPC: async function (route, args) {
                 if (args.method === "web_read_group") {
                     assert.step("web_read_group");
@@ -114,9 +114,9 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         assert.verifySteps(["web_read_group"], "it should have loaded the data");
     });
 
-    QUnit.test("Odoo line chart runtime loads the data", async (assert) => {
+    QUnit.test("ecommerce line chart runtime loads the data", async (assert) => {
         const { model } = await createSpreadsheetWithChart({
-            type: "odoo_line",
+            type: "ecommerce_line",
             mockRPC: async function (route, args) {
                 if (args.method === "web_read_group") {
                     assert.step("web_read_group");
@@ -150,7 +150,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
 
     QUnit.test("Changing the chart type does not reload the data", async (assert) => {
         const { model } = await createSpreadsheetWithChart({
-            type: "odoo_line",
+            type: "ecommerce_line",
             mockRPC: async function (route, args) {
                 if (args.method === "web_read_group") {
                     assert.step("web_read_group");
@@ -169,7 +169,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         model.dispatch("UPDATE_CHART", {
             definition: {
                 ...definition,
-                type: "odoo_bar",
+                type: "ecommerce_bar",
             },
             id: chartId,
             sheetId,
@@ -180,15 +180,15 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         assert.verifySteps([], "it should have not have loaded the data a second time");
     });
 
-    QUnit.test("Can import/export an Odoo chart", async (assert) => {
+    QUnit.test("Can import/export an ecommerce chart", async (assert) => {
         const model = await createModelWithDataSource();
-        insertChartInSpreadsheet(model, "odoo_line");
+        insertChartInSpreadsheet(model, "ecommerce_line");
         const data = model.exportData();
         const figures = data.sheets[0].figures;
         assert.strictEqual(figures.length, 1);
         const figure = figures[0];
         assert.strictEqual(figure.tag, "chart");
-        assert.strictEqual(figure.data.type, "odoo_line");
+        assert.strictEqual(figure.data.type, "ecommerce_line");
         const m1 = await createModelWithDataSource({ spreadsheetData: data });
         const sheetId = m1.getters.getActiveSheetId();
         assert.strictEqual(m1.getters.getChartIds(sheetId).length, 1);
@@ -197,9 +197,9 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         assert.strictEqual(m1.getters.getChartRuntime(chartId).chartJsConfig.type, "line");
     });
 
-    QUnit.test("Can undo/redo an Odoo chart creation", async (assert) => {
+    QUnit.test("Can undo/redo an ecommerce chart creation", async (assert) => {
         const model = await createModelWithDataSource();
-        insertChartInSpreadsheet(model, "odoo_line");
+        insertChartInSpreadsheet(model, "ecommerce_line");
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         assert.ok(model.getters.getChartDataSource(chartId));
@@ -211,9 +211,9 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
     });
 
     QUnit.test("charts with no legend", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_pie" });
-        insertChartInSpreadsheet(model, "odoo_bar");
-        insertChartInSpreadsheet(model, "odoo_line");
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_pie" });
+        insertChartInSpreadsheet(model, "ecommerce_bar");
+        insertChartInSpreadsheet(model, "ecommerce_line");
         const sheetId = model.getters.getActiveSheetId();
         const [pieChartId, barChartId, lineChartId] = model.getters.getChartIds(sheetId);
         const pie = model.getters.getChartDefinition(pieChartId);
@@ -270,7 +270,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
     });
 
     QUnit.test("Bar chart with stacked attribute is supported", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_bar" });
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_bar" });
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         const definition = model.getters.getChartDefinition(chartId);
@@ -304,8 +304,8 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         );
     });
 
-    QUnit.test("Can copy/paste Odoo chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_pie" });
+    QUnit.test("Can copy/paste ecommerce chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_pie" });
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         model.dispatch("SELECT_FIGURE", { id: chartId });
@@ -313,7 +313,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         model.dispatch("PASTE", { target: [toZone("A1")] });
         const chartIds = model.getters.getChartIds(sheetId);
         assert.strictEqual(chartIds.length, 2);
-        assert.ok(model.getters.getChart(chartIds[1]) instanceof OdooChart);
+        assert.ok(model.getters.getChart(chartIds[1]) instanceof ecommerceChart);
         assert.strictEqual(
             JSON.stringify(model.getters.getChartRuntime(chartIds[1])),
             JSON.stringify(model.getters.getChartRuntime(chartId))
@@ -326,8 +326,8 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         );
     });
 
-    QUnit.test("Can cut/paste Odoo chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_pie" });
+    QUnit.test("Can cut/paste ecommerce chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_pie" });
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         const chartRuntime = model.getters.getChartRuntime(chartId);
@@ -337,22 +337,22 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         const chartIds = model.getters.getChartIds(sheetId);
         assert.strictEqual(chartIds.length, 1);
         assert.notEqual(chartIds[0], chartId);
-        assert.ok(model.getters.getChart(chartIds[0]) instanceof OdooChart);
+        assert.ok(model.getters.getChart(chartIds[0]) instanceof ecommerceChart);
         assert.strictEqual(
             JSON.stringify(model.getters.getChartRuntime(chartIds[0])),
             JSON.stringify(chartRuntime)
         );
     });
 
-    QUnit.test("Duplicating a sheet correctly duplicates Odoo chart", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_bar" });
+    QUnit.test("Duplicating a sheet correctly duplicates ecommerce chart", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_bar" });
         const sheetId = model.getters.getActiveSheetId();
         const secondSheetId = "secondSheetId";
         const chartId = model.getters.getChartIds(sheetId)[0];
         model.dispatch("DUPLICATE_SHEET", { sheetId, sheetIdTo: secondSheetId });
         const chartIds = model.getters.getChartIds(secondSheetId);
         assert.strictEqual(chartIds.length, 1);
-        assert.ok(model.getters.getChart(chartIds[0]) instanceof OdooChart);
+        assert.ok(model.getters.getChart(chartIds[0]) instanceof ecommerceChart);
         assert.strictEqual(
             JSON.stringify(model.getters.getChartRuntime(chartIds[0])),
             JSON.stringify(model.getters.getChartRuntime(chartId))
@@ -366,7 +366,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
     });
 
     QUnit.test("Line chart with stacked attribute is supported", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_line" });
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_line" });
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         const definition = model.getters.getChartDefinition(chartId);
@@ -401,7 +401,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
     });
 
     QUnit.test(
-        "Load odoo chart spreadsheet with models that cannot be accessed",
+        "Load ecommerce chart spreadsheet with models that cannot be accessed",
         async function (assert) {
             let hasAccessRights = true;
             const { model } = await createSpreadsheetWithChart({
@@ -432,7 +432,7 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
     );
 
     QUnit.test("Line chart to support cumulative data", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_line" });
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_line" });
         const sheetId = model.getters.getActiveSheetId();
         const chartId = model.getters.getChartIds(sheetId)[0];
         const definition = model.getters.getChartDefinition(chartId);
@@ -467,15 +467,15 @@ QUnit.module("spreadsheet > odoo chart plugin", {}, () => {
         );
     });
 
-    QUnit.test("Remove odoo chart when sheet is deleted", async (assert) => {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_line" });
+    QUnit.test("Remove ecommerce chart when sheet is deleted", async (assert) => {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_line" });
         const sheetId = model.getters.getActiveSheetId();
         model.dispatch("CREATE_SHEET", {
             sheetId: model.uuidGenerator.uuidv4(),
             position: model.getters.getSheetIds().length,
         });
-        assert.strictEqual(model.getters.getOdooChartIds().length, 1);
+        assert.strictEqual(model.getters.getecommerceChartIds().length, 1);
         model.dispatch("DELETE_SHEET", { sheetId });
-        assert.strictEqual(model.getters.getOdooChartIds().length, 0);
+        assert.strictEqual(model.getters.getecommerceChartIds().length, 0);
     });
 });

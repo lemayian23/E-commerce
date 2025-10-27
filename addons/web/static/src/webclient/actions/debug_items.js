@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { editModelDebug } from "@web/core/debug/debug_utils";
 import { registry } from "@web/core/registry";

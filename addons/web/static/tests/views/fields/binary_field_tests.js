@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { makeMockXHR } from "@web/../tests/helpers/mock_services";
@@ -534,7 +534,7 @@ QUnit.module("Fields", (hooks) => {
             document: function (obj) {
                 if (obj.document) {
                     const error = new RPCError();
-                    error.exceptionName = "odoo.exceptions.ValidationError";
+                    error.exceptionName = "ecommerce.exceptions.ValidationError";
                     throw error;
                 }
             },

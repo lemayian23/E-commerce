@@ -1,4 +1,4 @@
-odoo.define("hr_timesheet.timesheet_uom_tests_env", function (require) {
+ecommerce.define("hr_timesheet.timesheet_uom_tests_env", function (require) {
 "use strict";
 
 const session = require('web.session');

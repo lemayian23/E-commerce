@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import configparser as ConfigParser
 import errno
@@ -9,7 +9,7 @@ import os
 import sys
 import tempfile
 import warnings
-import odoo
+import ecommerce
 from os.path import expandvars, expanduser, abspath, realpath, normcase
 from .. import release, conf, loglevels
 from . import appdirs
@@ -108,7 +108,7 @@ class configmanager(object):
         group = optparse.OptionGroup(parser, "Common options")
         group.add_option("-c", "--config", dest="config", help="specify alternate config file")
         group.add_option("-s", "--save", action="store_true", dest="save", default=False,
-                          help="save configuration to ~/.odoorc (or to ~/.openerp_serverrc if it exists)")
+                          help="save configuration to ~/.ecommercerc (or to ~/.openerp_serverrc if it exists)")
         group.add_option("-i", "--init", dest="init", help="install one or more modules (comma-separated list, use \"all\" for all modules), requires -d")
         group.add_option("-u", "--update", dest="update",
                           help="update one or more modules (comma-separated list, use \"all\" for all modules). Requires -d.")
@@ -130,7 +130,7 @@ class configmanager(object):
         group.add_option("--load", dest="server_wide_modules", help="Comma-separated list of server-wide modules.", my_default='base,web')
 
         group.add_option("-D", "--data-dir", dest="data_dir", my_default=_get_default_datadir(),
-                         help="Directory where to store Odoo data")
+                         help="Directory where to store ecommerce data")
         parser.add_option_group(group)
 
         # HTTP
@@ -200,7 +200,7 @@ class configmanager(object):
         group.add_option("--screencasts", dest="screencasts", action="store", my_default=None,
                          metavar='DIR',
                          help="Screencasts will go in DIR/{db_name}/screencasts.")
-        temp_tests_dir = os.path.join(tempfile.gettempdir(), 'odoo_tests')
+        temp_tests_dir = os.path.join(tempfile.gettempdir(), 'ecommerce_tests')
         group.add_option("--screenshots", dest="screenshots", action="store", my_default=temp_tests_dir,
                          metavar='DIR',
                          help="Screenshots will go in DIR/{db_name}/screenshots. Defaults to %s." % temp_tests_dir)
@@ -210,9 +210,9 @@ class configmanager(object):
         group = optparse.OptionGroup(parser, "Logging Configuration")
         group.add_option("--logfile", dest="logfile", help="file where the server log will be stored")
         group.add_option("--syslog", action="store_true", dest="syslog", my_default=False, help="Send the log to the syslog server")
-        group.add_option('--log-handler', action="append", default=[], my_default=DEFAULT_LOG_HANDLER, metavar="PREFIX:LEVEL", help='setup a handler at LEVEL for a given PREFIX. An empty PREFIX indicates the root logger. This option can be repeated. Example: "odoo.orm:DEBUG" or "werkzeug:CRITICAL" (default: ":INFO")')
-        group.add_option('--log-web', action="append_const", dest="log_handler", const="odoo.http:DEBUG", help='shortcut for --log-handler=odoo.http:DEBUG')
-        group.add_option('--log-sql', action="append_const", dest="log_handler", const="odoo.sql_db:DEBUG", help='shortcut for --log-handler=odoo.sql_db:DEBUG')
+        group.add_option('--log-handler', action="append", default=[], my_default=DEFAULT_LOG_HANDLER, metavar="PREFIX:LEVEL", help='setup a handler at LEVEL for a given PREFIX. An empty PREFIX indicates the root logger. This option can be repeated. Example: "ecommerce.orm:DEBUG" or "werkzeug:CRITICAL" (default: ":INFO")')
+        group.add_option('--log-web', action="append_const", dest="log_handler", const="ecommerce.http:DEBUG", help='shortcut for --log-handler=ecommerce.http:DEBUG')
+        group.add_option('--log-sql', action="append_const", dest="log_handler", const="ecommerce.sql_db:DEBUG", help='shortcut for --log-handler=ecommerce.sql_db:DEBUG')
         group.add_option('--log-db', dest='log_db', help="Logging database", my_default=False)
         group.add_option('--log-db-level', dest='log_db_level', my_default='warning', help="Logging database level")
         # For backward-compatibility, map the old log levels to something
@@ -271,7 +271,7 @@ class configmanager(object):
         parser.add_option_group(group)
 
         group = optparse.OptionGroup(parser, "Internationalisation options",
-            "Use these options to translate Odoo to another language. "
+            "Use these options to translate ecommerce to another language. "
             "See i18n section of the user manual. Option '-d' is mandatory. "
             "Option '-l' is mandatory in case of importation"
             )
@@ -373,7 +373,7 @@ class configmanager(object):
         """ Parse the configuration file (if any) and the command-line
         arguments.
 
-        This method initializes odoo.tools.config and openerp.conf (the
+        This method initializes ecommerce.tools.config and openerp.conf (the
         former should be removed in the future) with library-wide
         configuration values.
 
@@ -382,12 +382,12 @@ class configmanager(object):
 
         Typical usage of this method:
 
-            odoo.tools.config.parse_config(sys.argv[1:])
+            ecommerce.tools.config.parse_config(sys.argv[1:])
         """
         opt = self._parse_config(args)
-        odoo.netsvc.init_logger()
+        ecommerce.netsvc.init_logger()
         self._warn_deprecated_options()
-        odoo.modules.module.initialize_sys_path()
+        ecommerce.modules.module.initialize_sys_path()
         return opt
 
     def _parse_config(self, args=None):
@@ -429,20 +429,20 @@ class configmanager(object):
         # else he won't be able to save the configurations, or even to start the server...
         # TODO use appdirs
         if os.name == 'nt':
-            rcfilepath = os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'odoo.conf')
+            rcfilepath = os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'ecommerce.conf')
         else:
-            rcfilepath = os.path.expanduser('~/.odoorc')
+            rcfilepath = os.path.expanduser('~/.ecommercerc')
             old_rcfilepath = os.path.expanduser('~/.openerp_serverrc')
 
             die(os.path.isfile(rcfilepath) and os.path.isfile(old_rcfilepath),
-                "Found '.odoorc' and '.openerp_serverrc' in your path. Please keep only one of "\
-                "them, preferably '.odoorc'.")
+                "Found '.ecommercerc' and '.openerp_serverrc' in your path. Please keep only one of "\
+                "them, preferably '.ecommercerc'.")
 
             if not os.path.isfile(rcfilepath) and os.path.isfile(old_rcfilepath):
                 rcfilepath = old_rcfilepath
 
         self.rcfile = os.path.abspath(
-            self.config_file or opt.config or os.environ.get('ODOO_RC') or os.environ.get('OPENERP_SERVER') or rcfilepath)
+            self.config_file or opt.config or os.environ.get('ecommerce_RC') or os.environ.get('OPENERP_SERVER') or rcfilepath)
         self.load()
 
         # Verify that we want to log or not, if not the output will go to stdout
@@ -590,7 +590,7 @@ class configmanager(object):
             self.options['gevent_port'] = self.options.pop('longpolling_port')
 
     def _is_addons_path(self, path):
-        from odoo.modules.module import MANIFEST_NAMES
+        from ecommerce.modules.module import MANIFEST_NAMES
         for f in os.listdir(path):
             modpath = os.path.join(path, f)
             if os.path.isdir(modpath):

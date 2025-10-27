@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import date, datetime
 
-from odoo.tests import new_test_user
-from odoo.tests.common import tagged, TransactionCase
+from ecommerce.tests import new_test_user
+from ecommerce.tests.common import tagged, TransactionCase
 
 @tagged('post_install', '-at_install', 'hr_attendance_overtime')
 class TestHrAttendanceOvertime(TransactionCase):

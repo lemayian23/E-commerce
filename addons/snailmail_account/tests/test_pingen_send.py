@@ -4,8 +4,8 @@ import json
 import base64
 import logging
 
-from odoo.tests.common import HttpCase
-from odoo.tests import tagged
+from ecommerce.tests.common import HttpCase
+from ecommerce.tests import tagged
 
 _logger = logging.getLogger(__name__)
 

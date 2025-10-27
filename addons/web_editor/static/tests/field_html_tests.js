@@ -1,4 +1,4 @@
-odoo.define('web_editor.field_html_tests', function (require) {
+ecommerce.define('web_editor.field_html_tests', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');
@@ -14,7 +14,7 @@ var LinkDialog = require('wysiwyg.widgets.LinkDialog');
 
 const { legacyExtraNextTick, patchWithCleanup } = require("@web/../tests/helpers/utils");
 
-const { useEffect } = require("@odoo/owl");
+const { useEffect } = require("@ecommerce/owl");
 
 var _t = core._t;
 

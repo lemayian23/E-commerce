@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { PublicLivechatFloatingTextView } from '@website_livechat/legacy/widgets/public_livechat_floating_text_view/public_livechat_floating_text_view';
 

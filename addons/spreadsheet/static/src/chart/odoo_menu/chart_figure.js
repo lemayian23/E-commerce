@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patch } from "@web/core/utils/patch";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -10,19 +10,19 @@ patch(spreadsheet.components.ChartFigure.prototype, "spreadsheet.ChartFigure", {
         this.menuService = useService("menu");
         this.actionService = useService("action");
     },
-    async navigateToOdooMenu() {
-        const menu = this.env.model.getters.getChartOdooMenu(this.props.figure.id);
+    async navigateToecommerceMenu() {
+        const menu = this.env.model.getters.getChartecommerceMenu(this.props.figure.id);
         if (!menu) {
             throw new Error(`Cannot find any menu associated with the chart`);
         }
         await this.actionService.doAction(menu.actionID);
     },
-    get hasOdooMenu() {
-        return this.env.model.getters.getChartOdooMenu(this.props.figure.id) !== undefined;
+    get hasecommerceMenu() {
+        return this.env.model.getters.getChartecommerceMenu(this.props.figure.id) !== undefined;
     },
     async onClick() {
-        if (this.env.isDashboard() && this.hasOdooMenu) {
-            this.navigateToOdooMenu();
+        if (this.env.isDashboard() && this.hasecommerceMenu) {
+            this.navigateToecommerceMenu();
         }
     },
 });

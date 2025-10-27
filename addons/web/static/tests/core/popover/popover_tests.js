@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Popover } from "@web/core/popover/popover";
 import { usePosition } from "@web/core/position_hook";

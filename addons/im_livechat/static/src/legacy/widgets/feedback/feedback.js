@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import concurrency from 'web.concurrency';
 import core from 'web.core';

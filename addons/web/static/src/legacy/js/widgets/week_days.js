@@ -1,4 +1,4 @@
-odoo.define('web.WeekDays', function (require) {
+ecommerce.define('web.WeekDays', function (require) {
     'use strict';
 
     const CustomCheckbox = require('web.CustomCheckbox');

@@ -1,4 +1,4 @@
-odoo.define('debug_menu_set_defaults.tour', function (require) {
+ecommerce.define('debug_menu_set_defaults.tour', function (require) {
     "use strict";
 
     var tour = require('web_tour.tour');

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml.builder import E
 from markupsafe import Markup
 
-from odoo import api, models, tools, _
+from ecommerce import api, models, tools, _
 
 import logging
 
@@ -251,7 +251,7 @@ class BaseModel(models.AbstractModel):
             return {}
         self.ensure_one()
         return {
-            'X-Odoo-Objects': "%s-%s" % (self._name, self.id),
+            'X-ecommerce-Objects': "%s-%s" % (self._name, self.id),
         }
 
     # ------------------------------------------------------------

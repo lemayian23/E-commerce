@@ -1,4 +1,4 @@
-odoo.define('web.BasicView', function (require) {
+ecommerce.define('web.BasicView', function (require) {
 "use strict";
 
 /**
@@ -21,7 +21,7 @@ var utils = require('web.utils');
 const widgetRegistry = require('web.widget_registry');
 const widgetRegistryOwl = require('web.widgetRegistry');
 
-const { Component } = require("@odoo/owl");
+const { Component } = require("@ecommerce/owl");
 
 var BasicView = AbstractView.extend({
     config: _.extend({}, AbstractView.prototype.config, {

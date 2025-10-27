@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools.misc import format_date, formatLang
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools.misc import format_date, formatLang
 
 from collections import defaultdict
-from odoo.tools import groupby, frozendict
+from ecommerce.tools import groupby, frozendict
 import json
 
 class AutomaticEntryWizard(models.TransientModel):

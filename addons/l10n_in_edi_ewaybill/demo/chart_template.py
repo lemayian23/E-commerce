@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, api, Command
+from ecommerce import models, api, Command
 
 
 class AccountChartTemplate(models.Model):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { afterNextRender, start, startServer } from '@mail/../tests/helpers/test_utils';
 import { contains } from "@web/../tests/utils";
@@ -159,7 +159,7 @@ QUnit.test('link-type attachment should have open button instead of download but
         name: "url.example",
         mimetype: 'text/plain',
         type: 'url',
-        url: 'https://www.odoo.com',
+        url: 'https://www.ecommerce.com',
     });
     pyEnv['mail.message'].create({
         attachment_ids: [messageAttachmentId],

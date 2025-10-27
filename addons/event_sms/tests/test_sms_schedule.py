@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.addons.event.tests.common import EventCase
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.addons.sms.tests.common import SMSCase
-from odoo.tests import users
+from ecommerce import fields
+from ecommerce.addons.event.tests.common import EventCase
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.addons.sms.tests.common import SMSCase
+from ecommerce.tests import users
 
 
 class TestSMSSchedule(EventCase, SMSCase):

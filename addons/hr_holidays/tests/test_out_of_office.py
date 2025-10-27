@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tests.common import tagged, users, warmup
-from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.tests.common import tagged, users, warmup
+from ecommerce.tools.misc import DEFAULT_SERVER_DATE_FORMAT
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
 
 @tagged('out_of_office')

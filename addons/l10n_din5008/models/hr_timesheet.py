@@ -1,4 +1,4 @@
-from odoo import models, fields
+from ecommerce import models, fields
 
 class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'

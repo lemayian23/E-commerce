@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import TransactionCase
-from odoo.exceptions import UserError
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests import TransactionCase
+from ecommerce.exceptions import UserError
 
-import odoo.tests
+import ecommerce.tests
 
 
-@odoo.tests.tagged('external', '-standard')
+@ecommerce.tests.tagged('external', '-standard')
 class TestGeoLocalize(TransactionCase):
 
     def test_default_openstreetmap(self):

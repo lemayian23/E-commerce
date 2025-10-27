@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { FloatField } from "../float/float_field";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 export class FloatFactorField extends Component {
     get factor() {
         return this.props.factor;

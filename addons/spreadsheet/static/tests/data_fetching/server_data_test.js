@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { nextTick } from "@web/../tests/helpers/utils";
 import { LoadingDataError } from "@spreadsheet/o_spreadsheet/errors";

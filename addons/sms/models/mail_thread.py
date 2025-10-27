@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo import api, models, fields
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.addons.sms.tools.sms_tools import sms_content_to_rendered_html
-from odoo.tools import html2plaintext
+from ecommerce import api, models, fields
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.addons.sms.tools.sms_tools import sms_content_to_rendered_html
+from ecommerce.tools import html2plaintext
 
 _logger = logging.getLogger(__name__)
 

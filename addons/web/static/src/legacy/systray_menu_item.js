@@ -1,11 +1,11 @@
-/** @odoo-module  **/
+/** @ecommerce-module  **/
 
 import { ComponentAdapter } from "web.OwlCompatibility";
 import * as legacySystrayMenu from "web.SystrayMenu";
 import { registry } from "../core/registry";
 import { LegacyComponent } from "@web/legacy/legacy_component";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const systrayRegistry = registry.category("systray");
 
 class SystrayItemAdapter extends ComponentAdapter {

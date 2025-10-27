@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo import http, _
-from odoo.addons.website_sale.controllers.main import WebsiteSale, PaymentPortal
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
+from ecommerce import http, _
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale, PaymentPortal
+from ecommerce.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
 
-from odoo.exceptions import AccessDenied, ValidationError, UserError
-from odoo.http import request
+from ecommerce.exceptions import AccessDenied, ValidationError, UserError
+from ecommerce.http import request
 
 
 class MondialRelay(http.Controller):

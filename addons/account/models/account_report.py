@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import re
 from collections import defaultdict
 
-from odoo import models, fields, api, _, osv, Command
-from odoo.exceptions import ValidationError, UserError
+from ecommerce import models, fields, api, _, osv, Command
+from ecommerce.exceptions import ValidationError, UserError
 
 FIGURE_TYPE_SELECTION_VALUES = [
     ('monetary', "Monetary"),
@@ -447,7 +447,7 @@ class AccountReportExpression(models.Model):
     engine = fields.Selection(
         string="Computation Engine",
         selection=[
-            ('domain', "Odoo Domain"),
+            ('domain', "ecommerce Domain"),
             ('tax_tags', "Tax Tags"),
             ('aggregation', "Aggregate Other Formulas"),
             ('account_codes', "Prefix of Account Codes"),

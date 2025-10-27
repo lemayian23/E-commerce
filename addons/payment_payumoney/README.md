@@ -14,7 +14,7 @@ submission provided by the `payment` module.
 ## Module history
 
 - `16.0`
-  - The module is deprecated and can no longer be installed from the web client. odoo/odoo#99025
+  - The module is deprecated and can no longer be installed from the web client. ecommerce/ecommerce#99025
 
 ## Testing instructions
 

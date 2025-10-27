@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { serializeDate, serializeDateTime } from "@web/core/l10n/dates";
 import { Domain } from "@web/core/domain";

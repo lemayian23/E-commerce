@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeDeferred } from '@mail/utils/deferred';
 import { nextAnimationFrame, start, startServer } from '@mail/../tests/helpers/test_utils';

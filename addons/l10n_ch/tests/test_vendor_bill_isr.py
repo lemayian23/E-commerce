@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import Form, common, tagged
-from odoo.exceptions import ValidationError
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tests import Form, common, tagged
+from ecommerce.exceptions import ValidationError
 
 
 CH_ISR_SUBSCRIPTION = "01-162-8"

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DomainSelectorBranchNode } from "./domain_selector_branch_node";
 import { DomainSelectorBranchOperator } from "./domain_selector_branch_operator";
 import { DomainSelectorLeafNode } from "./domain_selector_leaf_node";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class DomainSelectorRootNode extends Component {
     get hasNode() {

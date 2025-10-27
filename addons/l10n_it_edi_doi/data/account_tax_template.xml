@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="00di" model="account.tax.template">
         <field name="description">Declaration of Intent</field>
         <field name="chart_template_id" ref="l10n_it.l10n_it_chart_template_generic"/>
@@ -25,4 +25,4 @@
             (0,0, {'repartition_type': 'tax'}),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

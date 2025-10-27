@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
 from lxml import etree
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.modules import get_module_resource
-from odoo.modules.module import get_resource_from_path, get_resource_path
-from odoo.tools.convert import xml_import
-from odoo.tools.misc import file_open
-from odoo.tools.translate import TranslationImporter
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import UserError
+from ecommerce.modules import get_module_resource
+from ecommerce.modules.module import get_resource_from_path, get_resource_path
+from ecommerce.tools.convert import xml_import
+from ecommerce.tools.misc import file_open
+from ecommerce.tools.translate import TranslationImporter
 
 
 class TemplateResetMixin(models.AbstractModel):

@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <record id="view_production_tree_view_inherit" model="ir.ui.view">
         <field name="name">mrp.production.tree.view.inherit</field>
         <field name="model">mrp.production</field>
@@ -49,4 +49,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</ecommerce>

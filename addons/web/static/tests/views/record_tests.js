@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { Field } from "@web/views/fields/field";
@@ -6,7 +6,7 @@ import { Record } from "@web/views/record";
 import { click, getFixture, mount } from "../helpers/utils";
 import { setupViewRegistries } from "../views/helpers";
 
-import { Component, xml, useState } from "@odoo/owl";
+import { Component, xml, useState } from "@ecommerce/owl";
 
 let serverData;
 let target;

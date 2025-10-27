@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from markupsafe import Markup
 from urllib.parse import urlparse, parse_qs, urlencode
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.exceptions import UserError, AccessError, RedirectWarning
-from odoo.tools.safe_eval import safe_eval, time
-from odoo.tools.misc import find_in_path, ustr
-from odoo.tools import check_barcode_encoding, config, is_html_empty, parse_version
-from odoo.http import request
-from odoo.osv.expression import NEGATIVE_TERM_OPERATORS, FALSE_DOMAIN
+from ecommerce import api, fields, models, tools, SUPERUSER_ID, _
+from ecommerce.exceptions import UserError, AccessError, RedirectWarning
+from ecommerce.tools.safe_eval import safe_eval, time
+from ecommerce.tools.misc import find_in_path, ustr
+from ecommerce.tools import check_barcode_encoding, config, is_html_empty, parse_version
+from ecommerce.http import request
+from ecommerce.osv.expression import NEGATIVE_TERM_OPERATORS, FALSE_DOMAIN
 
 import io
 import logging
@@ -41,7 +41,7 @@ _logger = logging.getLogger(__name__)
 # A lock occurs when the user wants to print a report having multiple barcode while the server is
 # started in threaded-mode. The reason is that reportlab has to build a cache of the T1 fonts
 # before rendering a barcode (done in a C extension) and this part is not thread safe. We attempt
-# here to init the T1 fonts cache at the start-up of Odoo so that rendering of barcode in multiple
+# here to init the T1 fonts cache at the start-up of ecommerce so that rendering of barcode in multiple
 # thread does not lock the server.
 _DEFAULT_BARCODE_FONT = 'Courier'
 try:
@@ -62,7 +62,7 @@ def _get_wkhtmltopdf_bin():
     return find_in_path('wkhtmltopdf')
 
 
-# Check the presence of Wkhtmltopdf and return its version at Odoo start-up
+# Check the presence of Wkhtmltopdf and return its version at ecommerce start-up
 wkhtmltopdf_state = 'install'
 wkhtmltopdf_dpi_zoom_ratio = False
 try:
@@ -86,7 +86,7 @@ else:
             wkhtmltopdf_dpi_zoom_ratio = True
 
         if config['workers'] == 1:
-            _logger.info('You need to start Odoo with at least two workers to print a pdf version of the reports.')
+            _logger.info('You need to start ecommerce with at least two workers to print a pdf version of the reports.')
             wkhtmltopdf_state = 'workers'
     else:
         _logger.info('Wkhtmltopdf seems to be broken.')
@@ -676,7 +676,7 @@ class IrActionsReport(models.Model):
                 if custom_error_handler:
                     custom_error_handler(stream)
                     continue
-                raise UserError(_("Odoo is unable to merge the generated PDFs."))
+                raise UserError(_("ecommerce is unable to merge the generated PDFs."))
         result_stream = io.BytesIO()
         streams.append(result_stream)
         writer.write(result_stream)
@@ -953,7 +953,7 @@ class IrActionsReport(models.Model):
                     'res_id': error_record_ids[0],
                 })
             raise RedirectWarning(
-                message=_('Odoo is unable to merge the generated PDFs because of %(num_errors)s corrupted file(s)', num_errors=num_errors),
+                message=_('ecommerce is unable to merge the generated PDFs because of %(num_errors)s corrupted file(s)', num_errors=num_errors),
                 action=action,
                 button_text=_('View Problematic Record(s)'),
             )

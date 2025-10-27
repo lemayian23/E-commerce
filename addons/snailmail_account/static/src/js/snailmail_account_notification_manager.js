@@ -1,4 +1,4 @@
-odoo.define('snailmail_account.NotificationManager', function (require) {
+ecommerce.define('snailmail_account.NotificationManager', function (require) {
 "use strict";
 
 var AbstractService = require('web.AbstractService');

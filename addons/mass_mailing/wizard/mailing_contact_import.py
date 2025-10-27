@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, tools, _
-from odoo.tools.misc import clean_context
+from ecommerce import fields, models, tools, _
+from ecommerce.tools.misc import clean_context
 
 
 class MailingContactImport(models.TransientModel):

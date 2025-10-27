@@ -1,4 +1,4 @@
-odoo.define('pos_epson_printer.pos_epson_printer', function (require) {
+ecommerce.define('pos_epson_printer.pos_epson_printer', function (require) {
 "use strict";
 
 var { PosGlobalState } = require('point_of_sale.models');

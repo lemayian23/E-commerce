@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, api
-from odoo.tools.misc import str2bool
+from ecommerce import models, api
+from ecommerce.tools.misc import str2bool
 
 
 class ResUsers(models.Model):

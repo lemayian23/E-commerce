@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
+import ecommerce
 
-from odoo.addons.point_of_sale.tests.common import TestPoSCommon
+from ecommerce.addons.point_of_sale.tests.common import TestPoSCommon
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPoSSaleReport(TestPoSCommon):
 
     def setUp(self):

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Account Tax Group -->
     <record id="configurable_chart_template" model="account.chart.template">
         <field name="name">Configurable Account Chart Template</field>
@@ -10,4 +10,4 @@
         <field name="currency_id" ref="base.USD"/>
         <field name="country_id" eval="False"/>
     </record>
-</odoo>
+</ecommerce>

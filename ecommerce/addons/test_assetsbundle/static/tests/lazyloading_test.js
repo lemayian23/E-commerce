@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { loadBundle, LazyComponent } from "@web/core/assets";
 import { registerCleanup } from "@web/../tests/helpers/cleanup";

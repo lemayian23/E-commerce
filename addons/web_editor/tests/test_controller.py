@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import binascii
 import json
@@ -7,11 +7,11 @@ import json
 from io import BytesIO
 from PIL import Image
 
-from odoo.tests.common import HttpCase, new_test_user, tagged
-from odoo.tools.json import scriptsafe as json_safe
-from odoo.tools.misc import file_open
+from ecommerce.tests.common import HttpCase, new_test_user, tagged
+from ecommerce.tools.json import scriptsafe as json_safe
+from ecommerce.tools.misc import file_open
 
-from odoo.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.http_routing.models.ir_http import slug
 
 
 @tagged("-at_install", "post_install")

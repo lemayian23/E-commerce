@@ -1,5 +1,5 @@
 /* global Benchmark */
-odoo.define('web.kanban_benchmarks', function (require) {
+ecommerce.define('web.kanban_benchmarks', function (require) {
     "use strict";
 
     const KanbanView = require('web.KanbanView');

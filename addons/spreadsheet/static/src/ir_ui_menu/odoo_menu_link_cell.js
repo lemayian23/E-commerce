@@ -1,13 +1,13 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 
 const { LinkCell } = spreadsheet.cellTypes;
 const { isMarkdownLink, parseMarkdownLink } = spreadsheet.helpers;
 
-const VIEW_PREFIX = "odoo://view/";
-const IR_MENU_ID_PREFIX = "odoo://ir_menu_id/";
-const IR_MENU_XML_ID_PREFIX = "odoo://ir_menu_xml_id/";
+const VIEW_PREFIX = "ecommerce://view/";
+const IR_MENU_ID_PREFIX = "ecommerce://ir_menu_id/";
+const IR_MENU_XML_ID_PREFIX = "ecommerce://ir_menu_xml_id/";
 
 /**
  * @typedef Action
@@ -121,7 +121,7 @@ export function buildIrMenuXmlLink(menuXmlId) {
     return `${IR_MENU_XML_ID_PREFIX}${menuXmlId}`;
 }
 
-export class OdooMenuLinkCell extends LinkCell {
+export class ecommerceMenuLinkCell extends LinkCell {
     constructor(id, content, menuId, menuName, properties = {}) {
         super(id, content, properties);
         this.urlRepresentation = menuName;
@@ -135,7 +135,7 @@ export class OdooMenuLinkCell extends LinkCell {
     }
 }
 
-export class OdooViewLinkCell extends LinkCell {
+export class ecommerceViewLinkCell extends LinkCell {
     /**
      *
      * @param {string} id

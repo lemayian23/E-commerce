@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="payment_checkout" inherit_id="payment.checkout">
         <!-- Make available anchor to inject donation form content -->
@@ -142,4 +142,4 @@
         <input type="number" class="o_wpayment_fee_impact form-control o_amount_input" t-att-min="donation_options.get('minimumAmount')"
             t-att-max="donation_options.get('maximumAmount')" t-att-value="amount" placeholder="Custom Amount" id="other_amount_value"/>
     </template>
-</odoo>
+</ecommerce>

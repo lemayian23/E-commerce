@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.tests import common
-from odoo import Command
+from ecommerce.tests import common
+from ecommerce import Command
 
 
 class TestAutoJoin(common.TransactionCase):

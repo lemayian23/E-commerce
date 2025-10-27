@@ -1,5 +1,5 @@
-from odoo import models
-from odoo.tools import index_exists
+from ecommerce import models
+from ecommerce.tools import index_exists
 
 
 class AccountMove(models.Model):

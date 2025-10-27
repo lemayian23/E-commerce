@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import publicWidget from 'web.public.widget';
 import { DropPrevious } from 'web.concurrency';
@@ -92,7 +92,7 @@ publicWidget.registry.AddressForm = publicWidget.Widget.extend({
         this.zipInput.value = address.zip || '';
         this.cityInput.value = address.city || '';
 
-        // Selects based on odoo ids
+        // Selects based on ecommerce ids
         if (address.country) {
             this.countrySelect.value = address.country;
             // Let the state select know that the country has changed so that it may fetch the correct states or disappear.

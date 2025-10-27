@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from odoo import Command
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.project.tests.test_project_sharing import TestProjectSharingCommon
+from ecommerce.addons.project.tests.test_project_sharing import TestProjectSharingCommon
 
 @tagged('post_install', '-at_install')
 class TestPortalTimesheet(TestProjectSharingCommon):

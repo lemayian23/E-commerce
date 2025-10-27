@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { selectCell, setCellContent } from "@spreadsheet/../tests/utils/commands";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -64,10 +64,10 @@ QUnit.module("spreadsheet_account > Accounting Drill down", { beforeEach }, () =
         });
         const env = model.config.evalContext.env;
         env.model = model;
-        setCellContent(model, "A1", `=ODOO.BALANCE("100", 2020)`);
-        setCellContent(model, "A2", `=ODOO.BALANCE("100", 0)`);
-        setCellContent(model, "A3", `=ODOO.BALANCE("100", 2020, , , FALSE)`);
-        setCellContent(model, "A4", `=ODOO.BALANCE("100", 2020, , , )`);
+        setCellContent(model, "A1", `=ecommerce.BALANCE("100", 2020)`);
+        setCellContent(model, "A2", `=ecommerce.BALANCE("100", 0)`);
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100", 2020, , , FALSE)`);
+        setCellContent(model, "A4", `=ecommerce.BALANCE("100", 2020, , , )`);
         await waitForDataSourcesLoaded(model);
         selectCell(model, "A1");
         const root = cellMenuRegistry.getAll().find((item) => item.id === "move_lines_see_records");

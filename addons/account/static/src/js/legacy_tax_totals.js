@@ -1,4 +1,4 @@
-/** @odoo-module alias=account.tax_group_owl **/
+/** @ecommerce-module alias=account.tax_group_owl **/
 "use strict";
 
 import session from 'web.session';

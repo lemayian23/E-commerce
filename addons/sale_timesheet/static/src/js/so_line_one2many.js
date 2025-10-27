@@ -1,4 +1,4 @@
-odoo.define('sale_timesheet.so_line_many2one', function (require) {
+ecommerce.define('sale_timesheet.so_line_many2one', function (require) {
 "use strict";
 
 const fieldRegistry = require('web.field_registry');

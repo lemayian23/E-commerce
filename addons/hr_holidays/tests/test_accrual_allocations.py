@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import datetime
 from freezegun import freeze_time
 from dateutil.relativedelta import relativedelta
 
-from odoo.tests import tagged
-from odoo.tools import float_compare
-from odoo.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tools import float_compare
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
 
 @tagged('post_install', '-at_install')

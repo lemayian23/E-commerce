@@ -2,7 +2,7 @@
 
 import time
 
-from odoo.tests.common import tagged, TransactionCase
+from ecommerce.tests.common import tagged, TransactionCase
 
 
 @tagged('jesaispas')

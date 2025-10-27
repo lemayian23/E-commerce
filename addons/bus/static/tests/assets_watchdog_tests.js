@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { busService } from "@bus/services/bus_service";
 import { presenceService } from "@bus/services/presence_service";

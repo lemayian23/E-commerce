@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Transition, useTransition, config as transitionConfig } from "@web/core/transition";
 import { getFixture, mockTimeout, mount, nextTick, patchWithCleanup } from "../helpers/utils";
 
-import { Component, xml, useState } from "@odoo/owl";
+import { Component, xml, useState } from "@ecommerce/owl";
 
 QUnit.module("Transition");
 

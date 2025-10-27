@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 from collections import defaultdict, OrderedDict
 from decorator import decorator
@@ -22,16 +22,16 @@ from docutils.writers.html4css1 import Writer
 import lxml.html
 import psycopg2
 
-import odoo
-from odoo import api, fields, models, modules, tools, _
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
-from odoo.exceptions import AccessDenied, UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools.parse_version import parse_version
-from odoo.tools.misc import topological_sort
-from odoo.tools.translate import TranslationImporter
-from odoo.http import request
-from odoo.modules import get_module_path, get_module_resource
+import ecommerce
+from ecommerce import api, fields, models, modules, tools, _
+from ecommerce.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from ecommerce.exceptions import AccessDenied, UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools.parse_version import parse_version
+from ecommerce.tools.misc import topological_sort
+from ecommerce.tools.translate import TranslationImporter
+from ecommerce.http import request
+from ecommerce.modules import get_module_path, get_module_resource
 
 _logger = logging.getLogger(__name__)
 
@@ -318,8 +318,8 @@ class Module(models.Model):
         ('AGPL-3', 'Affero GPL-3'),
         ('LGPL-3', 'LGPL Version 3'),
         ('Other OSI approved licence', 'Other OSI Approved License'),
-        ('OEEL-1', 'Odoo Enterprise Edition License v1.0'),
-        ('OPL-1', 'Odoo Proprietary License v1.0'),
+        ('OEEL-1', 'ecommerce Enterprise Edition License v1.0'),
+        ('OPL-1', 'ecommerce Proprietary License v1.0'),
         ('Other proprietary', 'Other Proprietary')
     ], string='License', default='LGPL-3', readonly=True)
     menus_by_module = fields.Text(string='Menus', compute='_get_views', store=True)
@@ -328,7 +328,7 @@ class Module(models.Model):
     application = fields.Boolean('Application', readonly=True)
     icon = fields.Char('Icon URL')
     icon_image = fields.Binary(string='Icon', compute='_get_icon_image')
-    to_buy = fields.Boolean('Odoo Enterprise Module', default=False)
+    to_buy = fields.Boolean('ecommerce Enterprise Module', default=False)
     has_iap = fields.Boolean(compute='_compute_has_iap')
 
     _sql_constraints = [
@@ -593,7 +593,7 @@ class Module(models.Model):
             # during execution, the lock won't be released until timeout.
             self._cr.execute("SELECT * FROM ir_cron FOR UPDATE NOWAIT")
         except psycopg2.OperationalError:
-            raise UserError(_("Odoo is currently processing a scheduled action.\n"
+            raise UserError(_("ecommerce is currently processing a scheduled action.\n"
                               "Module operations are not possible at this time, "
                               "please try again later or contact your system administrator."))
         function(self)
@@ -632,7 +632,7 @@ class Module(models.Model):
 
     @assert_log_admin_access
     def button_uninstall(self):
-        un_installable_modules = set(odoo.conf.server_wide_modules) & set(self.mapped('name'))
+        un_installable_modules = set(ecommerce.conf.server_wide_modules) & set(self.mapped('name'))
         if un_installable_modules:
             raise UserError(_("Those modules cannot be uninstalled: %s", ', '.join(un_installable_modules)))
         if any(state not in ('installed', 'to upgrade') for state in self.mapped('state')):
@@ -815,7 +815,7 @@ class Module(models.Model):
 
         apps_server = werkzeug.urls.url_parse(self.get_apps_server())
 
-        OPENERP = odoo.release.product_name.lower()
+        OPENERP = ecommerce.release.product_name.lower()
         tmp = tempfile.mkdtemp()
         _logger.debug('Install from url: %r', urls)
         try:
@@ -857,16 +857,16 @@ class Module(models.Model):
                 # extract path is not the same
                 base_path = os.path.dirname(modules.get_module_path('base'))
 
-                # copy all modules in the SERVER/odoo/addons directory to the new "odoo" module (except base itself)
+                # copy all modules in the SERVER/ecommerce/addons directory to the new "ecommerce" module (except base itself)
                 for d in os.listdir(base_path):
                     if d != 'base' and os.path.isdir(os.path.join(base_path, d)):
-                        destdir = os.path.join(tmp, OPENERP, 'addons', d)    # XXX 'odoo' subdirectory ?
+                        destdir = os.path.join(tmp, OPENERP, 'addons', d)    # XXX 'ecommerce' subdirectory ?
                         shutil.copytree(os.path.join(base_path, d), destdir)
 
                 # then replace the server by the new "base" module
                 server_dir = tools.config['root_path']      # XXX or dirname()
                 bck = backup(server_dir)
-                _logger.info('Copy downloaded module `odoo` to `%s`', server_dir)
+                _logger.info('Copy downloaded module `ecommerce` to `%s`', server_dir)
                 shutil.move(os.path.join(tmp, OPENERP), server_dir)
                 #if bck:
                 #    shutil.rmtree(bck)
@@ -883,7 +883,7 @@ class Module(models.Model):
             if installed or to_install:
                 # in this case, force server restart to reload python code...
                 self._cr.commit()
-                odoo.service.server.restart()
+                ecommerce.service.server.restart()
                 return {
                     'type': 'ir.actions.client',
                     'tag': 'home',
@@ -896,7 +896,7 @@ class Module(models.Model):
 
     @api.model
     def get_apps_server(self):
-        return tools.config.get('apps_server', 'https://apps.odoo.com/apps')
+        return tools.config.get('apps_server', 'https://apps.ecommerce.com/apps')
 
     def _update_from_terp(self, terp):
         self._update_dependencies(terp.get('depends', []), terp.get('auto_install'))

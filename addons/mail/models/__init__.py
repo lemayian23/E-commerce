@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # core models (required for mixins)
 from . import mail_alias
@@ -42,7 +42,7 @@ from . import mail_shortcode
 from . import res_users_settings
 from . import res_users_settings_volumes
 
-# odoo models
+# ecommerce models
 from . import bus_presence
 from . import ir_action_act_window
 from . import ir_actions_server

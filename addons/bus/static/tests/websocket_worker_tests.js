@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { WEBSOCKET_CLOSE_CODES } from "@bus/workers/websocket_worker";
 import { patchWebsocketWorkerWithCleanup } from '@bus/../tests/helpers/mock_websocket';

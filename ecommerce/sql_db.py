@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 """
@@ -276,7 +276,7 @@ class Cursor(BaseCursor):
 
         self.cache = {}
         self._now = None
-        if os.getenv('ODOO_FAKETIME_TEST_MODE') and self.dbname in tools.config['db_name'].split(','):
+        if os.getenv('ecommerce_FAKETIME_TEST_MODE') and self.dbname in tools.config['db_name'].split(','):
             self.execute("SET search_path = public, pg_catalog;")
             self.commit()  # ensure that the search_path remains after a rollback
 
@@ -773,11 +773,11 @@ def connection_info_for(db_or_uri):
     :param str db_or_uri: database name or postgres dsn
     :rtype: (str, dict)
     """
-    if 'ODOO_PGAPPNAME' in os.environ:
+    if 'ecommerce_PGAPPNAME' in os.environ:
         # Using manual string interpolation for security reason and trimming at default NAMEDATALEN=63
-        app_name = os.environ['ODOO_PGAPPNAME'].replace('{pid}', str(os.getpid()))[0:63]
+        app_name = os.environ['ecommerce_PGAPPNAME'].replace('{pid}', str(os.getpid()))[0:63]
     else:
-        app_name = "odoo-%d" % os.getpid()
+        app_name = "ecommerce-%d" % os.getpid()
     if db_or_uri.startswith(('postgresql://', 'postgres://')):
         # extract db from uri
         us = urls.url_parse(db_or_uri)
@@ -810,7 +810,7 @@ def db_connect(to, allow_uri=False):
     return Connection(_Pool, db, info)
 
 def close_db(db_name):
-    """ You might want to call odoo.modules.registry.Registry.delete(db_name) along this function."""
+    """ You might want to call ecommerce.modules.registry.Registry.delete(db_name) along this function."""
     global _Pool
     if _Pool:
         _Pool.close_all(connection_info_for(db_name)[1])

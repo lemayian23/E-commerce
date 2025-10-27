@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
-from odoo.tests import common, Form
-from odoo.exceptions import UserError
-from odoo.tools import mute_logger, float_compare
-from odoo.addons.stock_account.tests.test_stockvaluation import _create_accounting_data
+from ecommerce.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
+from ecommerce.tests import common, Form
+from ecommerce.exceptions import UserError
+from ecommerce.tools import mute_logger, float_compare
+from ecommerce.addons.stock_account.tests.test_stockvaluation import _create_accounting_data
 
 
 # these tests create accounting entries, and therefore need a chart of accounts
@@ -1017,7 +1017,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         for move in backorder_4.move_ids:
             self.assertEqual(move.product_qty, 1)
 
-    @mute_logger('odoo.tests.common.onchange')
+    @mute_logger('ecommerce.tests.common.onchange')
     def test_05_mrp_sale_kit_availability(self):
         """
         Check that the 'Not enough inventory' warning message shows correct
@@ -1221,7 +1221,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         # All kits should be delivered
         self.assertEqual(order_line.qty_delivered, 10)
 
-    @mute_logger('odoo.tests.common.onchange')
+    @mute_logger('ecommerce.tests.common.onchange')
     def test_07_kit_availability_mixed_uom(self):
         """
         Check that the 'Not enough inventory' warning message displays correct

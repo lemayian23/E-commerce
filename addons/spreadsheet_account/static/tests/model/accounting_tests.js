@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { setCellContent } from "@spreadsheet/../tests/utils/commands";
 import {
@@ -28,9 +28,9 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.CREDIT("100", "2022")`);
-        setCellContent(model, "A2", `=ODOO.DEBIT("100", "2022")`);
-        setCellContent(model, "A3", `=ODOO.BALANCE("100", "2022")`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100", "2022")`);
+        setCellContent(model, "A2", `=ecommerce.DEBIT("100", "2022")`);
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100", "2022")`);
         await waitForDataSourcesLoaded(model);
         assert.equal(getCellValue(model, "A1"), 16);
         assert.equal(getCellValue(model, "A2"), 42);
@@ -40,9 +40,9 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
 
     QUnit.test("Functions are correctly formatted", async (assert) => {
         const model = await createModelWithDataSource();
-        setCellContent(model, "A1", `=ODOO.CREDIT("100", "2022")`);
-        setCellContent(model, "A2", `=ODOO.DEBIT("100", "2022")`);
-        setCellContent(model, "A3", `=ODOO.BALANCE("100", "2022")`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100", "2022")`);
+        setCellContent(model, "A2", `=ecommerce.DEBIT("100", "2022")`);
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100", "2022")`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(getCell(model, "A1").evaluated.format, "#,##0.00[$€]");
         assert.strictEqual(getCell(model, "A2").evaluated.format, "#,##0.00[$€]");
@@ -57,7 +57,7 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.CREDIT("100", "2022", 0, 123456)`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100", "2022", 0, 123456)`);
         await waitForDataSourcesLoaded(model);
         assert.strictEqual(
             getCell(model, "A1").evaluated.error.message,
@@ -67,13 +67,13 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
 
     QUnit.test("formula with invalid date", async (assert) => {
         const model = await createModelWithDataSource();
-        setCellContent(model, "A1", `=ODOO.CREDIT("100",)`);
-        setCellContent(model, "A2", `=ODOO.DEBIT("100", 0)`);
-        setCellContent(model, "A3", `=ODOO.BALANCE("100", -1)`);
-        setCellContent(model, "A4", `=ODOO.BALANCE("100", "not a valid period")`);
-        setCellContent(model, "A5", `=ODOO.BALANCE("100", 1900)`); // this should be ok
-        setCellContent(model, "A6", `=ODOO.BALANCE("100", 1900, -1)`);
-        setCellContent(model, "A7", `=ODOO.DEBIT("100", 1899)`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100",)`);
+        setCellContent(model, "A2", `=ecommerce.DEBIT("100", 0)`);
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100", -1)`);
+        setCellContent(model, "A4", `=ecommerce.BALANCE("100", "not a valid period")`);
+        setCellContent(model, "A5", `=ecommerce.BALANCE("100", 1900)`); // this should be ok
+        setCellContent(model, "A6", `=ecommerce.BALANCE("100", 1900, -1)`);
+        setCellContent(model, "A7", `=ecommerce.DEBIT("100", 1899)`);
         await waitForDataSourcesLoaded(model);
         const errorMessage = `'%s' is not a valid period. Supported formats are "21/12/2022", "Q1/2022", "12/2022", and "2022".`;
         assert.equal(getCell(model, "A1").evaluated.error.message, "0 is not a valid year.");
@@ -97,14 +97,14 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.CREDIT("100,200", "2022")`);
-        setCellContent(model, "A2", `=ODOO.DEBIT("100,200", "2022")`);
-        setCellContent(model, "A3", `=ODOO.BALANCE("100,200", "2022")`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100,200", "2022")`);
+        setCellContent(model, "A2", `=ecommerce.DEBIT("100,200", "2022")`);
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100,200", "2022")`);
 
         // with spaces
-        setCellContent(model, "B1", `=ODOO.CREDIT("100 , 200", "2022")`);
-        setCellContent(model, "B2", `=ODOO.DEBIT("100 , 200", "2022")`);
-        setCellContent(model, "B3", `=ODOO.BALANCE("100 , 200", "2022")`);
+        setCellContent(model, "B1", `=ecommerce.CREDIT("100 , 200", "2022")`);
+        setCellContent(model, "B2", `=ecommerce.DEBIT("100 , 200", "2022")`);
+        setCellContent(model, "B3", `=ecommerce.BALANCE("100 , 200", "2022")`);
 
         await waitForDataSourcesLoaded(model);
         assert.equal(getCellValue(model, "A1"), 26);
@@ -125,7 +125,7 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.CREDIT("100", "2022")`);
+        setCellContent(model, "A1", `=ecommerce.CREDIT("100", "2022")`);
         await waitForDataSourcesLoaded(model);
         const cell = getCell(model, "A1");
         assert.equal(cell.evaluated.value, "#ERROR");
@@ -143,16 +143,16 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.BALANCE("100", "2022")`);
-        setCellContent(model, "A2", `=ODOO.CREDIT("100", "01/2022")`);
-        setCellContent(model, "A3", `=ODOO.DEBIT("100","Q2/2022")`);
-        setCellContent(model, "A4", `=ODOO.BALANCE("10", "2021")`);
-        setCellContent(model, "A5", `=ODOO.CREDIT("10", "2022", -1)`); // same payload as A4: should only be called once
-        setCellContent(model, "A6", `=ODOO.DEBIT("5", "2021", 0, 2)`);
-        setCellContent(model, "A7", `=ODOO.DEBIT("5", "05/04/2021", 1)`);
-        setCellContent(model, "A8", `=ODOO.BALANCE("5", "2022",,,FALSE)`);
-        setCellContent(model, "A9", `=ODOO.BALANCE("100", "05/05/2022",,,TRUE)`);
-        setCellContent(model, "A10", `=ODOO.BALANCE(33,2021,-2)`);
+        setCellContent(model, "A1", `=ecommerce.BALANCE("100", "2022")`);
+        setCellContent(model, "A2", `=ecommerce.CREDIT("100", "01/2022")`);
+        setCellContent(model, "A3", `=ecommerce.DEBIT("100","Q2/2022")`);
+        setCellContent(model, "A4", `=ecommerce.BALANCE("10", "2021")`);
+        setCellContent(model, "A5", `=ecommerce.CREDIT("10", "2022", -1)`); // same payload as A4: should only be called once
+        setCellContent(model, "A6", `=ecommerce.DEBIT("5", "2021", 0, 2)`);
+        setCellContent(model, "A7", `=ecommerce.DEBIT("5", "05/04/2021", 1)`);
+        setCellContent(model, "A8", `=ecommerce.BALANCE("5", "2022",,,FALSE)`);
+        setCellContent(model, "A9", `=ecommerce.BALANCE("100", "05/05/2022",,,TRUE)`);
+        setCellContent(model, "A10", `=ecommerce.BALANCE(33,2021,-2)`);
         await waitForDataSourcesLoaded(model);
 
         assert.verifySteps([
@@ -243,9 +243,9 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.BALANCE("100,200", "2022")`);
-        setCellContent(model, "A2", `=ODOO.CREDIT("100,200", "2022")`);
-        setCellContent(model, "A3", `=ODOO.DEBIT("100,200","2022")`);
+        setCellContent(model, "A1", `=ecommerce.BALANCE("100,200", "2022")`);
+        setCellContent(model, "A2", `=ecommerce.CREDIT("100,200", "2022")`);
+        setCellContent(model, "A3", `=ecommerce.DEBIT("100,200","2022")`);
         await waitForDataSourcesLoaded(model);
 
         assert.verifySteps([
@@ -274,8 +274,8 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.ACCOUNT.GROUP("income")`);
-        setCellContent(model, "A2", `=ODOO.BALANCE(A1, 2022)`);
+        setCellContent(model, "A1", `=ecommerce.ACCOUNT.GROUP("income")`);
+        setCellContent(model, "A2", `=ecommerce.BALANCE(A1, 2022)`);
         assert.equal(getCellValue(model, "A1"), "Loading...");
         assert.equal(getCellValue(model, "A2"), "Loading...");
         await waitForDataSourcesLoaded(model);
@@ -307,9 +307,9 @@ QUnit.module("spreadsheet_account > Accounting", { beforeEach }, () => {
                 }
             },
         });
-        setCellContent(model, "A1", `=ODOO.ACCOUNT.GROUP("income")`);
-        setCellContent(model, "A2", `=ODOO.BALANCE(A1, 2022)`); // batched only when A1 resolves
-        setCellContent(model, "A3", `=ODOO.BALANCE("100", 2022)`); // batched directly
+        setCellContent(model, "A1", `=ecommerce.ACCOUNT.GROUP("income")`);
+        setCellContent(model, "A2", `=ecommerce.BALANCE(A1, 2022)`); // batched only when A1 resolves
+        setCellContent(model, "A3", `=ecommerce.BALANCE("100", 2022)`); // batched directly
         assert.equal(getCellValue(model, "A1"), "Loading...");
         assert.equal(getCellValue(model, "A2"), "Loading...");
         assert.equal(getCellValue(model, "A3"), "Loading...");

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import difflib
 import io
 import pprint
 import unittest
 
-from odoo.tests.common import TransactionCase, can_import
-from odoo.modules.module import get_module_resource
-from odoo.tools import mute_logger, pycompat
-from odoo.addons.base_import.models.base_import import ImportValidationError
+from ecommerce.tests.common import TransactionCase, can_import
+from ecommerce.modules.module import get_module_resource
+from ecommerce.tools import mute_logger, pycompat
+from ecommerce.addons.base_import.models.base_import import ImportValidationError
 
 ID_FIELD = {
     'id': 'id',
@@ -307,7 +307,7 @@ class TestPreview(TransactionCase):
         })
         return import_wizard
 
-    @mute_logger('odoo.addons.base_import.models.base_import')
+    @mute_logger('ecommerce.addons.base_import.models.base_import')
     def test_encoding(self):
         import_wizard = self.make_import()
         result = import_wizard.parse_preview({
@@ -316,7 +316,7 @@ class TestPreview(TransactionCase):
         })
         self.assertFalse('error' in result)
 
-    @mute_logger('odoo.addons.base_import.models.base_import')
+    @mute_logger('ecommerce.addons.base_import.models.base_import')
     def test_csv_errors(self):
         import_wizard = self.make_import()
 

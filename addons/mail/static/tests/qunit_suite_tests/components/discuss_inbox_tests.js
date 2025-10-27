@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     afterNextRender,
@@ -19,7 +19,7 @@ QUnit.test('reply: discard on pressing escape', async function (assert) {
     const pyEnv = await startServer();
     // partner expected to be found by mention
     pyEnv['res.partner'].create({
-        email: "testpartnert@odoo.com",
+        email: "testpartnert@ecommerce.com",
         name: "TestPartner",
     });
     const mailMessageId1 = pyEnv['mail.message'].create({

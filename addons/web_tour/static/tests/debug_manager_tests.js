@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { disableTours } from "@web_tour/debug/debug_manager";
 

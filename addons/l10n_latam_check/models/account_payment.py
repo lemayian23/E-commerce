@@ -1,8 +1,8 @@
 import stdnum
 
-from odoo import fields, models, _, api
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools.misc import format_date
+from ecommerce import fields, models, _, api
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools.misc import format_date
 
 
 class AccountPayment(models.Model):
@@ -329,7 +329,7 @@ class AccountPayment(models.Model):
     def _create_paired_internal_transfer_payment(self):
         """
         Two modifications when only when transferring from a third party checks journal:
-        1. When a paired transfer is created, the default odoo behavior is to use on the paired transfer the first
+        1. When a paired transfer is created, the default ecommerce behavior is to use on the paired transfer the first
         available payment method. If we are transferring to another third party checks journal, then set as payment
         method on the paired transfer 'in_third_party_checks' or 'out_third_party_checks'
         2. On the paired transfer set the l10n_latam_check_id field, this field is needed for the

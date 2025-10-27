@@ -1,5 +1,5 @@
-from odoo import api, models, _
-from odoo.exceptions import UserError
+from ecommerce import api, models, _
+from ecommerce.exceptions import UserError
 
 
 class AccountCashRounding(models.Model):

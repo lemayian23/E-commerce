@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import legacyEnv from 'web.commonEnv';
 import { ComponentAdapter } from 'web.OwlCompatibility';
@@ -19,7 +19,7 @@ import {
     getAdjacentPreviousSiblings,
     getAdjacentNextSiblings,
     getRangePosition
-} from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+} from '@web_editor/js/editor/ecommerce-editor/src/utils/utils';
 import { toInline } from 'web_editor.convertInline';
 import {
     markup,
@@ -32,7 +32,7 @@ import {
     onWillUpdateProps,
     useEffect,
     onWillUnmount,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 export class HtmlFieldWysiwygAdapterComponent extends ComponentAdapter {
     setup() {
@@ -261,8 +261,8 @@ export class HtmlField extends Component {
      */
     _filterPowerBoxCommands(commands) {
         let selectionIsInForbidenSnippet = false;
-        if (this.wysiwyg && this.wysiwyg.odooEditor) {
-            const selection = this.wysiwyg.odooEditor.document.getSelection();
+        if (this.wysiwyg && this.wysiwyg.ecommerceEditor) {
+            const selection = this.wysiwyg.ecommerceEditor.document.getSelection();
             selectionIsInForbidenSnippet = this.wysiwyg.closestElement(
                 selection.anchorNode,
                 'div[data-snippet="s_cover"], div[data-snippet="s_masonry_block"]'
@@ -319,7 +319,7 @@ export class HtmlField extends Component {
             this.wysiwyg.toolbar.$el.append($codeviewButtonToolbar);
             $codeviewButtonToolbar.click(this.toggleCodeView.bind(this));
         }
-        this.wysiwyg.odooEditor.addEventListener("historyStep", () =>
+        this.wysiwyg.ecommerceEditor.addEventListener("historyStep", () =>
             this.props.setDirty(this._isDirty())
         );
 
@@ -332,13 +332,13 @@ export class HtmlField extends Component {
         this.state.showCodeView = !this.state.showCodeView;
 
         if (this.wysiwyg) {
-            this.wysiwyg.odooEditor.observerUnactive('toggleCodeView');
+            this.wysiwyg.ecommerceEditor.observerUnactive('toggleCodeView');
             if (this.state.showCodeView) {
-                this.wysiwyg.odooEditor.toolbarHide();
+                this.wysiwyg.ecommerceEditor.toolbarHide();
                 const value = this.wysiwyg.getValue();
                 this.props.update(value);
             } else {
-                this.wysiwyg.odooEditor.observerActive('toggleCodeView');
+                this.wysiwyg.ecommerceEditor.observerActive('toggleCodeView');
             }
         }
         if (!this.state.showCodeView) {
@@ -354,9 +354,9 @@ export class HtmlField extends Component {
             dynamicPlaceholder += defaultValue && defaultValue !== '' ? ` or '''${defaultValue}'''` : '';
             const t = document.createElement('T');
             t.setAttribute('t-out', dynamicPlaceholder);
-            this.wysiwyg.odooEditor.execCommand('insert', t);
+            this.wysiwyg.ecommerceEditor.execCommand('insert', t);
             // Ensure the dynamic placeholder <t> element is sanitized.
-            this.wysiwyg.odooEditor.sanitize(t);
+            this.wysiwyg.ecommerceEditor.sanitize(t);
         }
     }
     onDynamicPlaceholderClose() {
@@ -386,8 +386,8 @@ export class HtmlField extends Component {
     async commitChanges({ urgent, shouldInline } = {}) {
         if (this._isDirty() || urgent || (shouldInline && this.props.isInlineStyle)) {
             let saveModifiedImagesPromise, toInlinePromise;
-            if (this.wysiwyg && this.wysiwyg.odooEditor) {
-                this.wysiwyg.odooEditor.observerUnactive('commitChanges');
+            if (this.wysiwyg && this.wysiwyg.ecommerceEditor) {
+                this.wysiwyg.ecommerceEditor.observerUnactive('commitChanges');
                 saveModifiedImagesPromise = this.wysiwyg.saveModifiedImages();
                 if (this.props.isInlineStyle) {
                     // Avoid listening to changes made during the _toInline process.
@@ -404,7 +404,7 @@ export class HtmlField extends Component {
                 if (this.props.isInlineStyle) {
                     await toInlinePromise;
                 }
-                this.wysiwyg.odooEditor.observerActive('commitChanges');
+                this.wysiwyg.ecommerceEditor.observerActive('commitChanges');
             }
             if (owl.status(this) !== 'destroyed') {
                 await this.updateValue();
@@ -571,19 +571,19 @@ export class HtmlField extends Component {
      */
     async _toInline() {
         const $editable = this.wysiwyg.getEditable();
-        this.wysiwyg.odooEditor.sanitize(this.wysiwyg.odooEditor.editable);
+        this.wysiwyg.ecommerceEditor.sanitize(this.wysiwyg.ecommerceEditor.editable);
         const html = this.wysiwyg.getValue();
-        const $odooEditor = $editable.closest('.odoo-editor-editable');
+        const $ecommerceEditor = $editable.closest('.ecommerce-editor-editable');
         // Save correct nodes references.
         // Remove temporarily the class so that css editing will not be converted.
-        $odooEditor.removeClass('odoo-editor-editable');
+        $ecommerceEditor.removeClass('ecommerce-editor-editable');
         $editable.html(html);
 
         await toInline($editable, undefined, this.wysiwyg.$iframe);
-        $odooEditor.addClass('odoo-editor-editable');
+        $ecommerceEditor.addClass('ecommerce-editor-editable');
 
         this.wysiwyg.setValue($editable.html());
-        this.wysiwyg.odooEditor.sanitize(this.wysiwyg.odooEditor.editable);
+        this.wysiwyg.ecommerceEditor.sanitize(this.wysiwyg.ecommerceEditor.editable);
     }
     async _getWysiwygClass() {
         return getWysiwygClass();
@@ -727,7 +727,7 @@ HtmlField.extractProps = ({ attrs, field }) => {
     return {
         isTranslatable: field.translate,
         fieldName: field.name,
-        codeview: Boolean(odoo.debug && attrs.options.codeview),
+        codeview: Boolean(ecommerce.debug && attrs.options.codeview),
         sandboxedPreview: Boolean(attrs.options.sandboxedPreview),
         placeholder: attrs.placeholder,
 

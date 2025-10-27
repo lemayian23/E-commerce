@@ -1,4 +1,4 @@
-odoo.define('l10n_fr_pos_cert.TicketScreen', function(require) {
+ecommerce.define('l10n_fr_pos_cert.TicketScreen', function(require) {
     'use strict';
 
     const TicketScreen = require('point_of_sale.TicketScreen');

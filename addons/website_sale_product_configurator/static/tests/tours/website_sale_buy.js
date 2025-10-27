@@ -1,4 +1,4 @@
-odoo.define("website_sale_product_configurator.website_sale_tour", function (require) {
+ecommerce.define("website_sale_product_configurator.website_sale_tour", function (require) {
 "use strict";
 /**
  * Add custom steps to handle the optional products modal introduced

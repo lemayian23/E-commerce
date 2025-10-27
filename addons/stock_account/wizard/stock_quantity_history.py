@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.tools.misc import format_datetime
+from ecommerce import models
+from ecommerce.tools.misc import format_datetime
 
 
 class StockQuantityHistory(models.TransientModel):

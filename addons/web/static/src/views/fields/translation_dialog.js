@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";
 import { sprintf } from "@web/core/utils/strings";
 import { loadLanguages } from "@web/core/l10n/translation";
 
-import { Component, onWillStart } from "@odoo/owl";
+import { Component, onWillStart } from "@ecommerce/owl";
 
 export class TranslationDialog extends Component {
     setup() {

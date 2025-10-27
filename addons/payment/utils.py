@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from hashlib import sha1
 
-from odoo import fields
-from odoo.http import request
-from odoo.tools import consteq, float_round, ustr
-from odoo.tools.misc import hmac as hmac_tool
+from ecommerce import fields
+from ecommerce.http import request
+from ecommerce.tools import consteq, float_round, ustr
+from ecommerce.tools.misc import hmac as hmac_tool
 
-from odoo.addons.payment.const import CURRENCY_MINOR_UNITS
+from ecommerce.addons.payment.const import CURRENCY_MINOR_UNITS
 
 
 # Access token management

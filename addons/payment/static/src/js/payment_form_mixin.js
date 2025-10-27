@@ -1,4 +1,4 @@
-odoo.define('payment.payment_form_mixin', require => {
+ecommerce.define('payment.payment_form_mixin', require => {
     'use strict';
 
     const core = require('web.core');

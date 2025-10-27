@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 import werkzeug
@@ -8,13 +8,13 @@ import pytz
 import babel.dates
 from collections import OrderedDict
 
-from odoo import http, fields, tools
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.http import request
-from odoo.tools import html2plaintext
-from odoo.tools.misc import get_lang
-from odoo.tools import sql
+from ecommerce import http, fields, tools
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce.addons.website.controllers.main import QueryURL
+from ecommerce.http import request
+from ecommerce.tools import html2plaintext
+from ecommerce.tools.misc import get_lang
+from ecommerce.tools import sql
 
 
 class WebsiteBlog(http.Controller):

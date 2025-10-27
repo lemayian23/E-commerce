@@ -1,4 +1,4 @@
-/* @odoo-module alias=point_of_sale.env */
+/* @ecommerce-module alias=point_of_sale.env */
 
 // This module is basically web.env but with added fields
 // that are specific to point_of_sale and extensions.

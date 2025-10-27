@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, _, SUPERUSER_ID
-from odoo.addons.account_edi_ubl_cii.models.account_edi_common import COUNTRY_EAS
-from odoo.exceptions import UserError
+from ecommerce import models, fields, _, SUPERUSER_ID
+from ecommerce.addons.account_edi_ubl_cii.models.account_edi_common import COUNTRY_EAS
+from ecommerce.exceptions import UserError
 
 import logging
 
@@ -164,7 +164,7 @@ class AccountEdiFormat(models.Model):
         if not attachment:
             return
 
-        pdf_writer.embed_odoo_attachment(attachment, subtype='text/xml')
+        pdf_writer.embed_ecommerce_attachment(attachment, subtype='text/xml')
         if not pdf_writer.is_pdfa:
             try:
                 pdf_writer.convert_to_pdfa()

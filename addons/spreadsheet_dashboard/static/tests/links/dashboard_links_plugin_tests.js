@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { registry } from "@web/core/registry";
@@ -36,13 +36,13 @@ QUnit.test("click a web link", async (assert) => {
     const data = {
         sheets: [
             {
-                cells: { A1: { content: "[Odoo](https://odoo.com)" } },
+                cells: { A1: { content: "[ecommerce](https://ecommerce.com)" } },
             },
         ],
     };
     const model = new Model(data, { mode: "dashboard", evalContext: { env } });
     selectCell(model, "A1");
-    assert.verifySteps(["https://odoo.com"]);
+    assert.verifySteps(["https://ecommerce.com"]);
 });
 
 QUnit.test("click a menu link", async (assert) => {
@@ -61,7 +61,7 @@ QUnit.test("click a menu link", async (assert) => {
     const data = {
         sheets: [
             {
-                cells: { A1: { content: "[label](odoo://ir_menu_xml_id/test_menu)" } },
+                cells: { A1: { content: "[label](ecommerce://ir_menu_xml_id/test_menu)" } },
             },
         ],
     };
@@ -80,7 +80,7 @@ QUnit.test("click a menu link", async (assert) => {
                     assert.deepEqual(action, {
                         context: undefined,
                         domain: undefined,
-                        name: "an odoo view",
+                        name: "an ecommerce view",
                         res_model: "partner",
                         target: "current",
                         type: "ir.actions.act_window",
@@ -93,7 +93,7 @@ QUnit.test("click a menu link", async (assert) => {
     registry.category("services").add("action", fakeActionService, { force: true });
     const env = await makeTestEnv({ serverData: getMenuServerData() });
     const view = {
-        name: "an odoo view",
+        name: "an ecommerce view",
         viewType: "list",
         action: {
             modelName: "partner",
@@ -103,7 +103,7 @@ QUnit.test("click a menu link", async (assert) => {
     const data = {
         sheets: [
             {
-                cells: { A1: { content: `[a view](odoo://view/${JSON.stringify(view)})` } },
+                cells: { A1: { content: `[a view](ecommerce://view/${JSON.stringify(view)})` } },
             },
         ],
     };

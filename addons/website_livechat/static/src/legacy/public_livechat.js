@@ -1,4 +1,4 @@
-odoo.define('website_livechat.legacy.website_livechat.livechat_request', function (require) {
+ecommerce.define('website_livechat.legacy.website_livechat.livechat_request', function (require) {
 "use strict";
 
 var LivechatButton = require('@im_livechat/legacy/widgets/livechat_button')[Symbol.for("default")];

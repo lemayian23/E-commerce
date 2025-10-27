@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
-from odoo.addons.mail.tests.common import mail_new_test_user
+import ecommerce
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
+from ecommerce.addons.mail.tests.common import mail_new_test_user
 
 
-@odoo.tests.tagged('-at_install', 'post_install', 'is_tour')
+@ecommerce.tests.tagged('-at_install', 'post_install', 'is_tour')
 class TestMailPublicPage(HttpCaseWithUserDemo, HttpCaseWithUserPortal):
     """Checks that the invite page redirects to the channel and that all
     modules load correctly on the welcome and channel page when authenticated as various users"""

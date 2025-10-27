@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { pyToJsLocale } from "@web/core/l10n/utils";
 

@@ -1,5 +1,5 @@
-from odoo import Command, fields
-from odoo.tests import tagged
+from ecommerce import Command, fields
+from ecommerce.tests import tagged
 from .common import PurchaseTestCommon
 
 

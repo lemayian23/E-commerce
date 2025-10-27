@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.exceptions import Forbidden, NotFound
 from werkzeug.urls import url_encode
 
-from odoo import _
-from odoo.http import Controller, request, Response, route
-from odoo.tools import consteq
+from ecommerce import _
+from ecommerce.http import Controller, request, Response, route
+from ecommerce.tools import consteq
 
 
 class DigestController(Controller):

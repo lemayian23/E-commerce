@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
 from werkzeug.exceptions import Forbidden
 
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.payment_alipay.controllers.main import AlipayController
-from odoo.addons.payment_alipay.tests.common import AlipayCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment_alipay.controllers.main import AlipayController
+from ecommerce.addons.payment_alipay.tests.common import AlipayCommon
 
 
 @tagged('post_install', '-at_install')
@@ -72,7 +72,7 @@ class AlipayTest(AlipayCommon, PaymentHttpCommon):
             })
         sign = self.alipay._alipay_compute_signature(expected_values)
 
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
         redirect_form_data = self._extract_values_from_html_form(processing_values['redirect_form_html'])
 
@@ -114,7 +114,7 @@ class AlipayTest(AlipayCommon, PaymentHttpCommon):
 
         tx = self._create_transaction(flow='redirect')
         self.assertEqual(tx.fees, 7.09)
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
         redirect_form_data = self._extract_values_from_html_form(processing_values['redirect_form_html'])
 
@@ -152,36 +152,36 @@ class AlipayTest(AlipayCommon, PaymentHttpCommon):
         self.env['payment.transaction']._handle_notification_data('alipay', payload)
         self.assertEqual(tx.state, 'cancel')
 
-    @mute_logger('odoo.addons.payment_alipay.controllers.main')
+    @mute_logger('ecommerce.addons.payment_alipay.controllers.main')
     def test_webhook_notification_confirms_transaction(self):
         """ Test the processing of a webhook notification. """
         self.provider.alipay_payment_method = 'standard_checkout'
         tx = self._create_transaction('redirect')
         url = self._build_url(AlipayController._webhook_url)
         with patch(
-            'odoo.addons.payment_alipay.controllers.main.AlipayController'
+            'ecommerce.addons.payment_alipay.controllers.main.AlipayController'
             '._verify_notification_origin'
         ), patch(
-            'odoo.addons.payment_alipay.controllers.main.AlipayController'
+            'ecommerce.addons.payment_alipay.controllers.main.AlipayController'
             '._verify_notification_signature'
         ):
             self._make_http_post_request(url, data=self.notification_data)
         self.assertEqual(tx.state, 'done')
 
-    @mute_logger('odoo.addons.payment_alipay.controllers.main')
+    @mute_logger('ecommerce.addons.payment_alipay.controllers.main')
     def test_webhook_notification_triggers_origin_and_signature_checks(self):
         """ Test that receiving a webhook notification triggers origin and signature checks. """
         self.provider.alipay_payment_method = 'standard_checkout'
         self._create_transaction('redirect')
         url = self._build_url(AlipayController._webhook_url)
         with patch(
-            'odoo.addons.payment_alipay.controllers.main.AlipayController'
+            'ecommerce.addons.payment_alipay.controllers.main.AlipayController'
             '._verify_notification_origin'
         ) as origin_check_mock, patch(
-            'odoo.addons.payment_alipay.controllers.main.AlipayController'
+            'ecommerce.addons.payment_alipay.controllers.main.AlipayController'
             '._verify_notification_signature'
         ) as signature_check_mock, patch(
-            'odoo.addons.payment.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment.models.payment_transaction.PaymentTransaction'
             '._handle_notification_data'
         ):
             self._make_http_post_request(url, data=self.notification_data)
@@ -195,14 +195,14 @@ class AlipayTest(AlipayCommon, PaymentHttpCommon):
             Forbidden, AlipayController._verify_notification_signature, self.notification_data, tx
         )
 
-    @mute_logger('odoo.addons.payment_alipay.controllers.main')
+    @mute_logger('ecommerce.addons.payment_alipay.controllers.main')
     def test_reject_notification_with_missing_signature(self):
         """ Test the verification of a notification with a missing signature. """
         tx = self._create_transaction('redirect')
         payload = dict(self.notification_data, sign=None)
         self.assertRaises(Forbidden, AlipayController._verify_notification_signature, payload, tx)
 
-    @mute_logger('odoo.addons.payment_alipay.controllers.main')
+    @mute_logger('ecommerce.addons.payment_alipay.controllers.main')
     def test_reject_notification_with_invalid_signature(self):
         """ Test the verification of a notification with an invalid signature. """
         tx = self._create_transaction('redirect')

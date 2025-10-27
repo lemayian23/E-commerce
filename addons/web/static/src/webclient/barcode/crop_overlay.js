@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, useRef, onPatched } from "@odoo/owl";
+import { Component, useRef, onPatched } from "@ecommerce/owl";
 import { browser } from "@web/core/browser/browser";
 import { clamp } from "@web/core/utils/numbers";
 

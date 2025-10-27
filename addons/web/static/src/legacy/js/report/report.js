@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 // Essentially keeps the CSS for legacy HTML reports (full width,...).
 // Can be removed once the reports are fully converted.

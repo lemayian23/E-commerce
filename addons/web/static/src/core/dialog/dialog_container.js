@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ErrorHandler, WithEnv } from "../utils/components";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 export class DialogContainer extends Component {
     handleError(error, dialog) {

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "web.core";
 import LegacyBus from "web.Bus";
@@ -18,7 +18,7 @@ import { loadLanguages } from "@web/core/l10n/translation";
 transitionConfig.disabled = true;
 
 import { patch } from "@web/core/utils/patch";
-import { App, whenReady } from "@odoo/owl";
+import { App, whenReady } from "@ecommerce/owl";
 
 const { prepareRegistriesWithCleanup } = utils;
 
@@ -229,8 +229,8 @@ function patchLegacyBus() {
     });
 }
 
-function patchOdoo() {
-    patchWithCleanup(odoo, {
+function patchecommerce() {
+    patchWithCleanup(ecommerce, {
         debug: "",
     });
 }
@@ -385,7 +385,7 @@ export async function setupTests() {
         patchBrowserWithCleanup();
         patchBodyAddEventListener();
         patchLegacyBus();
-        patchOdoo();
+        patchecommerce();
         patchSessionInfo();
         patchOwlApp();
     });

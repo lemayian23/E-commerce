@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import snippetEditor from 'web_editor.snippet.editor';
 

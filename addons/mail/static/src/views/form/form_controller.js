@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useModels } from "@mail/component_hooks/use_models";
 import { ChatterContainer, getChatterNextTemporaryId } from "@mail/components/chatter_container/chatter_container";

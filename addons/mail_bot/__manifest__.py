@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'OdooBot',
+    'name': 'ecommerceBot',
     'version': '1.2',
     'category': 'Productivity/Discuss',
-    'summary': 'Add OdooBot in discussions',
-    'website': 'https://www.odoo.com/app/discuss',
+    'summary': 'Add ecommerceBot in discussions',
+    'website': 'https://www.ecommerce.com/app/discuss',
     'depends': ['mail'],
     'auto_install': True,
     'installable': True,
@@ -19,7 +19,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'mail_bot/static/src/scss/odoobot_style.scss',
+            'mail_bot/static/src/scss/ecommercebot_style.scss',
         ],
     },
     'license': 'LGPL-3',

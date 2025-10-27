@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import fields, models, api, _
-from odoo.exceptions import UserError, AccessError
-from odoo.tools.float_utils import float_compare, float_is_zero, float_round
-from odoo.tools.misc import OrderedSet
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import UserError, AccessError
+from ecommerce.tools.float_utils import float_compare, float_is_zero, float_round
+from ecommerce.tools.misc import OrderedSet
 
 
 class StockMove(models.Model):

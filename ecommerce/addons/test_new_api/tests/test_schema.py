@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo.models import MetaModel
-from odoo.tests import common
-from odoo.addons.base.models.ir_model import model_xmlid, field_xmlid, selection_xmlid
+from ecommerce.models import MetaModel
+from ecommerce.tests import common
+from ecommerce.addons.base.models.ir_model import model_xmlid, field_xmlid, selection_xmlid
 
 
 def get_model_name(cls):

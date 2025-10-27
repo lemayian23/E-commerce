@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from os import getenv
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 from . import test_static
 
 
 # Small configuration to run the tests against a web server.
-# WEB_SERVER_URL=http://localhost:80 odoo-bin -i test_http --test-tags webserver
+# WEB_SERVER_URL=http://localhost:80 ecommerce-bin -i test_http --test-tags webserver
 WEB_SERVER_URL = getenv('WEB_SERVER_URL', 'http://localhost:80')
 
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _, Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import format_date, formatLang, frozendict
+from ecommerce import api, fields, models, _, Command
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import format_date, formatLang, frozendict
 
 from dateutil.relativedelta import relativedelta
 

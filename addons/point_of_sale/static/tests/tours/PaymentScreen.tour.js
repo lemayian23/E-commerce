@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tour.PaymentScreen', function (require) {
+ecommerce.define('point_of_sale.tour.PaymentScreen', function (require) {
     'use strict';
 
     const { Chrome } = require('point_of_sale.tour.ChromeTourMethods');

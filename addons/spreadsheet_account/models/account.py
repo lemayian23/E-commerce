@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date
 import calendar
 from dateutil.relativedelta import relativedelta
 
-from odoo import models, api, _
-from odoo.osv import expression
-from odoo.tools import date_utils
+from ecommerce import models, api, _
+from ecommerce.osv import expression
+from ecommerce.tools import date_utils
 
 
 class AccountMove(models.Model):
@@ -96,7 +96,7 @@ class AccountMove(models.Model):
 
     @api.model
     def spreadsheet_fetch_debit_credit(self, args_list):
-        """Fetch data for ODOO.CREDIT, ODOO.DEBIT and ODOO.BALANCE formulas
+        """Fetch data for ecommerce.CREDIT, ecommerce.DEBIT and ecommerce.BALANCE formulas
         The input list looks like this:
         [{
             date_range: {

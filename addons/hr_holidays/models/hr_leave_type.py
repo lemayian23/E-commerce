@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Copyright (c) 2005-2006 Axelor SARL. (http://www.axelor.com)
 
@@ -9,13 +9,13 @@ import logging
 from collections import defaultdict
 from datetime import time, timedelta
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.tools import format_date
-from odoo.tools.translate import _
-from odoo.tools.float_utils import float_round
-from odoo.addons.resource.models.resource import Intervals
+from ecommerce import api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
+from ecommerce.tools import format_date
+from ecommerce.tools.translate import _
+from ecommerce.tools.float_utils import float_round
+from ecommerce.addons.resource.models.resource import Intervals
 
 _logger = logging.getLogger(__name__)
 

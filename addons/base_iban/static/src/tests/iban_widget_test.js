@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { start, startServer } from '@mail/../tests/helpers/test_utils';
 import { click, clickSave, editInput, getFixture } from "@web/../tests/helpers/utils";
 import { DELAY } from "@base_iban/components/iban_widget/iban_widget";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { BUILTINS } from "./py_builtin";
 import {

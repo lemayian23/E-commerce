@@ -1,4 +1,4 @@
-odoo.define('web.Dialog', function (require) {
+ecommerce.define('web.Dialog', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -29,7 +29,7 @@ var Dialog = Widget.extend({
     /**
      * @param {Widget} parent
      * @param {Object} [options]
-     * @param {string} [options.title=Odoo]
+     * @param {string} [options.title=ecommerce]
      * @param {string} [options.subtitle]
      * @param {string} [options.size=large] - 'extra-large', 'large', 'medium'
      *        or 'small'
@@ -75,7 +75,7 @@ var Dialog = Widget.extend({
             this._opened = this.opened(this.on_attach_callback);
         }
         options = _.defaults(options || {}, {
-            title: _t('Odoo'), subtitle: '',
+            title: _t('ecommerce'), subtitle: '',
             size: 'large',
             fullscreen: false,
             dialogClass: '',
@@ -367,7 +367,7 @@ var Dialog = Widget.extend({
      * Moves the focus to the first button primary in the footer of the dialog
      *
      * @private
-     * @param {odooEvent} e
+     * @param {ecommerceEvent} e
      */
     _onFocusControlButton: function (e) {
         if (this.$footer) {

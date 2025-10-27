@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { CheckBox } from "@web/core/checkbox/checkbox";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, useRef, useState } from "@ecommerce/owl";
 
 const favoriteMenuRegistry = registry.category("favoriteMenu");
 

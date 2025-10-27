@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 from ast import literal_eval
-from odoo import fields, models, _, api
-from odoo.exceptions import UserError
-from odoo.fields import Datetime
+from ecommerce import fields, models, _, api
+from ecommerce.exceptions import UserError
+from ecommerce.fields import Datetime
 
 _logger = logging.getLogger(__name__)
 

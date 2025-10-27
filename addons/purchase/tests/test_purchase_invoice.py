@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo.tests.common import Form
-from odoo import Command, fields
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form
+from ecommerce import Command, fields
 
 
 class TestPurchaseToInvoiceCommon(AccountTestInvoicingCommon):
@@ -856,7 +856,7 @@ class TestInvoicePurchaseMatch(TestPurchaseToInvoiceCommon):
         purchase_user = self.env['res.users'].with_context(no_reset_password=True).create({
             'name': 'Purchase user',
             'login': 'purchaseUser',
-            'email': 'pu@odoo.com',
+            'email': 'pu@ecommerce.com',
             'groups_id': [Command.set([group_purchase_user.id, group_employee.id, group_partner_manager.id])],
         })
         po1 = self.env['purchase.order'].with_context(tracking_disable=True).create({

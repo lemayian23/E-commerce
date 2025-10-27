@@ -1,4 +1,4 @@
-odoo.define('account.AccountPortalSidebar', function (require) {
+ecommerce.define('account.AccountPortalSidebar', function (require) {
 'use strict';
 
 const dom = require('web.dom');

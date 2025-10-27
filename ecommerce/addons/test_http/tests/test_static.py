@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 from datetime import datetime, timedelta, timezone
@@ -7,10 +7,10 @@ from unittest.mock import patch
 from freezegun import freeze_time
 from urllib3.util import parse_url
 
-import odoo
-from odoo.tests import new_test_user, tagged
-from odoo.tools import config, file_open, image_process
-from odoo.tools.misc import submap
+import ecommerce
+from ecommerce.tests import new_test_user, tagged
+from ecommerce.tools import config, file_open, image_process
+from ecommerce.tools.misc import submap
 
 from .test_common import TestHttpBase, HTTP_DATETIME_FORMAT
 
@@ -376,7 +376,7 @@ class TestHttpStatic(TestHttpStaticCommon):
         session = self.authenticate(None, None)
         for debug in ('', 'assets'):
             session.debug = debug
-            odoo.http.root.session_store.save(self.session)
+            ecommerce.http.root.session_store.save(self.session)
             with self.subTest(debug=debug):
                 res = self.db_url_open('/test_http/static/src/img/gizeh.png', headers={
                     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) '
@@ -444,7 +444,7 @@ class TestHttpStaticLogo(TestHttpStaticCommon):
             'Content-Type': 'image/png',
             'Content-Disposition': 'inline; filename=nologo.png'
         }
-        super_user = cls.env['res.users'].browse([odoo.SUPERUSER_ID])
+        super_user = cls.env['res.users'].browse([ecommerce.SUPERUSER_ID])
         companies = ResCompany.browse([super_user.company_id.id]) | ResCompany.create(
             {
                 'name': 'Company 2',

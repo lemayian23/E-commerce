@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from unittest.mock import Mock
 
-import odoo
-from odoo import SUPERUSER_ID, Command
-from odoo.exceptions import AccessError
-from odoo.tests import TransactionCase
+import ecommerce
+from ecommerce import SUPERUSER_ID, Command
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import TransactionCase
 
 
 class Feedback(TransactionCase):
@@ -169,8 +169,8 @@ class TestIRRuleFeedback(Feedback):
 
 
     def debug_mode(self):
-        odoo.http._request_stack.push(Mock(db=self.env.cr.dbname, env=self.env, debug=True))
-        self.addCleanup(odoo.http._request_stack.pop)
+        ecommerce.http._request_stack.push(Mock(db=self.env.cr.dbname, env=self.env, debug=True))
+        self.addCleanup(ecommerce.http._request_stack.pop)
         self.env.flush_all()
         self.env.invalidate_all()
 

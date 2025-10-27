@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { QuestionPageListRenderer } from "./question_page_list_renderer";
 import { registry } from "@web/core/registry";

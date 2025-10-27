@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="view_company_form" model="ir.ui.view">
             <field name="name">res.company.form</field>
@@ -36,7 +36,7 @@
                                     <field name="phone" class="o_force_ltr"/>
                                     <field name="mobile" class="o_force_ltr"/>
                                     <field name="email"/>
-                                    <field name="website" string="Website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                                    <field name="website" string="Website" widget="url" placeholder="e.g. https://www.ecommerce.com"/>
                                     <field name="parent_id"  groups="base.group_multi_company"/>
                                     <field name="sequence" invisible="1"/>
                                     <field name="favicon" widget="image" class="float-start oe_avatar" groups="base.group_no_one"/>
@@ -114,10 +114,10 @@
               <p class="o_view_nocontent_smiling_face">
                 Create a new company
               </p><p>
-                Create and manage the companies that will be managed by Odoo from here. Shops or subsidiaries can be created and maintained from here.
+                Create and manage the companies that will be managed by ecommerce from here. Shops or subsidiaries can be created and maintained from here.
               </p>
             </field>
         </record>
         <menuitem action="action_res_company_form" id="menu_action_res_company_form" parent="base.menu_users"/>
     </data>
-</odoo>
+</ecommerce>

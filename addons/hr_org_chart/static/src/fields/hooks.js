@@ -1,8 +1,8 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import session from 'web.session'
 import { useService } from "@web/core/utils/hooks";
-import { useEnv } from "@odoo/owl";
+import { useEnv } from "@ecommerce/owl";
 
 /**
  * Redirect to the sub employee kanban view.

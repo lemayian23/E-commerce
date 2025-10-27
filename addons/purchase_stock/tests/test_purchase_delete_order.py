@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError
-from odoo.fields import Command
+from ecommerce.exceptions import UserError
+from ecommerce.fields import Command
 from .common import PurchaseTestCommon
 
 

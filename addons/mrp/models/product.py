@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import collections
 from datetime import timedelta
 from itertools import groupby
 import operator as py_operator
-from odoo import api, fields, models, _
-from odoo.tools import groupby
-from odoo.tools.float_utils import float_round, float_is_zero
+from ecommerce import api, fields, models, _
+from ecommerce.tools import groupby
+from ecommerce.tools.float_utils import float_round, float_is_zero
 
 
 OPERATORS = {

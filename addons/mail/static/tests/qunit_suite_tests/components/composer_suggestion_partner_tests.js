@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { start, startServer } from '@mail/../tests/helpers/test_utils';
 
@@ -11,7 +11,7 @@ QUnit.test('partner mention suggestion displayed', async function (assert) {
 
     const pyEnv = await startServer();
     const resPartnerId = pyEnv['res.partner'].create({
-        email: "demo_user@odoo.com",
+        email: "demo_user@ecommerce.com",
         im_status: 'online',
         name: 'Demo User',
     });
@@ -42,7 +42,7 @@ QUnit.test('partner mention suggestion correct data', async function (assert) {
 
     const pyEnv = await startServer();
     const resPartnerId = pyEnv['res.partner'].create({
-        email: "demo_user@odoo.com",
+        email: "demo_user@ecommerce.com",
         im_status: 'online',
         name: 'Demo User',
     });
@@ -83,7 +83,7 @@ QUnit.test('partner mention suggestion correct data', async function (assert) {
     );
     assert.strictEqual(
         document.querySelector('.o_ComposerSuggestionView_part2').textContent,
-        "(demo_user@odoo.com)",
+        "(demo_user@ecommerce.com)",
         "Partner's email should be displayed"
     );
 });
@@ -93,7 +93,7 @@ QUnit.test('partner mention suggestion active', async function (assert) {
 
     const pyEnv = await startServer();
     const resPartnerId = pyEnv['res.partner'].create({
-        email: "demo_user@odoo.com",
+        email: "demo_user@ecommerce.com",
         im_status: 'online',
         name: 'Demo User',
     });

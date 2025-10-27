@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import request, route
-from odoo.addons.mail.controllers import discuss
+from ecommerce.http import request, route
+from ecommerce.addons.mail.controllers import discuss
 
 
 class DiscussController(discuss.DiscussController):

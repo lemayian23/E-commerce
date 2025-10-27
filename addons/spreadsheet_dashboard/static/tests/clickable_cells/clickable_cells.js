@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { getFixture } from "@web/../tests/helpers/utils";
@@ -32,7 +32,7 @@ QUnit.test("A link in a dashboard should be clickable", async (assert) => {
     const data = {
         sheets: [
             {
-                cells: { A1: { content: "[Odoo](https://odoo.com)" } },
+                cells: { A1: { content: "[ecommerce](https://ecommerce.com)" } },
             },
         ],
     };
@@ -46,8 +46,8 @@ QUnit.test("Invalid pivot/list formulas should not be clickable", async (assert)
         sheets: [
             {
                 cells: {
-                    A1: { content: `=ODOO.PIVOT("1", "measure")` },
-                    A2: { content: `=ODOO.LIST("1", 1, "name")` },
+                    A1: { content: `=ecommerce.PIVOT("1", "measure")` },
+                    A2: { content: `=ecommerce.LIST("1", 1, "name")` },
                 },
             },
         ],
@@ -62,8 +62,8 @@ QUnit.test("pivot/list formulas should be clickable", async (assert) => {
         sheets: [
             {
                 cells: {
-                    A1: { content: '=ODOO.PIVOT(1,"probability")' },
-                    A2: { content: '=ODOO.LIST(1, 1, "foo")' },
+                    A1: { content: '=ecommerce.PIVOT(1,"probability")' },
+                    A2: { content: '=ecommerce.LIST(1, 1, "foo")' },
                 },
             },
         ],

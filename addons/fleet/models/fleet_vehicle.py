@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.osv import expression
-from odoo.addons.fleet.models.fleet_vehicle_model import FUEL_TYPES
+from ecommerce import api, fields, models, _
+from ecommerce.osv import expression
+from ecommerce.addons.fleet.models.fleet_vehicle_model import FUEL_TYPES
 
 
 #Some fields don't have the exact same name

@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 class ProfilingSystrayItem extends Component {}
 ProfilingSystrayItem.template = "web.ProfilingSystrayItem";

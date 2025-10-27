@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="project_sharing_portal" name="Project Sharing View in Portal">
         <t t-call="portal.frontend_layout">
@@ -19,10 +19,10 @@
         <t t-call="web.layout">
             <t t-set="head_project_sharing">
                 <script type="text/javascript">
-                    odoo.__session_info__ = <t t-out="json.dumps(session_info)"/>;
+                    ecommerce.__session_info__ = <t t-out="json.dumps(session_info)"/>;
                     // Prevent the menu_service to load anything. In an ideal world, Project Sharing assets would only contain
                     // what is genuinely necessary, and not the whole backend.
-                    odoo.loadMenusPromise = Promise.resolve();
+                    ecommerce.loadMenusPromise = Promise.resolve();
                 </script>
                 <base target="_parent"/>
                 <t t-call-assets="web.assets_common" t-js="false"/>
@@ -36,4 +36,4 @@
         </t>
     </template>
 
-</odoo>
+</ecommerce>

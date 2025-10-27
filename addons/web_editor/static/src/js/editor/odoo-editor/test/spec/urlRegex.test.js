@@ -1,4 +1,4 @@
-import { URL_REGEX, URL_REGEX_WITH_INFOS } from '../../src/OdooEditor.js';
+import { URL_REGEX, URL_REGEX_WITH_INFOS } from '../../src/ecommerceEditor.js';
 
 describe('urlRegex', () => {
     it('should match foo.com', () => {
@@ -43,14 +43,14 @@ describe('urlRegex', () => {
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match 1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = '1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match 1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221', () => {
+        const url = '1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = 'https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match https://1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221', () => {
+        const url = 'https://1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX);
         chai.expect(match[0]).to.be.equal(url);
@@ -88,14 +88,14 @@ describe('urlRegex with infos', () => {
         const match = text.match(URL_REGEX_WITH_INFOS);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match 1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = '1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match 1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221', () => {
+        const url = '1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX_WITH_INFOS);
         chai.expect(match[0]).to.be.equal(url);
     });
-    it('should match https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221', () => {
-        const url = 'https://1234-abc.runbot007.odoo.com/web#id=3&menu_id=221';
+    it('should match https://1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221', () => {
+        const url = 'https://1234-abc.runbot007.ecommerce.com/web#id=3&menu_id=221';
         const text = `abc ${url} abc`;
         const match = text.match(URL_REGEX_WITH_INFOS);
         chai.expect(match[0]).to.be.equal(url);

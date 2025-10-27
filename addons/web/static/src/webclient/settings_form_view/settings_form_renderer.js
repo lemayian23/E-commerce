@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { FormRenderer } from "@web/views/form/form_renderer";
@@ -9,7 +9,7 @@ import { SettingsContainer } from "./settings/settings_container";
 import { SettingsApp } from "./settings/settings_app";
 import { SettingsPage } from "./settings/settings_page";
 
-import { useState } from "@odoo/owl";
+import { useState } from "@ecommerce/owl";
 
 const fieldRegistry = registry.category("fields");
 

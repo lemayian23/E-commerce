@@ -1,25 +1,25 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "./o_spreadsheet_extended";
 const { load, CorePlugin, tokenize, parse, convertAstNodes, astToFormula } = spreadsheet;
 const { corePluginRegistry } = spreadsheet.registries;
 
-export const ODOO_VERSION = 5;
+export const ecommerce_VERSION = 5;
 
 const MAP = {
-    PIVOT: "ODOO.PIVOT",
-    "PIVOT.HEADER": "ODOO.PIVOT.HEADER",
-    "PIVOT.POSITION": "ODOO.PIVOT.POSITION",
-    "FILTER.VALUE": "ODOO.FILTER.VALUE",
-    LIST: "ODOO.LIST",
-    "LIST.HEADER": "ODOO.LIST.HEADER",
+    PIVOT: "ecommerce.PIVOT",
+    "PIVOT.HEADER": "ecommerce.PIVOT.HEADER",
+    "PIVOT.POSITION": "ecommerce.PIVOT.POSITION",
+    "FILTER.VALUE": "ecommerce.FILTER.VALUE",
+    LIST: "ecommerce.LIST",
+    "LIST.HEADER": "ecommerce.LIST.HEADER",
 };
 
 const dmyRegex = /^([0|1|2|3][1-9])\/(0[1-9]|1[0-2])\/(\d{4})$/i;
 
 export function migrate(data) {
-    let _data = load(data, !!odoo.debug);
-    const version = _data.odooVersion || 0;
+    let _data = load(data, !!ecommerce.debug);
+    const version = _data.ecommerceVersion || 0;
     if (version < 1) {
         _data = migrate0to1(_data);
     }
@@ -203,7 +203,7 @@ function migrate4to5(data) {
 function migratePivotDaysParameters(formulaString) {
     const ast = parse(formulaString);
     const convertedAst = convertAstNodes(ast, "FUNCALL", (ast) => {
-        if (["ODOO.PIVOT", "ODOO.PIVOT.HEADER"].includes(ast.value.toUpperCase())) {
+        if (["ecommerce.PIVOT", "ecommerce.PIVOT.HEADER"].includes(ast.value.toUpperCase())) {
             for (const subAst of ast.args) {
                 if (subAst.type === "STRING") {
                     const date = subAst.value.match(dmyRegex);
@@ -218,12 +218,12 @@ function migratePivotDaysParameters(formulaString) {
     return "=" + astToFormula(convertedAst);
 }
 
-export default class OdooVersion extends CorePlugin {
+export default class ecommerceVersion extends CorePlugin {
     export(data) {
-        data.odooVersion = ODOO_VERSION;
+        data.ecommerceVersion = ecommerce_VERSION;
     }
 }
 
-OdooVersion.getters = [];
+ecommerceVersion.getters = [];
 
-corePluginRegistry.add("odooMigration", OdooVersion);
+corePluginRegistry.add("ecommerceMigration", ecommerceVersion);

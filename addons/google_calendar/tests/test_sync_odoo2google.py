@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from unittest.mock import patch
 
-from odoo.addons.google_calendar.utils.google_calendar import GoogleCalendarService
-from odoo.addons.google_account.models.google_service import GoogleService
-from odoo.addons.google_calendar.models.res_users import User
-from odoo.addons.google_calendar.tests.test_sync_common import TestSyncGoogle, patch_api
-from odoo.tests.common import users, warmup
-from odoo.tests import tagged
-from odoo import tools
+from ecommerce.addons.google_calendar.utils.google_calendar import GoogleCalendarService
+from ecommerce.addons.google_account.models.google_service import GoogleService
+from ecommerce.addons.google_calendar.models.res_users import User
+from ecommerce.addons.google_calendar.tests.test_sync_common import TestSyncGoogle, patch_api
+from ecommerce.tests.common import users, warmup
+from ecommerce.tests import tagged
+from ecommerce import tools
 
 
-@tagged('odoo2google', 'is_query_count')
+@tagged('ecommerce2google', 'is_query_count')
 @patch.object(User, '_get_google_calendar_token', lambda user: 'dummy-token')
-class TestSyncOdoo2Google(TestSyncGoogle):
+class TestSyncecommerce2Google(TestSyncGoogle):
 
     def setUp(self):
         super().setUp()
@@ -45,7 +45,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
             'description': description,
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'dateTime': '2020-01-15T08:00:00+00:00', 'date': None},
@@ -56,9 +56,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'private',
             'guestsCanModify': True,
             'reminders': {'useDefault': False, 'overrides': [{'method': 'popup', 'minutes': alarm.duration_minutes}]},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
             'attendees': [{'email': 'jean-luc@opoo.com', 'responseStatus': 'needsAction'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         })
 
@@ -90,7 +90,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
                 'res_id': partner.id,
             } for i in range(EVENT_COUNT)])
 
-            events._sync_odoo2google(self.google_service)
+            events._sync_ecommerce2google(self.google_service)
 
         with self.assertQueryCount(__system__=130):
             events.unlink()
@@ -158,7 +158,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         attendee_2.write({
             'state': False,
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'dateTime': '2020-01-15T08:00:00+00:00', 'date': None},
@@ -169,10 +169,10 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'private',
             'guestsCanModify': True,
             'reminders': {'useDefault': False, 'overrides': []},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
             'attendees': [{'email': 'jean-luc@opoo.com', 'responseStatus': 'needsAction'},
                           {'email': 'phineas@opoo.com', 'responseStatus': 'needsAction'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         })
 
@@ -185,7 +185,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'stop': datetime(2020, 1, 15),
             'need_sync': False,
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'date': '2020-01-15', 'dateTime': None},
@@ -196,9 +196,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'public',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         })
 
@@ -211,7 +211,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'active': False,
             'need_sync': False,
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventNotInserted()
         self.assertGoogleEventNotDeleted()
 
@@ -228,7 +228,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'active': False,
             'need_sync': True,
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventDeleted(google_id)
 
     @patch_api
@@ -247,7 +247,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'calendar_event_ids': [(4, event.id)],
             'need_sync': False,
         })
-        recurrence._sync_odoo2google(self.google_service)
+        recurrence._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'date': '2020-01-15', 'dateTime': None},
@@ -258,10 +258,10 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'public',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
             'recurrence': ['RRULE:FREQ=WEEKLY;COUNT=2;BYDAY=WE'],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: recurrence.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: recurrence.id}},
             'transparency': 'opaque',
         })
 
@@ -294,10 +294,10 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'public',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
             'recurrence': ['RRULE:FREQ=WEEKLY;COUNT=2;BYDAY=WE'],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.recurrence_id.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.recurrence_id.id}},
             'transparency': 'opaque',
         }, timeout=3)
 
@@ -341,9 +341,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'description': '',
             'location': '',
             'guestsCanModify': True,
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.recurrence_id.id}},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.recurrence_id.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'recurrence': ['RRULE:FREQ=WEEKLY;WKST=SU;COUNT=1;BYDAY=WE'],
@@ -397,7 +397,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'reminders': {'overrides': [], 'useDefault': False},
             'organizer': {'email': 'jean-luc@opoo.com', 'self': True},
             'attendees': [{'email': 'jean-luc@opoo.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         }, timeout=3)
 
@@ -431,10 +431,10 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'description': '',
             'location': '',
             'guestsCanModify': True,
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
             'recurrence': ['RRULE:FREQ=WEEKLY;WKST=SU;COUNT=2;BYDAY=WE'],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: new_recurrence.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: new_recurrence.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'transparency': 'opaque',
@@ -562,9 +562,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'description': '',
             'location': '',
             'guestsCanModify': True,
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
             'attendees': [{'email': 'jean-luc@opoo.com', 'responseStatus': 'declined'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'transparency': 'opaque',
@@ -600,10 +600,10 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'description': '',
             'location': '',
             'guestsCanModify': True,
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
             'recurrence': ['RRULE:FREQ=WEEKLY;WKST=SU;COUNT=2;BYDAY=WE'],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: new_recurrence.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: new_recurrence.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'transparency': 'opaque',
@@ -620,7 +620,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
         })
 
-        event.with_context(send_updates=True)._sync_odoo2google(self.google_service)
+        event.with_context(send_updates=True)._sync_ecommerce2google(self.google_service)
         self.call_post_commit_hooks()
         self.assertGoogleEventSendUpdates('all')
 
@@ -634,7 +634,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
         })
 
-        event.with_context(send_updates=False)._sync_odoo2google(self.google_service)
+        event.with_context(send_updates=False)._sync_ecommerce2google(self.google_service)
         self.call_post_commit_hooks()
         self.assertGoogleEventSendUpdates('none')
 
@@ -674,9 +674,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'description': '',
             'location': '',
             'guestsCanModify': True,
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event_1.id}},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event_1.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'status': 'cancelled',
@@ -702,7 +702,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
             'location' : 'Event Location'
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventHasNoConferenceData()
 
     @patch_api
@@ -715,7 +715,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
             'show_as': 'free'
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'dateTime': '2024-03-29T10:00:00+00:00', 'date': None},
@@ -726,9 +726,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'public',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'transparent',
         })
 
@@ -742,7 +742,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'need_sync': False,
             'show_as': 'busy'
         })
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'dateTime': '2024-03-29T10:00:00+00:00', 'date': None},
@@ -753,9 +753,9 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'public',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'odoobot@example.com', 'self': True},
-            'attendees': [{'email': 'odoobot@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'organizer': {'email': 'ecommercebot@example.com', 'self': True},
+            'attendees': [{'email': 'ecommercebot@example.com', 'responseStatus': 'accepted'}],
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         })
 
@@ -796,7 +796,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'organizer': {'email': self.organizer_user.email, 'self': True},
             'attendees': [{'email': self.organizer_user.email, 'responseStatus': 'accepted'}],
             'recurrence': ['RRULE:FREQ=WEEKLY;COUNT=1;BYDAY=WE'],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: recurrence.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: recurrence.id}},
             'transparency': 'opaque',
         }, timeout=3)
 
@@ -808,7 +808,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         user = self.env['res.users'].create({
             'name': 'user1',
             'login': 'user1',
-            'email': 'user1@odoo.com',
+            'email': 'user1@ecommerce.com',
         })
         private_partner = self.env['res.partner'].create({
             'name': 'Private Contact',
@@ -826,7 +826,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         })
         event = event.with_user(user)
         event.env.invalidate_all()
-        event._sync_odoo2google(self.google_service)
+        event._sync_ecommerce2google(self.google_service)
         self.assertGoogleEventInserted({
             'id': False,
             'start': {'dateTime': '2020-01-13T16:55:00+00:00', 'date': None},
@@ -837,15 +837,15 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'visibility': 'private',
             'guestsCanModify': True,
             'reminders': {'overrides': [], 'useDefault': False},
-            'organizer': {'email': 'user1@odoo.com', 'self': True},
+            'organizer': {'email': 'user1@ecommerce.com', 'self': True},
             'attendees': [{'email': 'private_email@example.com', 'responseStatus': 'needsAction'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'transparency': 'opaque',
         })
 
     @patch_api
     def test_update_allday_to_timed_event(self):
-        """ Ensure that updating in Odoo all-day events to timed events is reflected in Google. """
+        """ Ensure that updating in ecommerce all-day events to timed events is reflected in Google. """
         # Create an 'all-day' event synchronized with Google.
         self.organizer_user.stop_google_synchronization()
         event = self.env['calendar.event'].with_user(self.organizer_user).create({
@@ -860,7 +860,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'recurrence_id': False,
         })
 
-        # In Odoo, update the event from 'all-day' to timed event.
+        # In ecommerce, update the event from 'all-day' to timed event.
         # Ensure that it got successfully patched in Google side.
         self.organizer_user.restart_google_synchronization()
         event.with_user(self.organizer_user.id).write({"allday": False})
@@ -874,7 +874,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'guestsCanModify': True,
             'organizer': {'email': 'o.o@example.com', 'self': True},
             'attendees': [{'email': 'o.o@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'transparency': 'opaque',
@@ -882,7 +882,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
 
     @patch_api
     def test_update_timed_to_allday_event(self):
-        """ Ensure that updating in Odoo timed events to all-day events is reflected in Google. """
+        """ Ensure that updating in ecommerce timed events to all-day events is reflected in Google. """
         # Create a timed event synchronized with Google.
         self.organizer_user.stop_google_synchronization()
         event = self.env['calendar.event'].with_user(self.organizer_user).create({
@@ -897,7 +897,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'recurrence_id': False,
         })
 
-        # In Odoo, update the event from timed to 'all-day'.
+        # In ecommerce, update the event from timed to 'all-day'.
         # Ensure that it got successfully patched in Google side.
         self.organizer_user.restart_google_synchronization()
         event.with_user(self.organizer_user.id).write({"allday": True})
@@ -911,7 +911,7 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'guestsCanModify': True,
             'organizer': {'email': 'o.o@example.com', 'self': True},
             'attendees': [{'email': 'o.o@example.com', 'responseStatus': 'accepted'}],
-            'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: event.id}},
+            'extendedProperties': {'shared': {'%s_ecommerce_id' % self.env.cr.dbname: event.id}},
             'reminders': {'overrides': [], 'useDefault': False},
             'visibility': 'public',
             'transparency': 'opaque',

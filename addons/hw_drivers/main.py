@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from traceback import format_exc
 import json
 import platform
@@ -10,7 +10,7 @@ from threading import Thread
 import time
 import urllib3
 
-from odoo.addons.hw_drivers.tools import helpers
+from ecommerce.addons.hw_drivers.tools import helpers
 
 _logger = logging.getLogger(__name__)
 
@@ -34,11 +34,11 @@ iot_devices = {}
 class Manager(Thread):
     def send_alldevices(self):
         """
-        This method send IoT Box and devices informations to Odoo database
+        This method send IoT Box and devices informations to ecommerce database
         """
-        server = helpers.get_odoo_server_url()
+        server = helpers.get_ecommerce_server_url()
         if server:
-            subject = helpers.read_file_first_line('odoo-subject.conf')
+            subject = helpers.read_file_first_line('ecommerce-subject.conf')
             if subject:
                 domain = helpers.get_ip().replace('.', '-') + subject.strip('*')
             else:
@@ -76,19 +76,19 @@ class Manager(Thread):
             except Exception:
                 _logger.exception('Could not reach configured server to send all IoT devices')
         else:
-            _logger.warning('Odoo server not set')
+            _logger.warning('ecommerce server not set')
 
     def run(self):
         """
-        Thread that will load interfaces and drivers and contact the odoo server with the updates
+        Thread that will load interfaces and drivers and contact the ecommerce server with the updates
         """
 
         helpers.start_nginx_server()
-        if platform.system() == 'Linux' and not helpers.get_odoo_server_url():
+        if platform.system() == 'Linux' and not helpers.get_ecommerce_server_url():
             self.migrate_config()
 
         _logger.info("IoT Box Image version: %s", helpers.get_version(detailed_version=True))
-        if platform.system() == 'Linux' and helpers.get_odoo_server_url():
+        if platform.system() == 'Linux' and helpers.get_ecommerce_server_url():
             helpers.check_git_branch()
             helpers.generate_password()
         is_certificate_ok, certificate_details = helpers.get_certificate_status()
@@ -131,12 +131,12 @@ class Manager(Thread):
     def migrate_config(self):
         """
         This is a workaround for new IoT box images (>=24.10) not working correctly after
-        checking out a v16 database. It transforms the new odoo.conf settings into their
+        checking out a v16 database. It transforms the new ecommerce.conf settings into their
         equivalent config files.
         """
         with helpers.writable():
             subprocess.run(
-                ['/home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/migrate_config.sh'], check=True
+                ['/home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/migrate_config.sh'], check=True
             )
 
 # Must be started from main thread

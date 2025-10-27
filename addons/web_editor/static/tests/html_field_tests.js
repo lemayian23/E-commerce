@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { click, editInput, getFixture, makeDeferred, mockSendBeacon, nextTick, patchWithCleanup } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
@@ -6,10 +6,10 @@ import { registry } from "@web/core/registry";
 import { FormController } from '@web/views/form/form_controller';
 import { HtmlField } from "@web_editor/js/backend/html_field";
 import { MediaDialog } from "@web_editor/components/media_dialog/media_dialog";
-import { parseHTML, setSelection } from "@web_editor/js/editor/odoo-editor/src/utils/utils";
-import { onRendered } from "@odoo/owl";
+import { parseHTML, setSelection } from "@web_editor/js/editor/ecommerce-editor/src/utils/utils";
+import { onRendered } from "@ecommerce/owl";
 import { wysiwygData } from "web_editor.test_utils";
-import { insertText } from '@web_editor/js/editor/odoo-editor/test/utils'
+import { insertText } from '@web_editor/js/editor/ecommerce-editor/test/utils'
 
 // Legacy
 import legacyEnv from 'web.commonEnv';
@@ -91,13 +91,13 @@ QUnit.module("WebEditor.HtmlField", ({ beforeEach }) => {
         });
         await wysiwygPromise;
 
-        assert.containsOnce(target, ".odoo-editor-editable p:contains(first)");
+        assert.containsOnce(target, ".ecommerce-editor-editable p:contains(first)");
 
         // click on the pager to switch to the next record
         await click(target.querySelector(".o_pager_next"));
 
-        assert.containsOnce(target, ".odoo-editor-editable p:contains(second)");
-        const paragraph = target.querySelector(".odoo-editor-editable p");
+        assert.containsOnce(target, ".ecommerce-editor-editable p:contains(second)");
+        const paragraph = target.querySelector(".ecommerce-editor-editable p");
         setSelection(paragraph, 0, paragraph, 0);
 
         wysiwyg.openMediaDialog();
@@ -128,7 +128,7 @@ QUnit.module("WebEditor.HtmlField", ({ beforeEach }) => {
                 </form>`,
         });
         await wysiwygPromise;
-        const editor = wysiwyg.odooEditor;
+        const editor = wysiwyg.ecommerceEditor;
         const editable = editor.editable;
         editor.testMode = true;
         assert.strictEqual(editable.innerHTML, `<p>first</p>`);
@@ -526,7 +526,7 @@ QUnit.module("WebEditor.HtmlField", ({ beforeEach }) => {
         });
         // Let the htmlField be mounted and recover the Component instance.
         const htmlField = await htmlFieldPromise;
-        const editor = htmlField.wysiwyg.odooEditor;
+        const editor = htmlField.wysiwyg.ecommerceEditor;
 
         // Simulate an urgent save without any image in the content.
         sendBeaconDef = makeDeferred();

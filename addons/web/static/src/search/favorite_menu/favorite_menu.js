@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { SearchDropdownItem } from "@web/search/search_dropdown_item/search_dropdown_item";
@@ -7,7 +7,7 @@ import { FACET_ICONS } from "../utils/misc";
 import { registry } from "@web/core/registry";
 import { useBus, useService } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 const favoriteMenuRegistry = registry.category("favoriteMenu");
 
 export class FavoriteMenu extends Component {

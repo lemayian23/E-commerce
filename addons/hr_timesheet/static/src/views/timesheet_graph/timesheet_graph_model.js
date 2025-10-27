@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { GraphModel } from "@web/views/graph/graph_model";
 

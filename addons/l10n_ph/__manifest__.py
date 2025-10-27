@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     "name": "Philippines - Accounting",
@@ -7,8 +7,8 @@
     """,
     "category": "Accounting/Localizations/Account Charts",
     "version": "1.0",
-    "author": "Odoo PS",
-    "website": "https://www.odoo.com",
+    "author": "ecommerce PS",
+    "website": "https://www.ecommerce.com",
     "depends": [
         "account",
         "base_vat",

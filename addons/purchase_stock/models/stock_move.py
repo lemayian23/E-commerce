@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.tools.float_utils import float_round, float_is_zero, float_compare
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.tools.float_utils import float_round, float_is_zero, float_compare
+from ecommerce.exceptions import UserError
 
 
 class StockMove(models.Model):
@@ -109,7 +109,7 @@ class StockMove(models.Model):
         # The date must be today, and not the date of the move since the move move is still
         # in assigned state. However, the move date is the scheduled date until move is
         # done, then date of actual move processing. See:
-        # https://github.com/odoo/odoo/blob/2f789b6863407e63f90b3a2d4cc3be09815f7002/addons/stock/models/stock_move.py#L36
+        # https://github.com/ecommerce/ecommerce/blob/2f789b6863407e63f90b3a2d4cc3be09815f7002/addons/stock/models/stock_move.py#L36
         convert_date = fields.Date.context_today(self) if self.state != 'done' else self.date
         line = self.purchase_line_id
         if not line:
@@ -275,7 +275,7 @@ class StockMove(models.Model):
             valuation_total_qty += layers_qty
         if float_is_zero(valuation_total_qty, precision_rounding=related_aml.product_uom_id.rounding or related_aml.product_id.uom_id.rounding):
             raise UserError(
-                _('Odoo is not able to generate the anglo saxon entries. The total valuation of %s is zero.') % related_aml.product_id.display_name)
+                _('ecommerce is not able to generate the anglo saxon entries. The total valuation of %s is zero.') % related_aml.product_id.display_name)
         return valuation_price_unit_total, valuation_total_qty
 
     def _is_purchase_return(self):

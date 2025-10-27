@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 import re
 import werkzeug
 
-from odoo import tools
-from odoo.addons.link_tracker.tests.common import MockLinkTracker
-from odoo.addons.mass_mailing.tests.common import MassMailCommon
-from odoo.addons.sms.tests.common import SMSCase, SMSCommon
+from ecommerce import tools
+from ecommerce.addons.link_tracker.tests.common import MockLinkTracker
+from ecommerce.addons.mass_mailing.tests.common import MassMailCommon
+from ecommerce.addons.sms.tests.common import SMSCase, SMSCommon
 
 
 class MassSMSCase(SMSCase, MockLinkTracker):

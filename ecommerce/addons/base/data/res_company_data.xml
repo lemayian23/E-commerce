@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="main_company" model="res.company">
             <field name="name">My Company</field>
@@ -8,4 +8,4 @@
             <field name="favicon" model="res.company" eval="obj()._get_default_favicon(original=True)"/>
         </record>
     </data> 
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from base64 import b64decode
 from pytz import timezone
@@ -7,9 +7,9 @@ from datetime import datetime
 from cryptography.hazmat.primitives.serialization import Encoding, NoEncryption, PrivateFormat
 
 
-from odoo import _, api, fields, models, tools
-from odoo.exceptions import ValidationError
-from odoo.addons.account.tools.certificate import load_key_and_certificates
+from ecommerce import _, api, fields, models, tools
+from ecommerce.exceptions import ValidationError
+from ecommerce.addons.account.tools.certificate import load_key_and_certificates
 
 
 class Certificate(models.Model):

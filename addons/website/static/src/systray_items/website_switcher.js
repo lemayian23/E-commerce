@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -31,7 +31,7 @@ export class WebsiteSwitcherSystray extends Component {
             callback: () => {
                 // TODO share this condition with the website_preview somehow
                 // -> we should probably show the redirection warning here too
-                if (!session.website_bypass_domain_redirect // Used by the Odoo support (bugs to be expected)
+                if (!session.website_bypass_domain_redirect // Used by the ecommerce support (bugs to be expected)
                         && website.domain
                         && !wUtils.isHTTPSorNakedDomainRedirection(website.domain, window.location.origin)) {
                     const { location: { pathname, search, hash } } = this.websiteService.contentWindow;

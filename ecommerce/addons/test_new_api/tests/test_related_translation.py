@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import io
 
-import odoo.tests
-from odoo.tools.translate import TranslationImporter
+import ecommerce.tests
+from ecommerce.tools.translate import TranslationImporter
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestRelatedTranslation(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestRelatedTranslation(ecommerce.tests.TransactionCase):
 
     @classmethod
     def setUpClass(cls):

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 from contextlib import contextmanager
 from unittest.mock import patch
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.http import request
-from odoo.tests.common import HttpCase
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.http import request
+from ecommerce.tests.common import HttpCase
 
 
 @contextmanager
@@ -22,7 +22,7 @@ def mock_auth_method_outlook(login):
         request.update_env(user=request.env['res.users'].search([('login', '=', login)], limit=1))
 
     with patch(
-            'odoo.addons.mail_plugin.models.ir_http.IrHttp'
+            'ecommerce.addons.mail_plugin.models.ir_http.IrHttp'
             '._auth_method_outlook',
             new=patched_auth_method_outlook):
         yield
@@ -53,7 +53,7 @@ class TestMailPluginControllerCommon(HttpCase):
         }
 
         with patch(
-            "odoo.addons.mail_plugin.controllers.mail_plugin.MailPluginController"
+            "ecommerce.addons.mail_plugin.controllers.mail_plugin.MailPluginController"
             "._iap_enrich",
             new=patched_iap_enrich,
         ):
@@ -83,7 +83,7 @@ class TestMailPluginControllerCommon(HttpCase):
         }
 
         with patch(
-            "odoo.addons.mail_plugin.controllers.mail_plugin.MailPluginController"
+            "ecommerce.addons.mail_plugin.controllers.mail_plugin.MailPluginController"
             "._iap_enrich",
             new=patched_iap_enrich,
         ):

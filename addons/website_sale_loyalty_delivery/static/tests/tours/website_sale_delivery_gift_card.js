@@ -1,4 +1,4 @@
-/** @odoo-module alias=website_sale_loyalty_giftcard.test **/
+/** @ecommerce-module alias=website_sale_loyalty_giftcard.test **/
 
 import tour from 'web_tour.tour';
 import wsTourUtils from "website_sale.tour_utils";

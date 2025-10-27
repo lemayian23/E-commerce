@@ -1,4 +1,4 @@
-odoo.define("point_of_sale.PartnerDetailsEdit", function (require) {
+ecommerce.define("point_of_sale.PartnerDetailsEdit", function (require) {
     "use strict";
 
     const { _t } = require("web.core");

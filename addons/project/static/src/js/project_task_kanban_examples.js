@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from 'web.core';
 import kanbanExamplesRegistry from 'web.kanban_examples_registry';

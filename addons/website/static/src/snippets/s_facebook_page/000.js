@@ -1,4 +1,4 @@
-odoo.define('website.s_facebook_page', function (require) {
+ecommerce.define('website.s_facebook_page', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');
@@ -86,14 +86,14 @@ const FacebookPageWidget = publicWidget.Widget.extend({
      * Activates the editor observer if it exists.
      */
     _activateEditorObserver() {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
     },
 
     /**
      * Deactivates the editor observer if it exists.
      */
     _deactivateEditorObserver() {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
     },
 });
 

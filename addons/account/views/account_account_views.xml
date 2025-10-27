@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="view_account_form" model="ir.ui.view">
             <field name="name">account.account.form</field>
@@ -198,4 +198,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

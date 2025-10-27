@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { Dialog } from "@web/core/dialog/dialog";
@@ -10,7 +10,7 @@ import { formatMany2one } from "@web/views/fields/formatters";
 import { evalDomain } from "@web/views/utils";
 import { FormViewDialog } from "@web/views/view_dialogs/form_view_dialog";
 
-import { Component, onWillStart, useState, xml } from "@odoo/owl";
+import { Component, onWillStart, useState, xml } from "@ecommerce/owl";
 import {serializeDate, serializeDateTime} from "../core/l10n/dates";
 
 const debugRegistry = registry.category("debug");

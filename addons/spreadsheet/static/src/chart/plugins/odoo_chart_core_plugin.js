@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import spreadsheet from "../../o_spreadsheet/o_spreadsheet_extended";
 import ChartDataSource from "../data_source/chart_data_source";
 import { globalFiltersFieldMatchers } from "@spreadsheet/global_filters/plugins/global_filters_core_plugin";
@@ -17,7 +17,7 @@ const { CorePlugin } = spreadsheet;
  * @typedef {import("@spreadsheet/global_filters/plugins/global_filters_core_plugin").FieldMatching} FieldMatching
  */
 
-export default class OdooChartCorePlugin extends CorePlugin {
+export default class ecommerceChartCorePlugin extends CorePlugin {
     constructor(getters, history, range, dispatch, config, uuidGenerator) {
         super(getters, history, range, dispatch, config, uuidGenerator);
         this.dataSources = config.dataSources;
@@ -26,15 +26,15 @@ export default class OdooChartCorePlugin extends CorePlugin {
         this.charts = {};
 
         globalFiltersFieldMatchers["chart"] = {
-            geIds: () => this.getters.getOdooChartIds(),
-            getDisplayName: (chartId) => this.getters.getOdooChartDisplayName(chartId),
+            geIds: () => this.getters.getecommerceChartIds(),
+            getDisplayName: (chartId) => this.getters.getecommerceChartDisplayName(chartId),
             getTag: async (chartId) => {
                 const model = await this.getChartDataSource(chartId).getModelLabel();
                 return sprintf(_t("Chart - %s"), model);
             },
             getFieldMatching: (chartId, filterId) =>
-                this.getOdooChartFieldMatching(chartId, filterId),
-            waitForReady: () => this.getOdooChartsWaitForReady(),
+                this.getecommerceChartFieldMatching(chartId, filterId),
+            waitForReady: () => this.getecommerceChartsWaitForReady(),
             getModel: (chartId) =>
                 this.getters.getChart(chartId).getDefinitionForDataSource().metaData.resModel,
             getFields: (chartId) => this.getChartDataSource(chartId).getFields(),
@@ -61,19 +61,19 @@ export default class OdooChartCorePlugin extends CorePlugin {
         switch (cmd.type) {
             case "CREATE_CHART": {
                 switch (cmd.definition.type) {
-                    case "odoo_pie":
-                    case "odoo_bar":
-                    case "odoo_line":
-                        this._addOdooChart(cmd.id);
+                    case "ecommerce_pie":
+                    case "ecommerce_bar":
+                    case "ecommerce_line":
+                        this._addecommerceChart(cmd.id);
                         break;
                 }
                 break;
             }
             case "UPDATE_CHART": {
                 switch (cmd.definition.type) {
-                    case "odoo_pie":
-                    case "odoo_bar":
-                    case "odoo_line":
+                    case "ecommerce_pie":
+                    case "ecommerce_bar":
+                    case "ecommerce_line":
                         this._setChartDataSource(cmd.id);
                         break;
                 }
@@ -91,7 +91,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
             case "ADD_GLOBAL_FILTER":
             case "EDIT_GLOBAL_FILTER":
                 if (cmd.chart) {
-                    this._setOdooChartFieldMatching(cmd.filter.id, cmd.chart);
+                    this._setecommerceChartFieldMatching(cmd.filter.id, cmd.chart);
                 }
                 break;
         }
@@ -102,16 +102,16 @@ export default class OdooChartCorePlugin extends CorePlugin {
     // -------------------------------------------------------------------------
 
     /**
-     * Get all the odoo chart ids
+     * Get all the ecommerce chart ids
      * @returns {Array<string>}
      */
-    getOdooChartIds() {
+    getecommerceChartIds() {
         const ids = [];
         for (const sheetId of this.getters.getSheetIds()) {
             ids.push(
                 ...this.getters
                     .getChartIds(sheetId)
-                    .filter((id) => this.getters.getChartType(id).startsWith("odoo_"))
+                    .filter((id) => this.getters.getChartType(id).startsWith("ecommerce_"))
             );
         }
         return ids;
@@ -139,7 +139,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
      * @param {string} chartId
      * @returns {string}
      */
-    getOdooChartDisplayName(chartId) {
+    getecommerceChartDisplayName(chartId) {
         return this.getters.getChart(chartId).title;
     }
 
@@ -152,8 +152,8 @@ export default class OdooChartCorePlugin extends CorePlugin {
         for (const sheet of data.sheets) {
             if (sheet.figures) {
                 for (const figure of sheet.figures) {
-                    if (figure.tag === "chart" && figure.data.type.startsWith("odoo_")) {
-                        this._addOdooChart(figure.id, figure.data.fieldMatching);
+                    if (figure.tag === "chart" && figure.data.type.startsWith("ecommerce_")) {
+                        this._addecommerceChart(figure.id, figure.data.fieldMatching);
                     }
                 }
             }
@@ -168,7 +168,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
         for (const sheet of data.sheets) {
             if (sheet.figures) {
                 for (const figure of sheet.figures) {
-                    if (figure.tag === "chart" && figure.data.type.startsWith("odoo_")) {
+                    if (figure.tag === "chart" && figure.data.type.startsWith("ecommerce_")) {
                         figure.data.fieldMatching = this.getChartFieldMatch(figure.id);
                     }
                 }
@@ -183,8 +183,8 @@ export default class OdooChartCorePlugin extends CorePlugin {
      *
      * @return {Promise[]}
      */
-    getOdooChartsWaitForReady() {
-        return this.getOdooChartIds().map((chartId) =>
+    getecommerceChartsWaitForReady() {
+        return this.getecommerceChartIds().map((chartId) =>
             this.getChartDataSource(chartId).loadMetadata()
         );
     }
@@ -195,7 +195,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
      * @param {string} chartId
      * @param {string} filterId
      */
-    getOdooChartFieldMatching(chartId, filterId) {
+    getecommerceChartFieldMatching(chartId, filterId) {
         return this.charts[chartId].fieldMatching[filterId];
     }
 
@@ -205,7 +205,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
      * @param {string} filterId
      * @param {Record<string,FieldMatching>} chartFieldMatches
      */
-    _setOdooChartFieldMatching(filterId, chartFieldMatches) {
+    _setecommerceChartFieldMatching(filterId, chartFieldMatches) {
         const charts = { ...this.charts };
         for (const [chartId, fieldMatch] of Object.entries(chartFieldMatches)) {
             charts[chartId].fieldMatching[filterId] = fieldMatch;
@@ -224,7 +224,7 @@ export default class OdooChartCorePlugin extends CorePlugin {
      * @param {string} chartId
      * @param {string} dataSourceId
      */
-    _addOdooChart(chartId, fieldMatching = {}) {
+    _addecommerceChart(chartId, fieldMatching = {}) {
         const dataSourceId = this.uuidGenerator.uuidv4();
         const charts = { ...this.charts };
         charts[chartId] = {
@@ -249,10 +249,10 @@ export default class OdooChartCorePlugin extends CorePlugin {
     }
 }
 
-OdooChartCorePlugin.getters = [
+ecommerceChartCorePlugin.getters = [
     "getChartDataSource",
-    "getOdooChartIds",
+    "getecommerceChartIds",
     "getChartFieldMatch",
-    "getOdooChartDisplayName",
-    "getOdooChartFieldMatching",
+    "getecommerceChartDisplayName",
+    "getecommerceChartFieldMatching",
 ];

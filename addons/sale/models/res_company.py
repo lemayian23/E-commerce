@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 
-from odoo import api, fields, models, _
-from odoo.modules.module import get_module_resource
+from ecommerce import api, fields, models, _
+from ecommerce.modules.module import get_module_resource
 
 
 class ResCompany(models.Model):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { isBrowserFirefox } from "@web/core/browser/feature_detection";
 import { browser } from "../browser/browser";
@@ -92,7 +92,7 @@ export const errorService = {
                 // Firefox doesn't hide details of errors occuring in third-party scripts, check origin explicitly
                 (isBrowserFirefox() && new URL(filename).origin !== window.location.origin);
             // Don't display error dialogs for third party script errors unless we are in debug mode
-            if (isThirdPartyScriptError && !odoo.debug) {
+            if (isThirdPartyScriptError && !ecommerce.debug) {
                 return;
             }
             let uncaughtError;

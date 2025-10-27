@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import http
-from odoo.http import request
-from odoo.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
 import json
 
 

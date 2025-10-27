@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useDebounced } from '@web/core/utils/timing';
 import { useAutofocus } from '@web/core/utils/hooks';
 
-import { Component, xml, useEffect, useState } from "@odoo/owl";
+import { Component, xml, useEffect, useState } from "@ecommerce/owl";
 
 export class SearchMedia extends Component {
     setup() {

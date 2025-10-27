@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
@@ -7,10 +7,10 @@ from collections import OrderedDict
 from lxml import etree
 from re import search
 
-from odoo import Command
-from odoo.tools import mute_logger
-from odoo.exceptions import AccessError
-from odoo.tests import tagged, HttpCase
+from ecommerce import Command
+from ecommerce.tools import mute_logger
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import tagged, HttpCase
 
 from .test_project_sharing import TestProjectSharingCommon
 
@@ -84,7 +84,7 @@ class TestProjectSharingPortalAccess(TestProjectSharingCommon):
 
 
 class TestProjectSharingChatterAccess(TestProjectSharingCommon, HttpCase):
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_post_chatter_as_portal_user(self):
         self.project_no_collabo.privacy_visibility = 'portal'
         self.env['project.share.wizard'].create({

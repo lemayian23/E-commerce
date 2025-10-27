@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 
 from lxml import html
 from werkzeug.urls import url_encode
 
-from odoo.tests import HttpCase, tagged
-from odoo.addons.website.tools import MockRequest
-from odoo.tests.common import HOST
-from odoo.tools import config
+from ecommerce.tests import HttpCase, tagged
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config
 
 _logger = logging.getLogger(__name__)
 
@@ -54,12 +54,12 @@ class TestSnippets(HttpCase):
 
     def test_05_social_media(self):
         self.env.ref('website.default_website').write({
-            'social_facebook': "https://www.facebook.com/Odoo",
-            'social_twitter': 'https://twitter.com/Odoo',
-            'social_linkedin': 'https://www.linkedin.com/company/odoo',
+            'social_facebook': "https://www.facebook.com/ecommerce",
+            'social_twitter': 'https://twitter.com/ecommerce',
+            'social_linkedin': 'https://www.linkedin.com/company/ecommerce',
             'social_youtube': 'https://www.youtube.com/user/OpenERPonline',
-            'social_github': 'https://github.com/odoo',
-            'social_instagram': 'https://www.instagram.com/explore/tags/odoo/',
+            'social_github': 'https://github.com/ecommerce',
+            'social_instagram': 'https://www.instagram.com/explore/tags/ecommerce/',
         })
         IrAttachment = self.env['ir.attachment']
         base = "http://%s:%s" % (HOST, config['http_port'])
@@ -72,7 +72,7 @@ class TestSnippets(HttpCase):
         self.start_tour(self.env['website'].get_client_action_url('/'), 'snippet_social_media', login="admin")
         self.assertEqual(
             self.env['website'].browse(1).social_instagram,
-            'https://instagram.com/odoo.official/',
+            'https://instagram.com/ecommerce.official/',
             'Social media should have been updated'
         )
 

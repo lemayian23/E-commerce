@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import {Field} from '@web/views/fields/field';
 import { registry } from "@web/core/registry";

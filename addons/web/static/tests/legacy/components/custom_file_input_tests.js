@@ -1,4 +1,4 @@
-odoo.define('web.custom_file_input_tests', function (require) {
+ecommerce.define('web.custom_file_input_tests', function (require) {
     "use strict";
 
     const CustomFileInput = require('web.CustomFileInput');
@@ -21,7 +21,7 @@ odoo.define('web.custom_file_input_tests', function (require) {
                     services: {
                         async httpRequest(route, params) {
                             assert.deepEqual(params, {
-                                csrf_token: odoo.csrf_token,
+                                csrf_token: ecommerce.csrf_token,
                                 ufile: [],
                             });
                             assert.step(route);
@@ -53,7 +53,7 @@ odoo.define('web.custom_file_input_tests', function (require) {
                             assert.deepEqual(params, {
                                 id: 5,
                                 model: 'res.model',
-                                csrf_token: odoo.csrf_token,
+                                csrf_token: ecommerce.csrf_token,
                                 ufile: [],
                             });
                             assert.step(route);

@@ -1,4 +1,4 @@
-odoo.define('website.s_dynamic_snippet_carousel_options', function (require) {
+ecommerce.define('website.s_dynamic_snippet_carousel_options', function (require) {
 'use strict';
 
 const options = require('web_editor.snippets.options');

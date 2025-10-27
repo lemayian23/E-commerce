@@ -1,4 +1,4 @@
-odoo.define('website.content.menu', function (require) {
+ecommerce.define('website.content.menu', function (require) {
 'use strict';
 
 const config = require('web.config');
@@ -36,7 +36,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
         // Used to prevent the editor's unbreakable protection from restoring
         // the menu's auto-hide updates in edit mode.
         this.el.addEventListener("autoMoreMenu.willAdapt", () => this.options.wysiwyg
-            && this.options.wysiwyg.odooEditor.unbreakableStepUnactive());
+            && this.options.wysiwyg.ecommerceEditor.unbreakableStepUnactive());
         this.$main = this.$el.next('main');
         this.isOverlayHeader = !!this.$el.closest('.o_header_overlay, .o_header_overlay_theme').length;
         this.$dropdowns = this.$el.find('.dropdown, .dropdown-menu');
@@ -52,9 +52,9 @@ const BaseAnimatedHeader = animations.Animation.extend({
         });
 
         // We can rely on transitionend which is well supported but not on
-        // transitionstart, so we listen to a custom odoo event.
+        // transitionstart, so we listen to a custom ecommerce event.
         this._transitionCount = 0;
-        this.$el.on('odoo-transitionstart.BaseAnimatedHeader', () => {
+        this.$el.on('ecommerce-transitionstart.BaseAnimatedHeader', () => {
             this.el.classList.add('o_transitioning');
             this._adaptToHeaderChangeLoop(1);
         });
@@ -90,7 +90,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
      * @private
      */
     _adaptToHeaderChange: function () {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
         this._updateMainPaddingTop();
         // Take menu into account when `dom.scrollTo()` is used whenever it is
         // visible - be it floating, fully displayed or partially hidden.
@@ -99,7 +99,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
         for (const callback of extraMenuUpdateCallbacks) {
             callback();
         }
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
     },
     /**
      * @private
@@ -221,7 +221,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
             this.scrollHeightTooShort = headerIsScrolled && this._scrollHeightTooShort();
             if (!this.scrollHeightTooShort) {
                 this.el.classList.toggle('o_header_is_scrolled', headerIsScrolled);
-                this.$el.trigger('odoo-transitionstart');
+                this.$el.trigger('ecommerce-transitionstart');
                 this.headerIsScrolled = headerIsScrolled;
             }
         }
@@ -377,7 +377,7 @@ const BaseDisappearingHeader = publicWidget.registry.FixedHeader.extend({
      * @private
      */
     _hideHeader: function () {
-        this.$el.trigger('odoo-transitionstart');
+        this.$el.trigger('ecommerce-transitionstart');
     },
     /**
      * @override
@@ -389,7 +389,7 @@ const BaseDisappearingHeader = publicWidget.registry.FixedHeader.extend({
      * @private
      */
     _showHeader: function () {
-        this.$el.trigger('odoo-transitionstart');
+        this.$el.trigger('ecommerce-transitionstart');
     },
 
     //--------------------------------------------------------------------------
@@ -727,10 +727,10 @@ publicWidget.registry.HeaderMainCollapse = publicWidget.Widget.extend({
             if (this.$target[0].querySelector('.o_header_hamburger_full_toggler')) {
                 const callToActionEl = this.$target[0].querySelector('.oe_structure_solo');
                 if (callToActionEl) {
-                    this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+                    this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
                     callToActionEl.classList.add('nav-item');
                     this.navbarEl.append(callToActionEl);
-                    this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+                    this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
                 }
             }
             // Specific case with the "boxed" header template where the "call to
@@ -754,10 +754,10 @@ publicWidget.registry.HeaderMainCollapse = publicWidget.Widget.extend({
     _onCollapseShow() {
         this.el.classList.add('o_top_menu_collapse_shown');
         if (this.languageSelectorMustBeMoved) {
-            this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+            this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
             this.languageSelectorEl.classList.add('nav-item');
             this.navbarEl.append(this.languageSelectorEl);
-            this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+            this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
         }
         if (this.offcanvasAndBoxedHeader) {
             this.boxedHeaderCallToActionEl.classList.add('nav-item');
@@ -770,10 +770,10 @@ publicWidget.registry.HeaderMainCollapse = publicWidget.Widget.extend({
     _onCollapseHidden() {
         this.el.classList.remove('o_top_menu_collapse_shown');
         if (this.languageSelectorMustBeMoved) {
-            this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+            this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive();
             this.languageSelectorEl.classList.remove('nav-item');
             this.navbarEl.after(this.languageSelectorEl);
-            this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+            this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive();
         }
         if (this.offcanvasAndBoxedHeader) {
             this.boxedHeaderCallToActionEl.classList.remove('nav-item');

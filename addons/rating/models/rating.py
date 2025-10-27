@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import uuid
 
-from odoo import api, fields, models
-from odoo.addons.rating.models import rating_data
-from odoo.modules.module import get_resource_path
+from ecommerce import api, fields, models
+from ecommerce.addons.rating.models import rating_data
+from ecommerce.modules.module import get_resource_path
 
 
 class Rating(models.Model):

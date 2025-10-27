@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import datetime
@@ -13,11 +13,11 @@ from dateutil.relativedelta import relativedelta
 from markupsafe import Markup
 from werkzeug import urls
 
-from odoo import api, fields, models, _
-from odoo.addons.http_routing.models.ir_http import slug, url_for
-from odoo.exceptions import RedirectWarning, UserError, AccessError
-from odoo.http import request
-from odoo.tools import html2plaintext, sql
+from ecommerce import api, fields, models, _
+from ecommerce.addons.http_routing.models.ir_http import slug, url_for
+from ecommerce.exceptions import RedirectWarning, UserError, AccessError
+from ecommerce.http import request
+from ecommerce.tools import html2plaintext, sql
 
 _logger = logging.getLogger(__name__)
 

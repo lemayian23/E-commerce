@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import os
 
 from unittest import skipIf
 
-from odoo.addons.crm.tests.common import TestCrmCommon
-from odoo.tests import HttpCase
-from odoo.tests.common import tagged, users
+from ecommerce.addons.crm.tests.common import TestCrmCommon
+from ecommerce.tests import HttpCase
+from ecommerce.tests.common import tagged, users
 
 
 @tagged('post_install', '-at_install')
@@ -29,7 +29,7 @@ class TestUi(HttpCase):
         })
         self.start_tour("/web", 'crm_tour', login="admin")
 
-    @skipIf(os.getenv("ODOO_FAKETIME_TEST_MODE"), 'This tour uses CURRENT_DATE which cannot work in faketime mode')
+    @skipIf(os.getenv("ecommerce_FAKETIME_TEST_MODE"), 'This tour uses CURRENT_DATE which cannot work in faketime mode')
     def test_02_crm_tour_rainbowman(self):
         # we create a new user to make sure they get the 'Congrats on your first deal!'
         # rainbowman message.

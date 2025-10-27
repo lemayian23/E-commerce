@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 import copy
 
-from odoo import api, models
-from odoo.tools import float_compare, float_is_zero, format_date, float_round
+from ecommerce import api, models
+from ecommerce.tools import float_compare, float_is_zero, format_date, float_round
 
 
 class ReplenishmentReport(models.AbstractModel):

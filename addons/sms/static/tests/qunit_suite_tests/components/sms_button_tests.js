@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { click, editInput, getFixture, patchWithCleanup } from "@web/../tests/helpers/utils";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { data } from 'mail.discuss_public_channel_template';
 import { messagingToLegacyEnv } from '@mail/utils/make_messaging_to_legacy_env';
@@ -59,7 +59,7 @@ Component.env = legacyEnv;
     mainComponentsRegistry.add('PopoverManagerContainer', { Component: PopoverManagerContainer });
 
     await legacySession.is_bound;
-    Object.assign(odoo, {
+    Object.assign(ecommerce, {
         info: {
             db: session.db,
             server_version: session.server_version,
@@ -71,6 +71,6 @@ Component.env = legacyEnv;
     const env = makeEnv();
     await startServices(env);
     mapLegacyEnvToWowlEnv(Component.env, env);
-    odoo.isReady = true;
+    ecommerce.isReady = true;
     await mount(MainComponentsContainer, document.body, { env, templates, dev: env.debug });
 })();

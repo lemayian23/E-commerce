@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.searchPanelModelExtension **/
+/** @ecommerce-module alias=web.searchPanelModelExtension **/
 
 
     import ActionModel from "web.ActionModel";

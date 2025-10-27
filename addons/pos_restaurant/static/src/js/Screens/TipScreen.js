@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.TipScreen', function (require) {
+ecommerce.define('pos_restaurant.TipScreen', function (require) {
     'use strict';
 
     const Registries = require('point_of_sale.Registries');

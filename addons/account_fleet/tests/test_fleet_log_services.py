@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import common, tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import common, tagged
 
 
 @tagged('post_install', '-at_install')

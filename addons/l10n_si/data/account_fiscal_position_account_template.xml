@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="gd_fp_eu_acc1" model="account.fiscal.position.account.template">
         <field name="position_id" ref="gd_fp_eu"/>
         <field name="account_src_id" ref="gd_acc_120000"/>
@@ -47,4 +47,4 @@
         <field name="account_src_id" ref="gd_acc_762000"/>
         <field name="account_dest_id" ref="gd_acc_763000"/>
     </record>
-</odoo>
+</ecommerce>

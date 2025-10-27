@@ -2,11 +2,11 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields
-from odoo.tests import tagged
-from odoo.tests.common import Form
+from ecommerce import fields
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form
 
-from odoo.addons.project.tests.test_project_base import TestProjectCommon
+from ecommerce.addons.project.tests.test_project_base import TestProjectCommon
 
 @tagged('-at_install', 'post_install')
 class TestProjectUpdate(TestProjectCommon):

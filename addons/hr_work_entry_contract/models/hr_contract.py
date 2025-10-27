@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import itertools
 import pytz
@@ -8,10 +8,10 @@ from collections import defaultdict
 from datetime import datetime, date, time
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, Command, fields, models, _
-from odoo.addons.resource.models.resource import datetime_to_string, string_to_datetime, Intervals
-from odoo.osv import expression
-from odoo.exceptions import UserError
+from ecommerce import api, Command, fields, models, _
+from ecommerce.addons.resource.models.resource import datetime_to_string, string_to_datetime, Intervals
+from ecommerce.osv import expression
+from ecommerce.exceptions import UserError
 
 
 class HrContract(models.Model):

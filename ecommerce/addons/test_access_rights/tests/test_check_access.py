@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo.tests
-from odoo import Command
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+import ecommerce.tests
+from ecommerce import Command
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestAccess(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class TestAccess(ecommerce.tests.HttpCase):
     def setUp(self):
         super(TestAccess, self).setUp()
 

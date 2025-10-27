@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import time
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.exceptions import UserError
-from odoo.tests import tagged
-from odoo.tools.misc import mod10r
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.exceptions import UserError
+from ecommerce.tests import tagged
+from ecommerce.tools.misc import mod10r
 
 CH_IBAN = 'CH15 3881 5158 3845 3843 7'
 QR_IBAN = 'CH21 3080 8001 2345 6782 7'
@@ -164,7 +164,7 @@ class TestSwissQR(AccountTestInvoicingCommon):
 
     def test_swissQR_missing_bank(self):
         # Let us test the generation of a SwissQR for an invoice, first by showing an
-        # QR is included in the invoice is only generated when Odoo has all the data it needs.
+        # QR is included in the invoice is only generated when ecommerce has all the data it needs.
         with self.assertRaises(UserError), self.cr.savepoint():
             self.invoice1.action_post()
             self.swissqr_not_generated(self.invoice1)

@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, SUPERUSER_ID, _
+from ecommerce import api, fields, models, SUPERUSER_ID, _
 
 
 class PaymentTransaction(models.Model):
@@ -182,7 +182,7 @@ class PaymentTransaction(models.Model):
         :return: None
         """
         self.ensure_one()
-        self = self.with_user(SUPERUSER_ID)  # Log messages as 'OdooBot'
+        self = self.with_user(SUPERUSER_ID)  # Log messages as 'ecommerceBot'
         if self.source_transaction_id.payment_id:
             self.source_transaction_id.payment_id.message_post(body=message)
             for invoice in self.source_transaction_id.invoice_ids:

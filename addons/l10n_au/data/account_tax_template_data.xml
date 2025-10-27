@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="service_tag" model="account.account.tag">
         <field name="name">Service</field>
         <field name="applicability">taxes</field>
@@ -903,4 +903,4 @@
         <field name="children_tax_ids" eval="[(6,0,[ref('au_tax_purchase_adj_service_tpar'), ref('au_tax_witheld')])]"/>
         <field name="tax_group_id" ref="tax_group_gst_10"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.AbstractReceiptScreen', function (require) {
+ecommerce.define('point_of_sale.AbstractReceiptScreen', function (require) {
     'use strict';
 
     const { nextFrame } = require('point_of_sale.utils');

@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
-from odoo.tests import RecordCapturer, tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.mail.tests.common import MailCommon, mail_new_test_user
+from ecommerce.tests import RecordCapturer, tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('-at_install', 'post_install', 'mail_tools', 'res_users')
 class TestUser(MailCommon):
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_notification_type_constraint(self):
-        with self.assertRaises(IntegrityError, msg='Portal user can not receive notification in Odoo'):
+        with self.assertRaises(IntegrityError, msg='Portal user can not receive notification in ecommerce'):
             mail_new_test_user(
                 self.env,
                 login='user_test_constraint_2',

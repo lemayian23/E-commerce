@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 import json
 from datetime import timedelta
 from markupsafe import Markup
 
-from odoo import models, fields, api, _
-from odoo.tools import html_escape
-from odoo.exceptions import AccessError
-from odoo.addons.iap import jsonrpc
-from odoo.addons.l10n_in_edi.models.account_edi_format import DEFAULT_IAP_ENDPOINT, DEFAULT_IAP_TEST_ENDPOINT
+from ecommerce import models, fields, api, _
+from ecommerce.tools import html_escape
+from ecommerce.exceptions import AccessError
+from ecommerce.addons.iap import jsonrpc
+from ecommerce.addons.l10n_in_edi.models.account_edi_format import DEFAULT_IAP_ENDPOINT, DEFAULT_IAP_TEST_ENDPOINT
 
 from .error_codes import ERROR_CODES
 
@@ -141,7 +141,7 @@ class AccountEdiFormat(models.Model):
             error_codes = [e.get("code") for e in error]
             if "238" in error_codes:
                 # Invalid token eror then create new token and send generate request again.
-                # This happen when authenticate called from another odoo instance with same credentials (like. Demo/Test)
+                # This happen when authenticate called from another ecommerce instance with same credentials (like. Demo/Test)
                 authenticate_response = self._l10n_in_edi_ewaybill_authenticate(invoices.company_id)
                 if not authenticate_response.get("error"):
                     error = []
@@ -155,8 +155,8 @@ class AccountEdiFormat(models.Model):
                 error_message = "<br/>".join(["[%s] %s" % (e.get("code"), html_escape(e.get("message"))) for e in error])
                 error = []
                 response = {"data": ""}
-                odoobot = self.env.ref("base.partner_root")
-                invoices.message_post(author_id=odoobot.id, body=
+                ecommercebot = self.env.ref("base.partner_root")
+                invoices.message_post(author_id=ecommercebot.id, body=
                     "%s<br/>%s:<br/>%s" %(
                         _("Somehow this E-waybill has been canceled in the government portal before. You can verify by checking the details into the government (https://ewaybillgst.gov.in/Others/EBPrintnew.aspx)"),
                         _("Error"),
@@ -203,7 +203,7 @@ class AccountEdiFormat(models.Model):
             error_codes = [e.get("code") for e in error]
             if "1005" in error_codes:
                 # Invalid token eror then create new token and send generate request again.
-                # This happen when authenticate called from another odoo instance with same credentials (like. Demo/Test)
+                # This happen when authenticate called from another ecommerce instance with same credentials (like. Demo/Test)
                 authenticate_response = self._l10n_in_edi_authenticate(invoices.company_id)
                 if not authenticate_response.get("error"):
                     error = []
@@ -217,8 +217,8 @@ class AccountEdiFormat(models.Model):
                 response = self._l10n_in_edi_irn_ewaybill_get(invoices.company_id, generate_json.get("Irn"))
                 if not response.get("error"):
                     error = []
-                    odoobot = self.env.ref("base.partner_root")
-                    invoices.message_post(author_id=odoobot.id, body=
+                    ecommercebot = self.env.ref("base.partner_root")
+                    invoices.message_post(author_id=ecommercebot.id, body=
                         _("Somehow this E-waybill has been generated in the government portal before. You can verify by checking the invoice details into the government (https://ewaybillgst.gov.in/Others/EBPrintnew.aspx)")
                     )
 
@@ -302,7 +302,7 @@ class AccountEdiFormat(models.Model):
             error_codes = [e.get("code") for e in error]
             if "238" in error_codes:
                 # Invalid token eror then create new token and send generate request again.
-                # This happen when authenticate called from another odoo instance with same credentials (like. Demo/Test)
+                # This happen when authenticate called from another ecommerce instance with same credentials (like. Demo/Test)
                 authenticate_response = self._l10n_in_edi_ewaybill_authenticate(invoices.company_id)
                 if not authenticate_response.get("error"):
                     error = []
@@ -317,8 +317,8 @@ class AccountEdiFormat(models.Model):
                     invoices.company_id, generate_json.get("docType"), generate_json.get("docNo"))
                 if not response.get("error"):
                     error = []
-                    odoobot = self.env.ref("base.partner_root")
-                    invoices.message_post(author_id=odoobot.id, body=
+                    ecommercebot = self.env.ref("base.partner_root")
+                    invoices.message_post(author_id=ecommercebot.id, body=
                         _("Somehow this E-waybill has been generated in the government portal before. You can verify by checking the invoice details into the government (https://ewaybillgst.gov.in/Others/EBPrintnew.aspx)")
                     )
             if "no-credit" in error_codes:

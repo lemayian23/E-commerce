@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 /**
  * @typedef {"year"|"month"|"quarter"|"relative"} RangeType
@@ -198,7 +198,7 @@ export class GlobalFiltersCorePlugin extends spreadsheet.CorePlugin {
     // ---------------------------------------------------------------------
 
     /**
-     * Update all ODOO.FILTER.VALUE formulas to reference a filter
+     * Update all ecommerce.FILTER.VALUE formulas to reference a filter
      * by its new label.
      *
      * @param {string} currentLabel

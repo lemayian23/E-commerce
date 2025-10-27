@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import fields
-from odoo.tests.common import Form, tagged
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import fields
+from ecommerce.tests.common import Form, tagged
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 import random
 import logging
 import time
@@ -290,7 +290,7 @@ class TestAr(AccountTestInvoicingCommon):
         })
         cls.product_iva_exento = cls.env['product.product'].create({
             # demo product_product_exento
-            'name': 'Book: Development in Odoo (VAT Exempt)',
+            'name': 'Book: Development in ecommerce (VAT Exempt)',
             'uom_id': uom_unit.id,
             'uom_po_id': uom_unit.id,
             'standard_price': 100.0,

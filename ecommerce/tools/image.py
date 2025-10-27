@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import binascii
 import io
@@ -14,8 +14,8 @@ except ImportError:
 
 from random import randrange
 
-from odoo.exceptions import UserError
-from odoo.tools.translate import _
+from ecommerce.exceptions import UserError
+from ecommerce.tools.translate import _
 
 
 # Preload PIL with the minimal subset of image formats we need

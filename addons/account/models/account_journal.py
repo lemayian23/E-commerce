@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from odoo import api, Command, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.addons.base.models.res_bank import sanitize_account_number
-from odoo.tools import remove_accents
+from ecommerce import api, Command, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.addons.base.models.res_bank import sanitize_account_number
+from ecommerce.tools import remove_accents
 import logging
 import re
 
@@ -59,7 +59,7 @@ class AccountJournal(models.Model):
             for model in self._fields['invoice_reference_model'].get_values(self.env):
                 if model.startswith(country_code):
                     return model
-        return 'odoo'
+        return 'ecommerce'
 
     def _get_default_account_domain(self):
         return """[
@@ -108,7 +108,7 @@ class AccountJournal(models.Model):
     sequence = fields.Integer(help='Used to order Journals in the dashboard view', default=10)
 
     invoice_reference_type = fields.Selection(string='Communication Type', required=True, selection=[('none', 'Open'), ('partner', 'Based on Customer'), ('invoice', 'Based on Invoice')], default='invoice', help='You can set here the default communication that will appear on customer invoices, once validated, to help the customer to refer to that particular invoice when making the payment.')
-    invoice_reference_model = fields.Selection(string='Communication Standard', required=True, selection=[('odoo', 'Odoo'), ('euro', 'European')], default=_default_invoice_reference_model, help="You can choose different models for each type of reference. The default one is the Odoo reference.")
+    invoice_reference_model = fields.Selection(string='Communication Standard', required=True, selection=[('ecommerce', 'ecommerce'), ('euro', 'European')], default=_default_invoice_reference_model, help="You can choose different models for each type of reference. The default one is the ecommerce reference.")
 
     #groups_id = fields.Many2many('res.groups', 'account_journal_group_rel', 'journal_id', 'group_id', string='Groups')
     currency_id = fields.Many2one('res.currency', help='The currency used to enter statement', string="Currency")
@@ -138,7 +138,7 @@ class AccountJournal(models.Model):
         inverse_name='journal_id',
         copy=False,
         check_company=True,
-        help="Manual: Get paid by any method outside of Odoo.\n"
+        help="Manual: Get paid by any method outside of ecommerce.\n"
         "Payment Providers: Each payment provider has its own Payment Method. Request a transaction on/to a card thanks to a payment token saved by the partner when buying or subscribing online.\n"
         "Batch Deposit: Collect several customer checks at once generating and submitting a batch deposit to your bank. Module account_batch_payment is necessary.\n"
         "SEPA Direct Debit: Get paid in the SEPA zone thanks to a mandate your partner will have granted to you. Module account_sepa is necessary.\n"
@@ -153,8 +153,8 @@ class AccountJournal(models.Model):
         inverse_name='journal_id',
         copy=False,
         check_company=True,
-        help="Manual: Pay by any method outside of Odoo.\n"
-        "Check: Pay bills by check and print it from Odoo.\n"
+        help="Manual: Pay by any method outside of ecommerce.\n"
+        "Check: Pay bills by check and print it from ecommerce.\n"
         "SEPA Credit Transfer: Pay in the SEPA zone by submitting a SEPA Credit Transfer file to your bank. Module account_sepa is necessary.\n"
     )
     profit_account_id = fields.Many2one(
@@ -189,7 +189,7 @@ class AccountJournal(models.Model):
     # alias configuration for journals
     alias_id = fields.Many2one('mail.alias', string='Email Alias', help="Send one separate email for each invoice.\n\n"
                                                                   "Any file extension will be accepted.\n\n"
-                                                                  "Only PDF and XML files will be interpreted by Odoo", copy=False)
+                                                                  "Only PDF and XML files will be interpreted by ecommerce", copy=False)
     alias_domain = fields.Char('Alias domain', compute='_compute_alias_domain')
     alias_name = fields.Char('Alias Name', copy=False, compute='_compute_alias_name', inverse='_inverse_type', help="It creates draft invoices and bills by sending an email.")
 

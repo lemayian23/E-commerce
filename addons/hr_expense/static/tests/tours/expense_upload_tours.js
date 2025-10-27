@@ -1,4 +1,4 @@
-odoo.define('hr_expense.tests.tours', function (require) {
+ecommerce.define('hr_expense.tests.tours', function (require) {
     "use strict";
 
     var tour = require('web_tour.tour');

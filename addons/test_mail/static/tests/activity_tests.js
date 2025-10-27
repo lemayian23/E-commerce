@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ActivityRenderer from '@mail/js/views/activity/activity_renderer';
 import { start, startServer } from '@mail/../tests/helpers/test_utils';

@@ -1,4 +1,4 @@
-odoo.define('website.s_rating_options', function (require) {
+ecommerce.define('website.s_rating_options', function (require) {
 'use strict';
 
 const { ComponentWrapper } = require('web.OwlCompatibility');

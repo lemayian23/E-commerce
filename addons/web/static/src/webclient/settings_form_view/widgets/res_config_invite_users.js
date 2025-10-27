@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
 import { unique } from "@web/core/utils/arrays";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, useState, onWillStart } from "@odoo/owl";
+import { Component, useState, onWillStart } from "@ecommerce/owl";
 
 class ResConfigInviteUsers extends Component {
     setup() {

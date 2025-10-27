@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.PaymentInterface', function (require) {
+ecommerce.define('point_of_sale.PaymentInterface', function (require) {
 "use strict";
 
 var core = require('web.core');

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import namedtuple
 from lxml import etree
 
-from odoo import fields
-from odoo.tests import tagged
-from odoo.addons.l10n_it_edi.tests.common import TestItEdi
+from ecommerce import fields
+from ecommerce.tests import tagged
+from ecommerce.addons.l10n_it_edi.tests.common import TestItEdi
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')

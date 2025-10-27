@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { download } from "@web/core/network/download";
@@ -18,7 +18,7 @@ import { ViewButton } from "@web/views/view_button/view_button";
 import { useViewButtons } from "@web/views/view_button/view_button_hook";
 import { ExportDataDialog } from "@web/views/view_dialogs/export_data_dialog";
 
-import { Component, onMounted, onWillStart, useSubEnv, useEffect, useRef } from "@odoo/owl";
+import { Component, onMounted, onWillStart, useSubEnv, useEffect, useRef } from "@ecommerce/owl";
 
 export class ListViewHeaderButton extends ViewButton {
     async onClick() {

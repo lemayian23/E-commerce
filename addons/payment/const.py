@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # According to https://en.wikipedia.org/wiki/ISO_4217#Minor_unit_fractions
 CURRENCY_MINOR_UNITS = {

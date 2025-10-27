@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import os
 from glob import glob
 from logging import getLogger
 from werkzeug import urls
 
-import odoo
-import odoo.modules.module  # get_manifest, don't from-import it
-from odoo import api, fields, models, tools
-from odoo.tools import misc
+import ecommerce
+import ecommerce.modules.module  # get_manifest, don't from-import it
+from ecommerce import api, fields, models, tools
+from ecommerce.tools import misc
 
 _logger = getLogger(__name__)
 
@@ -202,7 +202,7 @@ class IrAsset(models.Model):
 
         # 2. Process all addons' manifests.
         for addon in self._topological_sort(tuple(addons)):
-            for command in odoo.modules.module._get_manifest_cached(addon)['assets'].get(bundle, ()):
+            for command in ecommerce.modules.module._get_manifest_cached(addon)['assets'].get(bundle, ()):
                 directive, target, path_def = self._process_command(command)
                 process_path(directive, target, path_def)
 
@@ -257,7 +257,7 @@ class IrAsset(models.Model):
         IrModule = self.env['ir.module.module']
 
         def mapper(addon):
-            manif = odoo.modules.module._get_manifest_cached(addon)
+            manif = ecommerce.modules.module._get_manifest_cached(addon)
             from_terp = IrModule.get_values_from_terp(manif)
             from_terp['name'] = addon
             from_terp['depends'] = manif.get('depends', ['base'])
@@ -282,7 +282,7 @@ class IrAsset(models.Model):
         # Main source: the current registry list
         # Second source of modules: server wide modules
         # Third source: the currently loading module from the context (similar to ir_ui_view)
-        return self.env.registry._init_modules.union(odoo.conf.server_wide_modules or []).union(self.env.context.get('install_module', []))
+        return self.env.registry._init_modules.union(ecommerce.conf.server_wide_modules or []).union(self.env.context.get('install_module', []))
 
     def _get_paths(self, path_def, installed, extensions=None):
         """
@@ -302,7 +302,7 @@ class IrAsset(models.Model):
         path_url = fs2web(path_def)
         path_parts = [part for part in path_url.split('/') if part]
         addon = path_parts[0]
-        addon_manifest = odoo.modules.module._get_manifest_cached(addon)
+        addon_manifest = ecommerce.modules.module._get_manifest_cached(addon)
 
         safe_path = True
         if addon_manifest:

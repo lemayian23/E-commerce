@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models, fields, api, _
-from odoo.tools.float_utils import float_round, float_compare
-from odoo.exceptions import UserError, ValidationError
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models, fields, api, _
+from ecommerce.tools.float_utils import float_round, float_compare
+from ecommerce.exceptions import UserError, ValidationError
 
 class AnalyticMixin(models.AbstractModel):
     _name = 'analytic.mixin'

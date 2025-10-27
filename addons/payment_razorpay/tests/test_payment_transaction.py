@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.exceptions import UserError
-from odoo.tests import tagged
+from ecommerce.exceptions import UserError
+from ecommerce.tests import tagged
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_razorpay.tests.common import RazorpayCommon
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_razorpay.tests.common import RazorpayCommon
 
 
 @tagged('post_install', '-at_install')
@@ -63,7 +63,7 @@ class TestPaymentTransaction(RazorpayCommon):
         successful payment. """
         tx = self._create_transaction('redirect')
         with patch(
-            'odoo.addons.payment_razorpay.models.payment_provider.PaymentProvider'
+            'ecommerce.addons.payment_razorpay.models.payment_provider.PaymentProvider'
             '._razorpay_make_request', return_value=self.payment_data
         ):
             tx._process_notification_data(self.payment_data)

@@ -1,4 +1,4 @@
-odoo.define('web_editor.image_processing', function (require) {
+ecommerce.define('web_editor.image_processing', function (require) {
 'use strict';
 
 const {getAffineApproximation, getProjective} = require('@web_editor/js/editor/perspective_utils');
@@ -353,7 +353,7 @@ function loadImage(src, img = new Image()) {
         img.src = source;
     };
     // The server will return a placeholder image with the following src.
-    const placeholderHref = "/web/image/__odoo__unknown__src__/";
+    const placeholderHref = "/web/image/__ecommerce__unknown__src__/";
 
     return new Promise((resolve, reject) => {
         fetch(src)
@@ -468,7 +468,7 @@ async function loadImageInfo(img, rpc, attachmentSrc = '') {
     // check if the image is local or not here as a previous bug converted some
     // local (relative src) images to absolute URL... and that before users had
     // setup their website domain. That means they can have an absolute URL that
-    // looks like "https://mycompany.odoo.com/web/image/123" that leads to a
+    // looks like "https://mycompany.ecommerce.com/web/image/123" that leads to a
     // "local" image even if the domain name is now "mycompany.be".
     if (original && original.image_src) {
         img.dataset.originalId = original.id;

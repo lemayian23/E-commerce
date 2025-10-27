@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import tour from 'web_tour.tour';
 import FullScreen from '@website_slides/js/slides_course_fullscreen_player';

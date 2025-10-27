@@ -1,4 +1,4 @@
-odoo.define('crm.crm_email_and_phone_propagation', function (require) {
+ecommerce.define('crm.crm_email_and_phone_propagation', function (require) {
     'use strict';
 
     const tour = require('web_tour.tour');

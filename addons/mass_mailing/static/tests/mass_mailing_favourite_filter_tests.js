@@ -1,4 +1,4 @@
-/** @odoo-module alias=mass_mailing.FieldMassMailingFavoriteFilter.test */
+/** @ecommerce-module alias=mass_mailing.FieldMassMailingFavoriteFilter.test */
 
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import * as testUtils from "@web/../tests/helpers/utils";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { NewContentModal, MODULE_STATUS } from '@website/systray_items/new_content';
 import { patch } from 'web.utils';

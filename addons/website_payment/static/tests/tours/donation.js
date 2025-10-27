@@ -1,4 +1,4 @@
-odoo.define("website_payment.tour.donation_snippet_edition", function (require) {
+ecommerce.define("website_payment.tour.donation_snippet_edition", function (require) {
     "use strict";
 
     const tour = require("web_tour.tour");

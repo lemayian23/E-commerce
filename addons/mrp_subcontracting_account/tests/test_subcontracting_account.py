@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command, fields
-from odoo.tests.common import Form
-from odoo.tools.float_utils import float_round, float_compare
+from ecommerce import Command, fields
+from ecommerce.tests.common import Form
+from ecommerce.tools.float_utils import float_round, float_compare
 
-from odoo.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
-from odoo.addons.mrp_account.tests.test_bom_price import TestBomPriceCommon
+from ecommerce.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
+from ecommerce.addons.mrp_account.tests.test_bom_price import TestBomPriceCommon
 
 class TestAccountSubcontractingFlows(TestMrpSubcontractingCommon):
     def test_subcontracting_account_flow_1(self):

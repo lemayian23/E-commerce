@@ -1,4 +1,4 @@
-odoo.define('web.registry_tests', function (require) {
+ecommerce.define('web.registry_tests', function (require) {
 "use strict";
 
 var Registry = require('web.Registry');

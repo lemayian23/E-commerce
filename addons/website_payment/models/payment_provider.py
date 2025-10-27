@@ -2,8 +2,8 @@
 
 from werkzeug.urls import iri_to_uri
 
-from odoo import fields, models
-from odoo.http import request
+from ecommerce import fields, models
+from ecommerce.http import request
 
 
 class PaymentProvider(models.Model):

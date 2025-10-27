@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, tools
-from odoo.tools import formatLang
+from ecommerce import fields, models, tools
+from ecommerce.tools import formatLang
 
 class PurchaseBillUnion(models.Model):
     _name = 'purchase.bill.union'

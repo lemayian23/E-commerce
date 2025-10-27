@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { ComponentAdapter } from 'web.OwlCompatibility';
 
@@ -6,7 +6,7 @@ import { useWowlService } from '@web/legacy/utils';
 import { useHotkey } from '@web/core/hotkeys/hotkey_hook';
 import { setEditableWindow } from 'web_editor.utils';
 import { useBus } from "@web/core/utils/hooks";
-import { isMediaElement } from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+import { isMediaElement } from '@web_editor/js/editor/ecommerce-editor/src/utils/utils';
 
 import { EditMenuDialog, MenuDialog } from "../dialog/edit_menu";
 import { WebsiteDialog } from '../dialog/dialog';
@@ -70,8 +70,8 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
 
         useEffect(() => {
             const initWysiwyg = async () => {
-                // Disable OdooEditor observer's while setting up classes
-                this.widget.odooEditor.observerUnactive();
+                // Disable ecommerceEditor observer's while setting up classes
+                this.widget.ecommerceEditor.observerUnactive();
                 this._addEditorMessages();
                 if (this.props.beforeEditorActive) {
                     await this.props.beforeEditorActive(this.$editable);
@@ -93,10 +93,10 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 }
                 this.props.wysiwygReady();
                 // Wait for widgets to be destroyed and restarted before setting
-                // the dirty observer (not to be confused with odooEditor
+                // the dirty observer (not to be confused with ecommerceEditor
                 // observer) as the widgets might trigger DOM mutations.
                 this._setObserver();
-                this.widget.odooEditor.observerActive();
+                this.widget.ecommerceEditor.observerActive();
             };
 
             initWysiwyg();
@@ -228,7 +228,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
             this.dummyWidgetEl = this._getDummmySnippetsEl();
             this.widget.el.parentElement.appendChild(this.dummyWidgetEl);
             document.body.classList.add('editor_has_dummy_snippets');
-            // The wysiwyg is destroyed to avoid listeners from the OdooEditor
+            // The wysiwyg is destroyed to avoid listeners from the ecommerceEditor
             // and the SnippetsMenu to be triggered when reloading the iframe.
             this.widget.destroy();
             this.props.quitCallback({ onLeave, reloadIframe });
@@ -304,11 +304,11 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
      */
     _setObserver() {
         const processRecords = (records) => {
-            records = this.widget.odooEditor.filterMutationRecords(records);
+            records = this.widget.ecommerceEditor.filterMutationRecords(records);
             // Skip the step for this stack because if the editor undo the first
             // step that has a dirty element, the following code would have
             // generated a new stack and break the "redo" of the editor.
-            this.widget.odooEditor.automaticStepSkipStack();
+            this.widget.ecommerceEditor.automaticStepSkipStack();
             for (const record of records) {
                 if (record.attributeName === 'contenteditable') {
                     continue;
@@ -342,13 +342,13 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
 
         this._observe();
 
-        this.widget.odooEditor.addEventListener('observerUnactive', () => {
+        this.widget.ecommerceEditor.addEventListener('observerUnactive', () => {
             if (this.observer) {
                 processRecords(this.observer.takeRecords());
                 this.observer.disconnect();
             }
         });
-        this.widget.odooEditor.addEventListener('observerActive', this._observe.bind(this));
+        this.widget.ecommerceEditor.addEventListener('observerActive', this._observe.bind(this));
     }
     /**
      * @private
@@ -506,7 +506,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
      * @private
      * @param type {string}
      * @param eventData {*}
-     * @returns {void|OdooEvent|*}
+     * @returns {void|ecommerceEvent|*}
      */
     _websiteRootEvent(type, eventData = {}) {
         const websiteRootInstance = this.websiteService.websiteRootInstance;
@@ -594,7 +594,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 100,
                 description: this.env._t('Insert an alert snippet.'),
                 fontawesome: 'fa-info',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_alert"]');
                 },
@@ -605,7 +605,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 90,
                 description: this.env._t('Insert a rating snippet.'),
                 fontawesome: 'fa-star-half-o',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_rating"]');
                 },
@@ -616,7 +616,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 80,
                 description: this.env._t('Insert a card snippet.'),
                 fontawesome: 'fa-sticky-note',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_card"]');
                 },
@@ -627,7 +627,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 70,
                 description: this.env._t('Insert a share snippet.'),
                 fontawesome: 'fa-share-square-o',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_share"]');
                 },
@@ -638,7 +638,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 60,
                 description: this.env._t('Insert a text Highlight snippet.'),
                 fontawesome: 'fa-sticky-note',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_text_highlight"]');
                 },
@@ -649,7 +649,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 50,
                 description: this.env._t('Insert a chart snippet.'),
                 fontawesome: 'fa-bar-chart',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_chart"]');
                 },
@@ -660,7 +660,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 40,
                 description: this.env._t('Insert a progress bar snippet.'),
                 fontawesome: 'fa-spinner',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_progress_bar"]');
                 },
@@ -671,7 +671,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 30,
                 description: this.env._t('Insert a badge snippet.'),
                 fontawesome: 'fa-tags',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_badge"]');
                 },
@@ -682,7 +682,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 20,
                 description: this.env._t('Insert a blockquote snippet.'),
                 fontawesome: 'fa-quote-left',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_blockquote"]');
                 },
@@ -693,7 +693,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
                 priority: 10,
                 description: this.env._t('Insert an horizontal separator sippet.'),
                 fontawesome: 'fa-minus',
-                isDisabled: () => !this.widget.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.widget.ecommerceEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_hr"]');
                 },
@@ -722,7 +722,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
     /**
      * Creates a new event and dispatch it in the iframe's public widget
      *
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      * @private
      */
     _onRootEventRequest(event) {
@@ -793,7 +793,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
      * Retrieves the website service context.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onServiceContextGet(ev) {
         ev.data.callback({
@@ -815,7 +815,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
      * WebsiteRoot that it should stop the public widgets inside that snippet.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onSnippetWillBeCloned(ev) {
         this._websiteRootEvent('widgets_stop_request', {
@@ -828,7 +828,7 @@ export class WysiwygAdapterComponent extends ComponentAdapter {
      * was cloned from.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onSnippetCloned(ev) {
         this._websiteRootEvent('widgets_start_request', {

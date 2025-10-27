@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 
-from odoo.exceptions import UserError
-from odoo.http import Controller, request, Response, route
+from ecommerce.exceptions import UserError
+from ecommerce.http import Controller, request, Response, route
 
 class Profiling(Controller):
 

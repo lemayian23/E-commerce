@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.product.tests.common import ProductCommon
-from odoo.tests import tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce.addons.product.tests.common import ProductCommon
+from ecommerce.tests import tagged
 
-from odoo import Command
+from ecommerce import Command
 
 @tagged('post_install', '-at_install')
 class TestWebsiteSaleFiscalPosition(ProductCommon, HttpCaseWithUserPortal):

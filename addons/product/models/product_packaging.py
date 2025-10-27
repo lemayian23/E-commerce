@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.osv import expression
 
 
-from odoo.tools import float_compare, float_round
+from ecommerce.tools import float_compare, float_round
 
 
 class ProductPackaging(models.Model):

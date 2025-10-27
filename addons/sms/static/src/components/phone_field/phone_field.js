@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { PhoneField } from "@web/views/fields/phone/phone_field";

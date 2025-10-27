@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { getBorderWhite, DEFAULT_BG, getColor, hexToRGBA } from "./colors";
@@ -9,7 +9,7 @@ import { loadJS } from "@web/core/assets";
 import { renderToString } from "@web/core/utils/render";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, onWillUnmount, useEffect, useRef, onWillStart } from "@odoo/owl";
+import { Component, onWillUnmount, useEffect, useRef, onWillStart } from "@ecommerce/owl";
 
 const NO_DATA = _lt("No data");
 

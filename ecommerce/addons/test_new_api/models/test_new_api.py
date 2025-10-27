@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
 _logger = logging.getLogger('precompute_setter')
 
-from odoo import models, fields, api, _, Command
-from odoo.exceptions import AccessError, ValidationError
-from odoo.tools.translate import html_translate
+from ecommerce import models, fields, api, _, Command
+from ecommerce.exceptions import AccessError, ValidationError
+from ecommerce.tools.translate import html_translate
 
 
 class Category(models.Model):
@@ -1871,7 +1871,7 @@ class UnlinkLine(models.Model):
 
 class Team(models.Model):
     _name = 'test_new_api.team'
-    _description = 'Odoo Team'
+    _description = 'ecommerce Team'
 
     name = fields.Char()
     parent_id = fields.Many2one('test_new_api.team')
@@ -1880,7 +1880,7 @@ class Team(models.Model):
 
 class TeamMember(models.Model):
     _name = 'test_new_api.team.member'
-    _description = 'Odoo Developer'
+    _description = 'ecommerce Developer'
 
     name = fields.Char('Name')
     team_id = fields.Many2one('test_new_api.team')

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import json
@@ -7,9 +7,9 @@ import json
 from dateutil.relativedelta import relativedelta
 from werkzeug.exceptions import NotFound
 
-from odoo import fields, http
-from odoo.http import request
-from odoo.tools import is_html_empty
+from ecommerce import fields, http
+from ecommerce.http import request
+from ecommerce.tools import is_html_empty
 
 
 class UserInputSession(http.Controller):

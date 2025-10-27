@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command, tests
-from odoo.addons.im_livechat.tests.chatbot_common import ChatbotCase
-from odoo.addons.website_livechat.tests.common import TestLivechatCommon
+from ecommerce import Command, tests
+from ecommerce.addons.im_livechat.tests.chatbot_common import ChatbotCase
+from ecommerce.addons.website_livechat.tests.common import TestLivechatCommon
 
 
 @tests.tagged('post_install', '-at_install')

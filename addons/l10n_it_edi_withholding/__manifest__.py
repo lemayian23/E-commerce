@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Italy - E-invoicing (Withholding)',
@@ -7,7 +7,7 @@
     'depends': [
         'l10n_it_edi'
     ],
-    'author': 'Odoo',
+    'author': 'ecommerce',
     'description': """
 Withholding and Pension Fund handling for the E-invoice implementation for Italy.
 
@@ -18,7 +18,7 @@ Withholding and Pension Fund handling for the E-invoice implementation for Italy
     Please also update the Italian Accounting module (l10n_it) when you install this module.
     """,
     'category': 'Accounting/Localizations/EDI',
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/accounting/fiscal_localizations/localizations/italy.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/accounting/fiscal_localizations/localizations/italy.html',
     'data': [
         'data/account_tax_group_data.xml',
         'data/account_withholding_report_data.xml',

@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.mass_mailing_tour', function (require) {
+ecommerce.define('mass_mailing.mass_mailing_tour', function (require) {
     "use strict";
 
     const {_t} = require('web.core');

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from uuid import uuid4
 
-from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
-from odoo.tests.common import Form, users
-from odoo.tests import tagged
+from ecommerce.addons.mail.tests.common import MailCommon, mail_new_test_user
+from ecommerce.tests.common import Form, users
+from ecommerce.tests import tagged
 
 
 # samples use effective TLDs from the Mozilla public suffix

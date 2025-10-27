@@ -1,4 +1,4 @@
-odoo.define('website.tour.rte', function (require) {
+ecommerce.define('website.tour.rte', function (require) {
 'use strict';
 
 var session = require('web.session');
@@ -117,7 +117,7 @@ wTourUtils.registerWebsitePreviewTour('rte_translator', {
     trigger: 'iframe #wrap p font:first',
     run: function (actionHelper) {
         actionHelper.text('translated Parseltongue text');
-        const Wysiwyg = odoo.__DEBUG__.services['web_editor.wysiwyg'];
+        const Wysiwyg = ecommerce.__DEBUG__.services['web_editor.wysiwyg'];
         Wysiwyg.setRange(this.$anchor.contents()[0], 22);
         this.$anchor.trigger($.Event("keyup", {key: '_', keyCode: 95}));
         this.$anchor.trigger('input');
@@ -128,7 +128,7 @@ wTourUtils.registerWebsitePreviewTour('rte_translator', {
     run: function (actionHelper) {
         actionHelper.click();
         this.$anchor.prepend('&lt;{translated}&gt;');
-        const Wysiwyg = odoo.__DEBUG__.services['web_editor.wysiwyg'];
+        const Wysiwyg = ecommerce.__DEBUG__.services['web_editor.wysiwyg'];
         Wysiwyg.setRange(this.$anchor.contents()[0], 0);
         this.$anchor.trigger($.Event("keyup", {key: '_', keyCode: 95}));
         this.$anchor.trigger('input');
@@ -197,7 +197,7 @@ wTourUtils.registerWebsitePreviewTour('rte_translator', {
         mousedown.initMouseEvent('mousedown', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, el);
         el.dispatchEvent(mousedown);
         var mouseup = document.createEvent('MouseEvents');
-        const Wysiwyg = odoo.__DEBUG__.services['web_editor.wysiwyg'];
+        const Wysiwyg = ecommerce.__DEBUG__.services['web_editor.wysiwyg'];
         Wysiwyg.setRange(el.childNodes[2], 6, el.childNodes[2], 13);
         mouseup.initMouseEvent('mouseup', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, el);
         el.dispatchEvent(mouseup);

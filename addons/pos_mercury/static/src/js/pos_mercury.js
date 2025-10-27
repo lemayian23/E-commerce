@@ -1,4 +1,4 @@
-odoo.define('pos_mercury.pos_mercury', function (require) {
+ecommerce.define('pos_mercury.pos_mercury', function (require) {
 "use strict";
 
 var { PosGlobalState, Order, Payment } = require('point_of_sale.models');

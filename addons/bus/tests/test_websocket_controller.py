@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 
 class TestWebsocketController(HttpCaseWithUserDemo):
@@ -67,7 +67,7 @@ class TestWebsocketController(HttpCaseWithUserDemo):
         )
         error = response.get('error')
         self.assertIsNotNone(error, 'Sending a poll with an outdated session should lead to error')
-        self.assertEqual('odoo.http.SessionExpiredException', error['data']['name'])
+        self.assertEqual('ecommerce.http.SessionExpiredException', error['data']['name'])
 
     def test_websocket_peek_session_expired_logout(self):
         session = self.authenticate('demo', 'demo')
@@ -89,4 +89,4 @@ class TestWebsocketController(HttpCaseWithUserDemo):
         )
         error = response.get('error')
         self.assertIsNotNone(error, 'Sending a poll with an outdated session should lead to error')
-        self.assertEqual('odoo.http.SessionExpiredException', error['data']['name'])
+        self.assertEqual('ecommerce.http.SessionExpiredException', error['data']['name'])

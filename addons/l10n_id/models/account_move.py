@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
-from odoo.tools.misc import formatLang
+from ecommerce import fields, models
+from ecommerce.tools.misc import formatLang
 
 
 class AccountMove(models.Model):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import functools
 import json
@@ -10,14 +10,14 @@ import werkzeug.urls
 import werkzeug.utils
 from werkzeug.exceptions import BadRequest
 
-from odoo import api, http, SUPERUSER_ID, _
-from odoo.exceptions import AccessDenied
-from odoo.http import request, Response
-from odoo import registry as registry_get
-from odoo.tools.misc import clean_context
+from ecommerce import api, http, SUPERUSER_ID, _
+from ecommerce.exceptions import AccessDenied
+from ecommerce.http import request, Response
+from ecommerce import registry as registry_get
+from ecommerce.tools.misc import clean_context
 
-from odoo.addons.auth_signup.controllers.main import AuthSignupHome as Home
-from odoo.addons.web.controllers.utils import ensure_db, _get_login_redirect_url
+from ecommerce.addons.auth_signup.controllers.main import AuthSignupHome as Home
+from ecommerce.addons.web.controllers.utils import ensure_db, _get_login_redirect_url
 
 
 _logger = logging.getLogger(__name__)
@@ -177,7 +177,7 @@ class OAuthController(http.Controller):
 
     @http.route('/auth_oauth/oea', type='http', auth='none')
     def oea(self, **kw):
-        """login user via Odoo Account provider"""
+        """login user via ecommerce Account provider"""
         dbname = kw.pop('db', None)
         if not dbname:
             dbname = request.db

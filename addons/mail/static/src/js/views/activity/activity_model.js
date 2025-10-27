@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import BasicModel from 'web.BasicModel';
 import session from 'web.session';

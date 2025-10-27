@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.tests.common import tagged
-from odoo.tests import Form
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.tests.common import tagged
+from ecommerce.tests import Form
 
 
 @tagged('mail_track')
@@ -198,7 +198,7 @@ class TestTracking(TestMailCommon):
                 args[0].message_post_with_template(template.id)
             return True
 
-        with patch('odoo.addons.mail.models.mail_thread.MailThread._message_track_post_template', patched_message_track_post_template):
+        with patch('ecommerce.addons.mail.models.mail_thread.MailThread._message_track_post_template', patched_message_track_post_template):
             self.env['mail.test.track'].create({
                 'email_from': email_new_partner,
                 'company_id': company1.id,

@@ -1,5 +1,5 @@
-from odoo import models
-from odoo.addons.phone_validation.tools import phone_validation
+from ecommerce import models
+from ecommerce.addons.phone_validation.tools import phone_validation
 
 
 class BaseModel(models.AbstractModel):

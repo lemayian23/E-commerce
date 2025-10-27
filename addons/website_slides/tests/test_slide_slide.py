@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import psycopg2
 
-from odoo.addons.website_slides.tests import common as slides_common
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.website_slides.tests import common as slides_common
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 class TestSlideInternals(slides_common.SlidesCase):
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     @users('user_manager')
     def test_slide_create_vote_constraint(self):
         # test vote value must be 1, 0 and -1.

@@ -5,7 +5,7 @@ import json
 from hashlib import sha256
 from lxml import html
 
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class TestMenu(common.TransactionCase):

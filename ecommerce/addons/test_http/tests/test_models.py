@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import html
-from odoo.tests import tagged
-from odoo.tests.common import new_test_user
-from odoo.tools import mute_logger
-from odoo.addons.test_http.utils import HtmlTokenizer
+from ecommerce.tests import tagged
+from ecommerce.tests.common import new_test_user
+from ecommerce.tools import mute_logger
+from ecommerce.addons.test_http.utils import HtmlTokenizer
 
 from .test_common import TestHttpBase
 
@@ -38,7 +38,7 @@ class TestHttpModels(TestHttpBase):
                 ''')
             )
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_models1_galaxy_ko(self):
         res = self.url_open("/test_http/404")  # unknown galaxy
         self.assertEqual(res.status_code, 400)
@@ -62,7 +62,7 @@ class TestHttpModels(TestHttpBase):
             ''')
         )
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_models3_stargate_ko(self):
         milky_way = self.env.ref('test_http.milky_way')
         res = self.url_open(f'/test_http/{milky_way.id}/9999')  # unknown gate

@@ -1,10 +1,10 @@
-odoo.define('web_editor.test_utils', function (require) {
+ecommerce.define('web_editor.test_utils', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');
 var MockServer = require('web.MockServer');
 var testUtils = require('web.test_utils');
-var OdooEditorLib = require('@web_editor/js/editor/odoo-editor/src/OdooEditor');
+var ecommerceEditorLib = require('@web_editor/js/editor/ecommerce-editor/src/ecommerceEditor');
 var Widget = require('web.Widget');
 var Wysiwyg = require('web_editor.wysiwyg');
 var options = require('web_editor.snippets.options');
@@ -460,9 +460,9 @@ var testKeyboard = function ($editable, assert, keyboardTests, addTests) {
 
     function nextPoint(point) {
         var node, offset;
-        if (OdooEditorLib.nodeSize(point.node) === point.offset) {
+        if (ecommerceEditorLib.nodeSize(point.node) === point.offset) {
             node = point.node.parentNode;
-            offset = OdooEditorLib.childNodeIndex(point.node) + 1;
+            offset = ecommerceEditorLib.childNodeIndex(point.node) + 1;
         } else if (point.node.hasChildNodes()) {
             node = point.node.childNodes[point.offset];
             offset = 0;

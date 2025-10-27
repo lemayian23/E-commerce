@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 
 from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 
-from odoo.addons.event.tests.common import EventCase
-from odoo.exceptions import ValidationError
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.event.tests.common import EventCase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 class TestEventFlow(EventCase):
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_event_auto_confirm(self):
         """ Basic event management with auto confirmation """
         # EventUser creates a new event: ok
@@ -89,7 +89,7 @@ class TestEventFlow(EventCase):
         self.assertEqual(event.date_begin, specific_datetimes['date_begin'])
         self.assertEqual(event.date_end, specific_datetimes['date_end'])
 
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_event_flow(self):
         """ Advanced event flow: no auto confirmation, manage minimum / maximum
         seats, ... """
@@ -112,7 +112,7 @@ class TestEventFlow(EventCase):
             test_reg1.state, 'draft',
             'Event: new registration should not be confirmed with auto_confirmation parameter being False')
 
-    @mute_logger('odoo.addons.event.models.event_mail')
+    @mute_logger('ecommerce.addons.event.models.event_mail')
     def test_event_missed_mail_template(self):
         """ Check that error on mail sending is ignored if corresponding mail template was deleted """
         test_event = self.env['event.event'].with_user(self.user_eventmanager).create({

@@ -1,13 +1,13 @@
-odoo.define('website.snippet.editor', function (require) {
+ecommerce.define('website.snippet.editor', function (require) {
 'use strict';
 
 const {qweb, _t, _lt} = require('web.core');
 const Dialog = require('web.Dialog');
 const weSnippetEditor = require('web_editor.snippet.editor');
 const wSnippetOptions = require('website.editor.snippets.options');
-const OdooEditorLib = require('@web_editor/js/editor/odoo-editor/src/utils/utils');
-const getDeepRange = OdooEditorLib.getDeepRange;
-const getTraversedNodes = OdooEditorLib.getTraversedNodes;
+const ecommerceEditorLib = require('@web_editor/js/editor/ecommerce-editor/src/utils/utils');
+const getDeepRange = ecommerceEditorLib.getDeepRange;
+const getTraversedNodes = ecommerceEditorLib.getTraversedNodes;
 
 const FontFamilyPickerUserValueWidget = wSnippetOptions.FontFamilyPickerUserValueWidget;
 
@@ -261,7 +261,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      * @param {string} gmapRequestEventName
      */
     async _handleGMapRequest(ev, gmapRequestEventName) {
@@ -330,7 +330,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
      * @private
      */
     _toggleAnimatedTextButton() {
-        const sel = this.options.wysiwyg.odooEditor.document.getSelection();
+        const sel = this.options.wysiwyg.ecommerceEditor.document.getSelection();
         if (!this._isValidSelection(sel)) {
             return;
         }
@@ -374,14 +374,14 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onGMapAPIRequest(ev) {
         this._handleGMapRequest(ev, 'gmap_api_request');
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onGMapAPIKeyRequest(ev) {
         this._handleGMapRequest(ev, 'gmap_api_key_request');
@@ -480,7 +480,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
      * @private
      */
     _onAnimateTextClick(ev) {
-        const sel = this.options.wysiwyg.odooEditor.document.getSelection();
+        const sel = this.options.wysiwyg.ecommerceEditor.document.getSelection();
         if (!this._isValidSelection(sel)) {
             return;
         }
@@ -489,10 +489,10 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
         const animatedText = this._getAnimatedTextElement();
         if (animatedText) {
             $(animatedText).contents().unwrap();
-            this.options.wysiwyg.odooEditor.historyResetLatestComputedSelection();
+            this.options.wysiwyg.ecommerceEditor.historyResetLatestComputedSelection();
             this._toggleHighlightAnimatedTextButton();
             ev.target.classList.remove('active');
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.ecommerceEditor.historyStep();
         } else {
             if (sel.getRangeAt(0).collapsed) {
                 return;
@@ -518,7 +518,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
                     $snippet: $snippet,
                     previewMode: false,
                 });
-                this.options.wysiwyg.odooEditor.historyStep();
+                this.options.wysiwyg.ecommerceEditor.historyStep();
             } else {
                 this.displayNotification({
                     message: _t("The current text selection cannot be animated. Try clearing the format and try again."),

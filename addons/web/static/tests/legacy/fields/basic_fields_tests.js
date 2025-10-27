@@ -1,4 +1,4 @@
-odoo.define('web.basic_fields_tests', function (require) {
+ecommerce.define('web.basic_fields_tests', function (require) {
 "use strict";
 
 var basicFields = require('web.basic_fields');
@@ -8491,8 +8491,8 @@ QUnit.module('Legacy basic_fields', {
     QUnit.test('domain field: manually edit domain with textarea', async function (assert) {
         assert.expect(9);
 
-        const originalDebug = odoo.debug;
-        odoo.debug = true;
+        const originalDebug = ecommerce.debug;
+        ecommerce.debug = true;
 
         this.data.partner.records[0].foo = false;
         this.data.partner.fields.bar.type = "char";
@@ -8535,14 +8535,14 @@ QUnit.module('Legacy basic_fields', {
         ]);
 
         form.destroy();
-        odoo.debug = originalDebug;
+        ecommerce.debug = originalDebug;
     });
 
     QUnit.test('domain field: manually set an invalid domain with textarea', async function (assert) {
         assert.expect(9);
 
-        const originalDebug = odoo.debug;
-        odoo.debug = true;
+        const originalDebug = ecommerce.debug;
+        ecommerce.debug = true;
 
         this.data.partner.records[0].foo = false;
         this.data.partner.fields.bar.type = "char";
@@ -8586,14 +8586,14 @@ QUnit.module('Legacy basic_fields', {
         assert.verifySteps(["[[\"abc\"]]"]);
 
         form.destroy();
-        odoo.debug = originalDebug;
+        ecommerce.debug = originalDebug;
     });
 
     QUnit.test('domain field: reload count by clicking on the refresh button', async function (assert) {
         assert.expect(7);
 
-        const originalDebug = odoo.debug;
-        odoo.debug = true;
+        const originalDebug = ecommerce.debug;
+        ecommerce.debug = true;
 
         this.data.partner.records[0].foo = "[]";
         this.data.partner.fields.bar.type = "char";
@@ -8633,7 +8633,7 @@ QUnit.module('Legacy basic_fields', {
         assert.verifySteps(["[[\"id\",\"<\",40]]"]);
 
         form.destroy();
-        odoo.debug = originalDebug;
+        ecommerce.debug = originalDebug;
     });
 
     QUnit.test('domain field: does not wait for the count to render', async function (assert) {
@@ -8679,8 +8679,8 @@ QUnit.module('Legacy basic_fields', {
     QUnit.test('domain field: edit domain with dynamic content', async function (assert) {
         assert.expect(2);
 
-        const originalDebug = odoo.debug;
-        odoo.debug = true;
+        const originalDebug = ecommerce.debug;
+        ecommerce.debug = true;
         let rawDomain = `
             [
                 ["date", ">=", datetime.datetime.combine(context_today() + relativedelta(days = -365), datetime.time(0, 0, 0)).to_utc().strftime("%Y-%m-%d %H:%M:%S")]
@@ -8722,7 +8722,7 @@ QUnit.module('Legacy basic_fields', {
         await testUtils.form.clickSave(form);
 
         form.destroy();
-        odoo.debug = originalDebug;
+        ecommerce.debug = originalDebug;
     });
 
     QUnit.module('FieldProgressBar');

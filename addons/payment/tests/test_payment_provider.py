@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 
-from odoo.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.payment.tests.common import PaymentCommon
 
 
 @tagged('-at_install', 'post_install')

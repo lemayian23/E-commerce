@@ -1,4 +1,4 @@
-odoo.define('website.s_popup', function (require) {
+ecommerce.define('website.s_popup', function (require) {
 'use strict';
 
 const config = require('web.config');
@@ -463,9 +463,9 @@ publicWidget.registry.cookies_bar = PopupWidget.extend({
         this._super(...arguments);
         const params = new URLSearchParams(window.location.search);
         const trackingFields = {
-            utm_campaign: "odoo_utm_campaign",
-            utm_source: "odoo_utm_source",
-            utm_medium: "odoo_utm_medium",
+            utm_campaign: "ecommerce_utm_campaign",
+            utm_source: "ecommerce_utm_source",
+            utm_medium: "ecommerce_utm_medium",
         };
         for (const [key, value] of params) {
             if (key in trackingFields) {

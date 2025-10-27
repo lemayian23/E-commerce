@@ -1,4 +1,4 @@
-odoo.define("website_mass_mailing.tour.newsletter_popup_edition", function (require) {
+ecommerce.define("website_mass_mailing.tour.newsletter_popup_edition", function (require) {
 "use strict";
 
 const wTourUtils = require('website.tour_utils');
@@ -29,7 +29,7 @@ wTourUtils.registerWebsitePreviewTour("newsletter_popup_edition", {
 ]);
 });
 
-odoo.define("website_mass_mailing.tour.newsletter_popup_use", function (require) {
+ecommerce.define("website_mass_mailing.tour.newsletter_popup_use", function (require) {
 "use strict";
 
 const tour = require('web_tour.tour');

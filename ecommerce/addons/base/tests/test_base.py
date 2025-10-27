@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 
 from textwrap import dedent
 
-from odoo import SUPERUSER_ID, Command
-from odoo.exceptions import RedirectWarning, UserError, ValidationError
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase, BaseCase
-from odoo.tools import mute_logger
-from odoo.tools.safe_eval import safe_eval, const_eval, expr_eval
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce import SUPERUSER_ID, Command
+from ecommerce.exceptions import RedirectWarning, UserError, ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase, BaseCase
+from ecommerce.tools import mute_logger
+from ecommerce.tools.safe_eval import safe_eval, const_eval, expr_eval
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
 
 
 class TestSafeEval(BaseCase):
@@ -81,7 +81,7 @@ class TestSafeEval(BaseCase):
         with self.assertRaises(ValueError):
            ast.literal_eval('{"a": True.__class__}')
 
-    @mute_logger('odoo.tools.safe_eval')
+    @mute_logger('ecommerce.tools.safe_eval')
     def test_05_safe_eval_forbiddon(self):
         """ Try forbidden expressions in safe_eval to verify they are not allowed"""
         # no forbidden builtin expression
@@ -90,7 +90,7 @@ class TestSafeEval(BaseCase):
 
         # no forbidden opcodes
         with self.assertRaises(ValueError):
-            safe_eval("import odoo", mode="exec")
+            safe_eval("import ecommerce", mode="exec")
 
         # no dunder
         with self.assertRaises(NameError):
@@ -655,7 +655,7 @@ class TestBase(TransactionCaseWithUserDemo):
     def test_70_archive_internal_partners(self):
         test_partner = self.env['res.partner'].create({'name':'test partner'})
         test_user = self.env['res.users'].create({
-                                'login': 'test@odoo.com',
+                                'login': 'test@ecommerce.com',
                                 'partner_id': test_partner.id,
                                 })
         # Cannot archive the partner

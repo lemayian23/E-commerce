@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
+import ecommerce
 
-from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
-from odoo.tests.common import Form
-from odoo import fields
+from ecommerce.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+from ecommerce.tests.common import Form
+from ecommerce import fields
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPoSSale(TestPointOfSaleHttpCommon):
     def test_settle_order_with_kit(self):
         if not self.env["ir.module.module"].search([("name", "=", "mrp"), ("state", "=", "installed")]):
@@ -84,14 +84,14 @@ class TestPoSSale(TestPointOfSaleHttpCommon):
             'available_in_pos': True,
             'type': 'product',
             'lst_price': 10,
-            'taxes_id': [odoo.Command.clear()],
+            'taxes_id': [ecommerce.Command.clear()],
         })
         product2 = self.env['product.product'].create({
             'name': 'product2',
             'available_in_pos': True,
             'type': 'product',
             'lst_price': 11,
-            'taxes_id': [odoo.Command.clear()],
+            'taxes_id': [ecommerce.Command.clear()],
         })
         partner_1 = self.env['res.partner'].create({'name': 'Test Partner 1'})
         partner_2 = self.env['res.partner'].create({'name': 'Test Partner 2'})

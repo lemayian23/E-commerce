@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 import json
 import logging
 
-import odoo
-from odoo import api, http, models
-from odoo.http import request
-from odoo.tools import file_open, image_process, ustr
-from odoo.tools.misc import str2bool
+import ecommerce
+from ecommerce import api, http, models
+from ecommerce.http import request
+from ecommerce.tools import file_open, image_process, ustr
+from ecommerce.tools.misc import str2bool
 
 
 _logger = logging.getLogger(__name__)
@@ -67,7 +67,7 @@ class Http(models.AbstractModel):
     def session_info(self):
         user = self.env.user
         session_uid = request.session.uid
-        version_info = odoo.service.common.exp_version()
+        version_info = ecommerce.service.common.exp_version()
 
         if session_uid:
             user_context = dict(self.env['res.users'].context_get())
@@ -81,7 +81,7 @@ class Http(models.AbstractModel):
             'web.max_file_upload_size',
             default=128 * 1024 * 1024,  # 128MiB
         ))
-        mods = odoo.conf.server_wide_modules or []
+        mods = ecommerce.conf.server_wide_modules or []
         if request.db:
             mods = list(request.registry._init_modules) + mods
         session_info = {
@@ -92,7 +92,7 @@ class Http(models.AbstractModel):
             "db": self.env.cr.dbname,
             "server_version": version_info.get('server_version'),
             "server_version_info": version_info.get('server_version_info'),
-            "support_url": "https://www.odoo.com/buy",
+            "support_url": "https://www.ecommerce.com/buy",
             "name": user.name,
             "username": user.login,
             "partner_display_name": user.partner_id.display_name,
@@ -166,7 +166,7 @@ class Http(models.AbstractModel):
         if request.session.debug:
             session_info['bundle_params']['debug'] = request.session.debug
         if session_uid:
-            version_info = odoo.service.common.exp_version()
+            version_info = ecommerce.service.common.exp_version()
             session_info.update({
                 'server_version': version_info.get('server_version'),
                 'server_version_info': version_info.get('server_version_info')

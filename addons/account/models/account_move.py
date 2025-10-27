@@ -10,11 +10,11 @@ import math
 import re
 from textwrap import shorten
 
-from odoo import api, fields, models, _, Command
-from odoo.addons.account.tools import format_rf_reference
-from odoo.exceptions import UserError, ValidationError, AccessError, RedirectWarning
-from odoo.tools.misc import clean_context
-from odoo.tools import (
+from ecommerce import api, fields, models, _, Command
+from ecommerce.addons.account.tools import format_rf_reference
+from ecommerce.exceptions import UserError, ValidationError, AccessError, RedirectWarning
+from ecommerce.tools.misc import clean_context
+from ecommerce.tools import (
     date_utils,
     email_re,
     email_split,
@@ -484,7 +484,7 @@ class AccountMove(models.Model):
     quick_edit_total_amount = fields.Monetary(
         string='Total (Tax inc.)',
         help='Use this field to encode the total amount of the invoice.\n'
-             'Odoo will automatically create one invoice line with default values to match it.',
+             'ecommerce will automatically create one invoice line with default values to match it.',
     )
     quick_encoding_vals = fields.Binary(compute='_compute_quick_encoding_vals', exportable=False)
 
@@ -2442,7 +2442,7 @@ class AccountMove(models.Model):
                 if key == to_del or key.startswith(f"{to_del}."):
                     del field_onchange[key]
             # test_01_account_tour
-            # File "/data/build/odoo/addons/account/models/account_move.py", line 2127, in onchange
+            # File "/data/build/ecommerce/addons/account/models/account_move.py", line 2127, in onchange
             # del values[to_del]
             # KeyError: 'line_ids'
             values.pop(to_del, None)
@@ -2631,16 +2631,16 @@ class AccountMove(models.Model):
         partner_ref_nr = partner_ref_nr[-21:]
         return format_rf_reference(partner_ref_nr)
 
-    def _get_invoice_reference_odoo_invoice(self):
-        """ This computes the reference based on the Odoo format.
+    def _get_invoice_reference_ecommerce_invoice(self):
+        """ This computes the reference based on the ecommerce format.
             We simply return the number of the invoice, defined on the journal
             sequence.
         """
         self.ensure_one()
         return self.name
 
-    def _get_invoice_reference_odoo_partner(self):
-        """ This computes the reference based on the Odoo format.
+    def _get_invoice_reference_ecommerce_partner(self):
+        """ This computes the reference based on the ecommerce format.
             The data used is the reference set on the partner or its database
             id otherwise. For instance if the reference of the customer is
             'dumb customer 97', the reference will be 'CUST/dumb customer 97'.
@@ -2926,7 +2926,7 @@ class AccountMove(models.Model):
             'auto_post': self.auto_post,  # copy=False to avoid mistakes but should be the same in recurring copies
             'auto_post_until': self.auto_post_until,  # same as above
             'auto_post_origin_id': self.auto_post_origin_id.id,  # same as above
-            'invoice_user_id': self.invoice_user_id.id,  # otherwise user would be OdooBot
+            'invoice_user_id': self.invoice_user_id.id,  # otherwise user would be ecommerceBot
         })
         if self.invoice_date:
             values.update({'invoice_date': self._apply_delta_recurring_entries(self.invoice_date, self.auto_post_origin_id.invoice_date, self.auto_post)})
@@ -4362,18 +4362,18 @@ class AccountMove(models.Model):
         if len(self) != 1 or not attachments or self.env.context.get('no_new_invoice') or not self.is_invoice(include_receipts=True):
             return res
 
-        odoobot = self.env.ref('base.partner_root')
+        ecommercebot = self.env.ref('base.partner_root')
         if attachments and self.state != 'draft':
             self.message_post(body=_('The invoice is not a draft, it was not updated from the attachment.'),
                               message_type='comment',
                               subtype_xmlid='mail.mt_note',
-                              author_id=odoobot.id)
+                              author_id=ecommercebot.id)
             return res
         if attachments and self.invoice_line_ids:
             self.message_post(body=_('The invoice already contains lines, it was not updated from the attachment.'),
                               message_type='comment',
                               subtype_xmlid='mail.mt_note',
-                              author_id=odoobot.id)
+                              author_id=ecommercebot.id)
             return res
 
         decoders = self.env['account.move']._get_update_invoice_from_attachment_decoders(self)

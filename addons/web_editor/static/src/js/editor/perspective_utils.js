@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * Transform a 2D point using a projective transformation matrix. Note that

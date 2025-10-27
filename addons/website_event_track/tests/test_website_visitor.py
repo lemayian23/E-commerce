@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo.addons.website.tests.test_website_visitor import WebsiteVisitorTests
-from odoo.addons.website_event.tests.common import TestEventOnlineCommon
-from odoo.tests import tagged
+from ecommerce.addons.website.tests.test_website_visitor import WebsiteVisitorTests
+from ecommerce.addons.website_event.tests.common import TestEventOnlineCommon
+from ecommerce.tests import tagged
 
 
 @tagged('website_visitor', 'is_query_count')

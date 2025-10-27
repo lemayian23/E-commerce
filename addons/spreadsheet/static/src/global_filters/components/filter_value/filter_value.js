@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { RecordsSelector } from "../records_selector/records_selector";
 import { RELATIVE_DATE_RANGE_TYPES } from "@spreadsheet/helpers/constants";

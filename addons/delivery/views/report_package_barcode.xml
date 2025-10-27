@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <template id="label_package_template_view_delivery" inherit_id="stock.label_package_template_view">
         <xpath expr="//t[@name='datamatrix_pack_date']" position="after">
             <t t-if="package.shipping_weight or package.weight">
@@ -74,4 +74,4 @@
             </div>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

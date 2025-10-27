@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from json import dumps
 from datetime import datetime, time
 
-from odoo import api, fields, models, SUPERUSER_ID, _
-from odoo.osv.expression import AND
-from odoo.tools import get_month, subtract, format_date
+from ecommerce import api, fields, models, SUPERUSER_ID, _
+from ecommerce.osv.expression import AND
+from ecommerce.tools import get_month, subtract, format_date
 
 
 class StockReplenishmentInfo(models.TransientModel):

@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import struct
@@ -11,8 +11,8 @@ try:
 except ImportError:
     websocket = None
 
-import odoo.tools
-from odoo.tests import HOST, HttpCase, TEST_CURSOR_COOKIE_NAME
+import ecommerce.tools
+from ecommerce.tests import HOST, HttpCase, TEST_CURSOR_COOKIE_NAME
 from ..websocket import CloseCode, Websocket, WebsocketConnectionHandler
 
 
@@ -24,7 +24,7 @@ class WebsocketCase(HttpCase):
         if websocket is None:
             cls._logger.warning("websocket-client module is not installed")
             raise unittest.SkipTest("websocket-client module is not installed")
-        cls._WEBSOCKET_URL = f"ws://{HOST}:{odoo.tools.config['http_port']}/websocket"
+        cls._WEBSOCKET_URL = f"ws://{HOST}:{ecommerce.tools.config['http_port']}/websocket"
         websocket_allowed_patch = patch.object(WebsocketConnectionHandler, "websocket_allowed", return_value=True)
         cls.startClassPatcher(websocket_allowed_patch)
 

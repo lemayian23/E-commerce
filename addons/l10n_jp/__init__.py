@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Copyright (C) Quartile Limited
 
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 
 def load_translations(cr, registry):

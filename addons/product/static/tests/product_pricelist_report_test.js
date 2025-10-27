@@ -1,4 +1,4 @@
-odoo.define('product.pricelist.report.tests', function (require) {
+ecommerce.define('product.pricelist.report.tests', function (require) {
 "use strict";
 const GeneratePriceList = require('product.generate_pricelist').GeneratePriceList;
 const testUtils = require('web.test_utils');

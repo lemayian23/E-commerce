@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.addons.base.models.res_partner import WARNING_MESSAGE, WARNING_HELP
+from ecommerce import api, fields, models
+from ecommerce.addons.base.models.res_partner import WARNING_MESSAGE, WARNING_HELP
 
 
 class res_partner(models.Model):

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from collections import defaultdict
 from urllib3.util.ssl_ import create_urllib3_context, DEFAULT_CIPHERS
 from urllib3.contrib.pyopenssl import inject_into_urllib3
 from OpenSSL.crypto import load_certificate, load_privatekey, FILETYPE_PEM
 
-from odoo import fields, models, _
-from odoo.tools import html_escape, zeep
+from ecommerce import fields, models, _
+from ecommerce.tools import html_escape, zeep
 
 import math
 import json
@@ -29,7 +29,7 @@ class PatchedHTTPAdapter(requests.adapters.HTTPAdapter):
     def cert_verify(self, conn, url, verify, cert):
         # OVERRIDE
         # The last parameter is only used by the super method to check if the file exists.
-        # In our case, cert is an odoo record 'l10n_es_edi.certificate' so not a path to a file.
+        # In our case, cert is an ecommerce record 'l10n_es_edi.certificate' so not a path to a file.
         # By putting 'None' as last parameter, we ensure the check about TLS configuration is
         # still made without checking temporary files exist.
         super().cert_verify(conn, url, verify, None)
@@ -42,8 +42,8 @@ class PatchedHTTPAdapter(requests.adapters.HTTPAdapter):
         conn = super().get_connection(url, proxies=proxies)
         context = conn.conn_kw['ssl_context']
 
-        def patched_load_cert_chain(l10n_es_odoo_certificate, keyfile=None, password=None):
-            cert_file, key_file, _certificate = l10n_es_odoo_certificate.sudo()._decode_certificate()
+        def patched_load_cert_chain(l10n_es_ecommerce_certificate, keyfile=None, password=None):
+            cert_file, key_file, _certificate = l10n_es_ecommerce_certificate.sudo()._decode_certificate()
             cert_obj = load_certificate(FILETYPE_PEM, cert_file)
             pkey_obj = load_privatekey(FILETYPE_PEM, key_file)
 

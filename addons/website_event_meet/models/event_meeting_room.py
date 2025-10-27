@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 
-from odoo import api, fields, models
-from odoo.addons.http_routing.models.ir_http import slug
+from ecommerce import api, fields, models
+from ecommerce.addons.http_routing.models.ir_http import slug
 
 
 class EventMeetingRoom(models.Model):
@@ -40,7 +40,7 @@ class EventMeetingRoom(models.Model):
     def create(self, values_list):
         for values in values_list:
             if not values.get("chat_room_id") and not values.get('room_name'):
-                values['room_name'] = 'odoo-room-%s' % (values['name'])
+                values['room_name'] = 'ecommerce-room-%s' % (values['name'])
         return super(EventMeetingRoom, self).create(values_list)
 
     @api.autovacuum

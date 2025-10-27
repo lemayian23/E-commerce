@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.addons.test_mass_mailing.tests.common import TestMassSMSCommon
-from odoo import exceptions
-from odoo.tests import tagged
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.addons.test_mass_mailing.tests.common import TestMassSMSCommon
+from ecommerce import exceptions
+from ecommerce.tests import tagged
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 @tagged('mass_mailing', 'mass_mailing_sms')
@@ -189,7 +189,7 @@ class TestMassSMSInternals(TestMassSMSCommon):
             mailing, self.records[5:],
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_render_mixin')
+    @mute_logger('ecommerce.addons.mail.models.mail_render_mixin')
     def test_mass_sms_test_button(self):
         mailing = self.env['mailing.mailing'].create({
             'name': 'TestButton',
@@ -226,7 +226,7 @@ class TestMassSMS(TestMassSMSCommon):
     def test_mass_sms_links(self):
         mailing = self.env['mailing.mailing'].browse(self.mailing_sms.ids)
         mailing.write({
-            'body_plaintext': 'Dear {{ object.display_name }} this is a mass SMS with two links http://www.odoo.com/smstest and http://www.odoo.com/smstest/{{ object.name }}',
+            'body_plaintext': 'Dear {{ object.display_name }} this is a mass SMS with two links http://www.ecommerce.com/smstest and http://www.ecommerce.com/smstest/{{ object.name }}',
             'sms_template_id': False,
             'sms_force_send': True,
             'sms_allow_unsubscribe': True,
@@ -243,15 +243,15 @@ class TestMassSMS(TestMassSMSCommon):
              } for i, record in enumerate(self.records)],
             mailing, self.records,
             sms_links_info=[[
-                ('http://www.odoo.com/smstest', True, {}),
-                ('http://www.odoo.com/smstest/%s' % record.name, True, {}),
+                ('http://www.ecommerce.com/smstest', True, {}),
+                ('http://www.ecommerce.com/smstest/%s' % record.name, True, {}),
                 # unsubscribe is not shortened and parsed at sending
                 ('unsubscribe', False, {}),
             ] for record in self.records],
         )
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mass_sms_partner_only(self):
         """ Check sending SMS marketing on models having only a partner_id fields
         set is working. """
@@ -278,8 +278,8 @@ class TestMassSMS(TestMassSMSCommon):
              } for record in records],
             mailing, records,
             sms_links_info=[[
-                ('http://www.odoo.com/smstest', True, {}),
-                ('http://www.odoo.com/smstest/%s' % record.id, True, {}),
+                ('http://www.ecommerce.com/smstest', True, {}),
+                ('http://www.ecommerce.com/smstest/%s' % record.id, True, {}),
                 # unsubscribe is not shortened and parsed at sending
                 ('unsubscribe', False, {}),
             ] for record in records],
@@ -303,15 +303,15 @@ class TestMassSMS(TestMassSMSCommon):
              }],
             mailing, new_record,
             sms_links_info=[[
-                ('http://www.odoo.com/smstest', True, {}),
-                ('http://www.odoo.com/smstest/%s' % new_record.id, True, {}),
+                ('http://www.ecommerce.com/smstest', True, {}),
+                ('http://www.ecommerce.com/smstest/%s' % new_record.id, True, {}),
                 # unsubscribe is not shortened and parsed at sending
                 ('unsubscribe', False, {}),
             ]],
         )
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mass_sms_partner_only_m2m(self):
         """ Check sending SMS marketing on models having only a m2m to partners
         is currently not suppored. """
@@ -331,7 +331,7 @@ class TestMassSMS(TestMassSMSCommon):
 
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mass_sms_w_opt_out(self):
         mailing = self.env['mailing.mailing'].browse(self.mailing_sms.ids)
         recipients = self._create_mailing_sms_test_records(model='mail.test.sms.bl.optout', count=5)

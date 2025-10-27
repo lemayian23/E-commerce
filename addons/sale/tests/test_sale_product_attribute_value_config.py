@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields
-from odoo.fields import Command
-from odoo.tests import tagged
+from ecommerce import fields
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.product.tests.test_product_attribute_value_config import TestProductAttributeValueCommon
-from odoo.addons.product.tests.common import ProductAttributesCommon
-from odoo.addons.sale.tests.common import SaleCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.product.tests.test_product_attribute_value_config import TestProductAttributeValueCommon
+from ecommerce.addons.product.tests.common import ProductAttributesCommon
+from ecommerce.addons.sale.tests.common import SaleCommon
 
 
 @tagged("post_install", "-at_install")

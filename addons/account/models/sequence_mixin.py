@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from datetime import date
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.tools.misc import format_date
-from odoo.tools import frozendict, date_utils
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools.misc import format_date
+from ecommerce.tools import frozendict, date_utils
 
 import re
 from collections import defaultdict

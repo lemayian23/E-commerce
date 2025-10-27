@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeContext } from "@web/core/context";
 import { _lt } from "@web/core/l10n/translation";

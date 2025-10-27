@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerPatch } from '@mail/model/model_core';
 import { BASE_VISUAL } from '@mail/models/chat_window_manager';

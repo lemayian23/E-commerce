@@ -1,4 +1,4 @@
-odoo.define('l10n_gcc_pos.OrderReceipt', function (require) {
+ecommerce.define('l10n_gcc_pos.OrderReceipt', function (require) {
     'use strict';
 
     const OrderReceipt = require('point_of_sale.OrderReceipt')

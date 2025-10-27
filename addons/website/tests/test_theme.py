@@ -1,5 +1,5 @@
 # coding: utf-8
-from odoo.tests import common, tagged
+from ecommerce.tests import common, tagged
 
 
 @tagged('-at_install', 'post_install')

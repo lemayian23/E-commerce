@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
+from ecommerce import Command
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.mail.tests.common import mail_new_test_user
 
 
 class TestExpenseCommon(AccountTestInvoicingCommon):

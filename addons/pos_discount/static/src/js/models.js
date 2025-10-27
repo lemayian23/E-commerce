@@ -1,4 +1,4 @@
-odoo.define('pos_discount.models', function (require) {
+ecommerce.define('pos_discount.models', function (require) {
   "use strict";
 
   const { Orderline } = require('point_of_sale.models');

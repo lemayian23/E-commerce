@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { evaluateExpr } from "@web/core/py_js/py";
 import { formView } from "@web/views/form/form_view";

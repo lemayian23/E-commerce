@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Italy - Declaration of Intent',
     'version': '0.1',
@@ -10,7 +10,7 @@
     Add support for the Declaration of Intent (Dichiarazione di Intento) to the Italian localization.
     """,
     'category': 'Accounting/Localizations',
-    'website': 'https://www.odoo.com/documentation/17.0/applications/finance/fiscal_localizations/italy.html',
+    'website': 'https://www.ecommerce.com/documentation/17.0/applications/finance/fiscal_localizations/italy.html',
     'data': [
         'security/ir.model.access.csv',
         'data/account_tax_template.xml',

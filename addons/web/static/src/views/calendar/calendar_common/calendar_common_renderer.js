@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { is24HourFormat } from "@web/core/l10n/dates";
 import { localization } from "@web/core/l10n/localization";
@@ -8,7 +8,7 @@ import { getColor } from "../colors";
 import { useCalendarPopover, useClickHandler, useFullCalendar } from "../hooks";
 import { CalendarCommonPopover } from "./calendar_common_popover";
 
-import { Component, useEffect } from "@odoo/owl";
+import { Component, useEffect } from "@ecommerce/owl";
 
 const SCALE_TO_FC_VIEW = {
     day: "timeGridDay",

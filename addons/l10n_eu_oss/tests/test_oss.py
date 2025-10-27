@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.l10n_eu_oss.models.eu_tag_map import EU_TAG_MAP
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
+from ecommerce.addons.l10n_eu_oss.models.eu_tag_map import EU_TAG_MAP
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
 
 
 @tagged('post_install', 'post_install_l10n', '-at_install')

@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.AbstractRenderer **/
+/** @ecommerce-module alias=web.AbstractRenderer **/
 
 /**
  * The renderer should not handle pagination, data loading, or coordination

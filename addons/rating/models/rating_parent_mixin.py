@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import timedelta
 
-from odoo import api, fields, models
-from odoo.addons.rating.models import rating_data
-from odoo.osv import expression
-from odoo.tools.float_utils import float_compare
+from ecommerce import api, fields, models
+from ecommerce.addons.rating.models import rating_data
+from ecommerce.osv import expression
+from ecommerce.tools.float_utils import float_compare
 
 
 class RatingParentMixin(models.AbstractModel):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { formatDate } from "@web/core/l10n/dates";
 import { localization } from "@web/core/l10n/localization";
@@ -7,7 +7,7 @@ import { getColor } from "../colors";
 import { useCalendarPopover, useFullCalendar } from "../hooks";
 import { CalendarYearPopover } from "./calendar_year_popover";
 
-import { Component, useEffect, useRef, onRendered } from "@odoo/owl";
+import { Component, useEffect, useRef, onRendered } from "@ecommerce/owl";
 
 export class CalendarYearRenderer extends Component {
     setup() {

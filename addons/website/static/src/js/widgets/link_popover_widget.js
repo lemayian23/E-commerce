@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import weWidgets from 'wysiwyg.widgets';
 import {_t} from 'web.core';
@@ -110,10 +110,10 @@ const NavbarLinkPopoverWidget = weWidgets.LinkPopoverWidget.extend({
                     method: 'save',
                     args: [websiteId, {'data': [data]}],
                 }).then(function () {
-                    self.options.wysiwyg.odooEditor.observerUnactive();
+                    self.options.wysiwyg.ecommerceEditor.observerUnactive();
                     self.$target.attr('href', url);
                     $menu.text(name);
-                    self.options.wysiwyg.odooEditor.observerActive();
+                    self.options.wysiwyg.ecommerceEditor.observerActive();
                 });
             },
         });

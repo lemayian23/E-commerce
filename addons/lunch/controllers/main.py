@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, http, fields
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools import float_round, float_repr
+from ecommerce import _, http, fields
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.tools import float_round, float_repr
 
 
 class LunchController(http.Controller):

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { Dialog } from "@web/core/dialog/dialog";
 import { _lt } from "@web/core/l10n/translation";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export default class ToursDialog extends Component {
     setup() {

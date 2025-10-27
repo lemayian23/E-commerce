@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, many } from '@mail/model/model_field';

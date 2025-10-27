@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import Form
+from ecommerce.tests import Form
 from datetime import datetime, timedelta
 
-from odoo.fields import Datetime as Dt
-from odoo.exceptions import UserError
-from odoo.addons.mrp.tests.common import TestMrpCommon
+from ecommerce.fields import Datetime as Dt
+from ecommerce.exceptions import UserError
+from ecommerce.addons.mrp.tests.common import TestMrpCommon
 
 
 class TestMrpCancelMO(TestMrpCommon):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { X2ManyField } from "@web/views/fields/x2many/x2many_field";

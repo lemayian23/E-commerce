@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useBus } from "@web/core/utils/hooks";
 
-import { Component, onMounted, onWillUpdateProps, onWillStart, useRef, useState } from "@odoo/owl";
+import { Component, onMounted, onWillUpdateProps, onWillStart, useRef, useState } from "@ecommerce/owl";
 
 //-------------------------------------------------------------------------
 // Helpers

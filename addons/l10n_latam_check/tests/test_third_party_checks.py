@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.l10n_latam_check.tests.common import L10nLatamCheckTest
-from odoo.exceptions import ValidationError, UserError
-from odoo.tests.common import tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.l10n_latam_check.tests.common import L10nLatamCheckTest
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.tests.common import tagged
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')
@@ -151,7 +151,7 @@ class TestThirdChecks(L10nLatamCheckTest):
             self.env['account.payment'].create(vals).action_post()
 
         operations = self.env['account.payment'].search([('l10n_latam_check_id', '=', check.id), ('state', '=', 'posted')], order="date desc, id desc")
-        # we have 5 operations because for each transfers a second payment/operation is created automatically by odoo
+        # we have 5 operations because for each transfers a second payment/operation is created automatically by ecommerce
         self.assertEqual(len(operations), 5, 'There should be 5 operations on the check')
         self.assertEqual(operations[0], customer_return, 'Last operation should be customer return')
         self.assertEqual(operations[2], bank_rejection, 'Previous operation should be bank rejection')

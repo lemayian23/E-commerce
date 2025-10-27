@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from '@web/core/browser/browser';
 import { registry } from '@web/core/registry';
@@ -9,11 +9,11 @@ export const presenceService = {
         const LOCAL_STORAGE_PREFIX = 'presence';
 
         // map window_focus event from the wowlBus to the legacy one.
-        env.bus.addEventListener('window_focus', isOdooFocused => {
-            core.bus.trigger('window_focus', isOdooFocused);
+        env.bus.addEventListener('window_focus', isecommerceFocused => {
+            core.bus.trigger('window_focus', isecommerceFocused);
         });
 
-        let isOdooFocused = true;
+        let isecommerceFocused = true;
         let lastPresenceTime = (
             browser.localStorage.getItem(`${LOCAL_STORAGE_PREFIX}.lastPresence`)
             || new Date().getTime()
@@ -28,17 +28,17 @@ export const presenceService = {
             try {
                 isFocused = parent.document.hasFocus();
             } catch {}
-            isOdooFocused = isFocused;
-            browser.localStorage.setItem(`${LOCAL_STORAGE_PREFIX}.focus`, isOdooFocused);
-            if (isOdooFocused) {
+            isecommerceFocused = isFocused;
+            browser.localStorage.setItem(`${LOCAL_STORAGE_PREFIX}.focus`, isecommerceFocused);
+            if (isecommerceFocused) {
                 lastPresenceTime = new Date().getTime();
-                env.bus.trigger('window_focus', isOdooFocused);
+                env.bus.trigger('window_focus', isecommerceFocused);
             }
         }
 
         function onStorage({ key, newValue }) {
             if (key === `${LOCAL_STORAGE_PREFIX}.focus`) {
-                isOdooFocused = JSON.parse(newValue);
+                isecommerceFocused = JSON.parse(newValue);
                 env.bus.trigger('window_focus', newValue);
             }
             if (key === `${LOCAL_STORAGE_PREFIX}.lastPresence`) {
@@ -56,8 +56,8 @@ export const presenceService = {
             getLastPresence() {
                 return lastPresenceTime;
             },
-            isOdooFocused() {
-                return isOdooFocused;
+            isecommerceFocused() {
+                return isecommerceFocused;
             }
         };
     },

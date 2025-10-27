@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 
-from odoo import api, fields, models, Command
-from odoo.addons.google_calendar.utils.google_calendar import GoogleCalendarService, InvalidSyncToken
-from odoo.addons.google_calendar.models.google_sync import google_calendar_token
-from odoo.loglevels import exception_to_unicode
+from ecommerce import api, fields, models, Command
+from ecommerce.addons.google_calendar.utils.google_calendar import GoogleCalendarService, InvalidSyncToken
+from ecommerce.addons.google_calendar.models.google_sync import google_calendar_token
+from ecommerce.loglevels import exception_to_unicode
 
 _logger = logging.getLogger(__name__)
 
@@ -62,30 +62,30 @@ class User(models.Model):
                 full_sync = True
         self.google_calendar_account_id.calendar_sync_token = next_sync_token
 
-        # Google -> Odoo
+        # Google -> ecommerce
         send_updates = not full_sync
         events.clear_type_ambiguity(self.env)
         recurrences = events.filter(lambda e: e.is_recurrence())
 
-        # We apply Google updates only if their write date is later than the write date in Odoo.
+        # We apply Google updates only if their write date is later than the write date in ecommerce.
         # It's possible that multiple updates affect the same record, maybe not directly.
-        # To handle this, we preserve the write dates in Odoo before applying any updates,
+        # To handle this, we preserve the write dates in ecommerce before applying any updates,
         # and use these dates instead of the current live dates.
-        odoo_events = self.env['calendar.event'].browse((events - recurrences).odoo_ids(self.env))
-        odoo_recurrences = self.env['calendar.recurrence'].browse(recurrences.odoo_ids(self.env))
-        recurrences_write_dates = {r.id: r.write_date for r in odoo_recurrences}
-        events_write_dates = {e.id: e.write_date for e in odoo_events}
-        synced_recurrences = self.env['calendar.recurrence'].with_context(write_dates=recurrences_write_dates)._sync_google2odoo(recurrences)
-        synced_events = self.env['calendar.event'].with_context(write_dates=events_write_dates)._sync_google2odoo(events - recurrences, default_reminders=default_reminders)
+        ecommerce_events = self.env['calendar.event'].browse((events - recurrences).ecommerce_ids(self.env))
+        ecommerce_recurrences = self.env['calendar.recurrence'].browse(recurrences.ecommerce_ids(self.env))
+        recurrences_write_dates = {r.id: r.write_date for r in ecommerce_recurrences}
+        events_write_dates = {e.id: e.write_date for e in ecommerce_events}
+        synced_recurrences = self.env['calendar.recurrence'].with_context(write_dates=recurrences_write_dates)._sync_google2ecommerce(recurrences)
+        synced_events = self.env['calendar.event'].with_context(write_dates=events_write_dates)._sync_google2ecommerce(events - recurrences, default_reminders=default_reminders)
 
-        # Odoo -> Google
+        # ecommerce -> Google
         recurrences = self.env['calendar.recurrence']._get_records_to_sync(full_sync=full_sync)
         recurrences -= synced_recurrences
-        recurrences.with_context(send_updates=send_updates)._sync_odoo2google(calendar_service)
+        recurrences.with_context(send_updates=send_updates)._sync_ecommerce2google(calendar_service)
         synced_events |= recurrences.calendar_event_ids - recurrences._get_outliers()
         synced_events |= synced_recurrences.calendar_event_ids - synced_recurrences._get_outliers()
         events = self.env['calendar.event']._get_records_to_sync(full_sync=full_sync)
-        (events - synced_events).with_context(send_updates=send_updates)._sync_odoo2google(calendar_service)
+        (events - synced_events).with_context(send_updates=send_updates)._sync_ecommerce2google(calendar_service)
 
         return bool(events | synced_events) or bool(recurrences | synced_recurrences)
 

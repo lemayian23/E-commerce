@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
-from odoo.addons.test_crm_full.tests.common import TestCrmFullCommon
-from odoo.tests.common import users, warmup, Form
-from odoo.tests import tagged
+from ecommerce.addons.test_crm_full.tests.common import TestCrmFullCommon
+from ecommerce.tests.common import users, warmup, Form
+from ecommerce.tests import tagged
 
 
 @tagged('crm_performance', 'post_install', '-at_install', '-standard')

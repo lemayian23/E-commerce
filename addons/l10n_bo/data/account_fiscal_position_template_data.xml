@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Fiscal positions -->
     <record id="l10n_bo_domestic" model="account.fiscal.position.template">
         <field name="sequence">10</field>
@@ -38,4 +38,4 @@
             </record>
         </field>
     </record>
-</odoo>
+</ecommerce>

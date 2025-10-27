@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 from psycopg2 import sql
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ class PaymentProvider(models.Model):
              "provider's database, allowing the customer to reuse it for a next purchase.")
     capture_manually = fields.Boolean(
         string="Capture Amount Manually",
-        help="Capture the amount from Odoo, when the delivery is completed.\n"
+        help="Capture the amount from ecommerce, when the delivery is completed.\n"
              "Use this if you want to charge your customers cards only when\n"
              "you are sure you can ship the goods to them.")
     allow_express_checkout = fields.Boolean(
@@ -171,7 +171,7 @@ class PaymentProvider(models.Model):
     module_id = fields.Many2one(string="Corresponding Module", comodel_name='ir.module.module')
     module_state = fields.Selection(
         string="Installation State", related='module_id.state', store=True)  # Stored for sorting.
-    module_to_buy = fields.Boolean(string="Odoo Enterprise Module", related='module_id.to_buy')
+    module_to_buy = fields.Boolean(string="ecommerce Enterprise Module", related='module_id.to_buy')
 
     # View configuration fields
     show_credentials_page = fields.Boolean(compute='_compute_view_configuration_fields')

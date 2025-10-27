@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.AbstractAwaitablePopup', function (require) {
+ecommerce.define('point_of_sale.AbstractAwaitablePopup', function (require) {
     'use strict';
 
     const PosComponent = require('point_of_sale.PosComponent');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     click,
@@ -30,7 +30,7 @@ import { registry } from "@web/core/registry";
 import { getBorderWhite, DEFAULT_BG, getColors, hexToRGBA } from "@web/views/graph/colors";
 import { GraphArchParser } from "@web/views/graph/graph_arch_parser";
 import { GraphRenderer } from "@web/views/graph/graph_renderer";
-import { onRendered } from "@odoo/owl";
+import { onRendered } from "@ecommerce/owl";
 import { patchWithCleanup } from "../helpers/utils";
 import { fakeCookieService } from "@web/../tests/helpers/mock_services";
 import { Domain } from "@web/core/domain";

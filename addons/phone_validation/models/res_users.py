@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, models
-from odoo.addons.phone_validation.tools import phone_validation
+from ecommerce import _, models
+from ecommerce.addons.phone_validation.tools import phone_validation
 
 
 class Users(models.Model):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { multiTabService } from '../src/multi_tab_service';
 

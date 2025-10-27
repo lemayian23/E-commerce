@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import cookieUtils from 'web.utils.cookies';
 

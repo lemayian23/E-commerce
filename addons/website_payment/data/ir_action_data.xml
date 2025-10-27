@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
     <!--No longer used, will be deleted in future version-->
     <record id="action_stripe_connect_account" model="ir.actions.server">
         <field name="name">Connect to Stripe</field>
@@ -11,4 +11,4 @@ menu_id = env.ref('website.menu_website_website_settings').id
 action = env.company._run_payment_onboarding_step(menu_id=menu_id)
         </field>
     </record>
-</odoo>
+</ecommerce>

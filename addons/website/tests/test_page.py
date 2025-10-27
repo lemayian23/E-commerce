@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml import html
 from unittest.mock import patch
 
-from odoo.addons.website.controllers.main import Website
-from odoo.addons.website.tools import MockRequest
-from odoo.fields import Command
-from odoo.http import root
-from odoo.tests import common, HttpCase, tagged
-from odoo.tests.common import HOST
-from odoo.tools import config, mute_logger
+from ecommerce.addons.website.controllers.main import Website
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.fields import Command
+from ecommerce.http import root
+from ecommerce.tests import common, HttpCase, tagged
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config, mute_logger
 
 
 @tagged('-at_install', 'post_install')
@@ -288,7 +288,7 @@ class WithContext(HttpCase):
             [p['loc'] for p in pages],
         )
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_03_error_page_debug(self):
         with MockRequest(self.env, website=self.env['website'].browse(1)):
             self.base_view.arch = self.base_view.arch.replace('I am a generic page', '<t t-esc="15/0"/>')

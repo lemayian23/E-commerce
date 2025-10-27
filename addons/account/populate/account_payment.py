@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Classes defining the populate factory for Payments and related models."""
-from odoo import models, fields
-from odoo.tools import populate
+from ecommerce import models, fields
+from ecommerce.tools import populate
 
 from dateutil.relativedelta import relativedelta
 import logging

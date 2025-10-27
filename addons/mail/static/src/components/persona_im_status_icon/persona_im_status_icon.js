@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerMessagingComponent } from '@mail/utils/messaging_component';
 import { markEventHandled } from '@mail/utils/utils';

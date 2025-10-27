@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.mass_mailing_code_view_tour', function (require) {
+ecommerce.define('mass_mailing.mass_mailing_code_view_tour', function (require) {
     "use strict";
 
     var tour = require('web_tour.tour');

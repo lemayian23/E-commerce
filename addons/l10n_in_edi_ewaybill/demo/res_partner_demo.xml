@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="res_partner_registered_customer_ewaybill" model="res.partner">
         <field name="name">Registered Customer (E-Waybill)</field>
@@ -15,4 +15,4 @@
         <field name="vat">05AAACH6605F1Z0</field>
     </record>
 
-</odoo>
+</ecommerce>

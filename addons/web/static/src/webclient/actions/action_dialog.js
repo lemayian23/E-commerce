@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { DebugMenu } from "@web/core/debug/debug_menu";
 import { useOwnDebugContext } from "@web/core/debug/debug_context";
 import { useLegacyRefs } from "@web/legacy/utils";
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@ecommerce/owl";
 
 const LEGACY_SIZE_CLASSES = {
     "extra-large": "xl",

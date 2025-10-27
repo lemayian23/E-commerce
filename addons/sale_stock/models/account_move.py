@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import fields, models
-from odoo.tools import float_is_zero, float_compare
-from odoo.tools.misc import formatLang
+from ecommerce import fields, models
+from ecommerce.tools import float_is_zero, float_compare
+from ecommerce.tools.misc import formatLang
 
 
 class AccountMove(models.Model):

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime as dt, time
 from datetime import timedelta as td
 from freezegun import freeze_time
 
-from odoo import Command, SUPERUSER_ID
-from odoo.fields import Date
-from odoo.tests import Form, tagged
-from odoo.tests.common import TransactionCase
-from odoo.tools.date_utils import add
-from odoo.exceptions import UserError
+from ecommerce import Command, SUPERUSER_ID
+from ecommerce.fields import Date
+from ecommerce.tests import Form, tagged
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools.date_utils import add
+from ecommerce.exceptions import UserError
 
 
 @tagged('post_install', '-at_install')

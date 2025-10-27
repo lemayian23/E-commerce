@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from freezegun import freeze_time
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
 
 class TestDashboard(TestHrHolidaysCommon):

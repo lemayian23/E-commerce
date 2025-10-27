@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import tools
+from ecommerce import tools
 
-import odoo
-from odoo.addons.point_of_sale.tests.common import TestPoSCommon
+import ecommerce
+from ecommerce.addons.point_of_sale.tests.common import TestPoSCommon
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPoSProductsWithTax(TestPoSCommon):
     """ Test normal configuration PoS selling products with tax
     """

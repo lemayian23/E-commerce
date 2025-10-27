@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { Dropdown } from "@web/core/dropdown/dropdown";
@@ -23,7 +23,7 @@ import {
     serializeDateTime,
 } from "@web/core/l10n/dates";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 /**
  * Represent one property value.

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-export const session = odoo.__session_info__ || {};
-delete odoo.__session_info__;
+export const session = ecommerce.__session_info__ || {};
+delete ecommerce.__session_info__;

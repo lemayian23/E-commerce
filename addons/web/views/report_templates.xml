@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <!-- Private templates used internally by reports -->
 
@@ -13,13 +13,13 @@
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="initial-scale=1"/>
-                <title><t t-esc="title or 'Odoo Report'"/></title>
+                <title><t t-esc="title or 'ecommerce Report'"/></title>
                 <t t-call-assets="web.report_assets_common" t-js="false"/>
                 <!--The following is kind of a hack-->
                 <!--in an iframe, we don't want the session to perform qweb_templates rpc-->
                 <script type="text/javascript">
-                    window.odoo = {};
-                    window.odoo.__session_info__ = {is_report: true};
+                    window.ecommerce = {};
+                    window.ecommerce.__session_info__ = {is_report: true};
                 </script>
                 <t t-call-assets="web.assets_common" t-css="false"/>
                 <t t-call-assets="web.report_assets_common" t-css="false"/>
@@ -45,7 +45,7 @@
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="initial-scale=1"/>
-                <title><t t-esc="title or 'Odoo Report'"/></title>
+                <title><t t-esc="title or 'ecommerce Report'"/></title>
                 <t t-call-assets="web.report_assets_common" t-js="false"/>
                 <t t-call-assets="web.assets_common" t-css="false"/>
                 <style>
@@ -748,4 +748,4 @@
         <field name="binding_model_id" ref="model_res_company"/>
         <field name="binding_type">report</field>
     </record>
-</odoo>
+</ecommerce>

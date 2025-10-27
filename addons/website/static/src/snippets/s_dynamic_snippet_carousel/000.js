@@ -1,4 +1,4 @@
-odoo.define('website.s_dynamic_snippet_carousel', function (require) {
+ecommerce.define('website.s_dynamic_snippet_carousel', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

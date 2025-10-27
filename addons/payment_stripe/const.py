@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import namedtuple
 
@@ -6,7 +6,7 @@ from collections import namedtuple
 API_VERSION = '2019-05-16'  # The API version of Stripe implemented in this module
 
 # Stripe proxy URL
-PROXY_URL = 'https://stripe.api.odoo.com/api/stripe/'
+PROXY_URL = 'https://stripe.api.ecommerce.com/api/stripe/'
 
 # Support payment method types
 PMT = namedtuple('PaymentMethodType', ['name', 'countries', 'currencies', 'recurrence'])

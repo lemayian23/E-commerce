@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 import string
 
-from odoo import api, fields, models
-from odoo.osv import expression
+from ecommerce import api, fields, models
+from ecommerce.osv import expression
 
 
 class MailingTrace(models.Model):

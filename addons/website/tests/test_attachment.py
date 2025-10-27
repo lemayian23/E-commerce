@@ -1,10 +1,10 @@
-import odoo.tests
-from odoo.tests.common import HOST
-from odoo.tools import config
+import ecommerce.tests
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteAttachment(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteAttachment(ecommerce.tests.HttpCase):
 
     def test_01_type_url_301_image(self):
         IMD = self.env['ir.model.data']

@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { HighlightText } from "./../highlight_text/highlight_text";
 import { escapeRegExp } from "@web/core/utils/strings";
 
-import { Component, useState, useRef, useEffect, onWillRender, useChildSubEnv } from "@odoo/owl";
+import { Component, useState, useRef, useEffect, onWillRender, useChildSubEnv } from "@ecommerce/owl";
 
 export class SettingsContainer extends Component {
     setup() {

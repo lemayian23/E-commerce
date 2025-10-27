@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import BaseCase
-from odoo.tools import Query
+from ecommerce.tests.common import BaseCase
+from ecommerce.tools import Query
 
 
 class QueryTestCase(BaseCase):

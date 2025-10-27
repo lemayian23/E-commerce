@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Command
-from odoo.tests import TransactionCase
+from ecommerce.fields import Command
+from ecommerce.tests import TransactionCase
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.product.tests.common import ProductCommon
-from odoo.addons.sales_team.tests.common import SalesTeamCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.product.tests.common import ProductCommon
+from ecommerce.addons.sales_team.tests.common import SalesTeamCommon
 
 
 class SaleCommon(

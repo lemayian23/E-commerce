@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 from collections import OrderedDict
 from werkzeug.urls import url_quote
 from markupsafe import Markup
 
-from odoo import api, models
-from odoo.tools import pycompat
-from odoo.tools import html_escape as escape
+from ecommerce import api, models
+from ecommerce.tools import pycompat
+from ecommerce.tools import html_escape as escape
 
 
 class Image(models.AbstractModel):

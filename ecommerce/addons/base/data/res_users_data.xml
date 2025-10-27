@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <!-- user 1 is the technical admin user -->
         <record model="res.users" id="base.user_root">
             <field name="partner_id" ref="base.partner_root"/>
             <field name="company_id" ref="main_company"/>
             <field name="company_ids" eval="[Command.link(ref('main_company'))]"/>
-            <field name="email">odoobot@example.com</field>
+            <field name="email">ecommercebot@example.com</field>
             <field name="signature"><![CDATA[<span>-- <br/>
 System</span>]]></field>
         </record>
@@ -41,4 +41,4 @@ Administrator</span>]]></field>
             <field name="active" eval="False"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

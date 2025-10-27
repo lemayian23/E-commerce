@@ -1,4 +1,4 @@
-odoo.define('web.Colorpicker', function (require) {
+ecommerce.define('web.Colorpicker', function (require) {
 'use strict';
 
 var core = require('web.core');

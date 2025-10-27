@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import re
 import base64
 import io
@@ -11,12 +11,12 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.pdfgen.canvas import Canvas
 
-from odoo import fields, models, api, _
-from odoo.addons.iap.tools import iap_tools
-from odoo.exceptions import AccessError, UserError
-from odoo.tools.safe_eval import safe_eval
+from ecommerce import fields, models, api, _
+from ecommerce.addons.iap.tools import iap_tools
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tools.safe_eval import safe_eval
 
-DEFAULT_ENDPOINT = 'https://iap-snailmail.odoo.com'
+DEFAULT_ENDPOINT = 'https://iap-snailmail.ecommerce.com'
 PRINT_ENDPOINT = '/iap/snailmail/1/print'
 DEFAULT_TIMEOUT = 30
 
@@ -306,7 +306,7 @@ class SnailmailLetter(models.Model):
             return _('You don\'t have enough credits to perform this operation.<br>Please go to your <a href=%s target="new">iap account</a>.', link)
         if error == 'TRIAL_ERROR':
             link = self.env['iap.account'].get_credits_url(service_name='snailmail', trial=True)
-            return _('You don\'t have an IAP account registered for this service.<br>Please go to <a href=%s target="new">iap.odoo.com</a> to claim your free credits.', link)
+            return _('You don\'t have an IAP account registered for this service.<br>Please go to <a href=%s target="new">iap.ecommerce.com</a> to claim your free credits.', link)
         if error == 'NO_PRICE_AVAILABLE':
             return _('The country of the partner is not covered by Snailmail.')
         if error == 'MISSING_REQUIRED_FIELDS':

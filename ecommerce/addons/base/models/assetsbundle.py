@@ -24,14 +24,14 @@ except ImportError:
     # `sassc` executable in the path.
     libsass = None
 
-from odoo import release, SUPERUSER_ID, _
-from odoo.http import request
-from odoo.modules.module import get_resource_path
-from odoo.tools import (func, misc, transpile_javascript,
-    is_odoo_module, SourceMapGenerator, profiler,
+from ecommerce import release, SUPERUSER_ID, _
+from ecommerce.http import request
+from ecommerce.modules.module import get_resource_path
+from ecommerce.tools import (func, misc, transpile_javascript,
+    is_ecommerce_module, SourceMapGenerator, profiler,
     apply_inheritance_specs)
-from odoo.tools.misc import file_open, file_path, html_escape as escape
-from odoo.tools.pycompat import to_text
+from ecommerce.tools.misc import file_open, file_path, html_escape as escape
+from ecommerce.tools.pycompat import to_text
 
 _logger = logging.getLogger(__name__)
 
@@ -417,7 +417,7 @@ class AssetsBundle(object):
                     *  Templates                               *
                     *******************************************/
 
-                    odoo.define('{self.name}.bundle.xml', function(require){{
+                    ecommerce.define('{self.name}.bundle.xml', function(require){{
                         'use strict';
                         const {{ loadXML }} = require('@web/core/assets');
                         const templates = `{templates}`;
@@ -502,7 +502,7 @@ class AssetsBundle(object):
             # Load content.
             try:
                 content = asset.content.strip()
-                template = content if content.startswith('<odoo>') else f'<templates>{asset.content}</templates>'
+                template = content if content.startswith('<ecommerce>') else f'<templates>{asset.content}</templates>'
                 io_content = io.BytesIO(template.encode('utf-8'))
                 content_templates_tree = etree.parse(io_content, parser=parser).getroot()
             except etree.ParseError as e:
@@ -692,16 +692,16 @@ class AssetsBundle(object):
                 }
 
                 async function onDOMContentLoaded() {
-                    var odoo = window.top.odoo;
-                    if (!odoo || !odoo.define) {
+                    var ecommerce = window.top.ecommerce;
+                    if (!ecommerce || !ecommerce.define) {
                         useAlert();
                         return;
                     }
 
                     // Wait for potential JS loading
                     await new Promise(resolve => {
-                        const noLazyTimeout = setTimeout(() => resolve(), 10); // 10 since need to wait for promise resolutions of odoo.define
-                        odoo.define('AssetsBundle.PotentialLazyLoading', function (require) {
+                        const noLazyTimeout = setTimeout(() => resolve(), 10); // 10 since need to wait for promise resolutions of ecommerce.define
+                        ecommerce.define('AssetsBundle.PotentialLazyLoading', function (require) {
                             'use strict';
 
                             const lazyloader = require('web.public.lazyloader');
@@ -711,8 +711,8 @@ class AssetsBundle(object):
                         });
                     });
 
-                    var alertTimeout = setTimeout(useAlert, 10); // 10 since need to wait for promise resolutions of odoo.define
-                    odoo.define('AssetsBundle.ErrorMessage', function (require) {
+                    var alertTimeout = setTimeout(useAlert, 10); // 10 since need to wait for promise resolutions of ecommerce.define
+                    ecommerce.define('AssetsBundle.ErrorMessage', function (require) {
                         'use strict';
 
                         require('web.dom_ready');
@@ -826,7 +826,7 @@ class AssetsBundle(object):
             if '.' not in ref and line not in imports and not ref.startswith(('.', '/', '~')):
                 imports.append(line)
                 return line
-            msg = "Local import '%s' is forbidden for security reasons. Please remove all @import {your_file} imports in your custom files. In Odoo you have to import all files in the assets, and not through the @import statement." % ref
+            msg = "Local import '%s' is forbidden for security reasons. Please remove all @import {your_file} imports in your custom files. In ecommerce you have to import all files in the assets, and not through the @import statement." % ref
             _logger.warning(msg)
             self.css_errors.append(msg)
             return ''
@@ -1012,7 +1012,7 @@ class JavascriptAsset(WebAsset):
     @property
     def is_transpiled(self):
         if self._is_transpiled is None:
-            self._is_transpiled = bool(is_odoo_module(super().content))
+            self._is_transpiled = bool(is_ecommerce_module(super().content))
         return self._is_transpiled
 
     @property

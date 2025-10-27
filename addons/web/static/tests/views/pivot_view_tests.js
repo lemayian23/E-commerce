@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
@@ -41,7 +41,7 @@ import { browser } from "@web/core/browser/browser";
 
 const serviceRegistry = registry.category("services");
 
-import { markup } from "@odoo/owl";
+import { markup } from "@ecommerce/owl";
 
 /**
  * Helper function that returns, given a pivot instance, the values of the

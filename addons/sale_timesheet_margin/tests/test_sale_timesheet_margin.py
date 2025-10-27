@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
-from odoo import Command
-from odoo.tests import tagged
+from ecommerce.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
+from ecommerce import Command
+from ecommerce.tests import tagged
 
 
 @tagged('-at_install', 'post_install')

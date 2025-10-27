@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<ecommerce>
 
 <record id="view_forum_post_form" model="ir.ui.view">
     <field name="name">forum.post.form</field>
@@ -188,4 +188,4 @@
     name="Forum Posts"
     action="action_forum_post"/>
 
-</odoo>
+</ecommerce>

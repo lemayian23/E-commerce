@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Chart template for en -->
     <record id="ca_en_chart_template_en" model="account.chart.template">
         <field name="property_account_receivable_id" ref="chart1151_en"/>
@@ -15,4 +15,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="chart550001_en"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="chart420001_en"/>
     </record>
-</odoo>
+</ecommerce>

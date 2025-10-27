@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import jinja2
@@ -12,14 +12,14 @@ import subprocess
 import sys
 import threading
 
-from odoo import http, service, tools
-from odoo.http import Response, request
-from odoo.modules.module import get_resource_path
-from odoo.addons.hw_drivers.connection_manager import connection_manager
-from odoo.addons.hw_drivers.main import iot_devices
-from odoo.addons.hw_drivers.tools import helpers
-from odoo.addons.hw_drivers.server_logger import check_and_update_odoo_config_log_to_server_option, close_server_log_sender_handler, get_odoo_config_log_to_server_option
-from odoo.addons.web.controllers.home import Home
+from ecommerce import http, service, tools
+from ecommerce.http import Response, request
+from ecommerce.modules.module import get_resource_path
+from ecommerce.addons.hw_drivers.connection_manager import connection_manager
+from ecommerce.addons.hw_drivers.main import iot_devices
+from ecommerce.addons.hw_drivers.tools import helpers
+from ecommerce.addons.hw_drivers.server_logger import check_and_update_ecommerce_config_log_to_server_option, close_server_log_sender_handler, get_ecommerce_config_log_to_server_option
+from ecommerce.addons.web.controllers.home import Home
 
 _logger = logging.getLogger(__name__)
 
@@ -33,7 +33,7 @@ if hasattr(sys, 'frozen'):
     path = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'views'))
     loader = jinja2.FileSystemLoader(path)
 else:
-    loader = jinja2.PackageLoader('odoo.addons.hw_posbox_homepage', "views")
+    loader = jinja2.PackageLoader('ecommerce.addons.hw_posbox_homepage', "views")
 
 jinja_env = jinja2.Environment(loader=loader, autoescape=True)
 jinja_env.filters["json"] = json.dumps
@@ -54,10 +54,10 @@ class IoTboxHomepage(Home):
         self.updating = threading.Lock()
 
     def clean_partition(self):
-        subprocess.check_call(['sudo', 'bash', '-c', '. /home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; cleanup'])
+        subprocess.check_call(['sudo', 'bash', '-c', '. /home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; cleanup'])
 
     def get_six_terminal(self):
-        terminal_id = helpers.read_file_first_line('odoo-six-payment-terminal.conf')
+        terminal_id = helpers.read_file_first_line('ecommerce-six-payment-terminal.conf')
         return terminal_id or 'Not Configured'
 
     def get_homepage_data(self):
@@ -92,7 +92,7 @@ class IoTboxHomepage(Home):
             'ip': helpers.get_ip(),
             'mac': helpers.get_mac_address(),
             'iot_device_status': iot_device,
-            'server_status': helpers.get_odoo_server_url() or 'Not Configured',
+            'server_status': helpers.get_ecommerce_server_url() or 'Not Configured',
             'pairing_code': connection_manager.pairing_code,
             'six_terminal': self.get_six_terminal(),
             'network_status': network,
@@ -105,7 +105,7 @@ class IoTboxHomepage(Home):
     @http.route('/', type='http', auth='none')
     def index(self):
         wifi = Path.home() / 'wifi_network.txt'
-        remote_server = Path.home() / 'odoo-remote-server.conf'
+        remote_server = Path.home() / 'ecommerce-remote-server.conf'
         if (wifi.exists() == False or remote_server.exists() == False) and helpers.access_point():
             return "<meta http-equiv='refresh' content='0; url=http://" + helpers.get_ip() + ":8069/steps'>"
         else:
@@ -118,7 +118,7 @@ class IoTboxHomepage(Home):
             need_config_save = False  # If the config file needed to be saved at the end
 
             # Check and update "send logs to server"
-            need_config_save |= check_and_update_odoo_config_log_to_server_option(
+            need_config_save |= check_and_update_ecommerce_config_log_to_server_option(
                 post.get('log-to-server') == 'on' # we use .get() as if the HTML checkbox is unchecked, no value is given in the POST request
             )
 
@@ -135,8 +135,8 @@ class IoTboxHomepage(Home):
 
                 if post_request_key == 'root':
                     need_config_save |= self._update_logger_level('', log_level_or_parent, AVAILABLE_LOG_LEVELS)
-                elif post_request_key == 'odoo':
-                    need_config_save |= self._update_logger_level('odoo', log_level_or_parent, AVAILABLE_LOG_LEVELS)
+                elif post_request_key == 'ecommerce':
+                    need_config_save |= self._update_logger_level('ecommerce', log_level_or_parent, AVAILABLE_LOG_LEVELS)
                     need_config_save |= self._update_logger_level('werkzeug', log_level_or_parent if log_level_or_parent != 'debug' else 'info', AVAILABLE_LOG_LEVELS)
                 elif post_request_key.startswith(INTERFACE_PREFIX):
                     logger_name = post_request_key[len(INTERFACE_PREFIX):]
@@ -154,14 +154,14 @@ class IoTboxHomepage(Home):
         drivers_list = helpers.list_file_by_os(get_resource_path('hw_drivers', 'iot_handlers', 'drivers'))
         interfaces_list = helpers.list_file_by_os(get_resource_path('hw_drivers', 'iot_handlers', 'interfaces'))
         return handler_list_template.render({
-            'title': "Odoo's IoT Box - Handlers list",
+            'title': "ecommerce's IoT Box - Handlers list",
             'breadcrumb': 'Handlers list',
             'drivers_list': drivers_list,
             'interfaces_list': interfaces_list,
-            'server': helpers.get_odoo_server_url(),
-            'is_log_to_server_activated': get_odoo_config_log_to_server_option(),
+            'server': helpers.get_ecommerce_server_url(),
+            'is_log_to_server_activated': get_ecommerce_config_log_to_server_option(),
             'root_logger_log_level': self._get_logger_effective_level_str(logging.getLogger()),
-            'odoo_current_log_level': self._get_logger_effective_level_str(logging.getLogger('odoo')),
+            'ecommerce_current_log_level': self._get_logger_effective_level_str(logging.getLogger('ecommerce')),
             'recommended_log_level': 'warning',
             'available_log_levels': AVAILABLE_LOG_LEVELS,
             'drivers_logger_info': self._get_iot_handlers_logger(drivers_list, 'drivers'),
@@ -171,30 +171,30 @@ class IoTboxHomepage(Home):
     @http.route('/load_iot_handlers', type='http', auth='none', website=True)
     def load_iot_handlers(self):
         helpers.download_iot_handlers(False)
-        helpers.odoo_restart(0)
+        helpers.ecommerce_restart(0)
         return "<meta http-equiv='refresh' content='20; url=http://" + helpers.get_ip() + ":8069/list_handlers'>"
 
     @http.route('/list_credential', type='http', auth='none', website=True)
     def list_credential(self):
         return list_credential_template.render({
-            'title': "Odoo's IoT Box - List credential",
+            'title': "ecommerce's IoT Box - List credential",
             'breadcrumb': 'List credential',
-            'db_uuid': helpers.read_file_first_line('odoo-db-uuid.conf'),
-            'enterprise_code': helpers.read_file_first_line('odoo-enterprise-code.conf'),
+            'db_uuid': helpers.read_file_first_line('ecommerce-db-uuid.conf'),
+            'enterprise_code': helpers.read_file_first_line('ecommerce-enterprise-code.conf'),
         })
 
     @http.route('/save_credential', type='http', auth='none', cors='*', csrf=False)
     def save_credential(self, db_uuid, enterprise_code):
-        helpers.write_file('odoo-db-uuid.conf', db_uuid)
-        helpers.write_file('odoo-enterprise-code.conf', enterprise_code)
-        helpers.odoo_restart(0)
+        helpers.write_file('ecommerce-db-uuid.conf', db_uuid)
+        helpers.write_file('ecommerce-enterprise-code.conf', enterprise_code)
+        helpers.ecommerce_restart(0)
         return "<meta http-equiv='refresh' content='20; url=http://" + helpers.get_ip() + ":8069'>"
 
     @http.route('/clear_credential', type='http', auth='none', cors='*', csrf=False)
     def clear_credential(self):
-        helpers.unlink_file('odoo-db-uuid.conf')
-        helpers.unlink_file('odoo-enterprise-code.conf')
-        helpers.odoo_restart(0)
+        helpers.unlink_file('ecommerce-db-uuid.conf')
+        helpers.unlink_file('ecommerce-enterprise-code.conf')
+        helpers.ecommerce_restart(0)
         return "<meta http-equiv='refresh' content='20; url=http://" + helpers.get_ip() + ":8069'>"
 
     @http.route('/wifi', type='http', auth='none', website=True)
@@ -214,14 +214,14 @@ class IoTboxHomepage(Home):
                 persistent = ""
 
         subprocess.check_call([get_resource_path('point_of_sale', 'tools/posbox/configuration/connect_to_wifi.sh'), essid, password, persistent])
-        server = helpers.get_odoo_server_url()
+        server = helpers.get_ecommerce_server_url()
         res_payload = {
             'message': 'Connecting to ' + essid,
         }
         if server:
             res_payload['server'] = {
                 'url': server,
-                'message': 'Redirect to Odoo Server'
+                'message': 'Redirect to ecommerce Server'
             }
         else:
             res_payload['server'] = {
@@ -238,7 +238,7 @@ class IoTboxHomepage(Home):
 
     @http.route('/server_clear', type='http', auth='none', cors='*', csrf=False)
     def clear_server_configuration(self):
-        helpers.unlink_file('odoo-remote-server.conf')
+        helpers.unlink_file('ecommerce-remote-server.conf')
         close_server_log_sender_handler()
         return "<meta http-equiv='refresh' content='0; url=http://" + helpers.get_ip() + ":8069'>"
 
@@ -260,11 +260,11 @@ class IoTboxHomepage(Home):
             enterprise_code = credential[3]
             helpers.save_conf_server(url, token, db_uuid, enterprise_code)
         else:
-            url = helpers.get_odoo_server_url()
+            url = helpers.get_ecommerce_server_url()
             token = helpers.get_token()
         if iotname and platform.system() == 'Linux':
             subprocess.check_call([get_resource_path('point_of_sale', 'tools/posbox/configuration/rename_iot.sh'), iotname])
-        helpers.odoo_restart(5)
+        helpers.ecommerce_restart(5)
         return 'http://' + helpers.get_ip() + ':8069'
 
     @http.route('/steps', type='http', auth='none', cors='*', csrf=False)
@@ -274,7 +274,7 @@ class IoTboxHomepage(Home):
             'breadcrumb': 'Configure IoT Box',
             'loading_message': 'Configuring your IoT Box',
             'ssid': helpers.get_wifi_essid(),
-            'server': helpers.get_odoo_server_url() or '',
+            'server': helpers.get_ecommerce_server_url() or '',
             'hostname': subprocess.check_output('hostname').decode('utf-8').strip('\n'),
         })
 
@@ -292,10 +292,10 @@ class IoTboxHomepage(Home):
     @http.route('/server', type='http', auth='none', website=True)
     def server(self):
         return server_config_template.render({
-            'title': 'IoT -> Odoo server configuration',
-            'breadcrumb': 'Configure Odoo Server',
+            'title': 'IoT -> ecommerce server configuration',
+            'breadcrumb': 'Configure ecommerce Server',
             'hostname': subprocess.check_output('hostname').decode('utf-8').strip('\n'),
-            'server_status': helpers.get_odoo_server_url() or 'Not configured yet',
+            'server_status': helpers.get_ecommerce_server_url() or 'Not configured yet',
             'loading_message': 'Configure Domain Server'
         })
 
@@ -337,7 +337,7 @@ class IoTboxHomepage(Home):
     @http.route('/six_payment_terminal_add', type='http', auth='none', cors='*', csrf=False)
     def add_six_payment_terminal(self, terminal_id):
         if terminal_id.isdigit():
-            helpers.write_file('odoo-six-payment-terminal.conf', terminal_id)
+            helpers.write_file('ecommerce-six-payment-terminal.conf', terminal_id)
             service.server.restart()
         else:
             _logger.warning('Ignoring invalid Six TID: "%s". Only digits are allowed', terminal_id)
@@ -346,19 +346,19 @@ class IoTboxHomepage(Home):
 
     @http.route('/six_payment_terminal_clear', type='http', auth='none', cors='*', csrf=False)
     def clear_six_payment_terminal(self):
-        helpers.unlink_file('odoo-six-payment-terminal.conf')
+        helpers.unlink_file('ecommerce-six-payment-terminal.conf')
         service.server.restart()
         return "<meta http-equiv='refresh' content='0; url=http://" + helpers.get_ip() + ":8069'>"
 
     @http.route('/hw_proxy/upgrade', type='http', auth='none', )
     def upgrade(self):
-        commit = subprocess.check_output(["git", "--work-tree=/home/pi/odoo/", "--git-dir=/home/pi/odoo/.git", "log", "-1"]).decode('utf-8').replace("\n", "<br/>")
+        commit = subprocess.check_output(["git", "--work-tree=/home/pi/ecommerce/", "--git-dir=/home/pi/ecommerce/.git", "log", "-1"]).decode('utf-8').replace("\n", "<br/>")
         flashToVersion = helpers.check_image()
         actualVersion = helpers.get_version()
         if flashToVersion:
             flashToVersion = '%s.%s' % (flashToVersion.get('major', ''), flashToVersion.get('minor', ''))
         return upgrade_page_template.render({
-            'title': "Odoo's IoTBox - Software Upgrade",
+            'title': "ecommerce's IoTBox - Software Upgrade",
             'breadcrumb': 'IoT Box Software Upgrade',
             'loading_message': 'Updating IoT box',
             'commit': commit,
@@ -369,7 +369,7 @@ class IoTboxHomepage(Home):
     @http.route('/hw_proxy/perform_upgrade', type='http', auth='none')
     def perform_upgrade(self):
         self.updating.acquire()
-        os.system('/home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
+        os.system('/home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
         self.updating.release()
         return 'SUCCESS'
 
@@ -380,7 +380,7 @@ class IoTboxHomepage(Home):
     @http.route('/hw_proxy/perform_flashing_create_partition', type='http', auth='none')
     def perform_flashing_create_partition(self):
         try:
-            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; create_partition']).decode().split('\n')[-2]
+            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; create_partition']).decode().split('\n')[-2]
             if response in ['Error_Card_Size', 'Error_Upgrade_Already_Started']:
                 raise Exception(response)
             return Response('success', status=200)
@@ -393,7 +393,7 @@ class IoTboxHomepage(Home):
     @http.route('/hw_proxy/perform_flashing_download_raspios', type='http', auth='none')
     def perform_flashing_download_raspios(self):
         try:
-            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; download_raspios']).decode().split('\n')[-2]
+            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; download_raspios']).decode().split('\n')[-2]
             if response == 'Error_Raspios_Download':
                 raise Exception(response)
             return Response('success', status=200)
@@ -407,7 +407,7 @@ class IoTboxHomepage(Home):
     @http.route('/hw_proxy/perform_flashing_copy_raspios', type='http', auth='none')
     def perform_flashing_copy_raspios(self):
         try:
-            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; copy_raspios']).decode().split('\n')[-2]
+            response = subprocess.check_output(['sudo', 'bash', '-c', '. /home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/upgrade.sh; copy_raspios']).decode().split('\n')[-2]
             if response == 'Error_Iotbox_Download':
                 raise Exception(response)
             return Response('success', status=200)
@@ -418,12 +418,12 @@ class IoTboxHomepage(Home):
             _logger.exception("Flashing copy raspios failed")
             return Response(str(e), status=500)
 
-    @http.route('/iot_restart_odoo_or_reboot', type='json', auth='none', cors='*', csrf=False)
-    def iot_restart_odoo_or_reboot(self, action):
-        """ Reboots the IoT Box / restarts Odoo on it depending on chosen 'action' argument"""
+    @http.route('/iot_restart_ecommerce_or_reboot', type='json', auth='none', cors='*', csrf=False)
+    def iot_restart_ecommerce_or_reboot(self, action):
+        """ Reboots the IoT Box / restarts ecommerce on it depending on chosen 'action' argument"""
         try:
-            if action == 'restart_odoo':
-                helpers.odoo_restart(3)
+            if action == 'restart_ecommerce':
+                helpers.ecommerce_restart(3)
             else:
                 subprocess.call(['sudo', 'reboot'])
             return 'success'
@@ -436,18 +436,18 @@ class IoTboxHomepage(Home):
 
     def _get_iot_handler_logger(self, handler_name, handler_folder_name):
         """
-        Get Odoo Iot logger given an IoT handler name
+        Get ecommerce Iot logger given an IoT handler name
         :param handler_name: name of the IoT handler
         :param handler_folder_name: IoT handler folder name (interfaces or drivers)
         :return: logger if any, False otherwise
         """
-        odoo_addon_handler_path = helpers.compute_iot_handlers_addon_name(handler_folder_name, handler_name)
-        return odoo_addon_handler_path in logging.Logger.manager.loggerDict.keys() and \
-               logging.getLogger(odoo_addon_handler_path)
+        ecommerce_addon_handler_path = helpers.compute_iot_handlers_addon_name(handler_folder_name, handler_name)
+        return ecommerce_addon_handler_path in logging.Logger.manager.loggerDict.keys() and \
+               logging.getLogger(ecommerce_addon_handler_path)
 
     def _update_logger_level(self, logger_name, new_level, available_log_levels, handler_folder=False):
         """
-        Update (if necessary) Odoo's configuration and logger to the given logger_name to the given level.
+        Update (if necessary) ecommerce's configuration and logger to the given logger_name to the given level.
         The responsibility of saving the config file is not managed here.
         :param logger_name: name of the logging logger to change level
         :param new_level: new log level to set for this logger
@@ -466,8 +466,8 @@ class IoTboxHomepage(Home):
                 return False
             logger_name = logger.name
 
-        ODOO_TOOL_CONFIG_HANDLER_NAME = 'log_handler'
-        LOG_HANDLERS = tools.config[ODOO_TOOL_CONFIG_HANDLER_NAME]
+        ecommerce_TOOL_CONFIG_HANDLER_NAME = 'log_handler'
+        LOG_HANDLERS = tools.config[ecommerce_TOOL_CONFIG_HANDLER_NAME]
         LOGGER_PREFIX = logger_name + ':'
         IS_NEW_LEVEL_PARENT = new_level == 'parent'
 
@@ -491,12 +491,12 @@ class IoTboxHomepage(Home):
         # If it is "parent" it means we want it to inherit from the parent logger.
         # In order to do this we have to make sure that no entries for the logger exists in the
         # `log_handler` (which is the case at this point as long as we don't re-add an entry)
-        tools.config[ODOO_TOOL_CONFIG_HANDLER_NAME] = log_handlers_without_logger
+        tools.config[ecommerce_TOOL_CONFIG_HANDLER_NAME] = log_handlers_without_logger
         new_level_upper_case = new_level.upper()
         if not IS_NEW_LEVEL_PARENT:
             new_entry = [LOGGER_PREFIX + new_level_upper_case]
-            tools.config[ODOO_TOOL_CONFIG_HANDLER_NAME] += new_entry
-            _logger.debug('Adding to odoo config log_handler: %s', new_entry)
+            tools.config[ecommerce_TOOL_CONFIG_HANDLER_NAME] += new_entry
+            _logger.debug('Adding to ecommerce config log_handler: %s', new_entry)
 
         # Update the logger dynamically
         real_new_level = logging.NOTSET if IS_NEW_LEVEL_PARENT else new_level_upper_case

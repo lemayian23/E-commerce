@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo import tools
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.fields import Date
-from odoo.tests import Form, tagged, users, loaded_demo_data
-from odoo.tests.common import TransactionCase
+from ecommerce import tools
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.fields import Date
+from ecommerce.tests import Form, tagged, users, loaded_demo_data
+from ecommerce.tests.common import TransactionCase
 
 
 @tagged('crm_lead_pls')

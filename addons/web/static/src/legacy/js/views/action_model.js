@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.ActionModel **/
+/** @ecommerce-module alias=web.ActionModel **/
 
     import Domain from "web.Domain";
     import { FACET_ICONS } from "web.searchUtils";

@@ -1,5 +1,5 @@
-from odoo import models, _
-from odoo.exceptions import RedirectWarning
+from ecommerce import models, _
+from ecommerce.exceptions import RedirectWarning
 
 
 class StockQuant(models.Model):

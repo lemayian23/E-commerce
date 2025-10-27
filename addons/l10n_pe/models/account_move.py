@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import api, models, fields
-from odoo.tools.sql import column_exists, create_column
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import api, models, fields
+from ecommerce.tools.sql import column_exists, create_column
 
 
 class AccountMove(models.Model):

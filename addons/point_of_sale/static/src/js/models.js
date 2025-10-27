@@ -1,5 +1,5 @@
 /* global waitForWebfonts */
-odoo.define('point_of_sale.models', function (require) {
+ecommerce.define('point_of_sale.models', function (require) {
 "use strict";
 
 var PosDB = require('point_of_sale.DB');
@@ -197,7 +197,7 @@ class PosGlobalState extends PosModel {
         const loadedData = await this.env.services.rpc({
             model: 'pos.session',
             method: 'load_pos_data',
-            args: [[odoo.pos_session_id]],
+            args: [[ecommerce.pos_session_id]],
         });
         await this._processData(loadedData);
         return this.after_load_server_data();
@@ -246,7 +246,7 @@ class PosGlobalState extends PosModel {
         let orders = this.db.get_orders();
         let sequences = orders.map(order => order.data.sequence_number + 1)
         this.pos_session.sequence_number = Math.max(this.pos_session.sequence_number, ...sequences);
-        this.pos_session.login_number = odoo.login_number;
+        this.pos_session.login_number = ecommerce.login_number;
     }
     _loadPoSConfig() {
         this.db.set_uuid(this.config.uuid);
@@ -386,7 +386,7 @@ class PosGlobalState extends PosModel {
         let partners = await this.env.services.rpc({
             model: 'pos.session',
             method: 'get_pos_ui_res_partner_by_params',
-            args: [[odoo.pos_session_id], search_params],
+            args: [[ecommerce.pos_session_id], search_params],
         }, {
             timeout: 3000,
             shadow: true,
@@ -515,7 +515,7 @@ class PosGlobalState extends PosModel {
         const products = await this.env.services.rpc({
             model: 'pos.session',
             method: 'get_pos_ui_product_product_by_params',
-            args: [odoo.pos_session_id, {domain: [['id', 'in', [...missingProductIds]]]}],
+            args: [ecommerce.pos_session_id, {domain: [['id', 'in', [...missingProductIds]]]}],
         });
         await this._loadMissingPricelistItems(products);
         this._loadProductProduct(products);
@@ -528,7 +528,7 @@ class PosGlobalState extends PosModel {
         const pricelistItems = await this.env.services.rpc({
             model: 'pos.session',
             method: 'get_pos_ui_product_pricelist_item_by_product',
-            args: [odoo.pos_session_id, product_tmpl_ids, product_ids],
+            args: [ecommerce.pos_session_id, product_tmpl_ids, product_ids],
         });
 
         // Merge the loaded pricelist items with the existing pricelists
@@ -552,7 +552,7 @@ class PosGlobalState extends PosModel {
             const fetchedPartners = await this.env.services.rpc({
                 model: 'pos.session',
                 method: 'get_pos_ui_res_partner_by_params',
-                args: [[odoo.pos_session_id], {domain}],
+                args: [[ecommerce.pos_session_id], {domain}],
             }, {
                 timeout: 3000,
                 shadow: true,
@@ -578,7 +578,7 @@ class PosGlobalState extends PosModel {
             products = await this.env.services.rpc({
                 model: 'pos.session',
                 method: 'get_pos_ui_product_product_by_params',
-                args: [odoo.pos_session_id, {
+                args: [ecommerce.pos_session_id, {
                     offset: page * this.config.limited_products_amount,
                     limit: this.config.limited_products_amount,
                 }],
@@ -598,7 +598,7 @@ class PosGlobalState extends PosModel {
                 model: 'pos.session',
                 method: 'get_pos_ui_res_partner_by_params',
                 args: [
-                    [odoo.pos_session_id],
+                    [ecommerce.pos_session_id],
                     {
                         domain: domain,
                         limit: this.config.limited_partners_amount,
@@ -1433,7 +1433,7 @@ class PosGlobalState extends PosModel {
      * Directly calls the requested service, instead of triggering a
      * 'call_service' event up, which wouldn't work as services have no parent
      *
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _trigger_up (ev) {
         if (ev.is_stopped()) {
@@ -1534,7 +1534,7 @@ class PosGlobalState extends PosModel {
                     context: this.env.session.user_context,
                 });
             } catch (error) {
-                const ignoreError = this._isRPCError(error) && error.message.data && error.message.data.name === 'odoo.exceptions.AccessError';
+                const ignoreError = this._isRPCError(error) && error.message.data && error.message.data.name === 'ecommerce.exceptions.AccessError';
                 if (!ignoreError) {
                     throw error;
                 }
@@ -1543,7 +1543,7 @@ class PosGlobalState extends PosModel {
         let product = await this.env.services.rpc({
             model: 'pos.session',
             method: 'get_pos_ui_product_product_by_params',
-            args: [odoo.pos_session_id, {domain: [['id', 'in', ids]]}],
+            args: [ecommerce.pos_session_id, {domain: [['id', 'in', ids]]}],
         });
         await this._loadMissingPricelistItems(product);
         this._loadProductProduct(product);

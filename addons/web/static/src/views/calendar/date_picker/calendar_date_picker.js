@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, onMounted, onWillUnmount, useEffect, useRef, xml } from "@odoo/owl";
+import { Component, onMounted, onWillUnmount, useEffect, useRef, xml } from "@ecommerce/owl";
 const { DateTime, Info } = luxon;
 
 export class CalendarDatePicker extends Component {

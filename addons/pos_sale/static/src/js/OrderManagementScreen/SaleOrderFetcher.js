@@ -1,4 +1,4 @@
-odoo.define('pos_sale.SaleOrderFetcher', function (require) {
+ecommerce.define('pos_sale.SaleOrderFetcher', function (require) {
     'use strict';
 
     const { Gui } = require('point_of_sale.Gui');

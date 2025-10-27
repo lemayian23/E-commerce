@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="inline_form">
         <div t-if="provider.authorize_payment_method_type == 'credit_card'" t-attf-id="o_authorize_form_{{provider_id}}" class="o_authorize_form">
@@ -49,4 +49,4 @@
         </div>
     </template>
 
-</odoo>
+</ecommerce>

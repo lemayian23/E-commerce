@@ -1,4 +1,4 @@
-odoo.define('website_livechat.tour_common', function (require) {
+ecommerce.define('website_livechat.tour_common', function (require) {
 'use strict';
 
 // Due to some issue with assets bundles, the current file can be loaded while

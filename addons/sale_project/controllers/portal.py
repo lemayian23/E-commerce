@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _lt
-from odoo.osv.expression import OR
+from ecommerce import _lt
+from ecommerce.osv.expression import OR
 
-from odoo.addons.project.controllers.portal import ProjectCustomerPortal
+from ecommerce.addons.project.controllers.portal import ProjectCustomerPortal
 
 
 class SaleProjectCustomerPortal(ProjectCustomerPortal):

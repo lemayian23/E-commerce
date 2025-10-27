@@ -1,4 +1,4 @@
-odoo.define('website.tour.form_editor', function (require) {
+ecommerce.define('website.tour.form_editor', function (require) {
     'use strict';
 
     const wTourUtils = require("website.tour_utils");
@@ -12,7 +12,7 @@ odoo.define('website.tour.form_editor', function (require) {
     const ESSENTIAL_FIELDS_VALID_DATA_FOR_DEFAULT_FORM = [
         {
             name: 'email_from',
-            value: 'admin@odoo.com',
+            value: 'admin@ecommerce.com',
         },
         {
             name: 'subject',
@@ -257,7 +257,7 @@ odoo.define('website.tour.form_editor', function (require) {
             trigger: "we-customizeblock-option.snippet-option-WebsiteFieldEditor we-select[data-name='hidden_condition_opt']:not(:has(we-button:contains('Conditional Visibility Check 5')))",
             run: () => null,
         },
-        ...addExistingField('email_cc', 'text', 'Test conditional visibility', false, {visibility: CONDITIONALVISIBILITY, condition: 'odoo'}),
+        ...addExistingField('email_cc', 'text', 'Test conditional visibility', false, {visibility: CONDITIONALVISIBILITY, condition: 'ecommerce'}),
         // Check that visibility condition is deleted on dependency type change.
         ...addCustomField("char", "text", "dependent", false, {visibility: CONDITIONALVISIBILITY}),
         ...addCustomField("selection", "radio", "dependency", false),
@@ -466,7 +466,7 @@ odoo.define('website.tour.form_editor', function (require) {
             trigger: 'iframe #wrapwrap',
             run: () => {
                 const wysiwyg = $('iframe:not(.o_ignore_in_tour)').contents().find('#wrapwrap').data('wysiwyg');
-                wysiwyg.odooEditor.historyStep(true);
+                wysiwyg.ecommerceEditor.historyStep(true);
             },
         },
         // Edit the submit button using linkDialog.

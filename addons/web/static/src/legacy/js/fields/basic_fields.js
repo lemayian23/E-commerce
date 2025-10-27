@@ -1,5 +1,5 @@
 /* global ace */
-odoo.define('web.basic_fields', function (require) {
+ecommerce.define('web.basic_fields', function (require) {
 "use strict";
 
 /**
@@ -30,7 +30,7 @@ const { hidePDFJSButtons } = require('@web/legacy/js/libs/pdfjs');
 
 let FieldBoolean = deprecatedFields.FieldBoolean;
 
-require("web.zoomodoo");
+require("web.zoomecommerce");
 
 var qweb = core.qweb;
 var _t = core._t;
@@ -428,7 +428,7 @@ var InputField = DebouncedField.extend({
      * has been trigerred. This allows to detect that all changes have been
      * acknowledged by the environment.
      *
-     * @param {OdooEvent} event 'field_changed' event
+     * @param {ecommerceEvent} event 'field_changed' event
      */
     _onFieldChanged: function (event) {
         this.lastChangeEvent = event;
@@ -447,7 +447,7 @@ var InputField = DebouncedField.extend({
      * start/end of the input element.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onNavigationMove: function (ev) {
         this._super.apply(this, arguments);
@@ -631,7 +631,7 @@ var NumericField = InputField.extend({
      * by the decimal separator from the user's language setting.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onKeydown(ev) {
         const kbdEvt = ev.originalEvent;
@@ -844,7 +844,7 @@ var FieldDateRange = InputField.extend({
         var changedEndDate = picker.endDate;
         if (this.isDateField) {
             // In date mode, the library will give moment object of start and end date having
-            // time at 00:00:00. So, Odoo will consider it as UTC. To fix this added browser
+            // time at 00:00:00. So, ecommerce will consider it as UTC. To fix this added browser
             // timezone offset in dates to get a correct selected date.
             changedStartDate = picker.startDate.add(session.getTZOffset(picker.startDate), 'minutes');
             changedEndDate = picker.endDate.startOf('day').add(session.getTZOffset(picker.endDate), 'minutes');
@@ -1626,7 +1626,7 @@ var FieldFloatToggle = AbstractField.extend({
      * the range will be displayed.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onClick: function(ev) {
         // force the button to work in readonly mode
@@ -1752,7 +1752,7 @@ var FieldText = InputField.extend(TranslatableFieldMixin, {
      * Stops the enter navigation in a text area.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onKeydown: function (ev) {
         if (ev.which === $.ui.keyCode.ENTER) {
@@ -2341,7 +2341,7 @@ var FieldBinaryImage = AbstractFieldBinary.extend({
                 $img.attr('data-zoom', 1);
                 $img.attr('data-zoom-image', url);
 
-                $img.zoomOdoo({
+                $img.zoomecommerce({
                     event: 'mouseenter',
                     timer: zoomDelay,
                     attach: '.o_content',
@@ -3949,7 +3949,7 @@ var FieldDomain = AbstractField.extend({
      * Called when the domain selector value is changed
      * -> Adapt the internal value state
      *
-     * @param {OdooEvent} e
+     * @param {ecommerceEvent} e
      * @param {Domain} e.data.domain
      */
     _onDomainSelectorValueChange: function (e) {
@@ -3962,7 +3962,7 @@ var FieldDomain = AbstractField.extend({
      * Called when the in-dialog domain selector value is confirmed
      * -> Adapt the internal value state
      *
-     * @param {OdooEvent} e
+     * @param {ecommerceEvent} e
      */
     _onDomainSelectorDialogValueChange: function (e) {
         this._setValue(Domain.prototype.arrayToString(e.data.domain));
@@ -3971,7 +3971,7 @@ var FieldDomain = AbstractField.extend({
      * Stops the propagation of the 'open_record' event, as we don't want the
      * user to be able to open records from the list opened in a dialog.
      *
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onOpenRecord: function (event) {
         event.stopPropagation();
@@ -3980,7 +3980,7 @@ var FieldDomain = AbstractField.extend({
      * Stops the enter navigation in a DomainSelector's textarea.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
      _onKeydown: function (ev) {
         if (ev.which === $.ui.keyCode.ENTER && ev.target.tagName === "TEXTAREA") {
@@ -4173,7 +4173,7 @@ var FieldColor = AbstractField.extend({
 
     /**
     * @private
-    * @param {OdooEvent} ev
+    * @param {ecommerceEvent} ev
     */
     _onColorpickerSaved: function (ev) {
         this._setValue(ev.data.hex);

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
-from odoo.exceptions import ValidationError
-from odoo.tests.common import Form, TransactionCase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import Form, TransactionCase
 
 
 class TestInventory(TransactionCase):

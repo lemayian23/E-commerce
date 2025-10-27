@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { CalendarController } from "@web/views/calendar/calendar_controller";
 import { useService } from "@web/core/utils/hooks";
-import { onWillStart } from "@odoo/owl";
+import { onWillStart } from "@ecommerce/owl";
 
 export class AttendeeCalendarController extends CalendarController {
     setup() {

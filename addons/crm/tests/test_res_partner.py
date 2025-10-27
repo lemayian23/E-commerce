@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.crm.tests.common import TestCrmCommon
-from odoo.tests.common import Form
-from odoo.tests import tagged, users
+from ecommerce.addons.crm.tests.common import TestCrmCommon
+from ecommerce.tests.common import Form
+from ecommerce.tests import tagged, users
 
 
 @tagged('res_partner')

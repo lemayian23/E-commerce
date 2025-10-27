@@ -5,7 +5,7 @@ from . import report
 from . import wizard
 from . import controllers
 
-from odoo import SUPERUSER_ID, api
+from ecommerce import SUPERUSER_ID, api
 
 
 def uninstall_hook(cr, registry):

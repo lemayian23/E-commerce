@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models
-from odoo.tools import unique
-from odoo.exceptions import UserError
+from ecommerce import _, api, fields, models
+from ecommerce.tools import unique
+from ecommerce.exceptions import UserError
 
 class LoyaltyProgram(models.Model):
     _inherit = 'loyalty.program'

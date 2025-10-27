@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <!-- Catchall Email Alias -->
         <record id="icp_mail_catchall_alias" model="ir.config_parameter">
@@ -20,4 +20,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

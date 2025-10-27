@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "../../o_spreadsheet/o_spreadsheet_extended";
 import CommandResult from "../../o_spreadsheet/cancelled_reason";
@@ -54,7 +54,7 @@ export default class ListCorePlugin extends CorePlugin {
 
     allowDispatch(cmd) {
         switch (cmd.type) {
-            case "INSERT_ODOO_LIST":
+            case "INSERT_ecommerce_LIST":
                 if (cmd.id !== this.nextId.toString()) {
                     return CommandResult.InvalidNextId;
                 }
@@ -62,7 +62,7 @@ export default class ListCorePlugin extends CorePlugin {
                     return CommandResult.ListIdDuplicated;
                 }
                 break;
-            case "RENAME_ODOO_LIST":
+            case "RENAME_ecommerce_LIST":
                 if (!(cmd.listId in this.lists)) {
                     return CommandResult.ListIdNotFound;
                 }
@@ -70,7 +70,7 @@ export default class ListCorePlugin extends CorePlugin {
                     return CommandResult.EmptyName;
                 }
                 break;
-            case "UPDATE_ODOO_LIST_DOMAIN":
+            case "UPDATE_ecommerce_LIST_DOMAIN":
                 if (!(cmd.listId in this.lists)) {
                     return CommandResult.ListIdNotFound;
                 }
@@ -91,7 +91,7 @@ export default class ListCorePlugin extends CorePlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "INSERT_ODOO_LIST": {
+            case "INSERT_ecommerce_LIST": {
                 const {
                     sheetId,
                     col,
@@ -108,23 +108,23 @@ export default class ListCorePlugin extends CorePlugin {
                 this.history.update("nextId", parseInt(id, 10) + 1);
                 break;
             }
-            case "RE_INSERT_ODOO_LIST": {
+            case "RE_INSERT_ecommerce_LIST": {
                 const { sheetId, col, row, id, linesNumber, columns } = cmd;
                 const anchor = [col, row];
                 this._insertList(sheetId, anchor, id, linesNumber, columns);
                 break;
             }
-            case "RENAME_ODOO_LIST": {
+            case "RENAME_ecommerce_LIST": {
                 this.history.update("lists", cmd.listId, "definition", "name", cmd.name);
                 break;
             }
-            case "REMOVE_ODOO_LIST": {
+            case "REMOVE_ecommerce_LIST": {
                 const lists = { ...this.lists };
                 delete lists[cmd.listId];
                 this.history.update("lists", lists);
                 break;
             }
-            case "UPDATE_ODOO_LIST_DOMAIN": {
+            case "UPDATE_ecommerce_LIST_DOMAIN": {
                 this.history.update(
                     "lists",
                     cmd.listId,
@@ -140,7 +140,7 @@ export default class ListCorePlugin extends CorePlugin {
             case "UNDO":
             case "REDO": {
                 const domainEditionCommands = cmd.commands.filter(
-                    (cmd) => cmd.type === "UPDATE_ODOO_LIST_DOMAIN"
+                    (cmd) => cmd.type === "UPDATE_ecommerce_LIST_DOMAIN"
                 );
                 for (const cmd of domainEditionCommands) {
                     const list = this.lists[cmd.listId];
@@ -180,14 +180,14 @@ export default class ListCorePlugin extends CorePlugin {
      * Extract the position of the records asked in the given formula and
      * increase the max position of the corresponding data source.
      *
-     * @param {string} content Odoo list formula
+     * @param {string} content ecommerce list formula
      */
     _addListPositionToDataSource(content) {
         if (getNumberOfListFormulas(content) !== 1) {
             return;
         }
         const { functionName, args } = getFirstListFunction(content);
-        if (functionName !== "ODOO.LIST") {
+        if (functionName !== "ecommerce.LIST") {
             return;
         }
         const [listId, positionArg] = args.map((arg) => arg.value.toString());
@@ -357,7 +357,7 @@ export default class ListCorePlugin extends CorePlugin {
     }
 
     /**
-     * Build an Odoo List
+     * Build an ecommerce List
      * @param {string} sheetId Id of the sheet
      * @param {[number,number]} anchor Top-left cell in which the list should be inserted
      * @param {string} id Id of the list
@@ -377,7 +377,7 @@ export default class ListCorePlugin extends CorePlugin {
                 sheetId,
                 col,
                 row,
-                content: `=ODOO.LIST.HEADER(${id},"${column.name}")`,
+                content: `=ecommerce.LIST.HEADER(${id},"${column.name}")`,
             });
             col++;
         }
@@ -405,7 +405,7 @@ export default class ListCorePlugin extends CorePlugin {
                     sheetId,
                     col,
                     row,
-                    content: `=ODOO.LIST(${id},${i},"${column.name}")`,
+                    content: `=ecommerce.LIST(${id},${i},"${column.name}")`,
                 });
                 col++;
             }

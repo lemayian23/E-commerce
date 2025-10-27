@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 
-from odoo.tests.common import TransactionCase
-from odoo.modules.module import get_module_resource
+from ecommerce.tests.common import TransactionCase
+from ecommerce.modules.module import get_module_resource
 
 
 class TestProductConfiguratorCommon(TransactionCase):

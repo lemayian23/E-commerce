@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { sortBy } from "@web/core/utils/arrays";
 
 class Group extends owl.Component {

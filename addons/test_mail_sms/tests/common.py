@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.addons.sms.tests.common import SMSCommon
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.addons.sms.tests.common import SMSCommon
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
 
 
 class TestSMSCommon(SMSCommon, TestMailCommon):

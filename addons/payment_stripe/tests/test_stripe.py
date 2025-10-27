@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import sys
 from unittest.mock import patch
 
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.payment_stripe.controllers.main import StripeController
-from odoo.addons.payment_stripe.tests.common import StripeCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment_stripe.controllers.main import StripeController
+from ecommerce.addons.payment_stripe.tests.common import StripeCommon
 
 
 @tagged('post_install', '-at_install')
@@ -25,19 +25,19 @@ class StripeTest(StripeCommon, PaymentHttpCommon):
         with patch.object(
             type(self.env['payment.transaction']), '_stripe_create_checkout_session',
             mock_stripe_create_checkout_session,
-        ), mute_logger('odoo.addons.payment.models.payment_transaction'):
+        ), mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
 
         self.assertEqual(processing_values['publishable_key'], self.stripe.stripe_publishable_key)
         self.assertEqual(processing_values['session_id'], dummy_session_id)
 
-    @mute_logger('odoo.addons.payment_stripe.models.payment_transaction')
+    @mute_logger('ecommerce.addons.payment_stripe.models.payment_transaction')
     def test_tx_state_after_send_capture_request(self):
         self.provider.capture_manually = True
         tx = self._create_transaction('redirect', state='authorized')
 
         with patch(
-            'odoo.addons.payment_stripe.models.payment_provider.PaymentProvider'
+            'ecommerce.addons.payment_stripe.models.payment_provider.PaymentProvider'
             '._stripe_make_request',
             return_value={'status': 'succeeded'},
         ):
@@ -46,13 +46,13 @@ class StripeTest(StripeCommon, PaymentHttpCommon):
             tx.state, 'done', msg="The state should be 'done' after a successful capture."
         )
 
-    @mute_logger('odoo.addons.payment_stripe.models.payment_transaction')
+    @mute_logger('ecommerce.addons.payment_stripe.models.payment_transaction')
     def test_tx_state_after_send_void_request(self):
         self.provider.capture_manually = True
         tx = self._create_transaction('redirect', state='authorized')
 
         with patch(
-            'odoo.addons.payment_stripe.models.payment_provider.PaymentProvider'
+            'ecommerce.addons.payment_stripe.models.payment_provider.PaymentProvider'
             '._stripe_make_request',
             return_value={'status': 'canceled'},
         ):
@@ -61,19 +61,19 @@ class StripeTest(StripeCommon, PaymentHttpCommon):
             tx.state, 'cancel', msg="The state should be 'cancel' after voiding the transaction."
         )
 
-    @mute_logger('odoo.addons.payment_stripe.controllers.main')
+    @mute_logger('ecommerce.addons.payment_stripe.controllers.main')
     def test_webhook_notification_confirms_transaction(self):
         """ Test the processing of a webhook notification. """
         tx = self._create_transaction('redirect')
         url = self._build_url(StripeController._webhook_url)
         with patch(
-            'odoo.addons.payment_stripe.controllers.main.StripeController'
+            'ecommerce.addons.payment_stripe.controllers.main.StripeController'
             '._verify_notification_signature'
         ):
             self._make_json_request(url, data=self.notification_data)
         self.assertEqual(tx.state, 'done')
 
-    @mute_logger('odoo.addons.payment_stripe.controllers.main')
+    @mute_logger('ecommerce.addons.payment_stripe.controllers.main')
     def test_webhook_notification_tokenizes_payment_method(self):
         """ Test the processing of a webhook notification. """
         self._create_transaction('dummy', operation='validation', tokenize=True)
@@ -84,14 +84,14 @@ class StripeTest(StripeCommon, PaymentHttpCommon):
             'type': 'card'
         }
         with patch(
-            'odoo.addons.payment_stripe.controllers.main.StripeController'
+            'ecommerce.addons.payment_stripe.controllers.main.StripeController'
             '._verify_notification_signature'
         ), patch(
-            'odoo.addons.payment_stripe.models.payment_provider.PaymentProvider'
+            'ecommerce.addons.payment_stripe.models.payment_provider.PaymentProvider'
             '._stripe_make_request',
             return_value=payment_method_response,
         ), patch(
-            'odoo.addons.payment_stripe.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment_stripe.models.payment_transaction.PaymentTransaction'
             '._stripe_tokenize_from_notification_data'
         ) as tokenize_check_mock:
             self._make_json_request(
@@ -99,16 +99,16 @@ class StripeTest(StripeCommon, PaymentHttpCommon):
             )
         self.assertEqual(tokenize_check_mock.call_count, 1)
 
-    @mute_logger('odoo.addons.payment_stripe.controllers.main')
+    @mute_logger('ecommerce.addons.payment_stripe.controllers.main')
     def test_webhook_notification_triggers_signature_check(self):
         """ Test that receiving a webhook notification triggers a signature check. """
         self._create_transaction('redirect')
         url = self._build_url(StripeController._webhook_url)
         with patch(
-            'odoo.addons.payment_stripe.controllers.main.StripeController'
+            'ecommerce.addons.payment_stripe.controllers.main.StripeController'
             '._verify_notification_signature'
         ) as signature_check_mock, patch(
-            'odoo.addons.payment.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment.models.payment_transaction.PaymentTransaction'
             '._handle_notification_data'
         ):
             self._make_json_request(url, data=self.notification_data)

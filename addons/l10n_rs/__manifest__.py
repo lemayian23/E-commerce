@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     "name": "Serbia - Accounting",
@@ -8,7 +8,7 @@
     "description": """
         This is the base module of the Serbian localization. It manages chart of accounts and taxes.
     """,
-    "author": "Modoolar, Odoo S.A.",
+    "author": "Mecommercelar, ecommerce S.A.",
     "depends": ["account", "base_vat"],
     "data": [
         "data/account_chart_template_data.xml",

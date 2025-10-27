@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { Deferred } from "@web/core/utils/concurrency";
@@ -93,7 +93,7 @@ export const busService = {
             }
             send('initialize_connection', {
                 websocketURL: `${legacySession.prefix.replace("http", "ws")}/websocket`,
-                debug: odoo.debug,
+                debug: ecommerce.debug,
                 lastNotificationId: multiTab.getSharedValue('last_notification_id', 0),
                 uid,
                 startTs,
@@ -116,8 +116,8 @@ export const busService = {
             const workerClass = isUsingSharedWorker ? browser.SharedWorker : browser.Worker;
             worker = new workerClass(workerURL, {
                 name: isUsingSharedWorker
-                    ? 'odoo:websocket_shared_worker'
-                    : 'odoo:websocket_worker',
+                    ? 'ecommerce:websocket_shared_worker'
+                    : 'ecommerce:websocket_worker',
             });
             worker.addEventListener("error", (e) => {
                 if (!isInitialized && workerClass === browser.SharedWorker) {

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, registry
-from odoo.api import Environment
-from odoo.fields import Datetime
-from odoo.http import request
-from odoo.addons.bus.websocket import wsrequest
+from ecommerce import models, registry
+from ecommerce.api import Environment
+from ecommerce.fields import Datetime
+from ecommerce.http import request
+from ecommerce.addons.bus.websocket import wsrequest
 
 class IrWebsocket(models.AbstractModel):
     _inherit = 'ir.websocket'

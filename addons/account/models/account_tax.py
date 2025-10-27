@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _, Command
-from odoo.osv import expression
-from odoo.tools.float_utils import float_round
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools.misc import formatLang
-from odoo.tools import frozendict
+from ecommerce import api, fields, models, _, Command
+from ecommerce.osv import expression
+from ecommerce.tools.float_utils import float_round
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools.misc import formatLang
+from ecommerce.tools import frozendict
 
 from collections import defaultdict
 import math
@@ -61,7 +61,7 @@ class AccountTaxGroup(models.Model):
         # because of an ORM limitation with search on property fields:
         # searching on property = False also returns the properties using the default value,
         # even if it's non-empty.
-        # (introduced here https://github.com/odoo/odoo/pull/6044)
+        # (introduced here https://github.com/ecommerce/ecommerce/pull/6044)
         all_configured_groups_ids = self.with_company(company)._search([
             ('property_tax_payable_account_id', '!=', False),
             ('property_tax_receivable_account_id', '!=', False),

@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import enum
 import stdnum
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
 
 
 def verify_final_consumer(vat):
@@ -96,7 +96,7 @@ class ResPartner(models.Model):
                                                            "(SRI has stated that this validation is not required anymore for some VAT numbers)") % partner.vat
 
     def _l10n_ec_get_identification_type(self):
-        """Maps Odoo identification types to Ecuadorian ones.
+        """Maps ecommerce identification types to Ecuadorian ones.
         Useful for document type domains, electronic documents, ats, others.
         """
         self.ensure_one()

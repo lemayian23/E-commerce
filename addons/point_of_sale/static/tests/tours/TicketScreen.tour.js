@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tour.TicketScreen', function (require) {
+ecommerce.define('point_of_sale.tour.TicketScreen', function (require) {
     'use strict';
 
     const { ProductScreen } = require('point_of_sale.tour.ProductScreenTourMethods');

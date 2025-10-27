@@ -3,12 +3,12 @@ import contextlib
 from pylint import checkers, interfaces
 
 
-class OdooBaseChecker(checkers.BaseChecker):
+class ecommerceBaseChecker(checkers.BaseChecker):
     with contextlib.suppress(AttributeError):  # TODO, TODO, remove once pylint minimal version is 3.0.0
         __implements__ = interfaces.IAstroidChecker
         # see https://github.com/pylint-dev/pylint/commit/358264aaf622505f6d2e8bc699618382981a078c
 
-    name = 'odoo'
+    name = 'ecommerce'
 
     msgs = {
         'E8503': (
@@ -37,4 +37,4 @@ class OdooBaseChecker(checkers.BaseChecker):
             parent = parent.parent
 
 def register(linter):
-    linter.register_checker(OdooBaseChecker(linter))
+    linter.register_checker(ecommerceBaseChecker(linter))

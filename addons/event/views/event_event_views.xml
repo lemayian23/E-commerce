@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo><data>
+<ecommerce><data>
 
     <record model="ir.ui.view" id="view_event_form">
         <field name="name">event.event.form</field>
@@ -319,4 +319,4 @@
         <field name="action" ref="event.action_event_view"/>
     </record>
 
-</data></odoo>
+</data></ecommerce>

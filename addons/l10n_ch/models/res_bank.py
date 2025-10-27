@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 from stdnum.util import clean
 
-from odoo import api, fields, models, _
-from odoo.addons.base.models.res_bank import sanitize_account_number
-from odoo.addons.base_iban.models.res_partner_bank import normalize_iban, pretty_iban, validate_iban
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools.misc import mod10r
+from ecommerce import api, fields, models, _
+from ecommerce.addons.base.models.res_bank import sanitize_account_number
+from ecommerce.addons.base_iban.models.res_partner_bank import normalize_iban, pretty_iban, validate_iban
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.tools.misc import mod10r
 
 ISR_SUBSCRIPTION_CODE = {'CHF': '01', 'EUR': '03'}
 CLEARING = "09000"

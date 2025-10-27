@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<odoo><data>
+<ecommerce><data>
 
 <!-- Channels sub-template: header -->
 <template id="course_nav" name="Course Navigation Header">
@@ -810,4 +810,4 @@
     <i t-if="not slide.slide_type" t-att-class="'fa fa-file-o %s' % icon_class"></i>
 </template>
 
-</data></odoo>
+</data></ecommerce>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import Command
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
 
 
 class TestTaxCommon(AccountTestInvoicingCommon):

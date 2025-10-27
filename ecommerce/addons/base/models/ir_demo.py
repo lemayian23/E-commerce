@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.modules.loading import force_demo
-from odoo.addons.base.models.ir_module import assert_log_admin_access
+from ecommerce import models
+from ecommerce.modules.loading import force_demo
+from ecommerce.addons.base.models.ir_module import assert_log_admin_access
 
 
 class IrDemo(models.TransientModel):

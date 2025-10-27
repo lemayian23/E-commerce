@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.sale.tests.common import TestSaleCommon
+from ecommerce.addons.sale.tests.common import TestSaleCommon
 
 
 class TestSaleProjectCommon(TestSaleCommon):

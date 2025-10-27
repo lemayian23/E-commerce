@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import controllers
 from . import models
 from . import wizards
 
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 
 def post_init_hook(cr, registry):

@@ -1,4 +1,4 @@
-odoo.define('web.DataManager', function (require) {
+ecommerce.define('web.DataManager', function (require) {
 "use strict";
 
 var config = require('web.config');
@@ -102,7 +102,7 @@ return core.Class.extend({
                 result = generateLegacyLoadViewsResult(model, views, models);
                 // Freeze the fields dict as it will be shared between views and
                 // no one should edit it
-                // utils.deepFreeze(result.fields); // OWL issue regarding proxies and frozen objects https://github.com/odoo/owl/issues/1158
+                // utils.deepFreeze(result.fields); // OWL issue regarding proxies and frozen objects https://github.com/ecommerce/owl/issues/1158
                 for (const [ /* viewId */ , viewType] of views_descr) {
                     const fvg = result.fields_views[viewType];
                     fvg.viewFields = fvg.fields;
@@ -224,7 +224,7 @@ return core.Class.extend({
 
 });
 
-odoo.define('web.data_manager', function (require) {
+ecommerce.define('web.data_manager', function (require) {
 "use strict";
 
 var DataManager = require('web.DataManager');

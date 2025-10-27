@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import exceptions, tools
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
-from odoo.tests.common import tagged
-from odoo.tools import mute_logger
+from ecommerce import exceptions, tools
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.tests.common import tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_thread', 'mail_blacklist')
 class TestMailThread(TestMailCommon, TestRecipients):
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_blacklist_mixin_email_normalized(self):
         """ Test email_normalized and is_blacklisted fields behavior, notably
         when dealing with encapsulated email fields and multi-email input. """

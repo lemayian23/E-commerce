@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { childNodeIndex, isBlock } from '../utils/utils.js';
 
 Text.prototype.oAlign = function (offset, mode) {

@@ -1,4 +1,4 @@
-odoo.define('payment.post_processing', function (require) {
+ecommerce.define('payment.post_processing', function (require) {
     'use strict';
 
     var publicWidget = require('web.public.widget');

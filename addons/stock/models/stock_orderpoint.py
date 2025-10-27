@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from pytz import timezone, UTC
@@ -8,12 +8,12 @@ from datetime import datetime, time
 from dateutil import relativedelta
 from psycopg2 import OperationalError
 
-from odoo import SUPERUSER_ID, _, api, fields, models, registry
-from odoo.addons.stock.models.stock_rule import ProcurementException
-from odoo.exceptions import RedirectWarning, UserError, ValidationError
-from odoo.osv import expression
-from odoo.sql_db import BaseCursor
-from odoo.tools import float_compare, frozendict, split_every
+from ecommerce import SUPERUSER_ID, _, api, fields, models, registry
+from ecommerce.addons.stock.models.stock_rule import ProcurementException
+from ecommerce.exceptions import RedirectWarning, UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.sql_db import BaseCursor
+from ecommerce.tools import float_compare, frozendict, split_every
 
 _logger = logging.getLogger(__name__)
 
@@ -64,11 +64,11 @@ class StockWarehouseOrderpoint(models.Model):
     product_uom_name = fields.Char(string='Product unit of measure label', related='product_uom.display_name', readonly=True)
     product_min_qty = fields.Float(
         'Min Quantity', digits='Product Unit of Measure', required=True, default=0.0,
-        help="When the virtual stock goes below the Min Quantity specified for this field, Odoo generates "
+        help="When the virtual stock goes below the Min Quantity specified for this field, ecommerce generates "
              "a procurement to bring the forecasted quantity to the Max Quantity.")
     product_max_qty = fields.Float(
         'Max Quantity', digits='Product Unit of Measure', required=True, default=0.0,
-        help="When the virtual stock goes below the Min Quantity, Odoo generates "
+        help="When the virtual stock goes below the Min Quantity, ecommerce generates "
              "a procurement to bring the forecasted quantity to the Quantity specified as Max Quantity.")
     qty_multiple = fields.Float(
         'Multiple Quantity', digits='Product Unit of Measure',

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ Modules (also called addons) management.
 
@@ -7,9 +7,9 @@
 
 from . import db, graph, loading, migration, module, registry, neutralize
 
-from odoo.modules.loading import load_modules, reset_modules_state
+from ecommerce.modules.loading import load_modules, reset_modules_state
 
-from odoo.modules.module import (
+from ecommerce.modules.module import (
     adapt_version,
     check_manifest_dependencies,
     get_module_path,

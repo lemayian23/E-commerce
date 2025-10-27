@@ -45,8 +45,8 @@ var DateTimePicker = function ($, moment) {
         EVENT_KEY = '.' + DATA_KEY,
         DATA_API_KEY = '.data-api',
         Selector = {
-        // /!\ ODOO PATCH: ensure the datetimepickers can be toggled only after
-        // the Odoo lazy loader finished loading all lazy scripts. Another
+        // /!\ ecommerce PATCH: ensure the datetimepickers can be toggled only after
+        // the ecommerce lazy loader finished loading all lazy scripts. Another
         // solution could have been to temporarily removing the data-toggle
         // attributes during lazyloading but that would not have been stable as
         // custom code could search for data-toggle elements while the lazy
@@ -497,7 +497,7 @@ var DateTimePicker = function ($, moment) {
         DateTimePicker.prototype._change = function _change(e) {
             var val = $(e.target).val().trim(),
                 parsedDate = val ? this._parseInputDate(val) : null;
-            this._setValue(parsedDate, 0); // Odoo FIX: if a valid date is replaced by an invalid one, lib will crash, see https://github.com/tempusdominus/bootstrap-4/issues/223
+            this._setValue(parsedDate, 0); // ecommerce FIX: if a valid date is replaced by an invalid one, lib will crash, see https://github.com/tempusdominus/bootstrap-4/issues/223
             e.stopImmediatePropagation();
             return false;
         };
@@ -568,7 +568,7 @@ var DateTimePicker = function ($, moment) {
         };
 
         DateTimePicker.prototype._notifyEvent = function _notifyEvent(e) {
-            // /!\ ODOO FIX: these next conditions have been modified by odoo
+            // /!\ ecommerce FIX: these next conditions have been modified by ecommerce
             // FIXME should write a test about the tricky case this handles
             if (e.type === DateTimePicker.Event.CHANGE) {
                 if (!e.date && !e.oldDate) {
@@ -792,7 +792,7 @@ var DateTimePicker = function ($, moment) {
         };
 
         DateTimePicker.prototype._getLastPickedDate = function _getLastPickedDate() {
-            return this._dates[this._getLastPickedDateIndex()] || this.getMoment(); // FIXME changed by Odoo
+            return this._dates[this._getLastPickedDateIndex()] || this.getMoment(); // FIXME changed by ecommerce
         };
 
         DateTimePicker.prototype._getLastPickedDateIndex = function _getLastPickedDateIndex() {
@@ -802,10 +802,10 @@ var DateTimePicker = function ($, moment) {
         //public
 
 
-        DateTimePicker.prototype.getMoment = function getMoment(d, f) { // ODOO FIX: give optional format
+        DateTimePicker.prototype.getMoment = function getMoment(d, f) { // ecommerce FIX: give optional format
             var returnMoment = void 0;
 
-            // ODOO FIX: default to original `parseFormats` attribute
+            // ecommerce FIX: default to original `parseFormats` attribute
             if (!f) {
                 f = this.parseFormats;
             }
@@ -815,9 +815,9 @@ var DateTimePicker = function ($, moment) {
             } else if (this._hasTimeZone()) {
                 // There is a string to parse and a default time zone
                 // parse with the tz function which takes a default time zone if it is not in the format string
-                returnMoment = moment.tz(d, f, this._options.locale, this._options.useStrict, this._options.timeZone); // ODOO FIX: use format argument
+                returnMoment = moment.tz(d, f, this._options.locale, this._options.useStrict, this._options.timeZone); // ecommerce FIX: use format argument
             } else {
-                returnMoment = moment(d, f, this._options.locale, this._options.useStrict); // ODOO FIX: use format argument
+                returnMoment = moment(d, f, this._options.locale, this._options.useStrict); // ecommerce FIX: use format argument
             }
 
             if (this._hasTimeZone()) {
@@ -1872,7 +1872,7 @@ var TempusDominusBootstrap4 = function ($) {
                 self._element.children().first().after(self.widget);
             }
 
-            // /!\ ODOO FIX: the 3 next lines have been *added* by odoo
+            // /!\ ecommerce FIX: the 3 next lines have been *added* by ecommerce
             var parentOffset = parent.offset();
             position.top = offset.top - parentOffset.top;
             position.left = offset.left - parentOffset.left;
@@ -2099,12 +2099,12 @@ var TempusDominusBootstrap4 = function ($) {
                 daysViewHeader.eq(2).addClass('disabled');
             }
 
-            // !! ODOO FIX START !!
+            // !! ecommerce FIX START !!
             var now = this.getMoment();
             // currentDate = this._viewDate.clone().startOf('M').startOf('w').startOf('d');
             // avoid issue of safari + DST at midnight
             currentDate = this._viewDate.clone().startOf('M').startOf('w').add(12, 'hours');
-            // !! ODOO FIX END !!
+            // !! ecommerce FIX END !!
 
             for (i = 0; i < 42; i++) {
                 //always display 42 days (should show 6 weeks)
@@ -2137,9 +2137,9 @@ var TempusDominusBootstrap4 = function ($) {
                 if (!this._isValid(currentDate, 'd')) {
                     clsName += ' disabled';
                 }
-                // !! ODOO FIX START !!
+                // !! ecommerce FIX START !!
                 if (currentDate.date() === now.date() && currentDate.month() === now.month() && currentDate.year() === now.year()) {
-                // !! ODOO FIX END !!
+                // !! ecommerce FIX END !!
                     clsName += ' today';
                 }
                 if (currentDate.day() === 0 || currentDate.day() === 6) {
@@ -2434,7 +2434,7 @@ var TempusDominusBootstrap4 = function ($) {
                     break;
                 case 'selectHour':
                     {
-                        var hour = this.getMoment($(e.target).text(), this.use24Hours ? 'HH' : 'hh').hour(); // ODOO FIX: use moment format to get the proper value (not necessarily latn numbers)
+                        var hour = this.getMoment($(e.target).text(), this.use24Hours ? 'HH' : 'hh').hour(); // ecommerce FIX: use moment format to get the proper value (not necessarily latn numbers)
 
                         if (!this.use24Hours) {
                             if (lastPicked.hours() >= 12) {
@@ -2456,7 +2456,7 @@ var TempusDominusBootstrap4 = function ($) {
                         break;
                     }
                 case 'selectMinute':
-                    this._setValue(lastPicked.clone().minutes(this.getMoment($(e.target).text(), 'mm').minute()), this._getLastPickedDateIndex()); // ODOO FIX: use moment format to get the proper value (not necessarily latn numbers)
+                    this._setValue(lastPicked.clone().minutes(this.getMoment($(e.target).text(), 'mm').minute()), this._getLastPickedDateIndex()); // ecommerce FIX: use moment format to get the proper value (not necessarily latn numbers)
                     if (!this._isEnabled('a') && !this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     } else {
@@ -2464,7 +2464,7 @@ var TempusDominusBootstrap4 = function ($) {
                     }
                     break;
                 case 'selectSecond':
-                    this._setValue(lastPicked.clone().seconds(this.getMoment($(e.target).text(), 'ss').second()), this._getLastPickedDateIndex()); // ODOO FIX: use moment format to get the proper value (not necessarily latn numbers)
+                    this._setValue(lastPicked.clone().seconds(this.getMoment($(e.target).text(), 'ss').second()), this._getLastPickedDateIndex()); // ecommerce FIX: use moment format to get the proper value (not necessarily latn numbers)
                     if (!this._isEnabled('a') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     } else {
@@ -2763,7 +2763,7 @@ var TempusDominusBootstrap4 = function ($) {
         if ($target.length === 0) {
             return;
         }
-        // /!\ ODOO FIX: check on 'config' existence added by odoo
+        // /!\ ecommerce FIX: check on 'config' existence added by ecommerce
         if (config && config._options.debug || window.debug) {
             return;
         }
@@ -2786,7 +2786,7 @@ var TempusDominusBootstrap4 = function ($) {
         if ($target.length === 0) {
             return;
         }
-        // /!\ ODOO FIX: check on 'config' existence added by odoo
+        // /!\ ecommerce FIX: check on 'config' existence added by ecommerce
         if (!(config && config._options.allowInputToggle)) {
             return;
         }

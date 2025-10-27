@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
 
         <record id="ad" model="res.country">
@@ -1642,4 +1642,4 @@
             <field name="country_ids" eval="[Command.set([ref('ch'), ref('li')])]"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import hashlib
@@ -18,10 +18,10 @@ from markupsafe import Markup
 from werkzeug.urls import url_join
 from PIL import Image, UnidentifiedImageError
 
-from odoo import api, fields, models, tools, _
-from odoo.addons.base_import.models.base_import import ImportValidationError
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
+from ecommerce import api, fields, models, tools, _
+from ecommerce.addons.base_import.models.base_import import ImportValidationError
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -169,7 +169,7 @@ class MassMailing(models.Model):
         help="Technical field used to know if the user has activated the outgoing mail server option in the settings")
     mail_server_id = fields.Many2one('ir.mail_server', string='Mail Server',
         default=_get_default_mail_server_id,
-        help="Use a specific mail server in priority. Otherwise Odoo relies on the first outgoing mail server available (based on their sequencing) as it does for normal mails.")
+        help="Use a specific mail server in priority. Otherwise ecommerce relies on the first outgoing mail server available (based on their sequencing) as it does for normal mails.")
     contact_list_ids = fields.Many2many('mailing.list', 'mail_mass_mailing_list_rel', string='Mailing Lists')
     # Mailing Filter
     mailing_filter_id = fields.Many2one(

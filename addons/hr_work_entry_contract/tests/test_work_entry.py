@@ -1,15 +1,15 @@
 # # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from psycopg2 import IntegrityError
 import pytz
 
-from odoo.exceptions import ValidationError
-from odoo.tests.common import tagged, Form
-from odoo.tools import mute_logger
-from odoo.addons.hr_work_entry_contract.tests.common import TestWorkEntryBase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import tagged, Form
+from ecommerce.tools import mute_logger
+from ecommerce.addons.hr_work_entry_contract.tests.common import TestWorkEntryBase
 
 
 @tagged('work_entry')
@@ -203,7 +203,7 @@ class TestWorkEntry(TestWorkEntryBase):
         work_entry_2 = self.create_work_entry(datetime(2018, 10, 10, 8, 0), datetime(2018, 10, 10, 10, 0))
         self.assertEqual(work_entry_1.state, 'conflict')
 
-        with mute_logger('odoo.sql_db'):
+        with mute_logger('ecommerce.sql_db'):
             with self.assertRaises(IntegrityError):
                 with self.cr.savepoint():
                     (work_entry_1 + work_entry_2).write({'state': 'validated'})

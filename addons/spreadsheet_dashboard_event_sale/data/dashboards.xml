@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="spreadsheet_dashboard_group_marketing" model="spreadsheet.dashboard.group">
         <field name="name">Marketing</field>
         <field name="sequence">600</field>
@@ -13,4 +13,4 @@
         <field name="sequence">60</field>
     </record>
 
-</odoo>
+</ecommerce>

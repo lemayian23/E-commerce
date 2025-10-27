@@ -25,16 +25,16 @@ is used for token payments.
 ## Module history
 
 - `16.0`
-  - The module is deprecated and can no longer be installed from the web client. odoo/odoo#99025
+  - The module is deprecated and can no longer be installed from the web client. ecommerce/ecommerce#99025
 - `15.2`
   - Webhook notifications that cannot be processed are discarded to prevent automatic disabling of
-    the webhook. odoo/odoo#81607
+    the webhook. ecommerce/ecommerce#81607
 - `14.3`
   - The FlexCheckout API is removed and with it the support for payment method validations.
-    odoo/odoo#72624
+    ecommerce/ecommerce#72624
   - The FlexCheckout API is introduced to handle payment method validations that were performed in
-    a non-secure way through the Hosted Payment Page API. odoo/odoo#56187
-  - The module is renamed from `payment_ingenico` to `payment_ogone`. odoo/odoo#56187
+    a non-secure way through the Hosted Payment Page API. ecommerce/ecommerce#56187
+  - The module is renamed from `payment_ingenico` to `payment_ogone`. ecommerce/ecommerce#56187
 
 ## Testing instructions
 

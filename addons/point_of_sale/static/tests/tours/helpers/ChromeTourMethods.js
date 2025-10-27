@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tour.ChromeTourMethods', function (require) {
+ecommerce.define('point_of_sale.tour.ChromeTourMethods', function (require) {
     'use strict';
 
     const { createTourMethods } = require('point_of_sale.tour.utils');

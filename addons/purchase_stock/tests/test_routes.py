@@ -1,4 +1,4 @@
-from odoo.tests.common import TransactionCase, Form
+from ecommerce.tests.common import TransactionCase, Form
 
 
 class TestRoutes(TransactionCase):

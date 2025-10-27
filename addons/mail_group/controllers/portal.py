@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import werkzeug
 
-from odoo import http, fields, tools
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.portal.controllers.portal import pager as portal_pager
-from odoo.exceptions import AccessError
-from odoo.http import request, Response
-from odoo.osv import expression
-from odoo.tools import consteq
+from ecommerce import http, fields, tools
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.portal.controllers.portal import pager as portal_pager
+from ecommerce.exceptions import AccessError
+from ecommerce.http import request, Response
+from ecommerce.osv import expression
+from ecommerce.tools import consteq
 
 
 class PortalMailGroup(http.Controller):

@@ -1,15 +1,15 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "./core/registry";
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@ecommerce/owl";
 
 // -----------------------------------------------------------------------------
 // Types
 // -----------------------------------------------------------------------------
 
 /**
- * @typedef {Object} OdooEnv
+ * @typedef {Object} ecommerceEnv
  * @property {Object} services
  * @property {EventBus} bus
  * @property {QWeb} qweb
@@ -23,15 +23,15 @@ import { EventBus } from "@odoo/owl";
 // -----------------------------------------------------------------------------
 
 /**
- * Return a value Odoo Env object
+ * Return a value ecommerce Env object
  *
- * @returns {OdooEnv}
+ * @returns {ecommerceEnv}
  */
 export function makeEnv() {
     return {
         bus: new EventBus(),
         services: {},
-        debug: odoo.debug,
+        debug: ecommerce.debug,
         _t: () => {
             throw new Error("Translations are not ready yet. Maybe use _lt instead?");
         },
@@ -54,7 +54,7 @@ let startServicesPromise = null;
  * Start all services registered in the service registry, while making sure
  * each service dependencies are properly fulfilled.
  *
- * @param {OdooEnv} env
+ * @param {ecommerceEnv} env
  * @returns {Promise<void>}
  */
 export async function startServices(env) {

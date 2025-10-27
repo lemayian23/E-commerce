@@ -1,5 +1,5 @@
 /* global StripeTerminal */
-odoo.define('pos_stripe.payment', function (require) {
+ecommerce.define('pos_stripe.payment', function (require) {
 "use strict";
 
 const core = require('web.core');

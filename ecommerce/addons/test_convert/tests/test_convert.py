@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import collections
 import unittest
@@ -7,9 +7,9 @@ import unittest
 from lxml import etree as ET
 from lxml.builder import E
 
-import odoo
-from odoo.tests import common
-from odoo.tools.convert import xml_import, _eval_xml
+import ecommerce
+from ecommerce.tests import common
+from ecommerce.tools.convert import xml_import, _eval_xml
 
 Field = E.field
 Value = E.value

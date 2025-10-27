@@ -1,4 +1,4 @@
-odoo.define('pos_hr.employees', function (require) {
+ecommerce.define('pos_hr.employees', function (require) {
     "use strict";
 
 var { PosGlobalState, Order } = require('point_of_sale.models');

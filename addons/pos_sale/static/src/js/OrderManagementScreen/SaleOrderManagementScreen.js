@@ -1,4 +1,4 @@
-odoo.define('pos_sale.SaleOrderManagementScreen', function (require) {
+ecommerce.define('pos_sale.SaleOrderManagementScreen', function (require) {
     'use strict';
 
     const { sprintf } = require('web.utils');

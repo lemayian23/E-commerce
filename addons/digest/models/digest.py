@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pytz
@@ -9,10 +9,10 @@ from dateutil.relativedelta import relativedelta
 from markupsafe import Markup
 from werkzeug.urls import url_encode, url_join
 
-from odoo import api, fields, models, tools, _
-from odoo.addons.base.models.ir_mail_server import MailDeliveryException
-from odoo.exceptions import AccessError
-from odoo.tools.float_utils import float_round
+from ecommerce import api, fields, models, tools, _
+from ecommerce.addons.base.models.ir_mail_server import MailDeliveryException
+from ecommerce.exceptions import AccessError
+from ecommerce.tools.float_utils import float_round
 
 _logger = logging.getLogger(__name__)
 

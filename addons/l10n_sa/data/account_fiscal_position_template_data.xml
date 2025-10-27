@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="l10n_sa_account_fiscal_position_ksa" model="account.fiscal.position.template">
             <field name="name">KSA</field>
@@ -20,4 +20,4 @@
             <field name="chart_template_id" ref="sa_chart_template_standard"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

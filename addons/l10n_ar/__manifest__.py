@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Argentina - Accounting',
     'icon': '/base/static/img/country_flags/ar.png',
@@ -33,7 +33,7 @@ Demo data for testing:
   * Gritti (Monotributo)
   * Montana Sur. IVA Liberado in Zona Franca
   * Barcelona food (Cliente del Exterior)
-  * Odoo (Proveedor del Exterior)
+  * ecommerce (Proveedor del Exterior)
 
 Highlights:
 

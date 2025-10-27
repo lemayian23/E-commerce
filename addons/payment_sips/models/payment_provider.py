@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-# Original Copyright 2015 Eezee-It, modified and maintained by Odoo.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+# Original Copyright 2015 Eezee-It, modified and maintained by ecommerce.
 
 from hashlib import sha256
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
 from .const import SUPPORTED_CURRENCIES
 

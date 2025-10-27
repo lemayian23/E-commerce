@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
-from odoo import Command
-from odoo.tests.common import users, tagged, TransactionCase, warmup
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce import Command
+from ecommerce.tests.common import users, tagged, TransactionCase, warmup
+from ecommerce.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 @tagged('post_install', '-at_install')
@@ -26,7 +26,7 @@ class TestDiscussFullPerformance(TransactionCase):
                 'login': 'emp',
                 'name': 'Ernest Employee',
                 'notification_type': 'inbox',
-                'odoobot_state': 'disabled',
+                'ecommercebot_state': 'disabled',
                 'signature': '--\nErnest',
             },
             {'name': 'test1', 'login': 'test1', 'email': 'test1@example.com'},
@@ -965,10 +965,10 @@ class TestDiscussFullPerformance(TransactionCase):
             'menu_id': self.env['ir.model.data']._xmlid_to_res_id('mail.menu_root_discuss'),
             'partner_root': {
                 'active': False,
-                'email': 'odoobot@example.com',
+                'email': 'ecommercebot@example.com',
                 'id': self.user_root.partner_id.id,
                 'im_status': 'bot',
-                'name': 'OdooBot',
+                'name': 'ecommerceBot',
                 'out_of_office_date_end': False,
                 'user': [('clear',)],
             },

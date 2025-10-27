@@ -1,4 +1,4 @@
-odoo.define('website_sale_wishlist_admin.tour', function (require) {
+ecommerce.define('website_sale_wishlist_admin.tour', function (require) {
 'use strict';
 
 const wTourUtils = require("website.tour_utils");

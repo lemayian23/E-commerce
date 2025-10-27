@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, models, SUPERUSER_ID
-from odoo.exceptions import AccessError, MissingError, UserError
-from odoo.tools import consteq
+from ecommerce import _, models, SUPERUSER_ID
+from ecommerce.exceptions import AccessError, MissingError, UserError
+from ecommerce.tools import consteq
 
 
 class IrAttachment(models.Model):

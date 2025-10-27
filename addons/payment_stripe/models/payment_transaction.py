@@ -1,17 +1,17 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
 
 from werkzeug import urls
 
-from odoo import _, fields, models
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, fields, models
+from ecommerce.exceptions import UserError, ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_stripe import utils as stripe_utils
-from odoo.addons.payment_stripe.const import STATUS_MAPPING, PAYMENT_METHOD_TYPES
-from odoo.addons.payment_stripe.controllers.main import StripeController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_stripe import utils as stripe_utils
+from ecommerce.addons.payment_stripe.const import STATUS_MAPPING, PAYMENT_METHOD_TYPES
+from ecommerce.addons.payment_stripe.controllers.main import StripeController
 
 
 _logger = logging.getLogger(__name__)
@@ -156,7 +156,7 @@ class PaymentTransaction(models.Model):
                 'address[line1]': self.partner_address or None,
                 'address[postal_code]': self.partner_zip or None,
                 'address[state]': self.partner_state_id.name or None,
-                'description': f'Odoo Partner: {self.partner_id.name} (id: {self.partner_id.id})',
+                'description': f'ecommerce Partner: {self.partner_id.name} (id: {self.partner_id.id})',
                 'email': self.partner_email or None,
                 'name': self.partner_name,
                 'phone': self.partner_phone and self.partner_phone[:20] or None,

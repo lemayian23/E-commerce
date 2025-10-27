@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import models
-from odoo import _
+from ecommerce import _
 
 
 def post_init(cr, registry):
@@ -10,7 +10,7 @@ def post_init(cr, registry):
         be sure the internal project/task of res.company are set. (Since timesheet_generate field
         is true by default, those 2 fields are required on the leave type).
     """
-    from odoo import api, SUPERUSER_ID
+    from ecommerce import api, SUPERUSER_ID
 
     env = api.Environment(cr, SUPERUSER_ID, {})
 

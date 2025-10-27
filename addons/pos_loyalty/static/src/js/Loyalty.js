@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Order, Orderline, PosGlobalState} from 'point_of_sale.models';
 import Registries from 'point_of_sale.Registries';

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import core, { _t } from 'web.core';
 import checkoutForm from 'payment.checkout_form';

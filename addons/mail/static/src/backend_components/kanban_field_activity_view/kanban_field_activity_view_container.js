@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // ensure components are registered beforehand.
 import '@mail/backend_components/kanban_field_activity_view/kanban_field_activity_view';

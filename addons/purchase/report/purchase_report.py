@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 #
 # Please note that these reports are not multi-currency !!!
@@ -7,9 +7,9 @@
 
 import re
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv.expression import AND, expression
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import AND, expression
 
 
 class PurchaseReport(models.Model):

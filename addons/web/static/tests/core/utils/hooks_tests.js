@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { uiService } from "@web/core/ui/ui_service";
 import { useAutofocus, useBus, useChildRef, useForwardRefToParent, useListener, useService } from "@web/core/utils/hooks";
@@ -14,7 +14,7 @@ import {
 } from "@web/../tests/helpers/utils";
 import { LegacyComponent } from "@web/legacy/legacy_component";
 
-import { Component, onMounted, useState, xml } from "@odoo/owl";
+import { Component, onMounted, useState, xml } from "@ecommerce/owl";
 const serviceRegistry = registry.category("services");
 
 QUnit.module("utils", () => {

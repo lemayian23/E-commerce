@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { sortBy } from "../utils/arrays";
 import { useModelField } from "./model_field_hook";
@@ -6,7 +6,7 @@ import { useModelField } from "./model_field_hook";
 import { fuzzyLookup } from "@web/core/utils/search";
 import { useAutofocus } from "../utils/hooks";
 
-import { Component, onWillStart } from "@odoo/owl";
+import { Component, onWillStart } from "@ecommerce/owl";
 
 export class ModelFieldSelectorPopover extends Component {
     setup() {

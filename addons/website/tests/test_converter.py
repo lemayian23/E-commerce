@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.http_routing.models.ir_http import slugify, unslug
-from odoo.tests.common import BaseCase
+from ecommerce.addons.http_routing.models.ir_http import slugify, unslug
+from ecommerce.tests.common import BaseCase
 
 
 class TestUnslug(BaseCase):

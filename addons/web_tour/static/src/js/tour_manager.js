@@ -1,4 +1,4 @@
-odoo.define('web_tour.TourManager', function(require) {
+ecommerce.define('web_tour.TourManager', function(require) {
 "use strict";
 
 var core = require('web.core');
@@ -15,7 +15,7 @@ const {Markup} = require('web.utils');
 const { config: transitionConfig } = require("@web/core/transition");
 
 var _t = core._t;
-const { markup } = require("@odoo/owl");
+const { markup } = require("@ecommerce/owl");
 
 var RUNNING_TOUR_TIMEOUT = 10000;
 

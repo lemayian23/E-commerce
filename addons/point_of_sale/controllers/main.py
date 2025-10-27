@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo import http, _
-from odoo.http import request
-from odoo.osv.expression import AND
-from odoo.tools import format_amount
-from odoo.addons.account.controllers.portal import PortalAccount
+from ecommerce import http, _
+from ecommerce.http import request
+from ecommerce.osv.expression import AND
+from ecommerce.tools import format_amount
+from ecommerce.addons.account.controllers.portal import PortalAccount
 
 _logger = logging.getLogger(__name__)
 

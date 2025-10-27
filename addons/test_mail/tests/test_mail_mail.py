@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import psycopg2
 import pytz
@@ -11,12 +11,12 @@ from OpenSSL.SSL import Error as SSLError
 from socket import gaierror, timeout
 from unittest.mock import call, patch
 
-from odoo import api, Command, tools
-from odoo.addons.base.models.ir_mail_server import MailDeliveryException
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.exceptions import AccessError
-from odoo.tests import common, tagged, users
-from odoo.tools import mute_logger, DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce import api, Command, tools
+from ecommerce.addons.base.models.ir_mail_server import MailDeliveryException
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import common, tagged, users
+from ecommerce.tools import mute_logger, DEFAULT_SERVER_DATETIME_FORMAT
 
 
 @tagged('mail_mail')
@@ -126,7 +126,7 @@ class TestMailMail(TestMailCommon):
             self.assertEqual(mail.sudo().restricted_attachment_count, 2)
             self.assertEqual(len(mail.sudo().unrestricted_attachment_ids), 0)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_recipients(self):
         """ Partner_ids is a field used from mail_message, but not from mail_mail. """
         mail = self.env['mail.mail'].sudo().create({
@@ -150,7 +150,7 @@ class TestMailMail(TestMailCommon):
         self.assertSentEmail(mail.env.user.partner_id, [self.user_employee.email_formatted])
         self.assertEqual(len(self._mails), 2)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_recipients_cc(self):
         """ Partner_ids is a field used from mail_message, but not from mail_mail. """
         mail = self.env['mail.mail'].sudo().create({
@@ -171,7 +171,7 @@ class TestMailMail(TestMailCommon):
                              email_cc=['test.cc.1@example.com', '"Herbert" <test.cc.2@example.com>'])
         self.assertEqual(len(self._mails), 2)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_recipients_formatting(self):
         """ Check support of email / formatted email """
         mail = self.env['mail.mail'].sudo().create({
@@ -190,7 +190,7 @@ class TestMailMail(TestMailCommon):
                              email_cc=['test.cc.1@example.com', '"Herbert" <test.cc.2@example.com>'])
         self.assertEqual(len(self._mails), 1)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_return_path(self):
         # mail without thread-enabled record
         base_values = {
@@ -212,7 +212,7 @@ class TestMailMail(TestMailCommon):
             mail.send()
         self.assertEqual(self._mails[0]['headers']['Return-Path'], '%s@%s' % (self.alias_bounce, self.alias_domain))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.tests')
     def test_mail_mail_schedule(self):
         """Test that a mail scheduled in the past/future are sent or not"""
         now = datetime(2022, 6, 28, 14, 0, 0)
@@ -262,7 +262,7 @@ class TestMailMail(TestMailCommon):
             for mail, expected_state in zip(mails, expected_states):
                 self.assertEqual(mail.state, expected_state)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_exceptions_origin(self):
         """ Test various use case with exceptions and errors and see how they are
         managed and stored at mail and notification level. """
@@ -271,7 +271,7 @@ class TestMailMail(TestMailCommon):
         # MailServer.build_email(): invalid from
         self.env['ir.config_parameter'].set_param('mail.default.from', '')
         self._reset_data()
-        with self.mock_mail_gateway(), mute_logger('odoo.addons.mail.models.mail_mail'):
+        with self.mock_mail_gateway(), mute_logger('ecommerce.addons.mail.models.mail_mail'):
             mail.send(raise_exception=False)
         self.assertFalse(self._mails[0]['email_from'])
         self.assertEqual(
@@ -286,7 +286,7 @@ class TestMailMail(TestMailCommon):
         self.assertEqual(notification.notification_status, 'exception')
 
         # MailServer.send_email(): _prepare_email_message: unexpected ASCII
-        # Force catchall domain to void otherwise bounce is set to postmaster-odoo@domain
+        # Force catchall domain to void otherwise bounce is set to postmaster-ecommerce@domain
         self.env['ir.config_parameter'].set_param('mail.catchall.domain', '')
         self._reset_data()
         mail.write({'email_from': 'strange@example¢¡.com'})
@@ -328,7 +328,7 @@ class TestMailMail(TestMailCommon):
         self.assertEqual(notification.failure_type, 'unknown', 'Mail: bugged from (ascii): unknown failure type, should be updated')
         self.assertEqual(notification.notification_status, 'exception')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_exceptions_recipients_emails(self):
         """ Test various use case with exceptions and errors and see how they are
         managed and stored at mail and notification level. """
@@ -394,7 +394,7 @@ class TestMailMail(TestMailCommon):
             self.assertFalse(notification.failure_type)
             self.assertEqual(notification.notification_status, 'sent')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_exceptions_recipients_partners(self):
         """ Test various use case with exceptions and errors and see how they are
         managed and stored at mail and notification level. """
@@ -473,7 +473,7 @@ class TestMailMail(TestMailCommon):
             self.assertFalse(notification.failure_type)
             self.assertEqual(notification.notification_status, 'sent')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_exceptions_recipients_partners_mixed(self):
         """ Test various use case with exceptions and errors and see how they are
         managed and stored at mail and notification level. """
@@ -550,7 +550,7 @@ class TestMailMail(TestMailCommon):
             self.assertEqual(notification2.failure_type, 'mail_email_invalid')
             self.assertEqual(notification2.notification_status, 'exception')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_exceptions_raise_management(self):
         """ Test various use case with exceptions and errors and see how they are
         managed and stored at mail and notification level. """
@@ -629,7 +629,7 @@ class TestMailMail(TestMailCommon):
 
             self.send_email_mocked.side_effect = _send_current
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_send_server(self):
         """Test that the mails are send in batch.
 
@@ -696,7 +696,7 @@ class TestMailMail(TestMailCommon):
         self.assert_email_sent_smtp(message_from='user_2@test_2.com', emails_count=5, from_filter=self.server_domain_2.from_filter)
         self.assert_email_sent_smtp(message_from='user_1@test_2.com', emails_count=5, from_filter=self.server_domain.from_filter)
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_values_email_formatted(self):
         """ Test outgoing email values, with formatting """
         customer = self.env['res.partner'].create({
@@ -727,7 +727,7 @@ class TestMailMail(TestMailCommon):
             'Mail: currently always removing formatting in email_cc'
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_values_email_multi(self):
         """ Test outgoing email values, with email field holding multi emails """
         # Multi
@@ -790,7 +790,7 @@ class TestMailMail(TestMailCommon):
             [['test.cc.1@test.example.com', 'test.cc.2@test.example.com']] * 3,
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_mail_values_email_unicode(self):
         """ Unicode should be fine. """
         mail = self.env['mail.mail'].create({
@@ -837,7 +837,7 @@ class TestMailMail(TestMailCommon):
 @tagged('mail_mail')
 class TestMailMailRace(common.TransactionCase):
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_mail_bounce_during_send(self):
         self.partner = self.env['res.partner'].create({
             'name': 'Ernest Partner',
@@ -872,7 +872,7 @@ class TestMailMailRace(common.TransactionCase):
         bounce_deferred = []
         @api.model
         def send_email(self, message, *args, **kwargs):
-            with this.registry.cursor() as cr, mute_logger('odoo.sql_db'):
+            with this.registry.cursor() as cr, mute_logger('ecommerce.sql_db'):
                 try:
                     # try ro aquire lock (no wait) on notification (should fail)
                     cr.execute("SELECT notification_status FROM mail_notification WHERE id = %s FOR UPDATE NOWAIT", [notif.id])

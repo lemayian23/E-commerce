@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 import base64
 
-from odoo import api, fields, models
-from odoo.exceptions import ValidationError
-from odoo.tools import ImageProcess
-from odoo.tools.translate import _
+from ecommerce import api, fields, models
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import ImageProcess
+from ecommerce.tools.translate import _
 
 
 class Website(models.Model):

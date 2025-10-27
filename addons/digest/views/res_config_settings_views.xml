@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.digest</field>
         <field name="model">res.config.settings</field>
@@ -17,7 +17,7 @@
                             </div>
                             <div class="o_setting_right_pane">
                                 <label string="Digest Email" for="digest_emails"/>
-                                <a href="https://www.odoo.com/documentation/16.0/applications/general/digest_emails.html" title="Documentation" class="ms-1 o_doc_link" target="_blank"></a>
+                                <a href="https://www.ecommerce.com/documentation/16.0/applications/general/digest_emails.html" title="Documentation" class="ms-1 o_doc_link" target="_blank"></a>
                                 <div class="text-muted" id="msg_module_digest">
                                     Add new users as recipient of a periodic email with key metrics
                                 </div>
@@ -37,4 +37,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</ecommerce>

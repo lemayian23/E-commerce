@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.urls import url_encode
 
-from odoo import http
-from odoo.http import request
+from ecommerce import http
+from ecommerce.http import request
 
 
 class OnboardingController(http.Controller):

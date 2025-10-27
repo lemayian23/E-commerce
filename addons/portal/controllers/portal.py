@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import json
@@ -8,10 +8,10 @@ import re
 
 from werkzeug import urls
 
-from odoo import http, tools, _, SUPERUSER_ID
-from odoo.exceptions import AccessDenied, AccessError, MissingError, UserError, ValidationError
-from odoo.http import content_disposition, Controller, request, route
-from odoo.tools import consteq
+from ecommerce import http, tools, _, SUPERUSER_ID
+from ecommerce.exceptions import AccessDenied, AccessError, MissingError, UserError, ValidationError
+from ecommerce.http import content_disposition, Controller, request, route
+from ecommerce.tools import consteq
 
 # --------------------------------------------------
 # Misc tools

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@ecommerce/owl";
 import { applyFilter, toggleMenu } from "@web/../tests/search/helpers";
 import { DatePicker, DateTimePicker } from "@web/core/datepicker/datepicker";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";

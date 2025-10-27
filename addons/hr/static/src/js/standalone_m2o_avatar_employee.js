@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
     import StandaloneFieldManagerMixin from 'web.StandaloneFieldManagerMixin';
     import Widget from 'web.Widget';

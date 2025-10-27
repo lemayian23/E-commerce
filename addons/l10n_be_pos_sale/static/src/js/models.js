@@ -1,4 +1,4 @@
-odoo.define("l10n_be_pos_sale.models", function (require) {
+ecommerce.define("l10n_be_pos_sale.models", function (require) {
     "use strict";
 
     var { PosGlobalState } = require("point_of_sale.models");

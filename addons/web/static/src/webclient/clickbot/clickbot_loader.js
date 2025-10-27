@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.clickEverywhere **/
+/** @ecommerce-module alias=web.clickEverywhere **/
 
 import { loadJS } from "@web/core/assets";
 import { registry } from "@web/core/registry";

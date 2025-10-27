@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 from uuid import uuid4
@@ -6,9 +6,9 @@ from uuid import uuid4
 from lxml import etree, objectify
 from werkzeug import urls
 
-from odoo.tests import HttpCase
+from ecommerce.tests import HttpCase
 
-from odoo.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.payment.tests.common import PaymentCommon
 
 
 class PaymentHttpCommon(PaymentCommon, HttpCase):

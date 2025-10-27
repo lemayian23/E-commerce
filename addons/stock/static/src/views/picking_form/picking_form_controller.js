@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { sortBy } from "@web/core/utils/arrays";
 import { FormController } from "@web/views/form/form_controller";

@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useService } from '@web/core/utils/hooks';
 import { getCSSVariableValue, DEFAULT_PALETTE } from 'web_editor.utils';
 import { Attachment, FileSelector, IMAGE_MIMETYPES, IMAGE_EXTENSIONS } from './file_selector';
 import { KeepLast } from "@web/core/utils/concurrency";
 
-import { useRef, useState, useEffect } from "@odoo/owl";
+import { useRef, useState, useEffect } from "@ecommerce/owl";
 
 export class AutoResizeImage extends Attachment {
     setup() {
@@ -61,7 +61,7 @@ export class ImageSelector extends FileSelector {
         this.NUMBER_OF_MEDIA_TO_DISPLAY = 10;
 
         this.uploadText = this.env._t("Upload an image");
-        this.urlPlaceholder = "https://www.odoo.com/logo.png";
+        this.urlPlaceholder = "https://www.ecommerce.com/logo.png";
         this.addText = this.env._t("Add URL");
         this.searchPlaceholder = this.env._t("Search an image");
         this.urlWarningTitle = this.env._t("Uploaded image's format is not supported. Try with: " + IMAGE_EXTENSIONS.join(', '));

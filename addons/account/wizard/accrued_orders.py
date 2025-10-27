@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from dateutil.relativedelta import relativedelta
 import json
-from odoo import models, fields, api, _, Command
-from odoo.tools import format_date
-from odoo.exceptions import UserError
-from odoo.tools import date_utils
-from odoo.tools.misc import formatLang
+from ecommerce import models, fields, api, _, Command
+from ecommerce.tools import format_date
+from ecommerce.exceptions import UserError
+from ecommerce.tools import date_utils
+from ecommerce.tools.misc import formatLang
 
 class AccruedExpenseRevenue(models.TransientModel):
     _name = 'account.accrued.orders.wizard'

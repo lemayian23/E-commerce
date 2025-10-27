@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -15,7 +15,7 @@ import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_d
 import { reposition } from '@web/core/position_hook';
 import { archParseBoolean } from '@web/views/utils';
 
-import { Component, useRef, useState, useEffect, onWillStart } from "@odoo/owl";
+import { Component, useRef, useState, useEffect, onWillStart } from "@ecommerce/owl";
 
 export class PropertiesField extends Component {
     setup() {

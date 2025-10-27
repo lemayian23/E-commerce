@@ -1,4 +1,4 @@
-odoo.define('auth_totp_mail.tours', function(require) {
+ecommerce.define('auth_totp_mail.tours', function(require) {
 "use strict";
 
 const tour = require('web_tour.tour');

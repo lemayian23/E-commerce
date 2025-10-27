@@ -429,9 +429,9 @@
         if (this.element.is('input') || this.element.is('button')) {
             this.element.on({
                 'click.daterangepicker': $.proxy(this.show, this),
-                // odoo cutomization, to align behavior of the daterange widget with the date picker one
+                // ecommerce cutomization, to align behavior of the daterange widget with the date picker one
                 // 'focus.daterangepicker': $.proxy(this.show, this),
-                // odoo customization, we don't want this function to execute his normal behaviour
+                // ecommerce customization, we don't want this function to execute his normal behaviour
                 // as daterangepicker does not know which input has been modified (start, end) and it
                 // does not have reference to the other input.
                 // 'keyup.daterangepicker': $.proxy(this.elementChanged, this),

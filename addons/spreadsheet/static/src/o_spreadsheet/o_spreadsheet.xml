@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
   <t t-name="o-spreadsheet-Autofill" owl="1">
     <div
       class="o-autofill"
@@ -3256,7 +3256,7 @@ https://fontawesome.com/license -->
       </div>
     </div>
   </t>
-</odoo>
+</ecommerce>
 <!--
   __info__.version = '16.0.75';
   __info__.date = '2025-07-11T11:47:49.434Z';

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { isMobileOS } from "@web/core/browser/feature_detection";
@@ -11,7 +11,7 @@ import { Many2XAutocomplete, useOpenMany2XRecord } from "@web/views/fields/relat
 import * as BarcodeScanner from "@web/webclient/barcode/barcode_scanner";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, onWillUpdateProps, useState, markup } from "@odoo/owl";
+import { Component, onWillUpdateProps, useState, markup } from "@ecommerce/owl";
 
 class CreateConfirmationDialog extends Component {
     get title() {

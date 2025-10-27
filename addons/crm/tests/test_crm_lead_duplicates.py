@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.crm.tests.common import TestCrmCommon
-from odoo.tests.common import tagged, users
+from ecommerce.addons.crm.tests.common import TestCrmCommon
+from ecommerce.tests.common import tagged, users
 
 
 @tagged('lead_manage')
@@ -22,7 +22,7 @@ class TestLeadConvert(TestCrmCommon):
 
         partner_1 = self.env['res.partner'].create({
             'name': 'Dave',
-            'email': 'dave@odoo.com',
+            'email': 'dave@ecommerce.com',
             'mobile': '+1 202 555 0123',
             'phone': False,
             'parent_id': company.id,
@@ -34,7 +34,7 @@ class TestLeadConvert(TestCrmCommon):
         })
         partner_2 = self.env['res.partner'].create({
             'name': 'Eve',
-            'email': 'eve@odoo.com',
+            'email': 'eve@ecommerce.com',
             'mobile': '+1 202 555 3210',
             'phone': False,
             'parent_id': company.id,
@@ -49,17 +49,17 @@ class TestLeadConvert(TestCrmCommon):
             'name': 'Lead 1',
             'type': 'lead',
             'partner_name': 'Alice',
-            'email_from': 'alice@odoo.com',
+            'email_from': 'alice@ecommerce.com',
         })
         lead_2 = self.env['crm.lead'].create({
             'name': 'Opportunity 1',
             'type': 'opportunity',
-            'email_from': 'alice@odoo.com',
+            'email_from': 'alice@ecommerce.com',
         })
         lead_3 = self.env['crm.lead'].create({
             'name': 'Opportunity 2',
             'type': 'opportunity',
-            'email_from': 'alice@odoo.com',
+            'email_from': 'alice@ecommerce.com',
         })
         lead_4 = self.env['crm.lead'].create({
             'name': 'Lead 2',
@@ -80,7 +80,7 @@ class TestLeadConvert(TestCrmCommon):
             'name': 'Opportunity 5',
             'type': 'opportunity',
             'partner_name': 'Bob Doe',
-            'email_from': 'bob@odoo.com',
+            'email_from': 'bob@ecommerce.com',
         })
         lead_8 = self.env['crm.lead'].create({
             'name': 'Opportunity 6',
@@ -158,7 +158,7 @@ class TestLeadConvert(TestCrmCommon):
             'name': 'Base Lead Dup1',
             'type': 'lead',
             'phone': '456-6126',  # shorter version of base_lead
-            'mobile': '             ', # empty string shouldn't crash Odoo
+            'mobile': '             ', # empty string shouldn't crash ecommerce
             'partner_name': 'Partner Name 1',
         })
         dup1_2 = self.env['crm.lead'].create({
@@ -208,17 +208,17 @@ class TestLeadConvert(TestCrmCommon):
         lead_3 = self.env['crm.lead'].create({
             'name': 'Opportunity 2',
             'type': 'lead',
-            'email_from': 'odoo.com'
+            'email_from': 'ecommerce.com'
         })
         lead_4 = self.env['crm.lead'].create({
             'name': 'Opportunity 3',
             'type': 'opportunity',
-            'email_from': 'odoo.com'
+            'email_from': 'ecommerce.com'
         })
         lead_5 = self.env['crm.lead'].create({
             'name': 'Opportunity 3',
             'type': 'opportunity',
-            'email_from': 'myodoo.com'
+            'email_from': 'myecommerce.com'
         })
 
         self.assertEqual(lead_1 + lead_2, lead_1.duplicate_lead_ids)

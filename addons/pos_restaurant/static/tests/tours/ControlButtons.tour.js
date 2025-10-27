@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.tour.ControlButtons', function (require) {
+ecommerce.define('pos_restaurant.tour.ControlButtons', function (require) {
     'use strict';
 
     const { TextAreaPopup } = require('point_of_sale.tour.TextAreaPopupTourMethods');

@@ -1,4 +1,4 @@
-odoo.define('website_event_track_quiz.event.quiz', function (require) {
+ecommerce.define('website_event_track_quiz.event.quiz', function (require) {
 
 'use strict';
 
@@ -247,7 +247,7 @@ var Quiz = publicWidget.Widget.extend({
      * When clicking on an answer, this one should be marked as "checked".
      *
      * @private
-     * @param OdooEvent ev
+     * @param ecommerceEvent ev
      */
     _onAnswerClick: function (ev) {
         ev.preventDefault();

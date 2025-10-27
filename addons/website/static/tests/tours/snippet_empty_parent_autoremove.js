@@ -1,4 +1,4 @@
-odoo.define("website.tour.snippet_empty_parent_autoremove", function (require) {
+ecommerce.define("website.tour.snippet_empty_parent_autoremove", function (require) {
 "use strict";
 
 const wTourUtils = require('website.tour_utils');

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import time
@@ -7,12 +7,12 @@ from ast import literal_eval
 from datetime import date, timedelta
 from collections import defaultdict
 
-from odoo import SUPERUSER_ID, _, api, fields, models
-from odoo.addons.stock.models.stock_move import PROCUREMENT_PRIORITIES
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, format_datetime, format_date, groupby
-from odoo.tools.float_utils import float_compare, float_is_zero, float_round
+from ecommerce import SUPERUSER_ID, _, api, fields, models
+from ecommerce.addons.stock.models.stock_move import PROCUREMENT_PRIORITIES
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools import DEFAULT_SERVER_DATETIME_FORMAT, format_datetime, format_date, groupby
+from ecommerce.tools.float_utils import float_compare, float_is_zero, float_round
 
 
 class PickingType(models.Model):
@@ -65,7 +65,7 @@ class PickingType(models.Model):
         help="If this checkbox is ticked, the pickings lines will represent detailed stock operations. If not, the picking lines will represent an aggregate of detailed stock operations.")
     show_reserved = fields.Boolean(
         'Pre-fill Detailed Operations', default=True,
-        help="If this checkbox is ticked, Odoo will automatically pre-fill the detailed "
+        help="If this checkbox is ticked, ecommerce will automatically pre-fill the detailed "
         "operations with the corresponding products, locations and lot/serial numbers.")
     reservation_method = fields.Selection(
         [('at_confirm', 'At Confirmation'), ('manual', 'Manually'), ('by_date', 'Before scheduled date')],
@@ -75,7 +75,7 @@ class PickingType(models.Model):
     reservation_days_before_priority = fields.Integer('Days when starred', help="Maximum number of days before scheduled date that priority picking products should be reserved.")
     auto_show_reception_report = fields.Boolean(
         "Show Reception Report at Validation",
-        help="If this checkbox is ticked, Odoo will automatically show the reception report (if there are moves to allocate to) when validating.")
+        help="If this checkbox is ticked, ecommerce will automatically show the reception report (if there are moves to allocate to) when validating.")
 
     count_picking_draft = fields.Integer(compute='_compute_picking_count')
     count_picking_ready = fields.Integer(compute='_compute_picking_count')

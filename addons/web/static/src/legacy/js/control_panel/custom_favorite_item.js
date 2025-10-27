@@ -1,4 +1,4 @@
-odoo.define('web.CustomFavoriteItem', function (require) {
+ecommerce.define('web.CustomFavoriteItem', function (require) {
     "use strict";
 
     const { CheckBox } = require("@web/core/checkbox/checkbox");

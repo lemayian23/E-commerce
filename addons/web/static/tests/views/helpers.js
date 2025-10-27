@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { registry } from "@web/core/registry";
@@ -21,7 +21,7 @@ import { commandService } from "@web/core/commands/command_service";
 import { popoverService } from "@web/core/popover/popover_service";
 import { createDebugContext } from "@web/core/debug/debug_context";
 
-import { Component, useSubEnv, xml } from "@odoo/owl";
+import { Component, useSubEnv, xml } from "@ecommerce/owl";
 
 import { mapLegacyEnvToWowlEnv } from "@web/legacy/utils";
 import makeTestEnvironment from "web.test_env";

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _, Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import frozendict
+from ecommerce import api, fields, models, _, Command
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import frozendict
 
 from datetime import date
 

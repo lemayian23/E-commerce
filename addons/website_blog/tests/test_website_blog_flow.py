@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError
-from odoo.tests.common import users
-from odoo.addons.website.tools import MockRequest
-from odoo.addons.website_blog.tests.common import TestWebsiteBlogCommon
-from odoo.addons.portal.controllers.mail import PortalChatter
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import users
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.addons.website_blog.tests.common import TestWebsiteBlogCommon
+from ecommerce.addons.portal.controllers.mail import PortalChatter
 
 
 class TestWebsiteBlogFlow(TestWebsiteBlogCommon):

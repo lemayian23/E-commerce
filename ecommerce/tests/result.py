@@ -20,9 +20,9 @@ __unittest = True
 STDOUT_LINE = '\nStdout:\n%s'
 STDERR_LINE = '\nStderr:\n%s'
 
-ODOO_TEST_MAX_FAILED_TESTS = max(1, int(os.environ.get('ODOO_TEST_MAX_FAILED_TESTS', sys.maxsize)))
+ecommerce_TEST_MAX_FAILED_TESTS = max(1, int(os.environ.get('ecommerce_TEST_MAX_FAILED_TESTS', sys.maxsize)))
 
-stats_logger = logging.getLogger('odoo.tests.stats')
+stats_logger = logging.getLogger('ecommerce.tests.stats')
 
 
 class Stat(NamedTuple):
@@ -44,7 +44,7 @@ class Stat(NamedTuple):
 _logger = logging.getLogger(__name__)
 _TEST_ID = re.compile(r"""
 ^
-odoo\.addons\.
+ecommerce\.addons\.
 (?P<module>[^.]+)
 \.tests\.
 (?P<class>.+)
@@ -54,7 +54,7 @@ $
 """, re.VERBOSE)
 
 
-class OdooTestResult(object):
+class ecommerceTestResult(object):
     """
     This class in inspired from TextTestResult and modifies TestResult
     Instead of using a stream, we are using the logger.
@@ -93,12 +93,12 @@ class OdooTestResult(object):
         return result
 
     def _checkShouldStop(self):
-        if self.total_errors_count() >= ODOO_TEST_MAX_FAILED_TESTS:
+        if self.total_errors_count() >= ecommerce_TEST_MAX_FAILED_TESTS:
             global_report = self.global_report or self
             if not global_report.shouldStop:
                 _logger.error(
                     "Test suite halted: max failed tests already reached (%s). "
-                    "Remaining tests will be skipped.", ODOO_TEST_MAX_FAILED_TESTS)
+                    "Remaining tests will be skipped.", ecommerce_TEST_MAX_FAILED_TESTS)
                 global_report.shouldStop = True
             self.shouldStop = True
 
@@ -212,7 +212,7 @@ class OdooTestResult(object):
     def update(self, other):
         """ Merges an other test result into this one, only updates contents
 
-        :type other: OdooTestResult
+        :type other: ecommerceTestResult
         """
         self.failures_count += other.failures_count
         self.errors_count += other.errors_count

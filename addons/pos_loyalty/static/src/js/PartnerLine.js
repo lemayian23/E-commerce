@@ -1,4 +1,4 @@
-odoo.define('pos_loyalty.PartnerLine', function (require) {
+ecommerce.define('pos_loyalty.PartnerLine', function (require) {
     'use strict';
 
     const PartnerLine = require('point_of_sale.PartnerLine');

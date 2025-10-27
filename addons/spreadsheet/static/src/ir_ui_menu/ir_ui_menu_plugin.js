@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 const { CorePlugin } = spreadsheet;
 

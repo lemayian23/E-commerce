@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { formatDate, formatDateTime } from "@web/core/l10n/dates";
 import { localization as l10n } from "@web/core/l10n/localization";
@@ -9,7 +9,7 @@ import { isBinarySize } from "@web/core/utils/binary";
 import { session } from "@web/session";
 import { humanNumber, insertThousandsSep } from "@web/core/utils/numbers";
 
-import { markup } from "@odoo/owl";
+import { markup } from "@ecommerce/owl";
 
 // -----------------------------------------------------------------------------
 // Helpers

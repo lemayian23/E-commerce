@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, tests
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce import fields, tests
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
 
 
 @tests.tagged('post_install', '-at_install')

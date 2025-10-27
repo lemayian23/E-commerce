@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged, new_test_user
-from odoo.tests.common import Form
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged, new_test_user
+from ecommerce.tests.common import Form
 
 
 @tagged('post_install', '-at_install')

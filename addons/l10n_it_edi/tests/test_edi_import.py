@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -7,10 +7,10 @@ from freezegun import freeze_time
 from lxml import etree
 from unittest.mock import MagicMock, patch
 
-from odoo import Command, fields, sql_db
-from odoo.tests import tagged
-from odoo.addons.l10n_it_edi.tests.common import TestItEdi
-from odoo.addons.l10n_it_edi.tools.remove_signature import remove_signature
+from ecommerce import Command, fields, sql_db
+from ecommerce.tests import tagged
+from ecommerce.addons.l10n_it_edi.tests.common import TestItEdi
+from ecommerce.addons.l10n_it_edi.tools.remove_signature import remove_signature
 
 _logger = logging.getLogger(__name__)
 

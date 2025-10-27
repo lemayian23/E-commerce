@@ -1,4 +1,4 @@
-odoo.define('website.content.snippets.animation', function (require) {
+ecommerce.define('website.content.snippets.animation', function (require) {
 'use strict';
 
 /**
@@ -461,10 +461,10 @@ registry.slider = publicWidget.Widget.extend({
             const indicatorEls = this.el.querySelectorAll(".carousel-indicators > li");
             // Deactivate the carousel controls to handle the slides manually in
             // edit mode (by the options).
-            this.options.wysiwyg.odooEditor.observerUnactive("disable_controls");
+            this.options.wysiwyg.ecommerceEditor.observerUnactive("disable_controls");
             this.controlEls.forEach(controlEl => controlEl.removeAttribute("data-bs-slide"));
             indicatorEls.forEach(indicatorEl => indicatorEl.removeAttribute("data-bs-slide-to"));
-            this.options.wysiwyg.odooEditor.observerActive("disable_controls");
+            this.options.wysiwyg.ecommerceEditor.observerActive("disable_controls");
             // Redirect the clicks on the active slide, in order to start the
             // carousel options.
             this.__onControlClick = this._onControlClick.bind(this);
@@ -482,11 +482,11 @@ registry.slider = publicWidget.Widget.extend({
         this.$('img').off('.slider');
         this.$target.carousel('pause');
         this.$target.removeData('bs.carousel');
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive("destroy");
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive("destroy");
         _.each(this.$('.carousel-item'), function (el) {
             $(el).css('min-height', '');
         });
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive("destroy");
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive("destroy");
         $(window).off('.slider');
         this.$target.off('.slider'); // TODO remove in master
 
@@ -494,14 +494,14 @@ registry.slider = publicWidget.Widget.extend({
                 && !this.options.wysiwyg.options.enableTranslation) {
             // Restore the carousel controls.
             const indicatorEls = this.el.querySelectorAll(".carousel-indicators > li");
-            this.options.wysiwyg.odooEditor.observerUnactive("restore_controls");
+            this.options.wysiwyg.ecommerceEditor.observerUnactive("restore_controls");
             this.controlEls.forEach(controlEl => {
                 const direction = controlEl.classList.contains("carousel-control-prev") ?
                     "prev" : "next";
                 controlEl.setAttribute("data-bs-slide", direction);
             });
             indicatorEls.forEach((indicatorEl, i) => indicatorEl.setAttribute("data-bs-slide-to", i));
-            this.options.wysiwyg.odooEditor.observerActive("restore_controls");
+            this.options.wysiwyg.ecommerceEditor.observerActive("restore_controls");
             [...this.controlEls, ...indicatorEls].forEach(controlEl => {
                 controlEl.removeEventListener("mousedown", this.__onControlClick);
             });
@@ -518,7 +518,7 @@ registry.slider = publicWidget.Widget.extend({
     _computeHeights: function () {
         var maxHeight = 0;
         var $items = this.$('.carousel-item');
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive("_computeHeights");
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerUnactive("_computeHeights");
         $items.css('min-height', '');
         _.each($items, el => {
             var $item = $(el);
@@ -531,7 +531,7 @@ registry.slider = publicWidget.Widget.extend({
             $item.toggleClass('active', isActive);
         });
         $items.css('min-height', maxHeight);
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive("_computeHeights");
+        this.options.wysiwyg && this.options.wysiwyg.ecommerceEditor.observerActive("_computeHeights");
     },
 
     //--------------------------------------------------------------------------
@@ -652,11 +652,11 @@ registry.Parallax = Animation.extend({
             return;
         }
         if (this.options.wysiwyg) {
-            this.options.wysiwyg.odooEditor.observerUnactive('_updateBgCss');
+            this.options.wysiwyg.ecommerceEditor.observerUnactive('_updateBgCss');
         }
         this.$bg.css(cssValues);
         if (this.options.wysiwyg) {
-            this.options.wysiwyg.odooEditor.observerActive('_updateBgCss');
+            this.options.wysiwyg.ecommerceEditor.observerActive('_updateBgCss');
         }
     },
 
@@ -748,13 +748,13 @@ registry.mediaVideo = publicWidget.Widget.extend(MobileYoutubeAutoplayMixin, {
      */
     start: function () {
         // TODO: this code should be refactored to make more sense and be better
-        // integrated with Odoo (this refactoring should be done in master).
+        // integrated with ecommerce (this refactoring should be done in master).
 
         const proms = [this._super.apply(this, arguments)];
         let iframeEl = this.$target[0].querySelector(':scope > iframe');
 
         // The following code is only there to ensure compatibility with
-        // videos added before bug fixes or new Odoo versions where the
+        // videos added before bug fixes or new ecommerce versions where the
         // <iframe/> element is properly saved.
         if (!iframeEl) {
             iframeEl = this._generateIframe();
@@ -1713,7 +1713,7 @@ registry.ImagesLazyLoading = publicWidget.Widget.extend({
  * Note: a gap also appears between some shapes without zoom. This is likely
  * due to error in the shapes themselves. Many things were done to try and fix
  * this, but the remaining errors will likely be fixed with a review of the
- * shapes in future Odoo versions.
+ * shapes in future ecommerce versions.
  *
  * /!\
  * If a better solution for stable comes up, this widget behavior may be

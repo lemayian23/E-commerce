@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DateTimePicker } from "@web/core/datepicker/datepicker";
 import { areDateEquals, formatDateTime } from "@web/core/l10n/dates";
@@ -6,7 +6,7 @@ import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class DateTimeField extends Component {
     setup() {

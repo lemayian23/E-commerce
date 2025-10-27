@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DomainSelector } from "@web/core/domain_selector/domain_selector";
 import { MainComponentsContainer } from "@web/core/main_components_container";
@@ -12,7 +12,7 @@ import { makeTestEnv } from "../helpers/mock_env";
 import { click, editInput, editSelect, getFixture, mount, triggerEvent } from "../helpers/utils";
 import { makeFakeLocalizationService } from "../helpers/mock_services";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 let serverData;
 let target;

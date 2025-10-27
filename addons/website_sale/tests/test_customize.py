@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
-from odoo.modules.module import get_module_resource
-from odoo.tests import tagged
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
+from ecommerce.modules.module import get_module_resource
+from ecommerce.tests import tagged
 
 @tagged('post_install', '-at_install')
 class TestUi(HttpCaseWithUserDemo, HttpCaseWithUserPortal):

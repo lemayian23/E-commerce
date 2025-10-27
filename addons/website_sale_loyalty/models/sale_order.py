@@ -2,10 +2,10 @@
 from collections import defaultdict
 from datetime import timedelta
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.http import request
+from ecommerce import api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
+from ecommerce.http import request
 
 
 class SaleOrder(models.Model):

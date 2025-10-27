@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.tour.NumberPopupTourMethods', function (require) {
+ecommerce.define('point_of_sale.tour.NumberPopupTourMethods', function (require) {
     'use strict';
 
     const { createTourMethods } = require('point_of_sale.tour.utils');

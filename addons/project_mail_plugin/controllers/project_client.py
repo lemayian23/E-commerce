@@ -1,6 +1,6 @@
 
-from odoo import Command, http, _
-from odoo.http import request
+from ecommerce import Command, http, _
+from ecommerce.http import request
 
 
 class ProjectClient(http.Controller):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api, _
-from odoo.tools.json import scriptsafe as json_safe
-from odoo.exceptions import ValidationError
+from ecommerce import fields, models, api, _
+from ecommerce.tools.json import scriptsafe as json_safe
+from ecommerce.exceptions import ValidationError
 
 
 class ChooseDeliveryCarrier(models.TransientModel):

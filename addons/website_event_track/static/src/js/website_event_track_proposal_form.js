@@ -1,4 +1,4 @@
-odoo.define('website_event_track.website_event_track_proposal_form', function (require) {
+ecommerce.define('website_event_track.website_event_track_proposal_form', function (require) {
 'use strict';
 
 var core = require('web.core');

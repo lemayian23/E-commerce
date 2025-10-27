@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Account Chart Template -->
     <record id="l10n_pk_chart_template" model="account.chart.template">
         <field name="name">Pakistan Chart of Account</field>
@@ -10,4 +10,4 @@
         <field name="currency_id" ref="base.PKR"/>
         <field name="country_id" ref="base.pk"/>
     </record>
-</odoo>
+</ecommerce>

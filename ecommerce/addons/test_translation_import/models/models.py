@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, _, _lt
-from odoo.tools.translate import xml_translate
+from ecommerce import fields, models, _, _lt
+from ecommerce.tools.translate import xml_translate
 
 class TestTranslationImportModel1(models.Model):
     _name = 'test.translation.import.model1'

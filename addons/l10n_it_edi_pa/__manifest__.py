@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Italy - E-invoicing (PA)',
@@ -7,7 +7,7 @@
         'l10n_it_edi'
     ],
     'auto_install': ['l10n_it_edi'],
-    'author': 'Odoo',
+    'author': 'ecommerce',
     'description': """
 Public Administration partners flow handling for the E-invoice implementation for Italy.
 
@@ -19,7 +19,7 @@ Public Administration partners flow handling for the E-invoice implementation fo
     CIG is the Tender Unique Identifier, CUP identifies the Public Project of Investment.
     """,
     'category': 'Accounting/Localizations/EDI',
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/accounting/fiscal_localizations/localizations/italy.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/accounting/fiscal_localizations/localizations/italy.html',
     'data': [
         'views/account_move_view.xml',
         'views/report_invoice.xml',

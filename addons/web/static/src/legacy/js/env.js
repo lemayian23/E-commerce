@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.env **/
+/** @ecommerce-module alias=web.env **/
 
 /**
  * This file defines the env to use in the webclient.

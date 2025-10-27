@@ -1,4 +1,4 @@
-odoo.define('base_import.import', function (require) {
+ecommerce.define('base_import.import', function (require) {
 "use strict";
 
 var AbstractAction = require('web.AbstractAction');
@@ -1097,7 +1097,7 @@ var DataImport = AbstractAction.extend({
             var $errorCell = self.$('.oe_import_comment_cell[field="'+ field +'"]');
             var $errorDiv = $errorCell.find(".oe_import_comments_div");
             var errorTemplate = 'ImportView.fieldError';
-            // If error not linked to a targeted Odoo field, show in global error div
+            // If error not linked to a targeted ecommerce field, show in global error div
             if ($errorDiv.length === 0) {
                 $errorDiv = self.$('.oe_import_error_report');
                 self.$form.addClass('oe_import_error');

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from datetime import timedelta
 
-from odoo import fields
-from odoo.addons.stock.tests.common2 import TestStockCommon
-from odoo import tools
-from odoo.modules.module import get_module_resource
+from ecommerce import fields
+from ecommerce.addons.stock.tests.common2 import TestStockCommon
+from ecommerce import tools
+from ecommerce.modules.module import get_module_resource
 
 
 class PurchaseTestCommon(TestStockCommon):

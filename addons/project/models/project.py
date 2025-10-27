@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import json
@@ -8,12 +8,12 @@ from collections import defaultdict
 from datetime import timedelta, datetime, time
 from random import randint
 
-from odoo import api, Command, fields, models, tools, SUPERUSER_ID, _, _lt
-from odoo.addons.rating.models import rating_data
-from odoo.addons.web_editor.controllers.main import handle_history_divergence
-from odoo.exceptions import UserError, ValidationError, AccessError
-from odoo.osv import expression
-from odoo.tools.misc import get_lang
+from ecommerce import api, Command, fields, models, tools, SUPERUSER_ID, _, _lt
+from ecommerce.addons.rating.models import rating_data
+from ecommerce.addons.web_editor.controllers.main import handle_history_divergence
+from ecommerce.exceptions import UserError, ValidationError, AccessError
+from ecommerce.osv import expression
+from ecommerce.tools.misc import get_lang
 
 from .project_task_recurrence import DAYS, WEEKS
 from .project_update import STATUS_COLOR
@@ -2537,11 +2537,11 @@ class Task(models.Model):
     def _notify_by_email_get_headers(self):
         headers = super(Task, self)._notify_by_email_get_headers()
         if self.project_id:
-            current_objects = [h for h in headers.get('X-Odoo-Objects', '').split(',') if h]
+            current_objects = [h for h in headers.get('X-ecommerce-Objects', '').split(',') if h]
             current_objects.insert(0, 'project.project-%s, ' % self.project_id.id)
-            headers['X-Odoo-Objects'] = ','.join(current_objects)
+            headers['X-ecommerce-Objects'] = ','.join(current_objects)
         if self.tag_ids:
-            headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
+            headers['X-ecommerce-Tags'] = ','.join(self.tag_ids.mapped('name'))
         return headers
 
     def _message_post_after_hook(self, message, msg_vals):

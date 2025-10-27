@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { Layout } from "@web/search/layout";
@@ -9,7 +9,7 @@ import { useSetupView } from "@web/views/view_hook";
 import { useViewButtons } from "@web/views/view_button/view_button_hook";
 import { KanbanRenderer } from "./kanban_renderer";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@ecommerce/owl";
 
 // -----------------------------------------------------------------------------
 

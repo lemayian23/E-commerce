@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { append, createElement, setAttributes } from "@web/core/utils/xml";
 import { registry } from "@web/core/registry";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Feedback from '@im_livechat/legacy/widgets/feedback/feedback';
 

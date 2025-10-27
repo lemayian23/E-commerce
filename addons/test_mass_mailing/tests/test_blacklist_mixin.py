@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.test_mass_mailing.models.mailing_models import MailingBLacklist
-from odoo.addons.test_mass_mailing.tests import common
-from odoo.exceptions import UserError
-from odoo.tests.common import users
+from ecommerce.addons.test_mass_mailing.models.mailing_models import MailingBLacklist
+from ecommerce.addons.test_mass_mailing.tests import common
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import users
 
 
 class TestBLMixin(common.TestMassMailCommon):

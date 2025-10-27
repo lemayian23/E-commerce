@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import datetime
 
 from datetime import date, datetime, timedelta
 
-from odoo import fields, Command
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.exceptions import AccessError
-from odoo.tests import Form, tagged, new_test_user
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
+from ecommerce import fields, Command
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import Form, tagged, new_test_user
+from ecommerce.addons.base.tests.common import SavepointCaseWithUserDemo
 import pytz
 import re
 import base64
@@ -25,9 +25,9 @@ class TestCalendar(SavepointCaseWithUserDemo):
             'privacy': 'private',
             'start': '2011-04-30 16:00:00',
             'stop': '2011-04-30 18:30:00',
-            'description': 'The Technical Presentation will cover following topics:\n* Creating Odoo class\n* Views\n* Wizards\n* Workflows',
+            'description': 'The Technical Presentation will cover following topics:\n* Creating ecommerce class\n* Views\n* Wizards\n* Workflows',
             'duration': 2.5,
-            'location': 'Odoo S.A.',
+            'location': 'ecommerce S.A.',
             'name': 'Technical Presentation'
         })
 
@@ -509,7 +509,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'ecommerce S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })
@@ -533,7 +533,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'ecommerce S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })
@@ -558,7 +558,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'ecommerce S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })

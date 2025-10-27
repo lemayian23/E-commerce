@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { isVisible as isElemVisible } from "@web/core/utils/ui";
 import { UncaughtClientError, UncaughtPromiseError } from "@web/core/errors/error_service";
@@ -256,7 +256,7 @@ export function setupQUnit() {
         modulesAlert.classList.add("alert-info");
         modulesAlert.textContent = "Waiting for modules check...";
         document.getElementById("qunit").appendChild(modulesAlert);
-        const info = odoo.__DEBUG__.jsModules;
+        const info = ecommerce.__DEBUG__.jsModules;
         if (info.missing.length || info.failed.length || info.unloaded.length) {
             document.querySelector("#qunit-banner").classList.add("qunit-fail");
             modulesAlert.classList.toggle("alert-danger");
@@ -294,7 +294,7 @@ export function setupQUnit() {
         }
     }
 
-    QUnit.begin(() => odoo.__DEBUG__.didLogInfo);
+    QUnit.begin(() => ecommerce.__DEBUG__.didLogInfo);
     /**
      * If we want to log several errors, we have to log all of them at once, as
      * browser_js is closed as soon as an error is logged.
@@ -421,7 +421,7 @@ export function setupQUnit() {
     });
 
     QUnit.begin(function () {
-        if (odoo.debug && odoo.debug.includes("assets")) {
+        if (ecommerce.debug && ecommerce.debug.includes("assets")) {
             QUnit.annotateTraceback = fullAnnotatedTraceback;
         } else {
             QUnit.annotateTraceback = (err) => Promise.resolve(fullTraceback(err));

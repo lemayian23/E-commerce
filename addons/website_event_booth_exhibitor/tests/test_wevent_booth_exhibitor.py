@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
-from odoo.tests import tagged
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
+from ecommerce.tests import tagged
 
 
 @tagged('post_install', '-at_install')
@@ -52,7 +52,7 @@ class TestWEventBoothExhibitorCommon(HttpCaseWithUserDemo, HttpCaseWithUserPorta
         })
         self.browser_js(
             '/event',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("webooth_exhibitor_register")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.webooth_exhibitor_register.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("webooth_exhibitor_register")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.webooth_exhibitor_register.ready',
             login='admin'
         )

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="view_message_tree_audit_log" model="ir.ui.view">
         <field name="name">mail.message.tree.inherit.audit.log</field>
@@ -48,4 +48,4 @@
 
     <menuitem id="l10n_in_audit_trail_report_menu" name="Audit trail" action="action_l10n_in_audit_trail_report" parent="l10n_in.account_reports_in_statements_menu" sequence="2"
         groups="account.group_account_readonly"/>
-</odoo>
+</ecommerce>

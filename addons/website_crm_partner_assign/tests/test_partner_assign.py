@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.exceptions import AccessError
-from odoo.fields import Command
-from odoo.tests.common import tagged, new_test_user, TransactionCase
-from odoo.tools import mute_logger
+from ecommerce.exceptions import AccessError
+from ecommerce.fields import Command
+from ecommerce.tests.common import tagged, new_test_user, TransactionCase
+from ecommerce.tools import mute_logger
 
-from odoo.addons.base.tests.common import HttpCase
-from odoo.addons.crm.tests.common import TestCrmCommon
-from odoo.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.base.tests.common import HttpCase
+from ecommerce.addons.crm.tests.common import TestCrmCommon
+from ecommerce.addons.mail.tests.common import mail_new_test_user
 
 
 class TestPartnerAssign(TransactionCase):
@@ -37,7 +37,7 @@ class TestPartnerAssign(TransactionCase):
                 'Cannon Hill Park, B46 3AG Birmingham, United Kingdom': (52.45216, -1.898578),
             }.get(addr)
 
-        patcher = patch('odoo.addons.base_geolocalize.models.base_geocoder.GeoCoder.geo_find', wraps=geo_find)
+        patcher = patch('ecommerce.addons.base_geolocalize.models.base_geocoder.GeoCoder.geo_find', wraps=geo_find)
         self.startPatcher(patcher)
 
     def test_opportunity_count(self):
@@ -292,12 +292,12 @@ class TestPublish(HttpCase):
             'grade_id': grade.id,
         })
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_01_admin(self):
         self.start_tour(self.env['website'].get_client_action_url('/partners'), 'test_can_publish_partner', login="admin")
         self.assertTrue(self.partner.website_published, "Partner should have been published")
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_02_reditor_salesman(self):
         self.user_test.groups_id = [
             Command.link(self.group_restricted_editor.id),
@@ -306,7 +306,7 @@ class TestPublish(HttpCase):
         self.start_tour(self.env['website'].get_client_action_url('/partners'), 'test_can_publish_partner', login="testtest")
         self.assertTrue(self.partner.website_published, "Partner should have been published")
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_03_reditor_not_salesman(self):
         self.user_test.groups_id = [
             Command.link(self.group_restricted_editor.id),
@@ -317,7 +317,7 @@ class TestPublish(HttpCase):
         self.assertNotIn(self.group_partner_manager.id, self.user_test.groups_id.ids, "User should not be a group_partner_manager")
         self.start_tour(self.env['website'].get_client_action_url('/partners'), 'test_cannot_publish_partner', login="testtest")
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_04_not_reditor_salesman(self):
         self.user_test.groups_id = [
             Command.unlink(self.group_restricted_editor.id),
@@ -327,7 +327,7 @@ class TestPublish(HttpCase):
         self.start_tour(self.env['website'].get_client_action_url('/partners'), 'test_can_publish_partner', login="testtest")
         self.assertTrue(self.partner.website_published, "Partner should have been published")
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('ecommerce.addons.http_routing.models.ir_http', 'ecommerce.http')
     def test_05_not_reditor_not_salesman(self):
         self.user_test.groups_id = [
             Command.unlink(self.group_restricted_editor.id),

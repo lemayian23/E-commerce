@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record model="ir.ui.view" id="stock_picking_calendar">
             <field name="name">stock.picking.calendar</field>
             <field name="model">stock.picking</field>
@@ -603,4 +603,4 @@
             <field name="view_mode">tree,form</field>
             <field name="domain">[('group_id','=',active_id)]</field>
         </record>
-</odoo>
+</ecommerce>

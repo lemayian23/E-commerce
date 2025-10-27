@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import FormView from 'web.FormView';
 import ListView from 'web.ListView';
@@ -58,17 +58,17 @@ QUnit.module('fields', {
         assert.strictEqual(this.target.querySelector('.o_sms_count').textContent, '0 characters, fits in 0 SMS (GSM7) ',
             'Should be "0 characters, fits in 0 SMS (GSM7) " by default');
         // GSM-7
-        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hello from Odoo", 'input');
+        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hello from ecommerce", 'input');
         assert.strictEqual(this.target.querySelector('.o_sms_count').textContent, '15 characters, fits in 1 SMS (GSM7) ',
-            'Should be "15 characters, fits in 1 SMS (GSM7) " for "Hello from Odoo"');
+            'Should be "15 characters, fits in 1 SMS (GSM7) " for "Hello from ecommerce"');
         // GSM-7 with \n => this one count as 2 characters
-        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hello from Odoo\n", 'input');
+        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hello from ecommerce\n", 'input');
         assert.strictEqual(this.target.querySelector('.o_sms_count').textContent, '17 characters, fits in 1 SMS (GSM7) ',
-            'Should be "17 characters, fits in 1 SMS (GSM7) " for "Hello from Odoo\\n"');
+            'Should be "17 characters, fits in 1 SMS (GSM7) " for "Hello from ecommerce\\n"');
         // Unicode => ê
-        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hêllo from Odoo", 'input');
+        await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), "Hêllo from ecommerce", 'input');
         assert.strictEqual(this.target.querySelector('.o_sms_count').textContent, '15 characters, fits in 1 SMS (UNICODE) ',
-            'Should be "15 characters, fits in 1 SMS (UNICODE) " for "Hêllo from Odoo"');
+            'Should be "15 characters, fits in 1 SMS (UNICODE) " for "Hêllo from ecommerce"');
         // GSM-7 with 160c
         var text = Array(161).join('a');
         await testUtils.fields.editAndTrigger(this.target.querySelector('.o_input'), text, 'input');

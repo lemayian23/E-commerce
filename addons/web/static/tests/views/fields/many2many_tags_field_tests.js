@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
 import { browser } from "@web/core/browser/browser";
@@ -1483,7 +1483,7 @@ QUnit.module("Fields", (hooks) => {
             mockRPC(route, args) {
                 if (args.method === "name_create") {
                     const error = new RPCError("Something went wrong");
-                    error.exceptionName = "odoo.exceptions.ValidationError";
+                    error.exceptionName = "ecommerce.exceptions.ValidationError";
                     throw error;
                 }
                 if (args.method === "create") {

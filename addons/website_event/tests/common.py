@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta, time
 from unittest.mock import patch
 
-from odoo.addons.event.tests.common import EventCase
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.fields import Datetime as FieldsDatetime, Date as FieldsDate
-from odoo.tests.common import TransactionCase
+from ecommerce.addons.event.tests.common import EventCase
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.fields import Datetime as FieldsDatetime, Date as FieldsDate
+from ecommerce.tests.common import TransactionCase
 
 
 class OnlineEventCase(EventCase):

@@ -1,9 +1,9 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import fonts from 'wysiwyg.fonts';
 import { SearchMedia } from './search_media';
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 export class IconSelector extends Component {
     setup() {

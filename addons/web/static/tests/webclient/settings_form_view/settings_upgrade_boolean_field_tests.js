@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { click, getFixture, patchWithCleanup } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 
@@ -73,7 +73,7 @@ QUnit.module("SettingsUpgradeBoolean", (hooks) => {
     QUnit.test(
         "widget upgrade_boolean in a form view - dialog (enterprise version)",
         async function (assert) {
-            patchWithCleanup(odoo, { info: { isEnterprise: 1 } });
+            patchWithCleanup(ecommerce, { info: { isEnterprise: 1 } });
             await makeView({
                 type: "form",
                 arch: `
@@ -97,7 +97,7 @@ QUnit.module("SettingsUpgradeBoolean", (hooks) => {
     QUnit.test(
         "widget upgrade_boolean in a form view - label (enterprise version)",
         async function (assert) {
-            patchWithCleanup(odoo, { info: { isEnterprise: 1 } });
+            patchWithCleanup(ecommerce, { info: { isEnterprise: 1 } });
             await makeView({
                 type: "form",
                 arch: `

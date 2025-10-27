@@ -1,9 +1,9 @@
 from unittest.mock import patch, DEFAULT
 
-from odoo import Command
-from odoo.exceptions import UserError
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase
+from ecommerce import Command
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
+from ecommerce.tests.common import TransactionCase
 
 
 class TestCarrierPropagation(TransactionCase):
@@ -188,7 +188,7 @@ class TestCarrierPropagation(TransactionCase):
         pickings = sale_orders.picking_ids
         pickings.action_assign()
         pickings.action_set_quantities_to_reservation()
-        picking_class = 'odoo.addons.delivery.models.stock_picking.StockPicking'
+        picking_class = 'ecommerce.addons.delivery.models.stock_picking.StockPicking'
         with patch(picking_class + '.send_to_shipper', new=fail_send_to_shipper(pickings[1])):
             pickings.with_user(alien).button_validate()
         # both pickings should be validated but and activity should have been created for the invalid picking

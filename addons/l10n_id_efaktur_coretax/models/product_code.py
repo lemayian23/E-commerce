@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.osv import expression
+from ecommerce import api, fields, models
+from ecommerce.osv import expression
 
 class EfakturProductCode(models.Model):
     _name = "l10n_id_efaktur_coretax.product.code"

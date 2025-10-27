@@ -1,7 +1,7 @@
 from datetime import timedelta
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools.sql import column_exists
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.tools.sql import column_exists
 
 
 class AccountUpdateTaxTagsWizard(models.TransientModel):
@@ -34,7 +34,7 @@ class AccountUpdateTaxTagsWizard(models.TransientModel):
 
     # ==== Business methods ====
     def _recompute_tax_audit_string(self, aml_ids):
-        # Taken from #odoo/upgrade account/saas~12.3.1.1/end-20-recompute.py
+        # Taken from #ecommerce/upgrade account/saas~12.3.1.1/end-20-recompute.py
         self.env.flush_all()
         pos_order_condition = """
             (

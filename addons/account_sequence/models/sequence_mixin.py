@@ -1,7 +1,7 @@
 from psycopg2 import DatabaseError
 
-from odoo import models
-from odoo.tools import mute_logger
+from ecommerce import models
+from ecommerce.tools import mute_logger
 
 
 class SequenceMixin(models.AbstractModel):
@@ -45,7 +45,7 @@ class SequenceMixin(models.AbstractModel):
             format_values['seq'] = format_values['seq'] + 1
             sequence = format_string.format(**format_values)
             try:
-                with self.env.cr.savepoint(flush=False), mute_logger('odoo.sql_db'):
+                with self.env.cr.savepoint(flush=False), mute_logger('ecommerce.sql_db'):
                     self[self._sequence_field] = sequence
                     self.flush_recordset([self._sequence_field])
                     break

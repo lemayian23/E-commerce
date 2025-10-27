@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeEnv, startServices } from "./env";
 import { legacySetupProm } from "./legacy/legacy_setup";
@@ -9,7 +9,7 @@ import { renderToString } from "./core/utils/render";
 import { setLoadXmlDefaultApp, templates } from "@web/core/assets";
 import { hasTouch } from "@web/core/browser/feature_detection";
 
-import { App, whenReady } from "@odoo/owl";
+import { App, whenReady } from "@ecommerce/owl";
 
 /**
  * Function to start a webclient.
@@ -20,13 +20,13 @@ import { App, whenReady } from "@odoo/owl";
  * @param {Component} Webclient
  */
 export async function startWebClient(Webclient) {
-    odoo.info = {
+    ecommerce.info = {
         db: session.db,
         server_version: session.server_version,
         server_version_info: session.server_version_info,
         isEnterprise: session.server_version_info.slice(-1)[0] === "e",
     };
-    odoo.isReady = false;
+    ecommerce.isReady = false;
 
     // setup environment
     const env = makeEnv();
@@ -59,9 +59,9 @@ export async function startWebClient(Webclient) {
     if (hasTouch()) {
         classList.add("o_touch_device");
     }
-    // delete odoo.debug; // FIXME: some legacy code rely on this
-    odoo.__WOWL_DEBUG__ = { root };
-    odoo.isReady = true;
+    // delete ecommerce.debug; // FIXME: some legacy code rely on this
+    ecommerce.__WOWL_DEBUG__ = { root };
+    ecommerce.isReady = true;
 
     // Update Favicons
     const favicon = `/web/image/res.company/${env.services.company.currentCompany.id}/favicon`;

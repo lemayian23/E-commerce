@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo.tests import tagged, HttpCase
+from ecommerce.tests import tagged, HttpCase
 
 from .test_project_base import TestProjectCommon
 

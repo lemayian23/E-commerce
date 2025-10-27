@@ -1,6 +1,6 @@
-from odoo import models
-from odoo.http import SessionExpiredException
-from odoo.service import security
+from ecommerce import models
+from ecommerce.http import SessionExpiredException
+from ecommerce.service import security
 from ..models.bus import dispatch
 from ..websocket import wsrequest
 

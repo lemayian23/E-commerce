@@ -1,4 +1,4 @@
-odoo.define('website.form_editor_registry', function (require) {
+ecommerce.define('website.form_editor_registry', function (require) {
 'use strict';
 
 var Registry = require('web.Registry');
@@ -7,7 +7,7 @@ return new Registry();
 
 });
 
-odoo.define('website.send_mail_form', function (require) {
+ecommerce.define('website.send_mail_form', function (require) {
 'use strict';
 
 var FormEditorRegistry = require('website.form_editor_registry');

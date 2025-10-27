@@ -1,5 +1,5 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details
-from odoo import fields, models, api
+# Part of ecommerce. See LICENSE file for full copyright and licensing details
+from ecommerce import fields, models, api
 
 
 class ResPartner(models.Model):

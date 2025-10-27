@@ -1,7 +1,7 @@
 import base64
 import json
-from odoo.tests.common import TransactionCase, Form
-from odoo.exceptions import UserError, ValidationError
+from ecommerce.tests.common import TransactionCase, Form
+from ecommerce.exceptions import UserError, ValidationError
 
 
 class TestSpreadsheetDashboard(TransactionCase):

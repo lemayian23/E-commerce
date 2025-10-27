@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -389,7 +389,7 @@ QUnit.module("ActionManager", (hooks) => {
     });
 
     QUnit.test("document's title is updated when an action is executed", async function (assert) {
-        const defaultTitle = { zopenerp: "Odoo" };
+        const defaultTitle = { zopenerp: "ecommerce" };
         const webClient = await createWebClient({ serverData });
         let currentTitle = webClient.env.services.title.getParts();
         assert.deepEqual(currentTitle, defaultTitle);

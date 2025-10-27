@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo.tests.common import HOST
-from odoo.tools import config
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsitePageManager(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsitePageManager(ecommerce.tests.HttpCase):
 
     def test_01_page_manager(self):
         website = self.env['website'].create({

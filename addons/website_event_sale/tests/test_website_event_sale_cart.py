@@ -1,8 +1,8 @@
-from odoo import Command
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
-from odoo.addons.website_sale.tests.test_website_sale_cart_abandoned import (
+from ecommerce.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
+from ecommerce.addons.website_sale.tests.test_website_sale_cart_abandoned import (
     TestWebsiteSaleCartAbandonedCommon,
 )
 

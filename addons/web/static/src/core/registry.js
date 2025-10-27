@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@ecommerce/owl";
 
 // -----------------------------------------------------------------------------
 // Errors

@@ -2,8 +2,8 @@
 
 from collections import Counter
 
-from odoo import models, fields, api, _
-from odoo.osv import expression
+from ecommerce import models, fields, api, _
+from ecommerce.osv import expression
 
 
 class WebsiteSnippetFilter(models.Model):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import http
-from odoo.http import request
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import http
+from ecommerce.http import request
 
-from odoo.addons.sale.controllers.variant import VariantController
+from ecommerce.addons.sale.controllers.variant import VariantController
 
 
 class WebsiteSaleVariantController(VariantController):

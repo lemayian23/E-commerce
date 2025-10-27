@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="egypt_chart_template_standard" model="account.chart.template">
         <field name="account_journal_suspense_account_id" ref="egy_account_201001"/>
         <field name="property_account_receivable_id" ref="egy_account_102011"/>
@@ -20,4 +20,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="egy_account_400079"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="egy_account_500014"/>
     </record>
-</odoo>
+</ecommerce>

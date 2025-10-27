@@ -1,4 +1,4 @@
-odoo.define('test_website.image_upload_progress', function (require) {
+ecommerce.define('test_website.image_upload_progress', function (require) {
 'use strict';
 
 const wTourUtils = require('website.tour_utils');

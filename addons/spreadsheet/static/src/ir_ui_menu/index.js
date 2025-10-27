@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -10,11 +10,11 @@ import {
     isMarkdownIrMenuXmlLink,
     isMarkdownViewLink,
     parseIrMenuXmlLink,
-    OdooViewLinkCell,
-    OdooMenuLinkCell,
+    ecommerceViewLinkCell,
+    ecommerceMenuLinkCell,
     parseViewLink,
     parseIrMenuIdLink,
-} from "./odoo_menu_link_cell";
+} from "./ecommerce_menu_link_cell";
 
 const { cellRegistry, corePluginRegistry } = spreadsheet.registries;
 const { parseMarkdownLink } = spreadsheet.helpers;
@@ -35,17 +35,17 @@ export const spreadsheetLinkMenuCellService = {
         }
 
         cellRegistry
-            .add("OdooMenuIdLink", {
+            .add("ecommerceMenuIdLink", {
                 sequence: 65,
                 match: isMarkdownIrMenuIdLink,
                 createCell: (id, content, properties, sheetId, getters) => {
                     const { url } = parseMarkdownLink(content);
                     const menuId = parseIrMenuIdLink(url);
                     const menuName = env.services.menu.getMenu(menuId).name;
-                    return new OdooMenuLinkCell(id, content, menuId, menuName, properties);
+                    return new ecommerceMenuLinkCell(id, content, menuId, menuName, properties);
                 },
             })
-            .add("OdooMenuXmlLink", {
+            .add("ecommerceMenuXmlLink", {
                 sequence: 66,
                 match: isMarkdownIrMenuXmlLink,
                 createCell: (id, content, properties, sheetId, getters) => {
@@ -53,16 +53,16 @@ export const spreadsheetLinkMenuCellService = {
                     const xmlId = parseIrMenuXmlLink(url);
                     const menuId = _getIrMenuByXmlId(xmlId).id;
                     const menuName = _getIrMenuByXmlId(xmlId).name;
-                    return new OdooMenuLinkCell(id, content, menuId, menuName, properties);
+                    return new ecommerceMenuLinkCell(id, content, menuId, menuName, properties);
                 },
             })
-            .add("OdooIrFilterLink", {
+            .add("ecommerceIrFilterLink", {
                 sequence: 67,
                 match: isMarkdownViewLink,
                 createCell: (id, content, properties, sheetId, getters) => {
                     const { url } = parseMarkdownLink(content);
                     const actionDescription = parseViewLink(url);
-                    return new OdooViewLinkCell(id, content, actionDescription, properties);
+                    return new ecommerceViewLinkCell(id, content, actionDescription, properties);
                 },
             });
 

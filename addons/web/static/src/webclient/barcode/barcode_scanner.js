@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 /* global BarcodeDetector */
 
 import { browser } from "@web/core/browser/browser";
@@ -17,7 +17,7 @@ import {
     onWillUnmount,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 import { _t } from "@web/core/l10n/translation";
 
 export class BarcodeDialog extends Component {
@@ -61,7 +61,7 @@ export class BarcodeDialog extends Component {
             } catch (err) {
                 const errors = {
                     NotFoundError: _t("No device can be found."),
-                    NotAllowedError: _t("Odoo needs your authorization first."),
+                    NotAllowedError: _t("ecommerce needs your authorization first."),
                 };
                 const errorMessage =
                     _t("Could not start scanning. ") + (errors[err.name] || err.message);

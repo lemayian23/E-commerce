@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import models
-from odoo.tools import populate
+from ecommerce import models
+from ecommerce.tools import populate
 
 class HrDepartment(models.Model):
     _inherit = 'hr.department'

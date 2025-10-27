@@ -1,4 +1,4 @@
-odoo.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
+ecommerce.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
     'use strict';
 
     const { useAutofocus, useListener } = require("@web/core/utils/hooks");

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 from itertools import chain, starmap, zip_longest
 
-from odoo import SUPERUSER_ID, api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.tools import is_html_empty
+from ecommerce import SUPERUSER_ID, api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import is_html_empty
 
-from odoo.addons.sale.models.sale_order import READONLY_FIELD_STATES
+from ecommerce.addons.sale.models.sale_order import READONLY_FIELD_STATES
 
 
 class SaleOrder(models.Model):

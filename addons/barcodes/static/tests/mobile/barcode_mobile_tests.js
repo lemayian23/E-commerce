@@ -1,4 +1,4 @@
-odoo.define('barcodes.barcode_mobile_tests', function (require) {
+ecommerce.define('barcodes.barcode_mobile_tests', function (require) {
     "use strict";
 
     const {barcodeService} = require("@barcodes/barcode_service");

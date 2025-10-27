@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { Tooltip } from "@web/core/tooltip/tooltip";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@ecommerce/owl";
 export class CopyButton extends Component {
     setup() {
         this.button = useRef("button");

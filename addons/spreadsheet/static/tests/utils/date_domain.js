@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 const { DateTime } = luxon;
 import { Domain } from "@web/core/domain";

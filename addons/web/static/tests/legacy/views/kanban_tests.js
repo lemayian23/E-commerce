@@ -1,4 +1,4 @@
-odoo.define('web.kanban_tests', function (require) {
+ecommerce.define('web.kanban_tests', function (require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');
@@ -23,7 +23,7 @@ const cpHelpers = require('@web/../tests/search/helpers');
 var createView = testUtils.createView;
 
 const { Markup } = require("web.utils");
-const { markup, xml } = require("@odoo/owl");
+const { markup, xml } = require("@ecommerce/owl");
 
 QUnit.module('LegacyViews', {
     before: function () {
@@ -1647,7 +1647,7 @@ QUnit.module('LegacyViews', {
         // will NOT close the quick create.
         // This can happen when the user clicks out of the input because of a race condition between
         // the focusout of the m2o and the global 'click' handler of the quick create.
-        // Check odoo/odoo#61981 for more details.
+        // Check ecommerce/ecommerce#61981 for more details.
         const $body = kanban.$el.closest('body');
         assert.hasClass($body, 'modal-open',
             "modal should be opening after m2o focusout");
@@ -1887,7 +1887,7 @@ QUnit.module('LegacyViews', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ecommerce server error",
                         },
                         event: $.Event()
                     });
@@ -1952,7 +1952,7 @@ QUnit.module('LegacyViews', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ecommerce server error",
                         },
                         event: $.Event()
                     });
@@ -2002,7 +2002,7 @@ QUnit.module('LegacyViews', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ecommerce server error",
                         },
                         event: $.Event()
                     });
@@ -2061,7 +2061,7 @@ QUnit.module('LegacyViews', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ecommerce server error",
                         },
                         event: $.Event()
                     });

@@ -1,5 +1,5 @@
 
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export function makeMessagingToLegacyEnv(legacyEnv) {
     return {

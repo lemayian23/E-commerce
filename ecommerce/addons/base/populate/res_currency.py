@@ -1,8 +1,8 @@
 from dateutil.relativedelta import relativedelta
 from datetime import date
 
-from odoo import models, Command
-from odoo.tools import populate
+from ecommerce import models, Command
+from ecommerce.tools import populate
 
 
 class ResCurrencyRate(models.Model):

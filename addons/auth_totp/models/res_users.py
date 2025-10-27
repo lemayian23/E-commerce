@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import functools
@@ -7,13 +7,13 @@ import logging
 import os
 import re
 
-from odoo import _, api, fields, models
-from odoo.addons.base.models.res_users import check_identity
-from odoo.exceptions import AccessDenied, UserError
-from odoo.http import request
-from odoo.tools import sql
+from ecommerce import _, api, fields, models
+from ecommerce.addons.base.models.res_users import check_identity
+from ecommerce.exceptions import AccessDenied, UserError
+from ecommerce.http import request
+from ecommerce.tools import sql
 
-from odoo.addons.auth_totp.models.totp import TOTP, TOTP_SECRET_SIZE
+from ecommerce.addons.auth_totp.models.totp import TOTP, TOTP_SECRET_SIZE
 
 _logger = logging.getLogger(__name__)
 

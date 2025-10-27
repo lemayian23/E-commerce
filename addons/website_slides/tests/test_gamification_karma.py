@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_slides.tests import common
-from odoo.tests import tagged
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.website_slides.tests import common
+from ecommerce.tests import tagged
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 @tagged('gamification')
@@ -40,7 +40,7 @@ class TestKarmaGain(common.SlidesCase):
             }
         ])
 
-    @mute_logger('odoo.models')
+    @mute_logger('ecommerce.models')
     @users('user_emp')
     def test_karma_change_vote(self):
         """ Test like / dislike only karma changes """
@@ -61,7 +61,7 @@ class TestKarmaGain(common.SlidesCase):
         self.assertTrue(slide_2_0.user_membership_id)
         self.assertEqual(self.env.user.karma, start_karma - channel.karma_gen_slide_vote)
 
-    @mute_logger('odoo.models')
+    @mute_logger('ecommerce.models')
     @users('user_emp', 'user_portal', 'user_officer')
     def test_karma_gain(self):
         user = self.env.user
@@ -144,7 +144,7 @@ class TestKarmaGain(common.SlidesCase):
         computed_karma -= self.slide_3.quiz_second_attempt_reward
         self.assertEqual(user.karma, computed_karma)
 
-    @mute_logger('odoo.models')
+    @mute_logger('ecommerce.models')
     @users('user_emp', 'user_portal', 'user_officer')
     def test_karma_gain_multiple_course(self):
         user = self.env.user

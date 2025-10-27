@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {_t} from 'web.core';
 import publicWidget from 'web.public.widget';
@@ -157,7 +157,7 @@ publicWidget.registry.DonationSnippet = publicWidget.Widget.extend({
         const $form = this.$('.s_donation_form');
         $('<input>').attr({type: 'hidden', name: 'amount', value: amount}).appendTo($form);
         $('<input>').attr({type: 'hidden', name: 'currency_id', value: this.currency.id}).appendTo($form);
-        $('<input>').attr({type: 'hidden', name: 'csrf_token', value: odoo.csrf_token}).appendTo($form);
+        $('<input>').attr({type: 'hidden', name: 'csrf_token', value: ecommerce.csrf_token}).appendTo($form);
         $('<input>').attr({type: 'hidden', name: 'donation_options', value: JSON.stringify(this.el.dataset)}).appendTo($form);
         $form.submit();
     },

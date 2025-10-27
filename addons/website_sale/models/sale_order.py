@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools import float_is_zero
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.tools import float_is_zero
 
 
 class SaleOrder(models.Model):

@@ -1,4 +1,4 @@
-odoo.define('hr_holidays.tour_time_off_request_calendar_view', function (require) {
+ecommerce.define('hr_holidays.tour_time_off_request_calendar_view', function (require) {
 'use strict';
 
 var tour = require('web_tour.tour');

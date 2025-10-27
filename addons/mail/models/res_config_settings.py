@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 
-from odoo import _, fields, models
-from odoo.exceptions import UserError
+from ecommerce import _, fields, models
+from ecommerce.exceptions import UserError
 
 
 class ResConfigSettings(models.TransientModel):
@@ -15,7 +15,7 @@ class ResConfigSettings(models.TransientModel):
     fail_counter = fields.Integer('Fail Mail', compute="_compute_fail_counter")
     alias_domain = fields.Char(
         'Alias Domain', config_parameter='mail.catchall.domain',
-        help="If you have setup a catch-all email domain redirected to the Odoo server, enter the domain name here.")
+        help="If you have setup a catch-all email domain redirected to the ecommerce server, enter the domain name here.")
     module_google_gmail = fields.Boolean('Support Gmail Authentication')
     module_microsoft_outlook = fields.Boolean('Support Outlook Authentication')
     restrict_template_rendering = fields.Boolean(

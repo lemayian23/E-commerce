@@ -1,4 +1,4 @@
-odoo.define('wysiwyg.widgets.LinkDialog', function (require) {
+ecommerce.define('wysiwyg.widgets.LinkDialog', function (require) {
 'use strict';
 
 const Dialog = require('wysiwyg.widgets.Dialog');

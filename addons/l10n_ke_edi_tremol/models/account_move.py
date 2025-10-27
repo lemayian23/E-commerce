@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import json
 import re
 from datetime import datetime
 
-from odoo import models, fields, _
-from odoo.exceptions import UserError
+from ecommerce import models, fields, _
+from ecommerce.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -117,7 +117,7 @@ class AccountMove(models.Model):
         """ Serialise the data of each line on the invoice
 
         This function transforms the lines in order to handle the differences
-        between the KRA expected data and the lines in odoo.
+        between the KRA expected data and the lines in ecommerce.
 
         If a discount line (as a negative line) has been added to the invoice
         lines, find a suitable line/lines to distribute the discount accross

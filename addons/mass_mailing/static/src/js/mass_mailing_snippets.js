@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.snippets.options', function (require) {
+ecommerce.define('mass_mailing.snippets.options', function (require) {
 "use strict";
 
 const options = require('web_editor.snippets.options');

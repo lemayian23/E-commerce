@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.tests import tagged
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.auth_totp.tests.test_totp import TestTOTPCommon
+from ecommerce.tests import tagged
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.auth_totp.tests.test_totp import TestTOTPCommon
 
 _logger = logging.getLogger(__name__)
 

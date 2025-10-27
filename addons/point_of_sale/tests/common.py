@@ -2,10 +2,10 @@
 from random import randint
 from datetime import datetime
 
-from odoo import fields, tools
-from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
-from odoo.tests.common import Form
-from odoo.tests import tagged
+from ecommerce import fields, tools
+from ecommerce.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
+from ecommerce.tests.common import Form
+from ecommerce.tests import tagged
 
 import logging
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<odoo>
+<ecommerce>
     <record id="crm_lead_view_tree_opportunity" model="ir.ui.view">
         <field name="name">crm.lead.view.tree.opportunity.inherit.iap.mine</field>
         <field name="model">crm.lead</field>
@@ -22,4 +22,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</ecommerce>

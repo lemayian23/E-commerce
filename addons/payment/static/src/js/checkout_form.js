@@ -1,4 +1,4 @@
-odoo.define('payment.checkout_form', require => {
+ecommerce.define('payment.checkout_form', require => {
     'use strict';
 
     const publicWidget = require('web.public.widget');

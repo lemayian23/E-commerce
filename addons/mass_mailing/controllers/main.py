@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import urllib.parse
 
-from odoo import _, exceptions, http, tools
-from odoo.http import request, Response
-from odoo.tools import consteq
+from ecommerce import _, exceptions, http, tools
+from ecommerce.http import request, Response
+from ecommerce.tools import consteq
 from lxml import etree
 from werkzeug.exceptions import BadRequest, NotFound
 

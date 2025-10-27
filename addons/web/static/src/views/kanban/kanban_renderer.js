@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { Dropdown } from "@web/core/dropdown/dropdown";
@@ -19,7 +19,7 @@ import { KanbanColumnQuickCreate } from "./kanban_column_quick_create";
 import { KanbanRecord } from "./kanban_record";
 import { KanbanRecordQuickCreate } from "./kanban_record_quick_create";
 
-import { Component, useState, useRef, onPatched, onWillPatch, onWillDestroy } from "@odoo/owl";
+import { Component, useState, useRef, onPatched, onWillPatch, onWillDestroy } from "@ecommerce/owl";
 
 const DRAGGABLE_GROUP_TYPES = ["many2one"];
 const MOVABLE_RECORD_TYPES = ["char", "boolean", "integer", "selection", "many2one"];

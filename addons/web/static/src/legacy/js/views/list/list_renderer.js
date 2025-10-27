@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.ListRenderer **/
+/** @ecommerce-module alias=web.ListRenderer **/
 
 import BasicRenderer from 'web.BasicRenderer';
 import { ComponentWrapper } from 'web.OwlCompatibility';

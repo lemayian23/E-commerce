@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { registry } from "@web/core/registry";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 const errorHandlerRegistry = registry.category("error_handlers");
 
 export class FormErrorDialog extends Component {

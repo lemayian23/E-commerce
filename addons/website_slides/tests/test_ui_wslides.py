@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import logging
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import http, tests
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.gamification.tests.common import HttpCaseGamification
-from odoo.fields import Command, Datetime
-from odoo.modules.module import get_module_resource
-from odoo.tools.misc import file_open
+from ecommerce import http, tests
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce.addons.gamification.tests.common import HttpCaseGamification
+from ecommerce.fields import Command, Datetime
+from ecommerce.modules.module import get_module_resource
+from ecommerce.tools.misc import file_open
 
 _logger = logging.getLogger(__name__)
 
@@ -119,8 +119,8 @@ class TestUi(TestUICommon):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_member")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_member")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
             login=user_demo.login)
 
     def test_course_member_elearning_officer(self):
@@ -132,8 +132,8 @@ class TestUi(TestUICommon):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_member")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_member")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
             login=user_demo.login)
 
     def test_course_member_portal(self):
@@ -142,8 +142,8 @@ class TestUi(TestUICommon):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_member")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_member")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_member.ready',
             login=user_portal.login)
 
     def test_full_screen_edition_website_restricted_editor(self):
@@ -166,8 +166,8 @@ class TestUi(TestUICommon):
 
         self.browser_js(
             self.env['website'].get_client_action_url('/slides'),
-            'odoo.__DEBUG__.services["web_tour.tour"].run("full_screen_web_editor")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.full_screen_web_editor.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("full_screen_web_editor")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.full_screen_web_editor.ready',
             login=user_demo.login)
 
     def test_course_reviews_elearning_officer(self):
@@ -183,8 +183,8 @@ class TestUi(TestUICommon):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_reviews")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_reviews.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_reviews")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_reviews.ready',
             login=user_demo.login)
 
 
@@ -194,7 +194,7 @@ class TestUiPublisher(HttpCaseGamification):
     def fetch_proxy(self, url):
         if url.endswith('ThreeTimeAKCGoldWinnerPembrookeWelshCorgi.jpg'):
             _logger.info('External chrome request during tests: Sending dummy image for %s', url)
-            with file_open('base/tests/odoo.jpg', 'rb') as f:
+            with file_open('base/tests/ecommerce.jpg', 'rb') as f:
                 content = f.read()
             return self.make_fetch_proxy_response(content)
         return super().fetch_proxy(url)
@@ -216,8 +216,8 @@ class TestUiPublisher(HttpCaseGamification):
 
         self.browser_js(
             self.env['website'].get_client_action_url('/slides'),
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_publisher_standard")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_publisher_standard.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_publisher_standard")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_publisher_standard.ready',
             login=user_demo.login)
 
 
@@ -234,8 +234,8 @@ class TestUiPublisherYoutube(HttpCaseGamification):
 
         self.browser_js(
             '/slides',
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_member_youtube")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_member_youtube.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_member_youtube")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_member_youtube.ready',
             login=user_demo.login)
 
     def test_course_publisher_elearning_manager(self):
@@ -246,8 +246,8 @@ class TestUiPublisherYoutube(HttpCaseGamification):
 
         self.browser_js(
             self.env['website'].get_client_action_url('/slides'),
-            'odoo.__DEBUG__.services["web_tour.tour"].run("course_publisher")',
-            'odoo.__DEBUG__.services["web_tour.tour"].tours.course_publisher.ready',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].run("course_publisher")',
+            'ecommerce.__DEBUG__.services["web_tour.tour"].tours.course_publisher.ready',
             login=user_demo.login)
 
 @tests.common.tagged('external', 'post_install', '-standard', '-at_install')

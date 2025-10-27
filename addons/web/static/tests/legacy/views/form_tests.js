@@ -1,4 +1,4 @@
-odoo.define('web.form_tests', function (require) {
+ecommerce.define('web.form_tests', function (require) {
 "use strict";
 
 const AbstractField = require("web.AbstractField");
@@ -37,7 +37,7 @@ const { mapLegacyEnvToWowlEnv } = require("@web/legacy/utils");
 const { scrollerService } = require("@web/core/scroller_service");
 const { LegacyComponent } = require("@web/legacy/legacy_component");
 
-const { onMounted, onWillUnmount, xml } = require("@odoo/owl");
+const { onMounted, onWillUnmount, xml } = require("@ecommerce/owl");
 
 let serverData;
 let target;
@@ -1577,8 +1577,8 @@ QUnit.module('LegacyViews', {
     QUnit.test('tooltips on multiple occurrences of fields and labels', async function (assert) {
         assert.expect(4);
 
-        const initialDebugMode = odoo.debug;
-        odoo.debug = false;
+        const initialDebugMode = ecommerce.debug;
+        ecommerce.debug = false;
 
         this.data.partner.fields.foo.help = 'foo tooltip';
         this.data.partner.fields.bar.help = 'bar tooltip';
@@ -1626,7 +1626,7 @@ QUnit.module('LegacyViews', {
         assert.strictEqual($('.tooltip .oe_tooltip_help').text().trim(), "bar tooltip");
         $barLabel2[0].dispatchEvent(new Event('mouseout'));
 
-        odoo.debug = initialDebugMode;
+        ecommerce.debug = initialDebugMode;
         form.destroy();
     });
 
@@ -8224,8 +8224,8 @@ QUnit.module('LegacyViews', {
     QUnit.test('display tooltips for buttons', async function (assert) {
         assert.expect(2);
 
-        var initialDebugMode = odoo.debug;
-        odoo.debug = true;
+        var initialDebugMode = ecommerce.debug;
+        ecommerce.debug = true;
 
         var form = await createView({
             View: FormView,
@@ -8256,7 +8256,7 @@ QUnit.module('LegacyViews', {
         $secondButton.trigger($.Event('mouseleave'));
         $secondButton.tooltip('hide');
 
-        odoo.debug = initialDebugMode;
+        ecommerce.debug = initialDebugMode;
         form.destroy();
     });
 
@@ -8611,8 +8611,8 @@ QUnit.module('LegacyViews', {
     QUnit.test('proper stringification in debug mode tooltip', async function (assert) {
         assert.expect(6);
 
-        var initialDebugMode = odoo.debug;
-        odoo.debug = true;
+        var initialDebugMode = ecommerce.debug;
+        ecommerce.debug = true;
 
         var form = await createView({
             View: FormView,
@@ -8646,7 +8646,7 @@ QUnit.module('LegacyViews', {
             'Many2one (many2one)', "widget description should be correct");
 
         $field.tooltip('hide');
-        odoo.debug = initialDebugMode;
+        ecommerce.debug = initialDebugMode;
         form.destroy();
     });
 

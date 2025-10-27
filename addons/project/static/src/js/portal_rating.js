@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import time from 'web.time';
 import publicWidget from 'web.public.widget';

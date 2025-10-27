@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.s_rating_options', function (require) {
+ecommerce.define('mass_mailing.s_rating_options', function (require) {
 'use strict';
 
 const { ComponentWrapper } = require('web.OwlCompatibility');

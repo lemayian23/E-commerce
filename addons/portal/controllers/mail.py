@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug import urls
 from werkzeug.exceptions import NotFound, Forbidden
 
-from odoo import http
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools import consteq, plaintext2html
-from odoo.addons.mail.controllers import mail
-from odoo.exceptions import AccessError
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.tools import consteq, plaintext2html
+from ecommerce.addons.mail.controllers import mail
+from ecommerce.exceptions import AccessError
 
 
 def _check_special_access(res_model, res_id, token='', _hash='', pid=False):

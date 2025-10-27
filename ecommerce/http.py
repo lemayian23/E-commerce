@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 r"""\
-Odoo HTTP layer / WSGI application
+ecommerce HTTP layer / WSGI application
 
 The main duty of this module is to prepare and dispatch all http
 requests to their corresponding controllers: from a raw http request
@@ -8,8 +8,8 @@ arriving on the WSGI entrypoint to a :class:`~http.Request`: arriving at
 a module controller with a fully setup ORM available.
 
 Application developers mostly know this module thanks to the
-:class:`~odoo.http.Controller`: class and its companion the
-:func:`~odoo.http.route`: method decorator. Together they are used to
+:class:`~ecommerce.http.Controller`: class and its companion the
+:func:`~ecommerce.http.route`: method decorator. Together they are used to
 register methods responsible of delivering web content to matching URLS.
 
 Those two are only the tip of the iceberg, below is an ascii graph that
@@ -46,7 +46,7 @@ Here be dragons:
 
 Application.__call__
   WSGI entry point, it sanitizes the request, it wraps it in a werkzeug
-  request and itself in an Odoo http request. The Odoo http request is
+  request and itself in an ecommerce http request. The ecommerce http request is
   exposed at ``http.request`` then it is forwarded to either
   ``_serve_static``, ``_serve_nodb`` or ``_serve_db`` depending on the
   request path and the presence of a database. It is also responsible of
@@ -159,7 +159,7 @@ try:
 except ImportError:
     from .tools._vendor.send_file import send_file as _send_file
 
-import odoo
+import ecommerce
 from .exceptions import UserError, AccessError, AccessDenied
 from .modules.module import get_manifest
 from .modules.registry import Registry
@@ -229,12 +229,12 @@ JSON_MIMETYPES = ('application/json', 'application/json-rpc')
 MISSING_CSRF_WARNING = """\
 No CSRF validation token provided for path %r
 
-Odoo URLs are CSRF-protected by default (when accessed with unsafe
+ecommerce URLs are CSRF-protected by default (when accessed with unsafe
 HTTP methods). See
-https://www.odoo.com/documentation/16.0/developer/reference/addons/http.html#csrf
+https://www.ecommerce.com/documentation/16.0/developer/reference/addons/http.html#csrf
 for more details.
 
-* if this endpoint is accessed through Odoo via py-QWeb form, embed a CSRF
+* if this endpoint is accessed through ecommerce via py-QWeb form, embed a CSRF
   token in the form, Tokens are available via `request.csrf_token()`
   can be provided through a hidden input and must be POST-ed named
   `csrf_token` e.g. in your form add:
@@ -309,14 +309,14 @@ def db_list(force=False, host=None):
     """
     Get the list of available databases.
 
-    :param bool force: See :func:`~odoo.service.db.list_dbs`:
+    :param bool force: See :func:`~ecommerce.service.db.list_dbs`:
     :param host: The Host used to replace %h and %d in the dbfilters
         regexp. Taken from the current request when omitted.
     :returns: the list of available databases
     :rtype: List[str]
     """
     try:
-        dbs = odoo.service.db.list_dbs(force)
+        dbs = ecommerce.service.db.list_dbs(force)
     except psycopg2.OperationalError:
         return []
     return db_filter(dbs, host)
@@ -353,7 +353,7 @@ def db_filter(dbs, host=None):
         return [db for db in dbs if dbfilter_re.match(db)]
 
     if config['db_name']:
-        # In case --db-filter is not provided and --database is passed, Odoo will
+        # In case --db-filter is not provided and --database is passed, ecommerce will
         # use the value of --database as a comma separated list of exposed databases.
         exposed_dbs = {db.strip() for db in config['db_name'].split(',')}
         return sorted(exposed_dbs.intersection(dbs))
@@ -372,9 +372,9 @@ def dispatch_rpc(service_name, method, params):
     :rtype: Any
     """
     rpc_dispatchers = {
-        'common': odoo.service.common.dispatch,
-        'db': odoo.service.db.dispatch,
-        'object': odoo.service.model.dispatch,
+        'common': ecommerce.service.common.dispatch,
+        'db': ecommerce.service.db.dispatch,
+        'object': ecommerce.service.model.dispatch,
     }
 
     with borrow_request():
@@ -408,7 +408,7 @@ def serialize_exception(exception):
 
 def send_file(filepath_or_fp, mimetype=None, as_attachment=False, filename=None, mtime=None,
               add_etags=True, cache_timeout=STATIC_CACHE, conditional=True):
-    warnings.warn('odoo.http.send_file is deprecated, please use odoo.http.Stream instead.', DeprecationWarning, stacklevel=2)
+    warnings.warn('ecommerce.http.send_file is deprecated, please use ecommerce.http.Stream instead.', DeprecationWarning, stacklevel=2)
     return _send_file(
         filepath_or_fp,
         request.httprequest.environ,
@@ -464,8 +464,8 @@ class Stream:
         """
         Create a :class:`~Stream`: from an addon resource.
 
-        :param path: See :func:`~odoo.tools.file_path`
-        :param filter_ext: See :func:`~odoo.tools.file_path`
+        :param path: See :func:`~ecommerce.tools.file_path`
+        :param filter_ext: See :func:`~ecommerce.tools.file_path`
         :param bool public: Advertise the resource as being cachable by
             intermediate proxies, otherwise only let the browser caches
             it.
@@ -593,7 +593,7 @@ class Stream:
             to itself perform new http requests. By default CSP is set
             to ``"default-scr 'none'"`` which restrict all requests.
         :param send_file_kwargs: Other keyword arguments to send to
-            :func:`odoo.tools._vendor.send_file.send_file` instead of
+            :func:`ecommerce.tools._vendor.send_file.send_file` instead of
             the stream sensitive values. Discouraged.
         """
         assert self.type in ('url', 'data', 'path'), "Invalid type: {self.type!r}, should be 'url', 'data' or 'path'."
@@ -666,25 +666,25 @@ class Controller:
     content over http and to be extended in child modules.
 
     Each class :ref:`inheriting <python:tut-inheritance>` from
-    :class:`~odoo.http.Controller` can use the :func:`~odoo.http.route`:
+    :class:`~ecommerce.http.Controller` can use the :func:`~ecommerce.http.route`:
     decorator to route matching incoming web requests to decorated
     methods.
 
     Like models, controllers can be extended by other modules. The
     extension mechanism is different because controllers can work in a
     database-free environment and therefore cannot use
-    :class:~odoo.api.Registry:.
+    :class:~ecommerce.api.Registry:.
 
     To *override* a controller, :ref:`inherit <python:tut-inheritance>`
     from its class, override relevant methods and re-expose them with
-    :func:`~odoo.http.route`:. Please note that the decorators of all
+    :func:`~ecommerce.http.route`:. Please note that the decorators of all
     methods are combined, if the overriding method’s decorator has no
     argument all previous ones will be kept, any provided argument will
     override previously defined ones.
 
     .. code-block:
 
-        class GreetingController(odoo.http.Controller):
+        class GreetingController(ecommerce.http.Controller):
             @route('/greet', type='http', auth='public')
             def greeting(self):
                 return 'Hello'
@@ -701,7 +701,7 @@ class Controller:
         super().__init_subclass__()
         if Controller in cls.__bases__:
             path = cls.__module__.split('.')
-            module = path[2] if path[:2] == ['odoo', 'addons'] else ''
+            module = path[2] if path[:2] == ['ecommerce', 'addons'] else ''
             Controller.children_classes[module].append(cls)
 
 
@@ -713,7 +713,7 @@ def route(route=None, **routing):
     .. warning::
         It is mandatory to re-decorate any method that is overridden in
         controller extensions but the arguments can be omitted. See
-        :class:`~odoo.http.Controller` for more details.
+        :class:`~ecommerce.http.Controller` for more details.
 
     :param Union[str, Iterable[str]] route: The paths that the decorated
         method is serving. Incoming HTTP request paths matching this
@@ -781,7 +781,7 @@ def _generate_routing_rules(modules, nodb_only, converters=None):
     def is_valid(cls):
         """ Determine if the class is defined in an addon. """
         path = cls.__module__.split('.')
-        return path[:2] == ['odoo', 'addons'] and path[2] in modules
+        return path[:2] == ['ecommerce', 'addons'] and path[2] in modules
 
     def get_leaf_classes(cls):
         """
@@ -800,13 +800,13 @@ def _generate_routing_rules(modules, nodb_only, converters=None):
         """
         Create dummy controllers that inherit only from the controllers
         defined at the given ``modules`` (often system wide modules or
-        installed modules). Modules in this context are Odoo addons.
+        installed modules). Modules in this context are ecommerce addons.
         """
-        # Controllers defined outside of odoo addons are outside of the
+        # Controllers defined outside of ecommerce addons are outside of the
         # controller inheritance/extension mechanism.
         yield from (ctrl() for ctrl in Controller.children_classes.get('', []))
 
-        # Controllers defined inside of odoo addons can be extended in
+        # Controllers defined inside of ecommerce addons can be extended in
         # other installed addons. Rebuild the class inheritance here.
         highest_controllers = []
         for module in modules:
@@ -1020,7 +1020,7 @@ class Session(collections.abc.MutableMapping):
         self.pre_uid = pre_uid
 
         with registry.cursor() as cr:
-            env = odoo.api.Environment(cr, pre_uid, {})
+            env = ecommerce.api.Environment(cr, pre_uid, {})
 
             # if 2FA is disabled we finalize immediately
             user = env['res.users'].browse(pre_uid)
@@ -1029,7 +1029,7 @@ class Session(collections.abc.MutableMapping):
 
         if request and request.session is self and request.db == dbname:
             # Like update_env(user=request.session.uid) but works when uid is None
-            request.env = odoo.api.Environment(request.env.cr, self.uid, self.context)
+            request.env = ecommerce.api.Environment(request.env.cr, self.uid, self.context)
             request.update_context(**self.context)
             # request env needs to be able to access the latest changes from the auth layers
             request.env.cr.commit()
@@ -1167,7 +1167,7 @@ class _Response(werkzeug.wrappers.Response):
             werkzeug.exceptions.HTTPException, str, bytes, NoneType]
         :param str fname: The endpoint function name wherefrom the
             result emanated, used for logging.
-        :returns: The created :class:`~odoo.http.Response`.
+        :returns: The created :class:`~ecommerce.http.Response`.
         :rtype: Response
         :raises TypeError: When ``result`` type is none of the above-
             mentioned type.
@@ -1328,7 +1328,7 @@ class Response(Proxy):
         # werkzeug >= 2.3.0
         get_json = ProxyFunc()
 
-    # odoo.http._response attributes
+    # ecommerce.http._response attributes
     load = ProxyFunc()
     set_default = ProxyFunc(None)
     qcontext = ProxyAttr()
@@ -1461,7 +1461,7 @@ class Request:
         """ Update the environment of the current request.
 
         :param user: optional user/user id to change the current user
-        :type user: int or :class:`res.users record<~odoo.addons.base.models.res_users.Users>`
+        :type user: int or :class:`res.users record<~ecommerce.addons.base.models.res_users.Users>`
         :param dict context: optional context dictionary to change the current context
         :param bool su: optional boolean to change the superuser mode
         """
@@ -1645,7 +1645,7 @@ class Request:
                 _logger.debug("Profiling disabled on set_profiling route")
             elif self.httprequest.path.startswith('/websocket'):
                 _logger.debug("Profiling disabled for websocket")
-            elif odoo.evented:
+            elif ecommerce.evented:
                 # only longpolling should be in a evented server, but this is an additional safety
                 _logger.debug("Profiling disabled for evented server")
             else:
@@ -1682,7 +1682,7 @@ class Request:
         :type headers: ``[(name, value)]``
         :param collections.abc.Mapping cookies: cookies to set on the client
         :returns: a response object.
-        :rtype: :class:`~odoo.http.Response`
+        :rtype: :class:`~ecommerce.http.Response`
         """
         response = Response(data, status=status, headers=headers)
         if cookies:
@@ -1698,7 +1698,7 @@ class Request:
         :param int status: http status code
         :param List[(str, str)] headers: HTTP headers to set on the response
         :param collections.abc.Mapping cookies: cookies to set on the client
-        :rtype: :class:`~odoo.http.Response`
+        :rtype: :class:`~ecommerce.http.Response`
         """
         data = json.dumps(data, ensure_ascii=False, default=date_utils.json_default)
 
@@ -1842,13 +1842,13 @@ class Request:
                 return self._serve_nodb()
 
         with contextlib.closing(self.registry.cursor()) as cr:
-            self.env = odoo.api.Environment(cr, self.session.uid, self.session.context)
+            self.env = ecommerce.api.Environment(cr, self.session.uid, self.session.context)
             threading.current_thread().uid = self.env.uid
             try:
                 return service_model.retrying(self._serve_ir_http, self.env)
             except Exception as exc:
                 if isinstance(exc, HTTPException) and exc.code is None:
-                    raise  # bubble up to odoo.http.Application.__call__
+                    raise  # bubble up to ecommerce.http.Application.__call__
                 if not hasattr(exc, 'error_response'):
                     exc.error_response = self.registry['ir.http']._handle_error(exc)
                 raise
@@ -1968,7 +1968,7 @@ class HttpDispatcher(Dispatcher):
         body and query-string and checking cors/csrf while dispatching a
         request to a ``type='http'`` route.
 
-        See :meth:`~odoo.http.Response.load` method for the compatible
+        See :meth:`~ecommerce.http.Response.load` method for the compatible
         endpoint return types.
         """
         self.request.params = dict(self.request.get_http_params(), **args)
@@ -2097,7 +2097,7 @@ class JsonRPCDispatcher(Dispatcher):
                           # distinct from the HTTP status code. This
                           # code is ignored and the value 200 (while
                           # misleading) is totally arbitrary.
-            'message': "Odoo Server Error",
+            'message': "ecommerce Server Error",
             'data': serialize_exception(exc),
         }
         if isinstance(exc, NotFound):
@@ -2105,7 +2105,7 @@ class JsonRPCDispatcher(Dispatcher):
             error['message'] = "404: Not Found"
         elif isinstance(exc, SessionExpiredException):
             error['code'] = 100
-            error['message'] = "Odoo Session Expired"
+            error['message'] = "ecommerce Session Expired"
 
         return self._response(error=error)
 
@@ -2124,7 +2124,7 @@ class JsonRPCDispatcher(Dispatcher):
 # =========================================================
 
 class Application:
-    """ Odoo WSGI application """
+    """ ecommerce WSGI application """
     # See also: https://www.python.org/dev/peps/pep-3333
 
     @lazy_property
@@ -2134,7 +2134,7 @@ class Application:
         system.
         """
         mod2path = {}
-        for addons_path in odoo.addons.__path__:
+        for addons_path in ecommerce.addons.__path__:
             for module in os.listdir(addons_path):
                 manifest = get_manifest(module)
                 static_path = opj(addons_path, module, 'static')
@@ -2177,7 +2177,7 @@ class Application:
     @lazy_property
     def nodb_routing_map(self):
         nodb_routing_map = werkzeug.routing.Map(strict_slashes=False, converters=None)
-        for url, endpoint in _generate_routing_rules([''] + odoo.conf.server_wide_modules, nodb_only=True):
+        for url, endpoint in _generate_routing_rules([''] + ecommerce.conf.server_wide_modules, nodb_only=True):
             routing = submap(endpoint.routing, ROUTING_KEYS)
             if routing['methods'] is not None and 'OPTIONS' not in routing['methods']:
                 routing['methods'] = [*routing['methods'], 'OPTIONS']
@@ -2189,7 +2189,7 @@ class Application:
 
     @lazy_property
     def session_store(self):
-        path = odoo.tools.config.session_dir
+        path = ecommerce.tools.config.session_dir
         _logger.debug('HTTP sessions stored in: %s', path)
         return FilesystemSessionStore(path, session_class=Session, renew_missing=True)
 
@@ -2237,7 +2237,7 @@ class Application:
         if hasattr(current_thread, 'uid'):
             del current_thread.uid
 
-        if odoo.tools.config['proxy_mode'] and environ.get("HTTP_X_FORWARDED_HOST"):
+        if ecommerce.tools.config['proxy_mode'] and environ.get("HTTP_X_FORWARDED_HOST"):
             # The ProxyFix middleware has a side effect of updating the
             # environ, see https://github.com/pallets/werkzeug/pull/2184
             def fake_app(environ, start_response):

@@ -1,5 +1,5 @@
-from odoo.addons.test_mail_sms.tests.common import TestSMSCommon, TestSMSRecipients
-from odoo.tests import Form, tagged
+from ecommerce.addons.test_mail_sms.tests.common import TestSMSCommon, TestSMSRecipients
+from ecommerce.tests import Form, tagged
 
 
 @tagged('sms_composer')

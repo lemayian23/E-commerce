@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.legacySetup **/
+/** @ecommerce-module alias=web.legacySetup **/
 
 import { registry } from "../core/registry";
 import {
@@ -17,7 +17,7 @@ import * as session from "web.session";
 import * as makeLegacyWebClientService from "web.pseudo_web_client";
 import { templates } from "@web/core/assets";
 
-import { Component, whenReady } from "@odoo/owl";
+import { Component, whenReady } from "@ecommerce/owl";
 
 let legacySetupResolver;
 export const legacySetupProm = new Promise((resolve) => {

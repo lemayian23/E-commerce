@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ OpenERP core library."""
 
 
 #----------------------------------------------------------
-# odoo must be a namespace package for odoo.addons to become one too
+# ecommerce must be a namespace package for ecommerce.addons to become one too
 # https://packaging.python.org/guides/packaging-namespace-packages/
 #----------------------------------------------------------
 import pkgutil
@@ -18,7 +18,7 @@ __path__ = [
 import sys
 MIN_PY_VERSION = (3, 7)
 MAX_PY_VERSION = (3, 12)
-assert sys.version_info > MIN_PY_VERSION, f"Outdated python version detected, Odoo requires Python >= {'.'.join(map(str, MIN_PY_VERSION))} to run."
+assert sys.version_info > MIN_PY_VERSION, f"Outdated python version detected, ecommerce requires Python >= {'.'.join(map(str, MIN_PY_VERSION))} to run."
 
 #----------------------------------------------------------
 # Running mode flags (gevent, prefork)
@@ -36,7 +36,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'gevent':
         """A wait callback useful to allow gevent to work with Psycopg."""
         # Copyright (C) 2010-2012 Daniele Varrazzo <daniele.varrazzo@gmail.com>
         # This function is borrowed from psycogreen module which is licensed
-        # under the BSD license (see in odoo/debian/copyright)
+        # under the BSD license (see in ecommerce/debian/copyright)
         while 1:
             state = conn.poll()
             if state == psycopg2.extensions.POLL_OK:
@@ -146,8 +146,8 @@ from . import tools
 from . import models
 from . import fields
 from . import api
-from odoo.tools.translate import _, _lt
-from odoo.fields import Command
+from ecommerce.tools.translate import _, _lt
+from ecommerce.fields import Command
 
 #----------------------------------------------------------
 # Other imports, which may require stuff from above

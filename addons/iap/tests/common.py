@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
 from unittest.mock import patch
 
-from odoo import exceptions
-from odoo.addons.iap.tools import iap_tools
-from odoo.addons.iap.models.iap_enrich_api import IapEnrichAPI
-from odoo.tests import common
+from ecommerce import exceptions
+from ecommerce.addons.iap.tools import iap_tools
+from ecommerce.addons.iap.models.iap_enrich_api import IapEnrichAPI
+from ecommerce.tests import common
 
 
 class MockIAPEnrich(common.TransactionCase):

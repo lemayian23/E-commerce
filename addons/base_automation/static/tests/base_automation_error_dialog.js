@@ -1,4 +1,4 @@
-/** @odoo-modules */
+/** @ecommerce-modules */
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -63,7 +63,7 @@ QUnit.module("base_automation", {}, function () {
             },
         };
         Object.assign(error, {
-            subType: "Odoo Client Error",
+            subType: "ecommerce Client Error",
             message: "Message",
             data: {
                 debug: "Traceback",
@@ -109,7 +109,7 @@ QUnit.module("base_automation", {}, function () {
 
         const error = new RPCError();
         Object.assign(error, {
-            subType: "Odoo Client Error",
+            subType: "ecommerce Client Error",
             message: "Message",
             data: {
                 debug: "Traceback",

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-"""The Odoo API module defines Odoo Environments and method decorators.
+"""The ecommerce API module defines ecommerce Environments and method decorators.
 
 .. todo:: Document this module
 """
@@ -110,7 +110,7 @@ def constrains(*args):
 
     Invoked on the records on which one of the named fields has been modified.
 
-    Should raise :exc:`~odoo.exceptions.ValidationError` if the
+    Should raise :exc:`~ecommerce.exceptions.ValidationError` if the
     validation failed.
 
     .. warning::
@@ -137,7 +137,7 @@ def constrains(*args):
 
 def ondelete(*, at_uninstall):
     """
-    Mark a method to be executed during :meth:`~odoo.models.BaseModel.unlink`.
+    Mark a method to be executed during :meth:`~ecommerce.models.BaseModel.unlink`.
 
     The goal of this decorator is to allow client-side errors when unlinking
     records if, from a business point of view, it does not make sense to delete
@@ -237,7 +237,7 @@ def onchange(*args):
     .. warning::
 
         It is not possible for a ``one2many`` or ``many2many`` field to modify
-        itself via onchange. This is a webclient limitation - see `#2693 <https://github.com/odoo/odoo/issues/2693>`_.
+        itself via onchange. This is a webclient limitation - see `#2693 <https://github.com/ecommerce/ecommerce/issues/2693>`_.
 
     """
     return attrsetter('_onchange', args)
@@ -501,7 +501,7 @@ class Environment(Mapping):
     @classproperty
     def envs(cls):
         raise NotImplementedError(
-            "Since Odoo 15.0, Environment.envs no longer works; "
+            "Since ecommerce 15.0, Environment.envs no longer works; "
             "use cr.transaction or env.transaction instead."
         )
 
@@ -509,7 +509,7 @@ class Environment(Mapping):
     @contextmanager
     def manage(cls):
         warnings.warn(
-            "Since Odoo 15.0, Environment.manage() is useless.",
+            "Since ecommerce 15.0, Environment.manage() is useless.",
             DeprecationWarning, stacklevel=2,
         )
         yield
@@ -586,9 +586,9 @@ class Environment(Mapping):
         """ Return an environment based on ``self`` with modified parameters.
 
         :param cr: optional database cursor to change the current cursor
-        :type cursor: :class:`~odoo.sql_db.Cursor`
+        :type cursor: :class:`~ecommerce.sql_db.Cursor`
         :param user: optional user/user id to change the current user
-        :type user: int or :class:`res.users record<~odoo.addons.base.models.res_users.Users>`
+        :type user: int or :class:`res.users record<~ecommerce.addons.base.models.res_users.Users>`
         :param dict context: optional context dictionary to change the current context
         :param bool su: optional boolean to change the superuser mode
         :returns: environment with specified args (new or existing one)
@@ -639,7 +639,7 @@ class Environment(Mapping):
         """Return the current user (as an instance).
 
         :returns: current user - sudoed
-        :rtype: :class:`res.users record<~odoo.addons.base.models.res_users.Users>`"""
+        :rtype: :class:`res.users record<~ecommerce.addons.base.models.res_users.Users>`"""
         return self(su=True)['res.users'].browse(self.uid)
 
     @lazy_property
@@ -651,7 +651,7 @@ class Environment(Mapping):
 
         :raise AccessError: invalid or unauthorized `allowed_company_ids` context key content.
         :return: current company (default=`self.user.company_id`), with the current environment
-        :rtype: :class:`res.company record<~odoo.addons.base.models.res_company.Company>`
+        :rtype: :class:`res.company record<~ecommerce.addons.base.models.res_company.Company>`
 
         .. warning::
 
@@ -681,7 +681,7 @@ class Environment(Mapping):
 
         :raise AccessError: invalid or unauthorized `allowed_company_ids` context key content.
         :return: current companies (default=`self.user.company_ids`), with the current environment
-        :rtype: :class:`res.company recordset<~odoo.addons.base.models.res_company.Company>`
+        :rtype: :class:`res.company recordset<~ecommerce.addons.base.models.res_company.Company>`
 
         .. warning::
 
@@ -735,7 +735,7 @@ class Environment(Mapping):
             computations and updates) upon exception.
         """
         warnings.warn(
-            "Since Odoo 15.0, use cr.savepoint() instead of env.clear_upon_failure().",
+            "Since ecommerce 15.0, use cr.savepoint() instead of env.clear_upon_failure().",
             DeprecationWarning, stacklevel=2,
         )
         return self.cr.savepoint()
@@ -1347,6 +1347,6 @@ class Starred:
 
 
 # keep those imports here in order to handle cyclic dependencies correctly
-from odoo import SUPERUSER_ID
-from odoo.modules.registry import Registry
+from ecommerce import SUPERUSER_ID
+from ecommerce.modules.registry import Registry
 from .sql_db import BaseCursor

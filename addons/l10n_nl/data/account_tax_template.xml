@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Binnen Nederland -->
     <!-- Verkoop BTW -->
     <record id="btw_0" model="account.tax.template">
@@ -1483,4 +1483,4 @@
                 }),
             ]"/>
     </record>
-</odoo>
+</ecommerce>

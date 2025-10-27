@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase
-from odoo.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
+from ecommerce import Command
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import Form
+from ecommerce.tests.common import TransactionCase
+from ecommerce.addons.mrp_subcontracting.tests.common import TestMrpSubcontractingCommon
 
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 from dateutil.relativedelta import relativedelta
 
 

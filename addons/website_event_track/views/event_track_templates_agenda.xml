@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <!-- Revamped agenda : Will need to replace agenda_online from website_event_track in master -->
 <template id="agenda_online" name="Track Online: Agenda">
@@ -209,4 +209,4 @@
     </div>
 </template>
 
-</odoo>
+</ecommerce>

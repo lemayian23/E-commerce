@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.product_matrix.tests.common import TestMatrixCommon
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.product_matrix.tests.common import TestMatrixCommon
 
 _logger = logging.getLogger(__name__)
 

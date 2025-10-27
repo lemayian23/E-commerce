@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <!--
 TODO in master: remove contenteditable="true" from <img> tags. Those were part
@@ -69,4 +69,4 @@ o_editable_media class.
     <field name="path">website/static/src/snippets/s_company_team/000.scss</field>
 </record>
 
-</odoo>
+</ecommerce>

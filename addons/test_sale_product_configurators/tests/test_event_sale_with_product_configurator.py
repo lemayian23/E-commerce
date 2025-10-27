@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.tests import HttpCase, tagged
+from ecommerce import fields
+from ecommerce.tests import HttpCase, tagged
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 @tagged('post_install', '-at_install')

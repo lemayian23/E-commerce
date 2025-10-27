@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="iframe_css_assets_edit" groups="base.group_user">
         <t t-call-assets="mass_mailing.assets_mail_themes" t-js="false"/>
         <t t-call="mass_mailing.mass_mailing_mail_style"/>
@@ -15,4 +15,4 @@
         <link rel="stylesheet" type="text/scss" href="/mass_mailing/static/src/css/basic_theme_readonly.css"/>
         <t t-call="mass_mailing.mass_mailing_mail_style"/>
     </template>
-</odoo>
+</ecommerce>

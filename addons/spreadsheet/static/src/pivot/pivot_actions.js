@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { getFirstPivotFunction, getNumberOfPivotFormulas } from "./pivot_helpers";
 
@@ -13,7 +13,7 @@ export const SEE_RECORDS_PIVOT = async (cell, env) => {
     const pivotId = env.model.getters.getPivotIdFromPosition(sheetId, col, row);
     const { model } = env.model.getters.getPivotDefinition(pivotId);
     const dataSource = await env.model.getters.getAsyncPivotDataSource(pivotId);
-    const slice = functionName === "ODOO.PIVOT.HEADER" ? 1 : 2;
+    const slice = functionName === "ecommerce.PIVOT.HEADER" ? 1 : 2;
     let argsDomain = evaluatedArgs.slice(slice);
     if (argsDomain[argsDomain.length - 2] === "measure") {
         // We have to remove the measure from the domain
@@ -49,7 +49,7 @@ export const SEE_RECORDS_PIVOT_VISIBLE = (cell, env) => {
         .map(astToFormula)
         .map((arg) => env.model.getters.evaluateFormula(arg));
     const dataSource = env.model.getters.getPivotDataSource(pivotId);
-    const slice = functionName === "ODOO.PIVOT.HEADER" ? 1 : 2;
+    const slice = functionName === "ecommerce.PIVOT.HEADER" ? 1 : 2;
     let argsDomain = evaluatedArgs.slice(slice);
     if (argsDomain[argsDomain.length - 2] === "measure") {
         // We have to remove the measure from the domain

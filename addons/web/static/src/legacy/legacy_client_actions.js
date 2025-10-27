@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -10,7 +10,7 @@ import { breadcrumbsToLegacy } from "./backend_utils";
 import { useLegacyRefs } from "./utils";
 import { LegacyComponent } from "./legacy_component";
 
-import { xml } from "@odoo/owl";
+import { xml } from "@ecommerce/owl";
 const actionRegistry = registry.category("actions");
 
 const legacyClientActionTemplate = xml`

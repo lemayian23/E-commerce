@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { initAutoMoreMenu } from '@web/legacy/js/core/menu';
 

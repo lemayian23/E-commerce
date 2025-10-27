@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import AccessError, MissingError
-from odoo.http import request, route
+from ecommerce.exceptions import AccessError, MissingError
+from ecommerce.http import request, route
 
-from odoo.addons.sale.controllers import portal
+from ecommerce.addons.sale.controllers import portal
 
 
 class CustomerPortal(portal.CustomerPortal):

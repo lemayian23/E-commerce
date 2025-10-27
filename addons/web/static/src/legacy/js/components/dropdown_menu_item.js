@@ -1,4 +1,4 @@
-odoo.define('web.DropdownMenuItem', function (require) {
+ecommerce.define('web.DropdownMenuItem', function (require) {
     "use strict";
 
     const { useListener } = require("@web/core/utils/hooks");

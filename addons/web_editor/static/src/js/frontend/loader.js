@@ -1,4 +1,4 @@
-odoo.define('web_editor.loader', function (require) {
+ecommerce.define('web_editor.loader', function (require) {
 'use strict';
 
 const { getBundle, loadBundle } = require('@web/core/assets');
@@ -29,11 +29,11 @@ exports.createWysiwyg = async (parent, options = {}) => {
 };
 
 async function getWysiwygClass({moduleName = 'web_editor.wysiwyg', additionnalAssets = []} = {}) {
-    if (!(await odoo.ready(moduleName))) {
+    if (!(await ecommerce.ready(moduleName))) {
         await loadWysiwyg(additionnalAssets);
-        await odoo.ready(moduleName);
+        await ecommerce.ready(moduleName);
     }
-    return odoo.__DEBUG__.services[moduleName];
+    return ecommerce.__DEBUG__.services[moduleName];
 }
 exports.getWysiwygClass = getWysiwygClass;
 

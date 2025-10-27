@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 
@@ -14,7 +14,7 @@ import { registry } from "@web/core/registry";
  * 1 week          week    # there is no greater time period that takes an integer amount of weeks
  * 1 year          month
  * 1 year          quarter
- * 1 year          year    # we are not using a greater time period in Odoo (yet)
+ * 1 year          year    # we are not using a greater time period in ecommerce (yet)
  * @param {int} cyclePos function to get the position (index) in the cycle from a moment.
  *                       {1} is the first index. {+1} is used for functions which have an index
  *                       starting from 0, to standardize between granularities.
@@ -55,7 +55,7 @@ export const GRANULARITY_TABLE = {
 /**
  * configuration depending on the time type:
  * @param {string} format moment format to display this type as a string
- * @param {string} minGranularity granularity of the smallest time interval used in Odoo for this
+ * @param {string} minGranularity granularity of the smallest time interval used in ecommerce for this
  *                                type
  */
 export const FIELD_TYPE_TABLE = {

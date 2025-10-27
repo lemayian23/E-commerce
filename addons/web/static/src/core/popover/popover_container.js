@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Popover } from "./popover";
 
-import { Component, onWillDestroy, useExternalListener, useState, xml } from "@odoo/owl";
+import { Component, onWillDestroy, useExternalListener, useState, xml } from "@ecommerce/owl";
 
 class PopoverController extends Component {
     setup() {

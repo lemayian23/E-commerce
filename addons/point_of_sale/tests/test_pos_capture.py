@@ -2,10 +2,10 @@
 import logging
 from unittest.mock import patch
 
-import odoo
-from odoo.addons.point_of_sale.models.pos_order import PosOrder
-from odoo.addons.point_of_sale.models.pos_session import PosSession
-from odoo.addons.point_of_sale.tests.common import TestPoSCommon
+import ecommerce
+from ecommerce.addons.point_of_sale.models.pos_order import PosOrder
+from ecommerce.addons.point_of_sale.models.pos_session import PosSession
+from ecommerce.addons.point_of_sale.tests.common import TestPoSCommon
 
 
 class IntendedException(Exception):
@@ -22,7 +22,7 @@ def mocked_handle_order_process_fail(self, order: dict, exception: Exception, dr
     self._process_order_process_fail(order, exception)
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPosCapture(TestPoSCommon):
     """
     Test the capture system of failed to process orders
@@ -51,7 +51,7 @@ class TestPosCapture(TestPoSCommon):
         self.assert_activity_and_attachment(session, 0)
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR) as logger_error_output:
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR) as logger_error_output:
             try:
                 self.env['pos.order'].create_from_ui(orders)
             except IntendedException:
@@ -69,7 +69,7 @@ class TestPosCapture(TestPoSCommon):
 
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR):
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR):
             try:
                 self.env['pos.order'].create_from_ui(order1)
             except IntendedException:
@@ -90,7 +90,7 @@ class TestPosCapture(TestPoSCommon):
         self.assert_activity_and_attachment(session, 0)
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR):
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR):
             for _ in range(2):
                 try:
                     self.env['pos.order'].create_from_ui(orders)
@@ -108,7 +108,7 @@ class TestPosCapture(TestPoSCommon):
         self.assert_activity_and_attachment(session, 0)
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR):
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR):
             try:
                 self.env['pos.order'].create_from_ui(order1)
             except IntendedException:
@@ -129,7 +129,7 @@ class TestPosCapture(TestPoSCommon):
         self.assert_activity_and_attachment(session, 0)
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR):
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR):
             try:
                 self.env['pos.order'].create_from_ui(orders)
             except IntendedException:
@@ -151,7 +151,7 @@ class TestPosCapture(TestPoSCommon):
 
         with patch.object(PosOrder, '_process_order', mocked_process_order),\
             patch.object(PosSession, '_handle_order_process_fail', mocked_handle_order_process_fail),\
-            self.assertLogs('odoo.addons.point_of_sale.models.pos_order', level=logging.ERROR):
+            self.assertLogs('ecommerce.addons.point_of_sale.models.pos_order', level=logging.ERROR):
             try:
                 self.env['pos.order'].create_from_ui(order1)
             except IntendedException:

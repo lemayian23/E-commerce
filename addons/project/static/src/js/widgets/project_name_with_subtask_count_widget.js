@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import fieldRegistry from 'web.field_registry';
 import { FieldChar } from 'web.basic_fields';

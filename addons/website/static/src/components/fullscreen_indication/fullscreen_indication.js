@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, useState, markup } from "@odoo/owl";
+import { Component, useState, markup } from "@ecommerce/owl";
 import { escape, sprintf } from "@web/core/utils/strings";
 import { _t } from "@web/core/l10n/translation";
 

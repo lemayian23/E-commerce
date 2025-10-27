@@ -1,4 +1,4 @@
-odoo.define('sale_stock.QtyAtDateWidget', function (require) {
+ecommerce.define('sale_stock.QtyAtDateWidget', function (require) {
 "use strict";
 
 var core = require('web.core');

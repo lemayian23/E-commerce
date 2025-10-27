@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import werkzeug
 from werkzeug.urls import url_encode
 
-from odoo import http, tools, _
-from odoo.addons.auth_signup.models.res_users import SignupError
-from odoo.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
-from odoo.addons.base_setup.controllers.main import BaseSetup
-from odoo.exceptions import UserError
-from odoo.http import request
+from ecommerce import http, tools, _
+from ecommerce.addons.auth_signup.models.res_users import SignupError
+from ecommerce.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
+from ecommerce.addons.base_setup.controllers.main import BaseSetup
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
 
 _logger = logging.getLogger(__name__)
 

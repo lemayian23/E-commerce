@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { getFirstListFunction, getNumberOfListFormulas } from "./list_helpers";
@@ -36,6 +36,6 @@ export const SEE_RECORD_LIST_VISIBLE = (cell) => {
         cell.evaluated.value !== "" &&
         !cell.evaluated.error &&
         getNumberOfListFormulas(cell.content) === 1 &&
-        getFirstListFunction(cell.content).functionName === "ODOO.LIST"
+        getFirstListFunction(cell.content).functionName === "ecommerce.LIST"
     );
 };

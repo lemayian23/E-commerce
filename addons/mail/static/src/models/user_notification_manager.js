@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr } from '@mail/model/model_field';
@@ -24,7 +24,7 @@ registerModel({
          */
         sendNotification({ message, title, type }) {
             if (!this.canSendNativeNotification) {
-                this._sendOdooNotification(message, { title, type });
+                this._sendecommerceNotification(message, { title, type });
                 return;
             }
             if (!this.messaging.env.services['multi_tab'].isOnMainTab()) {
@@ -37,7 +37,7 @@ registerModel({
                 // So we fallback to the notification service in this case
                 // https://bugs.chromium.org/p/chromium/issues/detail?id=481856
                 if (error.message.includes('ServiceWorkerRegistration')) {
-                    this._sendOdooNotification(message, { title, type });
+                    this._sendecommerceNotification(message, { title, type });
                 } else {
                     throw error;
                 }
@@ -79,7 +79,7 @@ registerModel({
          * @param {string} message
          * @param {Object} options
          */
-        async _sendOdooNotification(message, options) {
+        async _sendecommerceNotification(message, options) {
             this.messaging.env.services['notification'].add(message, options);
             if (this.canPlayAudio && this.messaging.env.services['multi_tab'].isOnMainTab()) {
                 try {
@@ -127,7 +127,7 @@ registerModel({
          * Icon to be displayed by the notification.
          */
         icon: attr({
-            default: '/mail/static/src/img/odoobot_transparent.png',
+            default: '/mail/static/src/img/ecommercebot_transparent.png',
         }),
     },
 });

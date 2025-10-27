@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, many, one } from '@mail/model/model_field';
@@ -134,7 +134,7 @@ registerModel({
                 args: [this.id],
             }, { shadow: true }).catch(e => {
                 const errorName = e.message && e.message.data && e.message.data.name;
-                if ([errorName, e.exceptionName].includes('odoo.exceptions.MissingError')) {
+                if ([errorName, e.exceptionName].includes('ecommerce.exceptions.MissingError')) {
                     return [];
                 } else {
                     throw e;

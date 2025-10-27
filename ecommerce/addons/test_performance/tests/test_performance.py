@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 import json
 import logging
 
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
-from odoo.tests.common import TransactionCase, users, warmup, tagged
-from odoo.tools import mute_logger, json_default, sql
-from odoo import Command
+from ecommerce.addons.base.tests.common import SavepointCaseWithUserDemo
+from ecommerce.tests.common import TransactionCase, users, warmup, tagged
+from ecommerce.tools import mute_logger, json_default, sql
+from ecommerce import Command
 
 _logger = logging.getLogger(__name__)
 
@@ -122,7 +122,7 @@ class TestPerformance(SavepointCaseWithUserDemo):
         with self.assertQueryCount(__system__=1, demo=1):
             records.write({'value': 42})
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('__system__', 'demo')
     @warmup
     def test_write_base_one2many(self):
@@ -239,7 +239,7 @@ class TestPerformance(SavepointCaseWithUserDemo):
             rec2.write({'line_ids': [Command.set(lines.ids)]})
         self.assertEqual(rec2.line_ids, lines)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_write_base_one2many_with_constraint(self):
         """ Write on one2many field with lines being deleted and created. """
         rec = self.env['test_performance.base'].create({'name': 'Y'})
@@ -250,7 +250,7 @@ class TestPerformance(SavepointCaseWithUserDemo):
         rec.write({'line_ids': [Command.clear()] + [Command.create({'value': val}) for val in range(6)]})
         self.assertEqual(len(rec.line_ids), 6)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('__system__', 'demo')
     @warmup
     def test_write_base_many2many(self):

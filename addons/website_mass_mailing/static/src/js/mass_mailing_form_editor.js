@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import core from "web.core";
 import FormEditorRegistry from "website.form_editor_registry";

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import collections
 import logging
-from odoo.tests import common
-from odoo.cli.populate import Populate
-from odoo.tools import mute_logger, populate
+from ecommerce.tests import common
+from ecommerce.cli.populate import Populate
+from ecommerce.tools import mute_logger, populate
 from unittest.mock import patch
 
 
@@ -22,7 +22,7 @@ class TestPopulate(common.TransactionCase):
         ordered_models_names = [model._name for model in ordered_models]
         self.assertEqual(ordered_models_names, ['test.populate.category', 'test.populate'])
 
-    @mute_logger('odoo.cli.populate')
+    @mute_logger('ecommerce.cli.populate')
     def test_no_populate(self):
         """ Check that model with no populate method are not populated"""
         model = 'test.no.populate'
@@ -30,7 +30,7 @@ class TestPopulate(common.TransactionCase):
         new = populated[model]
         self.assertFalse(new)
 
-    @mute_logger('odoo.cli.populate')
+    @mute_logger('ecommerce.cli.populate')
     def test_populate(self):
         """ Check that model with populate methods are correctly populated"""
         model = 'test.populate'
@@ -48,7 +48,7 @@ class TestPopulate(common.TransactionCase):
         ])
         self.assertEqual(records.mapped('sequence')[:20], [6, 10, 1, 1, 1, 3, 8, 9, 1, 5, 9, 5, 7, 3, 5, 3, 6, 4, 9, 2])  # Test randint
 
-    @mute_logger('odoo.cli.populate')
+    @mute_logger('ecommerce.cli.populate')
     def test_populate_inherit(self):
         """ Check that model with populate methods are correctly populated"""
         model = 'test.populate.inherit'

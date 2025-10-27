@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="partner_demo_company_ee" model="res.partner">
         <field name="name">EE Company</field>
         <field name="vat">EE123456780</field>
@@ -31,4 +31,4 @@
         <value eval="[ref('l10n_ee.l10nee_chart_template')]"/>
         <value model="res.company" eval="obj().env.ref('l10n_ee.demo_company_ee')"/>
     </function>
-</odoo>
+</ecommerce>

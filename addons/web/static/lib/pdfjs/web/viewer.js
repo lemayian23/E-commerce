@@ -5077,7 +5077,7 @@ function () {
         return;
       }
 
-      // Odoo: This change is needed here as we can't change this parameter in an iframe.
+      // ecommerce: This change is needed here as we can't change this parameter in an iframe.
       // pass forceOpen argument to false to restrict opening of sidebar forcefully when
       // pdf viewer opens initially.
       if (!this._switchView(view, false)) {
@@ -13913,7 +13913,7 @@ function getDefaultPreferences() {
       "disablePageLabels": false,
       "enablePrintAutoRotate": false,
       "enableWebGL": false,
-      // Odoo: Below two preference changes are needed here as we can't change them as parameters in an iframe.
+      // ecommerce: Below two preference changes are needed here as we can't change them as parameters in an iframe.
       "eventBusDispatchToDOM": true, 
       "externalLinkTarget": 2,
       "historyUpdateUrl": false,

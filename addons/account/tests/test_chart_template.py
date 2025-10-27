@@ -1,10 +1,10 @@
 import logging
 
-from odoo import Command
-from odoo.addons.account.models.chart_template import update_taxes_from_templates
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
+from ecommerce import Command
+from ecommerce.addons.account.models.chart_template import update_taxes_from_templates
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase
 
 
 

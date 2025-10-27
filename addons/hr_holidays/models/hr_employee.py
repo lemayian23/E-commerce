@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_round
-from odoo.addons.resource.models.resource import HOURS_PER_DAY
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.tools.float_utils import float_round
+from ecommerce.addons.resource.models.resource import HOURS_PER_DAY
 import pytz
 
 class HrEmployeeBase(models.AbstractModel):

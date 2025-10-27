@@ -1,4 +1,4 @@
-odoo.define('web.KanbanRenderer', function (require) {
+ecommerce.define('web.KanbanRenderer', function (require) {
 "use strict";
 
 var BasicRenderer = require('web.BasicRenderer');
@@ -587,7 +587,7 @@ var KanbanRenderer = BasicRenderer.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onQuickCreateColumnUpdated: function (ev) {
         ev.stopPropagation();
@@ -630,7 +630,7 @@ var KanbanRenderer = BasicRenderer.extend({
      * received data.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onSetProgressBarState: function (ev) {
         if (!this.columnOptions.progressBarStates[ev.data.columnID]) {

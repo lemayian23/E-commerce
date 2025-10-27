@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import functools
@@ -11,14 +11,14 @@ from collections import OrderedDict
 
 from werkzeug.exceptions import InternalServerError
 
-import odoo
-import odoo.modules.registry
-from odoo import http
-from odoo.exceptions import UserError
-from odoo.http import content_disposition, request
-from odoo.tools import lazy_property, osutil, pycompat
-from odoo.tools.misc import xlsxwriter
-from odoo.tools.translate import _
+import ecommerce
+import ecommerce.modules.registry
+from ecommerce import http
+from ecommerce.exceptions import UserError
+from ecommerce.http import content_disposition, request
+from ecommerce.tools import lazy_property, osutil, pycompat
+from ecommerce.tools.misc import xlsxwriter
+from ecommerce.tools.translate import _
 
 
 _logger = logging.getLogger(__name__)
@@ -325,7 +325,7 @@ class Export(http.Controller):
             fields['id'] = parent_field
 
         fields_sequence = sorted(fields.items(),
-            key=lambda field: odoo.tools.ustr(field[1].get('string', '').lower()))
+            key=lambda field: ecommerce.tools.ustr(field[1].get('string', '').lower()))
 
         records = []
         for field_name, field in fields_sequence:
@@ -456,7 +456,7 @@ class ExportFormat(object):
         return f"{model_description} ({base})"
 
     def from_data(self, fields, rows):
-        """ Conversion method from Odoo's export data to whatever the
+        """ Conversion method from ecommerce's export data to whatever the
         current export class outputs
 
         :params list fields: a list of fields to export
@@ -530,7 +530,7 @@ class CSVExport(ExportFormat, http.Controller):
             _logger.exception("Exception during request handling.")
             payload = json.dumps({
                 'code': 200,
-                'message': "Odoo Server Error",
+                'message': "ecommerce Server Error",
                 'data': http.serialize_exception(exc)
             })
             raise InternalServerError(payload) from exc
@@ -574,7 +574,7 @@ class ExcelExport(ExportFormat, http.Controller):
             _logger.exception("Exception during request handling.")
             payload = json.dumps({
                 'code': 200,
-                'message': "Odoo Server Error",
+                'message': "ecommerce Server Error",
                 'data': http.serialize_exception(exc)
             })
             raise InternalServerError(payload) from exc

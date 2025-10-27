@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import requests
 
-from odoo import api, models, _
-from odoo.http import request
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import api, models, _
+from ecommerce.http import request
+from ecommerce.exceptions import UserError, ValidationError
 
 logger = logging.getLogger(__name__)
 

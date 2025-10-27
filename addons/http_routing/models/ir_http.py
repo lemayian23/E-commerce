@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 import logging
@@ -18,14 +18,14 @@ try:
 except ImportError:
     slugify_lib = None
 
-import odoo
-from odoo import api, models, exceptions, tools, http
-from odoo.addons.base.models import ir_http
-from odoo.addons.base.models.ir_http import RequestUID
-from odoo.addons.base.models.ir_qweb import QWebException
-from odoo.http import request, HTTPRequest, Response
-from odoo.osv import expression
-from odoo.tools import config, ustr, pycompat
+import ecommerce
+from ecommerce import api, models, exceptions, tools, http
+from ecommerce.addons.base.models import ir_http
+from ecommerce.addons.base.models.ir_http import RequestUID
+from ecommerce.addons.base.models.ir_qweb import QWebException
+from ecommerce.http import request, HTTPRequest, Response
+from ecommerce.osv import expression
+from ecommerce.tools import config, ustr, pycompat
 
 _logger = logging.getLogger(__name__)
 

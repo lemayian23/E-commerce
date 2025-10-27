@@ -5,8 +5,8 @@ import unittest
 from subprocess import run, PIPE
 from textwrap import dedent
 
-from odoo import tools
-from odoo.tests.common import TransactionCase
+from ecommerce import tools
+from ecommerce.tests.common import TransactionCase
 
 try:
     import pylint
@@ -28,7 +28,7 @@ class TestSqlLint(TransactionCase):
         result = run(
             [pylint_bin,
              f'--rcfile={os.devnull}',
-             '--load-plugins=_odoo_checker_sql_injection',
+             '--load-plugins=_ecommerce_checker_sql_injection',
              '--disable=all',
              '--enable=sql-injection',
              '--output-format=json',

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import itertools
 import pstats
 from cProfile import Profile
 
-from odoo import fields, Command
-from odoo.tests import common
+from ecommerce import fields, Command
+from ecommerce.tests import common
 
 
 class CreatorCase(common.TransactionCase):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ActivityMenuContainer } from '@mail/components/activity_menu_container/activity_menu_container';
 import { MessagingMenuContainer } from '@mail/components/messaging_menu_container/messaging_menu_container';

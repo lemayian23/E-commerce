@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.api import Environment
-import odoo.tests
-from odoo.tools import html2plaintext
+from ecommerce.api import Environment
+import ecommerce.tests
+from ecommerce.tools import html2plaintext
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestWebsiteHrRecruitmentForm(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestWebsiteHrRecruitmentForm(ecommerce.tests.HttpCase):
     def test_tour(self):
         department = self.env['hr.department'].create({'name': 'guru team'})
         job_guru = self.env['hr.job'].create({
@@ -21,7 +21,7 @@ class TestWebsiteHrRecruitmentForm(odoo.tests.HttpCase):
         })
         self.start_tour(self.env['website'].get_client_action_url('/jobs'), 'website_hr_recruitment_tour_edit_form', login='admin')
 
-        with odoo.tests.RecordCapturer(self.env['hr.applicant'], []) as capt:
+        with ecommerce.tests.RecordCapturer(self.env['hr.applicant'], []) as capt:
             self.start_tour("/", 'website_hr_recruitment_tour')
 
         # check result

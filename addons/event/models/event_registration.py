@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
 import pytz
 
-from odoo import _, api, fields, models, SUPERUSER_ID
-from odoo.tools import format_date, email_normalize, email_normalize_all
-from odoo.exceptions import AccessError, ValidationError
+from ecommerce import _, api, fields, models, SUPERUSER_ID
+from ecommerce.tools import format_date, email_normalize, email_normalize_all
+from ecommerce.exceptions import AccessError, ValidationError
 
 # phone_validation is not officially in the depends of event, but we would like
 # to have the formatting available in event, not in event_sms -> do a conditional
 # import just to be sure
 try:
-    from odoo.addons.phone_validation.tools.phone_validation import phone_format
+    from ecommerce.addons.phone_validation.tools.phone_validation import phone_format
 except ImportError:
     def phone_format(number, country_code, country_phone_code, force_format='INTERNATIONAL', raise_exception=True):
         return number

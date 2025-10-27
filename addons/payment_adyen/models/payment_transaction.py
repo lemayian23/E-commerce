@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_adyen import utils as adyen_utils
-from odoo.addons.payment_adyen.const import CURRENCY_DECIMALS, RESULT_CODES_MAPPING
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_adyen import utils as adyen_utils
+from ecommerce.addons.payment_adyen.const import CURRENCY_DECIMALS, RESULT_CODES_MAPPING
 
 _logger = logging.getLogger(__name__)
 
@@ -89,7 +89,7 @@ class PaymentTransaction(models.Model):
         # 'manual' from events with the capture delay set to 'immediate' or a number of hours. If
         # the merchant account is configured to capture payments with a delay but the provider is
         # not, we force the immediate capture to avoid considering authorized transactions as
-        # captured on Odoo.
+        # captured on ecommerce.
         if not self.provider_id.capture_manually:
             data.update(captureDelayHours=0)
 

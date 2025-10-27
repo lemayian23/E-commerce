@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 from werkzeug.urls import url_unquote_plus
 
-from odoo.addons.website_slides.tests import common
-from odoo.exceptions import ValidationError
-from odoo.tests import HttpCase
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.website_slides.tests import common
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import HttpCase
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 class TestResources(common.SlidesCase, HttpCase):
 
     @users('user_officer')
-    @mute_logger('odoo')
+    @mute_logger('ecommerce')
     def test_constraints(self):
         link = self.env["slide.slide.resource"].create({
             'name': 'Test Link',
@@ -64,7 +64,7 @@ class TestResources(common.SlidesCase, HttpCase):
             'name': resource_name,
             'file_name': 'test.png',
             'resource_type': 'file',
-            # A file for which _odoo_guess_mimetype and python_magic can detect the mime type: a png file
+            # A file for which _ecommerce_guess_mimetype and python_magic can detect the mime type: a png file
             'data': 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAC4jAA'
                     'AuIwF4pT92AAAAD0lEQVQIHQEEAPv/AIdaewLIAV0IjhGPAAAAAElFTkSuQmCC',
             'slide_id': self.slide.id,

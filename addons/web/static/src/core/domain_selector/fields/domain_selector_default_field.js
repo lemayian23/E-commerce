@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { DomainSelectorFieldInput } from "./domain_selector_field_input";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 const dso = registry.category("domain_selector/operator");
 

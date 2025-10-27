@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="l10n_bo_iva_13_sale" model="account.tax.template">
         <field name="sequence">100</field>
         <field name="chart_template_id" ref="bo_chart_template"/>
@@ -768,4 +768,4 @@
                 ref('l10n_bo_whh_goods_iue_expense')
             ])]"/>
     </record>
-</odoo>
+</ecommerce>

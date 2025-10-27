@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import PublicLivechat from '@im_livechat/legacy/models/public_livechat';
 

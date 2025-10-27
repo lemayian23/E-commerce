@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.http as http
+import ecommerce.http as http
 
-from odoo.http import request
-from odoo.tools.misc import get_lang
+from ecommerce.http import request
+from ecommerce.tools.misc import get_lang
 
 
 class CalendarController(http.Controller):

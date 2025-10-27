@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 
-from odoo import _, fields, models, tools
+from ecommerce import _, fields, models, tools
 
 
 class TestMassMailing(models.TransientModel):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
-from odoo import Command
-from odoo.exceptions import UserError
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase
+from ecommerce import Command
+from ecommerce.exceptions import UserError
 
 
 @tagged('post_install', '-at_install')

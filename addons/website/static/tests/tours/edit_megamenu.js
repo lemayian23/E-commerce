@@ -1,4 +1,4 @@
-odoo.define("website.tour.edit_megamenu", function (require) {
+ecommerce.define("website.tour.edit_megamenu", function (require) {
 "use strict";
 
 const wTourUtils = require('website.tour_utils');
@@ -53,7 +53,7 @@ wTourUtils.registerWebsitePreviewTour('edit_megamenu', {
     toggleMegaMenu({extra_trigger: 'iframe #top_menu .nav-item a.o_mega_menu_toggle:contains("Megaaaaa!")'}),
     {
         content: "Select the last menu link of the first column",
-        trigger: 'iframe .s_mega_menu_odoo_menu .row > div:first-child .nav > :nth-child(6)', // 6th is the last one
+        trigger: 'iframe .s_mega_menu_ecommerce_menu .row > div:first-child .nav > :nth-child(6)', // 6th is the last one
     },
     {
         content: "Hit the delete button to remove the menu link",
@@ -61,7 +61,7 @@ wTourUtils.registerWebsitePreviewTour('edit_megamenu', {
     },
     {
         content: "Check that the last menu link was deleted",
-        trigger: 'iframe .s_mega_menu_odoo_menu .row > div:first-child .nav:not(:has(> :nth-child(6)))',
+        trigger: 'iframe .s_mega_menu_ecommerce_menu .row > div:first-child .nav:not(:has(> :nth-child(6)))',
         run: () => null,
     },
     {
@@ -140,7 +140,7 @@ wTourUtils.registerWebsitePreviewTour('edit_megamenu_big_icons_subtitles', {
     toggleMegaMenu({extra_trigger: 'iframe #top_menu .nav-item a.o_mega_menu_toggle:contains("Megaaaaa2!")'}),
     {
         content: "Select the first menu link of the first column",
-        trigger: 'iframe .s_mega_menu_odoo_menu .row > div:first-child .nav > :first-child',
+        trigger: 'iframe .s_mega_menu_ecommerce_menu .row > div:first-child .nav > :first-child',
     },
     wTourUtils.changeOption("MegaMenuLayout", "we-toggler"),
     {

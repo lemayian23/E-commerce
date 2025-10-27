@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Classes defining the populate factory for Journal Entries, Invoices and related models."""
-from odoo import models, fields, Command
-from odoo.tools import populate
+from ecommerce import models, fields, Command
+from ecommerce.tools import populate
 
 import logging
 import math

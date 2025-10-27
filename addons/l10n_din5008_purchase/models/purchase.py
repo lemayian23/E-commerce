@@ -1,5 +1,5 @@
-from odoo import models, fields, _
-from odoo.tools import format_date
+from ecommerce import models, fields, _
+from ecommerce.tools import format_date
 
 
 class PurchaseOrder(models.Model):

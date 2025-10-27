@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { CharField } from "@web/views/fields/char/char_field";
 import { patch } from "@web/core/utils/patch";

@@ -1,4 +1,4 @@
-from odoo.addons.base.tests.test_views import ViewCase
+from ecommerce.addons.base.tests.test_views import ViewCase
 
 
 class FormatAddressCase(ViewCase):

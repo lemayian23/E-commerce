@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.NumberPopup', function(require) {
+ecommerce.define('point_of_sale.NumberPopup', function(require) {
     'use strict';
     var core = require('web.core');
     var _t = core._t;

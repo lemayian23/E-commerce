@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { debounce as debounceFn } from "@web/core/utils/timing";
 import publicWidget from "web.public.widget";

@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.snippets.editor', function (require) {
+ecommerce.define('mass_mailing.snippets.editor', function (require) {
 'use strict';
 
 const {_lt} = require('web.core');
@@ -48,7 +48,7 @@ const MassMailingSnippetsMenu = snippetsEditor.SnippetsMenu.extend({
         // entire editable area as the target, which causes the tab to shift from OPTIONS to BLOCK.
         // To prevent unnecessary tab shifting, we provide a selection for this specific case.
         if (srcElement.classList.contains('o_mail_wrapper') || srcElement.querySelector('.o_mail_wrapper')) {
-            const selection = this.options.wysiwyg.odooEditor.document.getSelection();
+            const selection = this.options.wysiwyg.ecommerceEditor.document.getSelection();
             if (selection.anchorNode) {
                 const parent = selection.anchorNode.parentElement;
                 if (parent) {

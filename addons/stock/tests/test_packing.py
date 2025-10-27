@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase
-from odoo.tools import float_round
-from odoo.exceptions import UserError
+import ecommerce.tests
+from ecommerce.tests import Form
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools import float_round
+from ecommerce.exceptions import UserError
 
 
 class TestPackingCommon(TransactionCase):
@@ -1667,7 +1667,7 @@ class TestPacking(TestPackingCommon):
         self.assertTrue(picking.should_print_delivery_address())
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestPackagePropagation(TestPackingCommon):
 
     def test_reusable_package_propagation(self):

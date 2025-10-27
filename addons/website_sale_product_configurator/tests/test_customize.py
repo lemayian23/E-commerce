@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import HttpCase
-from odoo.addons.sale_product_configurator.tests.common import TestProductConfiguratorCommon
-from odoo.tests import tagged
+from ecommerce.tests.common import HttpCase
+from ecommerce.addons.sale_product_configurator.tests.common import TestProductConfiguratorCommon
+from ecommerce.tests import tagged
 
 
 @tagged('post_install', '-at_install')

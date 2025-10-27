@@ -1,4 +1,4 @@
-odoo.define('web.kanban_record_quick_create', function (require) {
+ecommerce.define('web.kanban_record_quick_create', function (require) {
 "use strict";
 
 /**
@@ -205,7 +205,7 @@ var RecordQuickCreate = Widget.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onAdd: function (ev) {
         ev.stopPropagation();
@@ -221,7 +221,7 @@ var RecordQuickCreate = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onCancel: function (ev) {
         ev.stopPropagation();

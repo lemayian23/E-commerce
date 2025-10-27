@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 from unittest.mock import patch
@@ -6,14 +6,14 @@ from unittest.mock import patch
 from freezegun import freeze_time
 from werkzeug.exceptions import Forbidden
 
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.payment_sips.controllers.main import SipsController
-from odoo.addons.payment_sips.models.payment_provider import SUPPORTED_CURRENCIES
-from odoo.addons.payment_sips.tests.common import SipsCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment_sips.controllers.main import SipsController
+from ecommerce.addons.payment_sips.models.payment_provider import SUPPORTED_CURRENCIES
+from ecommerce.addons.payment_sips.tests.common import SipsCommon
 
 
 @tagged('post_install', '-at_install')
@@ -46,7 +46,7 @@ class SipsTest(SipsCommon, PaymentHttpCommon):
 
         tx = self._create_transaction(flow="redirect")
 
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
         form_info = self._extract_values_from_html_form(processing_values['redirect_form_html'])
         form_inputs = form_info['inputs']
@@ -91,28 +91,28 @@ class SipsTest(SipsCommon, PaymentHttpCommon):
         self.env['payment.transaction']._handle_notification_data('sips', payload)
         self.assertEqual(tx.state, 'cancel')
 
-    @mute_logger('odoo.addons.payment_sips.controllers.main')
+    @mute_logger('ecommerce.addons.payment_sips.controllers.main')
     def test_webhook_notification_confirms_transaction(self):
         """ Test the processing of a webhook notification. """
         tx = self._create_transaction('redirect')
         url = self._build_url(SipsController._return_url)
         with patch(
-            'odoo.addons.payment_sips.controllers.main.SipsController'
+            'ecommerce.addons.payment_sips.controllers.main.SipsController'
             '._verify_notification_signature'
         ):
             self._make_http_post_request(url, data=self.notification_data)
         self.assertEqual(tx.state, 'done')
 
-    @mute_logger('odoo.addons.payment_sips.controllers.main')
+    @mute_logger('ecommerce.addons.payment_sips.controllers.main')
     def test_webhook_notification_triggers_signature_check(self):
         """ Test that receiving a webhook notification triggers a signature check. """
         self._create_transaction('redirect')
         url = self._build_url(SipsController._webhook_url)
         with patch(
-            'odoo.addons.payment_sips.controllers.main.SipsController'
+            'ecommerce.addons.payment_sips.controllers.main.SipsController'
             '._verify_notification_signature'
         ) as signature_check_mock, patch(
-            'odoo.addons.payment.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment.models.payment_transaction.PaymentTransaction'
             '._handle_notification_data'
         ):
             self._make_http_post_request(url, data=self.notification_data)
@@ -125,14 +125,14 @@ class SipsTest(SipsCommon, PaymentHttpCommon):
             Forbidden, SipsController._verify_notification_signature, self.notification_data, tx
         )
 
-    @mute_logger('odoo.addons.payment_sips.controllers.main')
+    @mute_logger('ecommerce.addons.payment_sips.controllers.main')
     def test_reject_notification_with_missing_signature(self):
         """ Test the verification of a notification with a missing signature. """
         tx = self._create_transaction('redirect')
         payload = dict(self.notification_data, Seal=None)
         self.assertRaises(Forbidden, SipsController._verify_notification_signature, payload, tx)
 
-    @mute_logger('odoo.addons.payment_sips.controllers.main')
+    @mute_logger('ecommerce.addons.payment_sips.controllers.main')
     def test_reject_notification_with_invalid_signature(self):
         """ Test the verification of a notification with an invalid signature. """
         tx = self._create_transaction('redirect')

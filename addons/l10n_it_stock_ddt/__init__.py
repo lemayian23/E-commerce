@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from . import models
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 
 def _create_picking_seq(cr, registry):

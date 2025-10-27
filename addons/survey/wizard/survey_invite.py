@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import re
 import werkzeug
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-odoo.define('hr_attendance.greeting_message', function (require) {
+ecommerce.define('hr_attendance.greeting_message', function (require) {
 "use strict";
 
 var AbstractAction = require('web.AbstractAction');

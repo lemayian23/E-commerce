@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="lunch_order_view_search" model="ir.ui.view">
         <field name="name">lunch.order.search</field>
@@ -282,4 +282,4 @@
         </field>
     </record>
 
-</odoo>
+</ecommerce>

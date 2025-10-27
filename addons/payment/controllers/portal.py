@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import urllib.parse
 import werkzeug
 
-from odoo import _, http
-from odoo.exceptions import AccessError, UserError, ValidationError
-from odoo.http import request
+from ecommerce import _, http
+from ecommerce.exceptions import AccessError, UserError, ValidationError
+from ecommerce.http import request
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment.controllers.post_processing import PaymentPostProcessing
-from odoo.addons.portal.controllers import portal
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment.controllers.post_processing import PaymentPostProcessing
+from ecommerce.addons.portal.controllers import portal
 
 
 class PaymentPortal(portal.CustomerPortal):

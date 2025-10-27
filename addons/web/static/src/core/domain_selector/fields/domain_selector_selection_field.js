@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { evaluateExpr } from "@web/core/py_js/py";
 import { formatAST, toPyValue } from "@web/core/py_js/py_utils";
 import { registry } from "@web/core/registry";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 const dsf = registry.category("domain_selector/fields");
 const dso = registry.category("domain_selector/operator");

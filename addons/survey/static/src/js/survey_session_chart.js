@@ -1,4 +1,4 @@
-odoo.define('survey.session_chart', function (require) {
+ecommerce.define('survey.session_chart', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

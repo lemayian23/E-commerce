@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <function model="account.journal" name="write">
         <value model="account.journal"
                eval="obj().search([
@@ -63,4 +63,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

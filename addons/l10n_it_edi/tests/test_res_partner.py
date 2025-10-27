@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.exceptions import UserError
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase, tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
+from ecommerce.tests.common import TransactionCase, tagged
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')

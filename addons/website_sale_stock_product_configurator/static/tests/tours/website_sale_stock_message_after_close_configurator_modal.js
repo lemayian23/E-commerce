@@ -1,4 +1,4 @@
-odoo.define('website_sale.website_sale_stock_message_after_close_configurator_modal', function (require) {
+ecommerce.define('website_sale.website_sale_stock_message_after_close_configurator_modal', function (require) {
     'use strict';
 
     var tour = require('web_tour.tour');

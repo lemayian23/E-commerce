@@ -8,11 +8,11 @@ import os.path
 from lxml import etree
 from lxml.builder import E
 
-from odoo.tests import common
-from odoo.tools import config
-from odoo.tools.convert import xml_import
+from ecommerce.tests import common
+from ecommerce.tools import config
+from ecommerce.tools.convert import xml_import
 
-odoo = E.odoo
+ecommerce = E.ecommerce
 data = E.data
 record = E.record
 field = E.field
@@ -33,7 +33,7 @@ class TestEnv(common.TransactionCase):
 
     def test_uid_data_record(self):
         self.importer(
-            odoo(
+            ecommerce(
                 record(
                     field("a", name="name"),
                     model="test_convert.usered",
@@ -50,7 +50,7 @@ class TestEnv(common.TransactionCase):
 
     def test_uid_data_function(self):
         self.importer(
-            odoo(
+            ecommerce(
                 function(
                     model="test_convert.usered",
                     name="create",
@@ -67,7 +67,7 @@ class TestEnv(common.TransactionCase):
 
     def test_uid_record(self):
         self.importer(
-            odoo(
+            ecommerce(
                 record(
                     field('c', name="name"),
                     model="test_convert.usered",
@@ -86,7 +86,7 @@ class TestEnv(common.TransactionCase):
 
     def test_uid_function(self):
         self.importer(
-            odoo(
+            ecommerce(
                 function(
                     model="test_convert.usered",
                     name="create",
@@ -104,7 +104,7 @@ class TestEnv(common.TransactionCase):
     def test_context_data_function(self):
         self.env.user.tz = 'UTC'
         self.importer(
-            odoo(
+            ecommerce(
                 function(
                     model="test_convert.usered",
                     name="create",
@@ -120,7 +120,7 @@ class TestEnv(common.TransactionCase):
     def test_context_function(self):
         self.env.user.tz = 'UTC'
         self.importer(
-            odoo(
+            ecommerce(
                 function(
                     model="test_convert.usered",
                     name="create",
@@ -137,7 +137,7 @@ class TestEnv(common.TransactionCase):
     def test_context_data_record(self):
         self.env.user.tz = 'UTC'
         self.importer(
-            odoo(
+            ecommerce(
                 record(
                     field("f", name="name"),
                     model="test_convert.usered",
@@ -152,7 +152,7 @@ class TestEnv(common.TransactionCase):
     def test_context_record(self):
         self.env.user.tz = 'UTC'
         self.importer(
-            odoo(
+            ecommerce(
                 record(
                     field("f", name="name"),
                     model="test_convert.usered",

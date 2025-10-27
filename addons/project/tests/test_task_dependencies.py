@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo.fields import Command
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
+from ecommerce.fields import Command
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
 
-from odoo.addons.project.tests.test_project_base import TestProjectCommon
+from ecommerce.addons.project.tests.test_project_base import TestProjectCommon
 
 from datetime import date
 

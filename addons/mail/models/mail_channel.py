@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import logging
@@ -7,12 +7,12 @@ from collections import defaultdict
 from hashlib import sha512
 from secrets import choice
 
-from odoo import _, api, fields, models, tools, Command
-from odoo.addons.base.models.avatar_mixin import get_hsl_from_seed
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import html_escape
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce import _, api, fields, models, tools, Command
+from ecommerce.addons.base.models.avatar_mixin import get_hsl_from_seed
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools import html_escape
+from ecommerce.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 _logger = logging.getLogger(__name__)
 

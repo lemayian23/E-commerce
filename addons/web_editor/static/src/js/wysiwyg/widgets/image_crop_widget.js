@@ -1,4 +1,4 @@
-odoo.define('wysiwyg.widgets.ImageCropWidget', function (require) {
+ecommerce.define('wysiwyg.widgets.ImageCropWidget', function (require) {
 'use strict';
 
 const core = require('web.core');
@@ -53,7 +53,7 @@ const ImageCropWidget = Widget.extend({
         if (this.media.dataset.originalSrc && !isIllustration) {
             this.originalSrc = this.media.dataset.originalSrc;
             this.originalId = this.media.dataset.originalId;
-            const sel = this.parent.odooEditor && this.parent.odooEditor.document.getSelection();
+            const sel = this.parent.ecommerceEditor && this.parent.ecommerceEditor.document.getSelection();
             sel && sel.removeAllRanges();
             return;
         }
@@ -68,7 +68,7 @@ const ImageCropWidget = Widget.extend({
             this.displayNotification({
               type: 'warning',
               title: _t("This image is an external image"),
-              message: Markup(_t("This type of image is not supported for cropping.<br/>If you want to crop it, please first download it from the original source and upload it in Odoo.")),
+              message: Markup(_t("This type of image is not supported for cropping.<br/>If you want to crop it, please first download it from the original source and upload it in ecommerce.")),
             });
             return this.destroy();
         }

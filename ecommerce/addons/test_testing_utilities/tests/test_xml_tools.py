@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
 from lxml import etree
-from odoo.tests import common
-from odoo.tools.xml_utils import cleanup_xml_node
+from ecommerce.tests import common
+from ecommerce.tools.xml_utils import cleanup_xml_node
 
 
 class TestXMLTools(common.TransactionCase):
@@ -84,19 +84,19 @@ _</h1>
         template_2 = self.env['ir.ui.view'].create({
             'name': 'test',
             'type': 'qweb',
-            'arch_db': f'''<odoo>
+            'arch_db': f'''<ecommerce>
     <data>
         <t t-call="{template_1.id}"/>
     </data>
-</odoo>
+</ecommerce>
 '''})
-        expected = """<odoo>
+        expected = """<ecommerce>
   <data>
     <h1>
       <content>This is content!</content>
     </h1>
   </data>
-</odoo>
+</ecommerce>
 """
         qweb = self.env['ir.qweb']._render(template_2.id)
         self.check_xml_cleanup_result_is_as_expected(qweb, expected)

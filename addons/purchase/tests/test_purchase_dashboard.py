@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.mail.tests.common import MailCase
-from odoo.tests import tagged, Form, new_test_user
-from odoo.tools import mute_logger, format_amount
-from odoo import fields
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.mail.tests.common import MailCase
+from ecommerce.tests import tagged, Form, new_test_user
+from ecommerce.tools import mute_logger, format_amount
+from ecommerce import fields
 
 @tagged('-at_install', 'post_install')
 class TestPurchaseDashboard(AccountTestInvoicingCommon, MailCase):
@@ -26,7 +26,7 @@ class TestPurchaseDashboard(AccountTestInvoicingCommon, MailCase):
         cls.product_100 = cls.env['product.product'].create({**product_data, 'standard_price': 100})
         cls.product_250 = cls.env['product.product'].create({**product_data, 'standard_price': 250})
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_purchase_dashboard(self):
         '''
         Test purchase dashboard values with multiple users.

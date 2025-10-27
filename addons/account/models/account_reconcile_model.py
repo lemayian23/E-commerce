@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, Command, tools, _
-from odoo.tools import float_compare, float_is_zero
-from odoo.osv.expression import get_unaccent_wrapper
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import api, fields, models, Command, tools, _
+from ecommerce.tools import float_compare, float_is_zero
+from ecommerce.osv.expression import get_unaccent_wrapper
+from ecommerce.exceptions import UserError, ValidationError
 import re
 from math import copysign
 from collections import defaultdict

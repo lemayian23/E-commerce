@@ -3,7 +3,7 @@ from __future__ import division
 
 from itertools import count, zip_longest
 
-from odoo import api, fields, models, Command
+from ecommerce import api, fields, models, Command
 
 class A(models.Model):
     _name = 'test_testing_utilities.a'

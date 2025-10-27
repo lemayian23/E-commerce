@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from unittest.mock import patch
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.account.models.account_payment_method import AccountPaymentMethod
-from odoo.tests import tagged
-from odoo.exceptions import UserError, ValidationError
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.account.models.account_payment_method import AccountPaymentMethod
+from ecommerce.tests import tagged
+from ecommerce.exceptions import UserError, ValidationError
 
 
 @tagged('post_install', '-at_install')

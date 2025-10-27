@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import collections
 
-from odoo import models
-from odoo.tools import populate
-from odoo.addons.stock.populate.stock import COMPANY_NB_WITH_STOCK
+from ecommerce import models
+from ecommerce.tools import populate
+from ecommerce.addons.stock.populate.stock import COMPANY_NB_WITH_STOCK
 
 _logger = logging.getLogger(__name__)
 

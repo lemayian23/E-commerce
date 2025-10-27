@@ -1,4 +1,4 @@
-/** @odoo-module alias=web_editor.field.html */
+/** @ecommerce-module alias=web_editor.field.html */
 'use strict';
 
 import ajax from 'web.ajax';
@@ -13,7 +13,7 @@ import {
     setSelection,
     rightPos,
     getRangePosition
-} from '../editor/odoo-editor/src/utils/utils';
+} from '../editor/ecommerce-editor/src/utils/utils';
 // must wait for web/ to add the default html widget, otherwise it would override the web_editor one
 import 'web._field_registry';
 import "@web/views/fields/html/html_field"; // make sure the html field file has first been executed.
@@ -27,7 +27,7 @@ var QWeb = core.qweb;
 /**
  * FieldHtml Widget
  * Intended to display HTML content. This widget uses the wysiwyg editor
- * improved by odoo.
+ * improved by ecommerce.
  *
  * nodeOptions:
  *  - style-inline => convert class to inline style (no re-edition) => for sending by email
@@ -99,7 +99,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
     openDynamicPlaceholder: async function (baseModel, chain = []) {
         let modelSelector;
         const onFieldChanged = (ev) => {
-            this.wysiwyg.odooEditor.editable.focus();
+            this.wysiwyg.ecommerceEditor.editable.focus();
             if (ev.data.chain.length) {
                 let dynamicPlaceholder = "object." + ev.data.chain.join('.');
                 const defaultValue = ev.data.defaultValue;
@@ -107,15 +107,15 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
 
                 const t = document.createElement('T');
                 t.setAttribute('t-out', dynamicPlaceholder);
-                this.wysiwyg.odooEditor.execCommand('insert', t);
+                this.wysiwyg.ecommerceEditor.execCommand('insert', t);
                 setSelection(...rightPos(t));
-                this.wysiwyg.odooEditor.editable.focus();
+                this.wysiwyg.ecommerceEditor.editable.focus();
             }
             modelSelector.destroy();
         };
 
         const onFieldCancel = () => {
-            this.wysiwyg.odooEditor.editable.focus();
+            this.wysiwyg.ecommerceEditor.editable.focus();
             modelSelector.destroy();
         };
 
@@ -320,17 +320,17 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
      * @param {JQuery} $codeview
      */
     _toggleCodeView: function ($codeview) {
-        this.wysiwyg.odooEditor.observerUnactive();
+        this.wysiwyg.ecommerceEditor.observerUnactive();
         $codeview.toggleClass('d-none');
         this.$content.toggleClass('d-none');
         if ($codeview.hasClass('d-none')) {
-            this.wysiwyg.odooEditor.observerActive();
+            this.wysiwyg.ecommerceEditor.observerActive();
             this.wysiwyg.setValue($codeview.val());
-            this.wysiwyg.odooEditor.sanitize();
-            this.wysiwyg.odooEditor.historyStep(true);
+            this.wysiwyg.ecommerceEditor.sanitize();
+            this.wysiwyg.ecommerceEditor.historyStep(true);
         } else {
             $codeview.val(this.$content.html());
-            this.wysiwyg.odooEditor.observerActive();
+            this.wysiwyg.ecommerceEditor.observerActive();
         }
     },
     /**
@@ -555,7 +555,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
      * Method called when wysiwyg triggers a change.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onChange: function (ev) {
         this._doDebouncedAction.apply(this, arguments);
@@ -564,7 +564,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
      * Allows Enter keypress in a textarea (source mode)
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onKeydown: function (ev) {
         if (ev.which === $.ui.keyCode.ENTER) {
@@ -577,7 +577,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
      * Method called when wysiwyg triggers a change.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onReadonlyClickChecklist: function (ev) {
         const self = this;
@@ -608,7 +608,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
      * Check stars on click event in readonly.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onReadonlyClickStar: function (ev) {
         ev.stopPropagation();
@@ -654,11 +654,11 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
                 'font-size': '15px',
                 position: 'absolute',
                 top: '5px',
-                [_t.database.parameters.direction === 'rtl' ? 'left' : 'right']: odoo.debug && this.nodeOptions.codeview ? '40px' : '5px',
+                [_t.database.parameters.direction === 'rtl' ? 'left' : 'right']: ecommerce.debug && this.nodeOptions.codeview ? '40px' : '5px',
             });
         }
         $container.append($button);
-        if (odoo.debug && this.nodeOptions.codeview) {
+        if (ecommerce.debug && this.nodeOptions.codeview) {
             const $codeviewButtonToolbar = $(`
                 <div id="codeview-btn-group" class="btn-group">
                     <button class="o_codeview_btn btn btn-primary">
@@ -677,7 +677,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onWysiwygBlur: function (ev) {
         ev.stopPropagation();
@@ -690,7 +690,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(DynamicPlaceholderFieldMixin)
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onWysiwygFocus: function (ev) {},
 });

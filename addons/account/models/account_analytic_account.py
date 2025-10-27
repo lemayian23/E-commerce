@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
+from ecommerce import api, fields, models, _
 
 
 class AccountAnalyticAccount(models.Model):

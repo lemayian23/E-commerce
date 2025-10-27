@@ -1,12 +1,12 @@
 # # -*- coding: utf-8 -*-
-# # Part of Odoo. See LICENSE file for full copyright and licensing details.
+# # Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 import sys
 
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tests import common, tagged
-from odoo.exceptions import AccessError
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.tests import common, tagged
+from ecommerce.exceptions import AccessError
 
 
 @tagged('post_install', '-at_install')
@@ -217,8 +217,8 @@ record['name'] = record.name + 'X'""",
             send_mail_count += 1
 
         patchers = [
-            patch('odoo.addons.base_automation.models.base_automation.BaseAutomation._get_actions', _patched_get_actions),
-            patch('odoo.addons.mail.models.mail_template.MailTemplate.send_mail', _patched_send_mail),
+            patch('ecommerce.addons.base_automation.models.base_automation.BaseAutomation._get_actions', _patched_get_actions),
+            patch('ecommerce.addons.mail.models.mail_template.MailTemplate.send_mail', _patched_send_mail),
         ]
 
         self.startPatcher(patchers[0])

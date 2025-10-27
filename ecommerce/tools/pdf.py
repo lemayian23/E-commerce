@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import io
 import re
 
@@ -40,7 +40,7 @@ try:
 except ImportError:
     TTFont = None
 
-from odoo.tools.misc import file_open
+from ecommerce.tools.misc import file_open
 
 _logger = getLogger(__name__)
 DEFAULT_PDF_DATETIME_FORMAT = "D:%Y%m%d%H%M%S+00'00'"
@@ -66,8 +66,8 @@ class BrandedFileWriter(PdfFileWriter):
     def __init__(self):
         super().__init__()
         self.addMetadata({
-            '/Creator': "Odoo",
-            '/Producer': "Odoo",
+            '/Creator': "ecommerce",
+            '/Producer': "ecommerce",
         })
 
 
@@ -120,11 +120,11 @@ def to_pdf_stream(attachment) -> io.BytesIO:
 
 
 def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
-    """ Add a banner on a PDF in the upper right corner, with Odoo's logo (optionally).
+    """ Add a banner on a PDF in the upper right corner, with ecommerce's logo (optionally).
 
     :param pdf_stream (BytesIO):    The PDF stream where the banner will be applied.
     :param text (str):              The text to be displayed.
-    :param logo (bool):             Whether to display Odoo's logo in the banner.
+    :param logo (bool):             Whether to display ecommerce's logo in the banner.
     :param thickness (float):       The thickness of the banner in pixels.
     :return (BytesIO):              The modified PDF stream.
     """
@@ -132,8 +132,8 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
     old_pdf = PdfFileReader(pdf_stream, strict=False, overwriteWarnings=False)
     packet = io.BytesIO()
     can = canvas.Canvas(packet)
-    odoo_logo = Image.open(file_open('base/static/img/main_partner-image.png', mode='rb'))
-    odoo_color = colors.Color(113 / 255, 75 / 255, 103 / 255, 0.8)
+    ecommerce_logo = Image.open(file_open('base/static/img/main_partner-image.png', mode='rb'))
+    ecommerce_color = colors.Color(113 / 255, 75 / 255, 103 / 255, 0.8)
 
     for p in range(old_pdf.getNumPages()):
         page = old_pdf.getPage(p)
@@ -150,7 +150,7 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
         path.lineTo(-width, -2 * thickness)
         path.lineTo(width, -2 * thickness)
         path.lineTo(width, -thickness)
-        can.setFillColor(odoo_color)
+        can.setFillColor(ecommerce_color)
         can.drawPath(path, fill=1, stroke=False)
 
         # Insert text (and logo) inside the banner
@@ -158,7 +158,7 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
         can.setFillColor(colors.white)
         can.drawRightString(0.75 * thickness, -1.45 * thickness, text)
         logo and can.drawImage(
-            ImageReader(odoo_logo), 0.25 * thickness, -2.05 * thickness, 40, 40, mask='auto', preserveAspectRatio=True)
+            ImageReader(ecommerce_logo), 0.25 * thickness, -2.05 * thickness, 40, 40, mask='auto', preserveAspectRatio=True)
 
         can.showPage()
 
@@ -189,7 +189,7 @@ old_init = PdfFileReader.__init__
 PdfFileReader.__init__ = lambda self, stream, strict=True, warndest=None, overwriteWarnings=True: \
     old_init(self, stream=stream, strict=strict, warndest=None, overwriteWarnings=False)
 
-class OdooPdfFileReader(PdfFileReader):
+class ecommercePdfFileReader(PdfFileReader):
     # OVERRIDE of PdfFileReader to add the management of multiple embedded files.
 
     ''' Returns the files inside the PDF.
@@ -213,7 +213,7 @@ class OdooPdfFileReader(PdfFileReader):
             return []
 
 
-class OdooPdfFileWriter(PdfFileWriter):
+class ecommercePdfFileWriter(PdfFileWriter):
 
     def __init__(self, *args, **kwargs):
         """
@@ -278,8 +278,8 @@ class OdooPdfFileWriter(PdfFileWriter):
                 NameObject("/AF"): attachment_array
             })
 
-    def embed_odoo_attachment(self, attachment, subtype=None):
-        assert attachment, "embed_odoo_attachment cannot be called without attachment."
+    def embed_ecommerce_attachment(self, attachment, subtype=None):
+        assert attachment, "embed_ecommerce_attachment cannot be called without attachment."
         self.addAttachment(attachment.name, attachment.raw, subtype=subtype or attachment.mimetype)
 
     def cloneReaderDocumentRoot(self, reader):
@@ -384,10 +384,10 @@ class OdooPdfFileWriter(PdfFileWriter):
         outlines = self._root_object['/Outlines'].getObject()
         outlines[NameObject('/Count')] = NumberObject(1)
 
-        # Set odoo as producer
+        # Set ecommerce as producer
         self.addMetadata({
-            '/Creator': "Odoo",
-            '/Producer': "Odoo",
+            '/Creator': "ecommerce",
+            '/Producer': "ecommerce",
         })
         self.is_pdfa = True
 

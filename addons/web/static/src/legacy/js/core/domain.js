@@ -1,4 +1,4 @@
-odoo.define("web.Domain", function (require) {
+ecommerce.define("web.Domain", function (require) {
 "use strict";
 
 var collections = require("web.collections");

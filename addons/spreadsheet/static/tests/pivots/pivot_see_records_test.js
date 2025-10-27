@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { makeDeferred, nextTick } from "@web/../tests/helpers/utils";
 
 import { selectCell } from "@spreadsheet/../tests/utils/commands";
@@ -108,7 +108,7 @@ QUnit.test(
                 }
             },
         });
-        setCellContent(model, "A1", '=IFERROR(ODOO.PIVOT("1","probability"), 42)');
+        setCellContent(model, "A1", '=IFERROR(ecommerce.PIVOT("1","probability"), 42)');
         deferred = makeDeferred();
         model.dispatch("REFRESH_ALL_DATA_SOURCES");
         const action = cellMenuRegistry.getAll().find((item) => item.id === "pivot_see_records");
@@ -135,7 +135,7 @@ QUnit.test("See records is not visible if the formula has an weird IF", async fu
     setCellContent(
         model,
         "A1",
-        '=if(false, ODOO.PIVOT("1","probability","user_id",2,"partner_id", "#Error"), "test")'
+        '=if(false, ecommerce.PIVOT("1","probability","user_id",2,"partner_id", "#Error"), "test")'
     );
     deferred = makeDeferred();
     model.dispatch("REFRESH_ALL_DATA_SOURCES");

@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.ClassRegistry', function (require) {
+ecommerce.define('point_of_sale.ClassRegistry', function (require) {
     'use strict';
 
     /**

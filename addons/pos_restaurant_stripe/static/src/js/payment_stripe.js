@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant_stripe.payment', function (require) {
+ecommerce.define('pos_restaurant_stripe.payment', function (require) {
     "use strict";
 
     var PaymentStripe = require('pos_stripe.payment');

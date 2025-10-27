@@ -1,4 +1,4 @@
-odoo.define('hr.OpenChatLegacy', function (require) {
+ecommerce.define('hr.OpenChatLegacy', function (require) {
 "use strict";
 
 const widgetRegistry = require('web.widget_registry');

@@ -1,4 +1,4 @@
-odoo.define('google_recaptcha.signup', function (require) {
+ecommerce.define('google_recaptcha.signup', function (require) {
     'use strict';
 
     const publicWidget = require('web.public.widget');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeFakeDialogService } from "@web/../tests/helpers/mock_services";
 import {
@@ -44,7 +44,7 @@ import { kanbanView } from "@web/views/kanban/kanban_view";
 import { DynamicRecordList } from "@web/views/relational_model";
 import { ViewButton } from "@web/views/view_button/view_button";
 
-import { Component, onWillRender, xml } from "@odoo/owl";
+import { Component, onWillRender, xml } from "@ecommerce/owl";
 import { SampleServer } from "@web/views/sample_server";
 import { KanbanDynamicGroupList } from "@web/views/kanban/kanban_model";
 
@@ -3251,7 +3251,7 @@ QUnit.module("Views", (hooks) => {
         // will NOT close the quick create.
         // This can happen when the user clicks out of the input because of a race condition between
         // the focusout of the m2o and the global 'click' handler of the quick create.
-        // Check odoo/odoo#61981 for more details.
+        // Check ecommerce/ecommerce#61981 for more details.
         assert.hasClass(document.body, "modal-open", "modal should be opening after m2o focusout");
         await click(document.body);
         assert.containsOnce(
@@ -3533,9 +3533,9 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "name_create") {
                     throw makeErrorFromResponse({
                         code: 200,
-                        message: "Odoo Server Error",
+                        message: "ecommerce Server Error",
                         data: {
-                            name: "odoo.exceptions.UserError",
+                            name: "ecommerce.exceptions.UserError",
                             debug: "traceback",
                             arguments: ["This is a user error"],
                             context: {},
@@ -3592,9 +3592,9 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "name_create") {
                     throw makeErrorFromResponse({
                         code: 200,
-                        message: "Odoo Server Error",
+                        message: "ecommerce Server Error",
                         data: {
-                            name: "odoo.exceptions.UserError",
+                            name: "ecommerce.exceptions.UserError",
                             debug: "traceback",
                             arguments: ["This is a user error"],
                             context: {},
@@ -3659,9 +3659,9 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "name_create") {
                     throw makeErrorFromResponse({
                         code: 200,
-                        message: "Odoo Server Error",
+                        message: "ecommerce Server Error",
                         data: {
-                            name: "odoo.exceptions.UserError",
+                            name: "ecommerce.exceptions.UserError",
                             debug: "traceback",
                             arguments: ["This is a user error"],
                             context: {},
@@ -3706,9 +3706,9 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "name_create") {
                     throw makeErrorFromResponse({
                         code: 200,
-                        message: "Odoo Server Error",
+                        message: "ecommerce Server Error",
                         data: {
-                            name: "odoo.exceptions.UserError",
+                            name: "ecommerce.exceptions.UserError",
                             debug: "traceback",
                             arguments: ["This is a user error"],
                             context: {},
@@ -3765,9 +3765,9 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "name_create") {
                     throw makeErrorFromResponse({
                         code: 200,
-                        message: "Odoo Server Error",
+                        message: "ecommerce Server Error",
                         data: {
-                            name: "odoo.exceptions.UserError",
+                            name: "ecommerce.exceptions.UserError",
                             debug: "traceback",
                             arguments: ["This is a user error"],
                             context: {},

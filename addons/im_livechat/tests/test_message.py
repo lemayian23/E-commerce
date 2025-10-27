@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.tests.common import users, tagged
-from odoo.addons.im_livechat.tests.chatbot_common import ChatbotCase
+from ecommerce import Command
+from ecommerce.tests.common import users, tagged
+from ecommerce.addons.im_livechat.tests.chatbot_common import ChatbotCase
 
 
 @tagged('post_install', '-at_install')
@@ -17,7 +17,7 @@ class TestImLivechatMessage(ChatbotCase):
                 'login': 'emp',
                 'name': 'Ernest Employee',
                 'notification_type': 'inbox',
-                'odoobot_state': 'disabled',
+                'ecommercebot_state': 'disabled',
                 'signature': '--\nErnest',
             },
             {'name': 'test1', 'login': 'test1', 'email': 'test1@example.com'},

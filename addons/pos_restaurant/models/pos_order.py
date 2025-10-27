@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tools import groupby
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.tools import groupby
 from re import search
 from functools import partial
 
 import pytz
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
 
 class PosOrderLine(models.Model):

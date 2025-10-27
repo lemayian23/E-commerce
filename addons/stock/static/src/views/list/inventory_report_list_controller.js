@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useBus } from "@web/core/utils/hooks";
 import { session } from "@web/session";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { is24HourFormat } from "@web/core/l10n/dates";
@@ -7,7 +7,7 @@ import { Field } from "@web/views/fields/field";
 import { Record } from "@web/views/record";
 import { getFormattedDateSpan } from '@web/views/calendar/utils';
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class CalendarCommonPopover extends Component {
     setup() {

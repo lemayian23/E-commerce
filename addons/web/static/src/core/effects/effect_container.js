@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, xml, onWillDestroy } from "@odoo/owl";
+import { Component, xml, onWillDestroy } from "@ecommerce/owl";
 
 export class EffectContainer extends Component {
     setup() {

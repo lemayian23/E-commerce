@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { scrollTo } from "@web/core/utils/scrolling";
 
-import { Component, onWillDestroy, onWillUpdateProps, useEffect, useRef, useState } from "@odoo/owl";
+import { Component, onWillDestroy, onWillUpdateProps, useEffect, useRef, useState } from "@ecommerce/owl";
 
 /**
  * A notebook component that will render only the current page and allow

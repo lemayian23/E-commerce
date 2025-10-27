@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 <template id="iframe_css_assets_edit" name="CSS assets for wysiwyg iframe content for popup" groups="base.group_user">
     <t t-call-assets="web.assets_frontend" t-js="false"/>
     <t t-call-assets="web_editor.assets_wysiwyg" t-js="false"/>
@@ -241,4 +241,4 @@ database, without the s_newsletter_list class. See fixNewsletterListClass.
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-from odoo import api, models, fields
+from ecommerce import api, models, fields
 
 
 class AccountMove(models.Model):

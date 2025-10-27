@@ -1,4 +1,4 @@
-odoo.define("website.tour.homepage", function (require) {
+ecommerce.define("website.tour.homepage", function (require) {
 "use strict";
 
 const wTourUtils = require("website.tour_utils");

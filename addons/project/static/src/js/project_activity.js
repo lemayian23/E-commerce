@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ActivityView from '@mail/js/views/activity/activity_view';
 import { ProjectControlPanel } from '@project/js/project_control_panel';

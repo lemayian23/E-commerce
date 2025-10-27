@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record id="l10nke_chart_template" model="account.chart.template">
             <field name="name">Kenyan COA</field>
             <field name="property_account_receivable_id" ref="ke1100"/>
@@ -20,4 +20,4 @@
             <field name="property_stock_account_input_categ_id" ref="ke100110"/>
             <field name="use_anglo_saxon" eval="True"/>
         </record>
-</odoo>
+</ecommerce>

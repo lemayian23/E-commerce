@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import datetime, timedelta
 from psycopg2 import IntegrityError
 from psycopg2.errorcodes import UNIQUE_VIOLATION
 
-from odoo import http
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request
-from odoo.tools import consteq, file_open
-from odoo.tools.misc import get_lang
-from odoo.tools.translate import _
+from ecommerce import http
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.http import request
+from ecommerce.tools import consteq, file_open
+from ecommerce.tools.misc import get_lang
+from ecommerce.tools.translate import _
 from werkzeug.exceptions import NotFound
 
 

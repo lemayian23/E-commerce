@@ -1,4 +1,4 @@
-from odoo import models
+from ecommerce import models
 
 class AutomaticEntryWizard(models.TransientModel):
     _inherit = 'account.automatic.entry.wizard'

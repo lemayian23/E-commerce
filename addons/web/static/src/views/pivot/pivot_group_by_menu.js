@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { GroupByMenu } from "@web/search/group_by_menu/group_by_menu";
 import { getIntervalOptions } from "@web/search/utils/dates";

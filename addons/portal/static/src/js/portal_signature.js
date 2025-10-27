@@ -1,4 +1,4 @@
-odoo.define('portal.signature_form', function (require) {
+ecommerce.define('portal.signature_form', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -38,7 +38,7 @@ var SignatureForm = publicWidget.Widget.extend({
     init: function (parent, options) {
         this._super.apply(this, arguments);
 
-        this.csrf_token = odoo.csrf_token;
+        this.csrf_token = ecommerce.csrf_token;
 
         this.callUrl = options.callUrl || '';
         this.rpcParams = options.rpcParams || {};

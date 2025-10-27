@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _loadJS } from "../assets"; // use the real, non patched (in tests), loadJS
 

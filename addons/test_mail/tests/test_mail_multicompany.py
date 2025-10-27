@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import json
@@ -9,11 +9,11 @@ from itertools import product
 from unittest.mock import patch
 from werkzeug.urls import url_parse, url_decode
 
-from odoo.addons.mail.models.mail_message import Message
-from odoo.addons.test_mail.tests.common import TestMailCommon, TestRecipients
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged, users, HttpCase
-from odoo.tools import formataddr, mute_logger
+from ecommerce.addons.mail.models.mail_message import Message
+from ecommerce.addons.test_mail.tests.common import TestMailCommon, TestRecipients
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import tagged, users, HttpCase
+from ecommerce.tools import formataddr, mute_logger
 
 
 @tagged('multi_company')
@@ -68,7 +68,7 @@ class TestMultiCompanySetup(TestMailCommon, TestRecipients):
         self.flush_tracking()
 
     @users('employee_c2')
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_post_with_read_access(self):
         """ Check that with readonly access, a message with attachment can be
         posted on a model with the attribute _mail_post_access = 'read'. """
@@ -117,7 +117,7 @@ class TestMultiCompanySetup(TestMailCommon, TestRecipients):
         self.assertEqual(test_record_c1.message_main_attachment_id, first_attachment)
 
     @users('employee_c2')
-    @mute_logger('odoo.addons.base.models.ir_rule')
+    @mute_logger('ecommerce.addons.base.models.ir_rule')
     def test_post_wo_access(self):
         test_records_mc_c1, test_records_mc_c2 = self.test_records_mc.with_env(self.env)
         attachments_data = [

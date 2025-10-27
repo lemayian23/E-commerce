@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import WebsiteSale from 'website_sale_stock.website_sale';
 

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.test_mass_mailing.tests.common import TestMassMailCommon
-from odoo.exceptions import UserError
-from odoo.tests import tagged
-from odoo.tests.common import users
-from odoo.tools import mute_logger
+from ecommerce.addons.test_mass_mailing.tests.common import TestMassMailCommon
+from ecommerce.exceptions import UserError
+from ecommerce.tests import tagged
+from ecommerce.tests.common import users
+from ecommerce.tools import mute_logger
 
 
 @tagged('mass_mailing')
@@ -72,7 +72,7 @@ class TestMassMailingServer(TestMassMailCommon):
         self.assertFalse(servers.filtered('active'), 'All servers must be archived')
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.addons.mass_mailing.models.mailing')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.addons.mass_mailing.models.mailing')
     def test_mass_mailing_server_batch(self):
         """Test that the right mail server is chosen to send the mailing.
 
@@ -111,7 +111,7 @@ class TestMassMailingServer(TestMassMailCommon):
         )
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.addons.mass_mailing.models.mailing')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.addons.mass_mailing.models.mailing')
     def test_mass_mailing_server_default(self):
         # We do not have a mail server for this address email, so fall back to the
         # "notifications@domain" email.
@@ -136,7 +136,7 @@ class TestMassMailingServer(TestMassMailCommon):
         self.assertEqual(self.find_mail_server_mocked.call_count, 1, 'Must be called only once')
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.addons.mass_mailing.models.mailing')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.addons.mass_mailing.models.mailing')
     def test_mass_mailing_server_forced(self):
         # We force a mail server on one mailing
         mailings = self.env['mailing.mailing'].create([{

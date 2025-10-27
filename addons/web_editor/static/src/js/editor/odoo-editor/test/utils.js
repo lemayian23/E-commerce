@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { OdooEditor } from '../src/OdooEditor.js';
+import { ecommerceEditor } from '../src/ecommerceEditor.js';
 import { sanitize } from '../src/utils/sanitize.js';
 import {
     closestElement,
@@ -260,7 +260,7 @@ function removeCheckIds(testContainer) {
     }
 }
 
-export async function testEditor(Editor = OdooEditor, spec, options = {}) {
+export async function testEditor(Editor = ecommerceEditor, spec, options = {}) {
     hasMobileTest = false;
     isMobileTest = options.isMobile;
 
@@ -666,7 +666,7 @@ async function pasteData (editor, text, type) {
 
 export const pasteText = async (editor, text) => pasteData(editor, text, 'text/plain');
 export const pasteHtml = async (editor, html) => pasteData(editor, html, 'text/html');
-export const pasteOdooEditorHtml = async (editor, html) => pasteData(editor, html, 'text/odoo-editor');
+export const pasteecommerceEditorHtml = async (editor, html) => pasteData(editor, html, 'text/ecommerce-editor');
 const overridenDomClass = [
     'HTMLBRElement',
     'HTMLHeadingElement',
@@ -693,4 +693,4 @@ export function patchEditorIframe(iframe) {
     }
 }
 
-export class BasicEditor extends OdooEditor {}
+export class BasicEditor extends ecommerceEditor {}

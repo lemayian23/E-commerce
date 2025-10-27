@@ -3,9 +3,9 @@
 
 Only adding specificities of basic accounting applications.
 """
-from odoo import models, _
-from odoo.tools import populate
-from odoo.exceptions import UserError
+from ecommerce import models, _
+from ecommerce.tools import populate
+from ecommerce.exceptions import UserError
 
 import logging
 from functools import lru_cache

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { decrement, increment, insert } from '@mail/model/model_field_command';
@@ -310,16 +310,16 @@ registerModel({
                 return;
             }
 
-            // Chat from OdooBot is considered disturbing and should only be
+            // Chat from ecommerceBot is considered disturbing and should only be
             // shown on the menu, but no notification and no thread open.
-            const isChatWithOdooBot = (
+            const isChatWithecommerceBot = (
                 channel.correspondent &&
                 channel.correspondent === this.messaging.partnerRoot
             );
-            if (!isChatWithOdooBot) {
-                const isOdooFocused = this.env.services['presence'].isOdooFocused();
+            if (!isChatWithecommerceBot) {
+                const isecommerceFocused = this.env.services['presence'].isecommerceFocused();
                 // Notify if out of focus
-                if (!isOdooFocused && channel.thread.isChatChannel) {
+                if (!isecommerceFocused && channel.thread.isChatChannel) {
                     this._notifyNewChannelMessageWhileOutOfFocus({
                         channel,
                         message,

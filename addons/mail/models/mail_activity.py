@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import pytz
 
@@ -7,10 +7,10 @@ from collections import defaultdict
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, exceptions, fields, models, _, Command
-from odoo.osv import expression
-from odoo.tools import is_html_empty
-from odoo.tools.misc import clean_context, get_lang
+from ecommerce import api, exceptions, fields, models, _, Command
+from ecommerce.osv import expression
+from ecommerce.tools import is_html_empty
+from ecommerce.tools.misc import clean_context, get_lang
 
 
 class MailActivity(models.Model):

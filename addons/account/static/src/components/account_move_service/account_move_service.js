@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { escape } from "@web/core/utils/strings";
-import { markup } from "@odoo/owl";
+import { markup } from "@ecommerce/owl";
 import { registry } from "@web/core/registry";
 
 

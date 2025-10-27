@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import random
 import uuid
 import werkzeug
 
-from odoo import api, exceptions, fields, models, _
-from odoo.exceptions import AccessError, UserError
-from odoo.osv import expression
-from odoo.tools import clean_context, is_html_empty
+from ecommerce import api, exceptions, fields, models, _
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.osv import expression
+from ecommerce.tools import clean_context, is_html_empty
 
 
 class Survey(models.Model):

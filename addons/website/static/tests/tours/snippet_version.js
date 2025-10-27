@@ -1,4 +1,4 @@
-odoo.define("website.tour.snippet_version", function (require) {
+ecommerce.define("website.tour.snippet_version", function (require) {
 "use strict";
 
 const wTourUtils = require('website.tour_utils');

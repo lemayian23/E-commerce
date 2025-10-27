@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<odoo>
+<ecommerce>
     <!-- No longer used, deleted in following version-->
     <template id="mail_template_paypal_invite_user_to_configure">
         <div>
@@ -8,7 +8,7 @@
                 <br/><br/>
                 You have received a payment through PayPal.<br/>
                 Kindly follow the instructions given by PayPal to create your account.<br/>
-                Then, help us complete your Paypal credentials in Odoo.<br/><br/>
+                Then, help us complete your Paypal credentials in ecommerce.<br/><br/>
             </p>
             <a t-attf-href="/web#id=#{provider.id}&amp;model=payment.provider&amp;view_type=form"
                style="background-color: #875A7B; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 12px;">
@@ -17,9 +17,9 @@
             <p>
                 <br/><br/>
                 Thanks,<br/>
-                <b>The Odoo Team</b>
+                <b>The ecommerce Team</b>
             </p>
         </div>
     </template>
 
-</odoo>
+</ecommerce>

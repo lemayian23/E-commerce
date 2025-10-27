@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.web.controllers.home import Home
-from odoo.addons.web.controllers.session import Session
-from odoo.addons.web.controllers.webclient import WebClient
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.addons.web.controllers.home import Home
+from ecommerce.addons.web.controllers.session import Session
+from ecommerce.addons.web.controllers.webclient import WebClient
 
 
 class Routing(Home):

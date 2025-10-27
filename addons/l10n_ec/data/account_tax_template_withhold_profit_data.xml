@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <!--
         Purchase withholds over anticipaded profit *impuesto a la renta
@@ -2348,4 +2348,4 @@
                 })]"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

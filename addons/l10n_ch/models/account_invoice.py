@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import re
 
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_split_str
-from odoo.tools.misc import mod10r
+from ecommerce import models, fields, api, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools.float_utils import float_split_str
+from ecommerce.tools.misc import mod10r
 
 l10n_ch_ISR_NUMBER_LENGTH = 27
 l10n_ch_ISR_ID_NUM_LENGTH = 6
@@ -14,7 +14,7 @@ class AccountMove(models.Model):
     # NOTE
     # The ISR system is kept and taken into account up to September 2022.
     # After that, the transition to the QR system will be completed and the ISR system won't exist anymore.
-    # This means that Odoo v16 shouldn't support the ISR system and all the references to it should be cleaned up by then.
+    # This means that ecommerce v16 shouldn't support the ISR system and all the references to it should be cleaned up by then.
     # In the versions leading to that change,
     # although the functions related to the ISR are still taken into account and still exist,
     # the QR billing is always preferred.

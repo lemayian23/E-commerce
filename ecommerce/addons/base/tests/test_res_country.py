@@ -1,4 +1,4 @@
-from odoo.tests import TransactionCase, tagged
+from ecommerce.tests import TransactionCase, tagged
 
 
 @tagged('-at_install', 'post_install')

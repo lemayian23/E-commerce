@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Dialog from 'web.Dialog';
 import { qweb } from "web.core";
 import { registry } from '@web/core/registry';
 import { Many2OneField } from '@web/views/fields/many2one/many2one_field';
 import { formatMonetary } from "@web/views/fields/formatters";
-import { useEffect } from '@odoo/owl';
+import { useEffect } from '@ecommerce/owl';
 
 const { markup } = owl;
 

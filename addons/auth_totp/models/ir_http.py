@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import models
-from odoo.http import request
+from ecommerce import models
+from ecommerce.http import request
 
 class IrHttp(models.AbstractModel):
     _inherit = 'ir.http'

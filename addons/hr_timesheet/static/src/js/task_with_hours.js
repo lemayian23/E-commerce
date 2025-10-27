@@ -1,4 +1,4 @@
-/** @odoo-module alias=hr_timesheet.task_with_hours **/
+/** @ecommerce-module alias=hr_timesheet.task_with_hours **/
 
 import field_registry from 'web.field_registry';
 import TimesheetFieldMany2One from 'hr_timesheet.TimesheetFieldMany2one';

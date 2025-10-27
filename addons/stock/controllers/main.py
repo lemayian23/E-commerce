@@ -2,9 +2,9 @@
 import werkzeug
 from werkzeug.exceptions import InternalServerError
 
-from odoo import http
-from odoo.http import request
-from odoo.tools.misc import html_escape
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.tools.misc import html_escape
 
 import json
 
@@ -31,7 +31,7 @@ class StockReportController(http.Controller):
             se = http.serialize_exception(e)
             error = {
                 'code': 200,
-                'message': 'Odoo Server Error',
+                'message': 'ecommerce Server Error',
                 'data': se
             }
             res = request.make_response(html_escape(json.dumps(error)))

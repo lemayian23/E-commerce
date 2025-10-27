@@ -11,11 +11,11 @@ except ImportError:
     from pylint.checkers.utils import check_messages as only_required_for_messages
 
 
-class OdooBaseChecker(checkers.BaseChecker):
+class ecommerceBaseChecker(checkers.BaseChecker):
     with contextlib.suppress(AttributeError):  # TODO, remove once pylint minimal version is 3.0.0
         __implements__ = interfaces.IAstroidChecker
         # see https://github.com/pylint-dev/pylint/commit/358264aaf622505f6d2e8bc699618382981a078c
-    name = 'odoo'
+    name = 'ecommerce'
 
     msgs = {
         'E8504': (
@@ -69,4 +69,4 @@ class OdooBaseChecker(checkers.BaseChecker):
         return False
 
 def register(linter):
-    linter.register_checker(OdooBaseChecker(linter))
+    linter.register_checker(ecommerceBaseChecker(linter))

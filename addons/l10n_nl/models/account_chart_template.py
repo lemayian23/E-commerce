@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, Command, models
+from ecommerce import api, Command, models
 
 
 class AccountChartTemplate(models.Model):

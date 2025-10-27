@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from random import randint
 
 from markupsafe import Markup
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_compare, is_html_empty, clean_context
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import float_compare, is_html_empty, clean_context
 
 
 class StockMove(models.Model):

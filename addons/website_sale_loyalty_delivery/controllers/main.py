@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo import _, http
-from odoo.exceptions import ValidationError
+from ecommerce import _, http
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
-from odoo.http import request
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
+from ecommerce.http import request
 
 
 class WebsiteSaleLoyaltyDelivery(WebsiteSaleDelivery):

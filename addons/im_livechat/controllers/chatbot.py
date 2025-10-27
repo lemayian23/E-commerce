@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import get_lang, is_html_empty, plaintext2html
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.tools import get_lang, is_html_empty, plaintext2html
 
 
 class LivechatChatbotScriptController(http.Controller):

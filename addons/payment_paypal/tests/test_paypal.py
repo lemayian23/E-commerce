@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.payment_paypal.controllers.main import PaypalController
-from odoo.addons.payment_paypal.tests.common import PaypalCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.payment_paypal.controllers.main import PaypalController
+from ecommerce.addons.payment_paypal.tests.common import PaypalCommon
 
 
 @tagged('post_install', '-at_install')
@@ -49,7 +49,7 @@ class PaypalTest(PaypalCommon, PaymentHttpCommon):
 
     def test_redirect_form_values(self):
         tx = self._create_transaction(flow='redirect')
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
 
         form_info = self._extract_values_from_html_form(processing_values['redirect_form_html'])
@@ -73,7 +73,7 @@ class PaypalTest(PaypalCommon, PaymentHttpCommon):
         expected_values = self._get_expected_values()
 
         tx = self._create_transaction(flow='redirect')
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = tx._get_processing_values()
         form_info = self._extract_values_from_html_form(processing_values['redirect_form_html'])
 
@@ -130,28 +130,28 @@ class PaypalTest(PaypalCommon, PaymentHttpCommon):
         notification_data = PaypalController._parse_pdt_validation_response(response_content)
         self.assertIsNone(notification_data)
 
-    @mute_logger('odoo.addons.payment_paypal.controllers.main')
+    @mute_logger('ecommerce.addons.payment_paypal.controllers.main')
     def test_webhook_notification_confirms_transaction(self):
         """ Test the processing of a webhook notification. """
         tx = self._create_transaction('redirect')
         url = self._build_url(PaypalController._webhook_url)
         with patch(
-            'odoo.addons.payment_paypal.controllers.main.PaypalController'
+            'ecommerce.addons.payment_paypal.controllers.main.PaypalController'
             '._verify_webhook_notification_origin'
         ):
             self._make_http_post_request(url, data=self.notification_data)
         self.assertEqual(tx.state, 'done')
 
-    @mute_logger('odoo.addons.payment_paypal.controllers.main')
+    @mute_logger('ecommerce.addons.payment_paypal.controllers.main')
     def test_webhook_notification_triggers_origin_check(self):
         """ Test that receiving a webhook notification triggers an origin check. """
         self._create_transaction('redirect')
         url = self._build_url(PaypalController._webhook_url)
         with patch(
-            'odoo.addons.payment_paypal.controllers.main.PaypalController'
+            'ecommerce.addons.payment_paypal.controllers.main.PaypalController'
             '._verify_webhook_notification_origin'
         ) as origin_check_mock, patch(
-            'odoo.addons.payment.models.payment_transaction.PaymentTransaction'
+            'ecommerce.addons.payment.models.payment_transaction.PaymentTransaction'
             '._handle_notification_data'
         ):
             self._make_http_post_request(url, data=self.notification_data)

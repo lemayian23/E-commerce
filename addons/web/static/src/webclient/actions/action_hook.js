@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { onMounted, useComponent, useEffect, useExternalListener } from "@odoo/owl";
+import { onMounted, useComponent, useEffect, useExternalListener } from "@ecommerce/owl";
 
 const scrollSymbol = Symbol("scroll");
 

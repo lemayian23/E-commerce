@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
+<ecommerce><data>
 
     <record id="crm_team_member_view_search" model="ir.ui.view">
         <field name="name">crm.team.member.view.search</field>
@@ -56,7 +56,7 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card oe_kanban_global_click">
                             <div class="ribbon ribbon-top-right" attrs="{'invisible': [('active', '=', True)]}">
-                                <span class="bg-odoo">Archived</span>
+                                <span class="bg-ecommerce">Archived</span>
                             </div>
                             <div class="o_kanban_card_content d-flex">
                                 <div>
@@ -161,4 +161,4 @@
         </field>
     </record>
 
-</data></odoo>
+</data></ecommerce>

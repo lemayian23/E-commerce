@@ -1,4 +1,4 @@
-odoo.define('website_event_sale.tour.WebsiteEventSaleTourMethods', function (require) {
+ecommerce.define('website_event_sale.tour.WebsiteEventSaleTourMethods', function (require) {
     'use strict';
 
     function changePricelist(pricelistName) {

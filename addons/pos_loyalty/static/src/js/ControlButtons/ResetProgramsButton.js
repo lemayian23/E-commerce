@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import PosComponent from 'point_of_sale.PosComponent';
 import ProductScreen from 'point_of_sale.ProductScreen';

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<ecommerce noupdate="1">
     <!-- Account Fiscal Position Template -->
     <!--For Latvian VAT/non VAT tax subjects-->
     <record id="fiscal_position_lv" model="account.fiscal.position.template">
@@ -123,4 +123,4 @@
         <field name="tax_src_id" ref="tax_purchase_vat_5"/>
         <field name="tax_dest_id" ref="tax_purchase_vat_21_ex_g"/>
     </record>
-</odoo>
+</ecommerce>

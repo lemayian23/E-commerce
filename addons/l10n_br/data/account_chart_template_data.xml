@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="br_3_01_01_05_01_47" model="account.account.template">
         <field name="code">3.01.01.05.01.47</field>
         <field name="name">Ganho Cambial</field>
@@ -27,4 +27,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="account_template_31101010202"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="account_template_30101050148"/>
     </record>
-</odoo>
+</ecommerce>

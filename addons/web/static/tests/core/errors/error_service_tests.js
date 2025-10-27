@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { dialogService } from "@web/core/dialog/dialog_service";
@@ -18,7 +18,7 @@ import {
 } from "../../helpers/mock_services";
 import { getFixture, makeDeferred, mount, nextTick, patchWithCleanup } from "../../helpers/utils";
 
-import { Component, xml, onError, OwlError, onWillStart } from "@odoo/owl";
+import { Component, xml, onError, OwlError, onWillStart } from "@ecommerce/owl";
 const errorDialogRegistry = registry.category("error_dialogs");
 const errorHandlerRegistry = registry.category("error_handlers");
 const serviceRegistry = registry.category("services");
@@ -386,7 +386,7 @@ QUnit.test("show dialog for errors in third-party scripts in debug mode", async 
     const error = new TestError();
     error.message = "Script error.";
     error.name = "Script error.";
-    patchWithCleanup(odoo, { debug: true });
+    patchWithCleanup(ecommerce, { debug: true });
 
     function addDialog(_dialogClass, props) {
         assert.step(props.message);

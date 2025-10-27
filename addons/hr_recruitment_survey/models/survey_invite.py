@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.tools.misc import clean_context
+from ecommerce import api, fields, models, _
+from ecommerce.tools.misc import clean_context
 
 
 class SurveyInvite(models.TransientModel):
@@ -34,11 +34,11 @@ class SurveyUserInput(models.Model):
     applicant_id = fields.One2many('hr.applicant', 'response_id', string='Applicant')
 
     def _mark_done(self):
-        odoobot = self.env.ref('base.partner_root')
+        ecommercebot = self.env.ref('base.partner_root')
         for user_input in self:
             if user_input.applicant_id:
                 body = _('The applicant "%s" has finished the survey.', user_input.applicant_id.partner_name)
-                user_input.applicant_id.message_post(body=body, author_id=odoobot.id)
+                user_input.applicant_id.message_post(body=body, author_id=ecommercebot.id)
         return super()._mark_done()
 
     @api.model_create_multi

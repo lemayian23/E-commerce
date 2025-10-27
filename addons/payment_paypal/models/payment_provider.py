@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo import _, api, fields, models
+from ecommerce import _, api, fields, models
 
-from odoo.addons.payment_paypal.const import SUPPORTED_CURRENCIES
+from ecommerce.addons.payment_paypal.const import SUPPORTED_CURRENCIES
 
 _logger = logging.getLogger(__name__)
 

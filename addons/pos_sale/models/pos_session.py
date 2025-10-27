@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
-from odoo.osv.expression import OR
+from ecommerce import fields, models
+from ecommerce.osv.expression import OR
 
 
 class PosSession(models.Model):

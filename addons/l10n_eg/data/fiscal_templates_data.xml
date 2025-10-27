@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="account_fiscal_position_egypt" model="account.fiscal.position.template">
             <field name="name">Egypt</field>
@@ -28,4 +28,4 @@
             <field name="position_id" ref="account_fiscal_position_non_egypt"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -9,7 +9,7 @@ import { CharField } from "../char/char_field";
 import { TextField } from "../text/text_field";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 class CopyClipboardField extends Component {
     setup() {

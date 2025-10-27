@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
-from odoo import api, fields, models
-from odoo.http import request
+from ecommerce import api, fields, models
+from ecommerce.http import request
 
 
 class ProductWishlist(models.Model):

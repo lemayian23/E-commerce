@@ -4,13 +4,13 @@ from collections import defaultdict
 from datetime import timedelta, datetime, date
 import calendar
 
-from odoo import fields, models, api, _, Command
-from odoo.exceptions import ValidationError, UserError, RedirectWarning
-from odoo.tools import date_utils
-from odoo.tools.mail import is_html_empty
-from odoo.tools.misc import format_date
-from odoo.tools.float_utils import float_round, float_is_zero
-from odoo.addons.account.models.account_move import MAX_HASH_VERSION
+from ecommerce import fields, models, api, _, Command
+from ecommerce.exceptions import ValidationError, UserError, RedirectWarning
+from ecommerce.tools import date_utils
+from ecommerce.tools.mail import is_html_empty
+from ecommerce.tools.misc import format_date
+from ecommerce.tools.float_utils import float_round, float_is_zero
+from ecommerce.addons.account.models.account_move import MAX_HASH_VERSION
 
 
 MONTH_SELECTION = [

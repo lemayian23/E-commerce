@@ -1,4 +1,4 @@
-odoo.define('web.abstract_view_tests', function (require) {
+ecommerce.define('web.abstract_view_tests', function (require) {
 "use strict";
 
 const { registry } = require('@web/core/registry');

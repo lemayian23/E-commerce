@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { click, legacyExtraNextTick } from "@web/../tests/helpers/utils";
 import {
     createWebClient,

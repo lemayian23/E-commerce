@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 
-import { Component, useEffect, useExternalListener, useState } from "@odoo/owl";
+import { Component, useEffect, useExternalListener, useState } from "@ecommerce/owl";
 
 /**
  * @typedef Common

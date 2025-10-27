@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from re import findall as regex_findall, split as regex_split
 
 import operator as py_operator
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
 
 OPERATORS = {
     '<': py_operator.lt,

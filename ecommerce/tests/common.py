@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-The module :mod:`odoo.tests.common` provides unittest test cases and a few
+The module :mod:`ecommerce.tests.common` provides unittest test cases and a few
 helpers and classes to write tests.
 
 """
@@ -49,20 +49,20 @@ import werkzeug.urls
 from lxml import etree, html
 from urllib3.util import Url, parse_url
 
-import odoo
-from odoo import api
-from odoo.models import BaseModel
-from odoo.exceptions import AccessError
-from odoo.http import BadRequest
-from odoo.modules import module
-from odoo.modules.registry import Registry
-from odoo.osv import expression
-from odoo.osv.expression import normalize_domain, TRUE_LEAF, FALSE_LEAF
-from odoo.service import security
-from odoo.sql_db import BaseCursor, Cursor, TestCursor
-from odoo.tools import float_compare, single_email_re, profiler, lower_logging
-from odoo.tools.misc import find_in_path
-from odoo.tools.safe_eval import safe_eval
+import ecommerce
+from ecommerce import api
+from ecommerce.models import BaseModel
+from ecommerce.exceptions import AccessError
+from ecommerce.http import BadRequest
+from ecommerce.modules import module
+from ecommerce.modules.registry import Registry
+from ecommerce.osv import expression
+from ecommerce.osv.expression import normalize_domain, TRUE_LEAF, FALSE_LEAF
+from ecommerce.service import security
+from ecommerce.sql_db import BaseCursor, Cursor, TestCursor
+from ecommerce.tools import float_compare, single_email_re, profiler, lower_logging
+from ecommerce.tools.misc import find_in_path
+from ecommerce.tools.safe_eval import safe_eval
 
 try:
     # the behaviour of decorator changed in 5.0.5 changing the structure of the traceback when
@@ -84,11 +84,11 @@ except ImportError:
 
 _logger = logging.getLogger(__name__)
 
-# The odoo library is supposed already configured.
-ADDONS_PATH = odoo.tools.config['addons_path']
+# The ecommerce library is supposed already configured.
+ADDONS_PATH = ecommerce.tools.config['addons_path']
 HOST = '127.0.0.1'
 # Useless constant, tests are aware of the content of demo data
-ADMIN_USER_ID = odoo.SUPERUSER_ID
+ADMIN_USER_ID = ecommerce.SUPERUSER_ID
 
 CHECK_BROWSER_SLEEP = 0.1 # seconds
 CHECK_BROWSER_ITERATIONS = 100
@@ -96,7 +96,7 @@ BROWSER_WAIT = CHECK_BROWSER_SLEEP * CHECK_BROWSER_ITERATIONS # seconds
 TEST_CURSOR_COOKIE_NAME = 'test_request_key'
 
 def get_db_name():
-    db = odoo.tools.config['db_name']
+    db = ecommerce.tools.config['db_name']
     # If the database name is not provided on the command-line,
     # use the one on the thread (which means if it is provided on
     # the command-line, this will break when installing another
@@ -113,11 +113,11 @@ def standalone(*tags):
     """ Decorator for standalone test functions.  This is somewhat dedicated to
     tests that install, upgrade or uninstall some modules, which is currently
     forbidden in regular test cases.  The function is registered under the given
-    ``tags`` and the corresponding Odoo module name.
+    ``tags`` and the corresponding ecommerce module name.
     """
     def register(func):
-        # register func by odoo module name
-        if func.__module__.startswith('odoo.addons.'):
+        # register func by ecommerce module name
+        if func.__module__.startswith('ecommerce.addons.'):
             module = func.__module__.split('.')[2]
             standalone_tests[module].append(func)
         # register func with aribitrary name, if any
@@ -150,7 +150,7 @@ def new_test_user(env, login='', groups='base.group_user', context=None, **kwarg
      * name: "login (groups)" by default as it is required;
      * email: it is either the login (if it is a valid email) or a generated
        string 'x.x@example.com' (x being the first login letter). This is due
-       to email being required for most odoo operations;
+       to email being required for most ecommerce operations;
     """
     if not login:
         raise ValueError('New users require at least a login')
@@ -210,7 +210,7 @@ class MetaCase(type):
     def __init__(cls, name, bases, attrs):
         super(MetaCase, cls).__init__(name, bases, attrs)
         # assign default test tags
-        if cls.__module__.startswith('odoo.addons.'):
+        if cls.__module__.startswith('ecommerce.addons.'):
             if getattr(cls, 'test_tags', None) is None:
                 cls.test_tags = {'standard', 'at_install'}
             cls.test_module = cls.__module__.split('.')[2]
@@ -239,11 +239,11 @@ def _normalize_arch_for_assert(arch_string, parser_method="xml"):
 
 
 class BaseCase(case.TestCase, metaclass=MetaCase):
-    """ Subclass of TestCase for Odoo-specific code. This class is abstract and
+    """ Subclass of TestCase for ecommerce-specific code. This class is abstract and
     expects self.registry, self.cr and self.uid to be initialized by subclasses.
     """
 
-    longMessage = True      # more verbose error message by default: https://www.odoo.com/r/Vmh
+    longMessage = True      # more verbose error message by default: https://www.ecommerce.com/r/Vmh
     warm = True             # False during warm-up phase (see :func:`warmup`)
     _python_version = sys.version_info
 
@@ -258,7 +258,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         testMethod = getattr(self, self._testMethodName)
 
         if getattr(testMethod, '_retry', True) and getattr(self, '_retry', True):
-            tests_run_count = int(os.environ.get('ODOO_TEST_FAILURE_RETRIES', 0)) + 1
+            tests_run_count = int(os.environ.get('ecommerce_TEST_FAILURE_RETRIES', 0)) + 1
         else:
             tests_run_count = 1
             _logger.info('Auto retry disabled for %s', self)
@@ -309,7 +309,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         :param xid: fully-qualified :term:`external identifier`, in the form
                     :samp:`{module}.{identifier}`
         :raise: ValueError if not found
-        :returns: :class:`~odoo.models.BaseModel`
+        :returns: :class:`~ecommerce.models.BaseModel`
         """
         assert "." in xid, "this method requires a fully qualified parameter, in the following form: 'module.identifier'"
         return self.env.ref(xid)
@@ -368,7 +368,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
                 return not group_set or origin_user_has_groups(self, ','.join(group_set))
             return origin_user_has_groups(self, groups)
 
-        with patch('odoo.models.BaseModel.user_has_groups', user_has_groups):
+        with patch('ecommerce.models.BaseModel.user_has_groups', user_has_groups):
             yield
 
     @contextmanager
@@ -434,8 +434,8 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
             self.env.flush_all()
             self.env.cr.flush()
 
-        with patch('odoo.sql_db.Cursor.execute', execute):
-            with patch('odoo.osv.expression.get_unaccent_wrapper', get_unaccent_wrapper):
+        with patch('ecommerce.sql_db.Cursor.execute', execute):
+            with patch('ecommerce.osv.expression.get_unaccent_wrapper', get_unaccent_wrapper):
                 yield actual_queries
                 if flush:
                     self.env.flush_all()
@@ -488,8 +488,8 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
                     # add some info on caller to allow semi-automatic update of query count
                     frame, filename, linenum, funcname, lines, index = inspect.stack()[2]
                     filename = filename.replace('\\', '/')
-                    if "/odoo/addons/" in filename:
-                        filename = filename.rsplit("/odoo/addons/", 1)[1]
+                    if "/ecommerce/addons/" in filename:
+                        filename = filename.rsplit("/ecommerce/addons/", 1)[1]
                     if count > expected:
                         msg = "Query count more than expected for user %s: %d > %d in %s at %s:%s"
                         # add a subtest in order to continue the test_method in case of failures
@@ -685,11 +685,11 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         return route == "/websocket"
 
     def check_test_cursor(self, operation):
-        if odoo.modules.module.current_test != self:
-            message = f"Trying to open a test cursor for {self.canonical_tag} while already in a test {odoo.modules.module.current_test.canonical_tag}"
+        if ecommerce.modules.module.current_test != self:
+            message = f"Trying to open a test cursor for {self.canonical_tag} while already in a test {ecommerce.modules.module.current_test.canonical_tag}"
             _logger.error(message)
             raise BadRequest(message)
-        request = odoo.http.request
+        request = ecommerce.http.request
         if not request or isinstance(request, Mock):
             return
         if not self.http_request_key:
@@ -726,7 +726,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         """Guess if the test_methods is a query_count and adds an `is_query_count` tag on the test
         """
         additional_tags = []
-        if odoo.tools.config['test_tags'] and 'is_query_count' in odoo.tools.config['test_tags']:
+        if ecommerce.tools.config['test_tags'] and 'is_query_count' in ecommerce.tools.config['test_tags']:
             method_source = inspect.getsource(test_method) if test_method else ''
             if 'self.assertQueryCount' in method_source:
                 additional_tags.append('is_query_count')
@@ -761,8 +761,8 @@ class TransactionCase(BaseCase):
         # they can addup during test and take some disc space.
         # since cron are not running during tests, we need to gc manually
         # We need to check the status of the file system outside of the test cursor
-        with odoo.registry(get_db_name()).cursor() as cr:
-            gc_env = api.Environment(cr, odoo.SUPERUSER_ID, {})
+        with ecommerce.registry(get_db_name()).cursor() as cr:
+            gc_env = api.Environment(cr, ecommerce.SUPERUSER_ID, {})
             gc_env['ir.attachment']._gc_file_store_unsafe()
 
     @classmethod
@@ -771,7 +771,7 @@ class TransactionCase(BaseCase):
 
         cls.addClassCleanup(cls._gc_filestore)
 
-        cls.registry = odoo.registry(get_db_name())
+        cls.registry = ecommerce.registry(get_db_name())
         cls.addClassCleanup(cls.registry.reset_changes)
         cls.addClassCleanup(cls.registry.clear_caches)
 
@@ -786,7 +786,7 @@ class TransactionCase(BaseCase):
 
         cls.addClassCleanup(check_cursor_stack)
 
-        cls.env = api.Environment(cls.cr, odoo.SUPERUSER_ID, {})
+        cls.env = api.Environment(cls.cr, ecommerce.SUPERUSER_ID, {})
 
     def setUp(self):
         super().setUp()
@@ -847,14 +847,14 @@ class SingleTransactionCase(BaseCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.registry = odoo.registry(get_db_name())
+        cls.registry = ecommerce.registry(get_db_name())
         cls.addClassCleanup(cls.registry.reset_changes)
         cls.addClassCleanup(cls.registry.clear_caches)
 
         cls.cr = cls.registry.cursor()
         cls.addClassCleanup(cls.cr.close)
 
-        cls.env = api.Environment(cls.cr, odoo.SUPERUSER_ID, {})
+        cls.env = api.Environment(cls.cr, ecommerce.SUPERUSER_ID, {})
 
     def setUp(self):
         super(SingleTransactionCase, self).setUp()
@@ -910,7 +910,7 @@ def save_test_file(test_name, content, prefix, extension='png', logger=_logger, 
     assert re.fullmatch(r'[a-z]+', extension)
     assert re.fullmatch(r'\w+', test_name)
     now = datetime.now().strftime(date_format)
-    screenshots_dir = pathlib.Path(odoo.tools.config['screenshots']) / get_db_name() / 'screenshots'
+    screenshots_dir = pathlib.Path(ecommerce.tools.config['screenshots']) / get_db_name() / 'screenshots'
     screenshots_dir.mkdir(parents=True, exist_ok=True)
     fname = f'{prefix}{now}_{test_name}.{extension}'
     full_path = screenshots_dir / fname
@@ -944,10 +944,10 @@ class ChromeBrowser:
         self.devtools_port = None
         self.ws_url = ''  # WebSocketUrl
         self.ws = None  # websocket
-        self.user_data_dir = tempfile.mkdtemp(suffix='_chrome_odoo')
+        self.user_data_dir = tempfile.mkdtemp(suffix='_chrome_ecommerce')
         self.chrome_pid = None
 
-        otc = odoo.tools.config
+        otc = ecommerce.tools.config
         self.screenshots_dir = os.path.join(otc['screenshots'], get_db_name(), 'screenshots')
         self.screencasts_dir = None
         self.screencasts_frames_dir = None
@@ -1678,7 +1678,7 @@ which leads to stray network requests and inconsistencies."""
             )
         # all that's left is type=object, subtype=None aka custom or
         # non-standard objects, print as TypeName(param=val, ...), sadly because
-        # of the way Odoo widgets are created they all appear as Class(...)
+        # of the way ecommerce widgets are created they all appear as Class(...)
         # nb: preview properties are *not* recursive, the value is *all* we get
         return '%s(%s)' % (
             arg.get('className') or 'object',
@@ -1783,7 +1783,7 @@ class HttpCase(TransactionCase):
         ICP.set_param('web.base.url', cls.base_url())
         ICP.env.flush_all()
         # v8 api with correct xmlrpc exception handling.
-        cls.xmlrpc_url = f'http://{HOST}:{odoo.tools.config["http_port"]:d}/xmlrpc/2/'
+        cls.xmlrpc_url = f'http://{HOST}:{ecommerce.tools.config["http_port"]:d}/xmlrpc/2/'
         cls._logger = logging.getLogger('%s.%s' % (cls.__module__, cls.__name__))
 
     def setUp(self):
@@ -1856,7 +1856,7 @@ class HttpCase(TransactionCase):
     def _wait_remaining_requests(self, timeout=10):
 
         def get_http_request_threads():
-            return [t for t in threading.enumerate() if t.name.startswith('odoo.service.http.request.')]
+            return [t for t in threading.enumerate() if t.name.startswith('ecommerce.service.http.request.')]
 
         start_time = time.time()
         request_threads = get_http_request_threads()
@@ -1872,19 +1872,19 @@ class HttpCase(TransactionCase):
 
         if request_threads:
             self._logger.info('remaining requests')
-            odoo.tools.misc.dumpstacks()
+            ecommerce.tools.misc.dumpstacks()
 
     def logout(self, keep_db=True):
         self.session.logout(keep_db=keep_db)
-        odoo.http.root.session_store.save(self.session)
+        ecommerce.http.root.session_store.save(self.session)
 
     def authenticate(self, user, password):
         if getattr(self, 'session', None):
-            odoo.http.root.session_store.delete(self.session)
+            ecommerce.http.root.session_store.delete(self.session)
 
-        self.session = session = odoo.http.root.session_store.new()
-        session.update(odoo.http.get_default_session(), db=get_db_name())
-        session.context['lang'] = odoo.http.DEFAULT_LANG
+        self.session = session = ecommerce.http.root.session_store.new()
+        session.update(ecommerce.http.get_default_session(), db=get_db_name())
+        session.context['lang'] = ecommerce.http.DEFAULT_LANG
 
         if user: # if authenticated
             # Flush and clear the current transaction.  This is useful, because
@@ -1899,7 +1899,7 @@ class HttpCase(TransactionCase):
             session.session_token = uid and security.compute_session_token(session, env)
             session.context = dict(env['res.users'].context_get())
 
-        odoo.http.root.session_store.save(session)
+        ecommerce.http.root.session_store.save(session)
         # Reset the opener: turns out when we set cookies['foo'] we're really
         # setting a cookie on domain='' path='/'.
         #
@@ -2014,7 +2014,7 @@ class HttpCase(TransactionCase):
                 for name, value in cookies.items():
                     self.browser.set_cookie(name, value, '/', HOST)
 
-            cpu_throttling_os = os.environ.get('ODOO_BROWSER_CPU_THROTTLING') # used by dedicated runbot builds
+            cpu_throttling_os = os.environ.get('ecommerce_BROWSER_CPU_THROTTLING') # used by dedicated runbot builds
             cpu_throttling = int(cpu_throttling_os) if cpu_throttling_os else cpu_throttling
 
             if cpu_throttling:
@@ -2054,15 +2054,15 @@ class HttpCase(TransactionCase):
 
     @classmethod
     def base_url(cls):
-        return f"http://{HOST}:{odoo.tools.config['http_port']}"
+        return f"http://{HOST}:{ecommerce.tools.config['http_port']}"
 
     def start_tour(self, url_path, tour_name, step_delay=None, **kwargs):
         """Wrapper for `browser_js` to start the given `tour_name` with the
         optional delay between steps `step_delay`. Other arguments from
         `browser_js` can be passed as keyword arguments."""
         step_delay = ', %s' % step_delay if step_delay else ''
-        code = kwargs.pop('code', "odoo.startTour('%s'%s)" % (tour_name, step_delay))
-        ready = kwargs.pop('ready', "odoo.__DEBUG__.services['web_tour.tour'].tours['%s'].ready" % tour_name)
+        code = kwargs.pop('code', "ecommerce.startTour('%s'%s)" % (tour_name, step_delay))
+        ready = kwargs.pop('ready', "ecommerce.__DEBUG__.services['web_tour.tour'].tours['%s'].ready" % tour_name)
         return self.browser_js(url_path=url_path, code=code, ready=ready, **kwargs)
 
     def profile(self, **kwargs):
@@ -2073,14 +2073,14 @@ class HttpCase(TransactionCase):
         _profiler = sup.profile(**kwargs)
         def route_profiler(request):
             return sup.profile(description=request.httprequest.full_path)
-        return profiler.Nested(_profiler, patch('odoo.http.Request._get_profiler_context_manager', route_profiler))
+        return profiler.Nested(_profiler, patch('ecommerce.http.Request._get_profiler_context_manager', route_profiler))
 
     def get_method_additional_tags(self, test_method):
         """
         guess if the test_methods is a tour and adds an `is_tour` tag on the test
         """
         additional_tags = super().get_method_additional_tags(test_method)
-        if odoo.tools.config['test_tags'] and 'is_tour' in odoo.tools.config['test_tags']:
+        if ecommerce.tools.config['test_tags'] and 'is_tour' in ecommerce.tools.config['test_tags']:
             method_source = inspect.getsource(test_method)
             if 'self.start_tour' in method_source:
                 additional_tags.append('is_tour')
@@ -2182,7 +2182,7 @@ class Form(object):
     Saving the form returns the created record if in creation mode.
 
     Regular fields can just be assigned directly to the form, for
-    :class:`~odoo.fields.Many2one` fields assign a singleton recordset::
+    :class:`~ecommerce.fields.Many2one` fields assign a singleton recordset::
 
         # empty recordset => creation mode
         f = Form(self.env['sale.order'])
@@ -2196,21 +2196,21 @@ class Form(object):
             f2.payment_term_id = env.ref('account.account_payment_term_15days')
             # f2 is saved here
 
-    For :class:`~odoo.fields.Many2many` fields, the field itself is a
-    :class:`~odoo.tests.common.M2MProxy` and can be altered by adding or
+    For :class:`~ecommerce.fields.Many2many` fields, the field itself is a
+    :class:`~ecommerce.tests.common.M2MProxy` and can be altered by adding or
     removing records::
 
         with Form(user) as u:
             u.groups_id.add(env.ref('account.group_account_manager'))
             u.groups_id.remove(id=env.ref('base.group_portal').id)
 
-    Finally :class:`~odoo.fields.One2many` are reified as
-    :class:`~odoo.tests.common.O2MProxy`.
+    Finally :class:`~ecommerce.fields.One2many` are reified as
+    :class:`~ecommerce.tests.common.O2MProxy`.
 
-    Because the :class:`~odoo.fields.One2many` only exists through its
+    Because the :class:`~ecommerce.fields.One2many` only exists through its
     parent, it is manipulated more directly by creating "sub-forms"
-    with the :meth:`~odoo.tests.common.O2MProxy.new` and
-    :meth:`~odoo.tests.common.O2MProxy.edit` methods. These would
+    with the :meth:`~ecommerce.tests.common.O2MProxy.new` and
+    :meth:`~ecommerce.tests.common.O2MProxy.edit` methods. These would
     normally be used as context managers since they get saved in the
     parent record::
 
@@ -2232,11 +2232,11 @@ class Form(object):
                     put the view in "creation" mode and trigger calls to
                     default_get and on-load onchanges, a singleton will
                     put it in "edit" mode and only load the view's data.
-    :type recordp: odoo.models.Model
+    :type recordp: ecommerce.models.Model
     :param view: the id, xmlid or actual view object to use for
                     onchanges and view constraints. If none is provided,
                     simply loads the default view for the model.
-    :type view: int | str | odoo.model.Model
+    :type view: int | str | ecommerce.model.Model
 
     .. versionadded:: 12.0
     """
@@ -2336,7 +2336,7 @@ class Form(object):
             "tz": self._env.user.tz,
             "lang": self._env.user.lang,
             "datetime": datetime,
-            "context_today": lambda: odoo.fields.Date.context_today(self._env.user),
+            "context_today": lambda: ecommerce.fields.Date.context_today(self._env.user),
             "relativedelta": relativedelta,
             "current_date": time.strftime("%Y-%m-%d"),
             "allowed_company_ids": [self._env.user.company_id.id],
@@ -2985,7 +2985,7 @@ class O2MProxy(X2MProxy):
 
     def new(self):
         """ Returns a :class:`Form` for a new
-        :class:`~odoo.fields.One2many` record, properly initialised.
+        :class:`~ecommerce.fields.One2many` record, properly initialised.
 
         The form is created from the list view if editable, or the field's
         form view otherwise.
@@ -2997,7 +2997,7 @@ class O2MProxy(X2MProxy):
 
     def edit(self, index):
         """ Returns a :class:`Form` to edit the pre-existing
-        :class:`~odoo.fields.One2many` record.
+        :class:`~ecommerce.fields.One2many` record.
 
         The form is created from the list view if editable, or the field's
         form view otherwise.
@@ -3123,9 +3123,9 @@ def record_to_values(fields, record):
         elif descr['type'] == 'one2many':
             v = [(1, r, None) for r in v or []]
         elif descr['type'] == 'datetime' and isinstance(v, datetime):
-            v = odoo.fields.Datetime.to_string(v)
+            v = ecommerce.fields.Datetime.to_string(v)
         elif descr['type'] == 'date' and isinstance(v, date):
-            v = odoo.fields.Date.to_string(v)
+            v = ecommerce.fields.Date.to_string(v)
         r[f] = v
     return r
 
@@ -3142,9 +3142,9 @@ def _cleanup_from_default(type_, value):
     if type_ == 'one2many':
         return [c for c in value if c[0] != 6]
     elif type_ == 'datetime' and isinstance(value, datetime):
-        return odoo.fields.Datetime.to_string(value)
+        return ecommerce.fields.Datetime.to_string(value)
     elif type_ == 'date' and isinstance(value, date):
-        return odoo.fields.Date.to_string(value)
+        return ecommerce.fields.Date.to_string(value)
     return value
 
 def _get_node(view, f, *arg):
@@ -3162,7 +3162,7 @@ def tagged(*tags):
 
     A tag prefixed by '-' will remove the tag e.g. to remove the 'standard' tag.
 
-    By default, all Test classes from odoo.tests.common have a test_tags
+    By default, all Test classes from ecommerce.tests.common have a test_tags
     attribute that defaults to 'standard' and 'at_install'.
 
     When using class inheritance, the tags ARE inherited.

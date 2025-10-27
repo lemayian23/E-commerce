@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 from collections import OrderedDict
 from random import randint, sample
 from werkzeug.exceptions import NotFound, Forbidden
 
-from odoo import exceptions, http
-from odoo.addons.website_event.controllers.main import WebsiteEventController
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools import format_duration
+from ecommerce import exceptions, http
+from ecommerce.addons.website_event.controllers.main import WebsiteEventController
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.tools import format_duration
 
 
 class ExhibitorController(WebsiteEventController):

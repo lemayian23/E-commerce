@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { assets, loadJS, loadCSS } from "@web/core/assets";
 

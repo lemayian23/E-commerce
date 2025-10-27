@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
@@ -7,12 +7,12 @@ import uuid
 from lxml import etree, objectify
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, api, models
+from ecommerce.exceptions import UserError, ValidationError
 
 from . import const
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_ogone.controllers.main import OgoneController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_ogone.controllers.main import OgoneController
 
 _logger = logging.getLogger(__name__)
 
@@ -84,7 +84,7 @@ class PaymentTransaction(models.Model):
         }
         if self.tokenize:
             rendering_values.update({
-                'ALIAS': f'ODOO-ALIAS-{uuid.uuid4().hex}',
+                'ALIAS': f'ecommerce-ALIAS-{uuid.uuid4().hex}',
                 'ALIASUSAGE': _("Storing your payment details is necessary for future use."),
             })
         rendering_values.update({

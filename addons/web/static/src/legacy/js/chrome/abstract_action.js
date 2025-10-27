@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.AbstractAction **/
+/** @ecommerce-module alias=web.AbstractAction **/
 
 /**
  * We define here the AbstractAction widget, which implements the ActionMixin.
@@ -13,7 +13,7 @@ import ControlPanel from "web.ControlPanel";
 import Widget from "web.Widget";
 import { ComponentWrapper } from "web.OwlCompatibility";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 const AbstractAction = Widget.extend(ActionMixin, {
     config: {
         ControlPanel: ControlPanel,

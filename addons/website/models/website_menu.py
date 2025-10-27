@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import werkzeug.exceptions
 import werkzeug.urls
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools.translate import html_translate
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
+from ecommerce.tools.translate import html_translate
 
 
 class Menu(models.Model):
@@ -31,7 +31,7 @@ class Menu(models.Model):
         for menu in self:
             if menu.is_mega_menu:
                 if not menu.mega_menu_content:
-                    menu.mega_menu_content = self.env['ir.ui.view']._render_template('website.s_mega_menu_odoo_menu')
+                    menu.mega_menu_content = self.env['ir.ui.view']._render_template('website.s_mega_menu_ecommerce_menu')
             else:
                 menu.mega_menu_content = False
                 menu.mega_menu_classes = False

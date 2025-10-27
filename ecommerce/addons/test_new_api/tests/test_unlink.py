@@ -1,4 +1,4 @@
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class TestUnlinkRecord(common.TransactionCase):

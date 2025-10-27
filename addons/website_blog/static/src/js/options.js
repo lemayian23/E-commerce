@@ -1,4 +1,4 @@
-odoo.define('website_blog.options', function (require) {
+ecommerce.define('website_blog.options', function (require) {
 'use strict';
 
 require('web.dom_ready');

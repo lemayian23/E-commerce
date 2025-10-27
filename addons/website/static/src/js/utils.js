@@ -1,4 +1,4 @@
-odoo.define('website.utils', function (require) {
+ecommerce.define('website.utils', function (require) {
 'use strict';
 
 var core = require('web.core');

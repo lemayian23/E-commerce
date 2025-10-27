@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import LivechatButton from '@im_livechat/legacy/widgets/livechat_button';
 

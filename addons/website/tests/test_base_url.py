@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from lxml.html import document_fromstring
 
-import odoo.tests
+import ecommerce.tests
 
 
-class TestUrlCommon(odoo.tests.HttpCase):
+class TestUrlCommon(ecommerce.tests.HttpCase):
     def setUp(self):
         super(TestUrlCommon, self).setUp()
-        self.domain = 'http://' + odoo.tests.HOST
+        self.domain = 'http://' + ecommerce.tests.HOST
         self.website = self.env['website'].create({
             'name': 'test base url',
             'domain': self.domain,
@@ -26,7 +26,7 @@ class TestUrlCommon(odoo.tests.HttpCase):
         self.assertEqual(canonical_link[0].attrib["href"], canonical_url)
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@ecommerce.tests.tagged('-at_install', 'post_install')
 class TestBaseUrl(TestUrlCommon):
     def test_01_base_url(self):
         ICP = self.env['ir.config_parameter']
@@ -88,8 +88,8 @@ class TestBaseUrl(TestUrlCommon):
         self._assertCanonical('/fr_FR', self.website.get_base_url() + '/fr')
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestGetBaseUrl(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class TestGetBaseUrl(ecommerce.tests.TransactionCase):
     def test_01_get_base_url(self):
         # Setup
         web_base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

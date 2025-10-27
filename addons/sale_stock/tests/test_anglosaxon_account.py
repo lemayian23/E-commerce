@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.sale_stock.tests.test_anglo_saxon_valuation_reconciliation import TestValuationReconciliationCommon
-from odoo.tests import tagged
+from ecommerce.addons.sale_stock.tests.test_anglo_saxon_valuation_reconciliation import TestValuationReconciliationCommon
+from ecommerce.tests import tagged
 
 @tagged('post_install', '-at_install')
 class TestAngloSaxonAccounting(TestValuationReconciliationCommon):

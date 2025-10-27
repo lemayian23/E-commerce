@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 
-from odoo import fields
-from odoo.tests.common import TransactionCase, new_test_user
-from odoo.addons.base.tests.test_ir_cron import CronMixinCase
-from odoo.addons.mail.tests.common import MailCase
+from ecommerce import fields
+from ecommerce.tests.common import TransactionCase, new_test_user
+from ecommerce.addons.base.tests.test_ir_cron import CronMixinCase
+from ecommerce.addons.mail.tests.common import MailCase
 
 
 class TestEventNotifications(TransactionCase, MailCase, CronMixinCase):

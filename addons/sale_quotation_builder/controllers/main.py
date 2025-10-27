@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import Controller, request, route
-from odoo.addons.http_routing.models.ir_http import unslug
+from ecommerce.http import Controller, request, route
+from ecommerce.addons.http_routing.models.ir_http import unslug
 
 
 class QuotationBuilderController(Controller):

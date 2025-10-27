@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # This assumes an existing but uninitialized database.
 
 from contextlib import contextmanager
 import unittest
 
-from odoo import api, registry, SUPERUSER_ID
-from odoo.tests import common
-from odoo.tests.common import BaseCase
+from ecommerce import api, registry, SUPERUSER_ID
+from ecommerce.tests import common
+from ecommerce.tests.common import BaseCase
 
-from odoo.modules.registry import Registry
+from ecommerce.modules.registry import Registry
 
 
 @contextmanager
@@ -30,7 +30,7 @@ MODEL = 'test_uninstall.model'
 class TestUninstall(BaseCase):
     """
     Test the install/uninstall of a test module. The module is available in
-    `odoo.tests` which should be present in the addons-path.
+    `ecommerce.tests` which should be present in the addons-path.
     """
 
     def test_01_install(self):

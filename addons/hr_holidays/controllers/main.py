@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mail.controllers.mail import MailController
-from odoo import http
+from ecommerce.addons.mail.controllers.mail import MailController
+from ecommerce import http
 
 
 class HrHolidaysController(http.Controller):

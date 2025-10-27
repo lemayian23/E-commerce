@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import inspect
 
-from odoo.tests.common import TransactionCase, tagged
+from ecommerce.tests.common import TransactionCase, tagged
 
 DEPRECATED_MODEL_ATTRIBUTES = [
     'view_init',

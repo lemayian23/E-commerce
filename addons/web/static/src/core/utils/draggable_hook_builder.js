@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { clamp } from "@web/core/utils/numbers";
 import { debounce, setRecurringAnimationFrame } from "@web/core/utils/timing";
@@ -65,7 +65,7 @@ import { debounce, setRecurringAnimationFrame } from "@web/core/utils/timing";
  * @property {Function} helpers.execHandler
  */
 
-import { useEffect, useEnv, useExternalListener, onWillUnmount, reactive } from "@odoo/owl";
+import { useEffect, useEnv, useExternalListener, onWillUnmount, reactive } from "@ecommerce/owl";
 
 const DEFAULT_ACCEPTED_PARAMS = {
     enable: ["boolean", "function"],

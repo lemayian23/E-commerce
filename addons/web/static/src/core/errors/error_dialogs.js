@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "../browser/browser";
 import { Dialog } from "../dialog/dialog";
@@ -7,19 +7,19 @@ import { registry } from "../registry";
 import { useService } from "@web/core/utils/hooks";
 import { capitalize } from "../utils/strings";
 
-import { Component, useState, markup } from "@odoo/owl";
+import { Component, useState, markup } from "@ecommerce/owl";
 
-export const odooExceptionTitleMap = new Map(
+export const ecommerceExceptionTitleMap = new Map(
     Object.entries({
-        "odoo.addons.base.models.ir_mail_server.MailDeliveryException": _lt(
+        "ecommerce.addons.base.models.ir_mail_server.MailDeliveryException": _lt(
             "MailDeliveryException"
         ),
-        "odoo.exceptions.AccessDenied": _lt("Access Denied"),
-        "odoo.exceptions.MissingError": _lt("Missing Record"),
-        "odoo.exceptions.UserError": _lt("User Error"),
-        "odoo.exceptions.ValidationError": _lt("Validation Error"),
-        "odoo.exceptions.AccessError": _lt("Access Error"),
-        "odoo.exceptions.Warning": _lt("Warning"),
+        "ecommerce.exceptions.AccessDenied": _lt("Access Denied"),
+        "ecommerce.exceptions.MissingError": _lt("Missing Record"),
+        "ecommerce.exceptions.UserError": _lt("User Error"),
+        "ecommerce.exceptions.ValidationError": _lt("Validation Error"),
+        "ecommerce.exceptions.AccessError": _lt("Access Error"),
+        "ecommerce.exceptions.Warning": _lt("Warning"),
     })
 );
 
@@ -40,19 +40,19 @@ export class ErrorDialog extends Component {
 }
 ErrorDialog.template = "web.ErrorDialog";
 ErrorDialog.components = { Dialog };
-ErrorDialog.title = _lt("Odoo Error");
+ErrorDialog.title = _lt("ecommerce Error");
 
 // -----------------------------------------------------------------------------
 // Client Error Dialog
 // -----------------------------------------------------------------------------
 export class ClientErrorDialog extends ErrorDialog {}
-ClientErrorDialog.title = _lt("Odoo Client Error");
+ClientErrorDialog.title = _lt("ecommerce Client Error");
 
 // -----------------------------------------------------------------------------
 // Network Error Dialog
 // -----------------------------------------------------------------------------
 export class NetworkErrorDialog extends ErrorDialog {}
-NetworkErrorDialog.title = _lt("Odoo Network Error");
+NetworkErrorDialog.title = _lt("ecommerce Network Error");
 
 // -----------------------------------------------------------------------------
 // RPC Error Dialog
@@ -68,8 +68,8 @@ export class RPCErrorDialog extends ErrorDialog {
     }
     inferTitle() {
         // If the server provides an exception name that we have in a registry.
-        if (this.props.exceptionName && odooExceptionTitleMap.has(this.props.exceptionName)) {
-            this.title = odooExceptionTitleMap.get(this.props.exceptionName).toString();
+        if (this.props.exceptionName && ecommerceExceptionTitleMap.has(this.props.exceptionName)) {
+            this.title = ecommerceExceptionTitleMap.get(this.props.exceptionName).toString();
             return;
         }
         // Fall back to a name based on the error type.
@@ -78,13 +78,13 @@ export class RPCErrorDialog extends ErrorDialog {
         }
         switch (this.props.type) {
             case "server":
-                this.title = this.env._t("Odoo Server Error");
+                this.title = this.env._t("ecommerce Server Error");
                 break;
             case "script":
-                this.title = this.env._t("Odoo Client Error");
+                this.title = this.env._t("ecommerce Client Error");
                 break;
             case "network":
-                this.title = this.env._t("Odoo Network Error");
+                this.title = this.env._t("ecommerce Network Error");
                 break;
         }
     }
@@ -110,10 +110,10 @@ export class WarningDialog extends Component {
         }
     }
     inferTitle() {
-        if (this.props.exceptionName && odooExceptionTitleMap.has(this.props.exceptionName)) {
-            return odooExceptionTitleMap.get(this.props.exceptionName).toString();
+        if (this.props.exceptionName && ecommerceExceptionTitleMap.has(this.props.exceptionName)) {
+            return ecommerceExceptionTitleMap.get(this.props.exceptionName).toString();
         }
-        return this.props.title || this.env._t("Odoo Warning");
+        return this.props.title || this.env._t("ecommerce Warning");
     }
 }
 WarningDialog.template = "web.WarningDialog";
@@ -127,7 +127,7 @@ export class RedirectWarningDialog extends Component {
         this.actionService = useService("action");
         const { data, subType } = this.props;
         const [message, actionId, buttonText, additionalContext] = data.arguments;
-        this.title = capitalize(subType) || this.env._t("Odoo Warning");
+        this.title = capitalize(subType) || this.env._t("ecommerce Warning");
         this.message = message;
         this.actionId = actionId;
         this.buttonText = buttonText;
@@ -166,16 +166,16 @@ export class SessionExpiredDialog extends Component {
 }
 SessionExpiredDialog.template = "web.SessionExpiredDialog";
 SessionExpiredDialog.components = { Dialog };
-SessionExpiredDialog.title = _lt("Odoo Session Expired");
+SessionExpiredDialog.title = _lt("ecommerce Session Expired");
 
 registry
     .category("error_dialogs")
-    .add("odoo.exceptions.AccessDenied", WarningDialog)
-    .add("odoo.exceptions.AccessError", WarningDialog)
-    .add("odoo.exceptions.MissingError", WarningDialog)
-    .add("odoo.exceptions.UserError", WarningDialog)
-    .add("odoo.exceptions.ValidationError", WarningDialog)
-    .add("odoo.exceptions.RedirectWarning", RedirectWarningDialog)
-    .add("odoo.http.SessionExpiredException", SessionExpiredDialog)
+    .add("ecommerce.exceptions.AccessDenied", WarningDialog)
+    .add("ecommerce.exceptions.AccessError", WarningDialog)
+    .add("ecommerce.exceptions.MissingError", WarningDialog)
+    .add("ecommerce.exceptions.UserError", WarningDialog)
+    .add("ecommerce.exceptions.ValidationError", WarningDialog)
+    .add("ecommerce.exceptions.RedirectWarning", RedirectWarningDialog)
+    .add("ecommerce.http.SessionExpiredException", SessionExpiredDialog)
     .add("werkzeug.exceptions.Forbidden", SessionExpiredDialog)
     .add("504", Error504Dialog);

@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Domain } from "@web/core/domain";
 import { DomainSelectorRootNode } from "./domain_selector_root_node";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class DomainSelector extends Component {
     setup() {

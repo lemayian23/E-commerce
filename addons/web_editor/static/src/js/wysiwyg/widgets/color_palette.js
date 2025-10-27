@@ -1,4 +1,4 @@
-odoo.define('web_editor.ColorPalette', function (require) {
+ecommerce.define('web_editor.ColorPalette', function (require) {
 'use strict';
 
 const session = require('web.session');

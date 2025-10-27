@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.TicketScreen', function (require) {
+ecommerce.define('point_of_sale.TicketScreen', function (require) {
     'use strict';
 
     const { Order } = require('point_of_sale.models');

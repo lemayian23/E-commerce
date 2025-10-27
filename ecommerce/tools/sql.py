@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # pylint: disable=sql-injection
 
@@ -9,11 +9,11 @@ import re
 import psycopg2
 from psycopg2.sql import SQL, Identifier
 
-import odoo.sql_db
+import ecommerce.sql_db
 from collections import defaultdict
 from contextlib import closing
 
-_schema = logging.getLogger('odoo.schema')
+_schema = logging.getLogger('ecommerce.schema')
 
 _CONFDELTYPES = {
     'RESTRICT': 'r',

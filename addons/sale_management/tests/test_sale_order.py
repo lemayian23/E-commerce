@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from itertools import chain
 
-from odoo.fields import Command
-from odoo.tests import Form, tagged
+from ecommerce.fields import Command
+from ecommerce.tests import Form, tagged
 
-from odoo.addons.sale_management.tests.common import SaleManagementCommon
+from ecommerce.addons.sale_management.tests.common import SaleManagementCommon
 
 
 @tagged('-at_install', 'post_install')

@@ -1,11 +1,11 @@
 # coding: utf-8
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import requests
 import werkzeug
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError, UserError, AccessError
+from ecommerce import fields, models, api, _
+from ecommerce.exceptions import ValidationError, UserError, AccessError
 
 _logger = logging.getLogger(__name__)
 TIMEOUT = 10
@@ -97,7 +97,7 @@ class PosPaymentMethod(models.Model):
             data = werkzeug.urls.url_encode(params)
             resp = requests.post(endpoint, data=data, auth=(self.sudo()._get_stripe_secret_key(), ''), timeout=TIMEOUT)
             resp = resp.json()
-            redacted_resp = {k: '<redacted in odoo logs>' if k == 'client_secret' else v for k, v in resp.items()}
+            redacted_resp = {k: '<redacted in ecommerce logs>' if k == 'client_secret' else v for k, v in resp.items()}
             _logger.info("Stripe payment intent response: %s", redacted_resp)
         except requests.exceptions.RequestException:
             _logger.exception("Failed to call stripe_payment_intent endpoint")

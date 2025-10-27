@@ -1,4 +1,4 @@
-odoo.define('website_sale.s_dynamic_snippet_products', function (require) {
+ecommerce.define('website_sale.s_dynamic_snippet_products', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');
@@ -130,7 +130,7 @@ const DynamicSnippetProductsCard = publicWidget.Widget.extend({
     /**
      * Event triggered by a click on the Add to cart button
      * 
-     * @param {OdooEvent} ev 
+     * @param {ecommerceEvent} ev 
      */
     async _onClickAddToCart(ev) {
         const $card = $(ev.currentTarget).closest('.card');
@@ -154,7 +154,7 @@ const DynamicSnippetProductsCard = publicWidget.Widget.extend({
      * Event triggered by a click on the remove button on a "recently viewed"
      * template.
      *
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     async _onRemoveFromRecentlyViewed(ev) {
         const $card = $(ev.currentTarget).closest('.card');

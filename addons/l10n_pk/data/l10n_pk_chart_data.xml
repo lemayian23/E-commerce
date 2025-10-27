@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Account Chart Template -->
     <record id="l10n_pk_chart_template" model="account.chart.template">
         <field name="name">Pakistan - Chart of Accounts</field>
@@ -12,4 +12,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="l10n_pk_4411003"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="l10n_pk_3112004"/>
     </record>
-</odoo>
+</ecommerce>

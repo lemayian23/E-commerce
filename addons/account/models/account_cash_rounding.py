@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
-from odoo.tools import float_round
-from odoo.exceptions import ValidationError
+from ecommerce import models, fields, api, _
+from ecommerce.tools import float_round
+from ecommerce.exceptions import ValidationError
 
 
 class AccountCashRounding(models.Model):

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestClientAction(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestClientAction(ecommerce.tests.HttpCase):
 
     def test_01_client_action_redirect(self):
         page = self.env['website.page'].create({

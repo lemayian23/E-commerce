@@ -1,4 +1,4 @@
-odoo.define('website.ripple_effect', function (require) {
+ecommerce.define('website.ripple_effect', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

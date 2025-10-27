@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import requests
-from odoo.addons.microsoft_calendar.models.microsoft_sync import microsoft_calendar_token
+from ecommerce.addons.microsoft_calendar.models.microsoft_sync import microsoft_calendar_token
 from datetime import timedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.loglevels import exception_to_unicode
-from odoo.addons.microsoft_account.models.microsoft_service import DEFAULT_MICROSOFT_TOKEN_ENDPOINT
-from odoo.addons.microsoft_calendar.utils.microsoft_calendar import InvalidSyncToken
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.loglevels import exception_to_unicode
+from ecommerce.addons.microsoft_account.models.microsoft_service import DEFAULT_MICROSOFT_TOKEN_ENDPOINT
+from ecommerce.addons.microsoft_calendar.utils.microsoft_calendar import InvalidSyncToken
 
 _logger = logging.getLogger(__name__)
 
@@ -107,17 +107,17 @@ class User(models.Model):
                 full_sync = True
         self.microsoft_calendar_sync_token = next_sync_token
 
-        # Microsoft -> Odoo
-        synced_events, synced_recurrences = self.env['calendar.event']._sync_microsoft2odoo(events) if events else (self.env['calendar.event'], self.env['calendar.recurrence'])
+        # Microsoft -> ecommerce
+        synced_events, synced_recurrences = self.env['calendar.event']._sync_microsoft2ecommerce(events) if events else (self.env['calendar.event'], self.env['calendar.recurrence'])
 
-        # Odoo -> Microsoft
+        # ecommerce -> Microsoft
         recurrences = self.env['calendar.recurrence']._get_microsoft_records_to_sync(full_sync=full_sync)
         recurrences -= synced_recurrences
-        recurrences._sync_odoo2microsoft()
+        recurrences._sync_ecommerce2microsoft()
         synced_events |= recurrences.calendar_event_ids
 
         events = self.env['calendar.event']._get_microsoft_records_to_sync(full_sync=full_sync)
-        (events - synced_events)._sync_odoo2microsoft()
+        (events - synced_events)._sync_ecommerce2microsoft()
 
         return bool(events | synced_events) or bool(recurrences | synced_recurrences)
 
@@ -148,7 +148,7 @@ class User(models.Model):
         """
         Set the first synchronization date as an ICP parameter when applicable (param not defined yet
         and calendar never synchronized before). This parameter is used for not synchronizing previously
-        created Odoo events and thus avoid spamming invitations for those events.
+        created ecommerce events and thus avoid spamming invitations for those events.
         """
         ICP = self.env['ir.config_parameter'].sudo()
         first_synchronization_date = ICP.get_param('microsoft_calendar.sync.first_synchronization_date')

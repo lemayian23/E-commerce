@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
 import { useActiveElement } from "../ui/ui_service";
 import { useForwardRefToParent } from "@web/core/utils/hooks";
 
-import { Component, useChildSubEnv, useState } from "@odoo/owl";
+import { Component, useChildSubEnv, useState } from "@ecommerce/owl";
 export class Dialog extends Component {
     setup() {
         this.modalRef = useForwardRefToParent("modalRef");
@@ -56,6 +56,6 @@ Dialog.defaultProps = {
     header: true,
     size: "lg",
     technical: true,
-    title: "Odoo",
+    title: "ecommerce",
     withBodyPadding: true,
 };

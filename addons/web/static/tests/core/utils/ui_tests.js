@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     drag,
@@ -13,7 +13,7 @@ import {
 import { browser } from "@web/core/browser/browser";
 import { useSortable } from "@web/core/utils/sortable";
 
-import { Component, reactive, useRef, useState, xml } from "@odoo/owl";
+import { Component, reactive, useRef, useState, xml } from "@ecommerce/owl";
 
 let target;
 QUnit.module("UI", ({ beforeEach }) => {

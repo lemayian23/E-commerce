@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { localization } from "@web/core/l10n/localization";
 import { isIOS } from "@web/core/browser/feature_detection";
 
-import { useRef, useEffect } from "@odoo/owl";
+import { useRef, useEffect } from "@ecommerce/owl";
 
 /**
  * This hook replaces the decimal separator of the numpad decimal key

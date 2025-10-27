@@ -1,4 +1,4 @@
-/** @odoo-module alias=website.root */
+/** @ecommerce-module alias=website.root */
 
 import { loadJS } from "@web/core/assets";
 import { _t } from 'web.core';
@@ -6,7 +6,7 @@ import KeyboardNavigationMixin from 'web.KeyboardNavigationMixin';
 import {Markup} from 'web.utils';
 import session from 'web.session';
 import publicRootData from 'web.public.root';
-import "web.zoomodoo";
+import "web.zoomecommerce";
 
 export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMixin, {
     // TODO remove KeyboardNavigationMixin in master
@@ -54,7 +54,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
         KeyboardNavigationMixin.start.call(this);
 
         // Enable magnify on zommable img
-        this.$('.zoomable img[data-zoom]').zoomOdoo();
+        this.$('.zoomable img[data-zoom]').zoomecommerce();
 
         return this._super.apply(this, arguments);
     },
@@ -131,7 +131,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
             this._gmapAPILoading = new Promise(async resolve => {
                 const key = await this._getGMapAPIKey(refetch);
 
-                window.odoo_gmap_api_post_load = (async function odoo_gmap_api_post_load() {
+                window.ecommerce_gmap_api_post_load = (async function ecommerce_gmap_api_post_load() {
                     await this._startWidgets(undefined, {editableMode: editableMode});
                     resolve(key);
                 }).bind(this);
@@ -154,7 +154,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
                     this._gmapAPILoading = false;
                     return;
                 }
-                await loadJS(`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=odoo_gmap_api_post_load&key=${encodeURIComponent(key)}`);
+                await loadJS(`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=ecommerce_gmap_api_post_load&key=${encodeURIComponent(key)}`);
             });
         }
         return this._gmapAPILoading;
@@ -194,7 +194,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     async _onGMapAPIRequest(ev) {
         ev.stopPropagation();
@@ -203,7 +203,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     async _onGMapAPIKeyRequest(ev) {
         ev.stopPropagation();
@@ -215,7 +215,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend(KeyboardNavigationMi
      * Checks information about the page SEO object.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onSeoObjectRequest: function (ev) {
         var res = this._unslugHtmlDataObject('seo-object');

@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import re
 
 from werkzeug.urls import url_join
 
-from odoo import api, fields, models, _
-from odoo.addons.http_routing.models.ir_http import url_for
-from odoo.addons.website.tools import text_from_html
-from odoo.http import request
-from odoo.osv import expression
-from odoo.exceptions import AccessError
-from odoo.tools import escape_psql
-from odoo.tools.json import scriptsafe as json_safe
+from ecommerce import api, fields, models, _
+from ecommerce.addons.http_routing.models.ir_http import url_for
+from ecommerce.addons.website.tools import text_from_html
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.exceptions import AccessError
+from ecommerce.tools import escape_psql
+from ecommerce.tools.json import scriptsafe as json_safe
 
 logger = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.signature_dialog **/
+/** @ecommerce-module alias=web.signature_dialog **/
 
 import core from 'web.core';
 import Dialog from 'web.Dialog';

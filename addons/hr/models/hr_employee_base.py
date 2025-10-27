@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 
 from pytz import timezone, UTC, utc
 from datetime import timedelta
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools import clean_context, format_time
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError
+from ecommerce.tools import clean_context, format_time
 
 
 class HrEmployeeBase(models.AbstractModel):

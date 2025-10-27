@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { makeFakeNotificationService } from "@web/../tests/helpers/mock_services";
@@ -41,7 +41,7 @@ import { FormController } from "@web/views/form/form_controller";
 import BasicModel from "web.BasicModel";
 import legacySession from "web.session";
 
-import { Component, EventBus, xml } from "@odoo/owl";
+import { Component, EventBus, xml } from "@ecommerce/owl";
 import { useService } from "@web/core/utils/hooks";
 
 const fieldRegistry = registry.category("fields");
@@ -5889,7 +5889,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("onchange returns an error", async function (assert) {
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("ecommerce.exceptions.UserError", WarningDialog);
         // remove the override in qunit.js that swallows unhandledrejection errors
         // s.t. we let the error service handle them
         const originalOnUnhandledRejection = window.onunhandledrejection;
@@ -5910,7 +5910,7 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "onchange") {
                     const error = new RPCError("Some business message");
                     error.data = { context: {} };
-                    error.exceptionName = "odoo.exceptions.UserError";
+                    error.exceptionName = "ecommerce.exceptions.UserError";
                     throw error;
                 }
             },
@@ -5937,7 +5937,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("onchange on a date field returns an error", async function (assert) {
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("ecommerce.exceptions.UserError", WarningDialog);
         // remove the override in qunit.js that swallows unhandledrejection errors
         // s.t. we let the error service handle them
         const originalOnUnhandledRejection = window.onunhandledrejection;
@@ -5958,7 +5958,7 @@ QUnit.module("Views", (hooks) => {
                 if (args.method === "onchange") {
                     const error = new RPCError("Some business message");
                     error.data = { context: {} };
-                    error.exceptionName = "odoo.exceptions.UserError";
+                    error.exceptionName = "ecommerce.exceptions.UserError";
                     throw error;
                 }
             },
@@ -10004,7 +10004,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("display tooltips for buttons (debug = true)", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(ecommerce, {
             debug: true,
         });
 
@@ -10302,7 +10302,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("proper stringification in debug mode tooltip", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(ecommerce, { debug: true });
 
         patchWithCleanup(browser, {
             setTimeout: (fn) => fn(),
@@ -10370,7 +10370,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("field tooltip in debug mode, on field with domain attr", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(ecommerce, { debug: true });
 
         patchWithCleanup(browser, {
             setTimeout: (fn) => fn(),
@@ -11437,9 +11437,9 @@ QUnit.module("Views", (hooks) => {
                         assert.step("resequence onChange crash");
                         throw makeErrorFromResponse({
                             code: 200,
-                            message: "Odoo Server Error",
+                            message: "ecommerce Server Error",
                             data: {
-                                name: `odoo.exceptions.${"UserError"}`,
+                                name: `ecommerce.exceptions.${"UserError"}`,
                                 debug: "traceback",
                                 arguments: [],
                                 context: {},
@@ -12667,7 +12667,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("no 'oh snap' error when clicking on a view button", async (assert) => {
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("ecommerce.exceptions.UserError", WarningDialog);
         // remove the override in qunit.js that swallows unhandledrejection errors
         // s.t. we let the error service handle them
         const originalOnUnhandledRejection = window.onunhandledrejection;
@@ -12690,7 +12690,7 @@ QUnit.module("Views", (hooks) => {
                 if (method === "create") {
                     const error = new RPCError("Some business message");
                     error.data = { context: {} };
-                    error.exceptionName = "odoo.exceptions.UserError";
+                    error.exceptionName = "ecommerce.exceptions.UserError";
                     throw error;
                 }
             },
@@ -12711,7 +12711,7 @@ QUnit.module("Views", (hooks) => {
         assert.expect(5);
 
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("ecommerce.exceptions.UserError", WarningDialog);
         // remove the override in qunit.js that swallows unhandledrejection errors
         // s.t. we let the error service handle them
         const originalOnUnhandledRejection = window.onunhandledrejection;
@@ -12731,7 +12731,7 @@ QUnit.module("Views", (hooks) => {
                     assert.step("create");
                     const error = new RPCError("Some business message");
                     error.data = { context: {} };
-                    error.exceptionName = "odoo.exceptions.UserError";
+                    error.exceptionName = "ecommerce.exceptions.UserError";
                     throw error;
                 }
             },
@@ -12912,7 +12912,7 @@ QUnit.module("Views", (hooks) => {
             // need to preventDefault to remove error from console (so python test pass)
             ev.preventDefault();
         };
-        // fake error service so that the odoo qunit handlers don't think that they need to handle the error
+        // fake error service so that the ecommerce qunit handlers don't think that they need to handle the error
         registry.category("services").add("error", { start: () => {} });
         window.addEventListener("unhandledrejection", handler);
         registerCleanup(() => window.removeEventListener("unhandledrejection", handler));
@@ -13093,7 +13093,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("help on field as precedence over field's declaration -- form", async (assert) => {
         serverData.models.partner.fields.foo.help = "pythonHelp";
-        patchWithCleanup(odoo, { debug: "1" });
+        patchWithCleanup(ecommerce, { debug: "1" });
         await makeView({
             type: "form",
             resModel: "partner",

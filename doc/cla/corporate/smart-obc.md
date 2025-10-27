@@ -1,6 +1,6 @@
 Curaçao, 2024-06-17
 
-SMART Outsourcing & Business Consulting agrees to the terms of the Odoo Corporate Contributor License
+SMART Outsourcing & Business Consulting agrees to the terms of the ecommerce Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this

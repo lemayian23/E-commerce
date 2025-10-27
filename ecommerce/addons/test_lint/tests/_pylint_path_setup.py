@@ -23,14 +23,14 @@ def register(linter):
 
     addons_path = os.environ.get('ADDONS_PATH')
     if addons_path:
-        import odoo.addons
+        import ecommerce.addons
         for p in addons_path.split(os.pathsep):
             normp = os.path.normcase(os.path.abspath(p.strip()))
-            odoo.addons.__path__.append(normp)
+            ecommerce.addons.__path__.append(normp)
 
 def modpath_from_file(filename, path):
     if filename == "./addons":
-        return ['odoo', 'addons']
+        return ['ecommerce', 'addons']
     return modutils.modpath_from_file_with_callback(
         filename,
         path,
@@ -38,7 +38,7 @@ def modpath_from_file(filename, path):
     )
 
 class AddonsPackageFinder(spec.Finder):
-    """Finder which special cases odoo and odoo.addons, such that they're
+    """Finder which special cases ecommerce and ecommerce.addons, such that they're
     forcefully discovered as namespace packages since otherwise they get
     discovered as directory packages.
     """
@@ -50,7 +50,7 @@ class AddonsPackageFinder(spec.Finder):
         submodule_path: Sequence[str] | None,
     ) -> spec.ModuleSpec | None:
         modname = '.'.join([*processed, modname])
-        if modname in ('odoo', 'odoo.addons'):
+        if modname in ('ecommerce', 'ecommerce.addons'):
             return spec.ModuleSpec(
                 name=modname,
                 location="",

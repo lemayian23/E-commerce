@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import controllers
 from . import models
 from . import report
 
-from odoo import api, fields, SUPERUSER_ID, _
+from ecommerce import api, fields, SUPERUSER_ID, _
 
-from odoo.addons.project import _check_exists_collaborators_for_project_sharing
+from ecommerce.addons.project import _check_exists_collaborators_for_project_sharing
 
 
 def create_internal_project(cr, registry):

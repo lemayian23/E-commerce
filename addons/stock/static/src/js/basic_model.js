@@ -1,4 +1,4 @@
-odoo.define('stock.BasicModel', function (require) {
+ecommerce.define('stock.BasicModel', function (require) {
 "use strict";
 
 var BasicModel = require('web.BasicModel');

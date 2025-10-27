@@ -1,4 +1,4 @@
-odoo.define("web.ModelFieldSelectorPopover", function (require) {
+ecommerce.define("web.ModelFieldSelectorPopover", function (require) {
 "use strict";
 
 var core = require("web.core");

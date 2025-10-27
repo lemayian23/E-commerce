@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useService } from '@web/core/utils/hooks';
 import { createElement } from "@web/core/utils/xml";

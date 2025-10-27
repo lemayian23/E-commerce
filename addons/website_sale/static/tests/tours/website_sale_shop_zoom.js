@@ -1,4 +1,4 @@
-odoo.define('website_sale.tour_shop_zoom', function (require) {
+ecommerce.define('website_sale.tour_shop_zoom', function (require) {
 'use strict';
 
 var tour = require('web_tour.tour');

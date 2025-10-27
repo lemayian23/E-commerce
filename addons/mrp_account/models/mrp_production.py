@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 
-from odoo import api, fields, models, _
-from odoo.tools import float_is_zero, float_round
+from ecommerce import api, fields, models, _
+from ecommerce.tools import float_is_zero, float_round
 
 
 class MrpProductionWorkcenterLineTime(models.Model):

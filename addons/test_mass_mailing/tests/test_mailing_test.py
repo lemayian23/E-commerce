@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import lxml.html
 
-from odoo.addons.test_mass_mailing.tests.common import TestMassMailCommon
-from odoo.fields import Command
-from odoo.tests.common import users, tagged
-from odoo.tools import mute_logger
+from ecommerce.addons.test_mass_mailing.tests.common import TestMassMailCommon
+from ecommerce.fields import Command
+from ecommerce.tests.common import users, tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('mailing_manage')
 class TestMailingTest(TestMassMailCommon):
 
     @users('user_marketing')
-    @mute_logger('odoo.addons.mail.models.mail_render_mixin')
+    @mute_logger('ecommerce.addons.mail.models.mail_render_mixin')
     def test_mailing_test_button(self):
         mailing = self.env['mailing.mailing'].create({
             'name': 'TestButton',

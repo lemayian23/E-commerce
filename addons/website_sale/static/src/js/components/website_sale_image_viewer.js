@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useWowlService } from '@web/legacy/utils';
 import { Dialog } from "@web/core/dialog/dialog";

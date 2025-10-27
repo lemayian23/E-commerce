@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import common
-from odoo.tools.xml_utils import _check_with_xsd
+from ecommerce.tests import common
+from ecommerce.tools.xml_utils import _check_with_xsd
 
 import base64
 from lxml.etree import XMLSchemaError

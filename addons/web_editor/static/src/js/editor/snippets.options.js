@@ -1,4 +1,4 @@
-odoo.define('web_editor.snippets.options', function (require) {
+ecommerce.define('web_editor.snippets.options', function (require) {
 'use strict';
 
 const { ComponentWrapper } = require('web.OwlCompatibility');
@@ -33,13 +33,13 @@ const {
     createDataURL,
     isGif,
 } = require('web_editor.image_processing');
-const OdooEditorLib = require('@web_editor/js/editor/odoo-editor/src/OdooEditor');
+const ecommerceEditorLib = require('@web_editor/js/editor/ecommerce-editor/src/ecommerceEditor');
 const {SIZES, MEDIAS_BREAKPOINTS} = require('@web/core/ui/ui_service');
 
 var qweb = core.qweb;
 var _t = core._t;
-const preserveCursor = OdooEditorLib.preserveCursor;
-const descendants = OdooEditorLib.descendants;
+const preserveCursor = ecommerceEditorLib.preserveCursor;
+const descendants = ecommerceEditorLib.descendants;
 
 /**
  * @param {HTMLElement} el
@@ -625,7 +625,7 @@ const UserValueWidget = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent|Event}
+     * @param {ecommerceEvent|Event}
      * @returns {boolean}
      */
     _handleNotifierEvent: function (ev) {
@@ -651,7 +651,7 @@ const UserValueWidget = Widget.extend({
      * change.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {ecommerceEvent|Event} [ev]
      */
     _onUserValueChange: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -662,7 +662,7 @@ const UserValueWidget = Widget.extend({
      * Allows container widgets to add additional data if needed.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onUserValueNotification: function (ev) {
         ev.data.widget = this;
@@ -682,7 +682,7 @@ const UserValueWidget = Widget.extend({
      * preview.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {ecommerceEvent|Event} [ev]
      */
     _onUserValuePreview: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -694,7 +694,7 @@ const UserValueWidget = Widget.extend({
      * reset.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {ecommerceEvent|Event} [ev]
      */
     _onUserValueReset: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -4097,7 +4097,7 @@ const SnippetOptionWidget = Widget.extend({
         let $applyTo = null;
 
         if (previewMode === true) {
-            this.options.wysiwyg.odooEditor.automaticStepUnactive('preview_option');
+            this.options.wysiwyg.ecommerceEditor.automaticStepUnactive('preview_option');
         }
 
         // Call each option method sequentially
@@ -4120,7 +4120,7 @@ const SnippetOptionWidget = Widget.extend({
         }
 
         if (previewMode === 'reset' || previewMode === false) {
-            this.options.wysiwyg.odooEditor.automaticStepActive('preview_option');
+            this.options.wysiwyg.ecommerceEditor.automaticStepActive('preview_option');
         }
 
         // We trigger the event on elements targeted by apply-to if any as
@@ -4228,7 +4228,7 @@ const SnippetOptionWidget = Widget.extend({
         // Ask a mutexed snippet update according to the widget value change
         const shouldRecordUndo = (!previewMode && !ev.data.isSimulatedEvent);
         if (shouldRecordUndo) {
-            this.options.wysiwyg.odooEditor.unbreakableStepUnactive();
+            this.options.wysiwyg.ecommerceEditor.unbreakableStepUnactive();
         }
         this.trigger_up('snippet_edition_request', {exec: async () => {
             // If some previous snippet edition in the mutex removed the target from
@@ -4272,7 +4272,7 @@ const SnippetOptionWidget = Widget.extend({
             // If it is not preview mode, the user selected the option for good
             // (so record the action)
             if (shouldRecordUndo) {
-                this.options.wysiwyg.odooEditor.historyStep();
+                this.options.wysiwyg.ecommerceEditor.historyStep();
             }
 
             if (previewMode || requiresReload) {
@@ -4427,10 +4427,10 @@ registry.sizing = SnippetOptionWidget.extend({
             const rowEl = self.$target[0].parentNode;
             let backgroundGridEl;
             if (rowEl.classList.contains('o_grid_mode')) {
-                self.options.wysiwyg.odooEditor.observerUnactive('displayBackgroundGrid');
+                self.options.wysiwyg.ecommerceEditor.observerUnactive('displayBackgroundGrid');
                 backgroundGridEl = gridUtils._addBackgroundGrid(rowEl, 0);
                 gridUtils._setElementToMaxZindex(backgroundGridEl, rowEl);
-                self.options.wysiwyg.odooEditor.observerActive('displayBackgroundGrid');
+                self.options.wysiwyg.ecommerceEditor.observerActive('displayBackgroundGrid');
             }
 
             // For loop to handle the cases where it is ne, nw, se or sw. Since
@@ -4462,7 +4462,7 @@ registry.sizing = SnippetOptionWidget.extend({
                 directions.push(props);
             }
 
-            self.options.wysiwyg.odooEditor.automaticStepUnactive('resizing');
+            self.options.wysiwyg.ecommerceEditor.automaticStepUnactive('resizing');
 
             const cursor = $handle.css('cursor') + '-important';
             const $iframeWindow = $(this.ownerDocument.defaultView);
@@ -4520,9 +4520,9 @@ registry.sizing = SnippetOptionWidget.extend({
                 // Also sync the col-* class with the g-col-* class so the
                 // toggle to normal mode and the mobile view are well done.
                 if (rowEl.classList.contains('o_grid_mode')) {
-                    self.options.wysiwyg.odooEditor.observerUnactive('displayBackgroundGrid');
+                    self.options.wysiwyg.ecommerceEditor.observerUnactive('displayBackgroundGrid');
                     backgroundGridEl.remove();
-                    self.options.wysiwyg.odooEditor.observerActive('displayBackgroundGrid');
+                    self.options.wysiwyg.ecommerceEditor.observerActive('displayBackgroundGrid');
                     gridUtils._resizeGrid(rowEl);
 
                     const colClass = [...self.$target[0].classList].find(c => /^col-/.test(c));
@@ -4537,14 +4537,14 @@ registry.sizing = SnippetOptionWidget.extend({
                     $handlers.removeClass('o_active').dequeue();
                 });
 
-                self.options.wysiwyg.odooEditor.automaticStepActive('resizing');
+                self.options.wysiwyg.ecommerceEditor.automaticStepActive('resizing');
 
                 if (directions.every(dir => dir.begin === dir.current)) {
                     return;
                 }
 
                 setTimeout(function () {
-                    self.options.wysiwyg.odooEditor.historyStep();
+                    self.options.wysiwyg.ecommerceEditor.historyStep();
                 }, 0);
             };
             $iframeWindow.on("mousemove", bodyMouseMove);
@@ -6280,7 +6280,7 @@ registry.ImageTools = ImageHandlerOption.extend({
         // smaller screens. So we suggest the width of the current image unless
         // it is smaller than the size of the container on the md breapoint
         // (which is where our bootstrap columns fallback to full container
-        // width since we only use col-lg-* in Odoo).
+        // width since we only use col-lg-* in ecommerce).
         } else if (img.closest('.container, .o_container_small')) {
             const mdContainerMaxWidth = parseFloat(computedStyles.getPropertyValue('--o-md-container-max-width')) || 720;
             const mdContainerInnerWidth = mdContainerMaxWidth - gutterWidth;
@@ -6932,7 +6932,7 @@ registry.BackgroundImage = SnippetOptionWidget.extend({
         }
         const combined = backgroundImagePartsToCss(parts);
         this.$target.css('background-image', combined);
-        this.options.wysiwyg.odooEditor.editable.focus();
+        this.options.wysiwyg.ecommerceEditor.editable.focus();
     },
 });
 
@@ -7766,9 +7766,9 @@ registry.ColoredLevelBackground = registry.BackgroundToggler.extend({
      * @private
      */
     _markColorLevel: function () {
-        this.options.wysiwyg.odooEditor.observerUnactive('_markColorLevel');
+        this.options.wysiwyg.ecommerceEditor.observerUnactive('_markColorLevel');
         this.$target.addClass('o_colored_level');
-        this.options.wysiwyg.odooEditor.observerActive('_markColorLevel');
+        this.options.wysiwyg.ecommerceEditor.observerActive('_markColorLevel');
     },
 });
 
@@ -8322,7 +8322,7 @@ registry.SelectTemplate = SnippetOptionWidget.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onWidgetOpening(ev) {
         if (this._templatesLoading || ev.target.getName() !== this.selectTemplateWidgetName) {

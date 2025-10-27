@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import io
 import zipfile
 
-from odoo import http, _
-from odoo.http import request, content_disposition
-# from odoo.addons.account.controllers.download_docs import _get_headers
+from ecommerce import http, _
+from ecommerce.http import request, content_disposition
+# from ecommerce.addons.account.controllers.download_docs import _get_headers
 
 def _get_headers(filename, filetype, content):
     return [

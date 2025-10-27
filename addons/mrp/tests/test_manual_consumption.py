@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 # -*- coding: utf-8 -*-
 
-from odoo.addons.mrp.tests.common import TestMrpCommon
-from odoo.tests import tagged, Form, HttpCase
+from ecommerce.addons.mrp.tests.common import TestMrpCommon
+from ecommerce.tests import tagged, Form, HttpCase
 
 
 @tagged('post_install', '-at_install')

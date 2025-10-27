@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from freezegun import freeze_time
 
-from odoo.addons.mail.tests.common import MockEmail
-from odoo.addons.sms.tests.common import MockSMS
-from odoo.addons.test_event_full.tests.common import TestWEventCommon
-from odoo.exceptions import ValidationError
-from odoo.tools import mute_logger
+from ecommerce.addons.mail.tests.common import MockEmail
+from ecommerce.addons.sms.tests.common import MockSMS
+from ecommerce.addons.test_event_full.tests.common import TestWEventCommon
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import mute_logger
 
 class TestTemplateRefModel(TestWEventCommon):
 
@@ -90,7 +90,7 @@ class TestTemplateRefModel(TestWEventCommon):
 class TestEventSmsMailSchedule(TestWEventCommon, MockEmail, MockSMS):
 
     @freeze_time('2020-07-06 12:00:00')
-    @mute_logger('odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     def test_event_mail_before_trigger_sent_count(self):
         """ Emails are sent to both confirmed and unconfirmed attendees.
         This test checks that the count of sent emails includes the emails sent to unconfirmed ones

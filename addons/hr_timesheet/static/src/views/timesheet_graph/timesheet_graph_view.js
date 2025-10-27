@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { projectGraphView } from "@project/js/project_graph_view";
 import { hrTimesheetGraphModel } from "./timesheet_graph_model";

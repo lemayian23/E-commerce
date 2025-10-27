@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     afterNextRender,
@@ -3286,14 +3286,14 @@ QUnit.test('all messages in "Inbox" in "History" after marked all as read', asyn
     );
 });
 
-QUnit.test('receive new chat message: out of odoo focus (notification, channel)', async function (assert) {
+QUnit.test('receive new chat message: out of ecommerce focus (notification, channel)', async function (assert) {
     assert.expect(3);
 
     const pyEnv = await startServer();
     const mailChannelId1 = pyEnv['mail.channel'].create({ channel_type: 'chat' });
     const { env, openDiscuss } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isecommerceFocused: () => false }),
         },
     });
     await openDiscuss();
@@ -3305,7 +3305,7 @@ QUnit.test('receive new chat message: out of odoo focus (notification, channel)'
     });
 
     const mailChannel1 = pyEnv['mail.channel'].searchRead([['id', '=', mailChannelId1]])[0];
-    // simulate receiving a new message with odoo focused
+    // simulate receiving a new message with ecommerce focused
     await afterNextRender(() => {
         pyEnv['bus.bus']._sendone(mailChannel1, 'mail.channel/new_message', {
             'id': mailChannelId1,
@@ -3319,14 +3319,14 @@ QUnit.test('receive new chat message: out of odoo focus (notification, channel)'
     assert.verifySteps(['set_title_part']);
 });
 
-QUnit.test('receive new chat message: out of odoo focus (notification, chat)', async function (assert) {
+QUnit.test('receive new chat message: out of ecommerce focus (notification, chat)', async function (assert) {
     assert.expect(3);
 
     const pyEnv = await startServer();
     const mailChannelId1 = pyEnv['mail.channel'].create({ channel_type: "chat" });
     const { env, openDiscuss } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isecommerceFocused: () => false }),
         },
     });
     await openDiscuss();
@@ -3338,7 +3338,7 @@ QUnit.test('receive new chat message: out of odoo focus (notification, chat)', a
     });
 
     const mailChannel1 = pyEnv['mail.channel'].searchRead([['id', '=', mailChannelId1]])[0];
-    // simulate receiving a new message with odoo focused
+    // simulate receiving a new message with ecommerce focused
     await afterNextRender(() => {
         pyEnv['bus.bus']._sendone(mailChannel1, 'mail.channel/new_message', {
             'id': mailChannelId1,
@@ -3352,7 +3352,7 @@ QUnit.test('receive new chat message: out of odoo focus (notification, chat)', a
     assert.verifySteps(['set_title_part']);
 });
 
-QUnit.test('receive new chat messages: out of odoo focus (tab title)', async function (assert) {
+QUnit.test('receive new chat messages: out of ecommerce focus (tab title)', async function (assert) {
     assert.expect(9);
 
     let step = 0;
@@ -3363,7 +3363,7 @@ QUnit.test('receive new chat messages: out of odoo focus (tab title)', async fun
     ]);
     const { env, openDiscuss } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isecommerceFocused: () => false }),
         },
     });
     await openDiscuss();
@@ -3384,7 +3384,7 @@ QUnit.test('receive new chat messages: out of odoo focus (tab title)', async fun
     });
 
     const mailChannel1 = pyEnv['mail.channel'].searchRead([['id', '=', mailChannelId1]])[0];
-    // simulate receiving a new message in chat 1 with odoo focused
+    // simulate receiving a new message in chat 1 with ecommerce focused
     await afterNextRender(() => {
         pyEnv['bus.bus']._sendone(mailChannel1, 'mail.channel/new_message', {
             'id': mailChannelId1,
@@ -3398,7 +3398,7 @@ QUnit.test('receive new chat messages: out of odoo focus (tab title)', async fun
     assert.verifySteps(['set_title_part']);
 
     const mailChannel2 = pyEnv['mail.channel'].searchRead([['id', '=', mailChannelId2]])[0];
-    // simulate receiving a new message in chat 2 with odoo focused
+    // simulate receiving a new message in chat 2 with ecommerce focused
     await afterNextRender(() => {
         pyEnv['bus.bus']._sendone(mailChannel2, 'mail.channel/new_message', {
             'id': mailChannelId2,
@@ -3411,7 +3411,7 @@ QUnit.test('receive new chat messages: out of odoo focus (tab title)', async fun
     });
     assert.verifySteps(['set_title_part']);
 
-    // simulate receiving another new message in chat 2 with odoo focused
+    // simulate receiving another new message in chat 2 with ecommerce focused
     await afterNextRender(() => {
         pyEnv['bus.bus']._sendone(mailChannel2, 'mail.channel/new_message', {
             'id': mailChannelId2,

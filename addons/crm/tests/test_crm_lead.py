@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from freezegun import freeze_time
 from unittest.mock import patch
 
-from odoo.addons.base.tests.test_format_address_mixin import FormatAddressCase
-from odoo.addons.crm.models.crm_lead import PARTNER_FIELDS_TO_SYNC, PARTNER_ADDRESS_FIELDS_TO_SYNC
-from odoo.addons.crm.tests.common import TestCrmCommon, INCOMING_EMAIL
-from odoo.addons.phone_validation.tools.phone_validation import phone_format
-from odoo.exceptions import UserError
-from odoo.tests.common import Form, tagged, users
-from odoo.tools import mute_logger
+from ecommerce.addons.base.tests.test_format_address_mixin import FormatAddressCase
+from ecommerce.addons.crm.models.crm_lead import PARTNER_FIELDS_TO_SYNC, PARTNER_ADDRESS_FIELDS_TO_SYNC
+from ecommerce.addons.crm.tests.common import TestCrmCommon, INCOMING_EMAIL
+from ecommerce.addons.phone_validation.tools.phone_validation import phone_format
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import Form, tagged, users
+from ecommerce.tools import mute_logger
 
 
 @tagged('lead_internals')
@@ -136,7 +136,7 @@ class TestCRMLead(TestCrmCommon):
             'street': 'My street',
             'street2': 'My street',
             'city': 'My city',
-            'zip': 'test@odoo.com',
+            'zip': 'test@ecommerce.com',
             'state_id': self.env['res.country.state'].create({
                 'name': 'My state',
                 'country_id': self.country_ref.id,
@@ -788,7 +788,7 @@ class TestCRMLead(TestCrmCommon):
                     self.assertNotIn(f"<a href='mailto:{team_mail}'>{team_mail}</a>", self.env['crm.lead'].sudo().get_empty_list_help(""))
                 team.active = False
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_mailgateway(self):
         new_lead = self.format_and_process(
             INCOMING_EMAIL,

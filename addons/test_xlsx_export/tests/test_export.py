@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 from datetime import date
 from unittest.mock import patch
 
-from odoo import http
-from odoo.tests import common, tagged
-from odoo.tools.misc import get_lang
-from odoo.addons.web.controllers.export import ExportXlsxWriter, Export
-from odoo.addons.mail.tests.common import mail_new_test_user
+from ecommerce import http
+from ecommerce.tests import common, tagged
+from ecommerce.tools.misc import get_lang
+from ecommerce.addons.web.controllers.export import ExportXlsxWriter, Export
+from ecommerce.addons.mail.tests.common import mail_new_test_user
 
 
 class XlsxCreatorCase(common.HttpCase):

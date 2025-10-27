@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from lxml import etree
 
-from odoo import fields, Command
-from odoo.addons.survey.tests import common
-from odoo.addons.test_mail.tests.common import MailCommon
-from odoo.exceptions import UserError
-from odoo.tests import Form
-from odoo.tests.common import users
+from ecommerce import fields, Command
+from ecommerce.addons.survey.tests import common
+from ecommerce.addons.test_mail.tests.common import MailCommon
+from ecommerce.exceptions import UserError
+from ecommerce.tests import Form
+from ecommerce.tests.common import users
 
 
 class TestSurveyInvite(common.TestSurveyCommon, MailCommon):
@@ -298,11 +298,11 @@ class TestSurveyInvite(common.TestSurveyCommon, MailCommon):
         action = user_survey.action_send_survey()
         invite_form = Form(self.env[action['res_model']].with_context(action['context']))
         invite_form.template_id = mail_template
-        invite_form.emails = 'test_survey_invite_with_template_attachment@odoo.gov'
+        invite_form.emails = 'test_survey_invite_with_template_attachment@ecommerce.gov'
         invite = invite_form.save()
         with self.mock_mail_gateway():
             invite.action_invite()
 
         self.assertEqual(self.env['mail.mail'].sudo().search([
-            ('email_to', '=', 'test_survey_invite_with_template_attachment@odoo.gov')
+            ('email_to', '=', 'test_survey_invite_with_template_attachment@ecommerce.gov')
         ]).attachment_ids, mail_template.attachment_ids)

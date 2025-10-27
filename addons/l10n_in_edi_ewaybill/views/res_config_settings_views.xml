@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="res_config_settings_view_form_inherit_l10n_in_edi_ewaybill" model="ir.ui.view">
         <field name="name">res.config.settings.form.inherit.l10n_in_edi_ewaybill</field>
         <field name="model">res.config.settings</field>
@@ -13,7 +13,7 @@
                             <span class="o_form_label">Setup E-Waybill</span>
                             <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
                             <div class="text-muted">
-                                Check the <a href="https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations/india.html">documentation</a> to get credentials
+                                Check the <a href="https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations/india.html">documentation</a> to get credentials
                             </div>
                             <div class="content-group">
                                 <div class="row mt16">
@@ -41,4 +41,4 @@
             </div>
         </field>
     </record>
-</odoo>
+</ecommerce>

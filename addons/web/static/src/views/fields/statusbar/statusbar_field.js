@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { useCommand } from "@web/core/commands/command_hook";
@@ -10,7 +10,7 @@ import { Domain } from "@web/core/domain";
 import { _lt } from "@web/core/l10n/translation";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class StatusBarField extends Component {
     setup() {

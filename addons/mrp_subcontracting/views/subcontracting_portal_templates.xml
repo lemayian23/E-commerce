@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <template id="portal_my_home_productions" name="Productions" customize_show="True" inherit_id="portal.portal_my_home" priority="20">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
@@ -69,7 +69,7 @@
         <t t-call="web.layout">
             <t t-set="head_subcontracting_portal">
                 <script type="text/javascript">
-                    odoo.__session_info__ = <t t-out="json.dumps(session_info)"/>;
+                    ecommerce.__session_info__ = <t t-out="json.dumps(session_info)"/>;
                 </script>
                 <base target="_parent"/>
                 <t t-call-assets="web.assets_common" t-js="false"/>
@@ -83,4 +83,4 @@
         </t>
     </template>
 
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 const spreadsheet = window.o_spreadsheet;
 export const initCallbackRegistry = new spreadsheet.Registry();

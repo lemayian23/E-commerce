@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Notebook } from "@web/core/notebook/notebook";
 import { Field } from "@web/views/fields/field";
@@ -25,7 +25,7 @@ import {
     useRef,
     useState,
     xml,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 export class FormRenderer extends Component {
     setup() {

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { formatDate } from "@web/core/l10n/dates";
 import { getColor } from "../colors";
 import { getFormattedDateSpan } from '@web/views/calendar/utils';
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class CalendarYearPopover extends Component {
     get recordGroups() {

@@ -1,15 +1,15 @@
 #-*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Copyright (C) 2013-2015 Akretion (http://www.akretion.com)
 
 import base64
 import io
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, AccessDenied
-from odoo.tools import float_is_zero, pycompat
-from odoo.tools.misc import get_lang
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError, AccessDenied
+from ecommerce.tools import float_is_zero, pycompat
+from ecommerce.tools.misc import get_lang
 from stdnum.fr import siren
 
 
@@ -109,7 +109,7 @@ class AccountFrFec(models.TransientModel):
         # We choose to implement the flat file instead of the XML
         # file for 2 reasons :
         # 1) the XSD file impose to have the label on the account.move
-        # but Odoo has the label on the account.move.line, so that's a
+        # but ecommerce has the label on the account.move.line, so that's a
         # problem !
         # 2) CSV files are easier to read/use for a regular accountant.
         # So it will be easier for the accountant to check the file before

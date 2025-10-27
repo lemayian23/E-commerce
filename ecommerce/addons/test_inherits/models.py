@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from ecommerce import models, fields, api
+from ecommerce.exceptions import ValidationError
 
 
 # We just create a new model

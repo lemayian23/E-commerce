@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
@@ -7,11 +7,11 @@ from ast import literal_eval
 from collections import defaultdict
 from psycopg2 import Error
 
-from odoo import _, api, fields, models
-from odoo.exceptions import RedirectWarning, UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import check_barcode_encoding, groupby
-from odoo.tools.float_utils import float_compare, float_is_zero
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import RedirectWarning, UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools import check_barcode_encoding, groupby
+from ecommerce.tools.float_utils import float_compare, float_is_zero
 
 _logger = logging.getLogger(__name__)
 
@@ -848,7 +848,7 @@ class StockQuant(models.Model):
                 'You can fix the discrepancies by clicking on the button below.\n'
                 'The correction will remove the reservation of the impacted operations on all companies.\n'
                 'If the error persists, or you see this message appear often, '
-                'please submit a Support Ticket at https://www.odoo.com/help',
+                'please submit a Support Ticket at https://www.ecommerce.com/help',
                 product_id.display_name
             )
             raise RedirectWarning(msg, action.id, _('Fix discrepancies'))

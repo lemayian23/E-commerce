@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.DebugWidget', function (require) {
+ecommerce.define('point_of_sale.DebugWidget', function (require) {
     'use strict';
 
     const { getFileAsText } = require('point_of_sale.utils');

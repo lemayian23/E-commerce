@@ -1,4 +1,4 @@
-odoo.define('website_sale.utils', function (require) {
+ecommerce.define('website_sale.utils', function (require) {
 'use strict';
 
 const wUtils = require('website.utils');

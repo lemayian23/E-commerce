@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-import odoo
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.tools import mute_logger
+import ecommerce
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.tools import mute_logger
 
 
-@odoo.tests.tagged("-at_install", "post_install")
+@ecommerce.tests.tagged("-at_install", "post_install")
 class TestDiscussController(HttpCaseWithUserDemo):
     @classmethod
     def setUpClass(cls):
@@ -44,7 +44,7 @@ class TestDiscussController(HttpCaseWithUserDemo):
         cls.guest = cls.env["mail.guest"].create({"name": "Guest"})
         cls.channel.add_members(guest_ids=cls.guest.ids)
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("ecommerce.addons.http_routing.models.ir_http", "ecommerce.http")
     def test_channel_message_attachments(self):
         self.authenticate(None, None)
         self.opener.cookies[
@@ -165,7 +165,7 @@ class TestDiscussController(HttpCaseWithUserDemo):
             "guest should be allowed to add own attachment without token when updating message",
         )
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("ecommerce.addons.http_routing.models.ir_http", "ecommerce.http")
     def test_attachment_hijack(self):
         att = self.env["ir.attachment"].create(
             [

@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 
-from odoo.tests import new_test_user
-from odoo.tests.common import TransactionCase, tagged
+from ecommerce.tests import new_test_user
+from ecommerce.tests.common import TransactionCase, tagged
 
-from odoo.exceptions import AccessError, ValidationError
+from ecommerce.exceptions import AccessError, ValidationError
 
 from freezegun import freeze_time
 import time

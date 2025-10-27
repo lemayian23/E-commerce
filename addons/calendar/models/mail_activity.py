@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, tools, _
-from odoo.tools import is_html_empty
+from ecommerce import models, fields, tools, _
+from ecommerce.tools import is_html_empty
 
 
 class MailActivity(models.Model):

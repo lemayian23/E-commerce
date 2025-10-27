@@ -1,4 +1,4 @@
-odoo.define("web.ComparisonMenu", function (require) {
+ecommerce.define("web.ComparisonMenu", function (require) {
     "use strict";
 
     const { Dropdown } = require("@web/core/dropdown/dropdown");

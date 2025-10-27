@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
 import datetime
 import werkzeug
 
-from odoo.addons.mass_mailing.tests.common import MassMailCommon
-from odoo.tests.common import HttpCase
-from odoo.tests import tagged
+from ecommerce.addons.mass_mailing.tests.common import MassMailCommon
+from ecommerce.tests.common import HttpCase
+from ecommerce.tests import tagged
 
 
 @tagged('link_tracker')

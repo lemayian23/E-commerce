@@ -3,8 +3,8 @@ import json
 
 from lxml import etree
 
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import UserError
+from ecommerce.tests.common import TransactionCase
+from ecommerce.exceptions import UserError
 
 
 class TestProjectCommon(TransactionCase):

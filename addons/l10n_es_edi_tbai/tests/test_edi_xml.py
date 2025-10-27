@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from base64 import b64encode
 from datetime import datetime
@@ -7,8 +7,8 @@ from datetime import datetime
 from freezegun import freeze_time
 from lxml import etree
 
-from odoo.addons.l10n_es_edi_tbai.models.xml_utils import NS_MAP
-from odoo.tests import tagged
+from ecommerce.addons.l10n_es_edi_tbai.models.xml_utils import NS_MAP
+from ecommerce.tests import tagged
 
 from .common import TestEsEdiTbaiCommon
 

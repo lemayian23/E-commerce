@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, onError, xml, useSubEnv } from "@odoo/owl";
+import { Component, onError, xml, useSubEnv } from "@ecommerce/owl";
 
 export class ErrorHandler extends Component {
     setup() {

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { SampleServer } from "@web/views/sample_server";
 

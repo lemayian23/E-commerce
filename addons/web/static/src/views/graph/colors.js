@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 const COLORS_BRIGHT = [
     "#1f77b4",

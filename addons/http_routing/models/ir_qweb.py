@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug, unslug_url, url_for
+from ecommerce import models
+from ecommerce.http import request
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug_url, url_for
 
 
 class IrQweb(models.AbstractModel):

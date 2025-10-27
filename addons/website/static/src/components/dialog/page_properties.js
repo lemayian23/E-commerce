@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {CheckBox} from '@web/core/checkbox/checkbox';
 import { _lt } from "@web/core/l10n/translation";

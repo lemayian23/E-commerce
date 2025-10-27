@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <template id="index" name="Jobs">
     <t t-call="website.layout">
@@ -210,7 +210,7 @@
                                                 <i class="fa fa-linkedin fa-2x m-1 o_linkedin_icon"></i>
                                                 <input id="recruitment4" type="text"
                                                     class="form-control s_website_form_input pl64"
-                                                    placeholder="e.g. https://www.linkedin.com/in/fpodoo/"
+                                                    placeholder="e.g. https://www.linkedin.com/in/fpecommerce/"
                                                     style="padding-left: 40px"
                                                     name="linkedin_profile"
                                                     data-fill-with="linkedin_profile"/>
@@ -706,4 +706,4 @@
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

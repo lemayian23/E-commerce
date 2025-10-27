@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import time
 
-from odoo.tests import tagged
-from odoo.fields import Command
+from ecommerce.tests import tagged
+from ecommerce.fields import Command
 
-from odoo.addons.test_event_full.tests.common import TestEventFullCommon
+from ecommerce.addons.test_event_full.tests.common import TestEventFullCommon
 
 
 @tagged('post_install', '-at_install')

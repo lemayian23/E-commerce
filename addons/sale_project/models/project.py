@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-from odoo import api, fields, models, _, _lt
-from odoo.exceptions import ValidationError, AccessError
-from odoo.osv import expression
-from odoo.tools import Query
-from odoo.tools.misc import unquote
+from ecommerce import api, fields, models, _, _lt
+from ecommerce.exceptions import ValidationError, AccessError
+from ecommerce.osv import expression
+from ecommerce.tools import Query
+from ecommerce.tools.misc import unquote
 
 from datetime import date
 from functools import reduce

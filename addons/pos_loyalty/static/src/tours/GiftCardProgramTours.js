@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { PosLoyalty } from 'pos_loyalty.tour.PosCouponTourMethods';
 import { ProductScreen } from 'point_of_sale.tour.ProductScreenTourMethods';

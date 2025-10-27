@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import api, models, fields, _
-from odoo.exceptions import UserError
+from ecommerce import api, models, fields, _
+from ecommerce.exceptions import UserError
 
 
 class IrAttachment(models.Model):

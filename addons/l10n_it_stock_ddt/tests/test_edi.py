@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from freezegun import freeze_time
-from odoo import tools
-from odoo.tests import tagged, Form
-from odoo.addons.l10n_it_edi.tests.common import TestItEdi
+from ecommerce import tools
+from ecommerce.tests import tagged, Form
+from ecommerce.addons.l10n_it_edi.tests.common import TestItEdi
 
 _logger = logging.getLogger(__name__)
 

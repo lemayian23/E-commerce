@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ControlPanel } from "@web/search/control_panel/control_panel";
 import {
@@ -23,7 +23,7 @@ function getDomain(controlPanel) {
     return controlPanel.env.searchModel.domain;
 }
 
-import { onWillUpdateProps } from "@odoo/owl";
+import { onWillUpdateProps } from "@ecommerce/owl";
 
 let target;
 let serverData;

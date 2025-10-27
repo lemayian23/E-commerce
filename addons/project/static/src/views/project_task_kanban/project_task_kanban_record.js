@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { Record } from '@web/views/relational_model';
 

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import lxml
 from datetime import datetime
 
-from odoo import http
-from odoo.addons.test_mail_full.tests.common import TestMailFullCommon
-from odoo.addons.test_mail_sms.tests.common import TestSMSRecipients
-from odoo.tests import tagged
-from odoo.tests.common import HttpCase, users, warmup
-from odoo.tools import mute_logger
+from ecommerce import http
+from ecommerce.addons.test_mail_full.tests.common import TestMailFullCommon
+from ecommerce.addons.test_mail_sms.tests.common import TestSMSRecipients
+from ecommerce.tests import tagged
+from ecommerce.tests.common import HttpCase, users, warmup
+from ecommerce.tools import mute_logger
 
 
 class TestRatingCommon(TestMailFullCommon, TestSMSRecipients):
@@ -34,7 +34,7 @@ class TestRatingFlow(TestRatingCommon):
         self.assertEqual(len(record_rating.message_ids), 1)
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_rating_prepare(self):
         record_rating = self.record_rating.with_env(self.env)
 
@@ -51,7 +51,7 @@ class TestRatingFlow(TestRatingCommon):
         self.assertFalse(rating.rating)
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     def test_rating_rating_apply(self):
         record_rating = self.record_rating.with_env(self.env)
         record_messages = record_rating.message_ids

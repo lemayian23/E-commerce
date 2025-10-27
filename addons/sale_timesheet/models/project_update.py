@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.tools import float_utils, format_amount, formatLang
-from odoo.tools.misc import format_duration
+from ecommerce import api, models
+from ecommerce.tools import float_utils, format_amount, formatLang
+from ecommerce.tools.misc import format_duration
 
 
 class ProjectUpdate(models.Model):

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from odoo import Command
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests import tagged
-from odoo.tests.common import Form
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import mute_logger
+from ecommerce import Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import mute_logger
 import psycopg2
 from freezegun import freeze_time
 
@@ -167,7 +167,7 @@ class TestAccountAccount(AccountTestInvoicingCommon):
         with self.assertRaises(UserError):
             self.env['account.account'].name_create('550003 Existing Account')
         # account code is mandatory and providing a name without a code should raise an error
-        with self.assertRaises(psycopg2.DatabaseError), mute_logger('odoo.sql_db'):
+        with self.assertRaises(psycopg2.DatabaseError), mute_logger('ecommerce.sql_db'):
             self.env['account.account'].with_context(import_file=True).name_create('Existing Account')
         account_id = self.env['account.account'].with_context(import_file=True).name_create('550003 Existing Account')[0]
         account = self.env['account.account'].browse(account_id)
@@ -278,7 +278,7 @@ class TestAccountAccount(AccountTestInvoicingCommon):
         self.assertEqual(account.name, "A new account")
 
         # name split is only possible through name_create, so an error should be raised
-        with self.assertRaises(psycopg2.DatabaseError), mute_logger('odoo.sql_db'):
+        with self.assertRaises(psycopg2.DatabaseError), mute_logger('ecommerce.sql_db'):
             account = self.env['account.account'].create({
                 'name': '314159 A new account',
                 'account_type': 'expense',

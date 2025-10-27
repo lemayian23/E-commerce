@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
 
     <record id="l10n_ua_psbo_chart_template" model="account.chart.template">
         <field name="name">План рахунків ПСБО</field>
@@ -22,4 +22,4 @@
         <field name="country_id" ref="base.ua"/>
         <field name="use_storno_accounting" eval="True"/>
     </record>
-</odoo>
+</ecommerce>

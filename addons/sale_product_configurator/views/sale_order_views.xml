@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="sale_order_view_form" model="ir.ui.view">
         <field name="name">sale.order.form.inherit.sale.product.configurator</field>
@@ -27,4 +27,4 @@
         </field>
     </record>
 
-</odoo>
+</ecommerce>

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import Form, tagged
-from odoo.addons.mrp.tests.common import TestMrpCommon
+from ecommerce.tests import Form, tagged
+from ecommerce.addons.mrp.tests.common import TestMrpCommon
 
 @tagged('post_install', '-at_install')
 class TestRepairTraceability(TestMrpCommon):

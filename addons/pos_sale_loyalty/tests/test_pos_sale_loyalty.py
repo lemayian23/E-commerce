@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.pos_loyalty.tests.test_frontend import TestPoSLoyaltyCommon
-from odoo.tests import tagged
+from ecommerce.addons.pos_loyalty.tests.test_frontend import TestPoSLoyaltyCommon
+from ecommerce.tests import tagged
 
 
 @tagged("post_install", "-at_install")

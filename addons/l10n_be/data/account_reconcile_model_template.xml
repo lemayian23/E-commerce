@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
     <record id="escompte_template" model="account.reconcile.model.template">
         <field name="chart_template_id" ref="l10nbe_chart_template"/>
         <field name="name">Escompte</field>
@@ -46,4 +46,4 @@
         <field name="amount_string">100</field>
         <field name="label">Virements internes</field>
     </record>
-</odoo>
+</ecommerce>

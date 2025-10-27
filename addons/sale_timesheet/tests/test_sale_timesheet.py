@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import date, timedelta
 
-from odoo.fields import Date
-from odoo.tools import float_is_zero
-from odoo.exceptions import UserError
-from odoo.addons.hr_timesheet.tests.test_timesheet import TestCommonTimesheet
-from odoo.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
-from odoo.tests import tagged
+from ecommerce.fields import Date
+from ecommerce.tools import float_is_zero
+from ecommerce.exceptions import UserError
+from ecommerce.addons.hr_timesheet.tests.test_timesheet import TestCommonTimesheet
+from ecommerce.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
+from ecommerce.tests import tagged
 
 
 @tagged('-at_install', 'post_install')

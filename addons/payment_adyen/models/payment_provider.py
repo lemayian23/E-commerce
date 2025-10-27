@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import re
 
 import requests
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment_adyen.const import API_ENDPOINT_VERSIONS
+from ecommerce.addons.payment_adyen.const import API_ENDPOINT_VERSIONS
 
 _logger = logging.getLogger(__name__)
 
@@ -141,4 +141,4 @@ class PaymentProvider(models.Model):
         :return: The unique reference for the partner
         :rtype: str
         """
-        return f'ODOO_PARTNER_{partner_id}'
+        return f'ecommerce_PARTNER_{partner_id}'

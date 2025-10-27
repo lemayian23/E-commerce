@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.tools import cleanup_xml_node
-from odoo.tools.pdf import OdooPdfFileReader, OdooPdfFileWriter
+from ecommerce import models
+from ecommerce.tools import cleanup_xml_node
+from ecommerce.tools.pdf import ecommercePdfFileReader, ecommercePdfFileWriter
 
 from lxml import etree
 import base64
@@ -86,10 +86,10 @@ class IrActionsReport(models.Model):
                     # Read pdf content.
                     pdf_content = pdf_stream.getvalue()
                     reader_buffer = io.BytesIO(pdf_content)
-                    reader = OdooPdfFileReader(reader_buffer, strict=False)
+                    reader = ecommercePdfFileReader(reader_buffer, strict=False)
 
                     # Post-process and embed the additional files.
-                    writer = OdooPdfFileWriter()
+                    writer = ecommercePdfFileWriter()
                     writer.cloneReaderDocumentRoot(reader)
 
                     # Generate and embed Factur-X

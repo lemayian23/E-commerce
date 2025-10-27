@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import core from 'web.core';
 import fieldRegistry from 'web.field_registry';

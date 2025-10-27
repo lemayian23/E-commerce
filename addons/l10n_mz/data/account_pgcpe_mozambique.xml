@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record id="l10n_mz_chart_template" model="account.chart.template">
             <field name="name">General Chart of Accounts = Small and medium-sized enterprises</field>
             <field name="code_digits">7</field>
@@ -15,4 +15,4 @@
             <field name="account_journal_early_pay_discount_loss_account_id" ref="l10n_mz_account_695"/>
             <field name="account_journal_early_pay_discount_gain_account_id" ref="l10n_mz_account_785"/>
         </record>
-</odoo>
+</ecommerce>

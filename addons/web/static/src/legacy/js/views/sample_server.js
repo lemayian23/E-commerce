@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.SampleServer **/
+/** @ecommerce-module alias=web.SampleServer **/
 
     import session from 'web.session';
     import utils from 'web.utils';

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <!-- Exempt taxpayer -->
         <record id="fiscal_position_hu_exempt_tax_F27" model="account.fiscal.position.tax.template">
@@ -109,4 +109,4 @@
         </record>
         <!-- Partner outside the EU [END] -->
     </data>
-</odoo>
+</ecommerce>

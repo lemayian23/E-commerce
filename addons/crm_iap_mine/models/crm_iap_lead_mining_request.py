@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo import api, fields, models, _
-from odoo.addons.iap.tools import iap_tools
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.addons.iap.tools import iap_tools
+from ecommerce.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
-DEFAULT_ENDPOINT = 'https://iap-services.odoo.com'
+DEFAULT_ENDPOINT = 'https://iap-services.ecommerce.com'
 
 MAX_LEAD = 200
 
@@ -265,7 +265,7 @@ class CRMLeadMiningRequest(models.Model):
 
             template_values = data['company_data']
             template_values.update({
-                'flavor_text': _("Opportunity created by Odoo Lead Generation"),
+                'flavor_text': _("Opportunity created by ecommerce Lead Generation"),
                 'people_data': data.get('people_data'),
             })
             messages_to_post[data['company_data']['clearbit_id']] = template_values
@@ -274,7 +274,7 @@ class CRMLeadMiningRequest(models.Model):
             if messages_to_post.get(lead.reveal_id):
                 lead.message_post_with_view('iap_mail.enrich_company', values=messages_to_post[lead.reveal_id], subtype_id=self.env.ref('mail.mt_note').id)
 
-    # Methods responsible for format response data into valid odoo lead data
+    # Methods responsible for format response data into valid ecommerce lead data
     @api.model
     def _lead_vals_from_response(self, data):
         self.ensure_one()

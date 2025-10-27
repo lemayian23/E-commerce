@@ -1,7 +1,7 @@
-/** @odoo-module alias=web.AbstractRendererOwl **/
+/** @ecommerce-module alias=web.AbstractRendererOwl **/
 
 import { LegacyComponent } from "@web/legacy/legacy_component";
-import { onMounted, onPatched } from "@odoo/owl";
+import { onMounted, onPatched } from "@ecommerce/owl";
 
 // Renderers may display sample data when there is no real data to display. In
 // this case the data is displayed with opacity and can't be clicked. Moreover,

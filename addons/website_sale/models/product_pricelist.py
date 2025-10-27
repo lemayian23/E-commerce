@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError, UserError
-from odoo.addons.website.models import ir_http
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.addons.website.models import ir_http
 
 
 class ProductPricelist(models.Model):
@@ -29,7 +29,7 @@ class ProductPricelist(models.Model):
             if vals.get('company_id') and not vals.get('website_id'):
                 # l10n modules install will change the company currency, creating a
                 # pricelist for that currency. Do not use user's company in that
-                # case as module install are done with OdooBot (company 1)
+                # case as module install are done with ecommerceBot (company 1)
                 # YTI FIXME: The fix is not at the correct place
                 # It be set when we actually create the pricelist
                 self = self.with_context(default_company_id=vals['company_id'])

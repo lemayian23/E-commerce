@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 from werkzeug.urls import url_encode
 
-from odoo import api, fields, models
-from odoo.osv import expression
-from odoo.tools import formatLang
+from ecommerce import api, fields, models
+from ecommerce.osv import expression
+from ecommerce.tools import formatLang
 
 STATUS_COLOR = {
     'on_track': 20,  # green / success

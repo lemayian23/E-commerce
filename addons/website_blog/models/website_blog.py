@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 import random
 
-from odoo import api, models, fields, _
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.tools import text_from_html
-from odoo.tools.json import scriptsafe as json_scriptsafe
-from odoo.tools.translate import html_translate
+from ecommerce import api, models, fields, _
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce.addons.website.tools import text_from_html
+from ecommerce.tools.json import scriptsafe as json_scriptsafe
+from ecommerce.tools.translate import html_translate
 
 
 class Blog(models.Model):

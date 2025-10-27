@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import _, api, fields, models, modules, tools
-from odoo.addons.base.models.res_users import is_selection_groups
+from ecommerce import _, api, fields, models, modules, tools
+from ecommerce.addons.base.models.res_users import is_selection_groups
 
 
 class Users(models.Model):
@@ -21,12 +21,12 @@ class Users(models.Model):
 
     notification_type = fields.Selection([
         ('email', 'Handle by Emails'),
-        ('inbox', 'Handle in Odoo')],
+        ('inbox', 'Handle in ecommerce')],
         'Notification', required=True, default='email',
         compute='_compute_notification_type', store=True, readonly=False,
         help="Policy on how to handle Chatter notifications:\n"
              "- Handle by Emails: notifications are sent to your email address\n"
-             "- Handle in Odoo: notifications appear in your Odoo Inbox")
+             "- Handle in ecommerce: notifications appear in your ecommerce Inbox")
     res_users_settings_ids = fields.One2many('res.users.settings', 'user_id')
     # Provide a target for relateds that is not a x2Many field.
     res_users_settings_id = fields.Many2one('res.users.settings', string="Settings", compute='_compute_res_users_settings_id', search='_search_res_users_settings_id')
@@ -34,13 +34,13 @@ class Users(models.Model):
     _sql_constraints = [(
         "notification_type",
         "CHECK (notification_type = 'email' OR NOT share)",
-        "Only internal user can receive notifications in Odoo",
+        "Only internal user can receive notifications in ecommerce",
     )]
 
     @api.depends('share')
     def _compute_notification_type(self):
         for user in self:
-            # Only the internal users can receive notifications in Odoo
+            # Only the internal users can receive notifications in ecommerce
             if user.share or not user.notification_type:
                 user.notification_type = 'email'
 

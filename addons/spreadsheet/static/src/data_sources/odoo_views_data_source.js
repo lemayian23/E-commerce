@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { LoadableDataSource } from "./data_source";
 import { Domain } from "@web/core/domain";
@@ -10,17 +10,17 @@ import { omit } from "@web/core/utils/objects";
  */
 
 /**
- * @typedef {Object} OdooModelMetaData
+ * @typedef {Object} ecommerceModelMetaData
  * @property {string} resModel
  * @property {Array<Object>|undefined} fields
  */
 
-export class OdooViewsDataSource extends LoadableDataSource {
+export class ecommerceViewsDataSource extends LoadableDataSource {
     /**
      * @override
      * @param {Object} services
      * @param {Object} params
-     * @param {OdooModelMetaData} params.metaData
+     * @param {ecommerceModelMetaData} params.metaData
      * @param {Object} params.searchParams
      */
     constructor(services, params) {

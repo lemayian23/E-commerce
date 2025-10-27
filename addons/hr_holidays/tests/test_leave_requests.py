@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, date, timedelta
 import time
@@ -6,13 +6,13 @@ from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 from pytz import timezone, UTC
 
-from odoo import fields
-from odoo.exceptions import AccessError, UserError, ValidationError
-from odoo.tools import mute_logger
-from odoo.tests.common import Form
-from odoo.tests import tagged
+from ecommerce import fields
+from ecommerce.exceptions import AccessError, UserError, ValidationError
+from ecommerce.tools import mute_logger
+from ecommerce.tests.common import Form
+from ecommerce.tests import tagged
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 
 @tagged('leave_requests')
 class TestLeaveRequests(TestHrHolidaysCommon):
@@ -94,7 +94,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                        WHERE id = %s
                        """ % (newdate, _id))
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_overlapping_requests(self):
         """  Employee cannot create a new leave request at the same time, avoid interlapping  """
         self.env['hr.leave'].with_user(self.user_employee_id).create({
@@ -116,13 +116,13 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                 'number_of_days': 1,
             })
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_limited_type_no_days(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         return
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_limited_type_days_left(self):
         """  Employee creates a leave request in a limited category and has enough days left  """
         with freeze_time('2022-01-05'):
@@ -157,7 +157,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
             holiday_status.invalidate_model(['max_leaves'])
             self._check_holidays_status(holiday_status, 2.0, 2.0, 0.0, 0.0)
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_accrual_validity_time_valid(self):
         """  Employee ask leave during a valid validity time """
 
@@ -179,13 +179,13 @@ class TestLeaveRequests(TestHrHolidaysCommon):
             'number_of_days': 1,
         })
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_accrual_validity_time_not_valid(self):
-        # Deprecated as part of https://github.com/odoo/odoo/pull/96545
+        # Deprecated as part of https://github.com/ecommerce/ecommerce/pull/96545
         # TODO: remove in master
         return
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_department_leave(self):
         """ Create a department leave """
         self.employee_hrmanager.write({'department_id': self.hr_dept.id})
@@ -201,7 +201,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         member_ids = self.hr_dept.member_ids.ids
         self.assertEqual(self.env['hr.leave'].search_count([('employee_id', 'in', member_ids)]), len(member_ids), "Leave should be created for members of department")
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_allocation_request(self):
         """ Create an allocation request """
         # employee should be set to current user
@@ -224,7 +224,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                 'date_to': time.strftime('%Y-%m-01'),
             })
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_employee_is_absent(self):
         """ Only the concerned employee should be considered absent """
         user_employee_leave = self.env['hr.leave'].with_user(self.user_employee_id).create({
@@ -246,7 +246,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         self.assertTrue(self.employee_emp.is_absent, "He should be considered absent")
         self.assertFalse(self.employee_hrmanager.is_absent, "He should not be considered absent")
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_timezone_employee_leave_request(self):
         """ Create a leave request for an employee in another timezone """
         self.employee_emp.tz = 'Pacific/Auckland'  # GMT+12
@@ -262,7 +262,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         self.assertEqual(leave.date_from, datetime(2019, 5, 5, 20, 0, 0), "It should have been localized before saving in UTC")
         self.assertEqual(leave.date_to, datetime(2019, 5, 6, 5, 0, 0), "It should have been localized before saving in UTC")
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_timezone_company_leave_request(self):
         """ Create a leave request for a company in another timezone """
         company = self.env['res.company'].create({'name': "Hergé"})
@@ -281,7 +281,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         self.assertEqual(leave.date_from, datetime(2019, 5, 6, 6, 0, 0), "It should have been localized in the Employee timezone")
         self.assertEqual(leave.date_to, datetime(2019, 5, 6, 15, 0, 0), "It should have been localized in the Employee timezone")
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_timezone_company_validated(self):
         """ Create a leave request for a company in another timezone and validate it """
         self.env.user.tz = 'Australia/Sydney' # GMT+12
@@ -316,7 +316,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
             "Timezone should be be adapted on the employee leave"
         )
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_timezone_department_leave_request(self):
         """ Create a leave request for a department in another timezone """
         company = self.env['res.company'].create({'name': "Hergé"})
@@ -478,7 +478,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         leave = self.env['hr.leave'].with_user(self.user_employee_id).new(values)
         self.assertEqual(leave.number_of_days, number_of_days)
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.mail.models.mail_mail')
     def test_leave_defaults_with_timezones(self):
         """ Make sure that leaves start with correct defaults for non-UTC timezones """
         timezones_to_test = ('UTC', 'Pacific/Midway', 'America/Los_Angeles', 'Asia/Taipei', 'Pacific/Kiritimati')  # UTC, UTC -11, UTC -8, UTC +8, UTC +14
@@ -1192,7 +1192,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
         # This reflects the customization done by customers for the reason explained above.
         self.env['ir.model.access'].create([
             # Read access on `mail.activity.type` for portal required for
-            # https://github.com/odoo/odoo/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L734
+            # https://github.com/ecommerce/ecommerce/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L734
             {
                 'name': 'Portal can read mail.activity.type',
                 'model_id': self.env.ref('mail.model_mail_activity_type').id,
@@ -1200,8 +1200,8 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                 'perm_read': True, 'perm_create': False, 'perm_write': False, 'perm_unlink': False,
             },
             # Read access on `mail.activity` for portal required for
-            # https://github.com/odoo/odoo/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L786
-            # https://github.com/odoo/odoo/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L882
+            # https://github.com/ecommerce/ecommerce/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L786
+            # https://github.com/ecommerce/ecommerce/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L882
             {
                 'name': 'Portal can read mail.activity',
                 'model_id': self.env.ref('mail.model_mail_activity').id,
@@ -1209,7 +1209,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                 'perm_read': True, 'perm_create': False, 'perm_write': False, 'perm_unlink': False,
             },
             # Read and create acess on `calendar.event` for portal required for
-            # https://github.com/odoo/odoo/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/hr_holidays/models/hr_leave.py#L894-L898
+            # https://github.com/ecommerce/ecommerce/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/hr_holidays/models/hr_leave.py#L894-L898
             # Write and unlink added to match the customer customization + out of common sense,
             # if you give create to portal for their own events,
             # you give write and unlink so they can manage their own events
@@ -1220,7 +1220,7 @@ class TestLeaveRequests(TestHrHolidaysCommon):
                 'perm_read': True, 'perm_create': True, 'perm_write': True, 'perm_unlink': True,
             },
             # Read and create acess on `calendar.event` for portal required for
-            # https://github.com/odoo/odoo/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L760-L768
+            # https://github.com/ecommerce/ecommerce/blob/cc0060e889603eb2e47fa44a8a22a70d7d784185/addons/calendar/models/calendar_event.py#L760-L768
             # Write and unlink added to match the customer customization + out of common sense,
             # if you give create to portal for their own events attendees,
             # you give write and unlink so they can manage their own attendees

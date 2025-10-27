@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class SkillsTestUI(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class SkillsTestUI(ecommerce.tests.HttpCase):
     def test_ui(self):
         levels = self.env['hr.skill.level'].create([{
             'name': f'Level {x}',

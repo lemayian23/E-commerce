@@ -1,4 +1,4 @@
-odoo.define('website_event_booth_exhibitor.booth_sponsor_details', function (require) {
+ecommerce.define('website_event_booth_exhibitor.booth_sponsor_details', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

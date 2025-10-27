@@ -1,6 +1,6 @@
 from .common import AccountTestInvoicingCommon
-from odoo.tests.common import Form, tagged, new_test_user
-from odoo import Command
+from ecommerce.tests.common import Form, tagged, new_test_user
+from ecommerce import Command
 
 
 @tagged("post_install", "-at_install")

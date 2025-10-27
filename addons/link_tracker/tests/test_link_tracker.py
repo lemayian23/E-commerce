@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.link_tracker.tests.common import MockLinkTracker
-from odoo.exceptions import UserError
-from odoo.tests import common, tagged
+from ecommerce.addons.link_tracker.tests.common import MockLinkTracker
+from ecommerce.exceptions import UserError
+from ecommerce.tests import common, tagged
 
 
 @tagged('link_tracker')
@@ -11,7 +11,7 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
 
     def setUp(self):
         super(TestLinkTracker, self).setUp()
-        self._web_base_url = 'https://test.odoo.com'
+        self._web_base_url = 'https://test.ecommerce.com'
         self.env['ir.config_parameter'].sudo().set_param('web.base.url', self._web_base_url)
 
     def test_absolute_url(self):
@@ -21,54 +21,54 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
         """
         # Creating a link tracker with url having the scheme
         link_tracker = self.env['link.tracker'].create({
-            'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'url': 'https://ecommerce.com',
+            'title': 'ecommerce',
         })
         # Validate the absolute url
         self.assertEqual(link_tracker.absolute_url, link_tracker.url)
 
         # Make the scheme as an empty string by removing the http:// from the url
-        link_tracker.write({'url': "odoo"})
+        link_tracker.write({'url': "ecommerce"})
         # Validate the absolute url is the combination of system parameter and link tracker's url
-        self.assertEqual(link_tracker.absolute_url, f'{self._web_base_url}/odoo')
+        self.assertEqual(link_tracker.absolute_url, f'{self._web_base_url}/ecommerce')
 
     def test_create(self):
         link_trackers = self.env['link.tracker'].create([
             {
-                'url': 'odoo.com',
-                'title': 'Odoo',
+                'url': 'ecommerce.com',
+                'title': 'ecommerce',
             }, {
                 'url': 'example.com',
-                'title': 'Odoo',
+                'title': 'ecommerce',
             }, {
                 'url': 'http://test.example.com',
-                'title': 'Odoo',
+                'title': 'ecommerce',
             },
         ])
 
         self.assertEqual(
             link_trackers.mapped('url'),
-            ['http://odoo.com', 'http://example.com', 'http://test.example.com'],
+            ['http://ecommerce.com', 'http://example.com', 'http://test.example.com'],
         )
 
         self.assertEqual(len(set(link_trackers.mapped('code'))), 3)
 
     def test_search_or_create(self):
         link_tracker_1 = self.env['link.tracker'].create({
-            'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'url': 'https://ecommerce.com',
+            'title': 'ecommerce',
         })
 
         link_tracker_2 = self.env['link.tracker'].search_or_create({
-            'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'url': 'https://ecommerce.com',
+            'title': 'ecommerce',
         })
 
         self.assertEqual(link_tracker_1, link_tracker_2)
 
         link_tracker_3 = self.env['link.tracker'].search_or_create({
-            'url': 'https://odoo.be',
-            'title': 'Odoo',
+            'url': 'https://ecommerce.be',
+            'title': 'ecommerce',
         })
 
         self.assertNotEqual(link_tracker_1, link_tracker_3)
@@ -77,32 +77,32 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
         campaign_id = self.env['utm.campaign'].search([], limit=1)
 
         self.env['link.tracker'].create({
-            'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'url': 'https://ecommerce.com',
+            'title': 'ecommerce',
         })
 
         link_1 = self.env['link.tracker'].create({
             'url': '2nd url',
-            'title': 'Odoo',
+            'title': 'ecommerce',
             'campaign_id': campaign_id.id,
         })
 
         with self.assertRaises(UserError):
             self.env['link.tracker'].create({
-                'url': 'https://odoo.com',
-                'title': 'Odoo',
+                'url': 'https://ecommerce.com',
+                'title': 'ecommerce',
             })
 
         with self.assertRaises(UserError):
             self.env['link.tracker'].create({
                 'url': '2nd url',
-                'title': 'Odoo',
+                'title': 'ecommerce',
                 'campaign_id': campaign_id.id,
             })
 
         link_2 = self.env['link.tracker'].create({
                 'url': '2nd url',
-                'title': 'Odoo',
+                'title': 'ecommerce',
                 'campaign_id': campaign_id.id,
                 'medium_id': self.env['utm.medium'].search([], limit=1).id
             })

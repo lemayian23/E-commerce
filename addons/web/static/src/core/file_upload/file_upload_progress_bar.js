@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "../utils/hooks";
 import { sprintf } from "../utils/strings";
 import { ConfirmationDialog } from "../confirmation_dialog/confirmation_dialog";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class FileUploadProgressBar extends Component {
     setup() {

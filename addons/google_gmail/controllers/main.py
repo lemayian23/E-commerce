@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 import logging
@@ -7,10 +7,10 @@ import logging
 from werkzeug.exceptions import Forbidden
 from werkzeug.urls import url_encode
 
-from odoo import _, http
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools import consteq
+from ecommerce import _, http
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
+from ecommerce.tools import consteq
 
 _logger = logging.getLogger(__name__)
 

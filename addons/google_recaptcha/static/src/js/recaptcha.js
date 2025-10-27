@@ -1,4 +1,4 @@
-odoo.define('google_recaptcha.ReCaptchaV3', function (require) {
+ecommerce.define('google_recaptcha.ReCaptchaV3', function (require) {
 "use strict";
 
 const Class = require('web.Class');

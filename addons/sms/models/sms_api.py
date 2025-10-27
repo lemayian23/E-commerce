@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, exceptions, models
-from odoo.addons.iap.tools import iap_tools
+from ecommerce import _, api, exceptions, models
+from ecommerce.addons.iap.tools import iap_tools
 
-DEFAULT_ENDPOINT = 'https://iap-sms.odoo.com'
+DEFAULT_ENDPOINT = 'https://iap-sms.ecommerce.com'
 
 
 class SmsApi(models.AbstractModel):

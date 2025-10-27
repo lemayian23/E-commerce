@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import _, models, Command
-from odoo.addons.base.models.res_bank import sanitize_account_number
-from odoo.tools import float_repr
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools.float_utils import float_round
-from odoo.tools.misc import clean_context, formatLang
+from ecommerce import _, models, Command
+from ecommerce.addons.base.models.res_bank import sanitize_account_number
+from ecommerce.tools import float_repr
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools.float_utils import float_round
+from ecommerce.tools.misc import clean_context, formatLang
 
-from odoo.tools.zeep import Client
+from ecommerce.tools.zeep import Client
 
 # -------------------------------------------------------------------------
 # UNIT OF MEASURE
@@ -287,7 +287,7 @@ class AccountEdiCommon(models.AbstractModel):
 
         # For UBL, we should override the computed tax amount if it is less than 0.05 different of the one in the xml.
         # In order to support use case where the tax total is adapted for rounding purpose.
-        # This has to be done after the first import in order to let Odoo compute the taxes before overriding if needed.
+        # This has to be done after the first import in order to let ecommerce compute the taxes before overriding if needed.
         with invoice.with_context(account_predictive_bills_disable_prediction=True)._get_edi_creation() as invoice:
             self._correct_invoice_tax_amount(tree, invoice)
         if invoice:
@@ -505,7 +505,7 @@ class AccountEdiCommon(models.AbstractModel):
 
     def _import_fill_invoice_line_values(self, tree, xpath_dict, invoice_line, qty_factor):
         """
-        Read the xml invoice, extract the invoice line values, compute the odoo values
+        Read the xml invoice, extract the invoice line values, compute the ecommerce values
         to fill an invoice line form: quantity, price_unit, discount, product_uom_id.
 
         The way of computing invoice line is quite complicated:
@@ -526,7 +526,7 @@ class AccountEdiCommon(models.AbstractModel):
                 "item price discount" which is different from the usual allow_charge_amount
                 gross_unit_price (BT-148) - rebate (BT-147) = net_unit_price (BT-146)
 
-        In Odoo, we obtain:
+        In ecommerce, we obtain:
         (1) = price_unit  =  gross_price_unit / basis_qty  =  (net_price_unit + rebate) / basis_qty
         (2) = quantity  =  billed_qty
         (3) = discount (converted into a percentage)  =  100 * (1 - price_subtotal / (billed_qty * price_unit))
@@ -541,7 +541,7 @@ class AccountEdiCommon(models.AbstractModel):
         UBL ROUNDING: "the result of Item line net
             amount = ((Item net price (BT-146)÷Item price base quantity (BT-149))×(Invoiced Quantity (BT-129))
         must be rounded to two decimals, and the allowance/charge amounts are also rounded separately."
-        It is not possible to do it in Odoo.
+        It is not possible to do it in ecommerce.
 
         :params tree
         :params xpath_dict dict: {
@@ -602,7 +602,7 @@ class AccountEdiCommon(models.AbstractModel):
             uom_xml = quantity_node.attrib.get('unitCode')
             if uom_xml:
                 uom_infered_xmlid = [
-                    odoo_xmlid for odoo_xmlid, uom_unece in UOM_TO_UNECE_CODE.items() if uom_unece == uom_xml
+                    ecommerce_xmlid for ecommerce_xmlid, uom_unece in UOM_TO_UNECE_CODE.items() if uom_unece == uom_xml
                 ]
                 if uom_infered_xmlid:
                     product_uom_id = self.env.ref(uom_infered_xmlid[0], raise_if_not_found=False)
@@ -622,7 +622,7 @@ class AccountEdiCommon(models.AbstractModel):
             reason = allow_charge_el.find(xpath_dict['allowance_charge_reason'])
             if amount is not None:
                 if reason_code is not None and reason_code.text == 'AEO' and reason is not None:
-                    # Handle Fixed Taxes: when exporting from Odoo, we use the allowance_charge node
+                    # Handle Fixed Taxes: when exporting from ecommerce, we use the allowance_charge node
                     fixed_taxes_list.append({
                         'tax_name': reason.text,
                         'tax_amount': float(amount.text) / billed_qty,

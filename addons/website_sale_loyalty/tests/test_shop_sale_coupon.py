@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 
-from odoo import fields
-from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.tests import HttpCase, TransactionCase, tagged
+from ecommerce import fields
+from ecommerce.exceptions import ValidationError
+from ecommerce.fields import Command
+from ecommerce.tests import HttpCase, TransactionCase, tagged
 
-from odoo.addons.sale.tests.test_sale_product_attribute_value_config import (
+from ecommerce.addons.sale.tests.test_sale_product_attribute_value_config import (
     TestSaleProductAttributeValueCommon,
 )
 

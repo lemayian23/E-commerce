@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import timedelta
 from freezegun import freeze_time
 
-from odoo import fields
-from odoo.fields import Command
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged, Form
-from odoo.tools import float_compare
+from ecommerce import fields
+from ecommerce.fields import Command
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import tagged, Form
+from ecommerce.tools import float_compare
 
-from odoo.addons.sale.tests.common import SaleCommon
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.sale.tests.common import SaleCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 @tagged('post_install', '-at_install')

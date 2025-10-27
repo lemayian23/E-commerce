@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { busService } from '@bus/services/bus_service';
 import { imStatusService } from '@bus/im_status_service';
@@ -89,7 +89,7 @@ function setupMessagingServiceRegistries({
         messaging: messagingService,
         messagingValues,
         presence: makeFakePresenceService({
-            isOdooFocused: () => true,
+            isecommerceFocused: () => true,
         }),
         systrayService,
         multi_tab: multiTabService,

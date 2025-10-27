@@ -1,4 +1,4 @@
-odoo.define('web.basic_view_tests', function (require) {
+ecommerce.define('web.basic_view_tests', function (require) {
     "use strict";
 
     const BasicView = require('web.BasicView');

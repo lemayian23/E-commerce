@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { kanbanView } from "@web/views/kanban/kanban_view";
 import { KanbanDynamicGroupList, KanbanModel } from "@web/views/kanban/kanban_model";

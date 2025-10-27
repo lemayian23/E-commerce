@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError, RedirectWarning, ValidationError
-from odoo.tools.misc import formatLang
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models, fields, api, _
+from ecommerce.exceptions import UserError, RedirectWarning, ValidationError
+from ecommerce.tools.misc import formatLang
 from dateutil.relativedelta import relativedelta
 import logging
 _logger = logging.getLogger(__name__)

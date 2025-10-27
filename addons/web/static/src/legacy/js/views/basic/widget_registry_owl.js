@@ -1,4 +1,4 @@
-odoo.define("web.widgetRegistry", function (require) {
+ecommerce.define("web.widgetRegistry", function (require) {
     "use strict";
 
     // This registry is supposed to contain all custom components that will be

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { evaluate } from "./py_interpreter";
 import { parse } from "./py_parser";

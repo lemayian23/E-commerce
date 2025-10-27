@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 #----------------------------------------------------------
 # ir_http modular http routing
 #----------------------------------------------------------
@@ -23,15 +23,15 @@ try:
 except ImportError:
     from werkzeug.routing.converters import NumberConverter  # moved in werkzeug 2.2.2
 
-import odoo
-from odoo import api, http, models, tools, SUPERUSER_ID
-from odoo.exceptions import AccessDenied, AccessError, MissingError
-from odoo.http import request, Response, ROUTING_KEYS, Stream
-from odoo.modules.registry import Registry
-from odoo.service import security
-from odoo.tools import get_lang, submap
-from odoo.tools.translate import code_translations
-from odoo.modules.module import get_resource_path, get_module_path
+import ecommerce
+from ecommerce import api, http, models, tools, SUPERUSER_ID
+from ecommerce.exceptions import AccessDenied, AccessError, MissingError
+from ecommerce.http import request, Response, ROUTING_KEYS, Stream
+from ecommerce.modules.registry import Registry
+from ecommerce.service import security
+from ecommerce.tools import get_lang, submap
+from ecommerce.tools.translate import code_translations
+from ecommerce.modules.module import get_resource_path, get_module_path
 
 _logger = logging.getLogger(__name__)
 
@@ -189,7 +189,7 @@ class IrHttp(models.AbstractModel):
         if key not in cls._routing_map:
             _logger.info("Generating routing map for key %s" % str(key))
             registry = Registry(threading.current_thread().dbname)
-            installed = registry._init_modules.union(odoo.conf.server_wide_modules)
+            installed = registry._init_modules.union(ecommerce.conf.server_wide_modules)
             mods = sorted(installed)
             # Note : when routing map is generated, we put it on the class `cls`
             # to make it available for all instance. Since `env` create an new instance
@@ -214,7 +214,7 @@ class IrHttp(models.AbstractModel):
 
     @api.autovacuum
     def _gc_sessions(self):
-        if os.getenv("ODOO_SKIP_GC_SESSIONS"):
+        if os.getenv("ecommerce_SKIP_GC_SESSIONS"):
             return
         ICP = self.env["ir.config_parameter"]
         max_lifetime = int(ICP.get_param('sessions.max_inactivity_seconds', http.SESSION_LIFETIME))

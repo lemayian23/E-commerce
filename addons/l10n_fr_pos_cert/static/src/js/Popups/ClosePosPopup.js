@@ -1,4 +1,4 @@
-odoo.define('l10n_fr_pos_cert.ClosePosPopup', function (require) {
+ecommerce.define('l10n_fr_pos_cert.ClosePosPopup', function (require) {
     'use strict';
 
     const ClosePosPopup = require('point_of_sale.ClosePosPopup');

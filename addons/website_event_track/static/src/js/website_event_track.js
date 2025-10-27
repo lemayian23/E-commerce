@@ -1,4 +1,4 @@
-odoo.define('website_event_track.website_event_track', function (require) {
+ecommerce.define('website_event_track.website_event_track', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

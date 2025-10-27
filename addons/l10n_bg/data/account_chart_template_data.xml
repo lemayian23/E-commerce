@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="l10n_bg_chart_template" model="account.chart.template">
         <field name="name">Bulgaria - National Chart of Accounts</field>
         <field name="bank_account_code_prefix">503</field>
@@ -10,4 +10,4 @@
         <field name="country_id" ref="base.bg"/>
         <field name="spoken_languages" eval="'bg_BG'"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import math
@@ -7,8 +7,8 @@ from datetime import datetime, timedelta
 from itertools import product as cartesian_product
 from collections import defaultdict
 
-from odoo import models, api
-from odoo.tools import populate, groupby
+from ecommerce import models, api
+from ecommerce.tools import populate, groupby
 
 _logger = logging.getLogger(__name__)
 

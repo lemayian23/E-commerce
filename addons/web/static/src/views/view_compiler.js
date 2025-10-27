@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     append,
@@ -16,7 +16,7 @@ import { toStringExpression, BUTTON_CLICK_PARAMS } from "./utils";
  * @property {(el: Element, params: Record<string, any>) => Element} fn
  */
 
-import { xml } from "@odoo/owl";
+import { xml } from "@ecommerce/owl";
 
 const BUTTON_STRING_PROPS = ["string", "size", "title", "icon", "id", "disabled"];
 const INTERP_REGEXP = /(\{\{|#\{)(.*?)(\}{1,2})/g;

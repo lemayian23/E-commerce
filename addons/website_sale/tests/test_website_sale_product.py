@@ -1,10 +1,10 @@
 # coding: utf-8
 import itertools
 
-from odoo.tests import tagged
-from odoo.addons.website.tools import MockRequest
-from odoo.addons.sale.tests.test_sale_product_attribute_value_config import TestSaleProductAttributeValueCommon
-from odoo.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce.tests import tagged
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.addons.sale.tests.test_sale_product_attribute_value_config import TestSaleProductAttributeValueCommon
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
 
 
 @tagged('post_install', '-at_install')

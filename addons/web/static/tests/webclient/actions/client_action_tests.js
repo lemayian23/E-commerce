@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -15,7 +15,7 @@ import {
 } from "../../helpers/utils";
 import { createWebClient, doAction, getActionManagerServerData } from "./../helpers";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 let serverData;
 let target;
@@ -259,12 +259,12 @@ QUnit.module("ActionManager", (hooks) => {
         registerCleanup(() => delete core.action_registry.map.HelloWorldTest);
         const webClient = await createWebClient({ serverData });
         let currentTitle = webClient.env.services.title.current;
-        assert.strictEqual(currentTitle, '{"zopenerp":"Odoo"}');
+        assert.strictEqual(currentTitle, '{"zopenerp":"ecommerce"}');
         let currentHash = webClient.env.services.router.current.hash;
         assert.deepEqual(currentHash, {});
         await doAction(webClient, "HelloWorldTest");
         currentTitle = webClient.env.services.title.current;
-        assert.strictEqual(currentTitle, '{"zopenerp":"Odoo","action":"a title"}');
+        assert.strictEqual(currentTitle, '{"zopenerp":"ecommerce","action":"a title"}');
         currentHash = webClient.env.services.router.current.hash;
         assert.deepEqual(currentHash, {
             action: "HelloWorldTest",

@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.google_calendar.utils.google_calendar import GoogleCalendarService
+from ecommerce import http
+from ecommerce.http import request
+from ecommerce.addons.google_calendar.utils.google_calendar import GoogleCalendarService
 
 
 class GoogleCalendarController(http.Controller):
 
     @http.route('/google_calendar/sync_data', type='json', auth='user')
     def sync_data(self, model, **kw):
-        """ This route/function is called when we want to synchronize Odoo
+        """ This route/function is called when we want to synchronize ecommerce
             calendar with Google Calendar.
             Function return a dictionary with the status :  need_config_from_admin, need_auth,
             need_refresh, sync_stopped, success if not calendar_event
-            The dictionary may contains an url, to allow Odoo Client to redirect user on
+            The dictionary may contains an url, to allow ecommerce Client to redirect user on
             this URL for authorization for example
         """
         if model == 'calendar.event':
@@ -34,7 +34,7 @@ class GoogleCalendarController(http.Controller):
                     "action": action_id
                 }
 
-            # Checking that user have already accepted Odoo to access his calendar !
+            # Checking that user have already accepted ecommerce to access his calendar !
             if not GoogleCal.is_authorized(request.env.user):
                 url = GoogleCal._google_authentication_url(from_url=kw.get('fromurl'))
                 return {

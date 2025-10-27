@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export const standardWidgetProps = {
     readonly: { type: Boolean, optional: true },

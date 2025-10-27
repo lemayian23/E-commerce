@@ -1,5 +1,5 @@
 /* global Accept */
-odoo.define('payment_authorize.payment_form', require => {
+ecommerce.define('payment_authorize.payment_form', require => {
     'use strict';
 
     const core = require('web.core');

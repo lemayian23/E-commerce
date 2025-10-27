@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import CCThrottleFunctionObject from '@im_livechat/legacy/models/cc_throttle_function_object';
 

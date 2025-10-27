@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import timedelta
@@ -13,12 +13,12 @@ import logging
 
 from ..tools.pos_order_data import PoSOrderData
 
-from odoo import api, fields, models, _, Command
-from odoo.exceptions import AccessError, UserError, ValidationError
-from odoo.osv.expression import AND, OR
-from odoo.service.common import exp_version
-from odoo.tools import float_is_zero, float_compare
-from odoo.tools.misc import str2bool
+from ecommerce import api, fields, models, _, Command
+from ecommerce.exceptions import AccessError, UserError, ValidationError
+from ecommerce.osv.expression import AND, OR
+from ecommerce.service.common import exp_version
+from ecommerce.tools import float_is_zero, float_compare
+from ecommerce.tools.misc import str2bool
 
 _logger = logging.getLogger(__name__)
 
@@ -2151,7 +2151,7 @@ class PosSession(models.Model):
             scheduled_activity = self.activity_schedule(
                 act_type_xmlid='mail.mail_activity_data_warning',
                 summary=_("PoS order %s can not be processed", order_ref),
-                note=_("The Point of Sale order with the following reference %s was received by the Odoo server, "
+                note=_("The Point of Sale order with the following reference %s was received by the ecommerce server, "
                        "but the order processing phase failed.<br/>"
                        "The datas received from the point of sale has been saved in the attachments.<br/>"
                        "Please contact your support service to assist you on restoring it",

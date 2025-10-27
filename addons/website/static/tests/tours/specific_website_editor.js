@@ -1,4 +1,4 @@
-odoo.define('website.tour.specific_website_editor', function (require) {
+ecommerce.define('website.tour.specific_website_editor', function (require) {
 'use strict';
 
 const tour = require('web_tour.tour');

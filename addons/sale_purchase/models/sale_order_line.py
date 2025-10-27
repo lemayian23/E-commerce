@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import float_compare
-from odoo.tools.misc import get_lang
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.tools import float_compare
+from ecommerce.tools.misc import get_lang
 
 
 class SaleOrderLine(models.Model):

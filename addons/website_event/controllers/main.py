@@ -13,14 +13,14 @@ from dateutil.relativedelta import relativedelta
 from werkzeug.datastructures import OrderedMultiDict
 from werkzeug.exceptions import NotFound
 
-from odoo import fields, http, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools.misc import get_lang
-from odoo.tools import lazy
-from odoo.exceptions import UserError
+from ecommerce import fields, http, _
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.addons.website.controllers.main import QueryURL
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.tools.misc import get_lang
+from ecommerce.tools import lazy
+from ecommerce.exceptions import UserError
 
 class WebsiteEventController(http.Controller):
 

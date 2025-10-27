@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pytz
@@ -8,15 +8,15 @@ from collections import OrderedDict, defaultdict
 from datetime import date, datetime, timedelta
 from psycopg2 import sql
 
-from odoo import api, fields, models, tools, SUPERUSER_ID
-from odoo.addons.iap.tools import iap_tools
-from odoo.addons.mail.tools import mail_validation
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.exceptions import UserError, AccessError
-from odoo.osv import expression
-from odoo.tools.translate import _
-from odoo.tools import date_utils, email_split, is_html_empty, groupby
-from odoo.tools.misc import get_lang
+from ecommerce import api, fields, models, tools, SUPERUSER_ID
+from ecommerce.addons.iap.tools import iap_tools
+from ecommerce.addons.mail.tools import mail_validation
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.exceptions import UserError, AccessError
+from ecommerce.osv import expression
+from ecommerce.tools.translate import _
+from ecommerce.tools import date_utils, email_split, is_html_empty, groupby
+from ecommerce.tools.misc import get_lang
 
 from . import crm_stage
 
@@ -82,7 +82,7 @@ PARTNER_ADDRESS_FIELDS_TO_SYNC = [
 
 # Those values have been determined based on benchmark to minimise
 # computation time, number of transaction and transaction time.
-PLS_COMPUTE_BATCH_STEP = 50000  # odoo.models.PREFETCH_MAX = 1000 but larger cluster can speed up global computation
+PLS_COMPUTE_BATCH_STEP = 50000  # ecommerce.models.PREFETCH_MAX = 1000 but larger cluster can speed up global computation
 PLS_UPDATE_BATCH_STEP = 5000
 
 

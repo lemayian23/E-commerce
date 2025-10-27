@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useModels } from '@mail/component_hooks/use_models';
 // ensure components are registered beforehand.

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from 'web.core';
 import { Markup } from 'web.utils';
@@ -25,7 +25,7 @@ tour.register('survey_tour', {
 }, {
     trigger: '.o_survey_simple_choice button[type=submit]',
     extra_trigger: '.js_question-wrapper span:contains("How frequently")',
-    content: _t("Whenever you pick an answer, Odoo saves it for you."),
+    content: _t("Whenever you pick an answer, ecommerce saves it for you."),
     position: 'bottom', 
 }, {
     trigger: '.o_survey_numerical_box button[type=submit]',

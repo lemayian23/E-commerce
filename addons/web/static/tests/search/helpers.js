@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import {
@@ -22,7 +22,7 @@ import { actionService } from "@web/webclient/actions/action_service";
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { MainComponentsContainer } from "@web/core/main_components_container";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const serviceRegistry = registry.category("services");
 const favoriteMenuRegistry = registry.category("favoriteMenu");
 

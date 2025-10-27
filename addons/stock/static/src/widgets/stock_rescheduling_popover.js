@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { useService } from "@web/core/utils/hooks";
 import { registry } from "@web/core/registry";
 import { PopoverComponent, PopoverWidgetField } from '@stock/widgets/popover_widget';

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from babel.dates import format_datetime
 
-from odoo import _
-from odoo.http import request
-from odoo.addons.website_event.controllers import main
+from ecommerce import _
+from ecommerce.http import request
+from ecommerce.addons.website_event.controllers import main
 
 
 class WebsiteEventController(main.WebsiteEventController):

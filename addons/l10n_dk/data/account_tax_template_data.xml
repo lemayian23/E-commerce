@@ -1,5 +1,5 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<?xml version="1.0" encoding="utf-8"?>
+<ecommerce>
     <!-- Salgsmoms (VAT) -->
     <!-- DK salgsmoms (taxes to set on Sales in DK) -->
     <record id="tax110" model="account.tax.template">
@@ -120,15 +120,15 @@
             (0,0, {'repartition_type': 'tax'}),
         ]"/>
     </record>
-    <!-- KÃ¸bsmoms (VAT on purchase) -->
-    <!-- DK kÃ¸bsmoms (taxes to set on purchase inside DK) -->
+    <!-- Købsmoms (VAT on purchase) -->
+    <!-- DK købsmoms (taxes to set on purchase inside DK) -->
     <!-- 2 different taxes for merchandises and services isn't required for local taxes but is required -->
     <!-- for EU related taxes and with fiscal position and we can't map one tax to 2 other taxes because it's  -->
     <!-- a one on one relation. Thus, we set 2 taxes locally. -->
     <record id="tax400" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">400</field>
-        <field name="name">KÃ¸bsmoms 25%, varer</field>
+        <field name="name">Købsmoms 25%, varer</field>
         <field name="description">25%</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -153,7 +153,7 @@
     <record id="tax410" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">410</field>
-        <field name="name">KÃ¸bsmoms 25% indeholdt, varer</field>
+        <field name="name">Købsmoms 25% indeholdt, varer</field>
         <field name="description">25% indeholdt</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -179,7 +179,7 @@
     <record id="tax420" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">420</field>
-        <field name="name">KÃ¸bsmoms 25%, ydelser</field>
+        <field name="name">Købsmoms 25%, ydelser</field>
         <field name="description">25%</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -204,7 +204,7 @@
     <record id="tax425" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">420</field>
-        <field name="name">KÃ¸bsmoms 25% indeholdt, ydelser</field>
+        <field name="name">Købsmoms 25% indeholdt, ydelser</field>
         <field name="description">25%</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -230,7 +230,7 @@
     <record id="tax430" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">430</field>
-        <field name="name">KÃ¸b omvendt betalingspligt</field>
+        <field name="name">Køb omvendt betalingspligt</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
         <field name="type_tax_use">purchase</field>
@@ -266,7 +266,7 @@
     <record id="tax450" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">450</field>
-        <field name="name">Restaurationsmoms 6,25%, kÃ¸bsmoms</field>
+        <field name="name">Restaurationsmoms 6,25%, købsmoms</field>
         <field name="description">6,25%</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -301,7 +301,7 @@
     <record id="tax460" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">450</field>
-        <field name="name">Restaurationsmoms indeholdt 6,25%, kÃ¸bsmoms</field>
+        <field name="name">Restaurationsmoms indeholdt 6,25%, købsmoms</field>
         <field name="description">6,25%</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
@@ -334,11 +334,11 @@
             }),
         ]"/>
     </record>
-    <!-- EU kÃ¸bsmoms (taxes to set on purchase in EU outside DK) -->
+    <!-- EU købsmoms (taxes to set on purchase in EU outside DK) -->
     <record id="tax510" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">510</field>
-        <field name="name">EU VarekÃ¸b</field>
+        <field name="name">EU Varekøb</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
         <field name="type_tax_use">purchase</field>
@@ -380,7 +380,7 @@
     <record id="tax520" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">520</field>
-        <field name="name">EU YdelseskÃ¸b</field>
+        <field name="name">EU Ydelseskøb</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
         <field name="type_tax_use">purchase</field>
@@ -419,11 +419,11 @@
             }),
         ]"/>
     </record>
-    <!-- 3. Lande kÃ¸bsmoms (taxes to set on purchase outside of EU) -->
+    <!-- 3. Lande købsmoms (taxes to set on purchase outside of EU) -->
     <record id="tax610" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">610</field>
-        <field name="name">3. Land VarekÃ¸b</field>
+        <field name="name">3. Land Varekøb</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
         <field name="type_tax_use">purchase</field>
@@ -459,7 +459,7 @@
     <record id="tax620" model="account.tax.template">
         <field name="chart_template_id" ref="dk_chart_template"/>
         <field name="sequence">620</field>
-        <field name="name">3. Land YdelseskÃ¸b</field>
+        <field name="name">3. Land Ydelseskøb</field>
         <field name="amount">25</field>
         <field name="amount_type">percent</field>
         <field name="type_tax_use">purchase</field>
@@ -694,4 +694,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

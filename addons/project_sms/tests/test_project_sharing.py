@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.addons.project.tests.test_project_sharing import TestProjectSharingCommon
-from odoo.addons.sms.tests.common import SMSCommon
-from odoo.tests import tagged
+from ecommerce import Command
+from ecommerce.addons.project.tests.test_project_sharing import TestProjectSharingCommon
+from ecommerce.addons.sms.tests.common import SMSCommon
+from ecommerce.tests import tagged
 
 class TestProjectSharingWithSms(TestProjectSharingCommon, SMSCommon):
     @classmethod

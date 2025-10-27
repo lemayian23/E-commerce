@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // ensure components are registered beforehand.
 import '@mail/components/activity_menu_view/activity_menu_view';

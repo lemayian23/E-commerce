@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
 
     <menuitem action="payment.action_payment_provider"
         id="payment_provider_menu"
@@ -21,4 +21,4 @@
         groups="base.group_no_one"
         sequence="25"/>
 
-</odoo>
+</ecommerce>

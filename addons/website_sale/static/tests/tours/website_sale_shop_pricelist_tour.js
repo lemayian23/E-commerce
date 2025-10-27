@@ -1,4 +1,4 @@
-odoo.define('website_sale_tour.website_sale_shop_pricelist_tour', function (require) {
+ecommerce.define('website_sale_tour.website_sale_shop_pricelist_tour', function (require) {
     'use strict';
 
     var tour = require("web_tour.tour");

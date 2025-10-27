@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import contextlib
 import re
 import werkzeug.urls
@@ -8,9 +8,9 @@ from unittest.mock import Mock, MagicMock, patch
 from werkzeug.exceptions import NotFound
 from werkzeug.test import EnvironBuilder
 
-import odoo
-from odoo.tests.common import HttpCase, HOST
-from odoo.tools.misc import hmac, DotDict, frozendict
+import ecommerce
+from ecommerce.tests.common import HttpCase, HOST
+from ecommerce.tools.misc import hmac, DotDict, frozendict
 
 
 @contextlib.contextmanager
@@ -29,7 +29,7 @@ def MockRequest(
         httprequest=Mock(
             host='localhost',
             path=path,
-            app=odoo.http.root,
+            app=ecommerce.http.root,
             environ=dict(
                 EnvironBuilder(
                     path=path,
@@ -45,11 +45,11 @@ def MockRequest(
             args=[],
         ),
         type='http',
-        future_response=odoo.http.FutureResponse(),
+        future_response=ecommerce.http.FutureResponse(),
         params={},
         redirect=env['ir.http']._redirect,
         session=DotDict(
-            odoo.http.get_default_session(),
+            ecommerce.http.get_default_session(),
             geoip={'country_code': country_code},
             sale_order_id=sale_order_id,
             website_sale_current_pl=website_sale_current_pl,
@@ -74,7 +74,7 @@ def MockRequest(
     # 'routing' attribute (routing=True) or to raise a NotFound
     # exception (routing=False).
     #
-    #   router = odoo.http.root.get_db_router()
+    #   router = ecommerce.http.root.get_db_router()
     #   rule, args = router.bind(...).match(path)
     #   # arg routing is True => rule.endpoint.routing == {...}
     #   # arg routing is False => NotFound exception
@@ -96,9 +96,9 @@ def MockRequest(
     request.update_context = update_context
 
     with contextlib.ExitStack() as s:
-        odoo.http._request_stack.push(request)
-        s.callback(odoo.http._request_stack.pop)
-        s.enter_context(patch('odoo.http.root.get_db_router', router))
+        ecommerce.http._request_stack.push(request)
+        s.callback(ecommerce.http._request_stack.pop)
+        s.enter_context(patch('ecommerce.http.root.get_db_router', router))
 
         yield request
 

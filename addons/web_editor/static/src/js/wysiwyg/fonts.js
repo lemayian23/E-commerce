@@ -1,4 +1,4 @@
-odoo.define('wysiwyg.fonts', function (require) {
+ecommerce.define('wysiwyg.fonts', function (require) {
 'use strict';
 
 return {

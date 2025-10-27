@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields, tests
-from odoo.tests.common import Form
+from ecommerce import fields, tests
+from ecommerce.tests.common import Form
 
 
 class TestReportStockQuantity(tests.TransactionCase):

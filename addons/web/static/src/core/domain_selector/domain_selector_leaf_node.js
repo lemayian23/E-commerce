@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useModelField } from "@web/core/model_field_selector/model_field_hook";
 import { ModelFieldSelector } from "@web/core/model_field_selector/model_field_selector";
@@ -6,7 +6,7 @@ import { registry } from "@web/core/registry";
 import { DomainSelectorControlPanel } from "./domain_selector_control_panel";
 import { DomainSelectorDefaultField } from "./fields/domain_selector_default_field";
 
-import { Component, onWillStart, onWillUpdateProps, useRef } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, useRef } from "@ecommerce/owl";
 
 export class DomainSelectorLeafNode extends Component {
     setup() {

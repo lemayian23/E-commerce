@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mass_mailing.tests.common import MassMailCommon
-from odoo.addons.base.tests.test_ir_cron import CronMixinCase
-from odoo.tests.common import users
+from ecommerce.addons.mass_mailing.tests.common import MassMailCommon
+from ecommerce.addons.base.tests.test_ir_cron import CronMixinCase
+from ecommerce.tests.common import users
 
 from unittest.mock import patch
 
@@ -30,7 +30,7 @@ class TestMailingRetry(MassMailCommon, CronMixinCase):
         def patched_mail_mail_send(mail_records, auto_commit=False, raise_exception=False, smtp_session=None):
             mail_records.write({'state': 'exception', 'failure_reason': 'forced_failure'})
 
-        with patch('odoo.addons.mail.models.mail_mail.MailMail._send', patched_mail_mail_send):
+        with patch('ecommerce.addons.mail.models.mail_mail.MailMail._send', patched_mail_mail_send):
             self.env.ref('mass_mailing.ir_cron_mass_mailing_queue').sudo().method_direct_trigger()
 
         with self.capture_triggers('mass_mailing.ir_cron_mass_mailing_queue') as captured_triggers:

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 """ Modules dependency graph. """
 
 import itertools
 import logging
 
-import odoo
-import odoo.tools as tools
+import ecommerce
+import ecommerce.tools as tools
 
 _logger = logging.getLogger(__name__)
 
@@ -58,7 +58,7 @@ class Graph(dict):
         packages = []
         len_graph = len(self)
         for module in module_list:
-            info = odoo.modules.module.get_manifest(module)
+            info = ecommerce.modules.module.get_manifest(module)
             if info and info['installable']:
                 packages.append((module, info)) # TODO directly a dict, like in get_modules_with_version
             elif module != 'studio_customization':

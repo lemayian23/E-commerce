@@ -1,4 +1,4 @@
-odoo.define('website_sale_slides.course.join.widget', function (require) {
+ecommerce.define('website_sale_slides.course.join.widget', function (require) {
 "use strict";
 
 var CourseJoinWidget = require('@website_slides/js/slides_course_join')[Symbol.for("default")].courseJoinWidget;

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models, tools
+from ecommerce import _, api, fields, models, tools
 
 
 class MailGatewayAllowed(models.Model):
@@ -39,9 +39,9 @@ class MailGatewayAllowed(models.Model):
             <p class="o_view_nocontent_smiling_face">
                 Add addresses to the Allowed List
             </p><p>
-                To protect you from spam and reply loops, Odoo automatically blocks emails
+                To protect you from spam and reply loops, ecommerce automatically blocks emails
                 coming to your gateway past a threshold of <b>%i</b> emails every <b>%i</b>
                 minutes. If there are some addresses from which you need to receive very frequent
-                updates, you can however add them below and Odoo will let them go through.
+                updates, you can however add them below and ecommerce will let them go through.
             </p>
         ''', LOOP_THRESHOLD, LOOP_MINUTES)

@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import HttpCase, tagged
-from odoo.tests.common import HOST
-from odoo.tools import config, mute_logger
+from ecommerce.tests import HttpCase, tagged
+from ecommerce.tests.common import HOST
+from ecommerce.tools import config, mute_logger
 
 
 @tagged('-at_install', 'post_install')
@@ -49,7 +49,7 @@ class WithContext(HttpCase):
             'is_published': False,
         })
         website.homepage_url = f"/test_website/200/name-{rec_unpublished.id}"
-        with mute_logger('odoo.http'):  # mute 403 warning
+        with mute_logger('ecommerce.http'):  # mute 403 warning
             r = self.url_open(website.homepage_url)
         self.assertEqual(r.status_code, 404, "The website homepage_url should be a 404")
         r = self.url_open(home_url)

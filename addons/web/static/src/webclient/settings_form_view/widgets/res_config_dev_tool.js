@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { SettingsContainer } from "../settings/settings_container";
 import { Setting } from "../settings/setting";
 
-import { Component, onWillStart } from "@odoo/owl";
+import { Component, onWillStart } from "@ecommerce/owl";
 
 /**
  * Widget in the settings that handles the "Developer Tools" section.
@@ -14,9 +14,9 @@ import { Component, onWillStart } from "@odoo/owl";
  */
 export class ResConfigDevTool extends Component {
     setup() {
-        this.isDebug = Boolean(odoo.debug);
-        this.isAssets = odoo.debug.includes("assets");
-        this.isTests = odoo.debug.includes("tests");
+        this.isDebug = Boolean(ecommerce.debug);
+        this.isAssets = ecommerce.debug.includes("assets");
+        this.isTests = ecommerce.debug.includes("tests");
 
         this.action = useService("action");
         this.demo = useService("demo_data");

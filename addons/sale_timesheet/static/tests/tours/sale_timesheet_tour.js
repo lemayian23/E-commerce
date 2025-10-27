@@ -1,4 +1,4 @@
-odoo.define('sale_timesheet.tour', function (require) {
+ecommerce.define('sale_timesheet.tour', function (require) {
 "use strict";
 
 const {Markup} = require('web.utils');

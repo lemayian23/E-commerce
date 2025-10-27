@@ -1,10 +1,10 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { DROPDOWN } from "@web/core/dropdown/dropdown";
 import { pick } from "@web/core/utils/objects";
 import { debounce as debounceFn } from "@web/core/utils/timing";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 const explicitRankClasses = [
     "btn-primary",
@@ -16,7 +16,7 @@ const explicitRankClasses = [
     "btn-danger",
 ];
 
-const odooToBootstrapClasses = {
+const ecommerceToBootstrapClasses = {
     oe_highlight: "btn-primary",
     oe_link: "btn-link",
 };
@@ -43,7 +43,7 @@ export class ViewButton extends Component {
             this.onClick = debounceFn(this.onClick.bind(this), debounce, true);
         }
         this.tooltip = JSON.stringify({
-            debug: Boolean(odoo.debug),
+            debug: Boolean(ecommerce.debug),
             button: {
                 string: this.props.string,
                 help: this.clickParams.help,
@@ -64,7 +64,7 @@ export class ViewButton extends Component {
     }
 
     get hasBigTooltip() {
-        return Boolean(odoo.debug) || this.clickParams.help;
+        return Boolean(ecommerce.debug) || this.clickParams.help;
     }
 
     get hasSmallToolTip() {
@@ -107,8 +107,8 @@ export class ViewButton extends Component {
         let hasExplicitRank = false;
         if (this.props.className) {
             for (let cls of this.props.className.split(" ")) {
-                if (cls in odooToBootstrapClasses) {
-                    cls = odooToBootstrapClasses[cls];
+                if (cls in ecommerceToBootstrapClasses) {
+                    cls = ecommerceToBootstrapClasses[cls];
                 }
                 classNames.push(cls);
                 if (!hasExplicitRank && explicitRankClasses.includes(cls)) {

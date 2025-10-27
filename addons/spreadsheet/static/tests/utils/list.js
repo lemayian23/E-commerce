@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { generateListDefinition } from "./data";
@@ -23,7 +23,7 @@ export function insertListInSpreadsheet(model, params) {
     const { definition, columns } = generateListDefinition(params.model, params.columns);
     const [col, row] = params.position || [0, 0];
 
-    model.dispatch("INSERT_ODOO_LIST", {
+    model.dispatch("INSERT_ecommerce_LIST", {
         sheetId: params.sheetId || model.getters.getActiveSheetId(),
         definition,
         linesNumber: params.linesNumber || 10,

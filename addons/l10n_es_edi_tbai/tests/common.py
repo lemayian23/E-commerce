@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 from datetime import datetime
 
-from odoo.addons.account_edi.tests.common import AccountEdiTestCommon
-from odoo.tools import misc
+from ecommerce.addons.account_edi.tests.common import AccountEdiTestCommon
+from ecommerce.tools import misc
 from pytz import timezone
 
 

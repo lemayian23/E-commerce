@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from stdnum.it import codicefiscale, iva
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
 
 import re
 

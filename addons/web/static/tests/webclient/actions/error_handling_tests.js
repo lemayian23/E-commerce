@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { createWebClient, doAction, getActionManagerServerData } from "./../helpers";
@@ -6,7 +6,7 @@ import { registerCleanup } from "../../helpers/cleanup";
 import { click, getFixture, nextTick, patchWithCleanup } from "../../helpers/utils";
 import { errorService } from "@web/core/errors/error_service";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 let serverData;
 let target;

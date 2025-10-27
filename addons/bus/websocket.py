@@ -21,15 +21,15 @@ from weakref import WeakSet
 from werkzeug.local import LocalStack
 from werkzeug.exceptions import BadRequest, HTTPException, ServiceUnavailable
 
-import odoo
-from odoo import api
+import ecommerce
+from ecommerce import api
 from .models.bus import dispatch
-from odoo.http import root, Request, Response, SessionExpiredException, get_default_session
-from odoo.modules.registry import Registry
-from odoo.service import model as service_model
-from odoo.service.server import CommonServer
-from odoo.service.security import check_session
-from odoo.tools import config
+from ecommerce.http import root, Request, Response, SessionExpiredException, get_default_session
+from ecommerce.modules.registry import Registry
+from ecommerce.service import model as service_model
+from ecommerce.service.server import CommonServer
+from ecommerce.service.security import check_session
+from ecommerce.tools import config
 
 _logger = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ def acquire_cursor(db):
     """ Try to acquire a cursor up to `MAX_TRY_ON_POOL_ERROR` """
     for tryno in range(1, MAX_TRY_ON_POOL_ERROR + 1):
         with suppress(PoolError):
-            return odoo.registry(db).cursor()
+            return ecommerce.registry(db).cursor()
         time.sleep(random.uniform(DELAY_ON_POOL_ERROR, DELAY_ON_POOL_ERROR * tryno))
     raise PoolError('Failed to acquire cursor after %s retries' % MAX_TRY_ON_POOL_ERROR)
 
@@ -861,7 +861,7 @@ class WebsocketConnectionHandler:
 
     @classmethod
     def _handle_public_configuration(cls, request):
-        if not os.getenv('ODOO_BUS_PUBLIC_SAMESITE_WS'):
+        if not os.getenv('ecommerce_BUS_PUBLIC_SAMESITE_WS'):
             return
         headers = request.httprequest.headers
         origin_url = urlparse(headers.get('origin'))

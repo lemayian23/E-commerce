@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { routerService } from "@web/core/browser/router_service";
@@ -13,7 +13,7 @@ import { patchWithCleanup } from "./utils";
 import { uiService } from "@web/core/ui/ui_service";
 import { ConnectionAbortedError } from "../../src/core/network/rpc_service";
 
-import { Component, status } from "@odoo/owl";
+import { Component, status } from "@ecommerce/owl";
 
 // -----------------------------------------------------------------------------
 // Mock Services

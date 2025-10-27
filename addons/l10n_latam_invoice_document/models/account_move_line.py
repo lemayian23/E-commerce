@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields
-from odoo.tools.sql import column_exists, create_column
+from ecommerce import models, fields
+from ecommerce.tools.sql import column_exists, create_column
 
 
 class AccountMoveLine(models.Model):

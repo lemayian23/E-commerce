@@ -1,16 +1,16 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hmac
 import logging
 
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import ValidationError
-from odoo.tools.float_utils import float_repr
+from ecommerce import _, api, models
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools.float_utils import float_repr
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_payulatam.controllers.main import PayuLatamController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_payulatam.controllers.main import PayuLatamController
 
 _logger = logging.getLogger(__name__)
 

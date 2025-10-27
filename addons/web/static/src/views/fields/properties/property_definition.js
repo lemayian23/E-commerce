@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { PropertyValue } from "./property_value";
@@ -16,7 +16,7 @@ import { sprintf } from "@web/core/utils/strings";
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
 import { uuid } from "../../utils";
 
-import { Component, useState, onWillUpdateProps, useEffect, useRef } from "@odoo/owl";
+import { Component, useState, onWillUpdateProps, useEffect, useRef } from "@ecommerce/owl";
 
 export class PropertyDefinition extends Component {
     setup() {

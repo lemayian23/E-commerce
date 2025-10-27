@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
 
         <!-- Users -->
@@ -1333,4 +1333,4 @@ Send it ASAP, its urgent.</field>
             <field name="status">at_risk</field>
         </record>
     </data>
-</odoo>
+</ecommerce>

@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.tools import str2bool
+from ecommerce import models
+from ecommerce.tools import str2bool
 
 
 class AccountMove(models.Model):

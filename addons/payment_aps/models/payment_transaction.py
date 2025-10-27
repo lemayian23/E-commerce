@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import ValidationError
+from ecommerce import _, api, models
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_aps.const import PAYMENT_STATUS_MAPPING
-from odoo.addons.payment_aps.controllers.main import APSController
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_aps.const import PAYMENT_STATUS_MAPPING
+from ecommerce.addons.payment_aps.controllers.main import APSController
 
 
 _logger = logging.getLogger(__name__)

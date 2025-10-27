@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { getFixture, triggerEvents } from "@web/../tests/helpers/utils";

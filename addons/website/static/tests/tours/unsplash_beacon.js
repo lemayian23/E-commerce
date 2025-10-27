@@ -1,4 +1,4 @@
-odoo.define("website.tour.unsplash_beacon", function (require) {
+ecommerce.define("website.tour.unsplash_beacon", function (require) {
 "use strict";
 
 const tour = require("web_tour.tour");

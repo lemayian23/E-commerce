@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DEFAULT_INTERVAL, INTERVAL_OPTIONS } from "./dates";
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export function getFormattedDateSpan(start, end) {
     const isSameDay = start.hasSame(end, "days");

@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.l10n_in_edi.tests.test_edi_json import TestEdiJson
-from odoo.tests import tagged
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.l10n_in_edi.tests.test_edi_json import TestEdiJson
+from ecommerce.tests import tagged
 
 
 @tagged("post_install_l10n", "post_install", "-at_install")

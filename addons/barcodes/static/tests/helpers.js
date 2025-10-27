@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { triggerEvent } from "@web/../tests/helpers/utils";
 

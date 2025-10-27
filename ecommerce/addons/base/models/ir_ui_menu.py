@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 from collections import defaultdict
 import operator
 import re
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError
-from odoo.http import request
-from odoo.modules import get_module_resource
-from odoo.osv import expression
+from ecommerce import api, fields, models, tools, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.http import request
+from ecommerce.modules import get_module_resource
+from ecommerce.osv import expression
 
 MENU_ITEM_SEPARATOR = "/"
 NUMBER_PARENS = re.compile(r"\(([0-9]+)\)")
@@ -32,7 +32,7 @@ class IrUiMenu(models.Model):
     groups_id = fields.Many2many('res.groups', 'ir_ui_menu_group_rel',
                                  'menu_id', 'gid', string='Groups',
                                  help="If you have groups, the visibility of this menu will be based on these groups. "\
-                                      "If this field is empty, Odoo will compute visibility based on the related object's read access.")
+                                      "If this field is empty, ecommerce will compute visibility based on the related object's read access.")
     complete_name = fields.Char(string='Full Path', compute='_compute_complete_name', recursive=True)
     web_icon = fields.Char(string='Web Icon File')
     action = fields.Reference(selection=[('ir.actions.report', 'ir.actions.report'),

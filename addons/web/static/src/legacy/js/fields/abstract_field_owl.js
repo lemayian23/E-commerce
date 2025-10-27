@@ -1,4 +1,4 @@
-odoo.define('web.AbstractFieldOwl', function (require) {
+ecommerce.define('web.AbstractFieldOwl', function (require) {
     "use strict";
 
     const field_utils = require('web.field_utils');

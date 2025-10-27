@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import AccessError
 
 
 class MailChannel(models.Model):
@@ -71,7 +71,7 @@ class MailChannel(models.Model):
     def message_post(self, **kwargs):
         """Override to mark the visitor as still connected.
         If the message sent is not from the operator (so if it's the visitor or
-        odoobot sending closing chat notification, the visitor last action date is updated."""
+        ecommercebot sending closing chat notification, the visitor last action date is updated."""
         message = super(MailChannel, self).message_post(**kwargs)
         message_author_id = message.author_id
         visitor = self.livechat_visitor_id

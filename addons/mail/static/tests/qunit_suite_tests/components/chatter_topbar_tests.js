@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { afterNextRender, nextAnimationFrame, start, startServer } from '@mail/../tests/helpers/test_utils';
 

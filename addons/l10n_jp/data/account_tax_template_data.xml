@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="l10n_jp_tax_sale_exc_8" model="account.tax.template">
         <field name="sequence">1</field>
         <field name="chart_template_id" ref="l10n_jp_chart_template"/>
@@ -376,4 +376,4 @@
         ]"/>
         <field name="tax_group_id" ref="l10n_jp_tax_group_exempt"/>
     </record>
-</odoo>
+</ecommerce>

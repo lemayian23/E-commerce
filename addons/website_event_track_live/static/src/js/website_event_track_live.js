@@ -1,5 +1,5 @@
 /* global YT */
-odoo.define('website_event_track_live.website_event_youtube_embed', function (require) {
+ecommerce.define('website_event_track_live.website_event_youtube_embed', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

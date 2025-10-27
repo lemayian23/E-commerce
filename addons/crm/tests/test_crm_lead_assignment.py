@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 
@@ -7,10 +7,10 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from unittest.mock import patch
 
-from odoo import fields
-from odoo.addons.crm.tests.common import TestLeadConvertCommon
-from odoo.tests.common import tagged
-from odoo.tools import mute_logger
+from ecommerce import fields
+from ecommerce.addons.crm.tests.common import TestLeadConvertCommon
+from ecommerce.tests.common import tagged
+from ecommerce.tools import mute_logger
 
 
 class TestLeadAssignCommon(TestLeadConvertCommon):
@@ -29,7 +29,7 @@ class TestLeadAssignCommon(TestLeadConvertCommon):
         # don't mess with existing leads, unlink those assigned to users used here to make tests
         # repeatable (archive is not sufficient because of lost leads)
 
-        with mute_logger('odoo.models.unlink'):
+        with mute_logger('ecommerce.models.unlink'):
             cls.env['crm.lead'].with_context(active_test=False).search(['|', ('team_id', '=', False), ('user_id', 'in', cls.sales_teams.member_ids.ids)]).unlink()
         cls.bundle_size = 50
         cls.env['ir.config_parameter'].set_param('crm.assignment.commit.bundle', '%s' % cls.bundle_size)
@@ -197,7 +197,7 @@ class TestLeadAssign(TestLeadAssignCommon):
         self.assertEqual(self.sales_team_1_m2.lead_month_count, 0)  # opt-out through assignment_max = 0
         self.assertEqual(self.sales_team_1_m3.lead_month_count, 16)  # 15 max on 4 days (2) + existing 14 and not capped anymore
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_assign_duplicates(self):
         """ Test assign process with duplicates on partner. Allow to ensure notably
         that de duplication is effectively performed. """
@@ -256,7 +256,7 @@ class TestLeadAssign(TestLeadAssignCommon):
         ])
         self.assertEqual(len(new_assigned_leads_wpartner), 2)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_assign_no_duplicates(self):
         # fix the seed and avoid randomness
         random.seed(1945)
@@ -302,7 +302,7 @@ class TestLeadAssign(TestLeadAssignCommon):
         self.assertMemberAssign(self.sales_team_convert_m1, 8)  # 30 max on 15 (2) + compensation (5.6)
         self.assertMemberAssign(self.sales_team_convert_m2, 15)  # 60 max on 15 (4) + compensation (11.2)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_assign_populated(self):
         """ Test assignment on a more high volume oriented test set in order to
         test more real life use cases. """
@@ -493,7 +493,7 @@ class TestLeadAssign(TestLeadAssignCommon):
         self.assertEqual(leads[5].team_id, self.sales_team_convert, 'Assigned lead should not be reassigned')
         self.assertEqual(leads[5].user_id, self.user_sales_manager, 'Assigned lead should not be reassigned')
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_merge_assign_keep_master_team(self):
         """ Check existing opportunity keep its team and salesman when merged with a new lead """
         sales_team_dupe = self.env['crm.team'].create({

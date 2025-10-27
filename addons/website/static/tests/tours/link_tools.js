@@ -1,7 +1,7 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import wTourUtils from 'website.tour_utils';
-import { boundariesIn, setSelection, nodeSize } from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+import { boundariesIn, setSelection, nodeSize } from '@web_editor/js/editor/ecommerce-editor/src/utils/utils';
 
 const clickOnImgStep = {
     content: "Click somewhere else to save.",
@@ -21,21 +21,21 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Replace first paragraph, to insert a new link",
         trigger: 'iframe #wrap .s_text_image p',
-        run: 'text Go to odoo: '
+        run: 'text Go to ecommerce: '
     },
     {
         content: "Open link tools",
         trigger: "#toolbar #create-link",
     },
     {
-        content: "Type the link URL odoo.com",
+        content: "Type the link URL ecommerce.com",
         trigger: '#o_link_dialog_url_input',
-        run: 'text odoo.com'
+        run: 'text ecommerce.com'
     },
     clickOnImgStep,
     {
         content: "Select the newly created link",
-        trigger: 'iframe #wrap .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
+        trigger: 'iframe #wrap .s_text_image a[href="http://ecommerce.com"]:contains("ecommerce.com")',
         run() {
             setSelection(this.$anchor[0], 0, this.$anchor[0], nodeSize(this.$anchor[0]));
         }
@@ -43,15 +43,15 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     // Remove the link.
     {
         content: "Click on the newly created link",
-        trigger: 'iframe #wrap .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
+        trigger: 'iframe #wrap .s_text_image a[href="http://ecommerce.com"]:contains("ecommerce.com")',
     },
     {
         content: "Remove the link.",
-        trigger: 'iframe .popover:contains("http://odoo.com") a .fa-chain-broken',
+        trigger: 'iframe .popover:contains("http://ecommerce.com") a .fa-chain-broken',
     },
     {
         content: "Check that the link was removed",
-        trigger: 'iframe #wrap .s_text_image p:contains("Go to odoo:"):not(:has(a))',
+        trigger: 'iframe #wrap .s_text_image p:contains("Go to ecommerce:"):not(:has(a))',
         run: () => {}, // It's a check.
     },
     // Recreate the link.
@@ -64,32 +64,32 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
         trigger: "#toolbar #create-link",
     },
     {
-        content: "Type the link URL odoo.com",
+        content: "Type the link URL ecommerce.com",
         trigger: '#o_link_dialog_url_input',
-        run: 'text odoo.com'
+        run: 'text ecommerce.com'
     },
     clickOnImgStep,
     // 2. Edit the link with the link tools.
     {
-        content: "Click on the newly created link, change content to odoo website",
-        trigger: 'iframe .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
-        run: 'text odoo website',
+        content: "Click on the newly created link, change content to ecommerce website",
+        trigger: 'iframe .s_text_image a[href="http://ecommerce.com"]:contains("ecommerce.com")',
+        run: 'text ecommerce website',
     },
     {
         content: "Link tools, should be open, change the url",
         trigger: '#o_link_dialog_url_input',
-        run: 'text_blur odoo.be'
+        run: 'text_blur ecommerce.be'
     },
 
     ...wTourUtils.clickOnSave(),
     // 3. Edit a link after saving the page.
     ...wTourUtils.clickOnEditAndWaitEditMode(),
     {
-        content: "The new link content should be odoo website and url odoo.be",
-        trigger: 'iframe .s_text_image a[href="http://odoo.be"]:contains("odoo website")',
+        content: "The new link content should be ecommerce website and url ecommerce.be",
+        trigger: 'iframe .s_text_image a[href="http://ecommerce.be"]:contains("ecommerce website")',
     },
     {
-        content: "The new link content should be odoo website and url odoo.be",
+        content: "The new link content should be ecommerce website and url ecommerce.be",
         trigger: '#toolbar button[data-bs-original-title="Link Style"]',
     },
     {
@@ -99,7 +99,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     ...wTourUtils.clickOnSave(),
     {
         content: "The link should have the secondary button style.",
-        trigger: 'iframe .s_text_image a.btn.btn-secondary[href="http://odoo.be"]:contains("odoo website")',
+        trigger: 'iframe .s_text_image a.btn.btn-secondary[href="http://ecommerce.be"]:contains("ecommerce website")',
         run: () => {}, // It's a check.
     },
     // 4. Add link on image.
@@ -119,7 +119,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Set URL.",
         trigger: '.o_we_customize_panel we-input:contains("Your URL") input',
-        run: 'text odoo.com',
+        run: 'text ecommerce.com',
     },
     {
         content: "Deselect image.",
@@ -136,7 +136,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     },
     {
         content: "Check that link tools appear.",
-        trigger: 'iframe .popover div a:contains("http://odoo.com")',
+        trigger: 'iframe .popover div a:contains("http://ecommerce.com")',
         run: () => {}, // It's a check.
     },
     ...wTourUtils.clickOnSave(),
@@ -158,12 +158,12 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     },
     {
         content: "Check that link tools appear.",
-        trigger: 'iframe .popover div a:contains("http://odoo.com")',
+        trigger: 'iframe .popover div a:contains("http://ecommerce.com")',
         run: () => {}, // It's a check.
     },
     {
         content: "Remove link.",
-        trigger: 'iframe .popover:contains("http://odoo.com") a .fa-chain-broken',
+        trigger: 'iframe .popover:contains("http://ecommerce.com") a .fa-chain-broken',
     },
     {
         content: "Check that image is not within a link anymore.",
@@ -174,11 +174,11 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Replace first paragraph, write a URL",
         trigger: 'iframe #wrap .s_text_image p',
-        run: 'text odoo.com'
+        run: 'text ecommerce.com'
     },
     {
         content: "Select text",
-        trigger: 'iframe #wrap .s_text_image p:contains(odoo.com)',
+        trigger: 'iframe #wrap .s_text_image p:contains(ecommerce.com)',
         run() {
             setSelection(...boundariesIn(this.$anchor[0]), false);
         }
@@ -192,7 +192,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
         // URL transformation into link should persist, without the need for
         // input at input[name=url]
         content: "Check that link was created",
-        trigger: "iframe .s_text_image p a[href='http://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='http://ecommerce.com']:contains('ecommerce.com')",
         run: () => null,
     },
     {
@@ -203,21 +203,21 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Change URL to https",
         trigger: "#o_link_dialog_url_input",
-        run: 'text https://odoo.com',
+        run: 'text https://ecommerce.com',
     },
     {
         content: "Check that link was updated",
-        trigger: "iframe .s_text_image p a[href='https://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='https://ecommerce.com']:contains('ecommerce.com')",
         run: () => null,
     },
     {
         content: "Change it back http",
         trigger: "#o_link_dialog_url_input",
-        run: 'text http://odoo.com',
+        run: 'text http://ecommerce.com',
     },
     {
         content: "Check that link was updated",
-        trigger: "iframe .s_text_image p a[href='http://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='http://ecommerce.com']:contains('ecommerce.com')",
         run: () => null,
     },
     // 8. Test conversion between http and mailto links.

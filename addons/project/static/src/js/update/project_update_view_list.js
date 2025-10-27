@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ListController from 'web.ListController';
 import ListRenderer from 'web.ListRenderer';

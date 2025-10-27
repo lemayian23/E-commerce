@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.bootstrap.extensions **/
+/** @ecommerce-module alias=web.bootstrap.extensions **/
 
 /**
  * The bootstrap library extensions and fixes should be done here to avoid

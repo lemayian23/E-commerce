@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<ecommerce>
 <data noupdate="1">
     <!-- Applicant-related subtypes for messaging / Chatter -->
     <record id="mt_applicant_new" model="mail.message.subtype">
@@ -60,4 +60,4 @@
         <field name="relation_field">department_id</field>
     </record>
 
-</data></odoo>
+</data></ecommerce>

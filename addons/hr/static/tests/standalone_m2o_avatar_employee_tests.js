@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 
     import AbstractRendererOwl from 'web.AbstractRendererOwl';

@@ -1,4 +1,4 @@
-odoo.define('web.Session', function (require) {
+ecommerce.define('web.Session', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');
@@ -219,7 +219,7 @@ var Session = core.Class.extend(mixins.EventDispatcherMixin, {
         });
     },
     load_qweb: async function () {
-        await odoo.ready(/\.bundle\.xml$/);
+        await ecommerce.ready(/\.bundle\.xml$/);
     },
     get_currency: function (currency_id) {
         return this.currencies[currency_id];

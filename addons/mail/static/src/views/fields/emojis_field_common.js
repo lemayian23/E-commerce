@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import MailEmojisMixin from '@mail/js/emojis_mixin';
 

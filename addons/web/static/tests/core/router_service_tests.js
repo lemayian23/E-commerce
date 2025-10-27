@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { parseHash, parseSearchQuery, routeToUrl } from "@web/core/browser/router_service";
@@ -6,7 +6,7 @@ import { makeTestEnv } from "../helpers/mock_env";
 import { makeFakeRouterService } from "../helpers/mock_services";
 import { nextTick, patchWithCleanup } from "../helpers/utils";
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@ecommerce/owl";
 
 async function createRouter(params = {}) {
     const env = params.env || {};

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from ecommerce import models, fields, api, _
 
 
 class AccountPaymentRegister(models.TransientModel):

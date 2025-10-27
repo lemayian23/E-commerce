@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import contextlib
 import io
 import json
@@ -13,21 +13,21 @@ from lxml import etree
 from base64 import b64decode, b64encode
 from math import floor
 
-from odoo.http import request, Response
-from odoo import http, tools, _, SUPERUSER_ID
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.web_editor.tools import get_video_url_data
-from odoo.exceptions import UserError, MissingError, ValidationError
-from odoo.modules.module import get_resource_path
-from odoo.tools import file_open
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.tools.image import image_data_uri, binary_to_image
-from odoo.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce.http import request, Response
+from ecommerce import http, tools, _, SUPERUSER_ID
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce.addons.web_editor.tools import get_video_url_data
+from ecommerce.exceptions import UserError, MissingError, ValidationError
+from ecommerce.modules.module import get_resource_path
+from ecommerce.tools import file_open
+from ecommerce.tools.mimetypes import guess_mimetype
+from ecommerce.tools.image import image_data_uri, binary_to_image
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
 
 from ..models.ir_attachment import SUPPORTED_IMAGE_EXTENSIONS, SUPPORTED_IMAGE_MIMETYPES
 
 logger = logging.getLogger(__name__)
-DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.odoo.com'
+DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.ecommerce.com'
 
 diverging_history_regex = 'data-last-history-steps="([0-9,]+)"'
 
@@ -52,7 +52,7 @@ def handle_history_divergence(record, html_field_name, vals):
     incoming_html = vals[html_field_name]
     incoming_history_matches = re.search(diverging_history_regex, incoming_html or '')
     # When there is no incoming history id, it means that the value does not
-    # comes from the odoo editor or the collaboration was not activated. In
+    # comes from the ecommerce editor or the collaboration was not activated. In
     # project, it could come from the collaboration pad. In that case, we do not
     # handle history divergences.
     if request:

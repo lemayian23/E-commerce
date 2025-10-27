@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useService } from "@web/core/utils/hooks";
 import { SearchModel } from "@web/search/search_model";

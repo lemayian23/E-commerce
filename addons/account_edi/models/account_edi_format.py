@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.tools.pdf import OdooPdfFileReader
-from odoo.osv import expression
-from odoo.tools import html_escape
-from odoo.exceptions import RedirectWarning
+from ecommerce import models, fields, api, _
+from ecommerce.tools.pdf import ecommercePdfFileReader
+from ecommerce.osv import expression
+from ecommerce.tools import html_escape
+from ecommerce.exceptions import RedirectWarning
 try:
     from PyPDF2.errors import PdfReadError
 except ImportError:
@@ -155,7 +155,7 @@ class AccountEdiFormat(models.Model):
         """ Create a new invoice with the data inside a pdf.
 
         :param filename: The name of the pdf.
-        :param reader:   The OdooPdfFileReader of the pdf to import.
+        :param reader:   The ecommercePdfFileReader of the pdf to import.
         :returns:        The created invoice.
         """
         # TO OVERRIDE
@@ -167,7 +167,7 @@ class AccountEdiFormat(models.Model):
         """ Update an existing invoice with the data inside the pdf.
 
         :param filename: The name of the pdf.
-        :param reader:   The OdooPdfFileReader of the pdf to import.
+        :param reader:   The ecommercePdfFileReader of the pdf to import.
         :param invoice:  The invoice to update.
         :returns:        The updated invoice.
         """
@@ -254,7 +254,7 @@ class AccountEdiFormat(models.Model):
         to_process = []
         try:
             buffer = io.BytesIO(content)
-            pdf_reader = OdooPdfFileReader(buffer, strict=False)
+            pdf_reader = ecommercePdfFileReader(buffer, strict=False)
         except Exception as e:
             # Malformed pdf
             _logger.warning("Error when reading the pdf: %s", e, exc_info=True)

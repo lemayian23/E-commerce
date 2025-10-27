@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import models
 from . import controllers
 
-from odoo import api, SUPERUSER_ID
+from ecommerce import api, SUPERUSER_ID
 
 def _post_init_hook(cr, registry):
     # When installed, should create the luxury tax group with specific XML ID

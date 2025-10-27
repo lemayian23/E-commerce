@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- account.fiscal.position.tax.template -->
     <record id="afpttn_it_intra_1" model="account.fiscal.position.tax.template">
         <field name="position_id" ref="intra"/>
@@ -99,4 +99,4 @@
         <field name="tax_src_id"  ref="4v"/>
         <field name="tax_dest_id" ref="4vsp_group"/>
     </record>
-</odoo>
+</ecommerce>

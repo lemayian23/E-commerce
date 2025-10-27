@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import _, api, models
+from ecommerce import _, api, models
 
 class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"

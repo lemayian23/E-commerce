@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
 
 <template id="account_invoice_line_it_FatturaPA">
@@ -226,4 +226,4 @@
 </template>
 
     </data>
-</odoo>
+</ecommerce>

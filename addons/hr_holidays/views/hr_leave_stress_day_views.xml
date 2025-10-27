@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<odoo>
+<ecommerce>
     <record id="hr_leave_stress_day_view_form" model="ir.ui.view">
         <field name="model">hr.leave.stress.day</field>
         <field name="arch" type="xml">
@@ -62,4 +62,4 @@
         <field name="search_view_id" ref="hr_leave_stress_day_view_search"/>
         <field name="context">{'search_default_filter_date': True}</field>
     </record>
-</odoo>
+</ecommerce>

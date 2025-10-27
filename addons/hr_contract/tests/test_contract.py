@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 
-from odoo.exceptions import ValidationError
-from odoo.addons.hr_contract.tests.common import TestContractCommon
-from odoo.tests import tagged
-from odoo.tests import Form
+from ecommerce.exceptions import ValidationError
+from ecommerce.addons.hr_contract.tests.common import TestContractCommon
+from ecommerce.tests import tagged
+from ecommerce.tests import Form
 
 @tagged('test_contracts')
 class TestHrContracts(TestContractCommon):

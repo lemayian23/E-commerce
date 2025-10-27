@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import config from 'web.config';
 import { _t, qweb } from 'web.core';

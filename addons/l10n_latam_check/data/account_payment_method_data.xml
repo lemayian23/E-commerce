@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<ecommerce noupdate="1">
 
     <!-- third party checks -->
     <record id="account_payment_method_new_third_party_checks" model="account.payment.method">
@@ -20,4 +20,4 @@
         <field name="payment_type">outbound</field>
     </record>
 
-</odoo>
+</ecommerce>

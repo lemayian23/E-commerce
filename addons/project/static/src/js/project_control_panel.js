@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import ControlPanel from 'web.ControlPanel';
 import session from 'web.session';

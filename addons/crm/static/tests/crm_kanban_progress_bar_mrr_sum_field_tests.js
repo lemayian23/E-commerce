@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { makeFakeUserService } from "@web/../tests/helpers/mock_services";

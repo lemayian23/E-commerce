@@ -1,4 +1,4 @@
-odoo.define('test_apikeys.tour', function(require) {
+ecommerce.define('test_apikeys.tour', function(require) {
 "use strict";
 
 const tour = require('web_tour.tour');

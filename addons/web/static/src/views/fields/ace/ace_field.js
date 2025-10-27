@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 /* global ace */
 
 import { loadJS } from "@web/core/assets";
@@ -8,7 +8,7 @@ import { useBus, useService } from "@web/core/utils/hooks";
 import { formatText } from "../formatters";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, onWillStart, onWillUpdateProps, useEffect, useRef } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, useEffect, useRef } from "@ecommerce/owl";
 
 export class AceField extends Component {
     setup() {

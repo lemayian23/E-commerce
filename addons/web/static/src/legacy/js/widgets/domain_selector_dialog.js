@@ -1,4 +1,4 @@
-odoo.define("web.DomainSelectorDialog", function (require) {
+ecommerce.define("web.DomainSelectorDialog", function (require) {
 "use strict";
 
 var core = require("web.core");
@@ -59,7 +59,7 @@ return Dialog.extend({
     /**
      * Called when the domain selector value is changed.
      *
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onDomainChange: function (ev) {
         ev.stopPropagation();

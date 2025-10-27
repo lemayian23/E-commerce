@@ -1,4 +1,4 @@
-from odoo import exceptions, fields, models
+from ecommerce import exceptions, fields, models
 
 
 class MailTestAccess(models.Model):

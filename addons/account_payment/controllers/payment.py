@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _
-from odoo.exceptions import AccessError, MissingError, ValidationError
-from odoo.fields import Command
-from odoo.http import request, route
+from ecommerce import _
+from ecommerce.exceptions import AccessError, MissingError, ValidationError
+from ecommerce.fields import Command
+from ecommerce.http import request, route
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment.controllers import portal as payment_portal
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment.controllers import portal as payment_portal
 
 
 class PaymentPortal(payment_portal.PaymentPortal):

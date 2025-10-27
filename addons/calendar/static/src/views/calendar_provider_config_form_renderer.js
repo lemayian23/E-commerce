@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { FormRenderer } from "@web/views/form/form_renderer";
 import { session } from "@web/session";

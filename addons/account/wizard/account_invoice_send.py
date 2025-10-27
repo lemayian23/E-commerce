@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.addons.mail.wizard.mail_compose_message import _reopen
-from odoo.exceptions import UserError
-from odoo.tools.misc import get_lang
+from ecommerce import api, fields, models, _
+from ecommerce.addons.mail.wizard.mail_compose_message import _reopen
+from ecommerce.exceptions import UserError
+from ecommerce.tools.misc import get_lang
 
 
 class AccountInvoiceSend(models.TransientModel):

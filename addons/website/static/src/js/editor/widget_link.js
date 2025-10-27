@@ -1,4 +1,4 @@
-odoo.define('website.editor.link', function (require) {
+ecommerce.define('website.editor.link', function (require) {
 'use strict';
 
 var weWidgets = require('wysiwyg.widgets');

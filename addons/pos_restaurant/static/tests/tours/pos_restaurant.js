@@ -1,4 +1,4 @@
-odoo.define('pos_reataurant.tour.synchronized_table_management', function (require) {
+ecommerce.define('pos_reataurant.tour.synchronized_table_management', function (require) {
     'use strict';
 
     const { BillScreen } = require('pos_restaurant.tour.BillScreenTourMethods');

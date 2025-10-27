@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-import odoo.tests
+import ecommerce.tests
 import json
 
 SEARCH_PANEL_ERROR = {'error_msg': "Too many items to display.", }
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestSelectRangeMulti(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestSelectRangeMulti(ecommerce.tests.TransactionCase):
 
     def setUp(self):
         super().setUp()

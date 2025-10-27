@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { formViewWithHtmlExpander } from '../form_with_html_expander/form_view_with_html_expander';

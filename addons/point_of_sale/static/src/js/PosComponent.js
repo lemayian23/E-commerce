@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.PosComponent', function (require) {
+ecommerce.define('point_of_sale.PosComponent', function (require) {
     'use strict';
 
     const { LegacyComponent } = require("@web/legacy/legacy_component");

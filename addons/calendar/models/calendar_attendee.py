@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import uuid
 import base64
 import logging
 
 from collections import defaultdict
-from odoo import api, Command, fields, models, _
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError
+from ecommerce import api, Command, fields, models, _
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 

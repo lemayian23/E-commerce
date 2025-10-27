@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeContext } from "@web/core/context";
 import { registry } from "@web/core/registry";
@@ -17,7 +17,7 @@ import { ListRenderer } from "@web/views/list/list_renderer";
 import { evalDomain } from "@web/views/utils";
 import { _lt } from "@web/core/l10n/translation";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class X2ManyField extends Component {
     setup() {

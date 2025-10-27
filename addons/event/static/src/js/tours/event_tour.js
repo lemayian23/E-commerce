@@ -1,4 +1,4 @@
-odoo.define('event.event_steps', function (require) {
+ecommerce.define('event.event_steps', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -15,7 +15,7 @@ return EventAdditionalTourSteps;
 
 });
 
-odoo.define('event.event_tour', function (require) {
+ecommerce.define('event.event_tour', function (require) {
 "use strict";
 
 const {_t} = require('web.core');
@@ -46,7 +46,7 @@ tour.register('event_tour', {
 }, {
     trigger: '.o_event_form_view input[id="name"]',
     content: Markup(_t("This is the <b>name</b> your guests will see when registering.")),
-    run: 'text Odoo Experience 2020',
+    run: 'text ecommerce Experience 2020',
 }, {
     trigger: '.o_event_form_view div[name="date_end"]',
     content: _t("Open date range picker. Pick a Start date for your event"),

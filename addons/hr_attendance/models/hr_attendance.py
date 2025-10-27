@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import datetime, timedelta
 from operator import itemgetter
 
 import pytz
-from odoo import models, fields, api, exceptions, _
-from odoo.tools import format_datetime
-from odoo.osv.expression import AND, OR
-from odoo.tools.float_utils import float_is_zero
-from odoo.exceptions import AccessError
+from ecommerce import models, fields, api, exceptions, _
+from ecommerce.tools import format_datetime
+from ecommerce.osv.expression import AND, OR
+from ecommerce.tools.float_utils import float_is_zero
+from ecommerce.exceptions import AccessError
 
 
 class HrAttendance(models.Model):

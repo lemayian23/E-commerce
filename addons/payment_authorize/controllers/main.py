@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
 
-from odoo import _, http
-from odoo.exceptions import ValidationError
-from odoo.http import request
+from ecommerce import _, http
+from ecommerce.exceptions import ValidationError
+from ecommerce.http import request
 
-from odoo.addons.payment import utils as payment_utils
+from ecommerce.addons.payment import utils as payment_utils
 
 _logger = logging.getLogger(__name__)
 

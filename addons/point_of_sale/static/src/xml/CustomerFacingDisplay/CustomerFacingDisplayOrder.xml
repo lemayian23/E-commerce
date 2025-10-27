@@ -39,8 +39,8 @@
                     <!-- Paymentlines -->
                     <t t-call="CustomerFacingDisplayPaymentLines"/>
 
-                    <!-- Odoo Logo -->
-                    <div class="pos-odoo_logo_container"/>
+                    <!-- ecommerce Logo -->
+                    <div class="pos-ecommerce_logo_container"/>
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
-from odoo.tools import transpile_javascript
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools import transpile_javascript
 
 
 @tagged('post_install', '-at_install')
@@ -11,17 +11,17 @@ class TestJsTranspiler(TransactionCase):
     maxDiff = None
 
     def test_01_alias(self):
-        input_content = """/** @odoo-module alias=test_assetsbundle.Alias **/"""
+        input_content = """/** @ecommerce-module alias=test_assetsbundle.Alias **/"""
         result = transpile_javascript("/test_assetsbundle/static/src/alias.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/alias', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/alias', async function (require) {
 'use strict';
 let __exports = {};
-/** @odoo-module alias=test_assetsbundle.Alias **/
+/** @ecommerce-module alias=test_assetsbundle.Alias **/
 return __exports;
 });
 
-odoo.define(`test_assetsbundle.Alias`, async function(require) {
+ecommerce.define(`test_assetsbundle.Alias`, async function(require) {
                         return require('@test_assetsbundle/alias')[Symbol.for("default")];
                         });
 """
@@ -29,51 +29,51 @@ odoo.define(`test_assetsbundle.Alias`, async function(require) {
         self.assertEqual(result, expected_result)
 
     def test_02_default(self):
-        input_content = """/** @odoo-module alias=test_assetsbundle.Alias default=False **/"""
+        input_content = """/** @ecommerce-module alias=test_assetsbundle.Alias default=False **/"""
         result = transpile_javascript("/test_assetsbundle/static/src/alias.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/alias', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/alias', async function (require) {
 'use strict';
 let __exports = {};
-/** @odoo-module alias=test_assetsbundle.Alias default=False **/
+/** @ecommerce-module alias=test_assetsbundle.Alias default=False **/
 return __exports;
 });
 
-odoo.define(`test_assetsbundle.Alias`, async function(require) {
+ecommerce.define(`test_assetsbundle.Alias`, async function(require) {
                         return require('@test_assetsbundle/alias');
                         });
 """
 
         self.assertEqual(result, expected_result)
 
-        input_content = """/** @odoo-module alias=test_assetsbundle.Alias default=0 **/"""
+        input_content = """/** @ecommerce-module alias=test_assetsbundle.Alias default=0 **/"""
         result = transpile_javascript("/test_assetsbundle/static/src/alias.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/alias', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/alias', async function (require) {
 'use strict';
 let __exports = {};
-/** @odoo-module alias=test_assetsbundle.Alias default=0 **/
+/** @ecommerce-module alias=test_assetsbundle.Alias default=0 **/
 return __exports;
 });
 
-odoo.define(`test_assetsbundle.Alias`, async function(require) {
+ecommerce.define(`test_assetsbundle.Alias`, async function(require) {
                         return require('@test_assetsbundle/alias');
                         });
 """
 
         self.assertEqual(result, expected_result)
 
-        input_content = """/** @odoo-module alias=test_assetsbundle.Alias default=false **/"""
+        input_content = """/** @ecommerce-module alias=test_assetsbundle.Alias default=false **/"""
         result = transpile_javascript("/test_assetsbundle/static/src/alias.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/alias', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/alias', async function (require) {
 'use strict';
 let __exports = {};
-/** @odoo-module alias=test_assetsbundle.Alias default=false **/
+/** @ecommerce-module alias=test_assetsbundle.Alias default=false **/
 return __exports;
 });
 
-odoo.define(`test_assetsbundle.Alias`, async function(require) {
+ecommerce.define(`test_assetsbundle.Alias`, async function(require) {
                         return require('@test_assetsbundle/alias');
                         });
 """
@@ -93,7 +93,7 @@ export const Ferrari = class Ferrari extends Car {};
 """
         result = transpile_javascript("/test_assetsbundle/static/src/classes.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/classes', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/classes', async function (require) {
 'use strict';
 let __exports = {};
 const Nice = __exports[Symbol.for("default")] = class Nice {}
@@ -146,7 +146,7 @@ const aaa = "keep!";
 """
         result = transpile_javascript("/test_assetsbundle/static/src/comments.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/comments', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/comments', async function (require) {
 'use strict';
 let __exports = {};
 /**
@@ -206,7 +206,7 @@ export default function sayHelloDefault() {
 """
         result = transpile_javascript("/test_assetsbundle/static/src/functions.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/functions', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/functions', async function (require) {
 'use strict';
 let __exports = {};
 __exports.sayHello = sayHello; function sayHello() {
@@ -268,7 +268,7 @@ import Line16 from "test.Dialog.error";
 """
         result = transpile_javascript("/test_assetsbundle/static/src/import.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/import', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/import', async function (require) {
 'use strict';
 let __exports = {};
 /**
@@ -322,7 +322,7 @@ import c from "@tests/dir/index/";
 import d from "@tests";"""
         result = transpile_javascript("/test_assetsbundle/static/src/index.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle', async function (require) {
 'use strict';
 let __exports = {};
 const a = __exports.a = 5;
@@ -364,7 +364,7 @@ export * from "@tests/Dialog";
 """
         result = transpile_javascript("/test_assetsbundle/static/src/list.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/list', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/list', async function (require) {
 'use strict';
 let __exports = {};
 Object.assign(__exports, {a,  b});
@@ -411,7 +411,7 @@ export default a;
 """
         result = transpile_javascript("/test_assetsbundle/static/src/variables.js", input_content)
 
-        expected_result = """odoo.define('@test_assetsbundle/variables', async function (require) {
+        expected_result = """ecommerce.define('@test_assetsbundle/variables', async function (require) {
 'use strict';
 let __exports = {};
 const v = __exports.v = 5;

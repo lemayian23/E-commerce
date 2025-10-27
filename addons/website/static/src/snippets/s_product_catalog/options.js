@@ -1,5 +1,5 @@
 
-odoo.define('website.s_product_catalog_options', function (require) {
+ecommerce.define('website.s_product_catalog_options', function (require) {
 'use strict';
 
 const core = require('web.core');

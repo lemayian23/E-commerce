@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.im_livechat.tests import chatbot_common
-from odoo.exceptions import ValidationError
+from ecommerce.addons.im_livechat.tests import chatbot_common
+from ecommerce.exceptions import ValidationError
 
 
 class ChatbotCase(chatbot_common.ChatbotCase):

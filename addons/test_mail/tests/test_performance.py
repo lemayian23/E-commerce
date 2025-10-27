@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from contextlib import nullcontext
 from unittest.mock import patch
 
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.tests.common import users, warmup, Form
-from odoo.tests import tagged
-from odoo.tools import mute_logger, formataddr
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce.addons.mail.tests.common import MailCommon
+from ecommerce.tests.common import users, warmup, Form
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger, formataddr
 
 
 @tagged('mail_performance', 'post_install', '-at_install')
@@ -255,7 +255,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_adv_activity_full(self):
         record = self.env['mail.test.activity'].create({'name': 'Test'})
         MailActivity = self.env['mail.activity'].with_context({
@@ -295,7 +295,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_adv_activity_mixin(self):
         record = self.env['mail.test.activity'].create({'name': 'Test'})
 
@@ -314,7 +314,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_adv_activity_mixin_w_attachments(self):
         record = self.env['mail.test.activity'].create({'name': 'Test'})
 
@@ -345,7 +345,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer(self):
         test_record, _test_template = self._create_test_records()
         customer_id = self.customer.id
@@ -364,7 +364,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_attachments(self):
         test_record, _test_template = self._create_test_records()
         customer = self.env['res.partner'].browse(self.customer.ids)
@@ -385,7 +385,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_form_attachments(self):
         test_record, _test_template = self._create_test_records()
         customer = self.env['res.partner'].browse(self.customer.ids)
@@ -414,7 +414,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_mass_w_template(self):
         _partners, test_records, test_template = self._create_test_records_for_batch()
 
@@ -434,7 +434,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_nodelete(self):
         test_record, _test_template = self._create_test_records()
         customer_id = self.customer.id
@@ -454,7 +454,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_w_template(self):
         test_record, test_template = self._create_test_records()
         test_template.write({'attachment_ids': [(5, 0)]})
@@ -480,7 +480,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_w_template_attachments(self):
         test_record, test_template = self._create_test_records()
 
@@ -508,7 +508,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_w_template_form(self):
         test_record, test_template = self._create_test_records()
         test_template.write({'attachment_ids': [(5, 0)]})
@@ -539,7 +539,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
 
     @users('admin', 'employee')
     @warmup
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink', 'odoo.tests')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink', 'ecommerce.tests')
     def test_mail_composer_w_template_form_attachments(self):
         test_record, test_template = self._create_test_records()
 
@@ -570,7 +570,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
         # remove created partner to ensure tests are the same each run
         new_partner.unlink()
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_message_assignation_email(self):
@@ -653,7 +653,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
                 message_type='comment',
                 subtype_xmlid='mail.mt_comment')
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_message_post_one_email_notification(self):
@@ -678,7 +678,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
                 message_type='comment',
                 subtype_xmlid='mail.mt_comment')
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_message_subscribe_default(self):
@@ -690,7 +690,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
         with self.assertQueryCount(admin=3, employee=3):
             record.message_subscribe(partner_ids=self.user_test.partner_id.ids)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_message_subscribe_subtypes(self):
@@ -703,7 +703,7 @@ class TestMailAPIPerformance(BaseMailPerformance):
         with self.assertQueryCount(admin=2, employee=2):
             record.message_subscribe(partner_ids=self.user_test.partner_id.ids, subtype_ids=subtype_ids)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_message_track(self):
@@ -780,7 +780,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         # `test_complex_mail_mail_send`
         self.env.flush_all()
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_mail_mail_send(self):
@@ -807,7 +807,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         with self.assertQueryCount(admin=9, employee=9):
             self.env['mail.mail'].sudo().browse(mail.ids).send()
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_mail_mail_send_batch_complete(self):
@@ -855,7 +855,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(mails[-1].state, 'exception')
         self.assertIn(mails[-1].id, unlinked_mails, 'Mail: mails with invalid recipient are also to be unlinked')
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_message_post(self):
@@ -872,7 +872,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(record.message_ids[0].body, '<p>Test Post Performances</p>')
         self.assertEqual(record.message_ids[0].notified_partner_ids, self.partners | self.user_portal.partner_id)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_message_post_template(self):
@@ -887,7 +887,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(record.message_ids[0].body, '<p>Adding stuff on %s</p>' % record.name)
         self.assertEqual(record.message_ids[0].notified_partner_ids, self.partners | self.user_portal.partner_id | self.customer)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_message_post_view(self):
@@ -910,7 +910,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
 
         self.assertEqual(len(messages_as_sudo), 10)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_message_subscribe(self):
@@ -954,7 +954,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
 
         self.assertEqual(rec1.message_partner_ids, self.env.user.partner_id | self.user_portal.partner_id | self.partners)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_tracking_assignation(self):
@@ -979,7 +979,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(rec1.message_ids[1].notified_partner_ids, self.partners)
         self.assertEqual(len(rec1.message_ids), 2)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_tracking_subscription_create(self):
@@ -1003,7 +1003,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(rec1.message_ids[0].notified_partner_ids, self.partners | self.user_portal.partner_id)
         self.assertEqual(len(rec1.message_ids), 1)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_tracking_subscription_subtype(self):
@@ -1033,7 +1033,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(rec1.message_ids[1].notified_partner_ids, self.env['res.partner'])
         self.assertEqual(len(rec1.message_ids), 2)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_tracking_subscription_write(self):
@@ -1071,7 +1071,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(rec1.message_ids[1].notified_partner_ids, self.user_portal.partner_id)
         self.assertEqual(len(rec1.message_ids), 2)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('admin', 'employee')
     @warmup
     def test_complex_tracking_template(self):
@@ -1106,7 +1106,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
         self.assertEqual(rec1.message_ids[2].notified_partner_ids, self.partners | self.user_portal.partner_id)
         self.assertEqual(len(rec1.message_ids), 3)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('employee')
     @warmup
     def test_message_format(self):
@@ -1219,7 +1219,7 @@ class TestMailComplexPerformance(BaseMailPerformance):
             for message in res:
                 self.assertEqual(len(message['attachment_ids']), 2)
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('employee')
     @warmup
     def test_message_format_group_thread_name_by_model(self):
@@ -1303,7 +1303,7 @@ class TestMailHeavyPerformancePost(BaseMailPerformance):
             'email': 'partner@example.com',
         })
 
-    @mute_logger('odoo.tests', 'odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.tests', 'ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     @users('employee')
     @warmup
     def test_complete_message_post(self):

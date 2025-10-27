@@ -1,4 +1,4 @@
-from odoo.addons.l10n_es_edi_sii.tests import test_resequence
+from ecommerce.addons.l10n_es_edi_sii.tests import test_resequence
 
 
 class TestResequenceTbai(test_resequence.TestResequenceSII):

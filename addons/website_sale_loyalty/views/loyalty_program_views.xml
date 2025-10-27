@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <menuitem id="menu_loyalty" name="Loyalty"
         parent="website_sale.menu_ecommerce" sequence="4"
         groups="sales_team.group_sale_manager"/>
@@ -58,4 +58,4 @@
             </field>
         </field>
     </record>
-</odoo>
+</ecommerce>

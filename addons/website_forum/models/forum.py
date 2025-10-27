@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import math
@@ -7,11 +7,11 @@ import re
 
 from datetime import datetime
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.exceptions import UserError, ValidationError, AccessError
-from odoo.tools import misc, sql
-from odoo.tools.translate import html_translate
-from odoo.addons.http_routing.models.ir_http import slug, unslug
+from ecommerce import api, fields, models, tools, SUPERUSER_ID, _
+from ecommerce.exceptions import UserError, ValidationError, AccessError
+from ecommerce.tools import misc, sql
+from ecommerce.tools.translate import html_translate
+from ecommerce.addons.http_routing.models.ir_http import slug, unslug
 
 _logger = logging.getLogger(__name__)
 

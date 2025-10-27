@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import contextlib
 import json
 import pkgutil
 import re
 
-from odoo import fields
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
-from odoo.tests import common
-from odoo.tools.misc import mute_logger
-from odoo.tools.translate import code_translations
+from ecommerce import fields
+from ecommerce.addons.base.tests.common import SavepointCaseWithUserDemo
+from ecommerce.tests import common
+from ecommerce.tools.misc import mute_logger
+from ecommerce.tools.translate import code_translations
 
 def message(msg, type='error', from_=0, to_=0, record=0, field='value', **kwargs):
     return dict(kwargs,
@@ -232,7 +232,7 @@ class test_integer_field(ImporterCase):
             -1, -42, -(2**31 - 1), -(2**31), -12345678
         ], values(self.read()))
 
-    @mute_logger('odoo.sql_db', 'odoo.models')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.models')
     def test_out_of_range(self):
         result = self.import_(['value'], [[str(2**31)]])
         self.assertIs(result['ids'], False)
@@ -379,21 +379,21 @@ class test_unbound_string_field(ImporterCase):
 class test_required_string_field(ImporterCase):
     model_name = 'export.string.required'
 
-    @mute_logger('odoo.sql_db', 'odoo.models')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.models')
     def test_empty(self):
         result = self.import_(['value'], [[]])
         self.assertEqual(result['messages'], [message(
             u"Missing required value for the field 'Value' (value)")])
         self.assertIs(result['ids'], False)
 
-    @mute_logger('odoo.sql_db', 'odoo.models')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.models')
     def test_not_provided(self):
         result = self.import_(['const'], [['12']])
         self.assertEqual(result['messages'], [message(
             u"Missing required value for the field 'Value' (value)")])
         self.assertIs(result['ids'], False)
 
-    @mute_logger('odoo.sql_db', 'odoo.models')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.models')
     def test_ignore_excess_messages(self):
         result = self.import_(['const'], [[str(n)] for n in range(100)])
         self.assertIs(result['ids'], False)
@@ -654,7 +654,7 @@ class test_m2o(ImporterCase):
             for index, id in enumerate([record1.id, record2.id, record1.id])])
         self.assertIs(result['ids'], False)
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_fail_id_mistype(self):
         result = self.import_(['value/.id'], [["foo"]])
 
@@ -726,7 +726,7 @@ class test_m2o(ImporterCase):
         self.assertFalse(result['messages'])
         self.assertEqual(len(result['ids']), 1)
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_name_create_enabled_m2o_required_field(self):
         self.model = self.env['export.many2one.required.subfield']
         self.env['export.with.required.field'].create({'name': 'ipsum', 'value': 10})
@@ -743,13 +743,13 @@ class test_m2o(ImporterCase):
 class TestInvalidStrings(ImporterCase):
     model_name = 'export.m2o.str'
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_fail_unpaired_surrogate(self):
         result = self.import_(['child_id'], [['\uddff']])
         self.assertTrue(result['messages'])
         self.assertIn('surrogates', result['messages'][0]['message'])
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_fail_nul(self):
         result = self.import_(['child_id'], [['\x00']])
         self.assertTrue(result['messages'])
@@ -1271,7 +1271,7 @@ class test_datetime(ImporterCase):
 class test_unique(ImporterCase):
     model_name = 'export.unique'
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_unique(self):
         result = self.import_(['value'], [
             ['1'],
@@ -1292,7 +1292,7 @@ class test_unique(ImporterCase):
                  record=4, field='value'),
         ])
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_unique_pair(self):
         result = self.import_(['value2', 'value3'], [
             ['0', '1'],

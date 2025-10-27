@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from unittest.mock import ANY, patch
 
-from odoo.fields import Command
-from odoo.tests import tagged
-from odoo.tools import mute_logger
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
+from ecommerce.tools import mute_logger
 
-from odoo.addons.account_payment.tests.common import AccountPaymentCommon
-from odoo.addons.payment.tests.http_common import PaymentHttpCommon
-from odoo.addons.sale.tests.common import SaleCommon
+from ecommerce.addons.account_payment.tests.common import AccountPaymentCommon
+from ecommerce.addons.payment.tests.http_common import PaymentHttpCommon
+from ecommerce.addons.sale.tests.common import SaleCommon
 
 
 @tagged('-at_install', 'post_install')
@@ -28,7 +28,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
         route_values['sale_order_id'] = self.sale_order.id
 
         with patch(
-            'odoo.addons.payment.controllers.portal.PaymentPortal'
+            'ecommerce.addons.payment.controllers.portal.PaymentPortal'
             '._compute_show_tokenize_input_mapping'
         ) as patched:
             tx_context = self._get_tx_checkout_context(**route_values)
@@ -50,7 +50,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
             'currency_id': tx_context['currency_id'],
         })
 
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = self._get_processing_values(**route_values)
         tx_sudo = self._get_tx(processing_values['reference'])
 
@@ -104,7 +104,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
             'reference_prefix': tx_context['reference_prefix'],
             'landing_route': tx_context['landing_route'],
         })
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = self._get_processing_values(**route_values)
         tx_sudo = self._get_tx(processing_values['reference'])
 
@@ -117,7 +117,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
         self.assertEqual(tx_sudo.sale_order_ids.transaction_ids, tx_sudo)
 
         tx_sudo._set_done()
-        with mute_logger('odoo.addons.sale.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.sale.models.payment_transaction'):
             tx_sudo._finalize_post_processing()
         self.assertEqual(self.sale_order.state, 'draft') # Only a partial amount was paid
 
@@ -141,7 +141,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
             'reference_prefix': tx_context['reference_prefix'],
             'landing_route': tx_context['landing_route'],
         })
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = self._get_processing_values(**route_values)
         tx2_sudo = self._get_tx(processing_values['reference'])
 
@@ -180,12 +180,12 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
             'reference_prefix': tx_context['reference_prefix'],
             'landing_route': tx_context['landing_route'],
         })
-        with mute_logger('odoo.addons.payment.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.payment.models.payment_transaction'):
             processing_values = self._get_processing_values(**route_values)
         tx_sudo = self._get_tx(processing_values['reference'])
 
         tx_sudo._set_done()
-        with mute_logger('odoo.addons.sale.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.sale.models.payment_transaction'):
             tx_sudo._finalize_post_processing()
 
         self.assertEqual(self.sale_order.state, 'draft', 'a partial transaction with automatic invoice and invoice_policy = delivery should not validate a quote')
@@ -219,7 +219,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
         # Create the payment
         self.amount = self.sale_order.amount_total
         tx = self._create_transaction(flow='redirect', sale_order_ids=[self.sale_order.id], state='done')
-        with mute_logger('odoo.addons.sale.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.sale.models.payment_transaction'):
             tx._reconcile_after_done()
 
         self.assertEqual(self.sale_order.state, 'sale')
@@ -235,7 +235,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
         # Create the payment
         self.amount = self.sale_order.amount_total
         tx = self._create_transaction(flow='redirect', sale_order_ids=[self.sale_order.id], state='done')
-        with mute_logger('odoo.addons.sale.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.sale.models.payment_transaction'):
             tx._reconcile_after_done()
 
         self.assertEqual(self.sale_order.state, 'done')
@@ -250,7 +250,7 @@ class TestSalePayment(AccountPaymentCommon, SaleCommon, PaymentHttpCommon):
         # Create the payment
         self.amount = self.sale_order.amount_total / 10.
         tx = self._create_transaction(flow='redirect', sale_order_ids=[self.sale_order.id], state='done')
-        with mute_logger('odoo.addons.sale.models.payment_transaction'):
+        with mute_logger('ecommerce.addons.sale.models.payment_transaction'):
             tx._reconcile_after_done()
 
         self.assertEqual(self.sale_order.state, 'draft')

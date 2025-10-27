@@ -1,4 +1,4 @@
-odoo.define('website_event_track_live_quiz.event_quiz', function (require) {
+ecommerce.define('website_event_track_live_quiz.event_quiz', function (require) {
 'use strict';
 
 var Quiz = require('website_event_track_quiz.event.quiz');

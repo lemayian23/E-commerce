@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import VariantMixin from "website_sale_stock.VariantMixin";
 import "website_sale.website_sale";

@@ -1,5 +1,5 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import _, api, fields, models
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import _, api, fields, models
 
 
 class ResCurrency(models.Model):

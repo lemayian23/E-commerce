@@ -1,4 +1,4 @@
-odoo.define('website.form_editor', function (require) {
+ecommerce.define('website.form_editor', function (require) {
 'use strict';
 
 const core = require('web.core');

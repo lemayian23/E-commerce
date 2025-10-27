@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 export function getTooltipInfo(params) {
     let widgetDescription = undefined;
@@ -9,7 +9,7 @@ export function getTooltipInfo(params) {
     const info = {
         viewMode: params.viewMode,
         resModel: params.resModel,
-        debug: Boolean(odoo.debug),
+        debug: Boolean(ecommerce.debug),
         field: {
             label: params.field.string,
             name: params.field.name,

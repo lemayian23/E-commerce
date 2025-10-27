@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
-from odoo.addons.website_slides.tests.common import SlidesCase
-from odoo.exceptions import ValidationError
-from odoo.tests.common import users
+from ecommerce.addons.website_slides.tests.common import SlidesCase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import users
 
 
 class TestSurvey(SlidesCase):

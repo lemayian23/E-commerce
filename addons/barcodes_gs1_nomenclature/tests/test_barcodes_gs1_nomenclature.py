@@ -1,5 +1,5 @@
-from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import TransactionCase
 
 
 class TestBarcodeGS1Nomenclature(TransactionCase):

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo.exceptions import UserError, ValidationError
-from odoo.fields import Command
-from odoo.tests import tagged
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.payment.tests.common import PaymentCommon
-from odoo.addons.sale.tests.common import SaleCommon
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery, PaymentPortalDelivery
-from odoo.addons.website.tools import MockRequest
+from ecommerce.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.sale.tests.common import SaleCommon
+from ecommerce.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery, PaymentPortalDelivery
+from ecommerce.addons.website.tools import MockRequest
 
 @tagged('post_install', '-at_install')
 class TestWebsiteSaleDeliveryController(PaymentCommon, SaleCommon):
@@ -26,7 +26,7 @@ class TestWebsiteSaleDeliveryController(PaymentCommon, SaleCommon):
             order.transaction_ids = self._create_transaction(flow='redirect', state='pending')
             with self.assertRaises(UserError):
                 with patch(
-                    'odoo.addons.website_sale.models.website.Website.sale_get_order',
+                    'ecommerce.addons.website_sale.models.website.Website.sale_get_order',
                     return_value=order,
                 ):  # Patch to retrieve the order even if it is linked to a pending transaction.
                     self.Controller.update_eshop_carrier(carrier_id=1)

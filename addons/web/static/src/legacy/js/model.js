@@ -1,4 +1,4 @@
-odoo.define("web.Model", function (require) {
+ecommerce.define("web.Model", function (require) {
     "use strict";
 
     const { groupBy  } = require("web.utils");

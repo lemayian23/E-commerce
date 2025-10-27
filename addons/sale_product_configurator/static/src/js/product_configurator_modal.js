@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import ajax from 'web.ajax';
 import Dialog from 'web.Dialog';

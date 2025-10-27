@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Timer from '@im_livechat/legacy/models/timer';
 

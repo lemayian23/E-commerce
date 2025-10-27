@@ -1,4 +1,4 @@
-odoo.define('wysiwyg.widgets.LinkTools', function (require) {
+ecommerce.define('wysiwyg.widgets.LinkTools', function (require) {
 'use strict';
 
 const Link = require('wysiwyg.widgets.Link');
@@ -124,7 +124,7 @@ const LinkTools = Link.extend({
         this._observer.disconnect();
         this._removeHintClasses();
         this._super(...arguments);
-        this.options.wysiwyg.odooEditor.historyStep();
+        this.options.wysiwyg.ecommerceEditor.historyStep();
         this._addHintClasses();
         this._observer.observe(this._link, this._observerOptions);
     },
@@ -363,8 +363,8 @@ const LinkTools = Link.extend({
             excluded: ['transparent_grayscale'],
             // TODO remove me in master: editable is just a duplicate of
             // $editable, should be reviewed with OWL later anyway.
-            editable: this.options.wysiwyg.odooEditor.editable,
-            $editable: $(this.options.wysiwyg.odooEditor.editable),
+            editable: this.options.wysiwyg.ecommerceEditor.editable,
+            $editable: $(this.options.wysiwyg.ecommerceEditor.editable),
             withGradients: cssProperty === 'background-color',
         });
         this.colorpickers[cssProperty] = colorpicker;
@@ -379,8 +379,8 @@ const LinkTools = Link.extend({
                 range.selectNodeContents(this.linkEl);
                 selection.removeAllRanges();
                 selection.addRange(range);
-                this.options.wysiwyg.odooEditor.execCommand('applyColor', '', 'color');
-                this.options.wysiwyg.odooEditor.execCommand('applyColor', '', 'backgroundColor');
+                this.options.wysiwyg.ecommerceEditor.execCommand('applyColor', '', 'color');
+                this.options.wysiwyg.ecommerceEditor.execCommand('applyColor', '', 'backgroundColor');
             }
 
             let color = ev.data.color;
@@ -396,7 +396,7 @@ const LinkTools = Link.extend({
             this.customColors[cssProperty] = color;
             this.applyLinkToDom(this._getData());
             if (['custom_color_picked', 'color_picked'].includes(ev.name)) {
-                this.options.wysiwyg.odooEditor.historyStep();
+                this.options.wysiwyg.ecommerceEditor.historyStep();
                 this._updateOptionsUI();
             }
         });
@@ -413,7 +413,7 @@ const LinkTools = Link.extend({
      * Remove hint to the classes of the link and button.
      */
     _removeHintClasses () {
-        $(this.options.wysiwyg.odooEditor.document).find('.oe_edited_link').removeClass('oe_edited_link');
+        $(this.options.wysiwyg.ecommerceEditor.document).find('.oe_edited_link').removeClass('oe_edited_link');
         this.$button.removeClass('active');
     },
 
@@ -477,7 +477,7 @@ const LinkTools = Link.extend({
             // Ensure only one option is active in the dropdown.
             $target.addClass('active');
             $target.siblings('we-button').removeClass("active");
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.ecommerceEditor.historyStep();
         }
     },
     /**
@@ -485,10 +485,10 @@ const LinkTools = Link.extend({
      */
     __onURLInput() {
         this._super(...arguments);
-        this.options.wysiwyg.odooEditor.historyPauseSteps('_onURLInput');
+        this.options.wysiwyg.ecommerceEditor.historyPauseSteps('_onURLInput');
         this._syncContent();
         this._adaptPreview();
-        this.options.wysiwyg.odooEditor.historyUnpauseSteps('_onURLInput');
+        this.options.wysiwyg.ecommerceEditor.historyUnpauseSteps('_onURLInput');
     },
     /**
      * If content is equal to previous URL, update it to match current URL.

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "../dialog/dialog";
 import { DomainSelector } from "../domain_selector/domain_selector";
 import { _t } from "../l10n/translation";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 export class DomainSelectorDialog extends Component {
     setup() {

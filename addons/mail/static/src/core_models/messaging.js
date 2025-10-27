@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, many, one } from '@mail/model/model_field';
@@ -12,10 +12,10 @@ registerModel({
     name: 'Messaging',
     lifecycleHooks: {
         _created() {
-            odoo.__DEBUG__.messaging = this;
+            ecommerce.__DEBUG__.messaging = this;
         },
         _willDelete() {
-            delete odoo.__DEBUG__.messaging;
+            delete ecommerce.__DEBUG__.messaging;
         },
     },
     recordMethods: {

@@ -1,4 +1,4 @@
-from odoo import models
+from ecommerce import models
 
 class DecimalPrecision(models.Model):
     _inherit = 'decimal.precision'

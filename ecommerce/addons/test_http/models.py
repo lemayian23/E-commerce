@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api
+from ecommerce import models, fields, api
 
 
 MILKY_WAY_REGIONS = ['P3X', 'P4X', 'P2X', 'P5C']

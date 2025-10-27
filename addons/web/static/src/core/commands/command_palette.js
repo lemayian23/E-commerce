@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
@@ -19,7 +19,7 @@ import {
     useState,
     markRaw,
     useExternalListener,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 const DEFAULT_PLACEHOLDER = _lt("Search...");
 const DEFAULT_EMPTY_MESSAGE = _lt("No result found");

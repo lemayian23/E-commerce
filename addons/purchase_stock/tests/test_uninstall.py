@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from unittest.mock import patch
 
-from odoo import fields
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
-from odoo.addons.purchase_stock.models.purchase import PurchaseOrderLine
-from odoo.tests.common import tagged
+from ecommerce import fields
+from ecommerce.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from ecommerce.addons.purchase_stock.models.purchase import PurchaseOrderLine
+from ecommerce.tests.common import tagged
 
 from .common import PurchaseTestCommon
 

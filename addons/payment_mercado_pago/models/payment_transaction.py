@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
@@ -6,11 +6,11 @@ from urllib.parse import quote as url_quote
 
 from werkzeug import urls
 
-from odoo import _, api, models
-from odoo.exceptions import UserError, ValidationError
+from ecommerce import _, api, models
+from ecommerce.exceptions import UserError, ValidationError
 
-from odoo.addons.payment_mercado_pago.const import ERROR_MESSAGE_MAPPING, TRANSACTION_STATUS_MAPPING
-from odoo.addons.payment_mercado_pago.controllers.main import MercadoPagoController
+from ecommerce.addons.payment_mercado_pago.const import ERROR_MESSAGE_MAPPING, TRANSACTION_STATUS_MAPPING
+from ecommerce.addons.payment_mercado_pago.controllers.main import MercadoPagoController
 
 
 _logger = logging.getLogger(__name__)

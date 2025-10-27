@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import serial.tools.list_ports
 
-from odoo.addons.hw_drivers.interface import Interface
+from ecommerce.addons.hw_drivers.interface import Interface
 
 
 class SerialInterface(Interface):

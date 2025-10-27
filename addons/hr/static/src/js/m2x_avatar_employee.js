@@ -1,4 +1,4 @@
-/** @odoo-module alias=hr.Many2OneAvatarEmployee **/
+/** @ecommerce-module alias=hr.Many2OneAvatarEmployee **/
 
 import fieldRegistry from 'web.field_registry';
 

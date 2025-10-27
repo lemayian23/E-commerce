@@ -1,4 +1,4 @@
-odoo.define('l10n_sa_pos.pos', function (require) {
+ecommerce.define('l10n_sa_pos.pos', function (require) {
 "use strict";
 
 var { Order } = require('point_of_sale.models');

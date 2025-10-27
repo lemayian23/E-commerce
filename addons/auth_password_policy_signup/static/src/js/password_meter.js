@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from "web.core";
 import Widget from "web.Widget";

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Test for fill temporal."""
 
-from odoo.tests import common
+from ecommerce.tests import common
 
 class TestFillTemporal(common.TransactionCase):
     """Test for fill temporal.
@@ -270,7 +270,7 @@ class TestFillTemporal(common.TransactionCase):
     def test_timestamp_without_timezone(self):
         """Test datetimes.
 
-        Date stored with an hour inside the Odoo model are processed as timestamp
+        Date stored with an hour inside the ecommerce model are processed as timestamp
         without timezone by postgres.
         """
         self.Model.create({'datetime': '1916-08-19 01:30:00', 'value': 7})

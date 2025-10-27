@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from freezegun import freeze_time
 
-from odoo import exceptions
-from odoo.addons.mass_mailing.tests.common import MassMailCommon
-from odoo.tests.common import Form, users
+from ecommerce import exceptions
+from ecommerce.addons.mass_mailing.tests.common import MassMailCommon
+from ecommerce.tests.common import Form, users
 
 
 class TestMailingContactToList(MassMailCommon):

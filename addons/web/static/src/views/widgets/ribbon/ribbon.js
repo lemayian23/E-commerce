@@ -1,9 +1,9 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { registry } from "@web/core/registry";
 import { standardWidgetProps } from "../standard_widget_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 /**
  * This widget adds a ribbon on the top right side of the form

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useAutofocus, useService } from '@web/core/utils/hooks';
 import { Dialog } from '@web/core/dialog/dialog';

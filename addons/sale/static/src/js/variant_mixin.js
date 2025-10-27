@@ -1,4 +1,4 @@
-odoo.define('sale.VariantMixin', function (require) {
+ecommerce.define('sale.VariantMixin', function (require) {
 'use strict';
 
 var concurrency = require('web.concurrency');

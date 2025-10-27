@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.PaymentScreen', function (require) {
+ecommerce.define('point_of_sale.PaymentScreen', function (require) {
     'use strict';
 
     const { parse } = require('web.field_utils');
@@ -336,7 +336,7 @@ odoo.define('point_of_sale.PaymentScreen', function (require) {
          *     if (currentCountry.code === 'FR') {
          *         return false;
          *     } else {
-         *         return super.shouldDownloadInvoice(); // or this._super(...arguments) depending on the odoo version.
+         *         return super.shouldDownloadInvoice(); // or this._super(...arguments) depending on the ecommerce version.
          *     }
          * }
          * ```

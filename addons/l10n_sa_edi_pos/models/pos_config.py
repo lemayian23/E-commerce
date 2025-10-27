@@ -1,5 +1,5 @@
-from odoo import models, api, _
-from odoo.exceptions import ValidationError
+from ecommerce import models, api, _
+from ecommerce.exceptions import ValidationError
 
 
 class PosConfig(models.Model):

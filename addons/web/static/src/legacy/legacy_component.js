@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 /**
  * @deprecated
@@ -77,8 +77,8 @@ export class LegacyComponent extends owl.Component {
      * the event in the first place
      */
     __trigger(eventType, payload) {
-        if (this.env[odoo.widgetSymbol]) {
-            this.env[odoo.widgetSymbol](eventType);
+        if (this.env[ecommerce.widgetSymbol]) {
+            this.env[ecommerce.widgetSymbol](eventType);
         }
         if (this.el) {
             const ev = new CustomEvent(eventType, {

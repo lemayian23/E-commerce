@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.account.tests.test_invoice_tax_totals import TestTaxTotals
-from odoo.tests import tagged
+from ecommerce.addons.account.tests.test_invoice_tax_totals import TestTaxTotals
+from ecommerce.tests import tagged
 
 
 @tagged('post_install', '-at_install')
@@ -11,7 +11,7 @@ class SaleTestTaxTotals(TestTaxTotals):
         super().setUpClass(chart_template_ref=chart_template_ref)
 
         cls.so_product = cls.env['product.product'].create({
-            'name': 'Odoo course',
+            'name': 'ecommerce course',
             'type': 'service',
         })
 

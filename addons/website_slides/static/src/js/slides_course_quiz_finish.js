@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Dialog from 'web.Dialog';
 import { _t } from 'web.core';

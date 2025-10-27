@@ -1,4 +1,4 @@
-odoo.define("l10n_sa_edi_pos.models", function (require) {
+ecommerce.define("l10n_sa_edi_pos.models", function (require) {
     "use strict";
 
     const { Order } = require('point_of_sale.models');

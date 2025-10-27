@@ -1,4 +1,4 @@
-odoo.define('hr_timesheet.timesheet_uom', function (require) {
+ecommerce.define('hr_timesheet.timesheet_uom', function (require) {
 'use strict';
 
 const { registry } = require("@web/core/registry");

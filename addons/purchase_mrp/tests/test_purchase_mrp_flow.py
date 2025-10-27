@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.tests.common import Form
-from odoo.tests import tagged
-from odoo import fields
-from odoo.fields import Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.tests.common import Form
+from ecommerce.tests import tagged
+from ecommerce import fields
+from ecommerce.fields import Command
 
 
 @tagged('post_install', '-at_install')

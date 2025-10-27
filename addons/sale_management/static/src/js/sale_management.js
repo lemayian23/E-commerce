@@ -1,4 +1,4 @@
-odoo.define('sale_management.sale_management', function (require) {
+ecommerce.define('sale_management.sale_management', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

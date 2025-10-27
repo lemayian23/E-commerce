@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 import hmac
@@ -9,14 +9,14 @@ from datetime import datetime
 
 from werkzeug.exceptions import Forbidden
 
-from odoo import http
-from odoo.exceptions import ValidationError
-from odoo.http import request
-from odoo.tools.misc import file_open
+from ecommerce import http
+from ecommerce.exceptions import ValidationError
+from ecommerce.http import request
+from ecommerce.tools.misc import file_open
 
-from odoo.addons.payment import utils as payment_utils
-from odoo.addons.payment_stripe import utils as stripe_utils
-from odoo.addons.payment_stripe.const import HANDLED_WEBHOOK_EVENTS
+from ecommerce.addons.payment import utils as payment_utils
+from ecommerce.addons.payment_stripe import utils as stripe_utils
+from ecommerce.addons.payment_stripe.const import HANDLED_WEBHOOK_EVENTS
 
 
 _logger = logging.getLogger(__name__)

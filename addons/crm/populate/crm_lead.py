@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import models
-from odoo.tools import populate
-from odoo.addons.crm.populate import tools
+from ecommerce import models
+from ecommerce.tools import populate
+from ecommerce.addons.crm.populate import tools
 
 
 class CrmLead(models.Model):
@@ -109,7 +109,7 @@ class CrmLead(models.Model):
                           }
 
         def _compute_contact_name(values=None, counter=0, **kwargs):
-            """ Generate lead names a bit better than lead_counter because this is Odoo. """
+            """ Generate lead names a bit better than lead_counter because this is ecommerce. """
             partner_id = values['partner_id']
             complete = values['__complete']
 
@@ -136,7 +136,7 @@ class CrmLead(models.Model):
             return False
 
         def _compute_name(values=None, counter=0, **kwargs):
-            """ Generate lead names a bit better than lead_counter because this is Odoo. """
+            """ Generate lead names a bit better than lead_counter because this is ecommerce. """
             complete = values['__complete']
 
             fn = kwargs['random'].choice(tools._case_prefix_groups)

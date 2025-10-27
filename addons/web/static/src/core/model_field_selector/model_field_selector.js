@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useModelField } from "./model_field_hook";
 import { useUniquePopover } from "./unique_popover_hook";
 import { ModelFieldSelectorPopover } from "./model_field_selector_popover";
 
-import { Component, onWillStart, onWillUpdateProps } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps } from "@ecommerce/owl";
 
 export class ModelFieldSelector extends Component {
     setup() {

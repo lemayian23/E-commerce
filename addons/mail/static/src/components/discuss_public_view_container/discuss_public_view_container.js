@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // ensure components are registered beforehand.
 import '@mail/components/discuss_public_view/discuss_public_view';

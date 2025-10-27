@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Widget from 'web.Widget';
 import {_t} from 'web.core';
@@ -34,9 +34,9 @@ const LinkPopoverWidget = Widget.extend({
      */
     _widgetRenderAndInsert(insertCallback, ...rest) {
         const patchedInsertCallback = (...args) => {
-            this.options.wysiwyg.odooEditor.observerUnactive();
+            this.options.wysiwyg.ecommerceEditor.observerUnactive();
             const res = insertCallback(...args);
-            this.options.wysiwyg.odooEditor.observerActive();
+            this.options.wysiwyg.ecommerceEditor.observerActive();
             return res;
         };
         return this._super(patchedInsertCallback, ...rest);
@@ -85,7 +85,7 @@ const LinkPopoverWidget = Widget.extend({
         // Init popover -> it is moved out of the link (and the savable area)
         const tooltips = [];
         let popoverShown = true;
-        this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg.ecommerceEditor.observerUnactive();
         this.$target.popover({
             html: true,
             content: this.$el,
@@ -128,7 +128,7 @@ const LinkPopoverWidget = Widget.extend({
         for (const el of this.$('[data-bs-toggle="tooltip"]').toArray()) {
             tooltips.push(Tooltip.getOrCreateInstance(el));
         }
-        this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg.ecommerceEditor.observerActive();
 
         this.popover = Popover.getInstance(this.target);
         this.$target.on('mousedown.link_popover', (e) => {
@@ -159,8 +159,8 @@ const LinkPopoverWidget = Widget.extend({
             }
         };
         $(document).on('mouseup.link_popover', onClickDocument);
-        if (document !== this.options.wysiwyg.odooEditor.document) {
-            $(this.options.wysiwyg.odooEditor.document).on('mouseup.link_popover', onClickDocument);
+        if (document !== this.options.wysiwyg.ecommerceEditor.document) {
+            $(this.options.wysiwyg.ecommerceEditor.document).on('mouseup.link_popover', onClickDocument);
         }
 
         // Update popover's content and position upon changes
@@ -193,7 +193,7 @@ const LinkPopoverWidget = Widget.extend({
         // mode so this should not be a huge problem.
         this.$target.off('.link_popover');
         $(document).off('.link_popover');
-        $(this.options.wysiwyg.odooEditor.document).off('.link_popover');
+        $(this.options.wysiwyg.ecommerceEditor.document).off('.link_popover');
         this.$target.popover('dispose');
         this._observer.disconnect();
         return this._super(...arguments);

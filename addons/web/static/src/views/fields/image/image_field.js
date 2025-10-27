@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { isMobileOS } from "@web/core/browser/feature_detection";
 import { _lt } from "@web/core/l10n/translation";
@@ -9,7 +9,7 @@ import { isBinarySize } from "@web/core/utils/binary";
 import { FileUploader } from "../file_handler";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, useState, onWillRender } from "@odoo/owl";
+import { Component, useState, onWillRender } from "@ecommerce/owl";
 const { DateTime } = luxon;
 
 export const fileTypeMagicWordMap = {

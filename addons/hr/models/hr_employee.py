@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import pytz
@@ -10,10 +10,10 @@ from string import digits
 from werkzeug.urls import url_encode
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError, AccessError
-from odoo.osv import expression
-from odoo.tools import format_date, Query
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError, AccessError
+from ecommerce.osv import expression
+from ecommerce.tools import format_date, Query
 
 
 class HrEmployeePrivate(models.Model):
@@ -502,7 +502,7 @@ class HrEmployeePrivate(models.Model):
     def _post_author(self):
         """
         When a user updates his own employee's data, all operations are performed
-        by super user. However, tracking messages should not be posted as OdooBot
+        by super user. However, tracking messages should not be posted as ecommerceBot
         but as the actual user.
         This method is used in the overrides of `_message_log` and `message_post`
         to post messages as the correct user.

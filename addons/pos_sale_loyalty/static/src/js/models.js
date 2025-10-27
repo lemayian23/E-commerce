@@ -1,4 +1,4 @@
-/** @odoo-module alias=pos_sale_loyalty.models **/
+/** @ecommerce-module alias=pos_sale_loyalty.models **/
 
 
 import { Orderline } from 'point_of_sale.models';

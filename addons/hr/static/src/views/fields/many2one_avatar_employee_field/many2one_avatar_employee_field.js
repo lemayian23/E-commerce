@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { Many2OneAvatarUserField, KanbanMany2OneAvatarUserField } from "@mail/views/fields/many2one_avatar_user_field/many2one_avatar_user_field";

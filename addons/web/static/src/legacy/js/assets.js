@@ -1,4 +1,4 @@
-odoo.define('web.assets.qweb', function (require) {
+ecommerce.define('web.assets.qweb', function (require) {
 "use strict";
 
 const {assets} = require('@web/core/assets');
@@ -14,8 +14,8 @@ assets.loadXML = function (xml, app) {
     }
 
     // don't use require to apply the patch before the first template loading.
-    odoo.ready('web.core').then(function () {
-        const core = odoo.__DEBUG__.services['web.core'];
+    ecommerce.ready('web.core').then(function () {
+        const core = ecommerce.__DEBUG__.services['web.core'];
         core.qweb.add_template(qwebTemplates);
     });
 }

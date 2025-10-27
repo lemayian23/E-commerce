@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "../registry";
 import { DialogContainer } from "./dialog_container";
 
-import { markRaw, reactive } from "@odoo/owl";
+import { markRaw, reactive } from "@ecommerce/owl";
 
 /**
  *  @typedef {{

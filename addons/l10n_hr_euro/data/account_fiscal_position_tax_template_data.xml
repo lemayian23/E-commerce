@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Exemption start -->
     <record id="fiscal_position_hr_S_exempt_tax_1" model="account.fiscal.position.tax.template">
         <field name="position_id" ref="fiscal_position_hr_exempt"/>
@@ -95,4 +95,4 @@
         <field name="tax_src_id" ref="VAT_P_IN_ROC_25"/>
         <field name="tax_dest_id" ref="VAT_P_NOT_IN_EU_25"/>
     </record>
-</odoo>
+</ecommerce>

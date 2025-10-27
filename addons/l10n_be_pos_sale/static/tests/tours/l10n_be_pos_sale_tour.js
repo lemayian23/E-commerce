@@ -1,4 +1,4 @@
-odoo.define('l10n_be_pos_sale.tour', function (require) {
+ecommerce.define('l10n_be_pos_sale.tour', function (require) {
     'use strict';
 
     const { ErrorPopup } = require('point_of_sale.tour.ErrorPopupTourMethods');

@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@ecommerce/owl";
 
 export class BlockUI extends Component {
     setup() {

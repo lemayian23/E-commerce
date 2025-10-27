@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Domain } from "@web/core/domain";
 import { isRelational } from "@web/views/utils";
@@ -18,7 +18,7 @@ import { KeepLast } from "@web/core/utils/concurrency";
  * @property {string} string
  */
 
-import { EventBus, markRaw } from "@odoo/owl";
+import { EventBus, markRaw } from "@ecommerce/owl";
 
 const FALSE = Symbol("false");
 

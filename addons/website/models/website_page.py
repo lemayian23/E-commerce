@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import sql
 import re
 
-from odoo.addons.http_routing.models.ir_http import slugify
-from odoo.addons.website.tools import text_from_html
-from odoo import api, fields, models
-from odoo.exceptions import AccessError
-from odoo.osv import expression
-from odoo.tools import escape_psql
-from odoo.tools.translate import _
+from ecommerce.addons.http_routing.models.ir_http import slugify
+from ecommerce.addons.website.tools import text_from_html
+from ecommerce import api, fields, models
+from ecommerce.exceptions import AccessError
+from ecommerce.osv import expression
+from ecommerce.tools import escape_psql
+from ecommerce.tools.translate import _
 
 
 class Page(models.Model):

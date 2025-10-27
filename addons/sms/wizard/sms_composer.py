@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from ast import literal_eval
 
-from odoo import api, fields, models, _
-from odoo.addons.phone_validation.tools import phone_validation
-from odoo.addons.sms.tools.sms_tools import sms_content_to_rendered_html
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.addons.phone_validation.tools import phone_validation
+from ecommerce.addons.sms.tools.sms_tools import sms_content_to_rendered_html
+from ecommerce.exceptions import UserError
 
 
 class SendSMS(models.TransientModel):

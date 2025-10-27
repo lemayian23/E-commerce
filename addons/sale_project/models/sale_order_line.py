@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import api, Command, fields, models, _
-from odoo.tools import clean_context, format_amount
-from odoo.tools.sql import column_exists, create_column
+from ecommerce import api, Command, fields, models, _
+from ecommerce.tools import clean_context, format_amount
+from ecommerce.tools.sql import column_exists, create_column
 
 
 class SaleOrderLine(models.Model):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import datetime
 from pytz import timezone, utc
 
-from odoo.addons.resource.models.resource import Intervals, sum_intervals
+from ecommerce.addons.resource.models.resource import Intervals, sum_intervals
 
 from .common import TestHrCommon
 

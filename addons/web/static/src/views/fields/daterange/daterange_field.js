@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { loadJS } from "@web/core/assets";
@@ -6,7 +6,7 @@ import { luxonToMoment, momentToLuxon } from "@web/core/l10n/dates";
 import { useService } from "@web/core/utils/hooks";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, onWillStart, useExternalListener, useRef, useEffect } from "@odoo/owl";
+import { Component, onWillStart, useExternalListener, useRef, useEffect } from "@ecommerce/owl";
 const formatters = registry.category("formatters");
 const parsers = registry.category("parsers");
 

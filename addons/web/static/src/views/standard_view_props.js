@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // TODO: add this in info props description
 
@@ -21,7 +21,7 @@ export const standardViewProps = {
     bannerRoute: { type: String, optional: true },
     className: { type: String, optional: true },
     comparison: { validate: () => true }, // fix problem with validation with type: [Object, null]
-    // Issue OWL: https://github.com/odoo/owl/issues/910
+    // Issue OWL: https://github.com/ecommerce/owl/issues/910
     context: { type: Object },
     createRecord: { type: Function, optional: true },
     display: { type: Object, optional: true },

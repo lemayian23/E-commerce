@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.ListView **/
+/** @ecommerce-module alias=web.ListView **/
 
 /**
  * The list view is one of the core and most basic view: it is used to look at

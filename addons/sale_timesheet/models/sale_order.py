@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import math
 from collections import defaultdict
 
-from odoo import api, fields, models, _
-from odoo.osv import expression
-from odoo.tools import float_compare, format_duration
+from ecommerce import api, fields, models, _
+from ecommerce.osv import expression
+from ecommerce.tools import float_compare, format_duration
 
 
 class SaleOrder(models.Model):

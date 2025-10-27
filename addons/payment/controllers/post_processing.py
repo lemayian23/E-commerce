@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from datetime import timedelta
 
 import psycopg2
 
-from odoo import fields, http
-from odoo.http import request
+from ecommerce import fields, http
+from ecommerce.http import request
 
 _logger = logging.getLogger(__name__)
 

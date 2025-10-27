@@ -135,7 +135,7 @@ _mime_mappings = (
     # zip, but will include jar, odt, ods, odp, docx, xlsx, pptx, apk
     _Entry('application/zip', [b'PK\x03\x04'], [_check_ooxml, _check_open_container_format]),
 )
-def _odoo_guess_mimetype(bin_data, default='application/octet-stream'):
+def _ecommerce_guess_mimetype(bin_data, default='application/octet-stream'):
     """ Attempts to guess the mime type of the provided binary data, similar
     to but significantly more limited than libmagic
 
@@ -188,7 +188,7 @@ if magic:
             return 'image/svg+xml'
         return mimetype
 else:
-    guess_mimetype = _odoo_guess_mimetype
+    guess_mimetype = _ecommerce_guess_mimetype
 
 
 def neuter_mimetype(mimetype, user):

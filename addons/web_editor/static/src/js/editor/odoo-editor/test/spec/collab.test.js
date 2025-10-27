@@ -1,4 +1,4 @@
-import { OdooEditor, insertCharsAt } from '../../src/OdooEditor.js';
+import { ecommerceEditor, insertCharsAt } from '../../src/ecommerceEditor.js';
 import {
     parseMultipleTextualSelection,
     redo,
@@ -96,9 +96,9 @@ const testMultiEditor = spec => {
 
         // Insure all the client will have the same starting id.
         let nextId = 1;
-        OdooEditor.prototype._generateId = () => 'fake_id_' + nextId++;
+        ecommerceEditor.prototype._generateId = () => 'fake_id_' + nextId++;
 
-        clientInfo.editor = new OdooEditor(clientInfo.editable, {
+        clientInfo.editor = new ecommerceEditor(clientInfo.editable, {
             toSanitize: false,
             document: iframeDocument,
             collaborationClientId: clientInfo.clientId,
@@ -134,7 +134,7 @@ const testMultiEditor = spec => {
 
     // From now, any any step from a client must have a different ID.
     let concurentNextId = 1;
-    OdooEditor.prototype._generateId = () => 'fake_concurent_id_' + concurentNextId++;
+    ecommerceEditor.prototype._generateId = () => 'fake_concurent_id_' + concurentNextId++;
 
     if (spec.afterCreate) {
         spec.afterCreate(clientInfos);

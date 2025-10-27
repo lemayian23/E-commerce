@@ -1,4 +1,4 @@
-odoo.define("website.tour.edit_link_popover", function (require) {
+ecommerce.define("website.tour.edit_link_popover", function (require) {
 "use strict";
 
 const { browser } = require('@web/core/browser/browser');

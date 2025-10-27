@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from '@web/core/registry';
 import { Many2OneField } from '@web/views/fields/many2one/many2one_field';
-import { useEffect } from '@odoo/owl';
+import { useEffect } from '@ecommerce/owl';
 
 export class SaleOrderLineProductField extends Many2OneField {
 

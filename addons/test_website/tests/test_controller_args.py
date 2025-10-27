@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo.tests
-from odoo.tools import mute_logger
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+import ecommerce.tests
+from ecommerce.tools import mute_logger
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteControllerArgs(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteControllerArgs(ecommerce.tests.HttpCase):
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_crawl_args(self):
         req = self.url_open('/ignore_args/converter/valueA/?b=valueB&c=valueC')
         self.assertEqual(req.status_code, 200)
@@ -37,8 +37,8 @@ class TestWebsiteControllerArgs(odoo.tests.HttpCase):
                          "Model converter record does not exist, return a 404.")
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteControllers(odoo.tests.TransactionCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteControllers(ecommerce.tests.TransactionCase):
 
     def test_01_sitemap(self):
         website = self.env['website'].browse(1)

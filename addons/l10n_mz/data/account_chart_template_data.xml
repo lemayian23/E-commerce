@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="l10n_mz_chart_template" model="account.chart.template">
             <field name="name">Chart of accounts - Small and medium-sized enterprises</field>
@@ -11,4 +11,4 @@
             <field name="country_id" ref="base.mz"/>
         </record>
     </data>
-</odoo>
+</ecommerce>

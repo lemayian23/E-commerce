@@ -1,4 +1,4 @@
-odoo.define('survey.preload_image_mixin', function (require) {
+ecommerce.define('survey.preload_image_mixin', function (require) {
 "use strict";
 
 

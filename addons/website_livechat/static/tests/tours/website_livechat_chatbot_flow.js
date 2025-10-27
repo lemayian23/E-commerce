@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import tour from "web_tour.tour";
 
@@ -17,7 +17,7 @@ tour.register('website_livechat_chatbot_flow_tour', {
 }, [{
     trigger: messagesContain("Hello! I'm a bot!"),
     async run() {
-        const { messaging } = await odoo.__DEBUG__;
+        const { messaging } = await ecommerce.__DEBUG__;
         /**
          * Make it a bit faster than the default delay (3500ms).
          * Also debounce waiting for more user inputs for only 500ms.

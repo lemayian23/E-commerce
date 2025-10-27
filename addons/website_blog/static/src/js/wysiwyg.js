@@ -1,4 +1,4 @@
-odoo.define('website_blog.wysiwyg', function (require) {
+ecommerce.define('website_blog.wysiwyg', function (require) {
 'use strict';
 
 
@@ -80,7 +80,7 @@ Wysiwyg.include({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onSetBlogPostUpdatedTags: function (ev) {
         this.blogTagsPerBlogPost[ev.data.blogPostID] = ev.data.tags;

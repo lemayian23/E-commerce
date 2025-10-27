@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import wTourUtils from 'website.tour_utils';
 
@@ -108,7 +108,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
     // Create a Link for which we don't have an icon to propose.
     ...addNewSocialNetwork(7, 6, 'https://whatever.it/1EdSw9X'),
     // Create a custom instagram link.
-    ...addNewSocialNetwork(8, 7, 'https://instagr.am/odoo.official/'),
+    ...addNewSocialNetwork(8, 7, 'https://instagr.am/ecommerce.official/'),
     {
         content: "Check if the result is correct before removing",
         trigger: "iframe .s_social_media" +
@@ -119,7 +119,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(4)[href='/website/social/github'])" +
                  ":has(a:eq(5)[href='https://www.youtu.be/y7TlnAv6cto']:has(i.fa-youtube))" +
                  ":has(a:eq(6)[href='https://whatever.it/1EdSw9X']:has(i.fa-pencil))" +
-                 ":has(a:eq(7)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(7)[href='https://instagr.am/ecommerce.official/']:has(i.fa-instagram))",
         run: () => {}, // This is a check.
     },
     // Create a custom link, not officially supported, ensure icon is found.
@@ -160,13 +160,13 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(4)[href='/website/social/github'])" +
                  ":has(a:eq(5)[href='/website/social/facebook'])" +
                  ":has(a:eq(6)[href='https://whatever.it/1EdSw9X']:has(i.fa-pencil))" +
-                 ":has(a:eq(7)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(7)[href='https://instagr.am/ecommerce.official/']:has(i.fa-instagram))",
         run: () => {}, // This is a check.
     },
     {
         content: 'Change url of the DB instagram link',
         trigger: 'we-list table input:eq(3)',
-        run: 'text https://instagram.com/odoo.official/',
+        run: 'text https://instagram.com/ecommerce.official/',
     },
     {
         content: 'Save',
@@ -211,7 +211,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(4)[href='/website/social/github'])" +
                  ":has(a:eq(5)[href='/website/social/facebook'])" +
                  ":has(a:eq(6)[href='https://whatever.it/1EdSw9X']:has(i.fa-heart))" +
-                 ":has(a:eq(7)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(7)[href='https://instagr.am/ecommerce.official/']:has(i.fa-instagram))",
         run: () => {}, // This is a check.
     },
     // Create a social network but replace its icon by an image before setting

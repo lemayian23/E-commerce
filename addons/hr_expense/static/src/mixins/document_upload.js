@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { useBus, useService } from '@web/core/utils/hooks';
 
@@ -87,7 +87,7 @@ export const ExpenseDocumentUpload = {
 
     async onChangeFileInput() {
         const params = {
-            csrf_token: odoo.csrf_token,
+            csrf_token: ecommerce.csrf_token,
             ufile: [...this.fileInput.el.files],
             model: 'hr.expense',
             id: 0,

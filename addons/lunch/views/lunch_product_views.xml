@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="lunch_product_view_search" model="ir.ui.view">
         <field name="name">lunch.product.search</field>
         <field name="model">lunch.product</field>
@@ -124,7 +124,7 @@
                                                     <field class="pe-1" name="is_favorite" widget="boolean_favorite" nolabel="1"/>
                                                     <strong><span t-esc="record.name.value"/></strong>
                                                 </div>
-                                                <div class="text-odoo">
+                                                <div class="text-ecommerce">
                                                     <div t-if="record.is_new.raw_value" class="o_lunch_new_product me-1 py-1 fs-6 badge rounded-pill text-bg-success">
                                                         New
                                                     </div>
@@ -339,4 +339,4 @@
             </p>
         </field>
     </record>
-</odoo>
+</ecommerce>

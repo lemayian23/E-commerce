@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import api, SUPERUSER_ID
-from odoo.addons.account.models.chart_template import update_taxes_from_templates
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import api, SUPERUSER_ID
+from ecommerce.addons.account.models.chart_template import update_taxes_from_templates
 
 
 def migrate(cr, version):
     env = api.Environment(cr, SUPERUSER_ID, {})
     # We had corrupted data, handle the correction so the tax update can proceed.
-    # See https://github.com/odoo/odoo/commit/7b07df873535446f97abc1de9176b9332de5cb07
+    # See https://github.com/ecommerce/ecommerce/commit/7b07df873535446f97abc1de9176b9332de5cb07
     for company in env.companies:
         taxes_to_check = (f'{company.id}_vat_purchase_81_reverse', f'{company.id}_vat_77_purchase_reverse')
         tax_ids = env['ir.model.data'].search([

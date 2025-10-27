@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import markupsafe
 
-from odoo import api, fields, models, tools
-from odoo.addons.rating.models import rating_data
-from odoo.osv import expression
-from odoo.tools.float_utils import float_compare, float_round
+from ecommerce import api, fields, models, tools
+from ecommerce.addons.rating.models import rating_data
+from ecommerce.osv import expression
+from ecommerce.tools.float_utils import float_compare, float_round
 
 
 class RatingMixin(models.AbstractModel):

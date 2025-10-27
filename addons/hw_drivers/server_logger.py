@@ -6,13 +6,13 @@ import threading
 import time
 import urllib3.exceptions
 
-from odoo.addons.hw_drivers.tools import helpers
-from odoo.netsvc import DBFormatter
-from odoo.tools import config
+from ecommerce.addons.hw_drivers.tools import helpers
+from ecommerce.netsvc import DBFormatter
+from ecommerce.tools import config
 
 _logger = logging.getLogger(__name__)
 
-IOT_LOG_TO_SERVER_CONFIG_NAME = 'iot_log_to_server'  # config name in odoo.conf
+IOT_LOG_TO_SERVER_CONFIG_NAME = 'iot_log_to_server'  # config name in ecommerce.conf
 
 
 class AsyncHTTPHandler(logging.Handler):
@@ -33,12 +33,12 @@ class AsyncHTTPHandler(logging.Handler):
     """Minimum delay in seconds before we log a server disconnection.
     Used in order to avoid the IoT log file to have a log recorded each _FLUSH_INTERVAL (as this value is very small)"""
 
-    def __init__(self, odoo_server_url, active):
+    def __init__(self, ecommerce_server_url, active):
         """
-        :param odoo_server_url: Odoo Server URL
+        :param ecommerce_server_url: ecommerce Server URL
         """
         super().__init__()
-        self._odoo_server_url = odoo_server_url
+        self._ecommerce_server_url = ecommerce_server_url
         self._log_queue = queue.Queue(self._MAX_QUEUE_SIZE)
         self._flush_thread = None
         self._active = None
@@ -50,7 +50,7 @@ class AsyncHTTPHandler(logging.Handler):
         Switch it on or off the handler (depending on the IoT setting) without the need to close/reset it
         """
         self._active = is_active
-        if self._active and self._odoo_server_url:
+        if self._active and self._ecommerce_server_url:
             # Start the thread to periodically flush logs
             self._flush_thread = threading.Thread(target=self._periodic_flush, name="ThreadServerLogSender", daemon=True)
             self._flush_thread.start()
@@ -58,12 +58,12 @@ class AsyncHTTPHandler(logging.Handler):
             self._flush_thread and self._flush_thread.join()  # let a last flush
 
     def _periodic_flush(self):
-        odoo_session = requests.Session()
-        while self._odoo_server_url and self._active:  # allow to exit the loop on thread.join
+        ecommerce_session = requests.Session()
+        while self._ecommerce_server_url and self._active:  # allow to exit the loop on thread.join
             time.sleep(self._FLUSH_INTERVAL)
-            self._flush_logs(odoo_session)
+            self._flush_logs(ecommerce_session)
 
-    def _flush_logs(self, odoo_session):
+    def _flush_logs(self, ecommerce_session):
         def convert_to_byte(s):
             return bytes(s, encoding="utf-8") + b'<log/>\n'
 
@@ -91,11 +91,11 @@ class AsyncHTTPHandler(logging.Handler):
 
         queue_size = self._log_queue.qsize()  # This is an approximate value
 
-        if not self._odoo_server_url or queue_size == 0:
+        if not self._ecommerce_server_url or queue_size == 0:
             return
         try:
-            odoo_session.post(
-                self._odoo_server_url + '/iot/log',
+            ecommerce_session.post(
+                self._ecommerce_server_url + '/iot/log',
                 data=empty_queue(),
                 timeout=self._REQUEST_TIMEOUT
             ).raise_for_status()
@@ -127,15 +127,15 @@ def close_server_log_sender_handler():
     _server_log_sender_handler.close()
 
 
-def get_odoo_config_log_to_server_option():
+def get_ecommerce_config_log_to_server_option():
     return config.get(IOT_LOG_TO_SERVER_CONFIG_NAME, True)  # Enabled by default
 
 
-def check_and_update_odoo_config_log_to_server_option(new_state):
+def check_and_update_ecommerce_config_log_to_server_option(new_state):
     """
     :return: wherever the config file need to be updated or not
     """
-    if get_odoo_config_log_to_server_option() != new_state:
+    if get_ecommerce_config_log_to_server_option() != new_state:
         config[IOT_LOG_TO_SERVER_CONFIG_NAME] = new_state
         _server_log_sender_handler.toggle_active(new_state)
         return True
@@ -157,8 +157,8 @@ def _server_log_sender_handler_filter(log_record):
 # The server URL is set once at initlialisation as the IoT will always restart if the URL is changed
 # The only other possible case is when the server URL value is "Cleared",
 # in this case we force close the log handler (as it does not make sense anymore)
-_server_log_sender_handler = AsyncHTTPHandler(helpers.get_odoo_server_url(), get_odoo_config_log_to_server_option())
+_server_log_sender_handler = AsyncHTTPHandler(helpers.get_ecommerce_server_url(), get_ecommerce_config_log_to_server_option())
 _server_log_sender_handler.setFormatter(DBFormatter('%(asctime)s %(pid)s %(levelname)s %(dbname)s %(name)s: %(message)s %(perf_info)s'))
 _server_log_sender_handler.addFilter(_server_log_sender_handler_filter)
-# Set it in the 'root' logger, on which every logger (including odoo) is a child
+# Set it in the 'root' logger, on which every logger (including ecommerce) is a child
 logging.getLogger().addHandler(_server_log_sender_handler)

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
 from unittest.mock import patch
 
-from odoo import Command
-from odoo.exceptions import AccessError
-from odoo.tests.common import Form, TransactionCase, users
-from odoo.tools import mute_logger
+from ecommerce import Command
+from ecommerce.exceptions import AccessError
+from ecommerce.tests.common import Form, TransactionCase, users
+from ecommerce.tools import mute_logger
 
 
 class PropertiesCase(TransactionCase):
@@ -152,7 +152,7 @@ class PropertiesCase(TransactionCase):
             'default': 'blue',
         }])
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     def test_properties_field_write_batch(self):
         """Test the behavior of the write called in batch.
 
@@ -180,7 +180,7 @@ class PropertiesCase(TransactionCase):
         self.assertEqual(sql_values_1, {'discussion_color_code': 'orange', 'moderator_partner_id': self.partner_2.id, 'state': 'done'})
         self.assertEqual(sql_values_3, {'discussion_color_code': 'orange', 'moderator_partner_id': self.partner_2.id, 'state': 'done'})
 
-    @mute_logger('odoo.models.unlink', 'odoo.fields')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.fields')
     def test_properties_field_read_batch(self):
         values = self.message_1.read(['attributes'])[0]['attributes']
         self.assertEqual(len(values), 2)
@@ -236,7 +236,7 @@ class PropertiesCase(TransactionCase):
         with self.assertQueryCount(5):
             values = messages.read(['attributes'])
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     def test_properties_field_delete(self):
         """Test to delete a property using the flag "definition_deleted"."""
         self.message_1.attributes = [{
@@ -266,7 +266,7 @@ class PropertiesCase(TransactionCase):
         self.assertEqual(len(self.message_1.attributes), 1)
         self.assertEqual(self.message_1.attributes[0]['value'], 'purple')
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     def test_properties_field_create_batch(self):
         # first create to cache the access rights
         self.env['test_new_api.message'].create({'name': 'test'})
@@ -556,7 +556,7 @@ class PropertiesCase(TransactionCase):
         self.assertEqual(properties[1]['value'], (self.partner_2.id, self.partner_2.display_name))
         self.assertEqual(properties[1]['comodel'], 'test_new_api.partner')
 
-    @mute_logger('odoo.models.unlink', 'odoo.fields')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.fields')
     def test_properties_field_many2one_unlink(self):
         """Test the case where we unlink the many2one record."""
         self.message_2.attributes = [{
@@ -894,7 +894,7 @@ class PropertiesCase(TransactionCase):
                 },
             ]
 
-    @mute_logger('odoo.models.unlink', 'odoo.fields')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.fields')
     def test_properties_field_many2many_basic(self):
         """Test the basic operation on a many2many properties (read, write...).
 
@@ -1006,7 +1006,7 @@ class PropertiesCase(TransactionCase):
             }])
 
     @users('test')
-    @mute_logger('odoo.addons.base.models.ir_rule', 'odoo.fields')
+    @mute_logger('ecommerce.addons.base.models.ir_rule', 'ecommerce.fields')
     def test_properties_field_many2many_filtering(self):
         # a user read a properties with a many2many and he doesn't have access to all records
         tags = self.env['test_new_api.multi.tag'].create(
@@ -1121,7 +1121,7 @@ class PropertiesCase(TransactionCase):
                 {'name': 'state', 'type': 'datetime'},
             ]
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     def test_properties_field_onchange(self):
         """If we change the definition record, the onchange of the properties field must be triggered."""
         message_form = Form(self.env['test_new_api.message'])
@@ -1298,7 +1298,7 @@ class PropertiesCase(TransactionCase):
             message.attributes,
             [{'name': 'new_property', 'type': 'char', 'value': 'test value'}])
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     def test_properties_field_definition_update(self):
         """Test the definition update from the child."""
         self.discussion_1.attributes_definition = []
@@ -1350,7 +1350,7 @@ class PropertiesCase(TransactionCase):
         }
         self.assertEqual(expected_properties, sql_properties)
 
-    @mute_logger('odoo.fields')
+    @mute_logger('ecommerce.fields')
     @users('test')
     def test_properties_field_security(self):
         """Check the access right related to the Properties fields."""
@@ -1376,14 +1376,14 @@ class PropertiesCase(TransactionCase):
         values = message.read(['attributes'])[0]['attributes'][0]
         self.assertEqual(values['value'], (tag.id, 'Test Tag'))
         self.env.invalidate_all()
-        with patch('odoo.addons.test_new_api.models.test_new_api.MultiTag.check_access_rights', _mocked_check_access_rights):
+        with patch('ecommerce.addons.test_new_api.models.test_new_api.MultiTag.check_access_rights', _mocked_check_access_rights):
             values = message.read(['attributes'])[0]['attributes'][0]
         self.assertEqual(values['value'], (tag.id, None))
 
         # a user read a properties with a many2one to a record
         # but doesn't have access to its parent
         self.env.invalidate_all()
-        with patch('odoo.addons.test_new_api.models.test_new_api.Discussion.check_access_rights', _mocked_check_access_rights):
+        with patch('ecommerce.addons.test_new_api.models.test_new_api.Discussion.check_access_rights', _mocked_check_access_rights):
             values = message.read(['attributes'])[0]['attributes'][0]
         self.assertEqual(values['value'], (tag.id, 'Test Tag'))
 
@@ -1405,7 +1405,7 @@ class PropertiesCase(TransactionCase):
             return False
 
         self.env.invalidate_all()
-        with patch('odoo.addons.test_new_api.models.test_new_api.Discussion.check_access_rights', _mocked_check_access_rights):
+        with patch('ecommerce.addons.test_new_api.models.test_new_api.Discussion.check_access_rights', _mocked_check_access_rights):
             message = self.env['test_new_api.message'].create({
                 'name': 'Test Message',
                 'discussion': self.discussion_1.id,

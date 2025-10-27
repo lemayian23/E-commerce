@@ -3527,7 +3527,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		// See #7960
 		zIndex: 90,
 
-		odoo_isRTL: false,
+		ecommerce_isRTL: false,
 
 		// Callbacks
 		resize: null,
@@ -3882,7 +3882,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 			dx = ( event.pageX - smp.left ) || 0,
 			dy = ( event.pageY - smp.top ) || 0,
 			trigger = this._change[ a ];
-		dx = this.options.odoo_isRTL ? -dx : dx;
+		dx = this.options.ecommerce_isRTL ? -dx : dx;
 
 		this._updatePrevProperties();
 
@@ -4654,7 +4654,7 @@ $.ui.plugin.add( "resizable", "grid", {
 			}
 			if ( newWidth - gridX > 0 ) {
 				that.size.width = newWidth;
-				if (that.options.odoo_isRTL) {
+				if (that.options.ecommerce_isRTL) {
 					that.position.left = op.left + ox;
 				} else {
 					that.position.left = op.left - ox;
@@ -4662,7 +4662,7 @@ $.ui.plugin.add( "resizable", "grid", {
 			} else {
 				newWidth = gridX - outerDimensions.width;
 				that.size.width = newWidth;
-				if (that.options.odoo_isRTL) {
+				if (that.options.ecommerce_isRTL) {
 					that.position.left = op.left - os.width + newWidth;
 				} else {
 					that.position.left = op.left + os.width - newWidth;

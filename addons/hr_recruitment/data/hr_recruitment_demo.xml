@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo noupdate="1">
+<ecommerce noupdate="1">
     <record id="base.user_demo" model="res.users">
         <field name="groups_id" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
     </record>
@@ -489,4 +489,4 @@
         <field name="create_uid" ref="base.user_admin"/>
         <field name="user_id" ref="base.user_admin"/>
     </record>
-</odoo>
+</ecommerce>

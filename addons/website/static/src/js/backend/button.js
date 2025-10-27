@@ -1,4 +1,4 @@
-odoo.define('website.backend.button', function (require) {
+ecommerce.define('website.backend.button', function (require) {
 'use strict';
 
 var AbstractField = require('web.AbstractField');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="ir_mail_server_view_form" model="ir.ui.view">
         <field name="name">ir.mail_server.view.form.inherit.outlook</field>
         <field name="model">ir.mail_server</field>
@@ -36,11 +36,11 @@
                 </div>
             </field>
             <field name="smtp_authentication_info" position="after">
-                <a href="https://www.odoo.com/documentation/16.0/applications/general/email_communication/email_servers.html?highlight=outgoing email server#use-a-default-from-email-address"
+                <a href="https://www.ecommerce.com/documentation/16.0/applications/general/email_communication/email_servers.html?highlight=outgoing email server#use-a-default-from-email-address"
                     attrs="{'invisible': [('smtp_authentication', '!=', 'outlook')]}" target="_blank">
                     Read More
                 </a>
             </field>
         </field>
     </record>
-</odoo>
+</ecommerce>

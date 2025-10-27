@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models
-from odoo.http import request
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models
+from ecommerce.http import request
 
 
 class IrHttp(models.AbstractModel):

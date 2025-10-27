@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
-from odoo.http import Controller, request, route
+from ecommerce.http import Controller, request, route
 from .utils import clean_action
 
 

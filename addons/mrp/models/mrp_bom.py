@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _, Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv.expression import AND, OR
-from odoo.tools import float_round
+from ecommerce import api, fields, models, _, Command
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv.expression import AND, OR
+from ecommerce.tools import float_round
 
 from collections import defaultdict
 
@@ -80,7 +80,7 @@ class MrpBom(models.Model):
         'product.template.attribute.value',
         compute='_compute_possible_product_template_attribute_value_ids')
     allow_operation_dependencies = fields.Boolean('Operation Dependencies',
-        help="Create operation level dependencies that will influence both planning and the status of work orders upon MO confirmation. If this feature is ticked, and nothing is specified, Odoo will assume that all operations can be started simultaneously."
+        help="Create operation level dependencies that will influence both planning and the status of work orders upon MO confirmation. If this feature is ticked, and nothing is specified, ecommerce will assume that all operations can be started simultaneously."
     )
 
     _sql_constraints = [
@@ -455,7 +455,7 @@ class MrpBomLine(models.Model):
         'Manual Consumption', default=False, compute='_compute_manual_consumption',
         readonly=False, store=True, copy=True,
         help="When activated, then the registration of consumption for that component is recorded manually exclusively.\n"
-             "If not activated, and any of the components consumption is edited manually on the manufacturing order, Odoo assumes manual consumption also.")
+             "If not activated, and any of the components consumption is edited manually on the manufacturing order, ecommerce assumes manual consumption also.")
     manual_consumption_readonly = fields.Boolean(
         'Manual Consumption Readonly', compute='_compute_manual_consumption_readonly')
 

@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
+import ecommerce
 
-from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
-from odoo.addons.l10n_be_pos_sale.models.pos_session import PosSession
-from odoo import Command
+from ecommerce.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+from ecommerce.addons.l10n_be_pos_sale.models.pos_session import PosSession
+from ecommerce import Command
 
-@odoo.tests.tagged('post_install_l10n', 'post_install', '-at_install')
+@ecommerce.tests.tagged('post_install_l10n', 'post_install', '-at_install')
 class TestPoSSaleL10NBe(TestPointOfSaleHttpCommon):
 
     @classmethod

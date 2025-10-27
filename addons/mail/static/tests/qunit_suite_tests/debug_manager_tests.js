@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { manageMessages } from "@mail/js/tools/debug_manager";
 import { click, getFixture, legacyExtraNextTick, patchWithCleanup } from "@web/../tests/helpers/utils";
@@ -10,7 +10,7 @@ QUnit.module("DebugMenu");
 QUnit.test("Manage Messages", async function (assert) {
     assert.expect(6);
 
-    patchWithCleanup(odoo, { debug: "1" });
+    patchWithCleanup(ecommerce, { debug: "1" });
     const serverData = getActionManagerServerData();
 
     // Add fake "mail.message" model and arch

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.api import Environment
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from odoo.tests import tagged
-from odoo.addons.account.tests.common import AccountTestInvoicingHttpCommon
+from ecommerce.api import Environment
+from ecommerce.tools import DEFAULT_SERVER_DATE_FORMAT
+from ecommerce.tests import tagged
+from ecommerce.addons.account.tests.common import AccountTestInvoicingHttpCommon
 from datetime import date, timedelta
 
 _logger = logging.getLogger(__name__)

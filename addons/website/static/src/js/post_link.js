@@ -1,4 +1,4 @@
-odoo.define('website.post_link', function (require) {
+ecommerce.define('website.post_link', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

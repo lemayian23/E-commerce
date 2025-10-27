@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import copy
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
 
 from contextlib import nullcontext
 
-from odoo.tools import mute_logger
-from odoo.tests.common import HttpCase, tagged
+from ecommerce.tools import mute_logger
+from ecommerce.tests.common import HttpCase, tagged
 
 EXTRA_REQUEST = 2 - 1
 """ During tests, the query on 'base_registry_signaling, base_cache_signaling'
@@ -92,7 +92,7 @@ class TestStandardPerformance(UtilPerf):
         super().setUpClass()
         cls.env['res.users'].browse(2).image_1920 = b'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC'
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_10_perf_sql_img_controller(self):
         self.authenticate('demo', 'demo')
         # not published user, get the not found image placeholder
@@ -101,7 +101,7 @@ class TestStandardPerformance(UtilPerf):
         self.assertEqual(self._get_url_hot_query(url), 8)
         self.assertEqual(self._get_url_hot_query(url, cache=False), 8)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_11_perf_sql_img_controller(self):
         self.authenticate('demo', 'demo')
         self.env['res.users'].sudo().browse(2).website_published = True
@@ -115,7 +115,7 @@ class TestStandardPerformance(UtilPerf):
         self._check_url_hot_query(url, 6, select_tables_perf)
         self.assertEqual(self._get_url_hot_query(url, cache=False), 6)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_20_perf_sql_img_controller_bis(self):
         url = '/web/image/website/1/favicon'
         select_tables_perf = {
@@ -282,7 +282,7 @@ class TestWebsitePerformance(UtilPerf):
 
 @tagged('-at_install', 'post_install')
 class TestWebsitePerformancePost(UtilPerf):
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_50_perf_sql_web_assets(self):
         # assets route /web/assets/..
         self.env['ir.qweb']._generate_asset_nodes('web.assets_frontend_lazy', css=False, js=True)

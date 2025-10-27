@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo import tools
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce import tools
 
 
 class AccountJournal(models.Model):

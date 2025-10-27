@@ -1,4 +1,4 @@
-odoo.define('web.mixins_tests', function (require) {
+ecommerce.define('web.mixins_tests', function (require) {
 "use strict";
 
 const  AbstractAction = require("web.AbstractAction");

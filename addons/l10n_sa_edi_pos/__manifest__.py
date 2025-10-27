@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Saudi Arabia - E-invoicing (Simplified)',
@@ -9,7 +9,7 @@
         'l10n_sa_pos',
         'l10n_sa_edi',
     ],
-    'author': 'Odoo S.A.',
+    'author': 'ecommerce S.A.',
     'summary': """
         ZATCA E-Invoicing, support for PoS
     """,

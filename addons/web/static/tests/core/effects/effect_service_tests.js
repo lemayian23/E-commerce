@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { notificationService } from "@web/core/notifications/notification_service";
 import { registry } from "@web/core/registry";
@@ -16,7 +16,7 @@ import {
     patchWithCleanup,
 } from "../../helpers/utils";
 
-import { Component, markup, xml } from "@odoo/owl";
+import { Component, markup, xml } from "@ecommerce/owl";
 const serviceRegistry = registry.category("services");
 const mainComponentRegistry = registry.category("main_components");
 

@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from hashlib import new as hashnew
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
-from odoo.addons.payment_asiapay import const
+from ecommerce.addons.payment_asiapay import const
 
 
 class PaymentProvider(models.Model):
@@ -75,7 +75,7 @@ class PaymentProvider(models.Model):
 
         :param dict data: The data to sign.
         :param bool incoming: Whether the signature must be generated for an incoming (AsiaPay to
-                              Odoo) or outgoing (Odoo to AsiaPay) communication.
+                              ecommerce) or outgoing (ecommerce to AsiaPay) communication.
         :return: The calculated signature.
         :rtype: str
         """

@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <menuitem id="menu_ssf" parent="base.menu_tests" name="Server-side form"/>
 
     <record id="action_test_o2m_onchange" model="ir.actions.act_window">
@@ -226,4 +226,4 @@
             </form>
         </field>
     </record>
-</odoo>
+</ecommerce>

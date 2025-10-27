@@ -1,10 +1,10 @@
 # # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, date, time
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo.addons.hr_work_entry_holidays.tests.common import TestWorkEntryHolidaysBase
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce.addons.hr_work_entry_holidays.tests.common import TestWorkEntryHolidaysBase
 
 
 @tagged('work_entry_multi_contract')

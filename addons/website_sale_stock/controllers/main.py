@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_sale.controllers import main as website_sale_controller
-from odoo.tools import email_re
-from odoo import http, _
-from odoo.http import request
-from odoo.exceptions import ValidationError
+from ecommerce.addons.website_sale.controllers import main as website_sale_controller
+from ecommerce.tools import email_re
+from ecommerce import http, _
+from ecommerce.http import request
+from ecommerce.exceptions import ValidationError
 from werkzeug.exceptions import BadRequest
 
 

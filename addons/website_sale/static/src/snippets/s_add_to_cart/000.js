@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import publicWidget from 'web.public.widget';
 import { cartHandlerMixin } from 'website_sale.utils';

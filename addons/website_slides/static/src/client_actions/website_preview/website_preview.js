@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { patch } from 'web.utils';
 import { WebsitePreview } from '@website/client_actions/website_preview/website_preview';

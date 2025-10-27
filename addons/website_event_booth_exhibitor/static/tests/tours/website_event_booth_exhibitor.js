@@ -1,4 +1,4 @@
-odoo.define("website_event_booth_exhibitor.tour_steps", function (require) {
+ecommerce.define("website_event_booth_exhibitor.tour_steps", function (require) {
     "use strict";
 
     var core = require('web.core');
@@ -17,7 +17,7 @@ odoo.define("website_event_booth_exhibitor.tour_steps", function (require) {
     return FinalSteps;
 
 });
-odoo.define("website_event_booth_exhibitor.tour", function (require) {
+ecommerce.define("website_event_booth_exhibitor.tour", function (require) {
     "use strict";
 
     var tour = require("web_tour.tour");

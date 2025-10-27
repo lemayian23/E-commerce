@@ -1,4 +1,4 @@
-odoo.define('utm.campaing_kanban_examples', function (require) {
+ecommerce.define('utm.campaing_kanban_examples', function (require) {
 'use strict';
 
 var core = require('web.core');

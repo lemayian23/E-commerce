@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
-from odoo.fields import Command
-from odoo.tests import tagged
-from odoo.tests.common import Form
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
+from ecommerce.tests.common import Form
 
 @tagged('post_install', '-at_install')
 class TestProjectBilling(TestCommonSaleTimesheet):

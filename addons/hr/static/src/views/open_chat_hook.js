@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { helpers } from "@mail/views/open_chat_hook";
 import { patch } from "@web/core/utils/patch";

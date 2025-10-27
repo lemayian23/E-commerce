@@ -5,7 +5,7 @@
  * The license file can be found in the same folder as this file.
  */
 
-odoo.define('website_sale.multirange', function () {
+ecommerce.define('website_sale.multirange', function () {
 'use strict';
 
 /**
@@ -296,7 +296,7 @@ return {
 };
 });
 
-odoo.define('website_sale.multirange.instance', function (require) {
+ecommerce.define('website_sale.multirange.instance', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

@@ -1,4 +1,4 @@
-odoo.define('l10n_fr_pos_cert.Chrome', function (require) {
+ecommerce.define('l10n_fr_pos_cert.Chrome', function (require) {
     'use strict';
 
     const Chrome = require('point_of_sale.Chrome');

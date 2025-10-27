@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.ListConfirmDialog **/
+/** @ecommerce-module alias=web.ListConfirmDialog **/
 
 import core from 'web.core';
 import Dialog from 'web.Dialog';

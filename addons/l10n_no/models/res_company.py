@@ -1,5 +1,5 @@
 # coding: utf-8
-from odoo import fields, models
+from ecommerce import fields, models
 
 
 class ResCompany(models.Model):

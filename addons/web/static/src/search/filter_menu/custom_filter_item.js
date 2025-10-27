@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DatePicker, DateTimePicker } from "@web/core/datepicker/datepicker";
 import { Domain } from "@web/core/domain";
@@ -7,7 +7,7 @@ import { serializeDate, serializeDateTime } from "@web/core/l10n/dates";
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@ecommerce/owl";
 
 const { DateTime } = luxon;
 

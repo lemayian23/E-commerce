@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import ValidationError
+from ecommerce.exceptions import ValidationError
 
-from odoo.addons.uom.tests.common import UomCommon
+from ecommerce.addons.uom.tests.common import UomCommon
 
 
 class TestUom(UomCommon):

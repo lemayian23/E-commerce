@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 from pytz import utc
 from random import randint
 
-from odoo import api, fields, models, tools
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.osv import expression
-from odoo.tools.mail import is_html_empty
-from odoo.tools.translate import _, html_translate
+from ecommerce import api, fields, models, tools
+from ecommerce.addons.http_routing.models.ir_http import slug
+from ecommerce.osv import expression
+from ecommerce.tools.mail import is_html_empty
+from ecommerce.tools.translate import _, html_translate
 
 
 class Track(models.Model):

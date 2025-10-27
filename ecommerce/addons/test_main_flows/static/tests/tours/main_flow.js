@@ -1,4 +1,4 @@
-odoo.define('test_main_flows.tour', function (require) {
+ecommerce.define('test_main_flows.tour', function (require) {
 "use strict";
 
 const {_t} = require('web.core');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {
     afterNextRender,
@@ -865,7 +865,7 @@ QUnit.test('Post a message containing an email address followed by a mention on 
 
     const pyEnv = await startServer();
     const resPartnerId1 = pyEnv['res.partner'].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@ecommerce.com",
         name: "TestPartner",
     });
     const mailChannelId1 = pyEnv['mail.channel'].create({
@@ -880,7 +880,7 @@ QUnit.test('Post a message containing an email address followed by a mention on 
         },
     });
     await openDiscuss();
-    await insertText('.o_ComposerTextInput_textarea', "email@odoo.com\n");
+    await insertText('.o_ComposerTextInput_textarea', "email@ecommerce.com\n");
     await insertText('.o_ComposerTextInput_textarea', "@Te");
     await click('.o_ComposerSuggestionView');
     await click('.o_Composer_buttonSend');
@@ -1586,7 +1586,7 @@ QUnit.test("not highlighting the message if not mentioning the current user insi
     const pyEnv = await startServer();
     const resPartnerId1 = pyEnv['res.partner'].create({
         display_name: "testPartner",
-        email: "testPartner@odoo.com",
+        email: "testPartner@ecommerce.com",
     });
     pyEnv['res.users'].create({ partner_id: resPartnerId1 });
     const mailChannelId1 = pyEnv['mail.channel'].create({

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useUpdate } from '@mail/component_hooks/use_update';
 

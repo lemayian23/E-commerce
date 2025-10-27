@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.tools.misc import formatLang
-from odoo.addons.account.models.account_journal_dashboard import group_by_journal
+from ecommerce import api, models
+from ecommerce.tools.misc import formatLang
+from ecommerce.addons.account.models.account_journal_dashboard import group_by_journal
 
 
 class AccountJournal(models.Model):

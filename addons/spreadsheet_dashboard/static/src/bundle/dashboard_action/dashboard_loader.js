@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { DataSources } from "@spreadsheet/data_sources/data_sources";
 import { migrate } from "@spreadsheet/o_spreadsheet/migration";
@@ -41,14 +41,14 @@ export const Status = {
  *
  * @typedef {(dashboardId: number) => Promise<{ data: string, revisions: object[] }>} FetchDashboardData
  *
- * @typedef {import("@web/env").OdooEnv} OdooEnv
+ * @typedef {import("@web/env").ecommerceEnv} ecommerceEnv
  *
  * @typedef {import("@web/core/orm_service").ORM} ORM
  */
 
 export class DashboardLoader {
     /**
-     * @param {OdooEnv} env
+     * @param {ecommerceEnv} env
      * @param {ORM} orm
      * @param {FetchDashboardData} fetchDashboardData
      */

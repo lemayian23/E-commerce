@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import re
 from collections import defaultdict
 import itertools
 
-from odoo import api, fields, models
-from odoo.http import request
-from odoo.osv import expression
+from ecommerce import api, fields, models
+from ecommerce.http import request
+from ecommerce.osv import expression
 
 
 class UtmMixin(models.AbstractModel):
@@ -54,9 +54,9 @@ class UtmMixin(models.AbstractModel):
         # methods of utm.mixin, but will ignore overridden method on crm.lead
         return [
             # ("URL_PARAMETER", "FIELD_NAME_MIXIN", "NAME_IN_COOKIES")
-            ('utm_campaign', 'campaign_id', 'odoo_utm_campaign'),
-            ('utm_source', 'source_id', 'odoo_utm_source'),
-            ('utm_medium', 'medium_id', 'odoo_utm_medium'),
+            ('utm_campaign', 'campaign_id', 'ecommerce_utm_campaign'),
+            ('utm_source', 'source_id', 'ecommerce_utm_source'),
+            ('utm_medium', 'medium_id', 'ecommerce_utm_medium'),
         ]
 
     def _find_or_create_record(self, model_name, name):

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <!-- Page -->
 <template id="layout" name="Partners Layout">
@@ -810,4 +810,4 @@
         </t>
     </template>
 
-</odoo>
+</ecommerce>

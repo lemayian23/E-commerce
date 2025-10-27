@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
+from ecommerce.tests import tagged
 
-from odoo.addons.product.tests.common import ProductCommon
+from ecommerce.addons.product.tests.common import ProductCommon
 
 
 @tagged('post_install', '-at_install')

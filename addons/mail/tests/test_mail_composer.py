@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import AccessError
-from odoo.tests import Form, tagged, users
-from odoo.tools import mute_logger
+from ecommerce.addons.mail.tests.common import MailCommon
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import Form, tagged, users
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_composer')
@@ -74,7 +74,7 @@ class TestMailComposerForm(TestMailComposer):
             }
         ])
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_composer_default_recipients(self):
         """ Test usage of a private partner in composer, as default value """
@@ -105,7 +105,7 @@ class TestMailComposerForm(TestMailComposer):
         self.assertEqual(message.partner_ids, partner_classic)
         self.assertEqual(message.subject, f'Re: {test_record.name}')
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_composer_default_recipients_private(self):
         """ Test usage of a private partner in composer, as default value """
@@ -138,7 +138,7 @@ class TestMailComposerForm(TestMailComposer):
         self.assertEqual(message.partner_ids, partner_private + partner_classic)
         self.assertEqual(message.subject, f'Re: {test_record.name}')
 
-    @mute_logger('odoo.addons.base.models.ir_rule', 'odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.base.models.ir_rule', 'ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_composer_default_recipients_private_norights(self):
         """ Test usage of a private partner in composer when not having the
@@ -159,7 +159,7 @@ class TestMailComposerForm(TestMailComposer):
                 'default_res_id': test_record.id,
             }))
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_composer_template_recipients_private(self):
         """ Test usage of a private partner in composer, comint from template
@@ -237,7 +237,7 @@ class TestMailComposerRendering(TestMailComposer):
             'We must preserve (mso) comments in email html'
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail')
     @users('employee')
     def test_mail_mass_mode_compose_with_mso(self):
         composer = self.env['mail.compose.message'].with_context({

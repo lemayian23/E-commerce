@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ModelFieldSelector } from "@web/core/model_field_selector/model_field_selector";
 import { MainComponentsContainer } from "@web/core/main_components_container";
@@ -11,7 +11,7 @@ import { makeTestEnv } from "../helpers/mock_env";
 import { click, getFixture, triggerEvent, mount, editInput } from "../helpers/utils";
 import { makeFakeLocalizationService } from "../helpers/mock_services";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 
 let target;
 let serverData;

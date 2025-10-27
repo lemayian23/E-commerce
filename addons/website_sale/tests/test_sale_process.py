@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo import api, Command
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo, TransactionCaseWithUserDemo, HttpCaseWithUserPortal
-from odoo.addons.website_sale.controllers.main import WebsiteSale
-from odoo.addons.website.tools import MockRequest
+from ecommerce import api, Command
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo, TransactionCaseWithUserDemo, HttpCaseWithUserPortal
+from ecommerce.addons.website_sale.controllers.main import WebsiteSale
+from ecommerce.addons.website.tools import MockRequest
 
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestUi(HttpCaseWithUserDemo):
 
     def setUp(self):
@@ -176,7 +176,7 @@ class TestUi(HttpCaseWithUserDemo):
         self.start_tour("/shop", 'google_analytics_add_to_cart')
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@ecommerce.tests.tagged('post_install', '-at_install')
 class TestWebsiteSaleCheckoutAddress(TransactionCaseWithUserDemo, HttpCaseWithUserPortal):
     ''' The goal of this method class is to test the address management on
         the checkout (new/edit billing/shipping, company_id, website_id..).

@@ -7,7 +7,7 @@ import os
 import re
 
 from lxml import etree
-from odoo import tools
+from ecommerce import tools
 
 _logger = logging.getLogger(__name__)
 

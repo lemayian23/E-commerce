@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import base64
 import json
 import os
@@ -8,19 +8,19 @@ import tempfile
 from io import BytesIO
 from zipfile import ZipFile
 
-import odoo.tests
-from odoo.tests import new_test_user
+import ecommerce.tests
+from ecommerce.tests import new_test_user
 
 
 from unittest.mock import patch
 
-from odoo import release
-from odoo.addons import __path__ as __addons_path__
-from odoo.tools import mute_logger
+from ecommerce import release
+from ecommerce.addons import __path__ as __addons_path__
+from ecommerce.tools import mute_logger
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestImportModule(odoo.tests.TransactionCase):
+@ecommerce.tests.tagged('post_install', '-at_install')
+class TestImportModule(ecommerce.tests.TransactionCase):
 
     def import_zipfile(self, files):
         archive = BytesIO()
@@ -77,7 +77,7 @@ class TestImportModule(odoo.tests.TransactionCase):
         files = [
             ('foo/__manifest__.py', b"foo")
         ]
-        with mute_logger("odoo.addons.base_import_module.models.ir_module"):
+        with mute_logger("ecommerce.addons.base_import_module.models.ir_module"):
             result = self.import_zipfile(files)
         self.assertIn("Error while importing module 'foo'", result[0])
 
@@ -113,7 +113,7 @@ class TestImportModule(odoo.tests.TransactionCase):
                 b'foo,foo'
             ),
         ]
-        with self.assertLogs('odoo.addons.base_import_module.models.ir_module') as log_catcher:
+        with self.assertLogs('ecommerce.addons.base_import_module.models.ir_module') as log_catcher:
             self.import_zipfile(files)
             self.assertEqual(len(log_catcher.output), 1)
             self.assertIn('module foo: skip unsupported file res.partner.xls', log_catcher.output[0])
@@ -324,7 +324,7 @@ class TestImportModule(odoo.tests.TransactionCase):
         self.assertEqual(asset_data.name, f'{bundle}_/{path}'.replace(".", "_"))
 
 
-class TestImportModuleHttp(TestImportModule, odoo.tests.HttpCase):
+class TestImportModuleHttp(TestImportModule, ecommerce.tests.HttpCase):
     def test_import_module_icon(self):
         """Assert import a module with an icon result in the module displaying the icon in the apps menu,
         and with the base module icon if module without icon"""

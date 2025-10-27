@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
 
     <record id="view_account_journal_tree" model="ir.ui.view">
         <field name="name">account.journal.tree</field>
@@ -14,4 +14,4 @@
         </field>
     </record>
 
-</odoo>
+</ecommerce>

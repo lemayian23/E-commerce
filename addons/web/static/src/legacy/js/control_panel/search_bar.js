@@ -1,4 +1,4 @@
-odoo.define('web.SearchBar', function (require) {
+ecommerce.define('web.SearchBar', function (require) {
     "use strict";
 
     const Domain = require('web.Domain');

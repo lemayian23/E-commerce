@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import Command
-from odoo.addons.event_booth.tests.common import TestEventBoothCommon
-from odoo.fields import Datetime as FieldsDatetime
-from odoo.tests.common import users, Form, tagged
-from odoo.tools import mute_logger
+from ecommerce import Command
+from ecommerce.addons.event_booth.tests.common import TestEventBoothCommon
+from ecommerce.fields import Datetime as FieldsDatetime
+from ecommerce.tests.common import users, Form, tagged
+from ecommerce.tools import mute_logger
 
 
 @tagged('post_install', '-at_install')
 class TestEventData(TestEventBoothCommon):
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @users('user_eventmanager')
     def test_event_configuration_booths_from_type(self):
         """ Test data computation (related to booths) of event coming from its event.type template. """

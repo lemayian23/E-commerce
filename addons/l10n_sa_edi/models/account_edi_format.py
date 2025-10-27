@@ -5,8 +5,8 @@ from hashlib import sha256
 from base64 import b64decode, b64encode
 from lxml import etree
 from datetime import datetime
-from odoo import models, fields, _, api
-from odoo.exceptions import UserError
+from ecommerce import models, fields, _, api
+from ecommerce.exceptions import UserError
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 from cryptography.hazmat.primitives.asymmetric.ec import ECDSA
 from cryptography.hazmat.primitives import hashes

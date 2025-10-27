@@ -1,4 +1,4 @@
-odoo.define('web.bus_tests', function (require) {
+ecommerce.define('web.bus_tests', function (require) {
 "use strict";
 
 var { busService } = require('@bus/services/bus_service');

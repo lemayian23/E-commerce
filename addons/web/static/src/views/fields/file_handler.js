@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { checkFileSize } from "@web/core/utils/files";
 import { getDataURLFromFile } from "@web/core/utils/urls";
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, useRef, useState } from "@ecommerce/owl";
 
 export class FileUploader extends Component {
     setup() {

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 
-from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.tests import tagged, TransactionCase, Form
-from odoo.tools import mute_logger
+from ecommerce.exceptions import ValidationError
+from ecommerce.fields import Command
+from ecommerce.tests import tagged, TransactionCase, Form
+from ecommerce.tools import mute_logger
 
 from unittest.mock import patch
 
@@ -28,7 +28,7 @@ class TestLoyalty(TransactionCase):
 
     def test_discount_product_unlink(self):
         # Test that we can not unlink dicount line product id
-        with mute_logger('odoo.sql_db'):
+        with mute_logger('ecommerce.sql_db'):
             with self.assertRaises(IntegrityError):
                 with self.cr.savepoint():
                     self.program.reward_ids.discount_line_product_id.unlink()
@@ -77,7 +77,7 @@ class TestLoyalty(TransactionCase):
             sent_mails |= self
 
         partner = self.env['res.partner'].create({'name': 'Test Partner'})
-        with patch('odoo.addons.mail.models.mail_template.MailTemplate.send_mail', new=mock_send_mail):
+        with patch('ecommerce.addons.mail.models.mail_template.MailTemplate.send_mail', new=mock_send_mail):
             # Send mail at creation
             coupon = self.env['loyalty.card'].create({
                 'program_id': self.program.id,

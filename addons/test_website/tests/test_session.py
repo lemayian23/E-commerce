@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from lxml import html
 
-import odoo.tests
+import ecommerce.tests
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestWebsiteSession(HttpCaseWithUserDemo):
 
     def test_01_run_test(self):

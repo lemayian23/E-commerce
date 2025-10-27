@@ -1,4 +1,4 @@
-odoo.define('web_editor.wysiwyg.iframe', function (require) {
+ecommerce.define('web_editor.wysiwyg.iframe', function (require) {
 'use strict';
 
 var Wysiwyg = require('web_editor.wysiwyg');
@@ -95,8 +95,8 @@ Wysiwyg.include({
     _loadIframe: function () {
         var self = this;
         const isEditableRoot = this.$editable === this.$root;
-        this.$editable = $('<div class="note-editable oe_structure odoo-editor-editable"></div>');
-        this.$el.removeClass('note-editable oe_structure odoo-editor-editable');
+        this.$editable = $('<div class="note-editable oe_structure ecommerce-editor-editable"></div>');
+        this.$el.removeClass('note-editable oe_structure ecommerce-editor-editable');
         if (isEditableRoot) {
             this.$root = this.$editable;
         }
@@ -125,7 +125,7 @@ Wysiwyg.include({
                 const $utilsZone = $('<div class="iframe-utils-zone">');
                 self.$utilsZone = $utilsZone;
 
-                const $iframeWrapper = $('<div class="iframe-editor-wrapper odoo-editor">');
+                const $iframeWrapper = $('<div class="iframe-editor-wrapper ecommerce-editor">');
                 const $codeview = $('<textarea class="o_codeview d-none"/>');
                 self.$editable.addClass('o_editable oe_structure');
 
@@ -217,11 +217,11 @@ Wysiwyg.include({
             const scrollInIframe = ev.target === iframeDocument || ev.target.ownerDocument === iframeDocument;
             if (ev.target.contains(this.$iframe[0]))  {
                 this.scrollContainer = ev.target;
-                this.odooEditor.updateToolbarPosition();
+                this.ecommerceEditor.updateToolbarPosition();
             } else if (scrollInIframe) {
                 // UpdateToolbarPosition needs a scroll container in the top document.
                 this.scrollContainer = this.$iframe[0];
-                this.odooEditor.updateToolbarPosition();
+                this.ecommerceEditor.updateToolbarPosition();
             }
         } else {
             return this._super.apply(this, arguments);

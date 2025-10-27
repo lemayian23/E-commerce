@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Command
-from odoo.tests import tagged
+from ecommerce.fields import Command
+from ecommerce.tests import tagged
 
-from odoo.addons.website_sale.tests.test_sale_process import TestWebsiteSaleCheckoutAddress
-from odoo.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
-from odoo.addons.website.tools import MockRequest
+from ecommerce.addons.website_sale.tests.test_sale_process import TestWebsiteSaleCheckoutAddress
+from ecommerce.addons.website_sale_delivery.controllers.main import WebsiteSaleDelivery
+from ecommerce.addons.website.tools import MockRequest
 
 
 @tagged('post_install', '-at_install')

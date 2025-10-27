@@ -1,4 +1,4 @@
-odoo.define('website_links.website_links', function (require) {
+ecommerce.define('website_links.website_links', function (require) {
 'use strict';
 
 var core = require('web.core');

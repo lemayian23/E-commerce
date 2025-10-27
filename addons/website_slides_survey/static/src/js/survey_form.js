@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ShareMail } from 'website_slides.slides_share';
 import SurveyFormWidget from 'survey.form';

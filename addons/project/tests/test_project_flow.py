@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 
 from .test_project_base import TestProjectCommon
-from odoo import Command
-from odoo.tools import mute_logger
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import AccessError
+from ecommerce import Command
+from ecommerce.tools import mute_logger
+from ecommerce.addons.mail.tests.common import MailCommon
+from ecommerce.exceptions import AccessError
 
 
 EMAIL_TPL = """Return-Path: <whatever-2a840@postmaster.twitter.com>
@@ -15,7 +15,7 @@ X-Original-To: {to}
 Delivered-To: {to}
 To: {to}
 cc: {cc}
-Received: by mail1.odoo.com (Postfix, from userid 10002)
+Received: by mail1.ecommerce.com (Postfix, from userid 10002)
     id 5DF9ABFB2A; Fri, 10 Aug 2012 16:16:39 +0200 (CEST)
 Message-ID: {msg_id}
 Date: Tue, 29 Nov 2011 12:43:21 +0530
@@ -43,7 +43,7 @@ class TestProjectFlow(TestProjectCommon, MailCommon):
         dogs = pigs.copy()
         self.assertEqual(len(dogs.tasks), 2, 'project: duplicating a project must duplicate its tasks')
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_task_process_without_stage(self):
         # Do: incoming mail from an unknown partner on an alias creates a new task 'Frogs'
         task = self.format_and_process(
@@ -70,7 +70,7 @@ class TestProjectFlow(TestProjectCommon, MailCommon):
         self.assertEqual(task.project_id, self.project_pigs, 'project_task: incorrect project')
         self.assertEqual(task.stage_id.sequence, False, "project_task: shouldn't have a stage, i.e. sequence=False")
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_task_process_with_stages(self):
         # Do: incoming mail from an unknown partner on an alias creates a new task 'Cats'
         task = self.format_and_process(
@@ -97,7 +97,7 @@ class TestProjectFlow(TestProjectCommon, MailCommon):
         self.assertEqual(task.project_id, self.project_goats, 'project_task: incorrect project')
         self.assertEqual(task.stage_id.sequence, 1, "project_task: should have a stage with sequence=1")
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_task_from_email_alias(self):
         # Do: incoming mail from a known partner email on an alias creates a new task 'Super Frog'
         task = self.format_and_process(
@@ -133,7 +133,7 @@ class TestProjectFlow(TestProjectCommon, MailCommon):
             'The task description should be the email content.',
         )
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_task_creation_from_mail(self):
         server = self.env['fetchmail.server'].create({
             'name': 'Test server',

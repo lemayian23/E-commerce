@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.test_env', async function (require) {
+ecommerce.define('point_of_sale.test_env', async function (require) {
     'use strict';
 
     /**

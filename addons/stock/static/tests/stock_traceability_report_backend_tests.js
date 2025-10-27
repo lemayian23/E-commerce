@@ -1,4 +1,4 @@
-odoo.define('stock.stock_traceability_report_backend_tests', function (require) {
+ecommerce.define('stock.stock_traceability_report_backend_tests', function (require) {
     "use strict";
 
     const LegacyControlPanel = require('web.ControlPanel');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { uiService } from "@web/core/ui/ui_service";
 import { registry } from "@web/core/registry";

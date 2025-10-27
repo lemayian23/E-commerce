@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { SERVICES_METADATA } from "@web/env";
 
-import { status, useComponent, useEffect, useRef, onWillUnmount } from "@odoo/owl";
+import { status, useComponent, useEffect, useRef, onWillUnmount } from "@ecommerce/owl";
 
 /**
  * This file contains various custom hooks.

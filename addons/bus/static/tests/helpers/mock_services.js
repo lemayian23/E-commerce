@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { presenceService } from '@bus/services/presence_service';
 

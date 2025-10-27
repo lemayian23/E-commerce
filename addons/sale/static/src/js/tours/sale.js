@@ -1,4 +1,4 @@
-odoo.define('sale.tour', function(require) {
+ecommerce.define('sale.tour', function(require) {
 "use strict";
 
 const {_t} = require('web.core');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<ecommerce>
 
     <template id="portal_my_invoices_payment" inherit_id="account_payment.portal_my_invoices_payment">
         <xpath expr="//t[@t-foreach='invoices']/tr/td[count(t)=2]/t[@t-set='pending_manual_txs']/following-sibling::a[i]" position="attributes">
@@ -62,4 +62,4 @@
         </xpath>
     </template>
 
-</odoo>
+</ecommerce>

@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 
-import { onWillUnmount, useComponent } from "@odoo/owl";
+import { onWillUnmount, useComponent } from "@ecommerce/owl";
 
 /**
  * Creates a version of the function where only the last call between two

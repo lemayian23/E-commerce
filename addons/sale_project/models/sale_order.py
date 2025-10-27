@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import api, fields, models, _, Command
-from odoo.tools.misc import clean_context
-from odoo.tools.safe_eval import safe_eval
+from ecommerce import api, fields, models, _, Command
+from ecommerce.tools.misc import clean_context
+from ecommerce.tools.safe_eval import safe_eval
 
 
 class SaleOrder(models.Model):

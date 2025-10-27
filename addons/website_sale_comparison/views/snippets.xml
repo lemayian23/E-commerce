@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <template id="snippet_options" inherit_id="website.snippet_options" name="Comparison Snippet Options">
     <xpath expr="//div[@data-js='WebsiteSaleProductPage']//we-row[@data-name='o_wsale_buy_now_opt']" position="after">
@@ -22,4 +22,4 @@
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

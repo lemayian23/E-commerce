@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- Project Stages -->
     <record id="project_project_stage_0" model="project.project.stage">
         <field name="sequence">10</field>
@@ -22,4 +22,4 @@
         <field name="name">Canceled</field>
         <field name="fold" eval="True"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.l10n_account_edi_ubl_cii_tests.tests.common import TestUBLCommon
-from odoo.tests import tagged
+from ecommerce.addons.l10n_account_edi_ubl_cii_tests.tests.common import TestUBLCommon
+from ecommerce.tests import tagged
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')
@@ -108,7 +108,7 @@ class TestUBLAU(TestUBLCommon):
                     <PaymentID>___ignore___</PaymentID>
                 </xpath>
             ''',
-            expected_file='from_odoo/a_nz_out_invoice.xml',
+            expected_file='from_ecommerce/a_nz_out_invoice.xml',
         )
         self.assertEqual(attachment.name[-8:], "a_nz.xml")
         self._assert_imported_invoice_from_etree(invoice, attachment)
@@ -162,7 +162,7 @@ class TestUBLAU(TestUBLCommon):
                     <PaymentID>___ignore___</PaymentID>
                 </xpath>
             ''',
-            expected_file='from_odoo/a_nz_out_refund.xml',
+            expected_file='from_ecommerce/a_nz_out_refund.xml',
         )
         self.assertEqual(attachment.name[-8:], "a_nz.xml")
         self._assert_imported_invoice_from_etree(refund, attachment)
@@ -173,7 +173,7 @@ class TestUBLAU(TestUBLCommon):
 
     def test_import_invoice_xml(self):
         self._assert_imported_invoice_from_file(
-            subfolder='tests/test_files/from_odoo',
+            subfolder='tests/test_files/from_ecommerce',
             filename='a_nz_out_invoice.xml',
             amount_total=2950.2,
             amount_tax=268.2,

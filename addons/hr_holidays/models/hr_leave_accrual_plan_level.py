@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import calendar
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, api, fields, models
-from odoo.tools.date_utils import get_timedelta
+from ecommerce import _, api, fields, models
+from ecommerce.tools.date_utils import get_timedelta
 
 
 DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']

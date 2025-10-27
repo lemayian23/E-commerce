@@ -10,12 +10,12 @@ import zipfile
 from collections import defaultdict
 from os.path import join as opj
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.modules.module import adapt_version, MANIFEST_NAMES
-from odoo.tools import convert_csv_import, convert_sql_import, convert_xml_import, exception_to_unicode
-from odoo.tools import file_open, file_open_temporary_directory
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
+from ecommerce.http import request
+from ecommerce.modules.module import adapt_version, MANIFEST_NAMES
+from ecommerce.tools import convert_csv_import, convert_sql_import, convert_xml_import, exception_to_unicode
+from ecommerce.tools import file_open, file_open_temporary_directory
 
 _logger = logging.getLogger(__name__)
 
@@ -78,7 +78,7 @@ class IrModule(models.Model):
                 )
             raise UserError(err)
         elif 'web_studio' not in installed_mods and _is_studio_custom(path):
-            raise UserError(_("Studio customizations require the Odoo Studio app."))
+            raise UserError(_("Studio customizations require the ecommerce Studio app."))
 
         mod = known_mods_names.get(module)
         if mod:

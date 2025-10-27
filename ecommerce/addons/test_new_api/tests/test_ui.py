@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
-from odoo.tools import mute_logger
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+import ecommerce.tests
+from ecommerce.tools import mute_logger
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestUi(HttpCaseWithUserDemo):
 
     def test_01_admin_widget_x2many(self):
@@ -21,10 +21,10 @@ class TestUi(HttpCaseWithUserDemo):
             'widget_x2many', step_delay=100, login="admin", timeout=120)
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestUiTranslation(odoo.tests.HttpCase):
+@ecommerce.tests.tagged('-at_install', 'post_install')
+class TestUiTranslation(ecommerce.tests.HttpCase):
 
-    @mute_logger('odoo.sql_db', 'odoo.http')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.http')
     def test_01_sql_constraints(self):
         # Raise an SQL constraint and test the message
         self.env['res.lang']._activate_lang('fr_FR')

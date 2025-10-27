@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.public.widget */
+/** @ecommerce-module alias=web.public.widget */
 
 /**
  * Provides a way to start JS code for public contents.

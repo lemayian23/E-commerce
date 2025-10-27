@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug import urls
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
-from odoo.tools import float_compare
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import ValidationError
+from ecommerce.tools import float_compare
 
-from odoo.addons.payment import utils as payment_utils
+from ecommerce.addons.payment import utils as payment_utils
 
 
 class PaymentLinkWizard(models.TransientModel):

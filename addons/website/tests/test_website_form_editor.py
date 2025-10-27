@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 # -*- coding: utf-8 -*-
 
-from odoo.http import request
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.website.controllers.form import WebsiteForm
-from odoo.addons.website.tools import MockRequest
-from odoo.tests.common import tagged, TransactionCase
+from ecommerce.http import request
+from ecommerce.addons.base.tests.common import HttpCaseWithUserPortal
+from ecommerce.addons.website.controllers.form import WebsiteForm
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.tests.common import tagged, TransactionCase
 
 
 @tagged('post_install', '-at_install', '-standard', 'breaking_16', 'random')
@@ -74,7 +74,7 @@ class TestWebsiteForm(TransactionCase):
             WebsiteFormController.insert_record(
                 request,
                 self.env['ir.model'].search([('model', '=', 'mail.mail')]),
-                {'email_from': 'odoobot@example.com', 'subject': 'John <b>Smith</b>', 'email_to': 'company@company.company'},
+                {'email_from': 'ecommercebot@example.com', 'subject': 'John <b>Smith</b>', 'email_to': 'company@company.company'},
                 "John <b>Smith</b>",
             )
             mail = self.env['mail.mail'].search([], order='id desc', limit=1)

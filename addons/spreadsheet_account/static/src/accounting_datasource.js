@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { camelToSnakeObject, toServerDateString } from "@spreadsheet/helpers/helpers";
 import { _t } from "@web/core/l10n/translation";
 import { sprintf } from "@web/core/utils/strings";

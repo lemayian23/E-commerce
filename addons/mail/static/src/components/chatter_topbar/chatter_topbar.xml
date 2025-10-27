@@ -9,8 +9,8 @@
                         <button class="o_ChatterTopbar_button o_ChatterTopbar_buttonSendMessage btn text-nowrap me-2"
                             type="button"
                             t-att-class="{
-                                'o-active btn-odoo': chatterTopbar.chatter.composerView and !chatterTopbar.chatter.composerView.composer.isLog,
-                                'btn-odoo': !chatterTopbar.chatter.composerView,
+                                'o-active btn-ecommerce': chatterTopbar.chatter.composerView and !chatterTopbar.chatter.composerView.composer.isLog,
+                                'btn-ecommerce': !chatterTopbar.chatter.composerView,
                                 'btn-light': chatterTopbar.chatter.composerView and chatterTopbar.chatter.composerView.composer.isLog,
                             }"
                             t-att-disabled="!chatterTopbar.chatter.canPostMessage"
@@ -22,7 +22,7 @@
                         <button class="o_ChatterTopbar_button o_ChatterTopbar_buttonLogNote btn text-nowrap"
                             type="button"
                             t-att-class="{
-                                'o-active btn-odoo': chatterTopbar.chatter.composerView and chatterTopbar.chatter.composerView.composer.isLog,
+                                'o-active btn-ecommerce': chatterTopbar.chatter.composerView and chatterTopbar.chatter.composerView.composer.isLog,
                                 'btn-light': chatterTopbar.chatter.composerView and !chatterTopbar.chatter.composerView.composer.isLog or !chatterTopbar.chatter.composerView,
                             }"
                             t-att-disabled="!chatterTopbar.chatter.canPostMessage"

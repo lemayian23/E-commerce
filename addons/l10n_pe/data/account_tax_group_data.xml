@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <record id="tax_group_igv" model="account.tax.group">
             <field name="name">IGV</field>
@@ -65,4 +65,4 @@
             <field name="sequence">100</field>
         </record>
     </data>
-</odoo>
+</ecommerce>

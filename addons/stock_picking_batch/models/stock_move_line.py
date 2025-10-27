@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import _, fields, models
-from odoo import Command
-from odoo.tools.float_utils import float_compare
+from ecommerce import _, fields, models
+from ecommerce import Command
+from ecommerce.tools.float_utils import float_compare
 
 
 class StockMoveLine(models.Model):

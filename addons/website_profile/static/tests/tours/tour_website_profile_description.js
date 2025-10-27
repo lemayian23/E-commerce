@@ -1,4 +1,4 @@
-odoo.define('website_profile.tour_website_profile_description', function (require) {
+ecommerce.define('website_profile.tour_website_profile_description', function (require) {
     'use strict';
 
     var tour = require("web_tour.tour");
@@ -14,7 +14,7 @@ odoo.define('website_profile.tour_website_profile_description', function (requir
             trigger: "a:contains('EDIT PROFILE')",
         }, {
             content: "Add some content",
-            trigger: ".odoo-editor-editable p",
+            trigger: ".ecommerce-editor-editable p",
             run: "text content <p>code here</p>",
         }, {
             content: "Save changes",

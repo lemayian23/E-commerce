@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from uuid import uuid4
 import requests
 import json
 import logging
 
-from odoo import fields
-from odoo.addons.google_calendar.utils.google_event import GoogleEvent
-from odoo.addons.google_account.models.google_service import TIMEOUT
+from ecommerce import fields
+from ecommerce.addons.google_calendar.utils.google_event import GoogleEvent
+from ecommerce.addons.google_account.models.google_service import TIMEOUT
 
 
 _logger = logging.getLogger(__name__)
@@ -87,7 +87,7 @@ class GoogleCalendarService():
         params = {'access_token': token}
         # Delete all events from recurrence in a single request to Google and triggering a single mail.
         # The 'singleEvents' parameter is a trick that tells Google API to delete all recurrent events individually,
-        # making the deletion be handled entirely on their side, and then we archive the events in Odoo.
+        # making the deletion be handled entirely on their side, and then we archive the events in ecommerce.
         is_recurrence = self.google_service._context.get('is_recurrence', True)
         if is_recurrence:
             params['singleEvents'] = 'true'
@@ -112,7 +112,7 @@ class GoogleCalendarService():
         readonly = '.readonly' if RO else ''
         return 'https://www.googleapis.com/auth/calendar%s' % (readonly)
 
-    def _google_authentication_url(self, from_url='http://www.odoo.com'):
+    def _google_authentication_url(self, from_url='http://www.ecommerce.com'):
         state = {
             'd': self.google_service.env.cr.dbname,
             's': 'calendar',

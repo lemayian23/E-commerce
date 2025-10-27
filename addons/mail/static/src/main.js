@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ChatWindowManagerContainer } from '@mail/components/chat_window_manager_container/chat_window_manager_container';
 import { DialogManagerContainer } from '@mail/components/dialog_manager_container/dialog_manager_container';

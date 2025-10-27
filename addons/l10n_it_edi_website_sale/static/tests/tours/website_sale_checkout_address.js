@@ -1,4 +1,4 @@
-odoo.define('l10n_it_edi_website_sale.tour', function (require) {
+ecommerce.define('l10n_it_edi_website_sale.tour', function (require) {
 'use strict';
 
 var tour = require("web_tour.tour");
@@ -63,7 +63,7 @@ tour.register('shop_checkout_address_create_partner', {
             run: function () {
                 $('input[name="name"]').val('abc');
                 $('input[name="phone"]').val('99999999');
-                $('input[name="email"]').val('abc@odoo.com');
+                $('input[name="email"]').val('abc@ecommerce.com');
                 $('input[name="vat"]').val('IT12345670017');
                 $('input[name="street"]').val('SO1 Billing Street, 33');
                 $('input[name="city"]').val('SO1BillingCity');

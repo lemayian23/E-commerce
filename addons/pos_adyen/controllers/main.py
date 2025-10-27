@@ -3,9 +3,9 @@ import logging
 import pprint
 import json
 from urllib.parse import parse_qs
-from odoo import fields, http
-from odoo.http import request
-from odoo.tools import consteq
+from ecommerce import fields, http
+from ecommerce.http import request
+from ecommerce.tools import consteq
 
 _logger = logging.getLogger(__name__)
 
@@ -49,4 +49,4 @@ class PosAdyenController(http.Controller):
                     return
                 payment_method.adyen_latest_response = json.dumps(data)
         else:
-            _logger.error('received a message for a terminal not registered in Odoo: %s', terminal_identifier)
+            _logger.error('received a message for a terminal not registered in ecommerce: %s', terminal_identifier)

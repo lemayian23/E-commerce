@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Command
-from odoo.tests import Form, tagged
+from ecommerce.fields import Command
+from ecommerce.tests import Form, tagged
 
-from odoo.addons.sale.tests.common import TestSaleCommon
+from ecommerce.addons.sale.tests.common import TestSaleCommon
 
 
 @tagged('post_install', '-at_install')
@@ -92,7 +92,7 @@ class TestSaleRefund(TestSaleCommon):
 
         # Make a credit note
         credit_note_wizard = self.env['account.move.reversal'].with_context({'active_ids': [self.invoice.id], 'active_id': self.invoice.id, 'active_model': 'account.move'}).create({
-            'refund_method': 'refund',  # this is the only mode for which the SO line is linked to the refund (https://github.com/odoo/odoo/commit/e680f29560ac20133c7af0c6364c6ef494662eac)
+            'refund_method': 'refund',  # this is the only mode for which the SO line is linked to the refund (https://github.com/ecommerce/ecommerce/commit/e680f29560ac20133c7af0c6364c6ef494662eac)
             'reason': 'reason test create',
             'journal_id': self.invoice.journal_id.id,
         })
@@ -247,7 +247,7 @@ class TestSaleRefund(TestSaleCommon):
 
         # Make a credit note
         credit_note_wizard = self.env['account.move.reversal'].with_context({'active_ids': [self.invoice.id], 'active_id': self.invoice.id, 'active_model': 'account.move'}).create({
-            'refund_method': 'modify',  # this is the only mode for which the SO line is linked to the refund (https://github.com/odoo/odoo/commit/e680f29560ac20133c7af0c6364c6ef494662eac)
+            'refund_method': 'modify',  # this is the only mode for which the SO line is linked to the refund (https://github.com/ecommerce/ecommerce/commit/e680f29560ac20133c7af0c6364c6ef494662eac)
             'reason': 'reason test modify',
             'journal_id': self.invoice.journal_id.id,
         })

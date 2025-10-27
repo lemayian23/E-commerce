@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerMessagingComponent } from '@mail/utils/messaging_component';
 
@@ -32,7 +32,7 @@ export class NotificationRequest extends Component {
         this.messaging.refreshIsNotificationPermissionDefault();
         if (value !== 'granted') {
             this.messaging.userNotificationManager.sendNotification({
-                message: this.env._t("Odoo will not have the permission to send native notifications on this device."),
+                message: this.env._t("ecommerce will not have the permission to send native notifications on this device."),
                 title: this.env._t("Permission denied"),
             });
         }

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# purches Part of Odoo. See LICENSE file for full copyright and licensing details.
+# purches Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
+from ecommerce import models
 
 
 class MailComposeMessage(models.TransientModel):

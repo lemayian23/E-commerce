@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.exceptions import ValidationError
-from odoo.tests import tagged
-from odoo import fields, Command
-from odoo.tests.common import Form
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests import tagged
+from ecommerce import fields, Command
+from ecommerce.tests.common import Form
 
 
 @tagged('post_install', '-at_install')
@@ -401,7 +401,7 @@ class TestAccountPaymentTerms(AccountTestInvoicingCommon):
     def test_payment_term_multi_company(self):
         """
         Ensure that the payment term is determined by `move.company_id` rather than `user.company_id`.
-        OdooBot has `res.company(1)` set as the default company. The test checks that the payment term correctly reflects
+        ecommerceBot has `res.company(1)` set as the default company. The test checks that the payment term correctly reflects
         the company associated with the move, independent of the user's default company.
         """
         user_company, other_company = self.company_data_2.get('company'), self.company_data.get('company')

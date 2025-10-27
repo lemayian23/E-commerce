@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { uuid } from "../../utils";
 
-import { Component, useState, useRef, useEffect } from "@odoo/owl";
+import { Component, useState, useRef, useEffect } from "@ecommerce/owl";
 
 export class PropertyDefinitionSelection extends Component {
     setup() {

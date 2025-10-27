@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
@@ -11,7 +11,7 @@ import { registry } from "@web/core/registry";
 import { patch, unpatch } from "@web/core/utils/patch";
 import { session } from "@web/session";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@ecommerce/owl";
 const { DateTime, Settings } = luxon;
 
 const terms = { Hello: "Bonjour" };

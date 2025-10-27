@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models, fields, _, SUPERUSER_ID
-from odoo.exceptions import AccessError
-from odoo.tools.misc import clean_context
+from ecommerce import api, models, fields, _, SUPERUSER_ID
+from ecommerce.exceptions import AccessError
+from ecommerce.tools.misc import clean_context
 
 
 HR_READABLE_FIELDS = [

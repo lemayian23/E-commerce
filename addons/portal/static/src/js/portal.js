@@ -1,4 +1,4 @@
-odoo.define('portal.portal', function (require) {
+ecommerce.define('portal.portal', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
     <record id="spreadsheet_dashboard_tasks" model="spreadsheet.dashboard">
         <field name="name">Tasks</field>
@@ -9,4 +9,4 @@
         <field name="sequence">100</field>
     </record>
 
-</odoo>
+</ecommerce>

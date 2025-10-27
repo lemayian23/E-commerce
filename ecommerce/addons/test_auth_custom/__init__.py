@@ -1,6 +1,6 @@
-from odoo import models
-from odoo.exceptions import AccessDenied
-from odoo.http import Controller, route
+from ecommerce import models
+from ecommerce.exceptions import AccessDenied
+from ecommerce.http import Controller, route
 
 
 class IrHttp(models.AbstractModel):

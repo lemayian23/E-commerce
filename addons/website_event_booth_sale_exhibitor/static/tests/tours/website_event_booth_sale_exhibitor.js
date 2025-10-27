@@ -1,4 +1,4 @@
-odoo.define("website_event_booth_sale_exhibitor.tour", function (require) {
+ecommerce.define("website_event_booth_sale_exhibitor.tour", function (require) {
     "use strict";
 
     var FinalSteps = require('website_event_booth_exhibitor.tour_steps');

@@ -1,6 +1,6 @@
-from odoo import Command
-from odoo.http import Request
-from odoo.tests.common import HttpCase, tagged
+from ecommerce import Command
+from ecommerce.http import Request
+from ecommerce.tests.common import HttpCase, tagged
 
 
 @tagged('-at_install', 'post_install')

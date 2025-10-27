@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from collections import defaultdict
 from datetime import datetime
 from pytz import timezone
 
-from odoo import models
-from odoo.addons.resource.models.resource import Intervals
+from ecommerce import models
+from ecommerce.addons.resource.models.resource import Intervals
 
 class ResourceResource(models.Model):
     _inherit = 'resource.resource'

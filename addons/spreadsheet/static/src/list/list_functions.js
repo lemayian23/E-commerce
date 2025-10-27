@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "web.core";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
@@ -16,7 +16,7 @@ function assertListsExists(listId, getters) {
     }
 }
 
-functionRegistry.add("ODOO.LIST", {
+functionRegistry.add("ecommerce.LIST", {
     description: _t("Get the value from a list."),
     args: args(`
         list_id (string) ${_t("ID of the list.")}
@@ -58,7 +58,7 @@ functionRegistry.add("ODOO.LIST", {
     returns: ["NUMBER", "STRING"],
 });
 
-functionRegistry.add("ODOO.LIST.HEADER", {
+functionRegistry.add("ecommerce.LIST.HEADER", {
     description: _t("Get the header of a list."),
     args: args(`
         list_id (string) ${_t("ID of the list.")}

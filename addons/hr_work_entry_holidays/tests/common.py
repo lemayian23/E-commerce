@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo.fields import Datetime
-from odoo.addons.hr_work_entry_contract.tests.common import TestWorkEntryBase
+from ecommerce.fields import Datetime
+from ecommerce.addons.hr_work_entry_contract.tests.common import TestWorkEntryBase
 
 
 class TestWorkEntryHolidaysBase(TestWorkEntryBase):

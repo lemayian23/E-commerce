@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     "name": "Croatia - Accounting (EURO)",
     "description": """
@@ -11,7 +11,7 @@
     https://www.rrif.hr/dok/preuzimanje/RRIF-RP2021-ENG.PDF
     """,
     "version": "13.0",
-    "author": "Odoo S.A.",
+    "author": "ecommerce S.A.",
     'category': 'Accounting/Localizations/Account Charts',
 
     'depends': [

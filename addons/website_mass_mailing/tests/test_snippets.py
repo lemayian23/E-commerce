@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo
-import odoo.tests
+import ecommerce
+import ecommerce.tests
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestSnippets(odoo.tests.HttpCase):
+@ecommerce.tests.common.tagged('post_install', '-at_install')
+class TestSnippets(ecommerce.tests.HttpCase):
 
     def test_01_newsletter_popup(self):
         self.start_tour('/', 'newsletter_popup_edition', login='admin')
@@ -24,6 +24,6 @@ class TestSnippets(odoo.tests.HttpCase):
         # Unsubscribe the admin's email from every mailing list to ensure the
         # tour can subscribe the admin again
         mailing_list.write({
-            'contact_ids': [odoo.Command.unlink(id) for id in mass_mailing_contacts.ids]
+            'contact_ids': [ecommerce.Command.unlink(id) for id in mass_mailing_contacts.ids]
         })
         self.start_tour(self.env['website'].get_client_action_url('/'), 'newsletter_block_edition', login='admin')

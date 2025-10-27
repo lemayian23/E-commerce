@@ -1,4 +1,4 @@
-from odoo.tests.common import TransactionCase
+from ecommerce.tests.common import TransactionCase
 
 
 class JsonFieldTest(TransactionCase):

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import spreadsheet from "../o_spreadsheet/o_spreadsheet_extended";
 const { args, toString, toJsDate } = spreadsheet.helpers;
 const { functionRegistry } = spreadsheet.registries;
 
-functionRegistry.add("ODOO.CURRENCY.RATE", {
+functionRegistry.add("ecommerce.CURRENCY.RATE", {
     description: _t(
         "This function takes in two currency codes as arguments, and returns the exchange rate from the first currency to the second as float."
     ),

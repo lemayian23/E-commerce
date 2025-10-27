@@ -1,4 +1,4 @@
-odoo.define('pos_sale.tour.ReceiptScreenTourMethods', function (require) {
+ecommerce.define('pos_sale.tour.ReceiptScreenTourMethods', function (require) {
     'use strict';
 
     const { createTourMethods } = require('point_of_sale.tour.utils');

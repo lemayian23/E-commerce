@@ -1,4 +1,4 @@
-<odoo>
+<ecommerce>
     <template id="sale_order_portal_content_inherit_sale_stock_inherit_website_sale_delivery"
         name="Shipping tracking on orders followup"
         inherit_id="sale_stock.sale_order_portal_content_inherit_sale_stock">
@@ -30,4 +30,4 @@
             </div>
         </xpath>
     </template>
-</odoo>
+</ecommerce>

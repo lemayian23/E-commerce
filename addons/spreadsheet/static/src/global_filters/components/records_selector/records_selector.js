@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { Domain } from "@web/core/domain";
 import { useService } from "@web/core/utils/hooks";

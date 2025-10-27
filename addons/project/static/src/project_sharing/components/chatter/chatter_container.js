@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { formatDateTime, parseDateTime } from "@web/core/l10n/dates";
 import { useService } from "@web/core/utils/hooks";

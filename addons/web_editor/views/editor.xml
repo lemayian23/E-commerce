@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <template id="wysiwyg_iframe_editor_assets" name="Editor assets for wysiwyg iframe content" groups="base.group_user">
     <t t-call-assets="web.assets_common" t-css="false" />
@@ -166,10 +166,10 @@
 </template>
 <template id="web_editor.tests">
     <t t-call="web.layout">
-        <t t-set="title">Odoo Editor Tests</t>
+        <t t-set="title">ecommerce Editor Tests</t>
         <t t-set="head">
             <t t-call-assets="web_editor.assets_tests_styles" t-js="false"/>
-            <link rel="stylesheet" href="/web_editor/static/src/js/editor/odoo-editor/test/lib/mocha.css"/>
+            <link rel="stylesheet" href="/web_editor/static/src/js/editor/ecommerce-editor/test/lib/mocha.css"/>
             <style type="text/css">
                 #mocha-report b.zws, #mocha-report b.tab {
                     background-color: #833112;
@@ -184,13 +184,13 @@
                 }
             </style>
             <script src="/web_editor/static/lib/DOMPurify.js"></script>
-            <script src="/web_editor/static/src/js/editor/odoo-editor/test/lib/mocha.js"></script>
-            <script src="/web_editor/static/src/js/editor/odoo-editor/test/lib/chai.js"></script>
+            <script src="/web_editor/static/src/js/editor/ecommerce-editor/test/lib/mocha.js"></script>
+            <script src="/web_editor/static/src/js/editor/ecommerce-editor/test/lib/chai.js"></script>
             <script>mocha.setup('bdd').fullTrace()</script>
-            <script src="/web_editor/static/src/js/editor/odoo-editor/test/editor-test.js" type="module"></script>
+            <script src="/web_editor/static/src/js/editor/ecommerce-editor/test/editor-test.js" type="module"></script>
         </t>
         <div id="mocha"></div>
         <div id="editor-test-container"></div>
     </t>
 </template>
-</odoo>
+</ecommerce>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 from enum import Enum
@@ -21,10 +21,10 @@ import contextlib
 import requests
 import secrets
 
-from odoo import _, http, release, service
-from odoo.tools.func import lazy_property
-from odoo.tools.misc import file_path
-from odoo.modules.module import get_resource_path
+from ecommerce import _, http, release, service
+from ecommerce.tools.func import lazy_property
+from ecommerce.tools.misc import file_path
+from ecommerce.modules.module import get_resource_path
 
 _logger = logging.getLogger(__name__)
 
@@ -46,7 +46,7 @@ class CertificateStatus(Enum):
 
 class IoTRestart(Thread):
     """
-    Thread to restart odoo server in IoT Box when we must return a answer before
+    Thread to restart ecommerce server in IoT Box when we must return a answer before
     """
     def __init__(self, delay):
         Thread.__init__(self)
@@ -90,7 +90,7 @@ def check_certificate():
     Check if the current certificate is up to date or not authenticated
     :return CheckCertificateStatus
     """
-    server = get_odoo_server_url()
+    server = get_ecommerce_server_url()
 
     if not server:
         return {"status": CertificateStatus.ERROR,
@@ -116,7 +116,7 @@ def check_certificate():
     for key in cert.get_subject().get_components():
         if key[0] == b'CN':
             cn = key[1].decode('utf-8')
-    if cn == 'OdooTempIoTBoxCertificate' or datetime.datetime.now() > cert_end_date:
+    if cn == 'ecommerceTempIoTBoxCertificate' or datetime.datetime.now() > cert_end_date:
         message = _('Your certificate %s must be updated') % (cn)
         _logger.info(message)
         return {"status": CertificateStatus.NEED_REFRESH}
@@ -127,10 +127,10 @@ def check_certificate():
 
 def check_git_branch():
     """
-    Check if the local branch is the same than the connected Odoo DB and
+    Check if the local branch is the same than the connected ecommerce DB and
     checkout to match it if needed.
     """
-    server = get_odoo_server_url()
+    server = get_ecommerce_server_url()
     urllib3.disable_warnings()
     http = urllib3.PoolManager(cert_reqs='CERT_NONE')
     try:
@@ -141,22 +141,22 @@ def check_git_branch():
         )
 
         if response.status == 200:
-            git = ['git', '--work-tree=/home/pi/odoo/', '--git-dir=/home/pi/odoo/.git']
+            git = ['git', '--work-tree=/home/pi/ecommerce/', '--git-dir=/home/pi/ecommerce/.git']
 
             db_branch = json.loads(response.data)['result']['server_serie'].replace('~', '-')
             if not subprocess.check_output(git + ['ls-remote', 'origin', db_branch]):
                 db_branch = 'master'
 
             local_branch = subprocess.check_output(git + ['symbolic-ref', '-q', '--short', 'HEAD']).decode('utf-8').rstrip()
-            _logger.info("Current IoT Box local git branch: %s / Associated Odoo database's git branch: %s", local_branch, db_branch)
+            _logger.info("Current IoT Box local git branch: %s / Associated ecommerce database's git branch: %s", local_branch, db_branch)
 
             if db_branch != local_branch:
                 with writable():
-                    subprocess.check_call(["rm", "-rf", "/home/pi/odoo/addons/hw_drivers/iot_handlers/drivers/*"])
-                    subprocess.check_call(["rm", "-rf", "/home/pi/odoo/addons/hw_drivers/iot_handlers/interfaces/*"])
+                    subprocess.check_call(["rm", "-rf", "/home/pi/ecommerce/addons/hw_drivers/iot_handlers/drivers/*"])
+                    subprocess.check_call(["rm", "-rf", "/home/pi/ecommerce/addons/hw_drivers/iot_handlers/interfaces/*"])
                     subprocess.check_call(git + ['branch', '-m', db_branch])
                     subprocess.check_call(git + ['remote', 'set-branches', 'origin', db_branch])
-                    os.system('/home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
+                    os.system('/home/pi/ecommerce/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
 
     except Exception:
         _logger.exception('An error occurred while trying to update the code with git')
@@ -165,7 +165,7 @@ def check_image():
     """
     Check if the current image of IoT Box is up to date
     """
-    url = 'https://nightly.odoo.com/master/iotbox/SHA1SUMS.txt'
+    url = 'https://nightly.ecommerce.com/master/iotbox/SHA1SUMS.txt'
     urllib3.disable_warnings()
     http = urllib3.PoolManager(cert_reqs='CERT_NONE')
     response = http.request('GET', url)
@@ -188,10 +188,10 @@ def save_conf_server(url, token, db_uuid, enterprise_code):
     """
     Save config to connect IoT to the server
     """
-    write_file('odoo-remote-server.conf', url)
+    write_file('ecommerce-remote-server.conf', url)
     write_file('token', token)
-    write_file('odoo-db-uuid.conf', db_uuid or '')
-    write_file('odoo-enterprise-code.conf', enterprise_code or '')
+    write_file('ecommerce-db-uuid.conf', db_uuid or '')
+    write_file('ecommerce-enterprise-code.conf', enterprise_code or '')
 
 def generate_password():
     """
@@ -262,12 +262,12 @@ def get_ssid():
     process_grep = subprocess.Popen(['grep', 'ESSID:"'], stdin=process_iwconfig.stdout, stdout=subprocess.PIPE)
     return subprocess.check_output(['sed', 's/.*"\\(.*\\)"/\\1/'], stdin=process_grep.stdout).decode('utf-8').rstrip()
 
-def get_odoo_server_url():
+def get_ecommerce_server_url():
     if platform.system() == 'Linux':
         ap = subprocess.call(['systemctl', 'is-active', '--quiet', 'hostapd']) # if service is active return 0 else inactive
         if not ap:
             return False
-    return read_file_first_line('odoo-remote-server.conf')
+    return read_file_first_line('ecommerce-remote-server.conf')
 
 def get_token():
     return read_file_first_line('token')
@@ -275,7 +275,7 @@ def get_token():
 
 def get_commit_hash():
     return subprocess.run(
-        ['git', '--work-tree=/home/pi/odoo/', '--git-dir=/home/pi/odoo/.git', 'rev-parse', '--short', 'HEAD'],
+        ['git', '--work-tree=/home/pi/ecommerce/', '--git-dir=/home/pi/ecommerce/.git', 'rev-parse', '--short', 'HEAD'],
         stdout=subprocess.PIPE,
         check=True,
     ).stdout.decode('ascii').strip()
@@ -283,7 +283,7 @@ def get_commit_hash():
 
 def get_version(detailed_version=False):
     if platform.system() == 'Linux':
-        image_version = read_file_first_line('/var/odoo/iotbox_version')
+        image_version = read_file_first_line('/var/ecommerce/iotbox_version')
     elif platform.system() == 'Windows':
         # updated manually when big changes are made to the windows virtual IoT
         image_version = '22.11'
@@ -308,14 +308,14 @@ def get_wifi_essid():
 
 def load_certificate():
     """
-    Send a request to Odoo with customer db_uuid and enterprise_code to get a true certificate
+    Send a request to ecommerce with customer db_uuid and enterprise_code to get a true certificate
     """
-    db_uuid = read_file_first_line('odoo-db-uuid.conf')
-    enterprise_code = read_file_first_line('odoo-enterprise-code.conf')
+    db_uuid = read_file_first_line('ecommerce-db-uuid.conf')
+    enterprise_code = read_file_first_line('ecommerce-enterprise-code.conf')
     if not db_uuid:
         return "ERR_IOT_HTTPS_LOAD_NO_CREDENTIAL"
 
-    url = 'https://www.odoo.com/odoo-enterprise/iot/x509'
+    url = 'https://www.ecommerce.com/ecommerce-enterprise/iot/x509'
     data = {
         'params': {
             'db_uuid': db_uuid,
@@ -332,7 +332,7 @@ def load_certificate():
             headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         )
     except Exception as e:
-        _logger.exception("An error occurred while trying to reach odoo.com servers.")
+        _logger.exception("An error occurred while trying to reach ecommerce.com servers.")
         return "ERR_IOT_HTTPS_LOAD_REQUEST_EXCEPTION\n\n%s" % e
 
     if response.status != 200:
@@ -341,16 +341,16 @@ def load_certificate():
     response_body = json.loads(response.data.decode())
     server_error = response_body.get('error')
     if server_error:
-        _logger.error("A server error received from odoo.com while trying to get the certificate: %s", server_error)
+        _logger.error("A server error received from ecommerce.com while trying to get the certificate: %s", server_error)
         return "ERR_IOT_HTTPS_LOAD_REQUEST_NO_RESULT"
 
     result = response_body.get('result', {})
     certificate_error = result.get('error')
     if certificate_error:
-        _logger.error("An error received from odoo.com while trying to get the certificate: %s", certificate_error)
+        _logger.error("An error received from ecommerce.com while trying to get the certificate: %s", certificate_error)
         return "ERR_IOT_HTTPS_LOAD_REQUEST_NO_RESULT"
 
-    write_file('odoo-subject.conf', result['subject_cn'])
+    write_file('ecommerce-subject.conf', result['subject_cn'])
     if platform.system() == 'Linux':
         with writable():
             Path('/etc/ssl/certs/nginx-cert.crt').write_text(result['x509_pem'])
@@ -362,7 +362,7 @@ def load_certificate():
         Path(get_path_nginx()).joinpath('conf/nginx-cert.key').write_text(result['private_key_pem'])
     time.sleep(3)
     if platform.system() == 'Windows':
-        odoo_restart(0)
+        ecommerce_restart(0)
     elif platform.system() == 'Linux':
         start_nginx_server()
     return True
@@ -378,16 +378,16 @@ def delete_iot_handlers():
             path = file_path(f'hw_drivers/iot_handlers/{directory}')
             iot_handlers = list_file_by_os(path)
             for file in iot_handlers:
-                unlink_file(f"odoo/addons/hw_drivers/iot_handlers/{directory}/{file}")
+                unlink_file(f"ecommerce/addons/hw_drivers/iot_handlers/{directory}/{file}")
         _logger.info("Deleted old IoT handlers")
     except OSError:
         _logger.exception('Failed to delete old IoT handlers')
 
 def download_iot_handlers(auto=True):
     """
-    Get the drivers from the configured Odoo server
+    Get the drivers from the configured ecommerce server
     """
-    server = get_odoo_server_url()
+    server = get_ecommerce_server_url()
     if server:
         urllib3.disable_warnings()
         pm = urllib3.PoolManager(cert_reqs='CERT_NONE')
@@ -397,21 +397,21 @@ def download_iot_handlers(auto=True):
             if resp.data:
                 delete_iot_handlers()
                 with writable():
-                    path = path_file('odoo', 'addons', 'hw_drivers', 'iot_handlers')
+                    path = path_file('ecommerce', 'addons', 'hw_drivers', 'iot_handlers')
                     zip_file = zipfile.ZipFile(io.BytesIO(resp.data))
                     zip_file.extractall(path)
         except Exception:
             _logger.exception('Could not reach configured server to download IoT handlers')
 
 def compute_iot_handlers_addon_name(handler_kind, handler_file_name):
-    # TODO: replace with `removesuffix` (for Odoo version using an IoT image that use Python >= 3.9)
-    return "odoo.addons.hw_drivers.iot_handlers.{handler_kind}.{handler_name}".\
+    # TODO: replace with `removesuffix` (for ecommerce version using an IoT image that use Python >= 3.9)
+    return "ecommerce.addons.hw_drivers.iot_handlers.{handler_kind}.{handler_name}".\
         format(handler_kind=handler_kind, handler_name=handler_file_name.replace('.py', ''))
 
 def load_iot_handlers():
     """
-    This method loads local files: 'odoo/addons/hw_drivers/iot_handlers/drivers' and
-    'odoo/addons/hw_drivers/iot_handlers/interfaces'
+    This method loads local files: 'ecommerce/addons/hw_drivers/iot_handlers/drivers' and
+    'ecommerce/addons/hw_drivers/iot_handlers/interfaces'
     And execute these python drivers and interfaces
     """
     for directory in ['interfaces', 'drivers']:
@@ -434,18 +434,18 @@ def list_file_by_os(file_list):
     elif platform_os == 'Windows':
         return [x.name for x in Path(file_list).glob('*[!L].*')]
 
-def odoo_restart(delay):
+def ecommerce_restart(delay):
     IR = IoTRestart(delay)
     IR.start()
 
 def path_file(*args):
-    """Return the path to the file from IoT Box root or Windows Odoo
+    """Return the path to the file from IoT Box root or Windows ecommerce
     server folder
     :return: The path to the file
     """
     platform_os = platform.system()
     if platform_os == 'Linux':
-        return Path("~pi", *args).expanduser() # Path.home() returns odoo user's home instead of pi's
+        return Path("~pi", *args).expanduser() # Path.home() returns ecommerce user's home instead of pi's
     elif platform_os == 'Windows':
         return Path().absolute().parent.joinpath('server', *args)
 
@@ -472,7 +472,7 @@ def download_from_url(download_url, path_to_filename):
     This function downloads from its 'download_url' argument and
     saves the result in 'path_to_filename' file
     The 'path_to_filename' needs to be a valid path + file name
-    (Example: 'C:\\Program Files\\Odoo\\downloaded_file.zip')
+    (Example: 'C:\\Program Files\\ecommerce\\downloaded_file.zip')
     """
     try:
         request_response = requests.get(download_url, timeout=60)
@@ -487,7 +487,7 @@ def unzip_file(path_to_filename, path_to_extract):
     This function unzips 'path_to_filename' argument to
     the path specified by 'path_to_extract' argument
     and deletes the originally used .zip file
-    Example: unzip_file('C:\\Program Files\\Odoo\\downloaded_file.zip', 'C:\\Program Files\\Odoo\\new_folder'))
+    Example: unzip_file('C:\\Program Files\\ecommerce\\downloaded_file.zip', 'C:\\Program Files\\ecommerce\\new_folder'))
     Will extract all the contents of 'downloaded_file.zip' to the 'new_folder' location)
     """
     try:

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { DatePicker } from "@web/core/datepicker/datepicker";
 

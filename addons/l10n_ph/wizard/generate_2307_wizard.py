@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 import io
 import re
 import xlwt
 
-from odoo import fields, models
-from odoo.tools.misc import format_date
+from ecommerce import fields, models
+from ecommerce.tools.misc import format_date
 
 
 COLUMN_HEADER_MAP = {

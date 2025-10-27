@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.tests.common import users
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
+from ecommerce import Command
+from ecommerce.tests.common import users
+from ecommerce.addons.base.tests.common import TransactionCaseWithUserDemo
 
 
 class TestSaleProject(TransactionCaseWithUserDemo):

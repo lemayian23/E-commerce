@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 import { spreadsheetLinkMenuCellService } from "@spreadsheet/ir_ui_menu/index";
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { registry } from "@web/core/registry";
@@ -27,18 +27,18 @@ QUnit.module("spreadsheet > menu link cells", { beforeEach }, () => {
     QUnit.test("ir.menu linked based on xml id", async function (assert) {
         const env = await makeTestEnv({ serverData: getMenuServerData() });
         const model = new Model({}, { evalContext: { env } });
-        setCellContent(model, "A1", "[label](odoo://ir_menu_xml_id/test_menu)");
+        setCellContent(model, "A1", "[label](ecommerce://ir_menu_xml_id/test_menu)");
         const cell = getCell(model, "A1");
         assert.equal(cell.evaluated.value, "label", "The value should be the menu name");
         assert.equal(
             cell.content,
-            "[label](odoo://ir_menu_xml_id/test_menu)",
+            "[label](ecommerce://ir_menu_xml_id/test_menu)",
             "The content should be the complete markdown link"
         );
         assert.equal(cell.link.label, "label", "The link label should be the menu name");
         assert.equal(
             cell.link.url,
-            "odoo://ir_menu_xml_id/test_menu",
+            "ecommerce://ir_menu_xml_id/test_menu",
             "The link url should reference the correct menu"
         );
     });
@@ -46,18 +46,18 @@ QUnit.module("spreadsheet > menu link cells", { beforeEach }, () => {
     QUnit.test("ir.menu linked based on record id", async function (assert) {
         const env = await makeTestEnv({ serverData: getMenuServerData() });
         const model = new Model({}, { evalContext: { env } });
-        setCellContent(model, "A1", "[label](odoo://ir_menu_id/2)");
+        setCellContent(model, "A1", "[label](ecommerce://ir_menu_id/2)");
         const cell = getCell(model, "A1");
         assert.equal(cell.evaluated.value, "label", "The value should be the menu name");
         assert.equal(
             cell.content,
-            "[label](odoo://ir_menu_id/2)",
+            "[label](ecommerce://ir_menu_id/2)",
             "The content should be the complete markdown link"
         );
         assert.equal(cell.link.label, "label", "The link label should be the menu name");
         assert.equal(
             cell.link.url,
-            "odoo://ir_menu_id/2",
+            "ecommerce://ir_menu_id/2",
             "The link url should reference the correct menu"
         );
     });
@@ -65,36 +65,36 @@ QUnit.module("spreadsheet > menu link cells", { beforeEach }, () => {
     QUnit.test("ir.menu linked based on xml id which does not exists", async function (assert) {
         const env = await makeTestEnv({ serverData: getMenuServerData() });
         const model = new Model({}, { evalContext: { env } });
-        setCellContent(model, "A1", "[label](odoo://ir_menu_xml_id/does_not_exists)");
+        setCellContent(model, "A1", "[label](ecommerce://ir_menu_xml_id/does_not_exists)");
         const cell = getCell(model, "A1");
-        assert.equal(cell.content, "[label](odoo://ir_menu_xml_id/does_not_exists)");
+        assert.equal(cell.content, "[label](ecommerce://ir_menu_xml_id/does_not_exists)");
         assert.equal(cell.evaluated.value, "#BAD_EXPR");
     });
 
     QUnit.test("ir.menu linked based on record id which does not exists", async function (assert) {
         const env = await makeTestEnv({ serverData: getMenuServerData() });
         const model = new Model({}, { evalContext: { env } });
-        setCellContent(model, "A1", "[label](odoo://ir_menu_id/9999)");
+        setCellContent(model, "A1", "[label](ecommerce://ir_menu_id/9999)");
         const cell = getCell(model, "A1");
-        assert.equal(cell.content, "[label](odoo://ir_menu_id/9999)");
+        assert.equal(cell.content, "[label](ecommerce://ir_menu_id/9999)");
         assert.equal(cell.evaluated.value, "#BAD_EXPR");
     });
 
-    QUnit.test("Odoo link cells can be imported/exported", async function (assert) {
+    QUnit.test("ecommerce link cells can be imported/exported", async function (assert) {
         const env = await makeTestEnv({ serverData: getMenuServerData() });
         const model = new Model({}, { evalContext: { env } });
-        setCellContent(model, "A1", "[label](odoo://ir_menu_id/2)");
+        setCellContent(model, "A1", "[label](ecommerce://ir_menu_id/2)");
         let cell = getCell(model, "A1");
         assert.equal(cell.evaluated.value, "label", "The value should be the menu name");
         assert.equal(
             cell.content,
-            "[label](odoo://ir_menu_id/2)",
+            "[label](ecommerce://ir_menu_id/2)",
             "The content should be the complete markdown link"
         );
         assert.equal(cell.link.label, "label", "The link label should be the menu name");
         assert.equal(
             cell.link.url,
-            "odoo://ir_menu_id/2",
+            "ecommerce://ir_menu_id/2",
             "The link url should reference the correct menu"
         );
         const model2 = new Model(model.exportData(), { evalContext: { env } });
@@ -102,13 +102,13 @@ QUnit.module("spreadsheet > menu link cells", { beforeEach }, () => {
         assert.equal(cell.evaluated.value, "label", "The value should be the menu name");
         assert.equal(
             cell.content,
-            "[label](odoo://ir_menu_id/2)",
+            "[label](ecommerce://ir_menu_id/2)",
             "The content should be the complete markdown link"
         );
         assert.equal(cell.link.label, "label", "The link label should be the menu name");
         assert.equal(
             cell.link.url,
-            "odoo://ir_menu_id/2",
+            "ecommerce://ir_menu_id/2",
             "The link url should reference the correct menu"
         );
     });

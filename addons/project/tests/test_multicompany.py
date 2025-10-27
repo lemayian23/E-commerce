@@ -3,8 +3,8 @@
 from contextlib import contextmanager
 from lxml import etree
 
-from odoo.tests.common import TransactionCase, Form
-from odoo.exceptions import AccessError, UserError
+from ecommerce.tests.common import TransactionCase, Form
+from ecommerce.exceptions import AccessError, UserError
 
 class TestMultiCompanyCommon(TransactionCase):
 

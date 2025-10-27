@@ -13,7 +13,7 @@ import './spec/tabs.test.js';
 import './spec/autostep.test.js';
 import './spec/urlRegex.test.js';
 import './spec/collab.test.js';
-import './spec/odooFields.test.js';
+import './spec/ecommerceFields.test.js';
 import './spec/powerbox.test.js';
 /* global mocha */
 

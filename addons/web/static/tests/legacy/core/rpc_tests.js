@@ -1,4 +1,4 @@
-odoo.define('web.rpc_tests', function (require) {
+ecommerce.define('web.rpc_tests', function (require) {
 "use strict";
 
 var rpc = require('web.rpc');

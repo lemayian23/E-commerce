@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { usePosition } from "@web/core/position_hook";
 import { useRefToModel } from '@mail/component_hooks/use_ref_to_model';

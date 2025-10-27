@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { CheckBox } from "@web/core/checkbox/checkbox";
@@ -9,7 +9,7 @@ import { fuzzyLookup } from "@web/core/utils/search";
 import { useSortable } from "@web/core/utils/sortable";
 import { useDebounced } from "@web/core/utils/timing";
 
-import { Component, useRef, useState, onMounted, onWillStart, onWillUnmount } from "@odoo/owl";
+import { Component, useRef, useState, onMounted, onWillStart, onWillUnmount } from "@ecommerce/owl";
 
 class DeleteExportListDialog extends Component {
     async onDelete() {
@@ -160,7 +160,7 @@ export class ExportDataDialog extends Component {
     }
 
     get isDebug() {
-        return Boolean(odoo.debug);
+        return Boolean(ecommerce.debug);
     }
 
     get rootFields() {

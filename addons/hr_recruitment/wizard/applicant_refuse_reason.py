@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import UserError
 
 
 class ApplicantGetRefuseReason(models.TransientModel):

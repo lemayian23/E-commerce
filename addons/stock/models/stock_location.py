@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import calendar
 
 from collections import defaultdict, OrderedDict
 from datetime import timedelta
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools.float_utils import float_compare
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.osv import expression
+from ecommerce.tools.float_utils import float_compare
 
 
 class Location(models.Model):

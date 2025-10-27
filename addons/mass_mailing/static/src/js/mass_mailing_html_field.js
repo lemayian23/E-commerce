@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { _lt } from "@web/core/l10n/translation";
@@ -13,7 +13,7 @@ import { HtmlField } from "@web_editor/js/backend/html_field";
 import { getWysiwygClass } from 'web_editor.loader';
 import { device } from 'web.config';
 import { MassMailingMobilePreviewDialog } from "./mass_mailing_mobile_preview";
-import { getRangePosition } from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+import { getRangePosition } from '@web_editor/js/editor/ecommerce-editor/src/utils/utils';
 
 const {
     useSubEnv,
@@ -49,7 +49,7 @@ export class MassMailingHtmlField extends HtmlField {
             toolbarTemplate: 'mass_mailing.web_editor_toolbar',
             onWysiwygBlur: () => {
                 this.commitChanges();
-                this.wysiwyg.odooEditor.toolbarHide();
+                this.wysiwyg.ecommerceEditor.toolbarHide();
             },
             ...this.props.wysiwygOptions,
         };
@@ -100,7 +100,7 @@ export class MassMailingHtmlField extends HtmlField {
             }
 
             const $editable = this.wysiwyg.getEditable();
-            this.wysiwyg.odooEditor.historyPauseSteps();
+            this.wysiwyg.ecommerceEditor.historyPauseSteps();
             await this.wysiwyg.cleanForSave();
             if (args.length) {
                 await super.commitChanges({ ...args[0], urgent: true });
@@ -111,7 +111,7 @@ export class MassMailingHtmlField extends HtmlField {
             const $editorEnable = $editable.closest('.editor_enable');
             $editorEnable.removeClass('editor_enable');
             // Prevent history reverts.
-            this.wysiwyg.odooEditor.observerUnactive('toInline');
+            this.wysiwyg.ecommerceEditor.observerUnactive('toInline');
             const iframe = document.createElement('iframe');
             iframe.style.height = '0px';
             iframe.style.visibility = 'hidden';
@@ -137,11 +137,11 @@ export class MassMailingHtmlField extends HtmlField {
             $(editableClone).data("wysiwyg", this.wysiwyg);
             await toInline($(editableClone), undefined, $(iframe));
             iframe.remove();
-            this.wysiwyg.odooEditor.observerActive('toInline');
+            this.wysiwyg.ecommerceEditor.observerActive('toInline');
             const inlineHtml = editableClone.innerHTML;
             $editorEnable.addClass('editor_enable');
-            this.wysiwyg.odooEditor.historyUnpauseSteps();
-            this.wysiwyg.odooEditor.historyRevertCurrentStep();
+            this.wysiwyg.ecommerceEditor.historyUnpauseSteps();
+            this.wysiwyg.ecommerceEditor.historyRevertCurrentStep();
 
             const fieldName = this.props.inlineField;
             await this.props.record.update({[fieldName]: this._unWrap(inlineHtml)});
@@ -181,13 +181,13 @@ export class MassMailingHtmlField extends HtmlField {
         // named so they are handled properly by the snippets menu.
         this.wysiwyg.$iframeBody.find('.o_layout').addBack().data('name', 'Mailing');
         // We don't want to drop snippets directly within the wysiwyg.
-        this.wysiwyg.$iframeBody.find('.odoo-editor-editable').removeClass('o_editable');
+        this.wysiwyg.$iframeBody.find('.ecommerce-editor-editable').removeClass('o_editable');
 
         initializeDesignTabCss(this.wysiwyg.getEditable());
         this.wysiwyg.getEditable().find('img').attr('loading', '');
 
-        this.wysiwyg.odooEditor.observerFlush();
-        this.wysiwyg.odooEditor.historyReset();
+        this.wysiwyg.ecommerceEditor.observerFlush();
+        this.wysiwyg.ecommerceEditor.historyReset();
         this.wysiwyg.$iframeBody.addClass('o_mass_mailing_iframe');
 
         this.onIframeUpdated();
@@ -241,17 +241,17 @@ export class MassMailingHtmlField extends HtmlField {
         // Overide `d-flex` class which style is `!important`
         $snippetsSideBar.find(`.o_we_website_top_actions > *:not(${selectorToKeep})`).attr('style', 'display: none!important');
 
-        if (!odoo.debug) {
+        if (!ecommerce.debug) {
             $snippetsSideBar.find('.o_codeview_btn').hide();
         }
         const $codeview = this.wysiwyg.$iframe.contents().find('textarea.o_codeview');
         // Unbind first the event handler as this method can be called multiple time during the component life.
         $snippetsSideBar.off('click', '.o_codeview_btn');
         $snippetsSideBar.on('click', '.o_codeview_btn', () => {
-            this.wysiwyg.odooEditor.observerUnactive();
+            this.wysiwyg.ecommerceEditor.observerUnactive();
             $codeview.toggleClass('d-none');
             this.wysiwyg.getEditable().toggleClass('d-none');
-            this.wysiwyg.odooEditor.observerActive();
+            this.wysiwyg.ecommerceEditor.observerActive();
 
             if ($codeview.hasClass('d-none')) {
                 this.wysiwyg.setValue(this._getCodeViewValue($codeview[0]));
@@ -379,16 +379,16 @@ export class MassMailingHtmlField extends HtmlField {
             $editable.filter(':empty').attr('contenteditable', false);
 
             // Wait the next tick because some mutation have to be processed by
-            // the Odoo editor before resetting the history.
+            // the ecommerce editor before resetting the history.
             setTimeout(() => {
                 this.wysiwyg.historyReset();
                 // Update undo/redo buttons
-                this.wysiwyg.odooEditor.dispatchEvent(new Event('historyStep'));
+                this.wysiwyg.ecommerceEditor.dispatchEvent(new Event('historyStep'));
 
                 // The selection has been lost when switching theme.
-                const document = this.wysiwyg.odooEditor.document;
+                const document = this.wysiwyg.ecommerceEditor.document;
                 const selection = document.getSelection();
-                const p = this.wysiwyg.odooEditor.editable.querySelector('p');
+                const p = this.wysiwyg.ecommerceEditor.editable.querySelector('p');
                 if (p) {
                     const range = document.createRange();
                     range.setStart(p, 0);
@@ -446,7 +446,7 @@ export class MassMailingHtmlField extends HtmlField {
         if (this.env.mailingFilterTemplates && this.wysiwyg) {
             this._hideIrrelevantTemplates();
         }
-        this.wysiwyg.odooEditor.activateContenteditable();
+        this.wysiwyg.ecommerceEditor.activateContenteditable();
     }
     _getCodeViewEl() {
         const codeView = this.wysiwyg &&
@@ -609,7 +609,7 @@ export class MassMailingHtmlField extends HtmlField {
         $newWrapperContent.append($contents);
         this._switchImages(themeParams, $newWrapperContent);
         old_layout && old_layout.remove();
-        this.wysiwyg.odooEditor.resetContent($newLayout[0].outerHTML);
+        this.wysiwyg.ecommerceEditor.resetContent($newLayout[0].outerHTML);
 
         $newWrapperContent.find('*').addBack()
             .contents()
@@ -623,7 +623,7 @@ export class MassMailingHtmlField extends HtmlField {
         initializeDesignTabCss(this.wysiwyg.$editable);
         this.wysiwyg.trigger('reload_snippet_dropzones');
         this.onIframeUpdated();
-        this.wysiwyg.odooEditor.historyStep(true);
+        this.wysiwyg.ecommerceEditor.historyStep(true);
         // The value of the field gets updated upon editor blur. If for any
         // reason, the selection was not in the editable before modifying
         // another field, ensure that the value is properly set.

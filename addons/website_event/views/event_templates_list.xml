@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <!-- Index -->
 <template id="index" name="Events" track="1">
@@ -329,4 +329,4 @@
     </xpath>
 </template>
 
-</odoo>
+</ecommerce>

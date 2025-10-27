@@ -1,4 +1,4 @@
-import { URL_REGEX, URL_REGEX_WITH_INFOS, descendants, setSelection } from '../../src/OdooEditor.js';
+import { URL_REGEX, URL_REGEX_WITH_INFOS, descendants, setSelection } from '../../src/ecommerceEditor.js';
 import {
     BasicEditor,
     click,
@@ -379,9 +379,9 @@ describe('Link', () => {
                     contentBefore: '<p>a<a href="https://google.com">google.com[]</a></p>',
                     stepFunction: async editor => {
                         await insertLineBreak(editor);
-                        await insertText(editor, 'odoo.com')
+                        await insertText(editor, 'ecommerce.com')
                     },
-                    contentAfter: '<p>a<a href="https://google.com">google.com</a><br>odoo.com[]</p>',
+                    contentAfter: '<p>a<a href="https://google.com">google.com</a><br>ecommerce.com[]</p>',
                 });
             });
         });

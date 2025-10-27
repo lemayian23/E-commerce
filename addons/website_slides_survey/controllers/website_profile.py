@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import request
-from odoo.osv import expression
-from odoo.addons.website_profile.controllers.main import WebsiteProfile
+from ecommerce.http import request
+from ecommerce.osv import expression
+from ecommerce.addons.website_profile.controllers.main import WebsiteProfile
 
 
 class WebsiteSlidesSurvey(WebsiteProfile):

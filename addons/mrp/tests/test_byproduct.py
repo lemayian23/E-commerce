@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import Form
-from odoo.tests import common
-from odoo.exceptions import ValidationError
+from ecommerce.tests import Form
+from ecommerce.tests import common
+from ecommerce.exceptions import ValidationError
 
 
 class TestMrpByProduct(common.TransactionCase):

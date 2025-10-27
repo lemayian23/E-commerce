@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import gzip
 import json
@@ -16,16 +16,16 @@ from lxml import etree
 from pytz import timezone
 from requests.exceptions import RequestException
 
-from odoo import _, models, release
-from odoo.addons.l10n_es_edi_sii.models.account_edi_format import PatchedHTTPAdapter
-from odoo.addons.l10n_es_edi_tbai.models.l10n_es_edi_tbai_agencies import get_key
-from odoo.addons.l10n_es_edi_tbai.models.xml_utils import (
+from ecommerce import _, models, release
+from ecommerce.addons.l10n_es_edi_sii.models.account_edi_format import PatchedHTTPAdapter
+from ecommerce.addons.l10n_es_edi_tbai.models.l10n_es_edi_tbai_agencies import get_key
+from ecommerce.addons.l10n_es_edi_tbai.models.xml_utils import (
     NS_MAP, bytes_as_block, calculate_references_digests,
     cleanup_xml_signature, fill_signature, int_as_bytes)
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import get_lang
-from odoo.tools.float_utils import float_repr
-from odoo.tools.xml_utils import cleanup_xml_node, validate_xml_from_attachment
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import get_lang
+from ecommerce.tools.float_utils import float_repr
+from ecommerce.tools.xml_utils import cleanup_xml_node, validate_xml_from_attachment
 
 
 class AccountEdiFormat(models.Model):
@@ -297,7 +297,7 @@ class AccountEdiFormat(models.Model):
     def _l10n_es_tbai_get_header_values(self, invoice):
         return {
             'tbai_version': self.L10N_ES_TBAI_VERSION,
-            'odoo_version': release.version,
+            'ecommerce_version': release.version,
         }
 
     def _l10n_es_tbai_get_subject_values(self, invoice, cancel):

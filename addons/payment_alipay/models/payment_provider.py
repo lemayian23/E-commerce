@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 from hashlib import md5
 
-from odoo import api, fields, models
+from ecommerce import api, fields, models
 
 _logger = logging.getLogger(__name__)
 

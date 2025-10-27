@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import SUPERUSER_ID
-from odoo.addons.crm.tests import common as crm_common
-from odoo.fields import Datetime
-from odoo.tests.common import tagged, users
-from odoo.tests.common import Form
+from ecommerce import SUPERUSER_ID
+from ecommerce.addons.crm.tests import common as crm_common
+from ecommerce.fields import Datetime
+from ecommerce.tests.common import tagged, users
+from ecommerce.tests.common import Form
 
 @tagged('lead_manage')
 class TestLeadConvertForm(crm_common.TestLeadConvertCommon):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import logging
 import os
 import platform
@@ -12,9 +12,9 @@ except ImportError:
     pylint = None
 import subprocess
 
-from odoo.tests.common import TransactionCase
-from odoo import tools
-from odoo.modules import get_modules, get_module_path
+from ecommerce.tests.common import TransactionCase
+from ecommerce import tools
+from ecommerce.modules import get_modules, get_module_path
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 
@@ -64,9 +64,9 @@ class TestPyLint(TransactionCase):
             '--load-plugins=' + ','.join([
                 "_pylint_path_setup",
                 "pylint.extensions.bad_builtin",
-                "_odoo_checker_sql_injection",
-                "_odoo_checker_gettext",
-                "_odoo_checker_unlink_override",
+                "_ecommerce_checker_sql_injection",
+                "_ecommerce_checker_gettext",
+                "_ecommerce_checker_unlink_override",
             ]),
             '--bad-functions=input',
             '--deprecated-modules=' + ','.join([

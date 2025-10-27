@@ -1,4 +1,4 @@
-odoo.define('l10n_ke_edi_tremol.action_post_send_invoice', function (require) {
+ecommerce.define('l10n_ke_edi_tremol.action_post_send_invoice', function (require) {
     const core = require('web.core');
     const ajax = require('web.ajax');
     const Dialog = require('web.Dialog');
@@ -25,7 +25,7 @@ odoo.define('l10n_ke_edi_tremol.action_post_send_invoice', function (require) {
                         });
                         refresh = true;
                     } catch (_e) {
-                        Dialog.alert(this, _t("Error trying to connect to Odoo. Check your internet connection"));
+                        Dialog.alert(this, _t("Error trying to connect to ecommerce. Check your internet connection"));
                         break;
                     }
                 } else {

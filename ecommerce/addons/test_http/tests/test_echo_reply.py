@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
-from odoo.http import Request
-from odoo.tests import tagged
-from odoo.tests.common import new_test_user
-from odoo.tools import mute_logger
-from odoo.addons.test_http.controllers import CT_JSON
+from ecommerce.http import Request
+from ecommerce.tests import tagged
+from ecommerce.tests.common import new_test_user
+from ecommerce.tools import mute_logger
+from ecommerce.addons.test_http.controllers import CT_JSON
 
 from .test_common import TestHttpBase
 
@@ -31,7 +31,7 @@ class TestHttpEchoReplyHttpNoDB(TestHttpBase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.text, "{'race': 'Asgard', 'commander': 'Thor'}")
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echohttp4_post_json_nodb(self):
         payload = json.dumps({'commander': 'Thor'})
         res = self.nodb_url_open('/test_http/echo-http-post', data=payload, headers=CT_JSON)
@@ -71,7 +71,7 @@ class TestHttpEchoReplyJsonNoDB(TestHttpBase):
         res = self.nodb_url_open('/test_http/echo-json')  # GET
         self.assertEqual(res.status_code, 405)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echojson2_http_post_nodb(self):
         res = self.nodb_url_open('/test_http/echo-json', data={'race': 'Asgard'})  # POST
         self.assertIn("Bad Request", res.text)
@@ -118,26 +118,26 @@ class TestHttpEchoReplyHttpWithDB(TestHttpBase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.text, "{'race': 'Asgard', 'commander': 'Thor'}")
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echohttp4_post_json_db(self):
         payload = json.dumps({'commander': 'Thor'})
         res = self.db_url_open('/test_http/echo-http-post', data=payload, headers=CT_JSON)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.text, '{}')
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echohttp5_post_no_csrf(self):
         res = self.db_url_open('/test_http/echo-http-csrf?race=Asgard', data={'commander': 'Thor'})
         self.assertEqual(res.status_code, 400)
         self.assertIn("Session expired (invalid CSRF token)", res.text)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echohttp6_post_bad_csrf(self):
         res = self.db_url_open('/test_http/echo-http-csrf?race=Asgard', data={'commander': 'Thor', 'csrf_token': 'bad token'})
         self.assertEqual(res.status_code, 400)
         self.assertIn("Session expired (invalid CSRF token)", res.text)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echohttp7_post_good_csrf(self):
         res = self.db_url_open('/test_http/echo-http-csrf?race=Asgard', data={'commander': 'Thor', 'csrf_token': Request.csrf_token(self)})
         self.assertEqual(res.status_code, 200)
@@ -171,7 +171,7 @@ class TestHttpEchoReplyJsonWithDB(TestHttpBase):
         res = self.db_url_open('/test_http/echo-json')  # GET
         self.assertEqual(res.status_code, 405)
 
-    @mute_logger('odoo.http')
+    @mute_logger('ecommerce.http')
     def test_echojson2_http_post_db(self):
         res = self.db_url_open('/test_http/echo-json', data={'race': 'Asgard'})  # POST
         self.assertIn("Bad Request", res.text)

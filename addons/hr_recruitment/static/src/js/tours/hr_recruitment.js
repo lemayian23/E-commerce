@@ -1,4 +1,4 @@
-odoo.define('hr_recruitment.tour', function(require) {
+ecommerce.define('hr_recruitment.tour', function(require) {
 "use strict";
 
 const {_t} = require('web.core');

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
     import publicWidget from 'web.public.widget';
     import Dialog from 'web.Dialog';
@@ -440,7 +440,7 @@
          * When clicking on an answer, this one should be marked as "checked".
          *
          * @private
-         * @param OdooEvent ev
+         * @param ecommerceEvent ev
          */
         _onAnswerClick: function (ev) {
             ev.preventDefault();
@@ -453,7 +453,7 @@
          * Triggering a event to switch to next slide
          *
          * @private
-         * @param OdooEvent ev
+         * @param ecommerceEvent ev
          */
         _onClickNext: function (ev) {
             if (this.slide.hasNext) {

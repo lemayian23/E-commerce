@@ -1,4 +1,4 @@
-odoo.define('website.tour_focus_blur_snippets_options', function (require) {
+ecommerce.define('website.tour_focus_blur_snippets_options', function (require) {
 'use strict';
 
 const options = require('web_editor.snippets.options');

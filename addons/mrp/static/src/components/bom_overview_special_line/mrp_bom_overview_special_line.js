@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { formatFloat, formatFloatTime, formatMonetary } from "@web/views/fields/formatters";
 

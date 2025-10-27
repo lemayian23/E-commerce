@@ -1,4 +1,4 @@
-odoo.define('survey.fields_form', function (require) {
+ecommerce.define('survey.fields_form', function (require) {
 "use strict";
 
 var FieldRegistry = require('web.field_registry');

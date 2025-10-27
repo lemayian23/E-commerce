@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { setCellContent } from "@spreadsheet/../tests/utils/commands";
 import { getCell, getCellValue } from "@spreadsheet/../tests/utils/getters";
@@ -22,7 +22,7 @@ QUnit.test("Basic exchange formula", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("EUR","USD")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("EUR","USD")`);
     assert.strictEqual(getCellValue(model, "A1"), "Loading...");
     await waitForDataSourcesLoaded(model);
     assert.strictEqual(getCellValue(model, "A1"), 0.9);
@@ -44,8 +44,8 @@ QUnit.test("rate formula at a given date(time)", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("EUR","USD", "12-31-2020")`);
-    setCellContent(model, "A2", `=ODOO.CURRENCY.RATE("EUR","USD", "11-30-2020 00:00:00")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("EUR","USD", "12-31-2020")`);
+    setCellContent(model, "A2", `=ecommerce.CURRENCY.RATE("EUR","USD", "11-30-2020 00:00:00")`);
     await waitForDataSourcesLoaded(model);
     assert.verifySteps(["rate fetched"]);
 });
@@ -58,12 +58,12 @@ QUnit.test("invalid date", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("EUR","USD", "hello")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("EUR","USD", "hello")`);
     await waitForDataSourcesLoaded(model);
     assert.strictEqual(getCellValue(model, "A1"), "#ERROR");
     assert.strictEqual(
         getCell(model, "A1").evaluated.error.message,
-        "The function ODOO.CURRENCY.RATE expects a number value, but 'hello' is a string, and cannot be coerced to a number."
+        "The function ecommerce.CURRENCY.RATE expects a number value, but 'hello' is a string, and cannot be coerced to a number."
     );
 });
 
@@ -76,7 +76,7 @@ QUnit.test("Currency rate throw with unknown currency", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("INVALID","USD")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("INVALID","USD")`);
     await waitForDataSourcesLoaded(model);
     assert.strictEqual(getCell(model, "A1").evaluated.error.message, "Currency rate unavailable.");
 });
@@ -91,10 +91,10 @@ QUnit.test("Currency rates are only loaded once", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("EUR","USD")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("EUR","USD")`);
     await waitForDataSourcesLoaded(model);
     assert.verifySteps(["FETCH"]);
-    setCellContent(model, "A2", `=ODOO.CURRENCY.RATE("EUR","USD")`);
+    setCellContent(model, "A2", `=ecommerce.CURRENCY.RATE("EUR","USD")`);
     await waitForDataSourcesLoaded(model);
     assert.verifySteps([]);
 });
@@ -113,8 +113,8 @@ QUnit.test("Currency rates are loaded once by clock", async (assert) => {
             }
         },
     });
-    setCellContent(model, "A1", `=ODOO.CURRENCY.RATE("EUR","USD")`);
-    setCellContent(model, "A2", `=ODOO.CURRENCY.RATE("EUR","SEK")`);
+    setCellContent(model, "A1", `=ecommerce.CURRENCY.RATE("EUR","USD")`);
+    setCellContent(model, "A2", `=ecommerce.CURRENCY.RATE("EUR","SEK")`);
     await waitForDataSourcesLoaded(model);
     assert.verifySteps(["FETCH:2"]);
 });

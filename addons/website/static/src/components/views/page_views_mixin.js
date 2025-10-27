@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import {AddPageDialog} from "../dialog/dialog";
 import {useService} from "@web/core/utils/hooks";
@@ -23,7 +23,7 @@ export const PageControllerMixin = (component) => class extends component {
         this.rpc = useService('rpc');
         this.orm = useService('orm');
 
-        this.websiteSelection = odoo.debug ? [{id: 0, name: this.env._t("All Websites")}] : [];
+        this.websiteSelection = ecommerce.debug ? [{id: 0, name: this.env._t("All Websites")}] : [];
 
         this.state = useState({
             activeWebsite: undefined,

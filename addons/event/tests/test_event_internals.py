@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from freezegun import freeze_time
 
-from odoo import Command
-from odoo.addons.event.tests.common import EventCase
-from odoo import exceptions
-from odoo.fields import Datetime as FieldsDatetime
-from odoo.tests.common import users, Form, tagged
-from odoo.tools import mute_logger
+from ecommerce import Command
+from ecommerce.addons.event.tests.common import EventCase
+from ecommerce import exceptions
+from ecommerce.fields import Datetime as FieldsDatetime
+from ecommerce.tests.common import users, Form, tagged
+from ecommerce.tools import mute_logger
 
 
 class TestEventInternalsCommon(EventCase):
@@ -128,7 +128,7 @@ class TestEventData(TestEventInternalsCommon):
         self.assertFalse(event.is_ongoing)
 
     @users('user_eventmanager')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_event_configuration_from_type(self):
         """ Test data computation of event coming from its event.type template. """
         self.assertEqual(self.env.user.tz, 'Europe/Brussels')
@@ -704,7 +704,7 @@ class TestEventRegistrationPhone(EventCase):
         cls.test_event_address = cls.env['res.partner'].create({
             'city': 'Gandhinagar',
             'country_id': cls.env.ref("base.in").id,
-            'name': 'Odoo In',
+            'name': 'ecommerce In',
             'zip': '382007',
         })
         cls.test_event = cls.env['event.event'].create({

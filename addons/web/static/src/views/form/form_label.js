@@ -1,10 +1,10 @@
-/**@odoo-module */
+/**@ecommerce-module */
 
 import { fieldVisualFeedback } from "@web/views/fields/field";
 import { session } from "@web/session";
 import { getTooltipInfo } from "@web/views/fields/field_tooltip";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class FormLabel extends Component {
     get className() {
@@ -28,7 +28,7 @@ export class FormLabel extends Component {
     }
 
     get hasTooltip() {
-        return Boolean(odoo.debug) || this.tooltipHelp;
+        return Boolean(ecommerce.debug) || this.tooltipHelp;
     }
 
     get tooltipHelp() {
@@ -40,7 +40,7 @@ export class FormLabel extends Component {
         return help;
     }
     get tooltipInfo() {
-        if (!odoo.debug) {
+        if (!ecommerce.debug) {
             return JSON.stringify({
                 field: {
                     help: this.tooltipHelp,

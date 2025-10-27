@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.urls import url_parse, url_decode, url_encode
 import json
 
-from odoo import http
-from odoo.addons.test_mail_full.tests.common import TestMailFullCommon
-from odoo.addons.test_mail_sms.tests.common import TestSMSRecipients
-from odoo.exceptions import AccessError
-from odoo.tests import tagged, users
-from odoo.tests.common import HttpCase
-from odoo.tools import mute_logger
+from ecommerce import http
+from ecommerce.addons.test_mail_full.tests.common import TestMailFullCommon
+from ecommerce.addons.test_mail_sms.tests.common import TestSMSRecipients
+from ecommerce.exceptions import AccessError
+from ecommerce.tests import tagged, users
+from ecommerce.tests.common import HttpCase
+from ecommerce.tools import mute_logger
 
 
 @tagged('portal')

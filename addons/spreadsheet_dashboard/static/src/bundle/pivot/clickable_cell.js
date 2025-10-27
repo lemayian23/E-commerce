@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { SEE_RECORDS_PIVOT, SEE_RECORDS_PIVOT_VISIBLE } from "@spreadsheet/pivot/pivot_actions";
@@ -16,7 +16,7 @@ clickableCellRegistry.add("pivot_set_filter_matching", {
     condition: (cell, env) => {
         return (
             SEE_RECORDS_PIVOT_VISIBLE(cell, env) &&
-            getFirstPivotFunction(cell.content).functionName === "ODOO.PIVOT.HEADER" &&
+            getFirstPivotFunction(cell.content).functionName === "ecommerce.PIVOT.HEADER" &&
             env.model.getters.getFiltersMatchingPivot(cell.content).length > 0
         );
     },

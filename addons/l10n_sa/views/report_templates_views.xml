@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <template id="l10n_sa_additional_footer">
         <div t-if="report_type == 'pdf' and additional_footer_text" class="text-muted">
             <span t-out="additional_footer_text"/>
@@ -25,4 +25,4 @@
             <t t-call="l10n_sa.l10n_sa_additional_footer"/>
         </div>
     </template>
-</odoo>
+</ecommerce>

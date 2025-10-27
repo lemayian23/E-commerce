@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, _, api
-from odoo.exceptions import ValidationError
+from ecommerce import models, fields, _, api
+from ecommerce.exceptions import ValidationError
 
 
 class DeliveryCarrier(models.Model):

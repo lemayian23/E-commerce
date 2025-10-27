@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { preferencesItem } from "@web/webclient/user_menu/user_menu_items";

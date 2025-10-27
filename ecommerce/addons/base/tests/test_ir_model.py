@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError, Error as Psycopg2Error
 
-from odoo.exceptions import ValidationError
-from odoo.tests.common import Form, TransactionCase, HttpCase, tagged
-from odoo.tools import mute_logger
-from odoo import Command
+from ecommerce.exceptions import ValidationError
+from ecommerce.tests.common import Form, TransactionCase, HttpCase, tagged
+from ecommerce.tools import mute_logger
+from ecommerce import Command
 
 
 class TestXMLID(TransactionCase):
@@ -162,7 +162,7 @@ class TestXMLID(TransactionCase):
         self.assertEqual(self.get_data('test_convert.foo').noupdate, True)
         self.assertEqual(self.get_data('test_convert.bar').noupdate, True)
 
-    @mute_logger('odoo.sql_db', 'odoo.addons.base.models.ir_model')
+    @mute_logger('ecommerce.sql_db', 'ecommerce.addons.base.models.ir_model')
     def test_create_external_id_with_space(self):
         model = self.env['res.partner.category']
         data_list = [{
@@ -379,7 +379,7 @@ class TestIrModel(TransactionCase):
         self.assertFalse(model.exists())
         self.assertFalse(model2.exists())
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('ecommerce.sql_db')
     def test_ir_model_fields_name_create(self):
         NotNullViolationPgCode = '23502'
         # Quick create an ir_model_field should not be possible

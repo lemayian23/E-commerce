@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 
-import { onWillUnmount, status, useComponent } from "@odoo/owl";
+import { onWillUnmount, status, useComponent } from "@ecommerce/owl";
 
 export function usePopover() {
     const removeFns = new Set();

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
 import re
 
-from odoo import _, api, fields, models, tools, Command
-from odoo.exceptions import UserError
-from odoo.osv import expression
+from ecommerce import _, api, fields, models, tools, Command
+from ecommerce.exceptions import UserError
+from ecommerce.osv import expression
 
 
 def _reopen(self, res_id, model, context=None):
@@ -151,7 +151,7 @@ class MailComposer(models.TransientModel):
         domain=_partner_ids_domain)
     # sending
     auto_delete = fields.Boolean('Delete Emails',
-        help='This option permanently removes any track of email after it\'s been sent, including from the Technical menu in the Settings, in order to preserve storage space of your Odoo database.')
+        help='This option permanently removes any track of email after it\'s been sent, including from the Technical menu in the Settings, in order to preserve storage space of your ecommerce database.')
     auto_delete_message = fields.Boolean('Delete Message Copy', help='Do not keep a copy of the email in the document communication history (mass mailing only)')
     mail_server_id = fields.Many2one('ir.mail_server', 'Outgoing mail server')
 

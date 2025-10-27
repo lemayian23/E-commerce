@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # Copyright (c) 2011 Cubic ERP - Teradata SAC. (https://cubicerp.com).
 
@@ -12,7 +12,7 @@ Bolivian accounting chart and tax localization.
 Plan contable boliviano e impuestos de acuerdo a disposiciones vigentes
 
     """,
-    "author": "Odoo / Cubic ERP",
+    "author": "ecommerce / Cubic ERP",
     'category': 'Accounting/Localizations/Account Charts',
     "depends": ['l10n_multilang'],
     "data": [

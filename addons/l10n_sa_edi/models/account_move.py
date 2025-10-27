@@ -1,8 +1,8 @@
 import uuid
 import json
 from markupsafe import Markup
-from odoo import _, fields, models, api
-from odoo.tools import float_repr
+from ecommerce import _, fields, models, api
+from ecommerce.tools import float_repr
 from datetime import datetime
 from base64 import b64decode, b64encode
 from lxml import etree

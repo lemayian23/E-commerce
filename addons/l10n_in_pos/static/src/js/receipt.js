@@ -1,4 +1,4 @@
-odoo.define('l10n_in_pos.receipt', function (require) {
+ecommerce.define('l10n_in_pos.receipt', function (require) {
 "use strict";
 
 var { Orderline } = require('point_of_sale.models');

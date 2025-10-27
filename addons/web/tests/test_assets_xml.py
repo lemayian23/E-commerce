@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import random
 import re
@@ -8,15 +8,15 @@ from datetime import datetime
 from lxml import etree
 import logging
 
-import odoo
-from odoo.tests.common import BaseCase, HttpCase, tagged
-from odoo.tools import topological_sort
-from odoo.addons.base.models.assetsbundle import AssetsBundle, WebAsset
+import ecommerce
+from ecommerce.tests.common import BaseCase, HttpCase, tagged
+from ecommerce.tools import topological_sort
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle, WebAsset
 
 
 _logger = logging.getLogger(__name__)
 
-class TestStaticInheritanceCommon(odoo.tests.TransactionCase):
+class TestStaticInheritanceCommon(ecommerce.tests.TransactionCase):
     def setUp(self):
         super().setUp()
 

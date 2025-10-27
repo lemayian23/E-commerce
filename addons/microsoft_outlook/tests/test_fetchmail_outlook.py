@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import time
 
 from unittest.mock import ANY, Mock, patch
 
-from odoo.exceptions import UserError
-from odoo.tests.common import TransactionCase
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import TransactionCase
 
 
 class TestFetchmailOutlook(TransactionCase):
 
-    @patch('odoo.addons.mail.models.fetchmail.IMAP4_SSL')
+    @patch('ecommerce.addons.mail.models.fetchmail.IMAP4_SSL')
     def test_connect(self, mock_imap):
         """Test that the connect method will use the right
         authentication method with the right arguments.

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { nextTick, patchDate } from "@web/../tests/helpers/utils";
 import { Domain } from "@web/core/domain";
@@ -245,7 +245,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
         patchDate(2022, 6, 14, 0, 0, 0);
         const { model } = await createSpreadsheetWithPivotAndList();
         insertChartInSpreadsheet(model);
-        const chartId = model.getters.getOdooChartIds()[0];
+        const chartId = model.getters.getecommerceChartIds()[0];
         await addGlobalFilter(
             model,
             {
@@ -310,7 +310,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
     QUnit.test("Domain of date filter with month offset on graph field", async function (assert) {
         patchDate(2022, 6, 14, 0, 0, 0);
         const { model } = await createSpreadsheetWithChart();
-        const chartId = model.getters.getOdooChartIds()[0];
+        const chartId = model.getters.getecommerceChartIds()[0];
         /** @type GlobalFilter */
         const filter = {
             ...THIS_YEAR_FILTER.filter,
@@ -564,11 +564,11 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
         assert.equal(model.getters.getActiveFilterCount(), true);
     });
 
-    QUnit.test("ODOO.FILTER.VALUE text filter", async function (assert) {
+    QUnit.test("ecommerce.FILTER.VALUE text filter", async function (assert) {
         assert.expect(3);
 
         const model = await createModelWithDataSource();
-        setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Text Filter")`);
+        setCellContent(model, "A10", `=ecommerce.FILTER.VALUE("Text Filter")`);
         await nextTick();
         assert.equal(getCellValue(model, "A10"), "#ERROR");
         await addGlobalFilter(model, {
@@ -589,11 +589,11 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
         assert.equal(getCellValue(model, "A10"), "Hello");
     });
 
-    QUnit.test("ODOO.FILTER.VALUE date filter", async function (assert) {
+    QUnit.test("ecommerce.FILTER.VALUE date filter", async function (assert) {
         assert.expect(4);
 
         const model = await createModelWithDataSource();
-        setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Date Filter")`);
+        setCellContent(model, "A10", `=ecommerce.FILTER.VALUE("Date Filter")`);
         await nextTick();
         await addGlobalFilter(model, {
             filter: {
@@ -642,7 +642,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
         assert.equal(getCellValue(model, "A10"), ``);
     });
 
-    QUnit.test("ODOO.FILTER.VALUE relation filter", async function (assert) {
+    QUnit.test("ecommerce.FILTER.VALUE relation filter", async function (assert) {
         assert.expect(6);
 
         const orm = {
@@ -660,7 +660,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             }
         );
         setupDataSourceEvaluation(model);
-        setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Relation Filter")`);
+        setCellContent(model, "A10", `=ecommerce.FILTER.VALUE("Relation Filter")`);
         await nextTick();
         await addGlobalFilter(model, {
             filter: {
@@ -701,7 +701,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
     });
 
     QUnit.test(
-        "ODOO.FILTER.VALUE with escaped quotes in the filter label",
+        "ecommerce.FILTER.VALUE with escaped quotes in the filter label",
         async function (assert) {
             const model = await createModelWithDataSource();
             await addGlobalFilter(model, {
@@ -712,13 +712,13 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     defaultValue: "Jean-Jacques",
                 },
             });
-            setCellContent(model, "A1", '=ODOO.FILTER.VALUE("my \\"special\\" filter")');
+            setCellContent(model, "A1", '=ecommerce.FILTER.VALUE("my \\"special\\" filter")');
             assert.equal(getCellValue(model, "A1"), "Jean-Jacques");
         }
     );
 
     QUnit.test(
-        "ODOO.FILTER.VALUE formulas are updated when filter label is changed",
+        "ecommerce.FILTER.VALUE formulas are updated when filter label is changed",
         async function (assert) {
             assert.expect(1);
 
@@ -733,7 +733,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             setCellContent(
                 model,
                 "A10",
-                `=ODOO.FILTER.VALUE("Cuillère") & ODOO.FILTER.VALUE( "Cuillère" )`
+                `=ecommerce.FILTER.VALUE("Cuillère") & ecommerce.FILTER.VALUE( "Cuillère" )`
             );
             const [filter] = model.getters.getGlobalFilters();
             const newFilter = {
@@ -743,7 +743,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             await editGlobalFilter(model, { id: filter.id, filter: newFilter });
             assert.equal(
                 getCellFormula(model, "A10"),
-                `=ODOO.FILTER.VALUE("Interprete") & ODOO.FILTER.VALUE("Interprete")`
+                `=ecommerce.FILTER.VALUE("Interprete") & ecommerce.FILTER.VALUE("Interprete")`
             );
         }
     );
@@ -870,7 +870,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     {
                         id: "sheet1",
                         cells: {
-                            A1: { content: `=ODOO.PIVOT("1", "probability")` },
+                            A1: { content: `=ecommerce.PIVOT("1", "probability")` },
                         },
                     },
                 ],
@@ -922,7 +922,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     {
                         id: "sheet1",
                         cells: {
-                            A1: { content: `=ODOO.PIVOT("1", "probability")` },
+                            A1: { content: `=ecommerce.PIVOT("1", "probability")` },
                         },
                     },
                 ],
@@ -968,7 +968,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                 {
                     id: "sheet1",
                     cells: {
-                        A1: { content: `=ODOO.PIVOT("1", "probability")` },
+                        A1: { content: `=ecommerce.PIVOT("1", "probability")` },
                     },
                 },
             ],
@@ -1024,7 +1024,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     {
                         id: "sheet2",
                         cells: {
-                            A1: { content: `=ODOO.PIVOT("1", "probability")` },
+                            A1: { content: `=ecommerce.PIVOT("1", "probability")` },
                         },
                     },
                 ],
@@ -1082,7 +1082,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     {
                         id: "sheet2",
                         cells: {
-                            A1: { content: `=ODOO.PIVOT("1", "probability")` },
+                            A1: { content: `=ecommerce.PIVOT("1", "probability")` },
                         },
                     },
                 ],
@@ -1544,25 +1544,25 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                 }
             );
             const relationalFilters1 = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"product_id",37)'
+                '=ecommerce.PIVOT.HEADER(1,"product_id",37)'
             );
             assert.deepEqual(relationalFilters1, [{ filterId: "42", value: [37] }]);
             const relationalFilters2 = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"product_id","41")'
+                '=ecommerce.PIVOT.HEADER(1,"product_id","41")'
             );
             assert.deepEqual(relationalFilters2, [{ filterId: "42", value: [41] }]);
             const relationalFiltersWithNoneValue = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"#product_id",1)'
+                '=ecommerce.PIVOT.HEADER(1,"#product_id",1)'
             );
             assert.deepEqual(relationalFiltersWithNoneValue, [{ filterId: "42", value: undefined }]);
             const dateFilters1 = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"date:month","08/2016")'
+                '=ecommerce.PIVOT.HEADER(1,"date:month","08/2016")'
             );
             assert.deepEqual(dateFilters1, [
                 { filterId: "43", value: { yearOffset: -6, period: "august" } },
             ]);
             const dateFilters2 = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"date:year","2016")'
+                '=ecommerce.PIVOT.HEADER(1,"date:year","2016")'
             );
             assert.deepEqual(dateFilters2, [{ filterId: "44", value: { yearOffset: -6 } }]);
         }
@@ -1594,38 +1594,38 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             }
         );
         const dateFilters1 = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month","false")'
+            '=ecommerce.PIVOT.HEADER(1,"date:month","false")'
         );
         assert.deepEqual(dateFilters1, [{ filterId: "43", value: undefined }]);
 
         const matchingYearForMonthGranularity = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month",2024)'
+            '=ecommerce.PIVOT.HEADER(1,"date:month",2024)'
         );
         assert.deepEqual(matchingYearForMonthGranularity, [
             { filterId: "43", value: { period: undefined, yearOffset: 2 } },
         ]);
 
         const matchingYearForQuarterGranularity = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month","Q2/2024")'
+            '=ecommerce.PIVOT.HEADER(1,"date:month","Q2/2024")'
         );
         assert.deepEqual(matchingYearForQuarterGranularity, [
             { filterId: "43", value: { period: undefined, yearOffset: 2 } },
         ]);
 
         const errorStrings = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month","/2024")'
+            '=ecommerce.PIVOT.HEADER(1,"date:month","/2024")'
         );
         assert.deepEqual(errorStrings, [
             { filterId: "43", value: { period: undefined, yearOffset: 2 } },
         ]);
 
         const emptyString = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month","")'
+            '=ecommerce.PIVOT.HEADER(1,"date:month","")'
         );
         assert.deepEqual(emptyString, [{ filterId: "43", value: undefined }]);
 
         const booleanValue = model.getters.getFiltersMatchingPivot(
-            '=ODOO.PIVOT.HEADER(1,"date:month",true)'
+            '=ecommerce.PIVOT.HEADER(1,"date:month",true)'
         );
         assert.deepEqual(booleanValue, [{ filterId: "43", value: undefined }]);
     });
@@ -1678,7 +1678,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                 }
             );
             const filters = model.getters.getFiltersMatchingPivot(
-                '=ODOO.PIVOT.HEADER(1,"date:month","08/2016","product_id","41")'
+                '=ecommerce.PIVOT.HEADER(1,"date:month","08/2016","product_id","41")'
             );
             assert.deepEqual(filters, [{ filterId: "42", value: [41] }]);
         }
@@ -1694,7 +1694,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                     <field name="__count" type="measure"/>
                 </pivot>`,
             });
-            setCellContent(model, "B3", '=ODOO.PIVOT(1, "__count", "#product_id", 1)');
+            setCellContent(model, "B3", '=ecommerce.PIVOT(1, "__count", "#product_id", 1)');
             await addGlobalFilter(
                 model,
                 {
@@ -1726,7 +1726,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                         <field name="probability" type="measure"/>
                     </pivot>`,
             });
-            setCellContent(model, "B3", '=ODOO.PIVOT(1, "probability", "#product_id", 1)');
+            setCellContent(model, "B3", '=ecommerce.PIVOT(1, "probability", "#product_id", 1)');
             await addGlobalFilter(
                 model,
                 {
@@ -1780,7 +1780,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                         <field name="probability" type="measure"/>
                     </pivot>`,
             });
-            setCellContent(model, "B3", '=ODOO.PIVOT(1, "probability")');
+            setCellContent(model, "B3", '=ecommerce.PIVOT(1, "probability")');
             await addGlobalFilter(
                 model,
                 {
@@ -1807,7 +1807,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                         <field name="probability" type="measure"/>
                     </pivot>`,
             });
-            setCellContent(model, "B3", '=ODOO.PIVOT(1, "probability", "#product_id", 1)');
+            setCellContent(model, "B3", '=ecommerce.PIVOT(1, "probability", "#product_id", 1)');
             await addGlobalFilter(model, {
                 filter: {
                     id: "42",
@@ -1855,7 +1855,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             type: "date",
         };
         assert.deepEqual(model.getters.getListFieldMatching(listId, filter.id), matching);
-        model.dispatch("REMOVE_ODOO_LIST", { listId });
+        model.dispatch("REMOVE_ecommerce_LIST", { listId });
         assert.throws(
             () => model.getters.getListFieldMatching(listId, filter.id),
             "List does not exist"
@@ -1869,8 +1869,8 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
         );
     });
 
-    QUnit.test("field matching is removed when an Odoo chart is deleted", async function (assert) {
-        const { model } = await createSpreadsheetWithChart({ type: "odoo_pie" });
+    QUnit.test("field matching is removed when an ecommerce chart is deleted", async function (assert) {
+        const { model } = await createSpreadsheetWithChart({ type: "ecommerce_pie" });
         const sheetId = model.getters.getActiveSheetId();
         const [chartId] = model.getters.getChartIds(sheetId);
         await addGlobalFilter(model, LAST_YEAR_FILTER, {
@@ -1881,17 +1881,17 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
             chain: "date",
             type: "date",
         };
-        assert.deepEqual(model.getters.getOdooChartFieldMatching(chartId, filter.id), matching);
+        assert.deepEqual(model.getters.getecommerceChartFieldMatching(chartId, filter.id), matching);
         model.dispatch("DELETE_FIGURE", { id: chartId, sheetId });
         assert.throws(
-            () => model.getters.getOdooChartFieldMatching(chartId, filter.id),
+            () => model.getters.getecommerceChartFieldMatching(chartId, filter.id),
             "Chart does not exist"
         );
         model.dispatch("REQUEST_UNDO");
-        assert.deepEqual(model.getters.getOdooChartFieldMatching(chartId, filter.id), matching);
+        assert.deepEqual(model.getters.getecommerceChartFieldMatching(chartId, filter.id), matching);
         model.dispatch("REQUEST_REDO");
         assert.throws(
-            () => model.getters.getOdooChartFieldMatching(chartId, filter.id),
+            () => model.getters.getecommerceChartFieldMatching(chartId, filter.id),
             "Chart does not exist"
         );
     });
@@ -1922,7 +1922,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
     QUnit.test("Reject date filters with invalid field Matchings", async (assert) => {
         const { model } = await createSpreadsheetWithPivotAndList();
         insertChartInSpreadsheet(model);
-        const chartId = model.getters.getOdooChartIds()[0];
+        const chartId = model.getters.getecommerceChartIds()[0];
 
         const filter = (label) => ({
             filter: {
@@ -1985,7 +1985,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                 `["&", ("date", ">=", "2022-01-01"), ("date", "<=", "2022-12-31")]`
             );
             const [pivotId] = model.getters.getPivotIds();
-            model.dispatch("UPDATE_ODOO_PIVOT_DOMAIN", {
+            model.dispatch("UPDATE_ecommerce_PIVOT_DOMAIN", {
                 pivotId,
                 domain: [["foo", "in", [55]]],
             });
@@ -2027,7 +2027,7 @@ QUnit.module("spreadsheet > Global filters model", {}, () => {
                 `["&", ("date", ">=", "2022-01-01"), ("date", "<=", "2022-12-31")]`
             );
             const [listId] = model.getters.getListIds();
-            model.dispatch("UPDATE_ODOO_LIST_DOMAIN", {
+            model.dispatch("UPDATE_ecommerce_LIST_DOMAIN", {
                 listId,
                 domain: [["foo", "in", [55]]],
             });

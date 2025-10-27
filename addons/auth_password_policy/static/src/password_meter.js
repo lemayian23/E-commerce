@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { sprintf } from "@web/core/utils/strings";
 import { computeScore } from "./password_policy";

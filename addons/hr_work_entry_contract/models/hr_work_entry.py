@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import pytz
 
 from collections import defaultdict
 from itertools import chain
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-from odoo.addons.hr_work_entry_contract.models.hr_work_intervals import WorkIntervals
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError
+from ecommerce.addons.hr_work_entry_contract.models.hr_work_intervals import WorkIntervals
 
 
 class HrWorkEntry(models.Model):

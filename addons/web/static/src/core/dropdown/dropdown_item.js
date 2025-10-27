@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 import { DROPDOWN } from "./dropdown";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 /**
  * @enum {string}

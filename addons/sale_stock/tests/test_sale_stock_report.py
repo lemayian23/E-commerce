@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
-from odoo.tools import html2plaintext
+from ecommerce.tools import html2plaintext
 
-from odoo import Command
-from odoo.exceptions import AccessError
-from odoo.tests.common import Form, tagged
-from odoo.addons.stock.tests.test_report import TestReportsCommon
-from odoo.addons.sale.tests.common import TestSaleCommon
+from ecommerce import Command
+from ecommerce.exceptions import AccessError
+from ecommerce.tests.common import Form, tagged
+from ecommerce.addons.stock.tests.test_report import TestReportsCommon
+from ecommerce.addons.sale.tests.common import TestSaleCommon
 
 
 class TestSaleStockReports(TestReportsCommon):

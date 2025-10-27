@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import pytz
 
 from datetime import date, datetime
-from odoo import api, models
-from odoo.osv.expression import OR
+from ecommerce import api, models
+from ecommerce.osv.expression import OR
 
 
 class HrContract(models.Model):
@@ -77,7 +77,7 @@ class HrContract(models.Model):
         domain = super()._get_sub_leave_domain()
         return OR([
             domain,
-            [('holiday_id.employee_id', 'in', self.employee_id.ids)] # see https://github.com/odoo/enterprise/pull/15091
+            [('holiday_id.employee_id', 'in', self.employee_id.ids)] # see https://github.com/ecommerce/enterprise/pull/15091
         ])
 
     def write(self, vals):

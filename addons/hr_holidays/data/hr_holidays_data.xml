@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data>
         <record id="icon_1" model="ir.attachment">
             <field name="name">Annual_Time_Off.svg</field>
@@ -313,4 +313,4 @@
             <field name="sequence">3</field>
         </record>
     </data>
-</odoo>
+</ecommerce>

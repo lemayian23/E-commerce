@@ -27,7 +27,7 @@ website.
 ## Module history
 
 - `16.0`
-  - The first version of the module is merged. odoo/odoo#83957
+  - The first version of the module is merged. ecommerce/ecommerce#83957
 
 ## Testing instructions
 

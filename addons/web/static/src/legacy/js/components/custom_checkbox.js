@@ -1,4 +1,4 @@
-odoo.define('web.CustomCheckbox', function (require) {
+ecommerce.define('web.CustomCheckbox', function (require) {
     "use strict";
 
     const utils = require('web.utils');
@@ -7,7 +7,7 @@ odoo.define('web.CustomCheckbox', function (require) {
     /**
      * Custom checkbox
      * 
-     * Component that can be used in templates to render the custom checkbox of Odoo.
+     * Component that can be used in templates to render the custom checkbox of ecommerce.
      * 
      * <CustomCheckbox
      *     value="boolean"

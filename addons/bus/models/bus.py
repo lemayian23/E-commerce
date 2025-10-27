@@ -11,11 +11,11 @@ import threading
 import time
 from psycopg2 import InterfaceError, sql
 
-import odoo
-from odoo import api, fields, models
-from odoo.service.server import CommonServer
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.tools import date_utils
+import ecommerce
+from ecommerce import api, fields, models
+from ecommerce.service.server import CommonServer
+from ecommerce.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce.tools import date_utils
 
 _logger = logging.getLogger(__name__)
 
@@ -23,14 +23,14 @@ _logger = logging.getLogger(__name__)
 TIMEOUT = 50
 
 # custom function to call instead of NOTIFY postgresql command (opt-in)
-ODOO_NOTIFY_FUNCTION = os.environ.get('ODOO_NOTIFY_FUNCTION')
+ecommerce_NOTIFY_FUNCTION = os.environ.get('ecommerce_NOTIFY_FUNCTION')
 
 
 def get_notify_payload_max_length(default=8000):
     try:
-        length = int(os.environ.get('ODOO_NOTIFY_PAYLOAD_MAX_LENGTH', default))
+        length = int(os.environ.get('ecommerce_NOTIFY_PAYLOAD_MAX_LENGTH', default))
     except ValueError:
-        _logger.warning("ODOO_NOTIFY_PAYLOAD_MAX_LENGTH has to be an integer, "
+        _logger.warning("ecommerce_NOTIFY_PAYLOAD_MAX_LENGTH has to be an integer, "
                         "defaulting to %d bytes", default)
         length = default
     return length
@@ -119,9 +119,9 @@ class ImBus(models.Model):
             # nothing to fetch, and the websocket will return no notification.
             @self.env.cr.postcommit.add
             def notify():
-                with odoo.sql_db.db_connect('postgres').cursor() as cr:
-                    if ODOO_NOTIFY_FUNCTION:
-                        query = sql.SQL("SELECT {}('imbus', %s)").format(sql.Identifier(ODOO_NOTIFY_FUNCTION))
+                with ecommerce.sql_db.db_connect('postgres').cursor() as cr:
+                    if ecommerce_NOTIFY_FUNCTION:
+                        query = sql.SQL("SELECT {}('imbus', %s)").format(sql.Identifier(ecommerce_NOTIFY_FUNCTION))
                     else:
                         query = "NOTIFY imbus, %s"
                     payloads = get_notify_payloads(list(channels))
@@ -200,7 +200,7 @@ class ImDispatch(threading.Thread):
     def loop(self):
         """ Dispatch postgres notifications to the relevant websockets """
         _logger.info("Bus.loop listen imbus on db postgres")
-        with odoo.sql_db.db_connect('postgres').cursor() as cr, \
+        with ecommerce.sql_db.db_connect('postgres').cursor() as cr, \
              selectors.DefaultSelector() as sel:
             cr.execute("listen imbus")
             cr.commit()

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { _lt } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { fuzzyLookup } from "@web/core/utils/search";
 import { computeAppsAndMenuItems } from "@web/webclient/menus/menu_helpers";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 class AppIconCommand extends Component {}
 AppIconCommand.template = "web.AppIconCommand";

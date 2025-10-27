@@ -1,4 +1,4 @@
-odoo.define('web.qweb_tests', function (require) {
+ecommerce.define('web.qweb_tests', function (require) {
 "use strict";
 
 const {Markup} = require('web.utils');

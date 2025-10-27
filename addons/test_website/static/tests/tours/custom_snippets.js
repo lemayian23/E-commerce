@@ -1,4 +1,4 @@
-odoo.define('test_website.custom_snippets', function (require) {
+ecommerce.define('test_website.custom_snippets', function (require) {
 'use strict';
 
 const wTourUtils = require('website.tour_utils');

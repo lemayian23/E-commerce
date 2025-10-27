@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from itertools import combinations
 
-from odoo.tests import common
+from ecommerce.tests import common
 
 
 class test_domain(common.TransactionCase):

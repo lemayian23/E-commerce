@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -8,10 +8,10 @@ import threading
 
 from ast import literal_eval
 
-from odoo import api, exceptions, fields, models, _
-from odoo.osv import expression
-from odoo.tools import float_compare, float_round
-from odoo.tools.safe_eval import safe_eval
+from ecommerce import api, exceptions, fields, models, _
+from ecommerce.osv import expression
+from ecommerce.tools import float_compare, float_round
+from ecommerce.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

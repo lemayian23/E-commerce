@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 
-from odoo.tests import tagged
-from odoo import fields
+from ecommerce.tests import tagged
+from ecommerce import fields
 from .common import TestEsEdiCommon
 
 

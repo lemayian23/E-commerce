@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 from lxml import etree
-from odoo.addons.l10n_it_edi.tests.common import TestItEdi
-from odoo.exceptions import UserError
-from odoo.tests.common import tagged
-from odoo import tools
+from ecommerce.addons.l10n_it_edi.tests.common import TestItEdi
+from ecommerce.exceptions import UserError
+from ecommerce.tests.common import tagged
+from ecommerce import tools
 
 @tagged('post_install_l10n', 'post_install', '-at_install')
 class TestItEdiPa(TestItEdi):

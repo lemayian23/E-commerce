@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import base64
 from datetime import datetime
 from unittest.mock import patch
 
-from odoo import Command, fields
-from odoo.addons.mail.models.mail_channel import channel_avatar, group_avatar
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged, Form
-from odoo.tests.common import users
-from odoo.tools import html_escape, mute_logger
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
+from ecommerce import Command, fields
+from ecommerce.addons.mail.models.mail_channel import channel_avatar, group_avatar
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.mail.tests.common import MailCommon
+from ecommerce.exceptions import AccessError, UserError
+from ecommerce.tests import tagged, Form
+from ecommerce.tests.common import users
+from ecommerce.tools import html_escape, mute_logger
+from ecommerce.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 @tagged('mail_channel')
@@ -39,7 +39,7 @@ class TestChannelAccessRights(MailCommon):
         cls.chat_user_portal = cls.env['mail.channel'].browse(cls.env['mail.channel'].channel_get(cls.user_portal.partner_id.ids)['id'])
         cls.chat_user_public = cls.env['mail.channel'].browse(cls.env['mail.channel'].channel_get(cls.user_public.partner_id.ids)['id'])
 
-    @mute_logger('odoo.addons.base.models.ir_rule', 'odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_rule', 'ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     @users('user_public')
     def test_access_public(self):
         # Read public channel -> ok
@@ -95,7 +95,7 @@ class TestChannelAccessRights(MailCommon):
         with self.assertRaises(AccessError):
             self.env['mail.channel'].browse(self.chat_user_public.id).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_rule', 'odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_rule', 'ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     @users('employee')
     def test_access_employee(self):
         # Read public channel -> ok
@@ -149,7 +149,7 @@ class TestChannelAccessRights(MailCommon):
         with self.assertRaises(AccessError):
             self.env['mail.channel'].browse(self.chat_user_employee.id).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_rule', 'odoo.addons.base.models.ir_model', 'odoo.models')
+    @mute_logger('ecommerce.addons.base.models.ir_rule', 'ecommerce.addons.base.models.ir_model', 'ecommerce.models')
     @users('user_portal')
     def test_access_portal(self):
         # Read public channel -> ok
@@ -258,7 +258,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(channel.channel_partner_ids, self.env['res.partner'])
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     def test_channel_chat_message_post_should_update_last_interest_dt(self):
         channel_info = self.env['mail.channel'].with_user(self.user_admin).channel_get((self.partner_employee | self.user_admin.partner_id).ids)
         chat = self.env['mail.channel'].with_user(self.user_admin).browse(channel_info['id'])
@@ -279,7 +279,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(channel_member_admin.last_interest_dt, post_time)
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     def test_channel_recipients_channel(self):
         """ Posting a message on a channel should not send emails """
         channel = self.env['mail.channel'].browse(self.test_channel.ids)
@@ -293,7 +293,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(new_msg.notified_partner_ids, self.env['res.partner'])
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     def test_channel_recipients_chat(self):
         """ Posting a message on a chat should not send emails """
         channel_info = self.env['mail.channel'].with_user(self.user_admin).channel_get((self.partner_employee | self.user_admin.partner_id).ids)
@@ -307,7 +307,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(new_msg.partner_ids, self.env['res.partner'])
         self.assertEqual(new_msg.notified_partner_ids, self.env['res.partner'])
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('ecommerce.addons.mail.models.mail_mail', 'ecommerce.models.unlink')
     def test_channel_recipients_mention(self):
         """ Posting a message on a classic channel should support mentioning somebody """
         with self.mock_mail_gateway():
@@ -316,7 +316,7 @@ class TestChannelInternals(MailCommon):
                 message_type='comment', subtype_xmlid='mail.mt_comment')
         self.assertSentEmail(self.test_channel.env.user.partner_id, [self.test_partner])
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_channel_user_synchronize(self):
         """Archiving / deleting a user should automatically unsubscribe related partner from group restricted channels"""
         group_restricted_channel = self.env['mail.channel'].browse(self.env['mail.channel'].channel_create(name='Sic Mundus', group_id=self.env.ref('base.group_user').id)['id'])
@@ -403,7 +403,7 @@ class TestChannelInternals(MailCommon):
         message_format3 = channels[1].message_post(body='Body3', parent_id=message.id + 100)
         self.assertFalse(message_format3['parent_id'], "should not allow non-existing parent")
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_channel_unsubscribe_auto(self):
         """ Archiving / deleting a user should automatically unsubscribe related
         partner from private channels """
@@ -440,7 +440,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(private_group.channel_partner_ids, self.user_employee.partner_id | test_partner)
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_channel_private_unfollow(self):
         """ Test that a partner can leave (unfollow) a channel/group/chat. """
         group_restricted_channel = self.env['mail.channel'].browse(self.env['mail.channel'].channel_create(name='Channel for Groups', group_id=self.env.ref('base.group_user').id)['id'])

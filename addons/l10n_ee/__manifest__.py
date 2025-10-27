@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Estonia - Accounting',
     'version': '1.3',
     'category': 'Accounting/Localizations/Account Charts',
     'description': """
-This is the base module to manage the accounting chart for Estonia in Odoo.
+This is the base module to manage the accounting chart for Estonia in ecommerce.
     """,
-    'author': 'Odoo SA',
+    'author': 'ecommerce SA',
     'depends': [
         'account',
         'l10n_multilang',

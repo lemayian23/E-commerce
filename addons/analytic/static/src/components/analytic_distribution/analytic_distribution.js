@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registry } from "@web/core/registry";
 import { useService, useOwnedDialogs } from "@web/core/utils/hooks";

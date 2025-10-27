@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { reactive, toRaw } from "@odoo/owl";
+import { reactive, toRaw } from "@ecommerce/owl";
 
 const {
     DateTime,

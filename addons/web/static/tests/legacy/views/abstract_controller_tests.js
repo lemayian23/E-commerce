@@ -1,4 +1,4 @@
-odoo.define("base.abstract_controller_tests", function (require) {
+ecommerce.define("base.abstract_controller_tests", function (require) {
 "use strict";
 
 
@@ -9,7 +9,7 @@ var BasicRenderer = require("web.BasicRenderer");
 const AbstractRenderer = require('web.AbstractRendererOwl');
 const RendererWrapper = require('web.RendererWrapper');
 
-const { xml, onMounted, onWillUnmount, onWillDestroy } = require("@odoo/owl");
+const { xml, onMounted, onWillUnmount, onWillDestroy } = require("@ecommerce/owl");
 
 function getHtmlRenderer(html) {
     return BasicRenderer.extend({

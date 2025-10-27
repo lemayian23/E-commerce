@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { formatDateTime } from "@web/core/l10n/dates";
 import { _lt } from "@web/core/l10n/translation";

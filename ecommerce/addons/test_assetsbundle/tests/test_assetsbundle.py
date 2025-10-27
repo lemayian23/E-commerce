@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from collections import Counter
 from lxml import etree
@@ -12,17 +12,17 @@ import pathlib
 import lxml
 import base64
 
-import odoo
-from odoo import api, http
-from odoo.addons import __path__ as ADDONS_PATH
-from odoo.addons.base.models.assetsbundle import AssetsBundle
-from odoo.addons.base.models.ir_asset import AssetPaths
-from odoo.addons.base.models.ir_attachment import IrAttachment
-from odoo.modules.module import get_resource_path, get_manifest
-from odoo.tests import HttpCase, tagged
-from odoo.tests.common import TransactionCase
-from odoo.addons.base.models.ir_qweb import QWebException
-from odoo.tools import mute_logger, func
+import ecommerce
+from ecommerce import api, http
+from ecommerce.addons import __path__ as ADDONS_PATH
+from ecommerce.addons.base.models.assetsbundle import AssetsBundle
+from ecommerce.addons.base.models.ir_asset import AssetPaths
+from ecommerce.addons.base.models.ir_attachment import IrAttachment
+from ecommerce.modules.module import get_resource_path, get_manifest
+from ecommerce.tests import HttpCase, tagged
+from ecommerce.tests.common import TransactionCase
+from ecommerce.addons.base.models.ir_qweb import QWebException
+from ecommerce.tools import mute_logger, func
 
 
 GETMTINE = os.path.getmtime
@@ -92,7 +92,7 @@ class AddonManifestPatched(TransactionCase):
         }
 
         self.patch(self.env.registry, '_init_modules', self.installed_modules)
-        self.patch(odoo.modules.module, '_get_manifest_cached', Mock(side_effect=lambda module: self.manifests.get(module, {})))
+        self.patch(ecommerce.modules.module, '_get_manifest_cached', Mock(side_effect=lambda module: self.manifests.get(module, {})))
 
 
 class FileTouchable(AddonManifestPatched):
@@ -428,7 +428,7 @@ class TestJavascriptAssetsBundle(FileTouchable):
     def test_15_rtl_invalid_css_generation(self):
         """ Checks that erroneous css cannot be compiled by rtlcss and that errors are registered """
         self.bundle = self._get_asset('test_assetsbundle.broken_css', env=self.env(context={'lang': 'ar_SY'}))
-        with mute_logger('odoo.addons.base.models.assetsbundle'):
+        with mute_logger('ecommerce.addons.base.models.assetsbundle'):
             self.bundle.css()
         self.assertEqual(len(self.bundle.css_errors), 1)
         self.assertIn('rtlcss: error processing payload', self.bundle.css_errors[0])
@@ -1754,7 +1754,7 @@ class TestAssetsManifest(AddonManifestPatched):
             '''
         )
 
-    @mute_logger('odoo.addons.base.models.ir_asset')
+    @mute_logger('ecommerce.addons.base.models.ir_asset')
     def test_31(self):
         path_to_dummy = '../../tests/dummy.js'
         me = pathlib.Path(__file__).parent.absolute()
@@ -1771,7 +1771,7 @@ class TestAssetsManifest(AddonManifestPatched):
         attach = self.env['ir.attachment'].search([('name', 'ilike', 'test_assetsbundle.irassetsec')], order='create_date DESC', limit=1)
         self.assertFalse(attach.exists())
 
-    @mute_logger('odoo.addons.base.models.ir_asset')
+    @mute_logger('ecommerce.addons.base.models.ir_asset')
     def test_32(self):
         path_to_dummy = '../../tests/dummy.xml'
         me = pathlib.Path(__file__).parent.absolute()
@@ -1814,7 +1814,7 @@ class TestAssetsManifest(AddonManifestPatched):
         attach = self.env['ir.attachment'].search([('name', 'ilike', 'test_assetsbundle.irassetsec')], order='create_date DESC', limit=1)
         self.assertFalse(attach.exists())
 
-    @mute_logger('odoo.addons.base.models.ir_asset')
+    @mute_logger('ecommerce.addons.base.models.ir_asset')
     def test_34(self):
         self.env['ir.asset'].create({
             'name': '1',
@@ -1826,7 +1826,7 @@ class TestAssetsManifest(AddonManifestPatched):
         attach = self.env['ir.attachment'].search([('name', 'ilike', 'test_assetsbundle.irassetsec')], order='create_date DESC', limit=1)
         self.assertFalse(attach.exists())
 
-    @mute_logger('odoo.addons.base.models.ir_asset')
+    @mute_logger('ecommerce.addons.base.models.ir_asset')
     def test_35(self):
         self.env['ir.asset'].create({
             'name': '1',

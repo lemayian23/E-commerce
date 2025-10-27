@@ -1,5 +1,5 @@
-from odoo import models, fields, _
-from odoo.exceptions import UserError
+from ecommerce import models, fields, _
+from ecommerce.exceptions import UserError
 
 
 class ValidateAccountMove(models.TransientModel):

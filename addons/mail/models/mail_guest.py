@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import pytz
 import uuid
 
-from odoo.tools import consteq
-from odoo import _, api, fields, models
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError
-from odoo.addons.bus.models.bus_presence import AWAY_TIMER, DISCONNECTION_TIMER
+from ecommerce.tools import consteq
+from ecommerce import _, api, fields, models
+from ecommerce.addons.base.models.res_partner import _tz_get
+from ecommerce.exceptions import UserError
+from ecommerce.addons.bus.models.bus_presence import AWAY_TIMER, DISCONNECTION_TIMER
 
 
 class MailGuest(models.Model):

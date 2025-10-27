@@ -1,5 +1,5 @@
-from odoo.addons.point_of_sale.tests.common import TestPointOfSaleCommon
-from odoo.tests import tagged
+from ecommerce.addons.point_of_sale.tests.common import TestPointOfSaleCommon
+from ecommerce.tests import tagged
 from ..models.pos import ORDER_FIELDS, LINE_FIELDS
 from json import dumps
 

@@ -1,4 +1,4 @@
-odoo.define('web.BasicModel', function (require) {
+ecommerce.define('web.BasicModel', function (require) {
 "use strict";
 
 /**
@@ -64,7 +64,7 @@ odoo.define('web.BasicModel', function (require) {
  * - count is basically the number of records being manipulated.  We can't use
  *     res_ids, because we might have a very large number of records, or a
  *     domain, and the res_ids would be the current page, not the full set.
- * - model is the actual name of a (odoo) model, such as 'res.partner'
+ * - model is the actual name of a (ecommerce) model, such as 'res.partner'
  * - fields contains the description of all the fields from the model.  Note that
  *     these properties might have been modified by a view (for example, with
  *     required=true.  So, the fields kind of depends of the context of the
@@ -471,11 +471,11 @@ var BasicModel = AbstractModel.extend({
     },
     /**
      * This method allows to execute a callback for which '_notifyChanges' and
-     * 'save' will bypass the mutex. This is useful when we are leaving Odoo
+     * 'save' will bypass the mutex. This is useful when we are leaving ecommerce
      * (closing tab/browser), and we want to quickly save pending changes (in
      * an 'onbeforeunload' handler, which is mostly sync).
      *
-     * This function should never be called except when we are leaving Odoo.
+     * This function should never be called except when we are leaving ecommerce.
      *
      * @param {Function} callback
      */

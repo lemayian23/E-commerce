@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.tests import tagged, HttpCase
+from ecommerce import http
+from ecommerce.tests import tagged, HttpCase
 
-from odoo.addons.sale_loyalty.tests.common import TestSaleCouponNumbersCommon
-from odoo.addons.website.tools import MockRequest
-from odoo.addons.website_sale_loyalty.controllers.main import WebsiteSale
+from ecommerce.addons.sale_loyalty.tests.common import TestSaleCouponNumbersCommon
+from ecommerce.addons.website.tools import MockRequest
+from ecommerce.addons.website_sale_loyalty.controllers.main import WebsiteSale
 
 
 @tagged('-at_install', 'post_install')

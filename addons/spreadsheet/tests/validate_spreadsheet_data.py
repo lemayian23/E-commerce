@@ -2,23 +2,23 @@ from collections import defaultdict
 from itertools import chain
 import json
 import re
-from odoo.tests.common import TransactionCase
+from ecommerce.tests.common import TransactionCase
 
 markdown_link_regex = r"^\[([^\[]+)\]\((.+)\)$"
 
-xml_id_url_prefix = "odoo://ir_menu_xml_id/"
+xml_id_url_prefix = "ecommerce://ir_menu_xml_id/"
 
-odoo_view_link_prefix = "odoo://view/"
+ecommerce_view_link_prefix = "ecommerce://view/"
 
 
-def odoo_charts(data):
-    """return all odoo chart definition in the spreadsheet"""
+def ecommerce_charts(data):
+    """return all ecommerce chart definition in the spreadsheet"""
     figures = []
     for sheet in data["sheets"]:
         figures += [
             dict(figure["data"], id=figure["id"])
             for figure in sheet["figures"]
-            if figure["tag"] == "chart" and figure["data"]["type"].startswith("odoo_")
+            if figure["tag"] == "chart" and figure["data"]["type"].startswith("ecommerce_")
         ]
     return figures
 
@@ -26,7 +26,7 @@ def odoo_charts(data):
 def links_urls(data):
     """return all markdown links in cells"""
     urls = []
-    link_prefix = "odoo://view/"
+    link_prefix = "ecommerce://view/"
     for sheet in data["sheets"]:
         for cell in sheet["cells"].values():
             content = cell.get("content", "")
@@ -36,14 +36,14 @@ def links_urls(data):
     return urls
 
 
-def odoo_view_links(data):
+def ecommerce_view_links(data):
     """return all view definitions embedded in link cells.
-    urls looks like odoo://view/{... view data...}
+    urls looks like ecommerce://view/{... view data...}
     """
     return [
-        json.loads(url[len(odoo_view_link_prefix):])
+        json.loads(url[len(ecommerce_view_link_prefix):])
         for url in links_urls(data)
-        if url.startswith(odoo_view_link_prefix)
+        if url.startswith(ecommerce_view_link_prefix)
     ]
 
 
@@ -119,9 +119,9 @@ def chart_fields(chart):
 def filter_fields(data):
     """return all field names used in global filter definitions"""
     fields_by_model = defaultdict(set)
-    charts = odoo_charts(data)
-    odoo_version = data.get("odooVersion", 1)
-    if odoo_version < 5:
+    charts = ecommerce_charts(data)
+    ecommerce_version = data.get("ecommerceVersion", 1)
+    if ecommerce_version < 5:
         for filter_definition in data.get("globalFilters", []):
             for pivot_id, matching in filter_definition.get("pivotFields", dict()).items():
                 model = data["pivots"][pivot_id]["model"]
@@ -153,7 +153,7 @@ def filter_fields(data):
     return dict(fields_by_model)
 
 
-def odoo_view_fields(view):
+def ecommerce_view_fields(view):
     return view["action"]["modelName"], set(domain_fields(view["action"]["domain"]))
 
 
@@ -170,8 +170,8 @@ def fields_in_spreadsheet(data):
     all_fields = chain(
         extract_fields(list_fields, data.get("lists", dict()).values()).items(),
         extract_fields(pivot_fields, data.get("pivots", dict()).values()).items(),
-        extract_fields(chart_fields, odoo_charts(data)).items(),
-        extract_fields(odoo_view_fields, odoo_view_links(data)).items(),
+        extract_fields(chart_fields, ecommerce_charts(data)).items(),
+        extract_fields(ecommerce_view_fields, ecommerce_view_links(data)).items(),
         filter_fields(data).items(),
     )
     fields_by_model = defaultdict(set)
@@ -182,7 +182,7 @@ def fields_in_spreadsheet(data):
 
 def xml_ids_in_spreadsheet(data):
 
-    return set(data.get("chartOdooMenusReferences", {}).values()) | {
+    return set(data.get("chartecommerceMenusReferences", {}).values()) | {
         url[len(xml_id_url_prefix):]
         for url in links_urls(data)
         if url.startswith(xml_id_url_prefix)

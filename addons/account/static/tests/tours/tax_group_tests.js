@@ -1,4 +1,4 @@
-/** @odoo-module alias=account.tax.group.tour.tests */
+/** @ecommerce-module alias=account.tax.group.tour.tests */
 "use strict";
 
 import tour from 'web_tour.tour';

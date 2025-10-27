@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { Component, toRaw } from "@odoo/owl";
+import { Component, toRaw } from "@ecommerce/owl";
 
 export class DomainSelectorControlPanel extends Component {
     deleteNode() {

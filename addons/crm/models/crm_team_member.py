@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -9,8 +9,8 @@ import random
 
 from ast import literal_eval
 
-from odoo import api, exceptions, fields, models, _
-from odoo.osv import expression
+from ecommerce import api, exceptions, fields, models, _
+from ecommerce.osv import expression
 
 _logger = logging.getLogger(__name__)
 

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 from unittest.mock import patch
 from freezegun import freeze_time
 
-from odoo import fields
-from odoo.tests.common import TransactionCase, RecordCapturer, get_db_name
+from ecommerce import fields
+from ecommerce.tests.common import TransactionCase, RecordCapturer, get_db_name
 
 
 class CronMixinCase:
@@ -70,7 +70,7 @@ class TestIrCron(TransactionCase, CronMixinCase):
         def patched_now(*args, **kwargs):
             return '2020-10-22 08:00:00'
 
-        with patch('odoo.fields.Datetime.now', patched_now):
+        with patch('ecommerce.fields.Datetime.now', patched_now):
             self.cron.method_direct_trigger()
 
         self.assertEqual(fields.Datetime.to_string(self.cron.lastcall), '2020-10-22 08:00:00')
@@ -124,7 +124,7 @@ class TestIrCron(TransactionCase, CronMixinCase):
 
     def test_cron_null_interval(self):
         self.cron.interval_number = 0
-        with self.assertLogs('odoo.addons.base.models.ir_cron', 'ERROR'):
+        with self.assertLogs('ecommerce.addons.base.models.ir_cron', 'ERROR'):
             self.cron._process_job(get_db_name(), self.env.cr, self.cron.read(load=False)[0])
         self.cron.invalidate_recordset(['active'])
         self.assertFalse(self.cron.active)

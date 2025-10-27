@@ -1,4 +1,4 @@
-odoo.define('survey.session_text_answers', function (require) {
+ecommerce.define('survey.session_text_answers', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');

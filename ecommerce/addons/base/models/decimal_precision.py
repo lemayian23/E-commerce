@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools, _
-import odoo.addons
+from ecommerce import api, fields, models, tools, _
+import ecommerce.addons
 
 import logging
 import sys
@@ -67,7 +67,7 @@ class DecimalPrecision(models.Model):
             }
 
 # compatibility for decimal_precision.get_precision(): expose the module in addons namespace
-dp = sys.modules['odoo.addons.base.models.decimal_precision']
-odoo.addons.decimal_precision = dp
-sys.modules['odoo.addons.decimal_precision'] = dp
+dp = sys.modules['ecommerce.addons.base.models.decimal_precision']
+ecommerce.addons.decimal_precision = dp
+sys.modules['ecommerce.addons.decimal_precision'] = dp
 sys.modules['openerp.addons.decimal_precision'] = dp

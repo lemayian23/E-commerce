@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="cuentas_plantilla" model="account.chart.template">
         <field name="property_account_receivable_id" ref="cta110201"/>
         <field name="property_account_payable_id" ref="cta210101"/>
@@ -11,4 +11,4 @@
         <field name="account_journal_early_pay_discount_loss_account_id" ref="cta620202"/>
         <field name="account_journal_early_pay_discount_gain_account_id" ref="cta420102"/>
     </record>
-</odoo>
+</ecommerce>

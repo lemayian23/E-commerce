@@ -1,4 +1,4 @@
-odoo.define('website.s_popup_options', function (require) {
+ecommerce.define('website.s_popup_options', function (require) {
 'use strict';
 
 const options = require('web_editor.snippets.options');
@@ -67,10 +67,10 @@ options.registry.SnippetPopup = options.Class.extend({
      * @override
      */
     onTargetShow: async function () {
-        this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg.ecommerceEditor.observerUnactive();
         this.$bsTarget.modal('show');
         $(this.$target[0].ownerDocument.body).children('.modal-backdrop:last').addClass('d-none');
-        this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg.ecommerceEditor.observerActive();
     },
     /**
      * @override

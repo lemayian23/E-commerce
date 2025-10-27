@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     'name': 'United Arab Emirates - Accounting',
-    'author': 'Odoo S.A.',
+    'author': 'ecommerce S.A.',
     'category': 'Accounting/Localizations/Account Charts',
-    'website': 'https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations/united_arab_emirates.html',
+    'website': 'https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations/united_arab_emirates.html',
     'description': """
 United Arab Emirates Accounting Module
 =======================================================

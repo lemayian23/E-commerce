@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.public.root */
+/** @ecommerce-module alias=web.public.root */
 
 import dom from 'web.dom';
 import legacyEnv from 'web.public_env';
@@ -29,7 +29,7 @@ import { _t } from "@web/core/l10n/translation";
 
 
 const serviceRegistry = registry.category("services");
-import { Component, App, whenReady } from "@odoo/owl";
+import { Component, App, whenReady } from "@ecommerce/owl";
 
 // Load localizations outside the PublicRoot to not wait for DOM ready (but
 // wait for them in PublicRoot)
@@ -234,7 +234,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * context to RPCs.
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onCallService: function (ev) {
         function _computeContext(context, noContextKeys) {
@@ -275,7 +275,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * Called when someone asked for the global public context.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onContextGet: function (ev) {
         if (ev.data.extra) {
@@ -288,7 +288,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * Checks information about the page main object.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onMainObjectRequest: function (ev) {
         var repr = $('html').data('main-object');
@@ -303,7 +303,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * (re)started.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onWidgetsStartRequest: function (ev) {
         this._startWidgets(ev.data.$target, ev.data.options)
@@ -315,7 +315,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * stopped.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     _onWidgetsStopRequest: function (ev) {
         this._stopWidgets(ev.data.$target);

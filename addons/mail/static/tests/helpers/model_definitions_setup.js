@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { TEST_GROUP_IDS, TEST_USER_IDS } from '@bus/../tests/helpers/test_constants';
 import {

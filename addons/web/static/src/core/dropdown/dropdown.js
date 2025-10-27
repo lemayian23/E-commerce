@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useBus, useService } from "@web/core/utils/hooks";
 import { usePosition } from "../position_hook";
@@ -15,7 +15,7 @@ import {
     useRef,
     useState,
     useChildSubEnv,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 const DIRECTION_CARET_CLASS = {
     bottom: "dropdown",

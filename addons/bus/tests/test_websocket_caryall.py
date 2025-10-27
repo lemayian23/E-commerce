@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import gc
 import json
@@ -14,8 +14,8 @@ try:
 except ImportError:
     pass
 
-from odoo.api import Environment
-from odoo.tests import common, new_test_user
+from ecommerce.api import Environment
+from ecommerce.tests import common, new_test_user
 from .common import WebsocketCase
 from ..models.bus import dispatch
 from ..websocket import (
@@ -132,13 +132,13 @@ class TestWebsocketCaryall(WebsocketCase):
         websocket.send(json.dumps({'event_name': 'subscribe'}))
         self.assert_close_with_code(websocket, CloseCode.SESSION_EXPIRED)
 
-    @skipIf(os.getenv("ODOO_FAKETIME_TEST_MODE"), 'This test times out when faketime is used')
+    @skipIf(os.getenv("ecommerce_FAKETIME_TEST_MODE"), 'This test times out when faketime is used')
     def test_user_logout_outgoing_message(self):
-        odoo_ws = None
+        ecommerce_ws = None
 
         def patched_subscribe(self, *args):
-            nonlocal odoo_ws
-            odoo_ws = self
+            nonlocal ecommerce_ws
+            ecommerce_ws = self
 
         new_test_user(self.env, login='test_user', password='Password!1')
         user_session = self.authenticate('test_user', 'Password!1')
@@ -154,7 +154,7 @@ class TestWebsocketCaryall(WebsocketCase):
             # connected has been deleted. WebSocket should be closed without
             # receiving the message.
             self.env['bus.bus']._sendone('channel1', 'notif type', 'message')
-            odoo_ws.trigger_notification_dispatching()
+            ecommerce_ws.trigger_notification_dispatching()
             self.assert_close_with_code(websocket, CloseCode.SESSION_EXPIRED)
 
     def test_channel_subscription_disconnect(self):
@@ -208,11 +208,11 @@ class TestWebsocketCaryall(WebsocketCase):
 
     def test_trigger_notification(self):
         original_subscribe = Websocket.subscribe
-        odoo_ws = None
+        ecommerce_ws = None
 
         def patched_subscribe(self, *args):
-            nonlocal odoo_ws
-            odoo_ws = self
+            nonlocal ecommerce_ws
+            ecommerce_ws = self
             original_subscribe(self, *args)
 
         with patch.object(Websocket, 'subscribe', patched_subscribe):
@@ -226,7 +226,7 @@ class TestWebsocketCaryall(WebsocketCase):
             self.assertEqual(notifications[0]['message']['payload'], 'message')
 
             self.env['bus.bus']._sendone('my_channel', 'notif_type', 'another_message')
-            odoo_ws.trigger_notification_dispatching()
+            ecommerce_ws.trigger_notification_dispatching()
 
             notifications = json.loads(websocket.recv())
             # First notification has been received, we should only receive
@@ -273,6 +273,6 @@ class TestWebsocketCaryall(WebsocketCase):
 
     def test_no_cursor_when_no_callback_for_lifecycle_event(self):
         with patch.object(Websocket, '_Websocket__event_callbacks', defaultdict(set)):
-            with patch('odoo.addons.bus.websocket.acquire_cursor') as mock:
+            with patch('ecommerce.addons.bus.websocket.acquire_cursor') as mock:
                 self.websocket_connect()
                 self.assertFalse(mock.called)

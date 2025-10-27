@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ReorderDialog } from "@website_sale/js/website_sale_reorder";
 import { patch } from "@web/core/utils/patch";

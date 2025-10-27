@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.Registries', function(require) {
+ecommerce.define('point_of_sale.Registries', function(require) {
     'use strict';
 
     /**

@@ -4,11 +4,11 @@ import io
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.exceptions import RedirectWarning
-from odoo.tools import pdf
-from odoo.tests import tagged
-from odoo.tools import file_open
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.exceptions import RedirectWarning
+from ecommerce.tools import pdf
+from ecommerce.tests import tagged
+from ecommerce.tools import file_open
 
 
 @tagged('post_install', '-at_install')
@@ -18,7 +18,7 @@ class TestIrActionsReport(AccountTestInvoicingCommon):
         super().setUp()
         self.file = file_open('base/tests/minimal.pdf', 'rb').read()
         self.minimal_reader_buffer = io.BytesIO(self.file)
-        self.minimal_pdf_reader = pdf.OdooPdfFileReader(self.minimal_reader_buffer)
+        self.minimal_pdf_reader = pdf.ecommercePdfFileReader(self.minimal_reader_buffer)
 
     def test_download_one_corrupted_pdf(self):
         """

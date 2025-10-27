@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.stock_account.tests.test_stockvaluation import _create_accounting_data
-from odoo.tests.common import tagged, Form
-from odoo import fields, Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.stock_account.tests.test_stockvaluation import _create_accounting_data
+from ecommerce.tests.common import tagged, Form
+from ecommerce import fields, Command
 
 class TestAccountMoveStockCommon(AccountTestInvoicingCommon):
     @classmethod

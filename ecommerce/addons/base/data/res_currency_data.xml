@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <data noupdate="1">
         <!-- Currencies -->
         <record id="USD" model="res.currency">
@@ -1716,4 +1716,4 @@
         </record>
 
     </data>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { getBasicData } from "@spreadsheet/../tests/utils/data";
 

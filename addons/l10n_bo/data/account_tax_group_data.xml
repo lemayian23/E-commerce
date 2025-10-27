@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <record id="tax_group_iva_13" model="account.tax.group">
         <field name="name">IVA 13%</field>
         <field name="country_id" ref="base.bo"/>
@@ -36,4 +36,4 @@
         <field name="name">Withholdings for goods</field>
         <field name="country_id" ref="base.bo"/>
     </record>
-</odoo>
+</ecommerce>

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { RelationalModel, DynamicRecordList } from "@web/views/relational_model";
 

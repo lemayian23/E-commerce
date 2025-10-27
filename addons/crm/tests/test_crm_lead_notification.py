@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.crm.tests.common import TestCrmCommon
-from odoo.tests import tagged, users
-from odoo.tools import mute_logger
+from ecommerce.addons.crm.tests.common import TestCrmCommon
+from ecommerce.tests import tagged, users
+from ecommerce.tools import mute_logger
 
 
 @tagged('mail_thread', 'mail_gateway')
@@ -46,7 +46,7 @@ class NewLeadNotification(TestCrmCommon):
             }, {
               'name': 'Test Suggestion (partner no email with cc email)',
               'partner_id': partner_no_email.id,
-              'email_cc': 'test_cc@odoo.com'
+              'email_cc': 'test_cc@ecommerce.com'
             }
         ])
         for lead, expected_suggested in zip(
@@ -58,7 +58,7 @@ class NewLeadNotification(TestCrmCommon):
                 [(self.contact_1.id, '"Philip J Fry" <philip.j.fry@test.example.com>', self.contact_1.lang, 'Customer')],
                 [(partner_no_email.id, 'Test Partner', partner_no_email.lang, 'Customer')],
                 [
-                    (False, 'test_cc@odoo.com', None, 'CC Email'),
+                    (False, 'test_cc@ecommerce.com', None, 'CC Email'),
                     (partner_no_email.id, 'Test Partner', partner_no_email.lang, 'Customer')
                 ]
             ]
@@ -101,7 +101,7 @@ class NewLeadNotification(TestCrmCommon):
         lead_user = lead.with_user(self.user_sales_manager)
         self.assertTrue(lead_user.message_needaction)
 
-    @mute_logger('odoo.addons.mail.models.mail_thread')
+    @mute_logger('ecommerce.addons.mail.models.mail_thread')
     def test_new_lead_from_email_multicompany(self):
         company0 = self.env.company
         company1 = self.env['res.company'].create({'name': 'new_company'})

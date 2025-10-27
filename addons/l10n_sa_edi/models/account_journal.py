@@ -4,9 +4,9 @@ from markupsafe import Markup
 from lxml import etree
 from datetime import datetime
 from base64 import b64encode, b64decode
-from odoo import models, fields, service, _, api
-from odoo.exceptions import UserError
-from odoo.modules.module import get_module_resource
+from ecommerce import models, fields, service, _, api
+from ecommerce.exceptions import UserError
+from ecommerce.modules.module import get_module_resource
 from requests.exceptions import HTTPError, RequestException
 from cryptography import x509
 from cryptography.x509 import ObjectIdentifier, load_der_x509_certificate
@@ -120,7 +120,7 @@ class AccountJournal(models.Model):
 
     def _l10n_sa_edi_set_csr_fields(self):
         '''
-            Sets default values for CSR generation fields in Odoo, if their values do not exist
+            Sets default values for CSR generation fields in ecommerce, if their values do not exist
         '''
         self.ensure_one()
         # Avoid unnecessary write calls
@@ -169,7 +169,7 @@ class AccountJournal(models.Model):
             x509.DirectoryName(x509.Name([
                 # EGS Serial Number. Manufacturer or Solution Provider Name, Model or Version and Serial Number.
                 # To be written in the following format: "1-... |2-... |3-..."
-                x509.NameAttribute(ObjectIdentifier('2.5.4.4'), '1-Odoo|2-%s|3-%s' % (
+                x509.NameAttribute(ObjectIdentifier('2.5.4.4'), '1-ecommerce|2-%s|3-%s' % (
                     version_info['server_version_info'][0], self.l10n_sa_serial_number)),
                 # Organisation Identifier (UID)
                 x509.NameAttribute(NameOID.USER_ID, company_id.vat),

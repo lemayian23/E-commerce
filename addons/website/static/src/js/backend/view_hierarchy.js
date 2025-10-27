@@ -1,4 +1,4 @@
-odoo.define('website.view_hierarchy', function (require) {
+ecommerce.define('website.view_hierarchy', function (require) {
 "use strict";
 
 const core = require('web.core');

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-from odoo import tools
-from odoo.addons.base.tests import test_mail_examples
-from odoo.addons.base.tests.common import MockSmtplibCase
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
-from odoo.tools import mute_logger
-from odoo.tools import config
+from ecommerce import tools
+from ecommerce.addons.base.tests import test_mail_examples
+from ecommerce.addons.base.tests.common import MockSmtplibCase
+from ecommerce.tests import tagged
+from ecommerce.tests.common import TransactionCase
+from ecommerce.tools import mute_logger
+from ecommerce.tools import config
 
 
 @tagged('mail_server')
@@ -90,7 +90,7 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
                     body_alternative = body_alternative.strip('\n')
             self.assertEqual(body_alternative, expected)
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_mail_server_priorities(self):
         """Test if we choose the right mail server to send an email.
 
@@ -142,16 +142,16 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
                          'Should select the notification email server if passed FROM address was False')
         self.assertEqual(mail_from, 'notifications@test.com')
 
-        # remove the notifications email to simulate a mis-configured Odoo database
+        # remove the notifications email to simulate a mis-configured ecommerce database
         # so we do not have the choice, we have to spoof the FROM
         # (otherwise we can not send the email)
         self.env['ir.config_parameter'].sudo().set_param('mail.catchall.domain', False)
-        with mute_logger('odoo.addons.base.models.ir_mail_server'):
+        with mute_logger('ecommerce.addons.base.models.ir_mail_server'):
             mail_server, mail_from = self.env['ir.mail_server']._find_mail_server(email_from='test@unknown_domain.com')
             self.assertEqual(mail_server.from_filter, False, 'No notifications email set, must be forced to spoof the FROM')
             self.assertEqual(mail_from, 'test@unknown_domain.com')
 
-    @mute_logger('odoo.models.unlink', 'odoo.addons.base.models.ir_mail_server')
+    @mute_logger('ecommerce.models.unlink', 'ecommerce.addons.base.models.ir_mail_server')
     def test_mail_server_send_email(self):
         IrMailServer = self.env['ir.mail_server']
         default_bounce_adress = self.env['ir.mail_server']._get_default_bounce_address()
@@ -290,7 +290,7 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
             from_filter='random.domain',
         )
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     def test_mail_server_send_email_smtp_session(self):
         """Test all the cases when we provide the SMTP session.
 
@@ -358,17 +358,17 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
             from_filter='test.com',
         )
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @patch.dict(config.options, {"from_filter": "test.com", "smtp_server": "example.com"})
     def test_mail_server_binary_arguments_domain(self):
-        """Test the configuration provided in the odoo-bin arguments.
+        """Test the configuration provided in the ecommerce-bin arguments.
 
         This config is used when no mail server exists.
         """
         IrMailServer = self.env['ir.mail_server']
         default_bounce_adress = self.env['ir.mail_server']._get_default_bounce_address()
 
-        # Remove all mail server so we will use the odoo-bin arguments
+        # Remove all mail server so we will use the ecommerce-bin arguments
         self.env['ir.mail_server'].search([]).unlink()
         self.assertFalse(self.env['ir.mail_server'].search([]))
 
@@ -410,10 +410,10 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
             from_filter='test.com',
         )
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @patch.dict(config.options, {"from_filter": "test.com", "smtp_server": "example.com"})
     def test_mail_server_binary_arguments_domain_smtp_session(self):
-        """Test the configuration provided in the odoo-bin arguments.
+        """Test the configuration provided in the ecommerce-bin arguments.
 
         This config is used when no mail server exists.
         Use a pre-configured SMTP session.
@@ -421,7 +421,7 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
         IrMailServer = self.env['ir.mail_server']
         default_bounce_adress = self.env['ir.mail_server']._get_default_bounce_address()
 
-        # Remove all mail server so we will use the odoo-bin arguments
+        # Remove all mail server so we will use the ecommerce-bin arguments
         self.env['ir.mail_server'].search([]).unlink()
         self.assertFalse(self.env['ir.mail_server'].search([]))
 
@@ -480,17 +480,17 @@ class TestIrMailServer(TransactionCase, MockSmtplibCase):
         email_from = self.server_notification._get_test_email_addresses()[0]
         self.assertEqual(email_from, 'notifications@example.com')
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('ecommerce.models.unlink')
     @patch.dict(config.options, {'from_filter': 'test.com', 'smtp_server': 'example.com'})
     def test_mail_server_mail_default_from_filter(self):
-        """Test that the config parameter "mail.default.from_filter" overwrite the odoo-bin
+        """Test that the config parameter "mail.default.from_filter" overwrite the ecommerce-bin
         argument "--from-filter"
         """
         self.env['ir.config_parameter'].sudo().set_param('mail.default.from_filter', 'example.com')
 
         IrMailServer = self.env['ir.mail_server']
 
-        # Remove all mail server so we will use the odoo-bin arguments
+        # Remove all mail server so we will use the ecommerce-bin arguments
         IrMailServer.search([]).unlink()
         self.assertFalse(IrMailServer.search([]))
 

@@ -1,4 +1,4 @@
-odoo.define('web_tour.utils', function(require) {
+ecommerce.define('web_tour.utils', function(require) {
 "use strict";
 
 const { _legacyIsVisible } = require("@web/core/utils/ui");

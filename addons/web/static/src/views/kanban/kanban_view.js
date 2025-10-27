@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { KanbanArchParser } from "./kanban_arch_parser";
 import { KanbanCompiler } from "./kanban_compiler";

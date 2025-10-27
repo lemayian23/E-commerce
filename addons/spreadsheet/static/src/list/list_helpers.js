@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
-import { getOdooFunctions } from "../helpers/odoo_functions_helpers";
+import { getecommerceFunctions } from "../helpers/ecommerce_functions_helpers";
 
 /**
  * Parse a spreadsheet formula and detect the number of LIST functions that are
@@ -11,7 +11,7 @@ import { getOdooFunctions } from "../helpers/odoo_functions_helpers";
  * @returns {number}
  */
 export function getNumberOfListFormulas(formula) {
-    return getOdooFunctions(formula, ["ODOO.LIST", "ODOO.LIST.HEADER"]).filter((fn) => fn.isMatched)
+    return getecommerceFunctions(formula, ["ecommerce.LIST", "ecommerce.LIST.HEADER"]).filter((fn) => fn.isMatched)
         .length;
 }
 
@@ -20,8 +20,8 @@ export function getNumberOfListFormulas(formula) {
  *
  * @param {string} formula
  *
- * @returns {import("../helpers/odoo_functions_helpers").OdooFunctionDescription|undefined}
+ * @returns {import("../helpers/ecommerce_functions_helpers").ecommerceFunctionDescription|undefined}
  */
 export function getFirstListFunction(formula) {
-    return getOdooFunctions(formula, ["ODOO.LIST", "ODOO.LIST.HEADER"]).find((fn) => fn.isMatched);
+    return getecommerceFunctions(formula, ["ecommerce.LIST", "ecommerce.LIST.HEADER"]).find((fn) => fn.isMatched);
 }

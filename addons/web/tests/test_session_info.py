@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 import json
 from uuid import uuid4
 
-from odoo import Command
-from odoo.tests import common
+from ecommerce import Command
+from ecommerce.tests import common
 
 
 class TestSessionInfo(common.HttpCase):

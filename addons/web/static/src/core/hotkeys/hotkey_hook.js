@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useService } from "@web/core/utils/hooks";
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@ecommerce/owl";
 
 /**
  * This hook will register/unregister the given registration

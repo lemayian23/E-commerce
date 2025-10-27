@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { CalendarModel } from '@web/views/calendar/calendar_model';
 import { deserializeDateTime, serializeDate, serializeDateTime } from "@web/core/l10n/dates";

@@ -1,4 +1,4 @@
-/** @odoo-modules */
+/** @ecommerce-modules */
 
 import tour from 'web_tour.tour';
 

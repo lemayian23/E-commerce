@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
         <record id="mailing_trace_report_view_tree" model="ir.ui.view">
             <field name="name">mailing.trace.report.view.tree</field>
             <field name="model">mailing.trace.report</field>
@@ -95,4 +95,4 @@
 </p>
 </field>
        </record>
-</odoo>
+</ecommerce>

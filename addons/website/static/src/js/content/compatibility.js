@@ -1,4 +1,4 @@
-odoo.define('website.content.compatibility', function (require) {
+ecommerce.define('website.content.compatibility', function (require) {
 'use strict';
 
 /**

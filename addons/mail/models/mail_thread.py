@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
@@ -25,11 +25,11 @@ from werkzeug import urls
 from xmlrpc import client as xmlrpclib
 from markupsafe import Markup
 
-from odoo import _, api, exceptions, fields, models, tools, registry, SUPERUSER_ID, Command
-from odoo.exceptions import MissingError, AccessError
-from odoo.osv import expression
-from odoo.tools import is_html_empty
-from odoo.tools.misc import clean_context, split_every
+from ecommerce import _, api, exceptions, fields, models, tools, registry, SUPERUSER_ID, Command
+from ecommerce.exceptions import MissingError, AccessError
+from ecommerce.osv import expression
+from ecommerce.tools import is_html_empty
+from ecommerce.tools.misc import clean_context, split_every
 
 _logger = logging.getLogger(__name__)
 
@@ -44,7 +44,7 @@ class MailThread(models.AbstractModel):
         communication history. ``mail.thread`` also manages followers of
         inheriting classes. All features and expected behavior are managed
         by mail.thread. Widgets has been designed for the 7.0 and following
-        versions of Odoo.
+        versions of ecommerce.
 
         Inheriting classes are not required to implement any method, as the
         default implementation will work for any model. However it is common
@@ -885,7 +885,7 @@ class MailThread(models.AbstractModel):
         """This method returns True if the incoming email should be ignored.
 
         The goal of this method is to prevent loops which can occur if an auto-replier
-        send emails to Odoo.
+        send emails to ecommerce.
         """
         email_from = message_dict.get('email_from')
         if not email_from:
@@ -1214,14 +1214,14 @@ class MailThread(models.AbstractModel):
 
             post_params = dict(subtype_id=subtype_id, partner_ids=partner_ids, **message_dict)
             # remove computational values not stored on mail.message and avoid warnings when creating it
-            for x in ('from', 'to', 'cc', 'recipients', 'references', 'in_reply_to', 'x_odoo_message_id',
+            for x in ('from', 'to', 'cc', 'recipients', 'references', 'in_reply_to', 'x_ecommerce_message_id',
                       'bounced_email', 'bounced_message', 'bounced_msg_id', 'bounced_partner'):
                 post_params.pop(x, None)
             new_msg = False
             if thread._name == 'mail.thread':  # message with parent_id not linked to record
                 new_msg = thread.message_notify(**post_params)
             else:
-                # parsing should find an author independently of user running mail gateway, and ensure it is not odoobot
+                # parsing should find an author independently of user running mail gateway, and ensure it is not ecommercebot
                 partner_from_found = message_dict.get('author_id') and message_dict['author_id'] != self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
                 thread = thread.with_context(mail_create_nosubscribe=not partner_from_found)
                 new_msg = thread.message_post(**post_params)
@@ -2055,7 +2055,7 @@ class MailThread(models.AbstractModel):
         if self._name == 'mail.thread' or not self.id or message_type == 'user_notification':
             raise ValueError(_('Posting a message should be done on a business document. Use message_notify to send a notification to an user.'))
         if 'channel_ids' in kwargs:
-            raise ValueError(_("Posting a message with channels as listeners is not supported since Odoo 14.3+. Please update code accordingly."))
+            raise ValueError(_("Posting a message with channels as listeners is not supported since ecommerce 14.3+. Please update code accordingly."))
         if 'model' in msg_kwargs or 'res_id' in msg_kwargs:
             raise ValueError(_("message_post does not support model and res_id parameters anymore. Please call message_post on record."))
         if 'subtype' in kwargs:
@@ -2119,7 +2119,7 @@ class MailThread(models.AbstractModel):
         self.sudo()._message_set_main_attachment_id(msg_values['attachment_ids'])
 
         if msg_values['author_id'] and msg_values['message_type'] != 'notification' and not self._context.get('mail_create_nosubscribe'):
-            if self.env['res.partner'].browse(msg_values['author_id']).active:  # we dont want to add odoobot/inactive as a follower
+            if self.env['res.partner'].browse(msg_values['author_id']).active:  # we dont want to add ecommercebot/inactive as a follower
                 self._message_subscribe(partner_ids=[msg_values['author_id']])
 
         self._message_post_after_hook(new_message, msg_values)
@@ -2160,7 +2160,7 @@ class MailThread(models.AbstractModel):
         templates handle ir ui views. """
         values = kwargs.pop('values', None) or dict()
         try:
-            from odoo.addons.http_routing.models.ir_http import slug
+            from ecommerce.addons.http_routing.models.ir_http import slug
             values['slug'] = slug
         except ImportError:
             values['slug'] = lambda self: self.id
@@ -2813,7 +2813,7 @@ class MailThread(models.AbstractModel):
         mail_subject = ' '.join((mail_subject or '').splitlines())
         # compute references: set references to parents likely to be sent and add current message just to
         # have a fallback in case replies mess with Messsage-Id in the In-Reply-To (e.g. amazon
-        # SES SMTP may replace Message-Id and In-Reply-To refers an internal ID not stored in Odoo)
+        # SES SMTP may replace Message-Id and In-Reply-To refers an internal ID not stored in ecommerce)
         message_sudo = message.sudo()
         ancestors = self.env['mail.message'].sudo().search(
             [

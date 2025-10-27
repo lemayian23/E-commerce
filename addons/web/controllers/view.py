@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import Controller, route, request
+from ecommerce.http import Controller, route, request
 
 
 class View(Controller):

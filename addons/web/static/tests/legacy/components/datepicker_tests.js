@@ -1,4 +1,4 @@
-odoo.define('web.datepicker_tests', function (require) {
+ecommerce.define('web.datepicker_tests', function (require) {
     "use strict";
 
     const { DatePicker, DateTimePicker } = require('web.DatePickerOwl');

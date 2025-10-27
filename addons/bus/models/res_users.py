@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
-from odoo.addons.bus.models.bus_presence import AWAY_TIMER
-from odoo.addons.bus.models.bus_presence import DISCONNECTION_TIMER
+from ecommerce import api, fields, models
+from ecommerce.addons.bus.models.bus_presence import AWAY_TIMER
+from ecommerce.addons.bus.models.bus_presence import DISCONNECTION_TIMER
 
 
 class ResUsers(models.Model):

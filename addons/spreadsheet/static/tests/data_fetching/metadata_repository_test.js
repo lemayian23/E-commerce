@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { nextTick } from "@web/../tests/helpers/utils";
 import { MetadataRepository } from "@spreadsheet/data_sources/metadata_repository";

@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.payment.tests.common import PaymentCommon
 
 
 class PaypalCommon(PaymentCommon):
@@ -35,7 +35,7 @@ class PaypalCommon(PaymentCommon):
             'mc_fee': '2.00',
             'mc_gross': str(cls.amount),
             'notify_version': 'UNVERSIONED',
-            'payer_email': 'test-buyer@mail.odoo.com',
+            'payer_email': 'test-buyer@mail.ecommerce.com',
             'payer_id': '59XDVNACRAZZK',
             'payer_status': 'VERIFIED',
             'payment_date': '2022-01-19T08:38:06Z',

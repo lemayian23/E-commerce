@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models
-from odoo.tools import is_html_empty
+from ecommerce import _, api, fields, models
+from ecommerce.tools import is_html_empty
 
 
 class PaymentProvider(models.Model):

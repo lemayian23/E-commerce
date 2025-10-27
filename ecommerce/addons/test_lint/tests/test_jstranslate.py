@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 # pylint: disable=unbalanced-tuple-unpacking
 
 import logging
 import re
 
-from odoo import tools
-from odoo.modules import get_resource_from_path
+from ecommerce import tools
+from ecommerce.modules import get_resource_from_path
 
 from . import lint_case
 

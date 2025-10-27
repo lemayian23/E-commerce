@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools
-from odoo.tools import float_compare, float_is_zero
+from ecommerce import api, fields, models, tools
+from ecommerce.tools import float_compare, float_is_zero
 
 from itertools import chain
-from odoo.tools import groupby
+from ecommerce.tools import groupby
 from collections import defaultdict
 
 

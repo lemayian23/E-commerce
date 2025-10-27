@@ -1,14 +1,14 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import spreadsheet from "@spreadsheet/o_spreadsheet/o_spreadsheet_extended";
 import { _t } from "@web/core/l10n/translation";
-import { OdooChart } from "./odoo_chart";
+import { ecommerceChart } from "./ecommerce_chart";
 
 const { chartRegistry } = spreadsheet.registries;
 
 const { getDefaultChartJsRuntime, chartFontColor, ChartColors } = spreadsheet.helpers;
 
-export class OdooBarChart extends OdooChart {
+export class ecommerceBarChart extends ecommerceChart {
     constructor(definition, sheetId, getters) {
         super(definition, sheetId, getters);
         this.verticalAxisPosition = definition.verticalAxisPosition;
@@ -24,18 +24,18 @@ export class OdooBarChart extends OdooChart {
     }
 }
 
-chartRegistry.add("odoo_bar", {
-    match: (type) => type === "odoo_bar",
-    createChart: (definition, sheetId, getters) => new OdooBarChart(definition, sheetId, getters),
-    getChartRuntime: createOdooChartRuntime,
+chartRegistry.add("ecommerce_bar", {
+    match: (type) => type === "ecommerce_bar",
+    createChart: (definition, sheetId, getters) => new ecommerceBarChart(definition, sheetId, getters),
+    getChartRuntime: createecommerceChartRuntime,
     validateChartDefinition: (validator, definition) =>
-        OdooBarChart.validateChartDefinition(validator, definition),
-    transformDefinition: (definition) => OdooBarChart.transformDefinition(definition),
-    getChartDefinitionFromContextCreation: () => OdooBarChart.getDefinitionFromContextCreation(),
+        ecommerceBarChart.validateChartDefinition(validator, definition),
+    transformDefinition: (definition) => ecommerceBarChart.transformDefinition(definition),
+    getChartDefinitionFromContextCreation: () => ecommerceBarChart.getDefinitionFromContextCreation(),
     name: _t("Bar"),
 });
 
-function createOdooChartRuntime(chart, getters) {
+function createecommerceChartRuntime(chart, getters) {
     const background = chart.background || "#FFFFFF";
     const { datasets, labels } = chart.dataSource.getData();
     const chartJsConfig = getBarConfiguration(chart, labels);
@@ -57,7 +57,7 @@ function createOdooChartRuntime(chart, getters) {
 function getBarConfiguration(chart, labels) {
     const fontColor = chartFontColor(chart.background);
     const config = getDefaultChartJsRuntime(chart, labels, fontColor);
-    config.type = chart.type.replace("odoo_", "");
+    config.type = chart.type.replace("ecommerce_", "");
     const legend = {
         ...config.options.legend,
         display: chart.legendPosition !== "none",

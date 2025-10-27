@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.payment.tests.common import PaymentCommon
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.payment.tests.common import PaymentCommon
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 class AsiaPayCommon(AccountTestInvoicingCommon, PaymentCommon):

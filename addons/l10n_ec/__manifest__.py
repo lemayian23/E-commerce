@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 {
     "name": "Ecuadorian Accounting",
     "version": "3.9",
@@ -35,7 +35,7 @@ Master Data:
     "author": "TRESCLOUD, OPA CONSULTING",
     "category": "Accounting/Localizations/Account Charts",
     "maintainer": "TRESCLOUD",
-    "website": "https://www.odoo.com/documentation/16.0/applications/finance/fiscal_localizations/ecuador.html",
+    "website": "https://www.ecommerce.com/documentation/16.0/applications/finance/fiscal_localizations/ecuador.html",
     "license": "LGPL-3",
     "depends": [
         "base",

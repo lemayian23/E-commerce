@@ -1,4 +1,4 @@
-odoo.define('portal.rating.composer', function (require) {
+ecommerce.define('portal.rating.composer', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');
@@ -33,7 +33,7 @@ const RatingPopupComposer = publicWidget.Widget.extend({
             'res_id': false,
             'pid': 0,
             'display_rating': true,
-            'csrf_token': odoo.csrf_token,
+            'csrf_token': ecommerce.csrf_token,
             'user_id': session.user_id,
         });
 
@@ -100,7 +100,7 @@ const RatingPopupComposer = publicWidget.Widget.extend({
 
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {ecommerceEvent} event
      */
     _onReloadRatingPopupComposer: function (event) {
         const data = event.data;

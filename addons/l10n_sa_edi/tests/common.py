@@ -1,10 +1,10 @@
 # coding: utf-8
 from datetime import datetime
 
-from odoo import Command
-from odoo.tests import tagged
-from odoo.tests.common import new_test_user
-from odoo.addons.account_edi.tests.common import AccountEdiTestCommon
+from ecommerce import Command
+from ecommerce.tests import tagged
+from ecommerce.tests.common import new_test_user
+from ecommerce.addons.account_edi.tests.common import AccountEdiTestCommon
 
 
 @tagged('post_install_l10n', '-at_install', 'post_install')

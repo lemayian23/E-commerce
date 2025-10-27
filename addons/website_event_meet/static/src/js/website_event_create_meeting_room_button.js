@@ -1,4 +1,4 @@
-odoo.define('website_event_meet.website_event_create_room_button', function (require) {
+ecommerce.define('website_event_meet.website_event_create_room_button', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');
@@ -24,7 +24,7 @@ publicWidget.registry.websiteEventCreateMeetingRoom = publicWidget.Widget.extend
             this.$createModal = $(QWeb.render(
                 'event_meet_create_room_modal',
                 {
-                    csrf_token: odoo.csrf_token,
+                    csrf_token: ecommerce.csrf_token,
                     eventId: this.$el.data("eventId"),
                     defaultLangCode: this.$el.data("defaultLangCode"),
                     langs: langs,

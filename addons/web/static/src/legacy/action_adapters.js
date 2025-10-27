@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import Context from "web.Context";
 import core from "web.core";
@@ -21,7 +21,7 @@ import {
     useExternalListener,
     useComponent,
     xml,
-} from "@odoo/owl";
+} from "@ecommerce/owl";
 
 class WarningDialog extends Component {}
 WarningDialog.template = xml`<Dialog title="props.title">
@@ -374,7 +374,7 @@ export class ViewAdapter extends ActionAdapter {
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {ecommerceEvent} ev
      */
     async _trigger_up(ev) {
         const payload = ev.data;

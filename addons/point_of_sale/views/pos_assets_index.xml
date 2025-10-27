@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
 
 <!-- This contains the tour assets. They are included during testing. -->
 <template id="point_of_sale.index" name="POS Index">&lt;!DOCTYPE html&gt;
 <html>
     <head>
-        <title>Odoo POS</title>
+        <title>ecommerce POS</title>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta http-equiv="content-type" content="text/html, charset=utf-8" />
@@ -26,7 +26,7 @@
         <link rel="shortcut icon" href="/point_of_sale/static/src/img/favicon.ico" type="image/x-icon"/>
 
         <script type="text/javascript">
-            var odoo = <t t-out="json.dumps({
+            var ecommerce = <t t-out="json.dumps({
                 'csrf_token': request.csrf_token(None),
                 '__session_info__': session_info,
                 'login_number': login_number,
@@ -35,7 +35,7 @@
             })"/>;
             // Prevent the menu_service to load anything. In an ideal world, POS assets would only contain
             // what is genuinely necessary, and not the whole backend.
-            odoo.loadMenusPromise = Promise.resolve();
+            ecommerce.loadMenusPromise = Promise.resolve();
         </script>
 
         <t t-call="point_of_sale.assets_common"/>
@@ -47,4 +47,4 @@
 </html>
 </template>
 
-</odoo>
+</ecommerce>

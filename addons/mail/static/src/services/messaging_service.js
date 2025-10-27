@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { ModelManager } from '@mail/model/model_manager';
 

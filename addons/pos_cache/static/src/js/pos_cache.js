@@ -1,4 +1,4 @@
-odoo.define('pos_cache.pos_cache', function (require) {
+ecommerce.define('pos_cache.pos_cache', function (require) {
 "use strict";
 
 var { PosGlobalState } = require('point_of_sale.models');
@@ -10,7 +10,7 @@ const PosCachePosGlobalState = (PosGlobalState) => class PosCachePosGlobalState 
         return this.env.services.rpc({
             model: 'pos.session',
             method: 'get_total_products_count',
-            args: [[odoo.pos_session_id]],
+            args: [[ecommerce.pos_session_id]],
             context: this.env.session.user_context,
         });
     }
@@ -18,7 +18,7 @@ const PosCachePosGlobalState = (PosGlobalState) => class PosCachePosGlobalState 
         const products = await this.env.services.rpc({
             model: 'pos.session',
             method: 'get_cached_products',
-            args: [[odoo.pos_session_id], start, end],
+            args: [[ecommerce.pos_session_id], start, end],
             context: this.env.session.user_context,
         });
         this._loadProductProduct(products);

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { useAutofocus } from "@web/core/utils/hooks";
 import { pick } from "@web/core/utils/objects";
@@ -6,7 +6,7 @@ import { formView } from "@web/views/form/form_view";
 import { SettingsConfirmationDialog } from "./settings_confirmation_dialog";
 import { SettingsFormRenderer } from "./settings_form_renderer";
 
-import { useSubEnv, useState, useRef, useEffect } from "@odoo/owl";
+import { useSubEnv, useState, useRef, useEffect } from "@ecommerce/owl";
 
 export class SettingsFormController extends formView.Controller {
     setup() {

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta, time
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
-from odoo.addons.event_crm.tests.common import EventCrmCase
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.sales_team.tests.common import TestSalesCommon
-from odoo.addons.website.tests.test_website_visitor import MockVisitor
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
+from ecommerce.addons.event_crm.tests.common import EventCrmCase
+from ecommerce.addons.mail.tests.common import mail_new_test_user
+from ecommerce.addons.sales_team.tests.common import TestSalesCommon
+from ecommerce.addons.website.tests.test_website_visitor import MockVisitor
 
 
 class TestEventFullCommon(EventCrmCase, TestSalesCommon, MockVisitor):

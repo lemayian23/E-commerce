@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<ecommerce>
     <!-- SALES-->
     <!-- 25% in country II.3 -->
     <record id="VAT_S_IN_ROC_25" model="account.tax.template">
@@ -1241,4 +1241,4 @@
             }),
         ]"/>
     </record>
-</odoo>
+</ecommerce>

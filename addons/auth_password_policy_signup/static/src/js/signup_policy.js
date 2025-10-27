@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import "web.dom_ready";
 import { ConcretePolicy, recommendations } from "@auth_password_policy/password_policy";

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models, tools
-from odoo.osv import expression
+from ecommerce import _, api, fields, models, tools
+from ecommerce.osv import expression
 
 
 class Partner(models.Model):
@@ -23,10 +23,10 @@ class Partner(models.Model):
 
     def _compute_im_status(self):
         super()._compute_im_status()
-        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
-        odoobot = self.env['res.partner'].browse(odoobot_id)
-        if odoobot in self:
-            odoobot.im_status = 'bot'
+        ecommercebot_id = self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
+        ecommercebot = self.env['res.partner'].browse(ecommercebot_id)
+        if ecommercebot in self:
+            ecommercebot.im_status = 'bot'
 
     # pseudo computes
 

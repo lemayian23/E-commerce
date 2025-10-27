@@ -1,4 +1,4 @@
-odoo.define('website_event_booth_sale.booth_registration', function (require) {
+ecommerce.define('website_event_booth_sale.booth_registration', function (require) {
 'use strict';
 
 const BoothRegistration = require('website_event_booth.booth_registration');

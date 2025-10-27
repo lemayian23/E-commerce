@@ -1,9 +1,9 @@
 
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.addons.snailmail.country_utils import SNAILMAIL_COUNTRIES
+from ecommerce import api, models
+from ecommerce.addons.snailmail.country_utils import SNAILMAIL_COUNTRIES
 
 
 class ResPartner(models.Model):

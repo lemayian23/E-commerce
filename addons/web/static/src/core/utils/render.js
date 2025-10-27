@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
-import { blockDom, markup } from "@odoo/owl";
+import { blockDom, markup } from "@ecommerce/owl";
 
 /**
  * renders a template with an (optional) context and outputs it as a string

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { makeContext } from "@web/core/context";
 import { Domain } from "@web/core/domain";
@@ -17,7 +17,7 @@ import {
 } from "./utils/dates";
 import { FACET_ICONS } from "./utils/misc";
 
-import { EventBus, toRaw } from "@odoo/owl";
+import { EventBus, toRaw } from "@ecommerce/owl";
 const { DateTime } = luxon;
 
 /** @typedef {import("../views/relational_model").OrderTerm} OrderTerm */
@@ -1858,7 +1858,7 @@ export class SearchModel extends EventBus {
                     }
                 }
                 // the following code aims to remodel this:
-                // https://github.com/odoo/odoo/blob/12.0/addons/web/static/src/js/views/search/search_inputs.js#L498
+                // https://github.com/ecommerce/ecommerce/blob/12.0/addons/web/static/src/js/views/search/search_inputs.js#L498
                 // this is required for the helpdesk tour to pass
                 // this seems weird to only do that for m2o fields, but a test fails if
                 // we do it for other fields (my guess being that the test should simply

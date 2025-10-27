@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { DatePicker, DateTimePicker } from "@web/core/datepicker/datepicker";
 import { formatDate, formatDateTime } from "@web/core/l10n/dates";
@@ -8,7 +8,7 @@ import { registry } from "@web/core/registry";
 import { sprintf } from "@web/core/utils/strings";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@ecommerce/owl";
 
 export class RemainingDaysField extends Component {
     get hasTime() {

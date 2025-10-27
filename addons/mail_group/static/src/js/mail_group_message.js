@@ -1,4 +1,4 @@
-odoo.define('mail_group.mail_group_message', function (require) {
+ecommerce.define('mail_group.mail_group_message', function (require) {
 'use strict';
 
 const publicWidget = require('web.public.widget');

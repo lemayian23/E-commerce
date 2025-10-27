@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 
-from odoo import Command
-from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.addons.test_mail.tests.common import TestMailCommon
-from odoo.tests import Form
-from odoo.tests.common import tagged
+from ecommerce import Command
+from ecommerce.addons.account.tests.common import AccountTestInvoicingCommon
+from ecommerce.addons.test_mail.tests.common import TestMailCommon
+from ecommerce.tests import Form
+from ecommerce.tests.common import tagged
 
 
 @tagged('post_install', '-at_install')

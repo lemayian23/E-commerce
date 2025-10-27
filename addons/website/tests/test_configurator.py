@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-import odoo.tests
-from odoo.addons.iap.tools.iap_tools import iap_jsonrpc_mocked
-from odoo.tools import mute_logger
+import ecommerce.tests
+from ecommerce.addons.iap.tools.iap_tools import iap_jsonrpc_mocked
+from ecommerce.tools import mute_logger
 
-class TestConfiguratorCommon(odoo.tests.HttpCase):
+class TestConfiguratorCommon(ecommerce.tests.HttpCase):
 
     def _theme_upgrade_upstream(self):
         # patch to prevent module install/upgrade during tests
@@ -44,13 +44,13 @@ class TestConfiguratorCommon(odoo.tests.HttpCase):
 
             iap_jsonrpc_mocked()
 
-        iap_patch = patch('odoo.addons.iap.tools.iap_tools.iap_jsonrpc', iap_jsonrpc_mocked_configurator)
+        iap_patch = patch('ecommerce.addons.iap.tools.iap_tools.iap_jsonrpc', iap_jsonrpc_mocked_configurator)
         self.startPatcher(iap_patch)
 
-        patcher = patch('odoo.addons.website.models.ir_module_module.IrModuleModule._theme_upgrade_upstream', wraps=self._theme_upgrade_upstream)
+        patcher = patch('ecommerce.addons.website.models.ir_module_module.IrModuleModule._theme_upgrade_upstream', wraps=self._theme_upgrade_upstream)
         self.startPatcher(patcher)
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestConfiguratorTranslation(TestConfiguratorCommon):
 
     def test_01_configurator_translation(self):

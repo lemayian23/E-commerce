@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @ecommerce-module */
 
 import { _t } from "@web/core/l10n/translation";
 import { Domain } from "@web/core/domain";
@@ -363,7 +363,7 @@ export class SpreadsheetPivotModel extends PivotModel {
     //--------------------------------------------------------------------------
 
     /**
-     * Get the Odoo domain corresponding to the given domain
+     * Get the ecommerce domain corresponding to the given domain
      */
     getPivotCellDomain(domain) {
         const { cols, rows } = this._getColsRowsValuesFromDomain(domain);

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { FileSelectorControlPanel } from '@web_editor/components/media_dialog/file_selector';
 import { getFixture, patchWithCleanup } from "@web/../tests/helpers/utils";

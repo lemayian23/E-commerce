@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
 import { session } from "@web/session";

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import json
 
 import requests
 import werkzeug.http
 
-from odoo import api, fields, models
-from odoo.exceptions import AccessDenied, UserError
-from odoo.addons.auth_signup.models.res_users import SignupError
+from ecommerce import api, fields, models
+from ecommerce.exceptions import AccessDenied, UserError
+from ecommerce.addons.auth_signup.models.res_users import SignupError
 
-from odoo.addons import base
+from ecommerce.addons import base
 base.models.res_users.USER_PRIVATE_FIELDS.append('oauth_access_token')
 
 class ResUsers(models.Model):
@@ -58,7 +58,7 @@ class ResUsers(models.Model):
             for key in [
                 'sub', # standard
                 'id', # google v1 userinfo, facebook opengraph
-                'user_id', # google tokeninfo, odoo (tokeninfo)
+                'user_id', # google tokeninfo, ecommerce (tokeninfo)
             ]
         ]), None)
         if not subject:

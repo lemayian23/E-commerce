@@ -1,4 +1,4 @@
-odoo.define('web.test_utils_graph', function () {
+ecommerce.define('web.test_utils_graph', function () {
 "use strict";
 
 /**

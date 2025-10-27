@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo.modules.loading import force_demo
-from odoo.tests import standalone
+from ecommerce.modules.loading import force_demo
+from ecommerce.tests import standalone
 
 
 _logger = logging.getLogger(__name__)

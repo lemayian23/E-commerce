@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
 import { Tooltip } from "./tooltip";
 import { hasTouch } from "@web/core/browser/feature_detection";
 
-import { whenReady } from "@odoo/owl";
+import { whenReady } from "@ecommerce/owl";
 
 /**
  * The tooltip service allows to display custom tooltips on every elements with

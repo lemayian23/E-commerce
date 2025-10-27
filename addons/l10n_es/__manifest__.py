@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 # List of contributors:
 # Jordi Esteve <jesteve@zikzakmedia.com>
@@ -8,7 +8,7 @@
 # Carlos Liébana <carlos.liebana@factorlibre.com>
 # Hugo Santos <hugo.santos@factorlibre.com>
 # Albert Cabedo <albert@gafic.com>
-# Olivier Colson <oco@odoo.com>
+# Olivier Colson <oco@ecommerce.com>
 # Roberto Lizana <robertolizana@trey.es>
 
 {

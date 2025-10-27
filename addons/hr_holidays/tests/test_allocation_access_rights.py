@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import tests
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
-from odoo.exceptions import AccessError, UserError
+from ecommerce import tests
+from ecommerce.addons.hr_holidays.tests.common import TestHrHolidaysCommon
+from ecommerce.exceptions import AccessError, UserError
 import time
 
 

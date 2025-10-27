@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models
-from odoo.exceptions import UserError
-from odoo.tools.translate import _
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
+from ecommerce import models
+from ecommerce.exceptions import UserError
+from ecommerce.tools.translate import _
 
 
 class pos_config(models.Model):

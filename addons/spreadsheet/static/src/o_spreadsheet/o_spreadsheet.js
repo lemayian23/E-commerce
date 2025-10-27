@@ -916,7 +916,7 @@
     }
     /**
      * Check if the string is a web link.
-     * e.g. http://odoo.com
+     * e.g. http://ecommerce.com
      */
     function isWebLink(str) {
         return WEB_LINK_REGEX.test(str);
@@ -2312,7 +2312,7 @@
         return !(range.invalidSheetName || range.invalidXc) ? range : undefined;
     }
 
-    /** Methods from Odoo Web Utils  */
+    /** Methods from ecommerce Web Utils  */
     /**
      * This function computes a score that represent the fact that the
      * string contains the pattern, or not
@@ -7196,7 +7196,7 @@
         };
     }
     const GraphColors = [
-        // the same colors as those used in odoo reporting
+        // the same colors as those used in ecommerce reporting
         "rgb(31,119,180)",
         "rgb(255,127,14)",
         "rgb(174,199,232)",
@@ -43834,7 +43834,7 @@ day_count_convention (number, default=${DEFAULT_DAY_COUNT_CONVENTION} ) ${_lt("A
     }
 
     /**
-     * We export here all entities that needs to be accessed publicly by Odoo.
+     * We export here all entities that needs to be accessed publicly by ecommerce.
      *
      * Note that the __info__ key is actually completed by the build process (see
      * the rollup.config.js file)

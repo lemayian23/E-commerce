@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from . import controllers
 from . import models
@@ -7,8 +7,8 @@ from . import report
 from . import wizard
 from . import populate
 
-from odoo import api, SUPERUSER_ID
-from odoo.tools.sql import create_index
+from ecommerce import api, SUPERUSER_ID
+from ecommerce.tools.sql import create_index
 
 
 def _check_exists_collaborators_for_project_sharing(env):

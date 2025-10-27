@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pprint
@@ -9,12 +9,12 @@ from datetime import datetime
 import psycopg2
 from dateutil import relativedelta
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import consteq, format_amount, ustr
-from odoo.tools.misc import hmac as hmac_tool
+from ecommerce import _, api, fields, models
+from ecommerce.exceptions import UserError, ValidationError
+from ecommerce.tools import consteq, format_amount, ustr
+from ecommerce.tools.misc import hmac as hmac_tool
 
-from odoo.addons.payment import utils as payment_utils
+from ecommerce.addons.payment import utils as payment_utils
 
 _logger = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @ecommerce-module */
 
 import { makeContext } from "@web/core/context";
 import { Domain } from "@web/core/domain";
@@ -18,7 +18,7 @@ import { localization } from "@web/core/l10n/localization";
 import BasicModel from "web.BasicModel";
 import Context from "web.Context";
 
-import { markup, toRaw } from "@odoo/owl";
+import { markup, toRaw } from "@ecommerce/owl";
 
 const DEFAULT_HANDLE_FIELD = "sequence";
 
@@ -712,7 +712,7 @@ export class Record extends DataPoint {
     }
 
     /**
-     * To be called **only** when Odoo is about to be closed, and we want to
+     * To be called **only** when ecommerce is about to be closed, and we want to
      * save potential changes on a given record.
      *
      * We can't follow the normal flow (onchange(s) + save, mutexified),

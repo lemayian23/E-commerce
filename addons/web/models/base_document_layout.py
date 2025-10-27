@@ -3,11 +3,11 @@ import markupsafe
 import os
 from markupsafe import Markup
 
-from odoo import api, fields, models, tools
+from ecommerce import api, fields, models, tools
 
-from odoo.addons.base.models.ir_qweb_fields import nl2br
-from odoo.modules import get_resource_path
-from odoo.tools import file_path, html2plaintext, is_html_empty
+from ecommerce.addons.base.models.ir_qweb_fields import nl2br
+from ecommerce.modules import get_resource_path
+from ecommerce.tools import file_path, html2plaintext, is_html_empty
 
 try:
     import sass as libsass
@@ -288,7 +288,7 @@ class BaseDocumentLayout(models.TransientModel):
     def _compile_scss(self, scss_source):
         """
         This code will compile valid scss into css.
-        Parameters are the same from odoo/addons/base/models/assetsbundle.py
+        Parameters are the same from ecommerce/addons/base/models/assetsbundle.py
         Simply copied and adapted slightly
         """
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { browser } from '@web/core/browser/browser';
 import { MEDIAS_BREAKPOINTS, SIZES, uiService } from '@web/core/ui/ui_service';

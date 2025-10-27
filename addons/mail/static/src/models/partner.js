@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 import { registerModel } from '@mail/model/model_core';
 import { attr, many, one } from '@mail/model/model_field';
@@ -172,7 +172,7 @@ registerModel({
                     (!partner.active && partner !== this.messaging.partnerRoot) ||
                     partner.is_public
                 ) {
-                    // ignore archived partners (except OdooBot), public partners (technical)
+                    // ignore archived partners (except ecommerceBot), public partners (technical)
                     continue;
                 }
                 if (!partner.name) {

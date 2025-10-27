@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import ecommerce.tests
 
 from datetime import timedelta
 
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
-from odoo.fields import Datetime
+from ecommerce.addons.base.tests.common import HttpCaseWithUserDemo
+from ecommerce.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
+from ecommerce.fields import Datetime
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@ecommerce.tests.common.tagged('post_install', '-at_install')
 class TestUi(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon):
 
     def setUp(self):

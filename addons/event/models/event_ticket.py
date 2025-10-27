@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools.misc import formatLang
+from ecommerce import api, fields, models, _
+from ecommerce.exceptions import ValidationError, UserError
+from ecommerce.tools.misc import formatLang
 
 
 class EventTemplateTicket(models.Model):
@@ -42,7 +42,7 @@ class EventTemplateTicket(models.Model):
 class EventTicket(models.Model):
     """ Ticket model allowing to have differnt kind of registrations for a given
     event. Ticket are based on ticket type as they share some common fields
-    and behavior. Those models come from <= v13 Odoo event.event.ticket that
+    and behavior. Those models come from <= v13 ecommerce event.event.ticket that
     modeled both concept: tickets for event templates, and tickets for events. """
     _name = 'event.event.ticket'
     _inherit = 'event.type.ticket'

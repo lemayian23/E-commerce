@@ -1,4 +1,4 @@
-/** @odoo-module alias=web.viewUtils **/
+/** @ecommerce-module alias=web.viewUtils **/
 
 
 import * as dom from 'web.dom';

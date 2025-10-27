@@ -1,4 +1,4 @@
-odoo.define('web.FieldWrapper', function (require) {
+ecommerce.define('web.FieldWrapper', function (require) {
     "use strict";
 
     const { ComponentWrapper } = require('web.OwlCompatibility');

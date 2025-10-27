@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 from collections import defaultdict
 from datetime import timedelta
 from functools import partial, lru_cache
@@ -11,10 +11,10 @@ import psycopg2
 import pytz
 import re
 
-from odoo import api, fields, models, tools, _
-from odoo.tools import float_is_zero, float_round, float_repr, float_compare
-from odoo.exceptions import ValidationError, UserError, AccessError
-from odoo.osv.expression import AND
+from ecommerce import api, fields, models, tools, _
+from ecommerce.tools import float_is_zero, float_round, float_repr, float_compare
+from ecommerce.exceptions import ValidationError, UserError, AccessError
+from ecommerce.osv.expression import AND
 import base64
 
 _logger = logging.getLogger(__name__)

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
 from werkzeug.exceptions import NotFound
 
-from odoo import http
-from odoo.http import request
+from ecommerce import http
+from ecommerce.http import request
 
 
 class WebsiteJitsiController(http.Controller):

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, fields, models
-from odoo.models import regex_field_agg, VALID_AGGREGATE_FUNCTIONS
-from odoo.exceptions import UserError
-from odoo.osv.expression import AND_OPERATOR, OR_OPERATOR, NOT_OPERATOR, DOMAIN_OPERATORS, FALSE_LEAF, TRUE_LEAF, normalize_domain
-from odoo.tools import OrderedSet
+from ecommerce import _, api, fields, models
+from ecommerce.models import regex_field_agg, VALID_AGGREGATE_FUNCTIONS
+from ecommerce.exceptions import UserError
+from ecommerce.osv.expression import AND_OPERATOR, OR_OPERATOR, NOT_OPERATOR, DOMAIN_OPERATORS, FALSE_LEAF, TRUE_LEAF, normalize_domain
+from ecommerce.tools import OrderedSet
 
 
 def remove_domain_leaf(domain, fields_to_remove):

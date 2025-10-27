@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of ecommerce. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import request
+from ecommerce.http import request
 
-from odoo.addons.account.controllers import portal
-from odoo.addons.payment.controllers.portal import PaymentPortal
-from odoo.addons.portal.controllers.portal import _build_url_w_params
+from ecommerce.addons.account.controllers import portal
+from ecommerce.addons.payment.controllers.portal import PaymentPortal
+from ecommerce.addons.portal.controllers.portal import _build_url_w_params
 
 
 class PortalAccount(portal.PortalAccount):

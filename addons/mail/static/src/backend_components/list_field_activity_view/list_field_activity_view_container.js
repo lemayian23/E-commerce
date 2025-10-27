@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @ecommerce-module **/
 
 // ensure components are registered beforehand.
 import '@mail/backend_components/list_field_activity_view/list_field_activity_view';

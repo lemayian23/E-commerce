@@ -1,4 +1,4 @@
-odoo.define('website_sale.google_analytics', function (require) {
+ecommerce.define('website_sale.google_analytics', function (require) {
 'use strict';
 
 const tour = require("web_tour.tour");
